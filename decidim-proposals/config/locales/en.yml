@@ -524,6 +524,7 @@ en:
         limit_reached: You can't create new proposals since you've exceeded the limit.
       participatory_text_proposal:
         buttons:
+          amend: Amend
           comment: Comment
           comments: Comments
           endorse: Endorse
