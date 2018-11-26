@@ -48,8 +48,8 @@ de:
         one: Antwort
         other: Antworten
       decidim/consultations/vote:
-        one: Abstimmung
-        other: Stimmen
+        one: Keine Stimmen
+        other: Abstimmungen
   decidim:
     admin:
       actions:
