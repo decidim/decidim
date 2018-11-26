@@ -43,13 +43,14 @@ es-PY:
         one: Conferenciante
         other: Conferenciantes
       decidim/conference_user_role:
-        one: No hay roles de usuario de conferencia
+        one: Un rol de usuario de conferencia
         other: Roles de usuario conferencia
   decidim:
     admin:
       actions:
         confirm: Confirmar
         new_conference: Nueva conferencia
+        send_diplomas: Enviar diplomas
       conference_copies:
         new:
           copy: Dupdo
@@ -153,6 +154,7 @@ es-PY:
           conference_admins: Usuarios de la conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
+          diploma: Diploma
           info: Información
           media_links: Enlaces de medios
           moderations: Moderaciones
@@ -250,8 +252,10 @@ es-PY:
       conference:
         create: "%{user_name} creó la %{resource_name} conferencia"
         publish: "%{user_name} publicado la %{resource_name} conferencia"
+        send_conference_diplomas: "%{user_name} enviar diplomas a los %{resource_name} usuarios de la conferencia."
         unpublish: "%{user_name} inédito la %{resource_name} conferencia."
         update: "%{user_name} actualizado la %{resource_name} conferencia"
+        update_diploma: "%{user_name} actualizó la configuración de diploma %{resource_name} conferencia"
       conference_speaker:
         create: "%{user_name} creó el altavoz de %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} quitó el %{resource_name} altavoz de la conferencia %{space_name}"
@@ -329,6 +333,10 @@ es-PY:
               one: Ha habido 1 registro.
               other: Ha habido %{count} registros.
             slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        diplomas:
+          edit:
+            save: Salvar
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación '%{conference_title}'
@@ -342,6 +350,16 @@ es-PY:
             select_conference_meetings: Seleccionar los encuentros de la conferencia
           index:
             title: Tipos de inscripción
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Encontrará el diploma para la conferencia <a href="%{url}">%{title}</a> en los anexos.
+          diploma_user:
+            attendance_verified_by: Asistencia verificada por
+            certificate_of_attendance: Certificado de asistencia
+            certificate_of_attendance_description: Esto es para certificar que <strong>%{user}</strong> ha asistido y participado en los <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Ha habido un problema al enviar los diplomas de la conferencia.
+          success: Diplomas de Conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -414,6 +432,9 @@ es-PY:
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: El diploma de su conferencia ha sido enviado.
       models:
         conference_invite:
           fields:

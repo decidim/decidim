@@ -78,7 +78,8 @@ module Decidim
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
         string: { klass: String, default: nil },
-        text: { klass: String, default: nil }
+        text: { klass: String, default: nil },
+        array: { klass: Array, default: [] }
       }.freeze
 
       attribute :type, Symbol, default: :boolean

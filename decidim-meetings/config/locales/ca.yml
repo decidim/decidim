@@ -273,7 +273,7 @@ ca:
             invites: Invitacions
             registration_form: Formulari d'inscripció
             registrations_count:
-              one: S'han registrat %{count} registres.
+              one: S'ha registrat %{count}.
               other: S'han registrat %{count} registres.
             reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}

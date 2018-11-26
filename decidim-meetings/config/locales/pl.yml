@@ -279,7 +279,7 @@ pl:
             invites: Zaprasza
             registration_form: Formularz rejestracyjny
             registrations_count:
-              one: Zarejestrowano %{count} rejestracji.
+              one: Nie było rejestracji %{count}.
               few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
               other: Zarejestrowano %{count} rejestracji.

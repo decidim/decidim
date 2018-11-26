@@ -43,13 +43,14 @@ en:
         one: Conference speaker
         other: Conference speakers
       decidim/conference_user_role:
-        one: A conference user role
-        other: Conference user roles
+        one: Conference user role
+        other: Conference user role
   decidim:
     admin:
       actions:
         confirm: Confirm
         new_conference: New Conference
+        send_diplomas: Send Diplomas
       conference_copies:
         new:
           copy: Copy
@@ -153,6 +154,7 @@ en:
           conference_admins: Conference users
           conference_invites: Invites
           conference_speakers: Speakers
+          diploma: Diploma
           info: Info
           media_links: Media Links
           moderations: Moderations
@@ -250,8 +252,10 @@ en:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
         publish: "%{user_name} published the %{resource_name} conference"
+        send_conference_diplomas: "%{user_name} send diplomas to the %{resource_name} conference users"
         unpublish: "%{user_name} unpublished the %{resource_name} conference"
         update: "%{user_name} updated the %{resource_name} conference"
+        update_diploma: "%{user_name} updated the diploma configuration %{resource_name} conference"
       conference_speaker:
         create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
         delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
@@ -329,6 +333,10 @@ en:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        diplomas:
+          edit:
+            save: Save
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
@@ -342,6 +350,16 @@ en:
             select_conference_meetings: Select conference meetings
           index:
             title: Registration types
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: You will be find the diploma for the conference <a href="%{url}">%{title}</a> in the attachments.
+          diploma_user:
+            attendance_verified_by: Attendance verified by
+            certificate_of_attendance: Certificate of Attendance
+            certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: There's been a problem while sending the conference diplomas.
+          success: Conference Diplomas sent correctly
       conference:
         registration_confirm:
           cancel: Cancel
@@ -414,6 +432,9 @@ en:
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Your conference's diploma has been sent
       models:
         conference_invite:
           fields:

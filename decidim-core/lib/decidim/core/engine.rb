@@ -281,12 +281,25 @@ module Decidim
       end
 
       initializer "decidim.core.register_metrics" do
-        Decidim.metrics_registry.register(
-          :users,
-          "Decidim::Metrics::UsersMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED,
-          1
-        )
+        Decidim.metrics_registry.register(:users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::UsersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: true
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:participants) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::ParticipantsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: true
+            settings.attribute :scopes, type: :array, default: %w(participatory_process)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
       end
 
       initializer "decidim.core.content_blocks" do

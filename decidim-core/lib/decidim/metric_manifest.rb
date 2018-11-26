@@ -12,9 +12,17 @@ module Decidim
 
     attribute :metric_name, String
     attribute :manager_class, String
-    attribute :highlighted, String
-    attribute :position, Integer
 
     validates :metric_name, :manager_class, presence: true
+
+    def has_settings?
+      settings.attributes.any?
+    end
+
+    def settings(&block)
+      @settings ||= SettingsManifest.new
+      yield(@settings) if block
+      @settings
+    end
   end
 end

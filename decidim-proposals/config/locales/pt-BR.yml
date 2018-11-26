@@ -620,7 +620,7 @@ pt-BR:
           edit_proposal: Editar proposta
           endorsements_list: Lista de avais
           hidden_endorsers_count:
-            one: e mais %{count} pessoas
+            one: e mais %{count} pessoa
             other: e mais %{count} pessoas
           link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
           link_to_collaborative_draft_text: Veja o rascunho colaborativo

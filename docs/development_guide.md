@@ -112,3 +112,23 @@ This project uses [markdownlint](https://github.com/markdownlint/markdownlint) t
 ## Testing
 
 Refer to the [testing](advanced/testing.md) guide.
+
+## Releasing new versions
+
+Releasing new versions is quite easy, it's the same process whether it's a new version or a patch:
+
+1. Checkout the branch you want to release: `git checkout VERSION-stable`
+1. Update `.decidim-version` to the new version number.
+1. Run `bin/rake update_versions`, this will update all references to the new version.
+1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
+1. Run `bin/rake webpack`, this will update the JavaScript bundle.
+1. Update `CHANGELOG.MD` and change the `Unreleased` title to the current version and link to previous versions if needed.
+1. Commit all the changes: `git add . && git commit -m "Bump version"`
+1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+
+In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owners decidim`)
+
+Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/tags) and create a new one.
+
+Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release.
+To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
