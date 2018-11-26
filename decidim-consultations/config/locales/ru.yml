@@ -48,6 +48,11 @@ ru:
         few: Ответа
         many: Ответов
         other: Ответов
+      decidim/consultations/vote:
+        one: Голос
+        few: Голоса
+        many: Голосов
+        other: Голосов
   decidim:
     admin:
       actions:

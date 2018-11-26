@@ -64,6 +64,7 @@ module Decidim
         ) do
           @amendable.update!(amendable_attributes)
         end
+        @amendable.add_coauthor(amender, user_group: nil)
       end
 
       def emendation_author
@@ -73,8 +74,8 @@ module Decidim
 
       def amendable_attributes
         {
-          title: form.emendation_fields[:title],
-          body: form.emendation_fields[:body]
+          title: form.title,
+          body: form.body
         }
       end
 

@@ -5,22 +5,17 @@ require "spec_helper"
 module Decidim
   module Amendable
     describe Create do
-      let!(:component) do
-        create(:proposal_component,
-               :with_amendments_enabled)
-      end
+      let!(:component) { create(:proposal_component, :with_amendments_enabled) }
       let!(:user) { create :user, :confirmed, organization: component.organization }
       let!(:amendable) { create(:proposal, component: component) }
+      let(:title) { "More sidewalks and less roads!" }
+      let(:body) { "Everything would be better" }
       let(:command) { described_class.new(form) }
-
-      let(:form) do
-        Decidim::Amendable::CreateForm.from_params(form_params).with_context(form_context)
-      end
 
       let(:emendation_fields) do
         {
-          title: "Emendation title",
-          body: "Emendation body"
+          title: title,
+          body: body
         }
       end
 
@@ -38,6 +33,10 @@ module Decidim
           current_participatory_space: component.participatory_space,
           current_component: component
         }
+      end
+
+      let(:form) do
+        Decidim::Amendable::CreateForm.from_params(form_params).with_context(form_context)
       end
 
       include_examples "create amendment"

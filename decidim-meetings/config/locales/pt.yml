@@ -273,7 +273,7 @@ pt:
             invites: Convites
             registration_form: Formulário de registro
             registrations_count:
-              one: Houve %{count} inscrições.
+              one: Houve %{count} registro.
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}

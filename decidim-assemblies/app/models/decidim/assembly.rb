@@ -59,11 +59,14 @@ module Decidim
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
+    mount_uploader :hero_image, Decidim::HeroImageUploader
+    mount_uploader :banner_image, Decidim::BannerImageUploader
+
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
-    mount_uploader :hero_image, Decidim::HeroImageUploader
-    mount_uploader :banner_image, Decidim::BannerImageUploader
+    after_create :set_parents_path
+    after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
 
     scope :visible_for, lambda { |user|
                           joins("LEFT JOIN decidim_participatory_space_private_users ON
@@ -72,13 +75,19 @@ module Decidim
                             or private_space = ? or (private_space = ? and is_transparent = ?)", true, user, false, true, true).distinct
                         }
 
-    after_create :set_parents_path
-    after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    def self.private_assemblies
+      where(private_space: true)
+    end
+
+    def self.public_spaces
+      super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
     end
 
     def self.log_presenter_class_for(_log)
@@ -99,14 +108,6 @@ module Decidim
 
     def ancestors
       self_and_ancestors.where.not(id: id)
-    end
-
-    def self.private_assemblies
-      where(private_space: true)
-    end
-
-    def self.public_spaces
-      super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
     end
 
     def can_participate?(user)

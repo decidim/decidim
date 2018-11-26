@@ -20,6 +20,7 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.actions = %w(join)
+    resource.searchable = true
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|

@@ -86,7 +86,8 @@ module Decidim
         name,
         current_user.user_groups.verified.map { |g| [g.name, g.id] },
         selected: selected,
-        include_blank: current_user.name
+        include_blank: current_user.name,
+        label: t("new.amendment_author", scope: "decidim.amendments")
       )
     end
 

@@ -108,5 +108,43 @@ module Decidim
         it { is_expected.to eq([assembly.parent.parent, assembly.parent]) }
       end
     end
+
+    describe "scopes" do
+      describe "public_spaces" do
+        let!(:private_assembly) { create :assembly, :private, :opaque }
+        let!(:private_transparent_assembly) { create :assembly, :private, :transparent }
+        let!(:public_assembly) { create :assembly, :public }
+
+        it "returns the public ones" do
+          expect(described_class.public_spaces).to include private_transparent_assembly
+          expect(described_class.public_spaces).to include public_assembly
+          expect(described_class.public_spaces).not_to include private_assembly
+        end
+      end
+
+      describe "active_spaces" do
+        let!(:private_assembly) { create :assembly, :private, :opaque }
+        let!(:private_transparent_assembly) { create :assembly, :private, :transparent }
+        let!(:public_assembly) { create :assembly, :public }
+
+        it "returns the public ones" do
+          expect(described_class.active_spaces).to include private_transparent_assembly
+          expect(described_class.active_spaces).to include public_assembly
+          expect(described_class.active_spaces).not_to include private_assembly
+        end
+      end
+
+      describe "future_spaces" do
+        it "returns none" do
+          expect(described_class.future_spaces).to eq ApplicationRecord.none
+        end
+      end
+
+      describe "past_spaces" do
+        it "returns none" do
+          expect(described_class.past_spaces).to eq ApplicationRecord.none
+        end
+      end
+    end
   end
 end

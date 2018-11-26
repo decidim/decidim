@@ -6,9 +6,8 @@ module Decidim
     class Promote < Rectify::Command
       # Public: Initializes the command.
       #
-      # collaborative_draft - The collaborative_draft to publish.
-      # current_user - The current user.
-      # proposal_form - the form object of the new proposal
+      # emendation - The emendation to promote.
+      # amendable - The amendable resource.
       def initialize(form)
         @form = form
         @emendation = form.emendation
@@ -17,8 +16,8 @@ module Decidim
 
       # Executes the command. Broadcasts these events:
       #
-      # - :ok when everything is valid and the collaborative_draft is published.
-      # - :invalid if the collaborative_draft's author is not the current user.
+      # - :ok when everything is valid and the emendation is promoted.
+      # - :invalid if the transaction fails
       #
       # Returns nothing.
       def call
@@ -26,7 +25,6 @@ module Decidim
 
         transaction do
           promote_emendation
-
           notify_amendable_and_emendation_authors_and_followers
         end
 
@@ -44,7 +42,7 @@ module Decidim
           form.current_user
         ) do
           promoted_emendation = form.amendable_type.constantize.new(emendation_attributes)
-          promoted_emendation.add_coauthor(form.current_user, user_group: form.user_group) if promoted_emendation.is_a?(Decidim::Coauthorable)
+          promoted_emendation.add_coauthor(@emendation.creator_author, user_group: nil) if promoted_emendation.is_a?(Decidim::Coauthorable)
           promoted_emendation.save!
           promoted_emendation
         end
@@ -56,7 +54,7 @@ module Decidim
         parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.body, current_organization: form.current_organization).rewrite
         fields[:title] = parsed_title
         fields[:body] = parsed_body
-        fields[:component] = form.emendation.component
+        fields[:component] = @emendation.component
         fields[:published_at] = Time.current if form.emendation_type == "Decidim::Proposals::Proposal"
         fields
       end

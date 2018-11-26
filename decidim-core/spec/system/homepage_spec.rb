@@ -245,10 +245,10 @@ describe "Homepage", type: :system do
           it "shows the metrics block" do
             within "#metrics" do
               expect(page).to have_content("Participation in figures")
-              Decidim.metrics_registry.highlighted.each do |metric_registry|
+              Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
                 expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
               end
-              Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+              Decidim.metrics_registry.filtered(highlight: false, scope: "home").each do |metric_registry|
                 expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
               end
             end

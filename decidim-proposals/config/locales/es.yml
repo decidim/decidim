@@ -620,7 +620,7 @@ es:
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
-            one: y %{count} personas más
+            one: y %{count} persona más
             other: y %{count} personas más
           link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
           link_to_collaborative_draft_text: Ver el borrador colaborativo

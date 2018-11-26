@@ -620,7 +620,7 @@ eu:
           edit_proposal: Editatu proposamena
           endorsements_list: Onarpenen zerrenda
           hidden_endorsers_count:
-            one: eta beste %{count} pertsona
+            one: eta %{count} pertsona gehiago
             other: eta beste %{count} pertsona
           link_to_collaborative_draft_help_text: Proposamen hau lankidetza-zirriborro baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi lankidetza zirriborroa

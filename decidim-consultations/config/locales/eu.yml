@@ -48,7 +48,7 @@ eu:
         one: Erantzun
         other: Erantzunak
       decidim/consultations/vote:
-        one: Ez dago botorik
+        one: Bozkatu
         other: Botoak
   decidim:
     admin:
