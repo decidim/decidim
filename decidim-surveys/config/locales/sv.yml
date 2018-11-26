@@ -35,6 +35,11 @@ sv:
           email_outro: Du har fått den här notis eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
+    metrics:
+      survey_answers:
+        description: Antal enkäter besvarade av användarna
+        object: svar på undersökningar
+        title: Svar på undersökningar
     surveys:
       admin:
         exports:
