@@ -12,7 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        participatory_processes_ids: Liittyvät osallistumisprosessit
+        participatory_processes_ids: Liittyvät osallisuusprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -43,13 +43,14 @@ fi:
         one: Konferenssin puhuja
         other: Konferenssin puhujat
       decidim/conference_user_role:
-        one: Ei konferenssin käyttäjän rooleja
+        one: Konferenssin käyttäjärooli
         other: Konferenssin käyttäjäroolit
   decidim:
     admin:
       actions:
         confirm: Vahvista
         new_conference: Uusi konferenssi
+        send_diplomas: Lähetä diplomit
       conference_copies:
         new:
           copy: Kopio
@@ -153,6 +154,7 @@ fi:
           conference_admins: Konferenssin käyttäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
+          diploma: Tutkintotodistus
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
@@ -250,8 +252,10 @@ fi:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
+        send_conference_diplomas: "%{user_name} lähettää tutkintotodistuksia %{resource_name} konferenssin käyttäjälle"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
+        update_diploma: "%{user_name} päivitti tutkintotodistuksen %{resource_name} konferenssin"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
@@ -329,6 +333,10 @@ fi:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+        diplomas:
+          edit:
+            save: Tallentaa
+            title: Tutkintotodistus
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
@@ -342,6 +350,16 @@ fi:
             select_conference_meetings: Valitse konferenssin tapaamiset
           index:
             title: Ilmoittautumistyypit
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Löydät kokeen <a href="%{url}">%{title}</a> diplomin liitteissä.
+          diploma_user:
+            attendance_verified_by: Osallistuminen on vahvistanut
+            certificate_of_attendance: Läsnäolotodistus
+            certificate_of_attendance_description: 'Tämän on todistettava, että <strong>%{user}</strong> on osallistunut ja osallistunut <strong>%{title}</strong> pidettiin <strong>%{location}</strong> : ssä <strong>%{start} - %{end}</strong>'
+        send_diploma:
+          error: Kongressin tutkintotodistusten lähettämisessä on ollut ongelma.
+          success: Konferenssitodistukset lähetetään oikein
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -414,6 +432,9 @@ fi:
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Konferenssin tutkintotodistus on lähetetty
       models:
         conference_invite:
           fields:
@@ -465,7 +486,7 @@ fi:
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
         related_consultations: Liittyvät kuulemiset
-        related_participatory_processes: Liittyvät osallistumisprosessit
+        related_participatory_processes: Liittyvät osallisuusprosessit
       statistics:
         answers_count: Vastauksia
         comments_count: Kommentteja
@@ -487,7 +508,7 @@ fi:
       conferences:
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallistumistilan hallinnoija.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.
           email_subject: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssista on varattu yli %{percentage}% vapaista paikoista.
         conference_updated:

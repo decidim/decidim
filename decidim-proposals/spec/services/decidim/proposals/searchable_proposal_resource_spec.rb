@@ -109,8 +109,10 @@ module Decidim
 
         it "returns Proposal results" do
           Decidim::Search.call("Ow", organization, resource_type: proposal.class.name) do
-            on(:ok) do |results|
-              expect(results.count).to eq 2
+            on(:ok) do |results_by_type|
+              results = results_by_type[proposal.class.name]
+              expect(results[:count]).to eq 2
+              expect(results[:results]).to match_array [proposal, proposal2]
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -118,8 +120,10 @@ module Decidim
 
         it "allows searching by prefix characters" do
           Decidim::Search.call("wait", organization, resource_type: proposal.class.name) do
-            on(:ok) do |results|
-              expect(results.count).to eq 1
+            on(:ok) do |results_by_type|
+              results = results_by_type[proposal.class.name]
+              expect(results[:count]).to eq 1
+              expect(results[:results]).to eq [proposal2]
             end
             on(:invalid) { raise("Should not happen") }
           end

@@ -150,6 +150,6 @@ en:
           unearned_own: You haven't participated in any debates yet.
     metrics:
       debates:
-        description: ''
+        description: Number of Debates created
         object: debates
         title: Debates

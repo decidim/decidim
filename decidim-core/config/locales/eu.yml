@@ -636,6 +636,9 @@ eu:
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
     metrics:
+      participants:
+        object: Parte-hartzaile
+        title: Parte-hartzaileak
       users:
         object: erabiltzaile
         title: erabiltzaileak
@@ -731,6 +734,9 @@ eu:
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
         topics: Gaiak
+      participatory_space:
+        metrics:
+          headline: Zifretan parte hartzea
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
@@ -851,7 +857,7 @@ eu:
       version_author:
         deleted: Erabiltzailea ezabatua
     welcome_notification:
-      default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization_name}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
+      default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
       default_subject: Eskerrik asko sartzeko {{organization}}!
   devise:
     confirmations:

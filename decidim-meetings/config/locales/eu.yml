@@ -273,7 +273,7 @@ eu:
             invites: Gonbidapenak
             registration_form: Izena emateko inprimakia
             registrations_count:
-              one: Dena den, %{count} matrikulazioak.
+              one: Dena den, %{count} erregistratzeko.
               other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'

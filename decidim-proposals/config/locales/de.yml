@@ -617,7 +617,7 @@ de:
           edit_proposal: Angebot bearbeiten
           endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
-            one: und %{count} weitere Personen
+            one: und %{count} weitere Person
             other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Siehe den gemeinsamen Entwurf
