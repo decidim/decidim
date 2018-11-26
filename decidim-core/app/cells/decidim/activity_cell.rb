@@ -52,7 +52,7 @@ module Decidim
                                resource_description
                              elsif resource_description.is_a?(Hash)
                                translated_attribute(resource_description)
-      end
+                             end
 
       truncate(strip_tags(resource_description), length: 300)
     end
