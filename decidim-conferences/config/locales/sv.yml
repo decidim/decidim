@@ -365,6 +365,7 @@ sv:
           cancel: Annullera
           confirm: Bekräfta
         show:
+          free: Fri
           going: Gående
           no_slots_available: Inga slots tillgängliga
           registration: Registrering
