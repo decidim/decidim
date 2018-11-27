@@ -227,7 +227,7 @@ es-PY:
         object: propuestas
         title: Propuestas aceptadas
       endorsements:
-        description: Número de endosos generados en las propuestas.
+        description: Número de avales generados en las propuestas.
         object: avales
         title: Endosos
       proposals:

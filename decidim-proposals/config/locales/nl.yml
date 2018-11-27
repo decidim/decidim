@@ -227,7 +227,7 @@ nl:
         object: voorstellen
         title: Aanvaarde voorstellen
       endorsements:
-        description: Aantal goedkeuringen gegenereerd in voorstellen
+        description: Aantal aantekeningen gegenereerd in voorstellen
         object: aantekeningen
         title: Endorsements
       proposals:
@@ -235,7 +235,7 @@ nl:
         object: voorstellen
         title: voorstellen
       votes:
-        description: Aantal stemmen gegenereerd in voorstellen van gebruikers
+        description: Aantal stemmen dat is gegenereerd in voorstellen van gebruikers
         object: stemmen
         title: stemmen
     participatory_processes:

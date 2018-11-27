@@ -227,15 +227,15 @@ hu:
         object: javaslatok
         title: Elfogadott javaslatok
       endorsements:
-        description: A pályázatokban keletkezett támogatások száma
+        description: A pályázatok során keletkezett támogatások száma
         object: kiterjesztések
         title: Elismerések
       proposals:
-        description: A létrehozott pályázatok száma
+        description: A létrehozott javaslatok száma
         object: javaslatok
         title: javaslatok
       votes:
-        description: A Javaslatok által generált szavazatok száma
+        description: A felhasználók által benyújtott szavazatok száma
         object: szavazat
         title: szavazatok
     participatory_processes:

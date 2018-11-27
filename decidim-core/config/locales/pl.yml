@@ -781,6 +781,7 @@ pl:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        activity: Czynność
         badges: Odznaki
         followers: Obserwujący
         following: Podąża
@@ -828,7 +829,7 @@ pl:
       term_input_placeholder: Szukaj
     searches:
       filters:
-        back: Powrót do wszystkich wyników
+        back: Powrót do wyników
         jump_to: 'Skocz do:'
         state:
           active: Aktywny
@@ -881,6 +882,9 @@ pl:
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
+    user_activity:
+      index:
+        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
     welcome_notification:
       default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
       default_subject: Dzięki za przyłączenie się do {{organization}}!

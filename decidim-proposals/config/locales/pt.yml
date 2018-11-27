@@ -227,7 +227,7 @@ pt:
         object: propostas
         title: Propostas aceitas
       endorsements:
-        description: Número de Endossos gerados nas Propostas
+        description: Número de endossos gerados nas propostas
         object: endossos
         title: Endossos
       proposals:
@@ -235,7 +235,7 @@ pt:
         object: propostas
         title: Propostas
       votes:
-        description: Número de votos gerados em propostas por usuários
+        description: Número de votos gerados em propostas de usuários
         object: votos
         title: Votos
     participatory_processes:

@@ -771,6 +771,7 @@ sv:
       default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
+        activity: Aktivitet
         badges: Emblem
         followers: Anhängare
         following: Följer
@@ -818,7 +819,7 @@ sv:
       term_input_placeholder: Sök
     searches:
       filters:
-        back: Tillbaka till alla resultat
+        back: Tillbaka till resultat
         jump_to: 'Hoppa till:'
         state:
           active: Aktiva
@@ -869,6 +870,9 @@ sv:
         share_link: Dela länk
       version_author:
         deleted: Raderad användare
+    user_activity:
+      index:
+        no_activities_warning: Den här användaren har inte någon aktivitet än.
     welcome_notification:
       default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
       default_subject: Tack för att du gick med {{organization}}!

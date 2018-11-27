@@ -39,7 +39,7 @@ es-PY:
       survey_answers:
         description: Número de encuestas respondidas por los usuarios.
         object: respuestas a encuestas
-        title: Respuestas a las encuestas
+        title: Respuestas a encuestas
     surveys:
       admin:
         exports:

@@ -227,7 +227,7 @@ fi:
         object: ehdotukset
         title: Hyväksytyt ehdotukset
       endorsements:
-        description: Ehdotusten tuottamat hyväksynnät
+        description: Ehdotuksissa syntyvien merkintöjen määrä
         object: merkinnät
         title: merkintöjen
       proposals:
@@ -235,7 +235,7 @@ fi:
         object: ehdotukset
         title: Ehdotuksia
       votes:
-        description: Käyttäjien tuottama ehdotusten määrä
+        description: Käyttäjien ehdotuksissa syntyvien äänten määrä
         object: ääntä
         title: Ääniä
     participatory_processes:

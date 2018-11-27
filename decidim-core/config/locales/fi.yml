@@ -641,7 +641,7 @@ fi:
         object: seuraajaa
         title: seuraajaa
       participants:
-        description: Aktiivisen käyttäjän määrä organisaatiossa
+        description: Organisaation aktiivisten käyttäjien määrä
         object: osallistujaa
         title: Osallistujaa
       users:
@@ -771,6 +771,7 @@ fi:
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi vastaa oikeaa nimeä
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
+        activity: aktiviteetti
         badges: Kunniamerkit
         followers: Seuraajat
         following: Seurattavat
@@ -818,7 +819,7 @@ fi:
       term_input_placeholder: Hae
     searches:
       filters:
-        back: Takaisin kaikkiin tuloksiin
+        back: Takaisin hakutuloksiin
         jump_to: 'Hypätä:'
         state:
           active: aktiivinen
@@ -869,6 +870,9 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Käyttäjä poistettu
+    user_activity:
+      index:
+        no_activities_warning: Tällä käyttäjällä ei ole vielä ollut aktiivisuutta.
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!

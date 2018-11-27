@@ -49,7 +49,7 @@ en:
         other: Responses
       decidim/consultations/vote:
         one: Vote
-        other: Vote
+        other: Votes
   decidim:
     admin:
       actions:

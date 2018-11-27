@@ -227,7 +227,7 @@ fr:
         object: les propositions
         title: Propositions Acceptées
       endorsements:
-        description: Nombre de signatures générées dans les propositions
+        description: Nombre d'avenants générés dans les propositions
         object: avenants
         title: Endossements
       proposals:

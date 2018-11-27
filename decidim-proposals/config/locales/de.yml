@@ -227,7 +227,7 @@ de:
         object: Vorschläge
         title: Akzeptierte Vorschläge
       endorsements:
-        description: Anzahl der in den Vorschlägen generierten Vermerke
+        description: Anzahl der in Vorschlägen generierten Vermerke
         object: Vermerke
         title: Vermerke
       proposals:
@@ -235,7 +235,7 @@ de:
         object: Vorschläge
         title: Vorschläge
       votes:
-        description: Anzahl der in den Vorschlägen von Benutzern erstellten Stimmen
+        description: Anzahl der in den Vorschlägen der Nutzer erzeugten Stimmen
         object: Stimmen
         title: Stimmen
     participatory_processes:

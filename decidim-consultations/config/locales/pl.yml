@@ -54,10 +54,10 @@ pl:
         many: Odpowiedzi
         other: Odpowiedzi
       decidim/consultations/vote:
-        one: Brak głosów
-        few: Głosy
-        many: Głosy
-        other: Głosy
+        one: Głosować
+        few: Głosować
+        many: Głosować
+        other: Głosować
   decidim:
     admin:
       actions:

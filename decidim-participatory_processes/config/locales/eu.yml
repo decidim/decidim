@@ -265,7 +265,7 @@ eu:
       processes: Prozesuak
     metrics:
       participatory_processes:
-        description: Organo honetan parte hartze prozesu kopurua
+        description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
     participatory_process_groups:

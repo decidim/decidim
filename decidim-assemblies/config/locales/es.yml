@@ -333,7 +333,7 @@ es:
       assemblies: Asambleas
     metrics:
       assemblies:
-        description: Número de asambleas creadas
+        description: Número de ensamblajes creados
         object: asambleas
         title: Asambleas
   errors:

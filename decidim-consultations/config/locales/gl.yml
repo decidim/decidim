@@ -48,8 +48,8 @@ gl:
         one: Resposta
         other: Respostas
       decidim/consultations/vote:
-        one: Sen votos
-        other: Votos
+        one: Vota
+        other: Vota
   decidim:
     admin:
       actions:
