@@ -70,6 +70,13 @@ en:
           other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Identity documents configuration
+              update: Update
+            update:
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
             create:
               error: Verification doesn't match. Try again or reject the verification so the user can amend it
@@ -80,7 +87,9 @@ en:
               verify: Verify
           pending_authorizations:
             index:
-              title: Pending verifications
+              config: Config
+              offline_verification: Offline verification
+              title: Pending online verifications
               verification_number: 'Verification #%{n}'
           rejections:
             create:

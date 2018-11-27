@@ -16,6 +16,8 @@ module Decidim
             resource :rejections, only: :create, as: :rejection
           end
 
+          resource :config, only: [:edit, :update], controller: "config"
+
           root to: "pending_authorizations#index"
         end
       end
