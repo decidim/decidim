@@ -227,11 +227,11 @@ sv:
         object: förslag
         title: Godkända Förslag
       endorsements:
-        description: Antal pålagor som genereras i förslag
+        description: Antal anmärkningar som genereras i förslag
         object: påskrifter
         title: påskrifter
       proposals:
-        description: Antal förslag genererade
+        description: Antal förslag som genererats
         object: förslag
         title: Förslag
       votes:
