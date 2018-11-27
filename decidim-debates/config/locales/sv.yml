@@ -150,6 +150,5 @@ sv:
           unearned_own: Du har inte deltagit i några debatter än.
     metrics:
       debates:
-        description: Antal debatter skapade
         object: diskussioner
         title: debatter
