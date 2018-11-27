@@ -8,12 +8,12 @@ module Decidim
     included do
       def search_title
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(title)
-        renderer.render_without_link.html_safe
+        renderer.render(links: false).html_safe
       end
 
       def search_body
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(body)
-        renderer.render_without_link.html_safe
+        renderer.render(links: false).html_safe
       end
     end
   end
