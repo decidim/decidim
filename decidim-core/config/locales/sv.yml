@@ -818,7 +818,7 @@ sv:
       term_input_placeholder: Sök
     searches:
       filters:
-        back: Tillbaka till alla resultat
+        back: Tillbaka till resultat
         jump_to: 'Hoppa till:'
         state:
           active: Aktiva
