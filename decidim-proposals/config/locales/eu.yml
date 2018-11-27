@@ -223,7 +223,7 @@ eu:
           unearned_own: Oraindik ez duzu proposamenik sortu.
     metrics:
       accepted_proposals:
-        description: Erabiltzaileek onartutako proposamen kopurua
+        description: Erabiltzaileek onartutako proposamenen kopurua
         object: proposamenak
         title: Onartutako proposamenak
       endorsements:
@@ -235,7 +235,7 @@ eu:
         object: proposamenak
         title: proposamenak
       votes:
-        description: Erabiltzaileek Proposamenetan sortutako Boto kopurua
+        description: Erabiltzaileek proposatutako sortutako boto kopurua
         object: boto
         title: Botoak
     participatory_processes:
