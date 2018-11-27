@@ -265,7 +265,6 @@ ca:
       processes: Processos
     metrics:
       participatory_processes:
-        description: Nombre de processos participatius d'aquesta organització
         object: processos participatius
         title: Processos participatius
     participatory_process_groups:
