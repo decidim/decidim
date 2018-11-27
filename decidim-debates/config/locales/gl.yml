@@ -150,6 +150,5 @@ gl:
           unearned_own: Participaches nos debates aínda.
     metrics:
       debates:
-        description: Número de debates creados
         object: debates
         title: Debates
