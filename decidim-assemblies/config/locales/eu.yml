@@ -333,7 +333,7 @@ eu:
       assemblies: Biltzarrak
     metrics:
       assemblies:
-        description: Sortutako Batzar kopurua
+        description: Sortutako multzo kopurua
         object: batzarrak
         title: Batzar
   errors:
