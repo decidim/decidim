@@ -48,8 +48,8 @@ it:
         one: Risposta
         other: risposte
       decidim/consultations/vote:
-        one: Nessun voto
-        other: voti
+        one: Votazione
+        other: Votazione
   decidim:
     admin:
       actions:
