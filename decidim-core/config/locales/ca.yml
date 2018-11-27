@@ -641,11 +641,11 @@ ca:
         object: seguidors
         title: Seguidors
       participants:
-        description: Número d'usuari actiu a l'organització
+        description: Nombre d'usuaris actius de l'organització
         object: participants
         title: Participants
       users:
-        description: Nombre d'usuari a l'organització
+        description: Nombre d'usuaris de l'organització
         object: usuaris
         title: Usuaris
     newsletter_mailer:
@@ -818,7 +818,7 @@ ca:
       term_input_placeholder: Cerca
     searches:
       filters:
-        back: Torna a tots els resultats
+        back: Torna als resultats
         jump_to: 'Salta a:'
         state:
           active: Actiu
