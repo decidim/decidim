@@ -3,19 +3,24 @@
 module Decidim
   class OpenDataController < Decidim::ApplicationController
     def download
-      if file.exists?
-        schedule_open_data_generation if File.mtime(file.file) < 1.day.ago
-        redirect_to file.url
+      if open_data_file_exists?
+        redirect_to uploader.url
       else
         schedule_open_data_generation
-        flash[:warn] = t("decidim.open_data.not_available_yet")
+        flash[:alert] = t("decidim.open_data.not_available_yet")
         redirect_back fallback_location: root_path
       end
     end
 
     private
 
-    def file
+    def open_data_file_exists?
+      uploader.file.exists?
+    rescue StandardError
+      false
+    end
+
+    def uploader
       current_organization.open_data_file
     end
 

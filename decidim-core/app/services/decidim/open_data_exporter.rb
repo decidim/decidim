@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
+  # Public: It generates a ZIP file with Open Data CSV files ready
+  # to be uploaded somewhere so users can download an organization
+  # data.
   class OpenDataExporter
     attr_reader :organization, :path
 
@@ -15,12 +18,18 @@ module Decidim
       }
     ].freeze
 
+    # Public: Initializes the class.
+    #
+    # organization - The Organization to export the data from.
+    # path         - The String path where to write the zip file.
     def initialize(organization, path)
       @organization = organization
-      @path = path
+      @path = File.expand_path path
     end
 
     def export
+      dirname = File.dirname(path)
+      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
       File.open(path, "wb") { |file| file.write(data) }
     end
 

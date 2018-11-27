@@ -5,7 +5,7 @@ module Decidim
     queue_as :default
 
     def perform(organization)
-      path = "tmp/#{organization.open_data_file_path}"
+      path = Rails.root.join("tmp/#{organization.open_data_file_path}")
 
       exporter = OpenDataExporter.new(organization, path)
       raise "Couldn't generate Open Data export" unless exporter.export.positive?

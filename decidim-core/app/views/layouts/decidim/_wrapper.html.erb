@@ -114,7 +114,7 @@ end
                     <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
                   <% end %>
                 <% end %>
-                <li><%= link_to t("layouts.decidim.footer.download_open_data"), open_data_download_path %></li>
+                <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
               </ul>
           </div>
           <%= render partial: "layouts/decidim/social_media_links" %>
