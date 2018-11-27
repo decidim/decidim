@@ -701,10 +701,16 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      followers:
+        description: Number of user that follows in organization
+        object: followers
+        title: Followers
       participants:
+        description: Number of active users in the organization
         object: participants
         title: Participants
       users:
+        description: Number of users in the organization
         object: users
         title: Users
     newsletter_mailer:
@@ -802,6 +808,7 @@ en:
       participatory_space:
         metrics:
           headline: Participation in figures
+          link: Show all statistics
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
@@ -829,6 +836,7 @@ en:
       default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        activity: Activity
         badges: Badges
         followers: Followers
         following: Follows
@@ -875,19 +883,19 @@ en:
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
-      filters_small_view:
-        close_modal: Close modal
-        filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
       filters:
-        back: Back to all results
-        jump_to: "Jump to:"
+        back: Back to results
+        jump_to: 'Jump to:'
         state:
           active: Active
           all: All
           future: Future
           past: Past
+      filters_small_view:
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       results:
         results:
           one: "%{count} result"
@@ -927,6 +935,9 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    user_activity:
+      index:
+        no_activities_warning: This user hasn't had any activity yet.
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!

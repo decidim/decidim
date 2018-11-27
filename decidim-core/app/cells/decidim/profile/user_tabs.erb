@@ -1,5 +1,6 @@
 
 <ul class="tabs" id="profile-tabs">
+  <%= user_profile_tab t("decidim.profiles.show.activity"), profile_activity_path(nickname: profile_holder.nickname) %>
   <% if current_organization.badges_enabled? %>
     <%= user_profile_tab t("decidim.profiles.show.badges"), profile_badges_path(nickname: profile_holder.nickname) %>
   <% end %>

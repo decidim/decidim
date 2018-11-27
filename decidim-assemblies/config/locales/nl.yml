@@ -333,6 +333,7 @@ nl:
       assemblies: Events
     metrics:
       assemblies:
+        description: Aantal aangemaakte vergaderingen
         object: assemblages
         title: Assemblies
   errors:

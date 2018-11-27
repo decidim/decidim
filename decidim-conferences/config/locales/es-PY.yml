@@ -43,8 +43,8 @@ es-PY:
         one: Conferenciante
         other: Conferenciantes
       decidim/conference_user_role:
-        one: Un rol de usuario de conferencia
-        other: Roles de usuario conferencia
+        one: Papel de usuario de conferencia
+        other: Roles de usuario de conferencia
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ es-PY:
           cancel: Cancelar
           confirm: Confirmar
         show:
+          free: Gratis
           going: Yendo
           no_slots_available: No hay espacios disponibles
           registration: Registro

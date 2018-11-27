@@ -362,7 +362,7 @@ hu:
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
           remaining_slots:
-            one: '%{count} hely marad'
+            one: "%{count} hely marad"
             other: "%{count} hely marad"
           view: Nézet
       meetings_map:
@@ -406,6 +406,7 @@ hu:
         transparent: Átlátszó
     metrics:
       meetings:
+        description: A létrehozott találkozók száma
         object: ülések
         title: találkozók
     participatory_processes:

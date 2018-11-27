@@ -43,8 +43,8 @@ de:
         one: Konferenzsprecher
         other: Konferenzsprecher
       decidim/conference_user_role:
-        one: Eine Konferenzbenutzerrolle
-        other: Benutzerrollen der Konferenz
+        one: Konferenzbenutzerrolle
+        other: Konferenzbenutzerrolle
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ de:
           cancel: Stornieren
           confirm: Bestätigen
         show:
+          free: Kostenlos
           going: Gehen
           no_slots_available: Keine Steckplätze verfügbar
           registration: Anmeldung

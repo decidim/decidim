@@ -362,7 +362,7 @@ fr:
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
-            one: '%{count} emplacement disponible'
+            one: "%{count} emplacement disponible"
             other: "%{count} places disponibles"
           view: Voir
       meetings_map:
@@ -406,6 +406,7 @@ fr:
         transparent: Visible par les non-membres
     metrics:
       meetings:
+        description: Nombre de réunions créées
         object: des réunions
         title: Des réunions
     participatory_processes:

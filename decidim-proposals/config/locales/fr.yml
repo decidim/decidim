@@ -223,12 +223,19 @@ fr:
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     metrics:
       accepted_proposals:
+        description: Nombre de propositions acceptées par les utilisateurs
         object: les propositions
         title: Propositions Acceptées
+      endorsements:
+        description: Nombre d'avenants générés dans les propositions
+        object: avenants
+        title: Endossements
       proposals:
+        description: Nombre de propositions générées
         object: les propositions
         title: Les propositions
       votes:
+        description: Nombre de votes générés dans les propositions par les utilisateurs
         object: votes
         title: Votes
     participatory_processes:
@@ -408,7 +415,7 @@ fr:
           title: Complétez votre projet collaboratif
         count:
           drafts_count:
-            one: '%{count} projet collaboratif'
+            one: "%{count} projet collaboratif"
             other: "%{count} projet collaboratif"
         create:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
@@ -552,7 +559,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: '%{count} proposition'
+            one: "%{count} proposition"
             other: "%{count} propositions"
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"

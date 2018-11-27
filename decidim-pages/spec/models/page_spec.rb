@@ -10,6 +10,7 @@ module Decidim
       let(:page) { create(:page) }
 
       include_examples "has component"
+      include_examples "resourceable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }

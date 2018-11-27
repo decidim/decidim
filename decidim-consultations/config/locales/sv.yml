@@ -49,7 +49,7 @@ sv:
         other: Svar
       decidim/consultations/vote:
         one: Rösta
-        other: röster
+        other: Rösta
   decidim:
     admin:
       actions:

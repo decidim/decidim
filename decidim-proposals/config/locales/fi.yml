@@ -223,12 +223,19 @@ fi:
           unearned_own: Et ole vielä luonut ehdotuksia.
     metrics:
       accepted_proposals:
+        description: Käyttäjien hyväksymien ehdotusten määrä
         object: ehdotukset
         title: Hyväksytyt ehdotukset
+      endorsements:
+        description: Ehdotuksissa syntyvien merkintöjen määrä
+        object: merkinnät
+        title: merkintöjen
       proposals:
+        description: Luovien ehdotusten määrä
         object: ehdotukset
         title: Ehdotuksia
       votes:
+        description: Käyttäjien ehdotuksissa syntyvien äänten määrä
         object: ääntä
         title: Ääniä
     participatory_processes:
@@ -408,7 +415,7 @@ fi:
           title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
-            one: '%{count} yhteistyöluonnos'
+            one: "%{count} yhteistyöluonnos"
             other: "%{count} yhteistyöluonnosta"
         create:
           error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
@@ -552,7 +559,7 @@ fi:
           title: Viimeistele ehdotuksesi
         count:
           proposals_count:
-            one: '%{count} ehdotus'
+            one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"

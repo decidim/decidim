@@ -12,6 +12,7 @@ module Decidim
     it { is_expected.to be_versioned }
 
     include_examples "publicable"
+    include_examples "resourceable"
 
     context "when there's an conference with the same slug in the same organization" do
       let!(:external_conference) { create :conference, organization: conference.organization, slug: "my-slug" }

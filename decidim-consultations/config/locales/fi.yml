@@ -48,8 +48,8 @@ fi:
         one: Vastaus
         other: Vastaukset
       decidim/consultations/vote:
-        one: Ääni
-        other: Äänet
+        one: Äänestys
+        other: Äänestys
   decidim:
     admin:
       actions:

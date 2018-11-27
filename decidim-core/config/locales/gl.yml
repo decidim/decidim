@@ -623,23 +623,29 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          from: Desde
-          last_message_html: Última mensaxe <strong>%{time} ago</strong>
           no_conversations: Aínda non tes conversas
-        show:
-          conversation_with_html: Conversa con <strong>%{name}</strong>
-          reply: Responder
+          title: Conversas
+        reply:
           send: Enviar
+          title: Responder
+        show:
+          title: Conversa con %{usernames}
         start:
           send: Enviar
           title: Comezar unha conversa
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
     metrics:
+      followers:
+        description: Número de usuarios que seguen na organización
+        object: seguidores
+        title: Seguidores
       participants:
+        description: Número de usuarios activos na organización
         object: participantes
         title: Participantes
       users:
+        description: Número de usuarios da organización
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -737,6 +743,7 @@ gl:
       participatory_space:
         metrics:
           headline: Participación en números
+          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Produciuse un erro ao aceptar os termos e condicións.
@@ -764,13 +771,12 @@ gl:
       default_officialization_text_for_user_groups: Este grupo de usuarios está verificado públicamente, o seu nome verificouse para corresponder co seu nome real
       default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
+        activity: Actividade
         badges: Insignias
-        conversations: Conversas
         followers: Seguidores
         following: Segue
         groups: Grupos
         members: Membros
-        notifications: Notificacións
         view_full_profile: Ver o perfil completo
       sidebar:
         badges:
@@ -809,19 +815,27 @@ gl:
       prompt: Seleccione un alcance
       scopes: Ámbitos
     search:
-      filter:
-        all: Todo
-        component: Compoñente
       results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
     searches:
       filters:
-        search: Busca
+        back: Voltar aos resultados
+        jump_to: 'Ir a:'
+        state:
+          active: Activo
+          all: Todo
+          future: Futuro
+          past: Pasado
       filters_small_view:
         close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
         unfold: Despregar
+      results:
+        results:
+          one: "%{count} resultado"
+          other: "%{count} resultados"
+        view_all: Ver todos (%{count})
     shared:
       embed_modal:
         close_window: Pechar ventá
@@ -856,6 +870,9 @@ gl:
         share_link: Compartir a ligazón
       version_author:
         deleted: Usuario eliminado
+    user_activity:
+      index:
+        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     welcome_notification:
       default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
       default_subject: Grazas por unirte a {{organization}}!

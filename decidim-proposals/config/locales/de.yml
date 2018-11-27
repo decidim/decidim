@@ -223,12 +223,19 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erstellt.
     metrics:
       accepted_proposals:
+        description: Anzahl der von den Benutzern akzeptierten Vorschläge
         object: Vorschläge
         title: Akzeptierte Vorschläge
+      endorsements:
+        description: Anzahl der in Vorschlägen generierten Vermerke
+        object: Vermerke
+        title: Vermerke
       proposals:
+        description: Anzahl der generierten Vorschläge
         object: Vorschläge
         title: Vorschläge
       votes:
+        description: Anzahl der in den Vorschlägen der Nutzer erzeugten Stimmen
         object: Stimmen
         title: Stimmen
     participatory_processes:
@@ -405,7 +412,7 @@ de:
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
-            one: '%{count} kollaborativer Entwurf'
+            one: "%{count} kollaborativer Entwurf"
             other: "%{count} kollaborativer Entwurf"
         create:
           error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
@@ -549,7 +556,7 @@ de:
           title: Vervollständigen Sie Ihren Vorschlag
         count:
           proposals_count:
-            one: '%{count} Vorschlag'
+            one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"

@@ -333,6 +333,7 @@ fi:
       assemblies: Ryhmät
     metrics:
       assemblies:
+        description: Luodut kokoonpanot
         object: ryhmät
         title: Ryhmät
   errors:

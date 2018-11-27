@@ -209,6 +209,7 @@ eu:
           notification_title: Emaitza <a href="%{resource_path}">%{resource_title}</a>, <a href="%{proposal_path}">%{proposal_title}</a>proposamena biltzen duena, orain% %{progress}osatu da.
     metrics:
       results:
+        description: Kontuak sortzeko emaitza kopurua
         object: emaitzak
         title: Emaitzak
     participatory_processes:

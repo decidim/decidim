@@ -333,6 +333,7 @@ it:
       assemblies: assemblee
     metrics:
       assemblies:
+        description: Numero di assiemi creati
         object: assiemi
         title: assemblee
   errors:

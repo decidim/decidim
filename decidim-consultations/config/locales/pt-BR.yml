@@ -49,7 +49,7 @@ pt-BR:
         other: Respostas
       decidim/consultations/vote:
         one: Voto
-        other: Votos
+        other: Voto
   decidim:
     admin:
       actions:

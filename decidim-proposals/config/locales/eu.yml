@@ -223,12 +223,19 @@ eu:
           unearned_own: Oraindik ez duzu proposamenik sortu.
     metrics:
       accepted_proposals:
+        description: Erabiltzaileek onartutako proposamenen kopurua
         object: proposamenak
         title: Onartutako proposamenak
+      endorsements:
+        description: Proposamenetan sortutako babesle kopurua
+        object: abalak
+        title: Oniritziak
       proposals:
+        description: Sortutako proposamen kopurua
         object: proposamenak
         title: proposamenak
       votes:
+        description: Erabiltzaileek proposatutako sortutako boto kopurua
         object: boto
         title: Botoak
     participatory_processes:
@@ -408,7 +415,7 @@ eu:
           title: Bete lankidetza zirriborroa
         count:
           drafts_count:
-            one: '%{count} lankidetza zirriborroa'
+            one: "%{count} lankidetza zirriborroa"
             other: "%{count} lankidetza zirriborroa"
         create:
           error: Arazo bat izan da lankidetza-zirriborroak sortzea
@@ -552,7 +559,7 @@ eu:
           title: Zure proposamena osatzea
         count:
           proposals_count:
-            one: '%{count} proposamen'
+            one: "%{count} proposamen"
             other: "%{count} proposamen"
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"

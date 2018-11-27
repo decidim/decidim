@@ -6,9 +6,13 @@ module Decidim
     # Needed by Searchlight, this is the base query that will be used to
     # append other criteria to the search.
     def base_query
-      ActionLog
-        .where(visibility: %w(public-only all))
-        .where(organization: options.fetch(:organization))
+      query = ActionLog
+              .where(visibility: %w(public-only all))
+              .where(organization: options.fetch(:organization))
+
+      query = query.where(user: options[:user]) if options[:user]
+
+      query
     end
 
     # Overwrites the default Searchlight run method since we want to return

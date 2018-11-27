@@ -223,12 +223,19 @@ nl:
           unearned_own: U hebt nog geen voorstellen gemaakt.
     metrics:
       accepted_proposals:
+        description: Aantal door gebruikers geaccepteerde voorstellen
         object: voorstellen
         title: Aanvaarde voorstellen
+      endorsements:
+        description: Aantal aantekeningen gegenereerd in voorstellen
+        object: aantekeningen
+        title: Endorsements
       proposals:
+        description: Aantal gegenereerde voorstellen
         object: voorstellen
         title: voorstellen
       votes:
+        description: Aantal stemmen dat is gegenereerd in voorstellen van gebruikers
         object: stemmen
         title: stemmen
     participatory_processes:
@@ -408,7 +415,7 @@ nl:
           title: Voltooi uw gezamenlijke concept
         count:
           drafts_count:
-            one: '%{count} gezamenlijke trekking'
+            one: "%{count} gezamenlijke trekking"
             other: "%{count} gezamenlijke trekking"
         create:
           error: Er is een probleem opgetreden bij het maken van deze samenwerkingsconcepten
@@ -552,7 +559,7 @@ nl:
           title: Maak uw voorstel af
         count:
           proposals_count:
-            one: '%{count} voorstel'
+            one: "%{count} voorstel"
             other: "%{count} voorstellen"
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"

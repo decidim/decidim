@@ -623,23 +623,29 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
-          from: Van
-          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
-        show:
-          conversation_with_html: Gesprek met <strong>%{name}</strong>
-          reply: Beantwoorden
+          title: conversaties
+        reply:
           send: Sturen
+          title: Beantwoorden
+        show:
+          title: Gesprek met %{usernames}
         start:
           send: Verzenden
           title: Een gesprek beginnen
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
     metrics:
+      followers:
+        description: Aantal gebruikers dat volgt in de organisatie
+        object: volgelingen
+        title: Volgers
       participants:
+        description: Aantal actieve gebruikers in de organisatie
         object: deelnemers
         title: Deelnemers
       users:
+        description: Aantal gebruikers in de organisatie
         object: gebruikers
         title: gebruikers
     newsletter_mailer:
@@ -737,6 +743,7 @@ nl:
       participatory_space:
         metrics:
           headline: Deelname aan cijfers
+          link: Toon alle statistieken
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -764,13 +771,12 @@ nl:
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        activity: Activiteit
         badges: badges
-        conversations: conversaties
         followers: Volgers
         following: volgt
         groups: groepen
         members: leden
-        notifications: meldingen
         view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
@@ -809,19 +815,27 @@ nl:
       prompt: Selecteer een scope
       scopes: scopes
     search:
-      filter:
-        all: Alle
-        component: bestanddeel
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:
-        search: Zoeken
+        back: Terug naar resultaten
+        jump_to: 'Spring naar:'
+        state:
+          active: Actief
+          all: Allemaal
+          future: Toekomst
+          past: Verleden
       filters_small_view:
         close_modal: Modal sluiten
         filter: Filter
         filter_by: Filteren op
         unfold: Ontvouwen
+      results:
+        results:
+          one: "%{count} resultaat"
+          other: "%{count} resultaten"
+        view_all: Bekijk alles (%{count})
     shared:
       embed_modal:
         close_window: Sluit venster
@@ -856,6 +870,9 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    user_activity:
+      index:
+        no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!

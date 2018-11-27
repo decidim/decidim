@@ -43,8 +43,8 @@ hu:
         one: Konferencia hangszóró
         other: Konferencia hangszórók
       decidim/conference_user_role:
-        one: A konferencia felhasználói szerepkör
-        other: Konferencia felhasználói szerepkörök
+        one: Konferencia felhasználói szerepkör
+        other: Konferencia felhasználói szerepkör
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ hu:
           cancel: Megszünteti
           confirm: megerősít
         show:
+          free: Ingyenes
           going: Haladó
           no_slots_available: Nincs szabad hely
           registration: Bejegyzés

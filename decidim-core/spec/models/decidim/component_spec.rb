@@ -12,6 +12,7 @@ module Decidim
     it { is_expected.to be_versioned }
 
     include_examples "publicable"
+    include_examples "resourceable"
 
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))

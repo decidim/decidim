@@ -91,6 +91,7 @@ fr:
           notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Nombre de commentaires générés par les utilisateurs
         object: commentaires
         title: commentaires
   errors:
