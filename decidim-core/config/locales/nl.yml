@@ -641,11 +641,11 @@ nl:
         object: volgelingen
         title: Volgers
       participants:
-        description: Aantal actieve gebruikers in organisatie
+        description: Aantal actieve gebruikers in de organisatie
         object: deelnemers
         title: Deelnemers
       users:
-        description: Aantal gebruikers in organisatie
+        description: Aantal gebruikers in de organisatie
         object: gebruikers
         title: gebruikers
     newsletter_mailer:
@@ -818,7 +818,7 @@ nl:
       term_input_placeholder: Zoeken
     searches:
       filters:
-        back: Terug naar alle resultaten
+        back: Terug naar resultaten
         jump_to: 'Spring naar:'
         state:
           active: Actief
