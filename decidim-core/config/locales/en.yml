@@ -645,11 +645,9 @@ en:
         object: followers
         title: Followers
       participants:
-        description: Number of active users in the organization
         object: participants
         title: Participants
       users:
-        description: Number of users in the organization
         object: users
         title: Users
     newsletter_mailer:
@@ -822,7 +820,6 @@ en:
       term_input_placeholder: Search
     searches:
       filters:
-        back: Back to results
         jump_to: 'Jump to:'
         state:
           active: Active
