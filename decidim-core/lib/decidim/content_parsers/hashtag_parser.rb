@@ -42,7 +42,7 @@ module Decidim
       def hashtags
         @hashtags ||= Hash[
           existing_hashtags.map do |hashtag|
-            [hashtag.name.downcase, hashtag]
+            [hashtag.name, hashtag]
           end
         ]
       end
