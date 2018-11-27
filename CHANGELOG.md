@@ -59,6 +59,12 @@ Decidim.register_resource(:my_resource) do |resource|
 end
 ```
 
+In order to generate Open Data exports you should add this to your crontab or recurring jobs manager:
+
+```ruby
+  bundle exec rake decidim:open_data:export
+```
+
 **Added**:
 
 - **decidim-core**: Trigger an ActiveSupport::Notification after registering via OmniAuth. [\#4565](https://github.com/decidim/decidim/pull/4565)
@@ -86,6 +92,7 @@ end
 - **decidim-core**: Adds default pages and contextual help when creating organizations [\#4541](https://github.com/decidim/decidim/pull/4541)
 - **decidim-core**: Adds a user activity tab on the public profile. [\#4570](https://github.com/decidim/decidim/pull/4570)
 - **decidim-core**: Adds a user timeline tab on the public profile. [\#4574](https://github.com/decidim/decidim/pull/4574)
+- **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
 
 **Changed**:
 
