@@ -150,5 +150,6 @@ it:
           unearned_own: Hai partecipato a qualche dibattito ancora.
     metrics:
       debates:
+        description: Numero di dibattiti creati
         object: dibattiti
         title: dibattiti
