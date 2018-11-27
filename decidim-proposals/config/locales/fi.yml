@@ -223,19 +223,19 @@ fi:
           unearned_own: Et ole vielä luonut ehdotuksia.
     metrics:
       accepted_proposals:
-        description: Käyttäjien hyväksymien ehdotusten määrä
+        description: Hyväksyttyjen ehdotusten määrä
         object: ehdotukset
         title: Hyväksytyt ehdotukset
       endorsements:
-        description: Ehdotuksissa syntyvien merkintöjen määrä
-        object: merkinnät
-        title: merkintöjen
+        description: Ehdotuksiin kohdistuneiden suositusten määrä
+        object: suositusta
+        title: Suositukset
       proposals:
-        description: Luovien ehdotusten määrä
+        description: Ehdotusten määrä
         object: ehdotukset
         title: Ehdotuksia
       votes:
-        description: Käyttäjien ehdotuksissa syntyvien äänten määrä
+        description: Ehdotuksiin kohdistuneiden äänten määrä
         object: ääntä
         title: Ääniä
     participatory_processes:
