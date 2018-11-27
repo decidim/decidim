@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class HashtagRenderer < BaseRenderer
       # Matches a global id representing a Decidim::Hashtag
-      GLOBAL_ID_REGEX = %r{(gid:\/\/[\w-]*\/Decidim::Hashtag\/(?:\d+))\/?([[:alnum:]](?:[[:alnum:]]|_)*)?\b}
+      GLOBAL_ID_REGEX = %r{gid:\/\/[\w-]*\/Decidim::Hashtag\/(\d+)\/?([[:alnum:]](?:[[:alnum:]]|_)*)?\b}
 
       # Replaces found Global IDs matching an existing hashtag with
       # a link to their detail page. The Global IDs representing an
@@ -35,19 +35,39 @@ module Decidim
 
       def replace_hashtags(content, with_link)
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
-          begin
-            gid, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
-            hashtag = GlobalID::Locator.locate(gid)
-            presenter = Decidim::HashtagPresenter.new(hashtag, cased_name: cased_name)
-            if with_link
-              presenter.display_hashtag
-            else
-              presenter.display_hashtag_name
-            end
-          rescue ActiveRecord::RecordNotFound => _ex
-            ""
+          id, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
+          hashtag = hashtags[id.to_i]
+
+          next "" if hashtag.nil?
+
+          presenter = Decidim::HashtagPresenter.new(hashtag, cased_name: cased_name)
+
+          if with_link
+            presenter.display_hashtag
+          else
+            presenter.display_hashtag_name
           end
         end
+      end
+
+      def hashtags
+        @hashtags ||= Hash[
+          existing_hashtags.map do |hashtag|
+            [hashtag.id, hashtag]
+          end
+        ]
+      end
+
+      def existing_hashtags
+        @existing_hashtags ||= Decidim::Hashtag.where(id: content_hashtags_ids)
+      end
+
+      def content_hashtags_ids
+        @content_hashtags_ids ||= content_matches.map(&:first).map(&:to_i).uniq
+      end
+
+      def content_matches
+        @content_matches ||= content.scan(GLOBAL_ID_REGEX)
       end
     end
   end
