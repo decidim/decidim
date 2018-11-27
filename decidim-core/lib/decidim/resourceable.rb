@@ -118,6 +118,18 @@ module Decidim
       def permissions
         resource_permission&.permissions if allow_resource_permissions?
       end
+
+      # Public: This method will be used to represent this resource in other contexts, like cards
+      # or search results.
+      def resource_title
+        try(:title) || try(:name)
+      end
+
+      # Public: This method will be used to represent this resource in other contexts, like cards
+      # or search results.
+      def resource_description
+        try(:description) || try(:body) || try(:content)
+      end
     end
 
     class_methods do
