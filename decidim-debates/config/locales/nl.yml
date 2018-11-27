@@ -150,6 +150,5 @@ nl:
           unearned_own: Je hebt nog deelgenomen aan debatten.
     metrics:
       debates:
-        description: Aantal gemaakte debatten
         object: debatten
         title: debatten
