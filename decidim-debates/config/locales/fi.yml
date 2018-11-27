@@ -150,5 +150,6 @@ fi:
           unearned_own: Et ole vielä osallistunut yhteenkään keskusteluun.
     metrics:
       debates:
+        description: Luodut keskustelut
         object: keskustelut
         title: keskustelut
