@@ -150,5 +150,6 @@ de:
           unearned_own: Sie haben bereits an Debatten teilgenommen.
     metrics:
       debates:
+        description: Anzahl der erstellten Debatten
         object: Debatten
         title: Debatten
