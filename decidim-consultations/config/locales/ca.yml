@@ -48,7 +48,7 @@ ca:
         one: Resposta
         other: Respostes
       decidim/consultations/vote:
-        one: Vot
+        one: Sense vots
         other: Vots
   decidim:
     admin:

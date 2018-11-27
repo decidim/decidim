@@ -623,23 +623,29 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
-          from: A partire dal
-          last_message_html: Ultimo messaggio <strong>%{time} fa</strong>
           no_conversations: Non hai ancora conversazioni
-        show:
-          conversation_with_html: Conversazione con <strong>%{name}</strong>
-          reply: Rispondi
+          title: conversazioni
+        reply:
           send: Inviare
+          title: Rispondi
+        show:
+          title: Conversazione con %{usernames}
         start:
           send: Invia
           title: Inizia una conversazione
         update:
           error: Messaggio non inviato. Riprova più tardi
     metrics:
+      followers:
+        description: Numero di utenti che segue nell'organizzazione
+        object: seguaci
+        title: Seguaci
       participants:
+        description: Numero di utente attivo nell'organizzazione
         object: partecipanti
         title: I partecipanti
       users:
+        description: Numero di utenti nell'organizzazione
         object: utenti
         title: utenti
     newsletter_mailer:
@@ -737,6 +743,7 @@ it:
       participatory_space:
         metrics:
           headline: Partecipazione in cifre
+          link: Mostra tutte le statistiche
       terms_and_conditions:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
@@ -765,12 +772,10 @@ it:
       default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
         badges: badge
-        conversations: conversazioni
         followers: Seguaci
         following: segue
         groups: gruppi
         members: Utenti
-        notifications: notifiche
         view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
@@ -809,19 +814,27 @@ it:
       prompt: Seleziona un ambito
       scopes: Scopes
     search:
-      filter:
-        all: Tutti
-        component: Componente
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
       filters:
-        search: Ricerca
+        back: Torna a tutti i risultati
+        jump_to: 'Salta a:'
+        state:
+          active: Attivo
+          all: Tutti
+          future: Futuro
+          past: Passato
       filters_small_view:
         close_modal: Chiudi modale
         filter: Filtro
         filter_by: Filtra per
         unfold: spiegare
+      results:
+        results:
+          one: "%{count} risultato"
+          other: "%{count} risultati"
+        view_all: Visualizza tutto (%{count})
     shared:
       embed_modal:
         close_window: Chiudi la finestra

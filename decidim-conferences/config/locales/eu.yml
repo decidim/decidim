@@ -43,8 +43,8 @@ eu:
         one: Hitzaldi hizlaria
         other: Hitzaldi hiztunak
       decidim/conference_user_role:
-        one: Kongresuaren erabiltzailearen rolak
-        other: Konferentzia erabiltzailearen rolak
+        one: Konferentzia erabiltzailearen rola
+        other: Konferentzia erabiltzailearen rola
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ eu:
           cancel: Utzi
           confirm: Berretsi
         show:
+          free: Free
           going: joatean
           no_slots_available: Ez dago slotarik erabilgarri
           registration: Izen-ematea

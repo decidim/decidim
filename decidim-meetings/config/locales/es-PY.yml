@@ -362,7 +362,7 @@ es-PY:
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
           remaining_slots:
-            one: 'Queda %{count} ranuras'
+            one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
           view: Ver
       meetings_map:
@@ -406,6 +406,7 @@ es-PY:
         transparent: Transparente
     metrics:
       meetings:
+        description: Número de reuniones creadas
         object: reuniones
         title: Reuniones
     participatory_processes:

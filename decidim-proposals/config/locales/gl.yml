@@ -223,12 +223,19 @@ gl:
           unearned_own: Aínda non creaches propostas.
     metrics:
       accepted_proposals:
+        description: Número de propostas aceptadas polos usuarios
         object: propostas
         title: Propostas aceptadas
+      endorsements:
+        description: Número de Recoñecementos xerados nas Propostas
+        object: respostas
+        title: Aprobacións
       proposals:
+        description: Número de propostas xeradas
         object: propostas
         title: Propostas
       votes:
+        description: Número de votos xerados nas propostas dos usuarios
         object: votos
         title: Votos
     participatory_processes:
@@ -408,7 +415,7 @@ gl:
           title: Completa o teu borrador colaborativo
         count:
           drafts_count:
-            one: '%{count} borrador colaborativo'
+            one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
           error: Produciuse un problema creando estes borradores colaborativos
@@ -552,7 +559,7 @@ gl:
           title: Completa a túa proposta
         count:
           proposals_count:
-            one: '%{count} proposta'
+            one: "%{count} proposta"
             other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Engada un anexo"

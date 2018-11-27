@@ -43,8 +43,8 @@ fr:
         one: Conférencier
         other: Conférenciers
       decidim/conference_user_role:
-        one: Un rôle d'utilisateur de conférence
-        other: Rôles d'utilisateur de la conférence
+        one: Rôle d'utilisateur de la conférence
+        other: Rôle d'utilisateur de la conférence
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ fr:
           cancel: Annuler
           confirm: Confirmer
         show:
+          free: Libre
           going: Aller
           no_slots_available: Aucun emplacement disponible
           registration: enregistrement

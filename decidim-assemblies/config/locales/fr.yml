@@ -333,6 +333,7 @@ fr:
       assemblies: Assemblées
     metrics:
       assemblies:
+        description: Nombre d'assemblages créés
         object: assemblées
         title: Assemblages
   errors:

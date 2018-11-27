@@ -209,6 +209,7 @@ hu:
           notification_title: Az eredmény <a href="%{resource_path}">%{resource_title}</a>, amely magában foglalja a <a href="%{proposal_path}">%{proposal_title}</a>javaslatot, most %{progress}%.
     metrics:
       results:
+        description: Az elszámoltathatósági eredmények száma
         object: eredmények
         title: Eredmények
     participatory_processes:

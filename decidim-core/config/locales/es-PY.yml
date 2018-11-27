@@ -623,23 +623,29 @@ es-PY:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
-          from: De
-          last_message_html: Último mensaje <strong>hace %{time}</strong>
           no_conversations: Aún no tienes conversaciones
-        show:
-          conversation_with_html: Conversación con <strong>%{name}</strong>
-          reply: Respuesta
+          title: Conversaciones
+        reply:
           send: Enviar
+          title: Respuesta
+        show:
+          title: Conversacion con %{usernames}
         start:
           send: Enviar
           title: Iniciar una conversación
         update:
           error: Mensaje no enviado. Inténtalo más tarde
     metrics:
+      followers:
+        description: Número de usuario que sigue en la organización.
+        object: seguidores
+        title: Seguidores
       participants:
+        description: Número de usuarios activos en la organización.
         object: Participantes
         title: Participantes
       users:
+        description: Número de usuarios en la organización
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -737,6 +743,7 @@ es-PY:
       participatory_space:
         metrics:
           headline: Participación en cifras.
+          link: Mostrar todas las estadísticas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
@@ -765,12 +772,10 @@ es-PY:
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         badges: Insignias
-        conversations: Conversaciones
         followers: Seguidores
         following: Sigue
         groups: Los grupos
         members: Miembros
-        notifications: Notificaciones
         view_full_profile: Ver todo el perfil
       sidebar:
         badges:
@@ -809,19 +814,27 @@ es-PY:
       prompt: Seleccione un ámbito
       scopes: Ámbitos
     search:
-      filter:
-        all: Todo
-        component: Componente
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
-        search: Buscar
+        back: Volver a todos los resultados
+        jump_to: 'Salta a:'
+        state:
+          active: Activo
+          all: Todos
+          future: Futuro
+          past: Pasado
       filters_small_view:
         close_modal: Cerrar modal
         filter: Filtrar
         filter_by: Filtrar por
         unfold: Desplegar
+      results:
+        results:
+          one: "%{count} resultado"
+          other: "%{count} resultados"
+        view_all: Ver todo (%{count})
     shared:
       embed_modal:
         close_window: Cerrar ventana
