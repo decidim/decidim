@@ -150,5 +150,6 @@ es-PY:
           unearned_own: Has participado en cualquier debate aún.
     metrics:
       debates:
+        description: Número de debates creados.
         object: debates
         title: Debates
