@@ -1,5 +1,7 @@
 /* Froms foundation overwrites */
 
+$checkboxes-minimum-width: 200px;
+
 .input-group-button button{
   height: 2.5rem;
   padding: .5rem 1rem;
@@ -27,5 +29,24 @@ label > [type='radio']{
     display: inline-block;
     margin-right: 1rem;
     flex-shrink: 0;
+  }
+}
+
+.checkboxes {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &::after { /* Align last row to left */
+    min-width: $checkboxes-minimum-width;
+    content: "";
+  }
+
+  label {
+    min-width: $checkboxes-minimum-width;
+    input[type=checkbox] {
+      vertical-align: middle;
+    }
   }
 }

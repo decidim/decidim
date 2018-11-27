@@ -3,8 +3,32 @@
 </div>
 
 <div class="field hashtags__container">
-  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body %>
+  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
 </div>
+
+<% if @form.component_hashtags_auto.any? %>
+  <div class="field">
+    <%= form.label :hashtags_auto %>
+    <div class="checkboxes hashtags">
+      <% @form.component_hashtags_auto.each do |hashtag| %>
+        <label>
+          <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if @form.component_hashtags_suggested.any? %>
+  <div class="field">
+    <%= form.label :hashtags_suggested %>
+    <div class="checkboxes hashtags">
+      <%= form.collection_check_boxes :hashtags_suggested, @form.component_hashtags_suggested.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+        option.label { option.check_box(checked: @form.hashtag_suggested_checked?(option.value)) + option.text }
+      end %>
+    </div>
+  </div>
+<% end %>
 
 <% if component_settings.geocoding_enabled? %>
   <div class="field">

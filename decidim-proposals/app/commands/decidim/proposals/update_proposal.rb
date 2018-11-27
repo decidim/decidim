@@ -54,9 +54,6 @@ module Decidim
       def proposal_attributes
         fields = {}
 
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-
         fields[:title] = parsed_title
         fields[:body] = parsed_body
         fields[:category] = form.category
@@ -87,6 +84,27 @@ module Decidim
         )
         @proposal.coauthorships.clear
         @proposal.add_coauthor(current_user, user_group: user_group)
+      end
+
+      def parsed_title
+        @parsed_title ||= Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+      end
+
+      def parsed_body
+        @parsed_body ||= begin
+          ret = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite.strip
+          ret += "\n" + parsed_extra_hashtags.strip unless parsed_extra_hashtags.empty?
+          ret
+        end
+      end
+
+      def parsed_extra_hashtags
+        @parsed_extra_hashtags ||= Decidim::ContentProcessor.parse_with_processor(
+          :hashtag,
+          form.extra_hashtags_content,
+          current_organization: form.current_organization,
+          extra_hashtags: true
+        ).rewrite
       end
 
       def proposal_limit_reached?

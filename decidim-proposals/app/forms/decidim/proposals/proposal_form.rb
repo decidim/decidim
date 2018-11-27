@@ -13,6 +13,7 @@ module Decidim
       attribute :scope_id, Integer
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
+      attribute :hashtags_suggested, Array[String]
 
       validates :address, geocoding: true, if: ->(form) { Decidim.geocoder.present? && form.has_address? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
@@ -24,6 +25,12 @@ module Decidim
       validate :notify_missing_attachment_if_errored
 
       delegate :categories, to: :current_component
+
+      def map_model(model)
+        super
+
+        @hashtags_suggested = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
+      end
 
       # Finds the Category from the category_id.
       #
@@ -50,6 +57,30 @@ module Decidim
         current_component.settings.geocoding_enabled? && has_address
       end
 
+      def extra_hashtags_content
+        @extra_hashtags_content ||= extra_hashtags.map { |hashtag| "##{hashtag}" }.join(" ")
+      end
+
+      def extra_hashtags
+        @extra_hashtags ||= (component_hashtags_auto + hashtags_suggested).uniq
+      end
+
+      def hashtags_suggested
+        component_hashtags_suggested.select { |hashtag| @hashtags_suggested.member?(hashtag.downcase) }
+      end
+
+      def hashtag_suggested_checked?(hashtag)
+        @hashtags_suggested.member?(hashtag)
+      end
+
+      def component_hashtags_auto
+        @component_hashtags_auto ||= ordered_hashtag_list(current_component.current_settings.hashtags_auto)
+      end
+
+      def component_hashtags_suggested
+        @component_hashtags_suggested ||= ordered_hashtag_list(current_component.current_settings.hashtags_suggested)
+      end
+
       private
 
       def scope_belongs_to_participatory_space_scope
@@ -62,6 +93,12 @@ module Decidim
       # this problem.
       def notify_missing_attachment_if_errored
         errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+      end
+
+      def ordered_hashtag_list(string)
+        return [] unless string
+
+        string.split.reject(&:blank?).uniq.sort_by(&:parameterize)
       end
     end
   end
