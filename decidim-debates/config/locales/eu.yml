@@ -150,6 +150,5 @@ eu:
           unearned_own: Oraindik eztabaidetan parte hartu duzu.
     metrics:
       debates:
-        description: Sortutako eztabaida kopurua
         object: eztabaidak
         title: eztabaidak
