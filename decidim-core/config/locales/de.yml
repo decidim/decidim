@@ -818,7 +818,7 @@ de:
       term_input_placeholder: Suche
     searches:
       filters:
-        back: Zurück zu allen Ergebnissen
+        back: Zurück zu den Ergebnissen
         jump_to: 'Springen zu:'
         state:
           active: Aktiv
