@@ -645,7 +645,7 @@ es-PY:
         object: Participantes
         title: Participantes
       users:
-        description: Número de usuarios en la organización
+        description: Número de usuarios en la organización.
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -818,7 +818,7 @@ es-PY:
       term_input_placeholder: Buscar
     searches:
       filters:
-        back: Volver a todos los resultados
+        back: Volver a resultados
         jump_to: 'Salta a:'
         state:
           active: Activo
