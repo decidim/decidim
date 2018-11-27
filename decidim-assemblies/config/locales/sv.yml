@@ -333,7 +333,7 @@ sv:
       assemblies: Möten
     metrics:
       assemblies:
-        description: Antal församlingar skapade
+        description: Antal monterade enheter
         object: aggregaten
         title: Assemblies
   errors:
