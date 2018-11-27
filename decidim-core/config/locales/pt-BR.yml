@@ -818,7 +818,7 @@ pt-BR:
       term_input_placeholder: Pesquisa
     searches:
       filters:
-        back: De volta a todos os resultados
+        back: Voltar aos resultados
         jump_to: 'Pule para:'
         state:
           active: Ativo
