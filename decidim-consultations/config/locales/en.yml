@@ -47,6 +47,9 @@ en:
       decidim/consultations/response:
         one: Response
         other: Responses
+      decidim/consultations/vote:
+        one: Vote
+        other: Votes
   decidim:
     admin:
       actions:
