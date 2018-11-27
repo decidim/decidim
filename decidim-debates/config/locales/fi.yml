@@ -151,5 +151,5 @@ fi:
     metrics:
       debates:
         description: Keskustelujen määrä
-        object: keskustelua
+        object: keskustelut
         title: Keskustelut
