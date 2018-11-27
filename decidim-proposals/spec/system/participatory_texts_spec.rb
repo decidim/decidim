@@ -29,7 +29,7 @@ describe "Proposals", type: :system do
   end
 
   context "when listing proposals in a participatory process as participatory texts" do
-    context "when admin has not yet imported a participatory text" do
+    context "when admin has not yet published a participatory text" do
       let!(:component) do
         create(:proposal_component,
                :with_participatory_texts_enabled,
@@ -41,14 +41,12 @@ describe "Proposals", type: :system do
         visit_component
       end
 
-      it "renders an empty title" do
-        within ".heading2" do
-          expect(page).to have_content("")
-        end
+      it "renders an alternative title" do
+        expect(page).to have_content("There are no participatory texts at the moment")
       end
     end
 
-    context "when admin has imported a participatory text" do
+    context "when admin has published a participatory text" do
       let!(:participatory_text) { create :participatory_text, component: component }
       let!(:proposals) { create_list(:proposal, 3, :published, component: component) }
       let!(:component) do
