@@ -12,11 +12,12 @@ module Decidim
         before_action :load_authorization
 
         def choose
-          return redirect_to action: :new, using: verification_type if current_organization.id_documents_methods.count == 1
+          return redirect_to action: :new, using: verification_type if available_methods.count == 1
           render :choose
         end
 
         def new
+          raise ActionController::RoutingError, "Method not available" unless available_methods.include?(verification_type)
           enforce_permission_to :create, :authorization, authorization: @authorization
 
           @form = UploadForm.from_params(id_document_upload: { verification_type: verification_type })
@@ -85,7 +86,7 @@ module Decidim
         end
 
         def verification_type
-          params[:using] || current_organization.id_documents_methods.first
+          params[:using] || available_methods.first
         end
 
         def using_online?
@@ -94,6 +95,10 @@ module Decidim
 
         def using_offline?
           verification_type == "offline"
+        end
+
+        def available_methods
+          @available_methods ||= current_organization.id_documents_methods
         end
       end
     end
