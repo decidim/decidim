@@ -150,6 +150,5 @@ fr:
           unearned_own: Vous avez déjà participé à des débats.
     metrics:
       debates:
-        description: Nombre de débats créés
         object: débats
         title: Débats
