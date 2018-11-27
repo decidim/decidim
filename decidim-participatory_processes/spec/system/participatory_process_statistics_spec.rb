@@ -45,9 +45,17 @@ describe "Participatory Processes", type: :system do
       end
     end
 
+    it "downloads CSV data from link" do
+      Decidim.metrics_registry.filtered(scope: "participatory_process").each do |metric_manifest|
+        within "##{metric_manifest.metric_name}_chart+p" do
+          expect(page).to have_content("Download data (csv)")
+        end
+      end
+    end
+
     def check_title_and_description(metric_name)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", count: 1, visible: :all)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", count: 1, visible: :all)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", class: "metric-title", count: 1, visible: :all)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", class: "metric-description", count: 1, visible: :all)
     end
   end
 end
