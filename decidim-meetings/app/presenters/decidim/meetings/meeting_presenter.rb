@@ -13,40 +13,18 @@ module Decidim
         __getobj__
       end
 
-      def title
+      def title(links: false, locales: false)
         return unless meeting
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(meeting.title))
-        renderer.render_without_link.html_safe
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(locales ? meeting.title : translated_attribute(meeting.title))
+        renderer.render(links: links).html_safe
       end
 
-      def html_title
+      def description(links: false, locales: false)
         return unless meeting
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(meeting.title))
-        renderer.render.html_safe
-      end
 
-      def description
-        return unless meeting
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(meeting.description))
-        renderer.render_without_link.html_safe
-      end
-
-      def html_description
-        return unless meeting
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(meeting.description))
-        renderer.render.html_safe
-      end
-
-      def title_with_locales
-        return unless meeting
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(meeting.title)
-        renderer.render_without_link
-      end
-
-      def description_with_locales
-        return unless meeting
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(meeting.description)
-        renderer.render_without_link
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(locales ? meeting.description : translated_attribute(meeting.description))
+        renderer.render(links: links).html_safe
       end
 
       # Next methods are used for present a Meeting As Proposal Author

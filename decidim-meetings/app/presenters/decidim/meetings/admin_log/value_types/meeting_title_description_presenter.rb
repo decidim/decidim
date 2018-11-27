@@ -11,7 +11,7 @@ module Decidim
             return unless value
 
             renderer = Decidim::ContentRenderers::HashtagRenderer.new(h.translated_attribute(value))
-            renderer.render_without_link.html_safe
+            renderer.render(links: false).html_safe
           end
         end
       end

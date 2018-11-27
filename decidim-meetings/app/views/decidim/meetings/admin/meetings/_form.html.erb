@@ -4,11 +4,11 @@
   </div>
   <div class="card-section">
     <div class="row column  hashtags__container">
-      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).title_with_locales : "" %>
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).title(locales: true) : "" %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :description, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).description_with_locales : "" %>
+      <%= form.translated :editor, :description, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).description.title(locales: true) : "" %>
     </div>
 
     <div class="row column">
