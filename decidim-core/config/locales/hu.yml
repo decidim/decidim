@@ -644,7 +644,7 @@ hu:
         object: résztvevők
         title: résztvevők
       users:
-        description: A szervezeten belüli felhasználók száma
+        description: A felhasználók száma a szervezetben
         object: felhasználók
         title: felhasználók
     newsletter_mailer:
@@ -817,7 +817,7 @@ hu:
       term_input_placeholder: Keresés
     searches:
       filters:
-        back: Vissza az összes találathoz
+        back: Vissza az eredményekhez
         jump_to: 'Ugorj:'
         state:
           active: Aktív
