@@ -271,7 +271,6 @@ pl:
       processes: Procesy
     metrics:
       participatory_processes:
-        description: Liczba procesów uczestniczących w tej organizacji
         object: procesy uczestniczące
         title: Procesy partycypacyjne
     participatory_process_groups:
