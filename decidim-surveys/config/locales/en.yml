@@ -39,7 +39,6 @@ en:
       survey_answers:
         description: Number of surveys answered by users
         object: answers to surveys
-        title: Answers to surveys
     surveys:
       admin:
         exports:
