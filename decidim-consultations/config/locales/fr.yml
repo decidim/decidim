@@ -48,7 +48,7 @@ fr:
         one: Réponse
         other: Réponses
       decidim/consultations/vote:
-        one: Vote
+        one: Aucun vote
         other: Votes
   decidim:
     admin:

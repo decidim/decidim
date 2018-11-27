@@ -824,7 +824,7 @@ en:
       term_input_placeholder: Search
     searches:
       filters:
-        back: Back to all results
+        back: Back to results
         jump_to: 'Jump to:'
         state:
           active: Active

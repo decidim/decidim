@@ -48,7 +48,7 @@ nl:
         one: antwoord
         other: Antwoorden
       decidim/consultations/vote:
-        one: Stemmen
+        one: Geen stemmen
         other: stemmen
   decidim:
     admin:

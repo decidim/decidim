@@ -265,6 +265,7 @@ sv:
       processes: Processer
     metrics:
       participatory_processes:
+        description: Antal deltagande processer i denna organisation
         object: deltagande processer
         title: Deltagande processer
     participatory_process_groups:

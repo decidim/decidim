@@ -333,6 +333,7 @@ pt:
       assemblies: Assembléias
     metrics:
       assemblies:
+        description: Número de montagens criadas
         object: assembléias
         title: Assemblies
   errors:
