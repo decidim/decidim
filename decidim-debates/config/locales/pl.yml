@@ -154,6 +154,5 @@ pl:
           unearned_own: Brałeś już udział w jakichkolwiek debatach.
     metrics:
       debates:
-        description: Liczba utworzonych debat
         object: debaty
         title: Debaty
