@@ -7,8 +7,9 @@ module Decidim
         class ProposalTitleBodyPresenter < Decidim::Log::ValueTypes::DefaultPresenter
           def present
             return unless value
+
             renderer = Decidim::ContentRenderers::HashtagRenderer.new(value)
-            renderer.render_without_link.html_safe
+            renderer.render(links: false).html_safe
           end
         end
       end
