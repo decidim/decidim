@@ -641,7 +641,7 @@ fi:
         object: seuraajaa
         title: seuraajaa
       participants:
-        description: Aktiivisen käyttäjän määrä organisaatiossa
+        description: Organisaation aktiivisten käyttäjien määrä
         object: osallistujaa
         title: Osallistujaa
       users:
@@ -818,7 +818,7 @@ fi:
       term_input_placeholder: Hae
     searches:
       filters:
-        back: Takaisin kaikkiin tuloksiin
+        back: Takaisin hakutuloksiin
         jump_to: 'Hypätä:'
         state:
           active: aktiivinen
