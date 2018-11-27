@@ -637,7 +637,7 @@ fi:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     metrics:
       followers:
-        description: Organisaatiossa mukana olevien käyttäjien määrä
+        description: Organisaatiota seuraavien käyttäjien määrä
         object: seuraajaa
         title: seuraajaa
       participants:
