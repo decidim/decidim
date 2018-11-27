@@ -641,11 +641,11 @@ gl:
         object: seguidores
         title: Seguidores
       participants:
-        description: Número de usuario activo na organización
+        description: Número de usuarios activos na organización
         object: participantes
         title: Participantes
       users:
-        description: Número de usuarios en organización
+        description: Número de usuarios da organización
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -818,7 +818,7 @@ gl:
       term_input_placeholder: Busca
     searches:
       filters:
-        back: Volver a todos os resultados
+        back: Voltar aos resultados
         jump_to: 'Ir a:'
         state:
           active: Activo
