@@ -150,6 +150,5 @@ hu:
           unearned_own: Vannak résztvevők a vitákban.
     metrics:
       debates:
-        description: A létrehozott viták száma
         object: viták
         title: viták
