@@ -6,6 +6,7 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
+      helper ParticipatoryTextsHelper
       include FormFactory
       include FilterResource
       include Orderable
