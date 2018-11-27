@@ -71,8 +71,7 @@ module Decidim
     end
 
     # Public: Returns an empty description
-    def resource_description
-    end
+    def resource_description; end
 
     private
 
