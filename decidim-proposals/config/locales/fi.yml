@@ -228,16 +228,16 @@ fi:
         title: Hyväksytyt ehdotukset
       endorsements:
         description: Ehdotuksiin kohdistuneiden suositusten määrä
-        object: suositusta
+        object: suositukset
         title: Suositukset
       proposals:
         description: Ehdotusten määrä
         object: ehdotukset
-        title: Ehdotuksia
+        title: Ehdotukset
       votes:
         description: Ehdotuksiin kohdistuneiden äänten määrä
-        object: ääntä
-        title: Ääniä
+        object: äänet
+        title: Äänet
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
