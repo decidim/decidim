@@ -97,6 +97,8 @@ en:
             creation_enabled: Proposal creation enabled
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
+            hashtags_auto: Hashtags added to all proposals
+            hashtags_suggested: Hashtags suggested to users for new proposals
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Voting blocked
             votes_enabled: Voting enabled
