@@ -227,7 +227,7 @@ ca:
         object: propostes
         title: Propostes acceptades
       endorsements:
-        description: Nombre d'aprovacions generades en Propostes
+        description: Nombre de reconeixements generats en propostes
         object: aprovacions
         title: Aprovacions
       proposals:
@@ -235,7 +235,7 @@ ca:
         object: propostes
         title: Propostes
       votes:
-        description: Nombre de vots generats a les propostes dels usuaris
+        description: Nombre de vots generats en les propostes dels usuaris
         object: vots
         title: Vots
     participatory_processes:
