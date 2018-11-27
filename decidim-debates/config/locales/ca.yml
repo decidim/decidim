@@ -150,6 +150,5 @@ ca:
           unearned_own: No has participat a cap debat encara.
     metrics:
       debates:
-        description: Nombre de debats creats
         object: debats
         title: Debats
