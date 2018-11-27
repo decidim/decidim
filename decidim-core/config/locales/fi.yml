@@ -638,15 +638,15 @@ fi:
     metrics:
       followers:
         description: Organisaatiota seuraavien käyttäjien määrä
-        object: seuraajaa
+        object: seuraajat
         title: Seuraajat
       participants:
         description: Organisaation aktiivisten käyttäjien määrä
-        object: osallistujaa
+        object: osallistujat
         title: Osallistujat
       users:
         description: Organisaation käyttäjien määrä
-        object: käyttäjää
+        object: käyttäjät
         title: Käyttäjät
     newsletter_mailer:
       newsletter:
