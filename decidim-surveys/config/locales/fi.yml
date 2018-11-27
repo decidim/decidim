@@ -38,7 +38,7 @@ fi:
     metrics:
       survey_answers:
         description: Kyselyvastausten määrä
-        object: kyselyvastausta
+        object: kyselyvastaukset
         title: Kyselyvastaukset
     surveys:
       admin:
