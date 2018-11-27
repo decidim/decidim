@@ -32,20 +32,21 @@ label > [type='radio']{
   }
 }
 
-.checkboxes {
+.checkboxes{
   margin-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
-  &::after { /* Align last row to left */
+  &::after{ /* Align last row to left */
     min-width: $checkboxes-minimum-width;
     content: "";
   }
 
-  label {
+  label{
     min-width: $checkboxes-minimum-width;
-    input[type=checkbox] {
+
+    input[type=checkbox]{
       vertical-align: middle;
     }
   }
