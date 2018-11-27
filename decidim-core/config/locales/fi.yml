@@ -645,7 +645,7 @@ fi:
         object: osallistujaa
         title: Osallistujaa
       users:
-        description: Organisaation käyttäjien lukumäärä
+        description: Organisaation käyttäjien määrä
         object: käyttäjää
         title: Käyttäjiä
     newsletter_mailer:
