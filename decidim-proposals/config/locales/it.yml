@@ -235,7 +235,7 @@ it:
         object: proposte
         title: proposte
       votes:
-        description: Numero di voti generati nelle proposte dagli utenti
+        description: Numero di voti generati nelle proposte degli utenti
         object: voti
         title: voti
     participatory_processes:
