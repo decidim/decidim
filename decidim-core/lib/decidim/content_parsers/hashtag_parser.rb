@@ -25,7 +25,7 @@ module Decidim
       # @return [String] the content with the hashtags replaced by global ids
       def rewrite
         content.gsub(HASHTAG_REGEX) do |match|
-          hashtag(match[1..-1]).to_global_id.to_s + "/" + match[1..-1]
+          hashtag(match[1..-1]).to_global_id.to_s + "/" + (extra_hashtags? ? "_" : "") + match[1..-1]
         end
       end
 
@@ -57,6 +57,12 @@ module Decidim
 
       def current_organization
         @current_organization ||= context[:current_organization]
+      end
+
+      def extra_hashtags?
+        return @extra_hashtags if defined?(@extra_hashtags)
+
+        @extra_hashtags = context[:extra_hashtags]
       end
     end
   end
