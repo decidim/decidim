@@ -406,7 +406,6 @@ en:
         transparent: Transparent
     metrics:
       meetings:
-        description: Number of meetings created
         object: meetings
         title: Meetings
     participatory_processes:
