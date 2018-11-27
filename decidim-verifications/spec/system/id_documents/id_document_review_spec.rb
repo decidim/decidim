@@ -17,6 +17,7 @@ describe "Identity document review", type: :system do
       name: "id_documents",
       user: user,
       verification_metadata: {
+        "verification_type" => "online",
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX"
       },
