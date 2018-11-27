@@ -48,8 +48,8 @@ pt-BR:
         one: Resposta
         other: Respostas
       decidim/consultations/vote:
-        one: Sem votos
-        other: Votos
+        one: Voto
+        other: Voto
   decidim:
     admin:
       actions:
