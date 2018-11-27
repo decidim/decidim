@@ -90,6 +90,11 @@ module Decidim
       model.user_lazy
     end
 
+    def author
+      return unless show_author?
+      cell "decidim/author", UserPresenter.new(user)
+    end
+
     def participatory_space
       return resource if resource.is_a?(Decidim::Participable)
 
@@ -101,6 +106,10 @@ module Decidim
         translated_attribute(participatory_space.title),
         resource_locator(participatory_space).path
       )
+    end
+
+    def show_author?
+      context[:show_author]
     end
   end
 end
