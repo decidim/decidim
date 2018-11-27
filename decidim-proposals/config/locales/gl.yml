@@ -227,7 +227,7 @@ gl:
         object: propostas
         title: Propostas aceptadas
       endorsements:
-        description: Número de Recoñecementos xerados nas Propostas
+        description: Número de respostas xeradas nas propostas
         object: respostas
         title: Aprobacións
       proposals:
