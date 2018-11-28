@@ -98,14 +98,11 @@ $(() => {
   });
   $hashtagContainer.on("input", (event) => {
     let $parent = $(event.target).parent();
-    $parent.removeAttr("style");
 
     if (tribute.isActive) {
       // We need to move the container to the wrapper selected
       let $tribute = $(".tribute-container");
-      $tribute.removeAttr("style");
       $tribute.appendTo($parent);
-      // Remove the inline styles, relative to absolute positioning
       // Parent adaptation
       $parent.addClass("is-active");
     } else {
