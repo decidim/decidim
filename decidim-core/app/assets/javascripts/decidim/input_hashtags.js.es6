@@ -44,7 +44,7 @@ $(() => {
     positionMenu: true,
     menuContainer: null,
     fillAttr: "name",
-    noMatchTemplate: () => `<li>${nodatafound}</li>`,
+    noMatchTemplate: nodatafound ? () => `<li>${nodatafound}</li>` : null,
     lookup: (item) => item.name,
     selectTemplate: function(item) {
       if (typeof item === "undefined") {
