@@ -91,8 +91,8 @@ module Decidim
     end
 
     def author
-      return unless show_author? && author.is_a?(UserBaseEntity)
-      cell "decidim/author", UserPresenter.new(user)
+      return unless show_author?
+      card_for present(user)
     end
 
     def participatory_space
