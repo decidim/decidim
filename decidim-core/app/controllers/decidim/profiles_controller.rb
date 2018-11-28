@@ -13,7 +13,7 @@ module Decidim
 
     def show
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
-      redirect_to(current_organization.badges_enabled ? profile_badges_path : profile_following_path)
+      redirect_to profile_activity_path
     end
 
     def following
@@ -38,6 +38,11 @@ module Decidim
 
     def members
       @content_cell = "decidim/members"
+      render :show
+    end
+
+    def activity
+      @content_cell = "decidim/user_activity"
       render :show
     end
 

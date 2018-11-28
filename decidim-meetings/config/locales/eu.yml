@@ -406,7 +406,7 @@ eu:
         transparent: gardena
     metrics:
       meetings:
-        description: Sortutako bilera kopurua
+        description: Bilera kopurua sortu da
         object: bilerak
         title: Bilerak
     participatory_processes:

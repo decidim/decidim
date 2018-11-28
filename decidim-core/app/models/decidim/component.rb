@@ -65,6 +65,14 @@ module Decidim
       @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
     end
 
+    # Public: Returns the component's name as resource title
+    def resource_title
+      name
+    end
+
+    # Public: Returns an empty description
+    def resource_description; end
+
     private
 
     def participatory_space_name

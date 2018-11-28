@@ -39,7 +39,7 @@ hu:
       survey_answers:
         description: A felhasználók által felmérett felmérések száma
         object: válaszok a felmérésekre
-        title: Válaszok a felmérésekre
+        title: Válaszok a felmérésekhez
     surveys:
       admin:
         exports:

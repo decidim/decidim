@@ -333,7 +333,7 @@ ca:
       assemblies: Assemblees
     metrics:
       assemblies:
-        description: S'ha creat el nombre d'acoblats
+        description: Nombre d'acoblats creats
         object: assemblees
         title: Assemblees
   errors:

@@ -18,6 +18,7 @@ module Decidim
       include_examples "has category"
       include_examples "has reference"
       include_examples "reportable"
+      include_examples "resourceable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }

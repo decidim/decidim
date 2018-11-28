@@ -237,15 +237,15 @@ pl:
         object: propozycje
         title: Przyjęte propozycje
       endorsements:
-        description: Liczba adnotacji wygenerowanych w propozycjach
+        description: Liczba potwierdzeń wygenerowanych w propozycjach
         object: poparcie
         title: Adnotacje
       proposals:
-        description: Liczba wygenerowanych propozycji
+        description: Liczba wygenerowanych wniosków
         object: propozycje
         title: Propozycje
       votes:
-        description: Liczba głosów wygenerowanych w propozycjach przez użytkowników
+        description: Liczba głosów uzyskanych w propozycjach przez użytkowników
         object: głosów
         title: Głosy
     participatory_processes:
