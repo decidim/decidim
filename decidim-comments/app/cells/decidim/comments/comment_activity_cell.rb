@@ -4,6 +4,8 @@ module Decidim
   module Comments
     # A cell to display when a comment has been created.
     class CommentActivityCell < ActivityCell
+      include ApplicationHelper
+
       delegate :root_commentable, to: :comment
 
       def renderable?
