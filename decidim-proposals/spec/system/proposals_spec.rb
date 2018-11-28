@@ -658,5 +658,58 @@ describe "Proposals", type: :system do
 
       it_behaves_like "a paginated resource"
     end
+
+    context "when amendments_enabled setting is enabled" do
+      before do
+        component.update!(settings: { amendments_enabled: true })
+      end
+
+      context "with 'proposals' type" do
+        it "lists the filtered proposals" do
+          create_list(:proposal, 2, component: component, scope: scope)
+          visit_component
+
+          within ".filters" do
+            choose "Proposals"
+          end
+
+          expect(page).to have_css(".card.card--proposal", count: 2)
+          expect(page).to have_content("2 PROPOSALS")
+        end
+      end
+
+      context "with 'amendments' type" do
+        let!(:proposal) { create(:proposal, component: component, scope: scope) }
+        let!(:emendation) { create(:proposal, component: component, scope: scope) }
+        let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
+        it "lists the filtered proposals" do
+          visit_component
+
+          within ".filters" do
+            choose "Amendments"
+          end
+
+          expect(page).to have_css(".card.card--proposal", count: 1)
+          expect(page).to have_content("1 PROPOSAL")
+          expect(page).to have_content("AMENDMENT")
+        end
+      end
+
+      context "with 'all' type" do
+        let!(:proposal) { create(:proposal, component: component, scope: scope) }
+        let!(:emendation) { create(:proposal, component: component, scope: scope) }
+        let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
+        it "lists the filtered proposals" do
+          visit_component
+
+          find('input[id="filter_type_all"]').click
+          expect(page).to have_content("2 PROPOSALS")
+          expect(page).to have_content("AMENDMENT", count: 1)
+          expect(page).to have_css(".card.card--proposal", count: 2)
+        end
+      end
+    end
   end
 end
