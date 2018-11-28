@@ -18,22 +18,6 @@ module Decidim
       #
       # @return [String] the content ready to display (contains HTML)
       def render(links: true, extras: true)
-        if content.is_a?(Hash)
-          content.each_with_object({}) do |(locale, string), parsed_content|
-            parsed_content[locale] = replace_hashtags(string, links, extras)
-          end
-        else
-          replace_hashtags(content, links, extras)
-        end
-      end
-
-      def extra_hashtags
-        @extra_hashtags ||= existing_hashtags.select { |hashtag| content_extra_hashtags_ids.member?(hashtag.id) }
-      end
-
-      private
-
-      def replace_hashtags(content, links, extras)
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
           hashtag = hashtags[id.to_i]
@@ -49,6 +33,12 @@ module Decidim
           end
         end
       end
+
+      def extra_hashtags
+        @extra_hashtags ||= existing_hashtags.select { |hashtag| content_extra_hashtags_ids.member?(hashtag.id) }
+      end
+
+      private
 
       def hashtags
         @hashtags ||= Hash[

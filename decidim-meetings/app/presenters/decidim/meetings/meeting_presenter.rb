@@ -13,18 +13,22 @@ module Decidim
         __getobj__
       end
 
-      def title(links: false, locales: false)
+      def title(links: false, all_locales: false)
         return unless meeting
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(locales ? meeting.title : translated_attribute(meeting.title))
-        renderer.render(links: links).html_safe
+        handle_locales(meeting.title, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+          renderer.render(links: links).html_safe
+        end
       end
 
-      def description(links: false, locales: false)
+      def description(links: false, all_locales: false)
         return unless meeting
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(locales ? meeting.description : translated_attribute(meeting.description))
-        renderer.render(links: links).html_safe
+        handle_locales(meeting.description, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+          renderer.render(links: links).html_safe
+        end
       end
 
       # Next methods are used for present a Meeting As Proposal Author
@@ -58,6 +62,18 @@ module Decidim
 
       def has_tooltip?
         false
+      end
+
+      private
+
+      def handle_locales(content, all_locales)
+        if all_locales
+          content.each_with_object({}) do |(locale, string), parsed_content|
+            parsed_content[locale] = yield(string)
+          end
+        else
+          yield(translated_attribute(content))
+        end
       end
     end
   end
