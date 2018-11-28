@@ -20,6 +20,9 @@ en:
     admin:
       menu:
         authorization_workflows: Verifications
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
     authorization_handlers:
       admin:
         id_documents:
