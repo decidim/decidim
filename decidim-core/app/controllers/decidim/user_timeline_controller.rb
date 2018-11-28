@@ -8,7 +8,7 @@ module Decidim
     helper_method :activities, :user
 
     def index
-      raise ActiveRecord::RecordNotFound if current_user != user
+      raise ActionController::RoutingError, "Not Found" if current_user != user
     end
 
     private
