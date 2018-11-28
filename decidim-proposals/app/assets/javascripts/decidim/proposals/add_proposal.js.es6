@@ -2,7 +2,7 @@ $(() => {
   window.DecidimProposals = window.DecidimProposals || {};
 
   window.DecidimProposals.bindProposalAddress = () => {
-    const $checkbox = $("input:checkbox.has_address");
+    const $checkbox = $("input:checkbox[name$='[has_address]']");
     const $addressInput = $("#address_input");
 
     if ($checkbox.length > 0) {
