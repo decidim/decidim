@@ -46,6 +46,19 @@ Decidim::Organization.find_each do |organization|
 end
 ```
 
+- **Searchable resources**
+
+As per #4537, if you have a custom module with a resource that uses the `Decidim::Searchable`
+concern, you'll need to make the resource searchable from its manifest, otherwise it won't
+appear under the global search results:
+
+```ruby
+Decidim.register_resource(:my_resource) do |resource|
+  resource.searchable = true
+  # ...
+end
+```
+
 **Added**:
 
 - **decidim-core**: Trigger an ActiveSupport::Notification after registering via OmniAuth. [\#4565](https://github.com/decidim/decidim/pull/4565)
