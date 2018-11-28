@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "csv"
 
 describe "Participatory Processes", type: :system do
+  let(:date) { Time.zone.today - 1.week }
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let(:participatory_process) do
@@ -16,11 +18,13 @@ describe "Participatory Processes", type: :system do
   context "when show all the metric charts" do
     let(:metrics) do
       Decidim.metrics_registry.all.each do |metric_registry|
-        create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week,
+        create(:metric, metric_type: metric_registry.metric_name, day: date,
                         organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name,
                         participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
       end
     end
+    let(:key) { date.to_s }
+    let(:value) { "5" }
 
     before do
       switch_to_host(organization.host)
@@ -49,7 +53,18 @@ describe "Participatory Processes", type: :system do
       Decidim.metrics_registry.filtered(scope: "participatory_process").each do |metric_manifest|
         within "##{metric_manifest.metric_name}_chart+p" do
           expect(page).to have_content("Download data (csv)")
+          click_link "Download data (csv)"
+          expect(File.basename(download_path)).to eq "#{metric_manifest.metric_name}_metric_data.csv"
+          expect(File).to exist(download_path)
+          expect(CSV.open(download_path, &:readline)).to eq %w(key value)
+          CSV.open(download_path, headers: true) do |csvfile|
+            csvfile.each do |row|
+              expect(row[0]).to eq key
+              expect(row[1]).to eq value
+            end
+          end
         end
+        clear_downloads
       end
     end
 
