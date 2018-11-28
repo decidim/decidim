@@ -4,6 +4,11 @@ $(() => {
   const $hashtagContainer = $(".js-hashtags");
   const nodatafound = $hashtagContainer.attr("data-noresults");
 
+  let noMatchTemplate = null
+  if (nodatafound) {
+    noMatchTemplate = () => `<li>${nodatafound}</li>`;
+  }
+
   // Listener for the event triggered by quilljs
   let cursor = "";
   $hashtagContainer.on("quill-position", function(event) {
@@ -44,7 +49,7 @@ $(() => {
     positionMenu: true,
     menuContainer: null,
     fillAttr: "name",
-    noMatchTemplate: nodatafound ? () => `<li>${nodatafound}</li>` : null,
+    noMatchTemplate: noMatchTemplate,
     lookup: (item) => item.name,
     selectTemplate: function(item) {
       if (typeof item === "undefined") {
