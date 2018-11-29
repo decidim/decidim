@@ -38,8 +38,8 @@ module DownloadHelper
 end
 
 RSpec.configure do |config|
-  config.include DownloadHelper, type: :system
-  config.before :each, type: :system do
+  config.include DownloadHelper, download: true
+  config.before :each, download: true do
     FileUtils.mkdir_p DownloadHelper::PATH.to_s
     page.driver.browser.download_path = DownloadHelper::PATH.to_s if page.driver.browser.respond_to?(:download_path=)
     clear_downloads

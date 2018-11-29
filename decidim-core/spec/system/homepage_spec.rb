@@ -330,7 +330,7 @@ describe "Homepage", type: :system do
       end
     end
 
-    context "when downloading open data" do
+    context "when downloading open data", download: true do
       before do
         Decidim::OpenDataJob.perform_now(organization)
         switch_to_host(organization.host)
