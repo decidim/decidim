@@ -23,6 +23,8 @@ en:
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
@@ -87,6 +89,14 @@ en:
             new:
               introduce_user_data: Introduce the data in the picture
               reject: Reject
+              verify: Verify
+          offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
+            new:
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
               verify: Verify
           pending_authorizations:
             index:

@@ -15,6 +15,7 @@ module Decidim
             resource :confirmations, only: [:new, :create], as: :confirmation
             resource :rejections, only: :create, as: :rejection
           end
+          resource :offline_confirmations, only: [:new, :create], as: :offline_confirmation
 
           resource :config, only: [:edit, :update], controller: "config"
 
