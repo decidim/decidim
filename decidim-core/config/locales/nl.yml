@@ -777,6 +777,7 @@ nl:
         following: volgt
         groups: groepen
         members: leden
+        timeline: Tijdlijn
         view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
