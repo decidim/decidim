@@ -49,8 +49,8 @@ module Decidim
           visibility: "public-only"
         ) do
           draft = CollaborativeDraft.new(
-            title: form.title,
-            body: form.body,
+            title: parsed_title,
+            body: parsed_body,
             category: form.category,
             scope: form.scope,
             component: form.component,
@@ -73,6 +73,14 @@ module Decidim
 
       def organization
         @organization ||= @current_user.organization
+      end
+
+      def parsed_title
+        @parsed_title ||= Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+      end
+
+      def parsed_body
+        @parsed_body ||= Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
       end
     end
   end
