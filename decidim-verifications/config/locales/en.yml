@@ -118,6 +118,8 @@ en:
             success: Document uploaded successfully
           edit:
             being_reviewed: We're reviewing your documents. You'll be verified shortly
+            offline: Use offline verification
+            online: Use online verification
             rejection_clarity: Make sure the information is clearly visible in the uploaded image
             rejection_correctness: Make sure the information entered is correct
             rejection_notice: There was a problem with your verification. Please try again

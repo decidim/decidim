@@ -12,24 +12,12 @@
           <div class="card__content">
             <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
             <%= decidim_form_for(@form, url: authorization_path) do |form| %>
-              <div class="field">
-                <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
-              </div>
+              <%= render partial: "form", locals: { form: form } %>
 
-              <div class="field">
-                <%= form.text_field :document_number %>
-              </div>
-
-              <% if using_online? %>
-                <div class="field">
-                  <%= form.upload :verification_attachment %>
+              <div class="card-section">
+                <div class="actions">
+                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
                 </div>
-              <% end %>
-
-              <%= form.hidden_field :verification_type %>
-
-              <div class="actions">
-                <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
               </div>
             <% end %>
           </div>

@@ -7,7 +7,7 @@ module Decidim
       # Handles verification by identity document upload
       #
       class AuthorizationsController < ApplicationController
-        helper_method :authorization, :verification_type, :using_offline?, :using_online?
+        helper_method :authorization, :verification_type, :using_offline?, :using_online?, :available_methods
 
         before_action :load_authorization
 
@@ -53,6 +53,7 @@ module Decidim
           @form = UploadForm.from_params(
             params.merge(
               user: current_user,
+              verification_type: verification_type,
               verification_attachment: params[:id_document_upload][:verification_attachment] || @authorization.verification_attachment
             )
           )
@@ -86,7 +87,12 @@ module Decidim
         end
 
         def verification_type
-          params[:using] || available_methods.first
+          params[:using] || authorization_verification_type || available_methods.first
+        end
+
+        def authorization_verification_type
+          return unless @authorization
+          @authorization.verification_metadata["verification_type"]
         end
 
         def using_online?
