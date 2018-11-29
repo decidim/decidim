@@ -24,7 +24,7 @@
     } else if (toolbar === "basic") {
       quillToolbar = [
         ...quillToolbar,
-        ["video"].
+        ["video"],
         ["image"]
       ];
     }
