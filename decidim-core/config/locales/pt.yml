@@ -777,6 +777,7 @@ pt:
         following: Segue
         groups: Grupos
         members: Membros
+        timeline: Timeline
         view_full_profile: Ver o perfil completo
       sidebar:
         badges:

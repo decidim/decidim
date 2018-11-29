@@ -265,7 +265,7 @@ fi:
       processes: Prosessit
     metrics:
       participatory_processes:
-        description: Osallistuvien prosessien määrä tässä organisaatiossa
+        description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
     participatory_process_groups:

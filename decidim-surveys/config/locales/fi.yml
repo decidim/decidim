@@ -37,9 +37,9 @@ fi:
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
     metrics:
       survey_answers:
-        description: Käyttäjien vastaamien kyselyiden määrä
-        object: vastauksia kyselyihin
-        title: Vastaukset kyselyihin
+        description: Kyselyvastausten määrä
+        object: kyselyvastaukset
+        title: Kyselyvastaukset
     surveys:
       admin:
         exports:

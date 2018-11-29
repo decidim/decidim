@@ -842,6 +842,7 @@ en:
         following: Follows
         groups: Groups
         members: Members
+        timeline: Timeline
         view_full_profile: View full profile
       sidebar:
         badges:

@@ -777,6 +777,7 @@ it:
         following: segue
         groups: gruppi
         members: Utenti
+        timeline: Sequenza temporale
         view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
