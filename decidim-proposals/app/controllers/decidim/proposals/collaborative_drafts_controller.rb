@@ -7,10 +7,14 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper TooltipHelper
+
+      include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
       include CollaborativeOrderable
       include Paginable
+
+      helper_method :form_presenter
 
       helper_method :geocoded_collaborative_draft, :collaborative_draft
       before_action :collaborative_drafts_enabled?
@@ -139,6 +143,10 @@ module Decidim
       end
 
       private
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::CollaborativeDraftPresenter)
+      end
 
       def collaborative_drafts_enabled?
         raise ActionController::RoutingError, "Not Found" unless component_settings.collaborative_drafts_enabled?
