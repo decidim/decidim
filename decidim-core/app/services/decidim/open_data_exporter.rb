@@ -7,17 +7,6 @@ module Decidim
   class OpenDataExporter
     attr_reader :organization, :path
 
-    EXPORTS = [
-      {
-        manifest_name: :proposals,
-        export_name: "proposals"
-      },
-      {
-        manifest_name: :accountability,
-        export_name: "results"
-      }
-    ].freeze
-
     # Public: Initializes the class.
     #
     # organization - The Organization to export the data from.
@@ -37,26 +26,26 @@ module Decidim
 
     def data
       buffer = Zip::OutputStream.write_buffer do |out|
-        EXPORTS.each do |options|
-          manifest_export_data = data_for(options[:manifest_name], options[:export_name])
-          out.put_next_entry("#{organization.host}-open-data-#{options[:export_name]}.csv")
-          out.write manifest_export_data.read
+        open_data_manifests.each do |export_manifest|
+          csv_data = data_for(export_manifest)
+          out.put_next_entry("#{organization.host}-open-data-#{export_manifest.name}.csv")
+          out.write csv_data.read
         end
       end
 
       buffer.string
     end
 
-    def data_for(manifest_name, export_name)
-      export_manifest = Decidim.find_component_manifest(manifest_name).export_manifests.find do |manifest|
-        manifest.name.to_s == export_name
-      end
-
-      collection = components.where(manifest_name: manifest_name).find_each.flat_map do |component|
+    def data_for(export_manifest)
+      collection = components.where(manifest_name: export_manifest.component_manifest.name).find_each.flat_map do |component|
         export_manifest.collection.call(component)
       end
 
       Decidim::Exporters::CSV.new(collection, export_manifest.serializer).export
+    end
+
+    def open_data_manifests
+      @open_data_manifests ||= Decidim.component_manifests.flat_map(&:export_manifests).select(&:include_in_open_data?)
     end
 
     def components
