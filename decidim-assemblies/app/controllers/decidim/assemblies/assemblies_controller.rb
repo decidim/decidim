@@ -43,7 +43,7 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :assembly, assembly: current_participatory_space
       end
 
       private
