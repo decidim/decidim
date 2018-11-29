@@ -777,6 +777,7 @@ ca:
         following: Segueix
         groups: Grups
         members: Membres
+        timeline: Cronologia
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:

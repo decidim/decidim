@@ -787,6 +787,7 @@ pl:
         following: Podąża
         groups: Grupy
         members: Członkowie
+        timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
         badges:

@@ -365,7 +365,7 @@ fi:
           cancel: Peruuta
           confirm: Vahvista
         show:
-          free: Vapaa
+          free: Maksuton
           going: Osallistumassa
           no_slots_available: Ei paikkoja vapaana
           registration: Ilmoittautuminen
