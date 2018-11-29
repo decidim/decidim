@@ -777,6 +777,7 @@ fi:
         following: Seurattavat
         groups: Ryhmät
         members: Jäsenet
+        timeline: Aikajana
         view_full_profile: Näytä koko profiili
       sidebar:
         badges:
