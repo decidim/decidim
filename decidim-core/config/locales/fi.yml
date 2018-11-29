@@ -616,8 +616,8 @@ fi:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     metrics:
       users:
-        object: käyttäjää
-        title: Käyttäjiä
+        object: käyttäjät
+        title: Käyttäjät
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
