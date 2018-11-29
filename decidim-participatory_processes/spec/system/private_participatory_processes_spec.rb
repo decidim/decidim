@@ -34,26 +34,6 @@ describe "Private Participatory Processes", type: :system do
       end
     end
 
-    context "when the user is logged in as admin" do
-      before do
-        switch_to_host(organization.host)
-        login_as admin, scope: :user
-        visit decidim_participatory_processes.participatory_processes_path
-      end
-
-      it "lists private participatory processes" do
-        within "#processes-grid" do
-          within "#processes-grid h2" do
-            expect(page).to have_content("2")
-          end
-
-          expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-          expect(page).to have_selector("article.card", count: 2)
-        end
-      end
-    end
-
     context "when user is loged in and is not a participatory space private user" do
       before do
         switch_to_host(organization.host)
@@ -71,6 +51,26 @@ describe "Private Participatory Processes", type: :system do
           expect(page).to have_selector("article.card", count: 1)
 
           expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
+        end
+      end
+
+      context "when the user is admin" do
+        before do
+          switch_to_host(organization.host)
+          login_as admin, scope: :user
+          visit decidim_participatory_processes.participatory_processes_path
+        end
+
+        it "lists private participatory processes" do
+          within "#processes-grid" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("2")
+            end
+
+            expect(page).to have_content(translated(participatory_process.title, locale: :en))
+            expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
+            expect(page).to have_selector("article.card", count: 2)
+          end
         end
       end
     end
