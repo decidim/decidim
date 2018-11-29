@@ -95,6 +95,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Adds a user activity tab on the public profile. [\#4570](https://github.com/decidim/decidim/pull/4570)
 - **decidim-core**: Adds a user timeline tab on the public profile. [\#4574](https://github.com/decidim/decidim/pull/4574)
 - **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
+- **decidim-meetings**: Export meetings [\#4597](https://github.com/decidim/decidim/pull/4597)
 
 **Changed**:
 
