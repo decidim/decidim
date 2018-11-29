@@ -777,6 +777,7 @@ sv:
         following: Följer
         groups: Grupper
         members: Medlemmar
+        timeline: tidslinje
         view_full_profile: Visa hela profilen
       sidebar:
         badges:
