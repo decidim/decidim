@@ -113,6 +113,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-admin**: Rename "Officializations" section to "Participants" [\#4510](https://github.com/decidim/decidim/pull/4510)
 - **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
 - **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
+- **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
 
 **Fixed**:
 
