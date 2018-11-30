@@ -69,6 +69,7 @@ gl:
         name: Propostas
         settings:
           global:
+            amendments_enabled: Modificacións habilitadas
             announcement: Anuncio
             attachments_allowed: Permitir anexos
             can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
