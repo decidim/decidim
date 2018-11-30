@@ -14,4 +14,5 @@ describe "Admin manages meetings", type: :system, serves_map: true do
   it_behaves_like "manage agenda"
   it_behaves_like "manage minutes"
   it_behaves_like "manage invites"
+  it_behaves_like "export meetings"
 end

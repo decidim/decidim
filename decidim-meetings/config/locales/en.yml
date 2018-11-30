@@ -182,6 +182,7 @@ en:
             invalid: There's been a problem updating this agenda
             success: Agenda successfully updated
         exports:
+          meetings: Meetings
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
