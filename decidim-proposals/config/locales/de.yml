@@ -69,6 +69,7 @@ de:
         name: Vorschläge
         settings:
           global:
+            amendments_enabled: Änderungen aktiviert
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen jenseits des Schwellenwerts ansammeln
