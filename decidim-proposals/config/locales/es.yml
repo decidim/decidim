@@ -69,6 +69,7 @@ es:
         name: Propuestas
         settings:
           global:
+            amendments_enabled: Enmiendas habilitadas
             announcement: "Aviso\n"
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
