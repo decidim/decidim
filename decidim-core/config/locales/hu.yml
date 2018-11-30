@@ -683,6 +683,8 @@ hu:
       update:
         error: Hiba történt az értesítési beállítások frissítése során.
         success: Az értesítési beállításaid frissítése sikeres volt.
+    open_data:
+      not_available_yet: Az Open Data fájlok még nem érhetők el, próbálkozzon újra pár perc múlva.
     own_user_groups:
       index:
         pending: Függőben
@@ -1053,6 +1055,7 @@ hu:
       edit_link:
         edit: Szerkesztés
       footer:
+        download_open_data: Töltse le az Open Data fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
       header:
         close_menu: Menü bezárása
