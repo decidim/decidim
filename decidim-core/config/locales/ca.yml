@@ -684,6 +684,8 @@ ca:
       update:
         error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'han actualitzat correctament.
+    open_data:
+      not_available_yet: Els fitxers Open Data encara no estan disponibles, torneu-ho a provar d'aquí a uns minuts.
     own_user_groups:
       index:
         pending: Pendents
@@ -1054,6 +1056,7 @@ ca:
       edit_link:
         edit: Edita
       footer:
+        download_open_data: Descarregueu fitxers Open Data
         made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
