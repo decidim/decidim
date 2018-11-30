@@ -51,6 +51,7 @@ module Decidim
 
       def show
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
+        @emendation_form = form(Decidim::Amendable::Form).from_params(id: @proposal.amendment.id) if @proposal.emendation? && @proposal.amendment.evaluating?
       end
 
       def new
@@ -184,15 +185,27 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-
-        WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |_proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        if @proposal.emendation?
+          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
           end
-          on(:invalid) do
-            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        else
+          WithdrawProposal.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
           end
         end
       end

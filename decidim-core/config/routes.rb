@@ -108,6 +108,15 @@ Decidim::Core::Engine.routes.draw do
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
+  resources :amends, only: [:new, :accept], controller: :amendments do
+    collection do
+      post :create
+    end
+    member do
+      get :review
+      patch :accept
+    end
+  end
 
   namespace :gamification do
     resources :badges, only: [:index]
