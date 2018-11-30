@@ -209,8 +209,15 @@ module Decidim
       #
       # user - the user to check for authorship
       def promotable_by?(user)
-        not_likely_to_be_promoted = Proposal.where(component: component).where(title: title).count == 1
-        state == "rejected" && created_by?(user) && not_likely_to_be_promoted
+        state == "rejected" && created_by?(user) && !already_promoted
+      end
+
+      # Checks whether the ActionLog created in the promote command exists.
+      def already_promoted
+        logs = Decidim::ActionLog.where(decidim_component_id: component)
+        .where(decidim_user_id: creator_author).where(action: :create)
+        log = logs.select { |log| log.extra.key?("promoted_from") }&.first
+        log.extra["promoted_from"] == id if log.present?
       end
 
       # Checks whether the user can withdraw the given proposal.

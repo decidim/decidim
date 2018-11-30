@@ -39,7 +39,9 @@ module Decidim
         @promoted_emendation = Decidim.traceability.perform_action!(
           :create,
           form.amendable_type.constantize,
-          form.current_user
+          @emendation.creator_author,
+          visibility: "public-only",
+          promoted_from: @emendation.id
         ) do
           promoted_emendation = form.amendable_type.constantize.new(emendation_attributes)
           promoted_emendation.add_coauthor(@emendation.creator_author, user_group: nil) if promoted_emendation.is_a?(Decidim::Coauthorable)
