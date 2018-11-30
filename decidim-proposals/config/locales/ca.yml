@@ -529,6 +529,7 @@ ca:
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
       participatory_text_proposal:
+        alternative_title: Ara mateix no hi ha cap text participatiu
         buttons:
           comment: Comentari
           comments: Comentaris
