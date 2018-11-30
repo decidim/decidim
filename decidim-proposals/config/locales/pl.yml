@@ -543,6 +543,7 @@ pl:
       new:
         limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
       participatory_text_proposal:
+        alternative_title: W tej chwili nie ma żadnych tekstów uczestniczących
         buttons:
           comment: Komentarz
           comments: Komentarze
