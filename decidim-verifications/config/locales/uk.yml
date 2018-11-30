@@ -81,7 +81,6 @@ uk:
               verify: Підтвердити
           pending_authorizations:
             index:
-              title: Підтвердження, які очікують на розгляд
               verification_number: 'Підтвердження #%{n}'
           rejections:
             create:
