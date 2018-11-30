@@ -529,6 +529,7 @@ hu:
       new:
         limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
       participatory_text_proposal:
+        alternative_title: Jelenleg nincsenek részvételi szövegek
         buttons:
           comment: Megjegyzés
           comments: Hozzászólások
