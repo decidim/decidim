@@ -35,6 +35,9 @@ de:
         password_confirmation: Bestätigung des Passworts
         remember_me: Erinneren Sie mich
     models:
+      decidim/amendment:
+        one: Änderung
+        other: Änderungen
       decidim/user:
         one: Keine Benutzer
         other: Benutzer
@@ -125,6 +128,52 @@ de:
       user_group:
         reject: "%{user_name} wies die %{resource_name} - Benutzergruppe Verifikations"
         verify: "%{user_name} die %{resource_name} Benutzergruppe verifiziert"
+    amendments:
+      accepted:
+        error: Beim Akzeptieren der Emmendation ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.
+        success: Diese Zusage wurde erfolgreich angenommen.
+      amendable:
+        amended_by: Geändert durch
+        button: '%{model_name}ändern'
+        error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
+        help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
+        no_amenders: Es gibt keine Amender
+        no_amendments: Es gibt keine Änderungen
+        section_heading: Änderungen (%{count})
+      created:
+        error: Beim Erstellen dieser Änderung ist ein Fehler aufgetreten. Versuchen Sie es später erneut
+        success: Die Änderung wurde erfolgreich erstellt
+      emendation:
+        actions:
+          button_accept: Akzeptieren
+          button_reject: Ablehnen
+          help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
+        announcement:
+          accepted: |-
+            Diese emendation für die %{amendable_type} %{amendable_link} wurde
+            auf akzeptiert <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Dies ist eine Ausgabe für die %{amendable_type} %{amendable_link}
+            , die gerade ausgewertet wird.
+          publish_as: Veröffentlichen Sie diese Ausgabe als unabhängige %{amendable_type}
+          rejected: |-
+            Diese Änderung für die %{amendable_type} %{amendable_link}
+            wurde am <strong>%{announcement_date}</strong>abgelehnt.<br>
+            Sie können %{publish_as_button}.
+          withdrawn: |-
+            Diese Ausgabe für die %{amendable_type} %{amendable_link}
+            wurde vom Autor zurückgezogen.
+      new:
+        amendment_author: Änderungsautor
+        back: Zurück
+        heading: Erstellen Sie Ihre Änderung
+        help_text: Sie ändern die %{model_name}
+        send: Sendung senden
+      review:
+        back: Zurück
+        heading: Überprüfen Sie die Änderung
+        help_text: Sie ändern die %{model_name}
+        send: Akzeptiere Emendation
     anonymous_user: Anonym
     application:
       collection:
@@ -211,6 +260,7 @@ de:
         name: Dummy-Komponente
         settings:
           global:
+            amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
             dummy_global_attribute_1: Dummy-Attribut 1
             dummy_global_attribute_2: Dummy-Attribut 2
@@ -326,6 +376,17 @@ de:
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
         title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Eine neue Ausgabe wurde für %{amendable_title}. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor sind oder %{amendable_title}folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+          email_subject: Eine neue Änderung für %{amendable_title} von %{emendation_author_nickname}
+          notification_title: A <a href="%{emendation_path}">neue emendation</a> wird von geschaffen <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Eine Emendation wurde für %{amendable_title}akzeptiert. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor sind oder %{amendable_title}folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+          email_subject: Eine für %{amendable_title} angenommene Änderung von %{emendation_author_nickname}
+          notification_title: Die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> erzeugte <a href="%{emendation_path}">Änderung</a> wurde für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}akzeptiert.
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
