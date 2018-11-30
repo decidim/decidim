@@ -35,6 +35,11 @@ pl:
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
     models:
+      decidim/amendment:
+        one: Poprawka
+        few: Poprawki
+        many: Poprawki
+        other: Poprawki
       decidim/user:
         one: Brak użytkowników
         few: Użytkownicy
@@ -129,6 +134,52 @@ pl:
       user_group:
         reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
+    amendments:
+      accepted:
+        error: Wystąpił błąd podczas akceptacji, spróbuj ponownie później.
+        success: Ta promocja została pomyślnie przyjęta.
+      amendable:
+        amended_by: Zmienione przez
+        button: Zmień %{model_name}
+        error: Wystąpił błąd podczas zmiany tego zasobu.
+        help_text: Popraw to %{model_name} , modyfikując %{amendable_fields}
+        no_amenders: Nie ma żadnych fałszerstw
+        no_amendments: Brak zmian
+        section_heading: Poprawki (%{count})
+      created:
+        error: Wystąpił błąd podczas tworzenia tej poprawki, spróbuj ponownie później
+        success: Poprawka została pomyślnie utworzona
+      emendation:
+        actions:
+          button_accept: Zaakceptować
+          button_reject: Odrzucać
+          help_text: Przejrzyj zmiany i zaakceptuj lub odrzuć tę poprawkę. Powiadomienie zostanie wysłane do jego autora (ów).
+        announcement:
+          accepted: |-
+            Ta emisja dla %{amendable_type} %{amendable_link} została
+            zaakceptowana na <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            To jest emisja do oceny %{amendable_type} %{amendable_link}
+            .
+          publish_as: opublikuj to wyróżnienie jako niezależne %{amendable_type}
+          rejected: |-
+            Ta emisja dla %{amendable_type} %{amendable_link}
+            została odrzucona na <strong>%{announcement_date}</strong>.<br>
+            Możesz %{publish_as_button}.
+          withdrawn: |-
+            Ta emisja dla %{amendable_type} %{amendable_link}
+            została wycofana przez autora.
+      new:
+        amendment_author: Autor poprawki
+        back: Z powrotem
+        heading: Utwórz poprawkę
+        help_text: Modyfikujesz %{model_name}
+        send: Wyślij emendation
+      review:
+        back: Z powrotem
+        heading: Przejrzyj poprawkę
+        help_text: Zmieniasz %{model_name}
+        send: Zaakceptuj emendację
     anonymous_user: Anonim
     application:
       collection:
@@ -221,6 +272,7 @@ pl:
         name: Manekinowy składnik
         settings:
           global:
+            amendments_enabled: Poprawione włączone
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
@@ -336,6 +388,17 @@ pl:
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
         title: Szukana strona nie została znaleziona
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem lub obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
+          notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem lub obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
+          notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
