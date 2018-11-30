@@ -81,7 +81,6 @@ ru:
               verify: Подтвердить личность
           pending_authorizations:
             index:
-              title: Подтверждения, ожидающие рассмотрения
               verification_number: 'Подтверждение #%{n}'
           rejections:
             create:
