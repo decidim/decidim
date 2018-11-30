@@ -69,6 +69,7 @@ eu:
         name: proposamenak
         settings:
           global:
+            amendments_enabled: Emendakinak gaituta
             announcement: Anuntzio
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
