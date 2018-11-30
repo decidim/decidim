@@ -35,6 +35,9 @@ hu:
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
     models:
+      decidim/amendment:
+        one: Módosítás
+        other: Módosítások
       decidim/user:
         one: Nincsenek felhasználók
         other: felhasználók
@@ -125,6 +128,52 @@ hu:
       user_group:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
+    amendments:
+      accepted:
+        error: Hiba történt az észrevétel elfogadásával kapcsolatban, kérjük, próbálkozzon újra később.
+        success: Ez az észrevétel sikeresen elfogadott.
+      amendable:
+        amended_by: Módosította
+        button: 'Módosítás: %{model_name}'
+        error: Hiba történt az erőforrás módosításakor.
+        help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
+        no_amenders: Nincsenek módosítások
+        no_amendments: Nincsenek módosítások
+        section_heading: Módosítások (%{count})
+      created:
+        error: Hiba történt a módosítás létrehozásával, próbálkozzon később
+        success: A módosítás sikeresen megtörtént
+      emendation:
+        actions:
+          button_accept: Elfogad
+          button_reject: Elutasít
+          help_text: Tekintse át a módosításokat, és fogadja el, vagy utasítsa el ezt a módosítást. Értesítést küld a szerző (k) nek.
+        announcement:
+          accepted: |-
+            Ez a módosítás a %{amendable_type} %{amendable_link} re
+            elfogadva a <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Ez egy módosítás, amely a %{amendable_type} %{amendable_link}
+            értékelésre készül.
+          publish_as: közzéteszi ezt az módosítást önálló %{amendable_type}-ként
+          rejected: |-
+            A %{amendable_type} %{amendable_link}
+            re vonatkozó módosítást <strong>%{announcement_date}</strong>én elutasították.<br>
+            Tud %{publish_as_button}.
+          withdrawn: |-
+            A %{amendable_type} %{amendable_link}
+            módosításra a szerző visszavonta a dokumentumot.
+      new:
+        amendment_author: Módosítás szerző
+        back: Hát
+        heading: Készítse el a módosítását
+        help_text: Módosítja a %{model_name}
+        send: Küldj fel
+      review:
+        back: Hát
+        heading: Tekintse át a módosítást
+        help_text: Ön módosítja a %{model_name}
+        send: Elfogadja a módosítást
     anonymous_user: Névtelen
     application:
       collection:
@@ -211,6 +260,7 @@ hu:
         name: Dummy elem
         settings:
           global:
+            amendments_enabled: Engedélyezett módosítások
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
@@ -325,6 +375,17 @@ hu:
         content_doesnt_exist: A cím helytelen vagy el lett távolítva.
         title: A keresett oldal nem található
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
+          email_outro: Ezt az értesítést azért kapta, mert szerző vagy %{amendable_title}. Leállíthatja az értesítések fogadását az előző link után.
+          email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
+          notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
+          email_outro: Ezt az értesítést azért kapta, mert szerző vagy %{amendable_title}. Leállíthatja az értesítések fogadását az előző link után.
+          email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}
+          notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elfogadásra került.
       attachments:
         attachment_created:
           email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
