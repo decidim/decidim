@@ -69,6 +69,7 @@ ca:
         name: Propostes
         settings:
           global:
+            amendments_enabled: Esmenes habilitades
             announcement: Anunci
             attachments_allowed: Permetre arxius adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
