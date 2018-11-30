@@ -684,6 +684,8 @@ sv:
       update:
         error: Det har uppstått ett fel vid uppdatering av dina notisinställningar.
         success: Dina inställningar för notiser har framgångsrikt uppdaterats.
+    open_data:
+      not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     own_user_groups:
       index:
         pending: Pågående
@@ -1054,6 +1056,7 @@ sv:
       edit_link:
         edit: Redigera
       footer:
+        download_open_data: Hämta öppna datafiler
         made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
         close_menu: Stäng meny
