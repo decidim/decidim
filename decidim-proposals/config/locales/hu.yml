@@ -69,6 +69,7 @@ hu:
         name: Javaslatok
         settings:
           global:
+            amendments_enabled: Engedélyezett módosítások
             announcement: Közlemény
             attachments_allowed: Mellékletek engedélyezése
             can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
