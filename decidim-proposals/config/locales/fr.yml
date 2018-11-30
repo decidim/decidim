@@ -69,6 +69,7 @@ fr:
         name: Propositions
         settings:
           global:
+            amendments_enabled: Modifications activées
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
