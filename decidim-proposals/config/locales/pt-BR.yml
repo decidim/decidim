@@ -69,6 +69,7 @@ pt-BR:
         name: Propostas
         settings:
           global:
+            amendments_enabled: Alterações ativadas
             announcement: Anúncio
             attachments_allowed: Permitir anexos
             can_accumulate_supports_beyond_threshold: Pode acumular suportes além do limiar
