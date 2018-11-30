@@ -69,6 +69,7 @@ es-PY:
         name: Propuestas
         settings:
           global:
+            amendments_enabled: Enmiendas habilitadas
             announcement: Anuncio
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
