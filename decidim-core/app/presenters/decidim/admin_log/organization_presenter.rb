@@ -19,6 +19,7 @@ module Decidim
           .merge(omnipresent_banner_attributes_mapping)
           .merge(highlighted_content_banner_attributes_mapping)
           .merge(appearance_attributes_mapping)
+          .merge(id_documents_attributes_mapping)
       end
 
       def settings_attributes_mapping
@@ -71,12 +72,24 @@ module Decidim
         }
       end
 
+      def id_documents_attributes_mapping
+        {
+          id_documents_methods: :string,
+          id_documents_explanation_text: :i18n
+        }
+      end
+
       def action_string
+        return "decidim.admin_log.organization.update_id_documents_config" if action == "update_id_documents_config"
         "decidim.admin_log.organization.update"
       end
 
       def i18n_labels_scope
         "activemodel.attributes.organization"
+      end
+
+      def has_diff?
+        action == "update_id_documents_config" || super
       end
     end
   end

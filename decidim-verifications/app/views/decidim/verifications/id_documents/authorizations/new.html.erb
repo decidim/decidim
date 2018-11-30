@@ -10,21 +10,14 @@
       <div class="columns large-6 medium-centered">
         <div class="card">
           <div class="card__content">
+            <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
             <%= decidim_form_for(@form, url: authorization_path) do |form| %>
-              <div class="field">
-                <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
-              </div>
+              <%= render partial: "form", locals: { form: form } %>
 
-              <div class="field">
-                <%= form.text_field :document_number %>
-              </div>
-
-              <div class="field">
-                <%= form.upload :verification_attachment %>
-              </div>
-
-              <div class="actions">
-                <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+              <div class="card-section">
+                <div class="actions">
+                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+                </div>
               </div>
             <% end %>
           </div>

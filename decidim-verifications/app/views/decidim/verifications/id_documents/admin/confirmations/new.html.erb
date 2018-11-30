@@ -16,6 +16,7 @@
       <div class="row column">
         <%= form.select :document_type, @form.document_types_for_select, prompt: true, selected: nil %>
         <%= form.text_field :document_number, value: nil %>
+        <%= form.hidden_field :verification_type, value: :online %>
       </div>
     </div>
   </div>
