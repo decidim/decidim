@@ -35,6 +35,9 @@ eu:
         password_confirmation: Baieztatu pasahitza
         remember_me: Gogoratu
     models:
+      decidim/amendment:
+        one: zuzenketa
+        other: Aldaketak
       decidim/user:
         one: Ez dago erabiltzailerik
         other: erabiltzaileak
@@ -125,6 +128,52 @@ eu:
       user_group:
         reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
         verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
+    amendments:
+      accepted:
+        error: Errore bat gertatu da emmendation onartzen, saiatu berriro geroago.
+        success: Emmendation hau ongi onartu da.
+      amendable:
+        amended_by: Aldatua
+        button: Aldatu %{model_name}
+        error: Errore bat gertatu da baliabidea aldatzen.
+        help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
+        no_amenders: Ez dago murrizketarik
+        no_amendments: Ez dago zuzenketarik
+        section_heading: Aldaketak (%{count})
+      created:
+        error: Errore bat gertatu da aldaketa hau sortzean, saiatu berriro geroago
+        success: Aldaketa zuzen sortu da
+      emendation:
+        actions:
+          button_accept: Onartu
+          button_reject: Ukatu
+          help_text: Aldaketak berrikustea eta aldaketa hori onartzea edo arbuiatzea. Jakinarazpen bat bere egileei bidaliko zaie.
+        announcement:
+          accepted: |-
+            %{amendable_type} %{amendable_link} aldatze hau
+             <strong>%{announcement_date}</strong>onartu da.
+          evaluating: |-
+            Hau %{amendable_type} %{amendable_link}
+            aldaketaren ebaluazioa da.
+          publish_as: argitaratu hau aldaketa independentea %{amendable_type}gisa
+          rejected: |-
+            %{amendable_type} %{amendable_link}
+            aldatze hau <strong>%{announcement_date}</strong>baztertu egin zen.<br>
+            dezakezu %{publish_as_button}.
+          withdrawn: |-
+            %{amendable_type} %{amendable_link}
+            aldirako aldaketa hori egilearen arabera kendu da.
+      new:
+        amendment_author: Egile aldaketa
+        back: Back
+        heading: Sortu zure aldaketa
+        help_text: '%{model_name}aldatzen ari zara'
+        send: Bidali aldatzea
+      review:
+        back: Back
+        heading: Aldaketa berrikustea
+        help_text: '%{model_name}aldatzen ari zara'
+        send: Onartu aldatzea
     anonymous_user: Anonimoa
     application:
       collection:
@@ -211,6 +260,7 @@ eu:
         name: Dummy osagaia
         settings:
           global:
+            amendments_enabled: Emendakinak gaituta
             comments_enabled: Iruzkinak gaituta
             dummy_global_attribute_1: Dummy Atributua 1
             dummy_global_attribute_2: Dummy Attribute 2
@@ -326,6 +376,17 @@ eu:
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
         title: Ez dugu aurkitu bilatzen duzun orria!
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu egilearen edo ondorengo %{amendable_title}. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
+          notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu egilearen edo ondorengo %{amendable_title}. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+          notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
