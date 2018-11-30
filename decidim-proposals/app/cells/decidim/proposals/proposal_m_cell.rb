@@ -27,11 +27,16 @@ module Decidim
       end
 
       def has_badge?
-        answered? || withdrawn?
+        answered? || withdrawn? || emendation?
       end
 
       def has_link_to_resource?
         model.published?
+      end
+
+      def has_footer?
+        return false if model.emendation?
+        true
       end
 
       def description
