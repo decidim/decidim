@@ -20,6 +20,11 @@ fi:
     admin:
       menu:
         authorization_workflows: Vahvistukset
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} päivitti Identity Documents -valvontakokoonpanon"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} vahvistettu %{resource_name} käyttäen offline Identity Documents -tarkistusta"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +75,13 @@ fi:
           other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Tunnistetietojen kokoonpano
+              update: Päivittää
+            update:
+              error: Kokoonpanon päivittämisessä tapahtui virhe.
+              success: Kokoonpano päivitettiin onnistuneesti
           confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
@@ -78,9 +90,19 @@ fi:
               introduce_user_data: Syötä kuvassa näkyvät tiedot
               reject: Hylkää
               verify: Vahvista
+          offline_confirmations:
+            create:
+              error: Vahvistus ei täsmää. Yritä uudelleen tai kerro käyttäjälle, että sitä muutettaisiin
+              success: Käyttäjä onnistui
+            new:
+              cancel: Peruuttaa
+              introduce_user_data: Esitä käyttäjän sähköposti ja asiakirjan tiedot
+              verify: tarkistaa
           pending_authorizations:
             index:
-              title: Odottavat vahvistukset
+              config: config
+              offline_verification: Offline-vahvistus
+              title: Odottaa verkkotarkastuksia
               verification_number: 'Vahvistus #%{n}'
           rejections:
             create:
