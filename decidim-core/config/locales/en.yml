@@ -749,6 +749,8 @@ en:
       update:
         error: There's been an error updating your notifications settings.
         success: Your notifications settings were updated successfully.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: Pending
@@ -1119,6 +1121,7 @@ en:
       edit_link:
         edit: Edit
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu

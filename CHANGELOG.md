@@ -59,9 +59,16 @@ Decidim.register_resource(:my_resource) do |resource|
 end
 ```
 
+In order to generate Open Data exports you should add this to your crontab or recurring jobs manager:
+
+```ruby
+  bundle exec rake decidim:open_data:export
+```
+
 **Added**:
 
 - **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component with these working functionalities: create/withdraw/accept amendments. [\#3985](https://github.com/decidim/decidim/pull/3985/)
+- **decidim-meetings**: Add registration form answers when exporting meeting registrations.[\#4589](https://github.com/decidim/decidim/pull/4589)
 - **decidim-core**: Trigger an ActiveSupport::Notification after registering via OmniAuth. [\#4565](https://github.com/decidim/decidim/pull/4565)
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
 - **decidim-proposals**: Admin can create proposals from the admin panel, with a meeting as an author.[\#4382](https://github.com/decidim/decidim/pull/4382)
@@ -87,6 +94,7 @@ end
 - **decidim-core**: Adds default pages and contextual help when creating organizations [\#4541](https://github.com/decidim/decidim/pull/4541)
 - **decidim-core**: Adds a user activity tab on the public profile. [\#4570](https://github.com/decidim/decidim/pull/4570)
 - **decidim-core**: Adds a user timeline tab on the public profile. [\#4574](https://github.com/decidim/decidim/pull/4574)
+- **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
 
 **Changed**:
 

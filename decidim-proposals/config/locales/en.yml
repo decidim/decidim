@@ -530,6 +530,7 @@ en:
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
       participatory_text_proposal:
+        alternative_title: There are no participatory texts at the moment
         buttons:
           comment: Comment
           comments: Comments
