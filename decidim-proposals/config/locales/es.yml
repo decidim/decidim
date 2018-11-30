@@ -529,6 +529,7 @@ es:
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
       participatory_text_proposal:
+        alternative_title: No hay textos participativos por el momento.
         buttons:
           comment: Comentario
           comments: Comentarios
