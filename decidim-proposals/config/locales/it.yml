@@ -69,6 +69,7 @@ it:
         name: proposte
         settings:
           global:
+            amendments_enabled: Emendamenti abilitati
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
