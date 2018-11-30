@@ -694,6 +694,8 @@ pl:
       update:
         error: Podczas aktualizowania ustawień powiadomień wystąpił błąd.
         success: Ustawienia powiadomień zostały zaktualizowane.
+    open_data:
+      not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
     own_user_groups:
       index:
         pending: W oczekiwaniu
@@ -1070,6 +1072,7 @@ pl:
       edit_link:
         edit: Edytować
       footer:
+        download_open_data: Pobierz pliki otwartych danych
         made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Zamknij menu
