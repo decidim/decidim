@@ -406,8 +406,6 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
           title: Ähnliche kollaborative Entwürfe
         complete:
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
-          select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
@@ -418,6 +416,7 @@ de:
           error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
+          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden

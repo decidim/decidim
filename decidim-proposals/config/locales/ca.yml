@@ -409,8 +409,6 @@ ca:
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
-          select_a_category: Selecciona una categoria
           send: Enviar
           title: Completa el teu esborrany col·laboratiu
         count:
@@ -421,6 +419,7 @@ ca:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
         edit:
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
           back: Tornar
           select_a_category: Selecciona una categoria
           send: Enviar

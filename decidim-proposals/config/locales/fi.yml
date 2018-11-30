@@ -409,8 +409,6 @@ fi:
           no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
           title: Vastaavia yhteistyöluonnoksia
         complete:
-          attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Viimeistele yhteistyöluonnoksesi
         count:
@@ -421,6 +419,7 @@ fi:
           error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
           success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
+          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           select_a_category: Valitse aihepiiri
           send: Lähetä

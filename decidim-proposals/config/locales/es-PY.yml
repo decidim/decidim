@@ -409,8 +409,6 @@ es-PY:
           no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
           title: Borradores colaborativos similares
         complete:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
-          select_a_category: Por favor selecciona una categoría
           send: Enviar
           title: Completa tu borrador colaborativo
         count:
@@ -421,6 +419,7 @@ es-PY:
           error: Ha habido un problema al crear este borradores colaborativo
           success: Borrador colaborativo creado con éxito.
         edit:
+          attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
           select_a_category: Por favor seleccione una categoría
           send: Enviar

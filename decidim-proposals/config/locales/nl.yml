@@ -409,8 +409,6 @@ nl:
           no_similars_found: Goed gedaan! Geen vergelijkbare samenwerkingsconcepten gevonden
           title: Vergelijkbare samenwerkende concepten
         complete:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
-          select_a_category: Selecteer een categorie
           send: Sturen
           title: Voltooi uw gezamenlijke concept
         count:
@@ -421,6 +419,7 @@ nl:
           error: Er is een probleem opgetreden bij het maken van deze samenwerkingsconcepten
           success: Samenwerkingsconcept met succes gemaakt.
         edit:
+          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           select_a_category: Selecteer een categorie
           send: Sturen
