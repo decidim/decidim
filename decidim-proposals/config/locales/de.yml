@@ -526,6 +526,7 @@ de:
       new:
         limit_reached: Sie können keine neuen Angebote erstellen, da Sie das Limit überschritten haben.
       participatory_text_proposal:
+        alternative_title: Momentan gibt es keine Mitmachtexte
         buttons:
           comment: Kommentar
           comments: Bemerkungen
