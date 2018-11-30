@@ -95,6 +95,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Adds a user activity tab on the public profile. [\#4570](https://github.com/decidim/decidim/pull/4570)
 - **decidim-core**: Adds a user timeline tab on the public profile. [\#4574](https://github.com/decidim/decidim/pull/4574)
 - **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
+- **decidim-meetings**: Export meetings [\#4597](https://github.com/decidim/decidim/pull/4597)
 
 **Changed**:
 
@@ -113,10 +114,12 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-admin**: Rename "Officializations" section to "Participants" [\#4510](https://github.com/decidim/decidim/pull/4510)
 - **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
 - **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
+- **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
 
 **Fixed**:
 
 - **decidim-proposals** Index admin-created proposals. [\#4601](https://github.com/decidim/decidim/pull/4601)
+- **decidim-proposals** Keep proposal new values for title and body when editing and receiving an error message [\#4592](https://github.com/decidim/decidim/pull/4592)
 - **decidim-proposals** Don't show `undefined` option when there is no hashtag to autocomplete after \# [\#4590](https://github.com/decidim/decidim/pull/4590)
 - **decidim-conferences**: Make price optional, and remove weird margin top on program view [\#4564](https://github.com/decidim/decidim/pull/4564)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4535](https://github.com/decidim/decidim/pull/4535)

@@ -79,6 +79,36 @@ describe Decidim::OpenDataExporter do
           end
         end
       end
+
+      describe "meetings" do
+        let(:csv_file_name) { "*open-data-meetings.csv" }
+        let(:component) do
+          create(:meeting_component, organization: organization, published_at: Time.current)
+        end
+        let!(:meeting) { create(:meeting, component: component) }
+
+        before do
+          subject.export
+        end
+
+        it "includes a CSV with meetings" do
+          expect(csv_file).not_to be_nil
+        end
+
+        it "includes the meetings data" do
+          expect(csv_data).to include(meeting.title["en"])
+        end
+
+        context "with unpublished components" do
+          let(:component) do
+            create(:meeting_component, organization: organization, published_at: nil)
+          end
+
+          it "includes the meetings data" do
+            expect(csv_data).not_to include(meeting.title["en"])
+          end
+        end
+      end
     end
   end
 end
