@@ -35,6 +35,9 @@ ca:
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
     models:
+      decidim/amendment:
+        one: Esmena
+        other: Modificacions
       decidim/user:
         one: Sense usuaris
         other: Usuaris
@@ -125,6 +128,52 @@ ca:
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
         verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
+    amendments:
+      accepted:
+        error: S'ha produït un error en acceptar l'emmendation, torneu-ho a provar més tard.
+        success: Aquesta emmendation s'ha acceptat amb èxit.
+      amendable:
+        amended_by: Modificat per
+        button: Modifiqueu %{model_name}
+        error: S'ha produït un error en modificar aquest recurs.
+        help_text: Milloreu aquest %{model_name} si modifiqueu la seva %{amendable_fields}
+        no_amenders: No hi ha cap modificador
+        no_amendments: No hi ha cap esmena
+        section_heading: Esmenes (%{count})
+      created:
+        error: S'ha produït un error en crear aquesta esmena, torneu-ho a provar més tard
+        success: S'ha creat correctament l'esmena
+      emendation:
+        actions:
+          button_accept: Accepta
+          button_reject: Rebutjar
+          help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació als seus autors.
+        announcement:
+          accepted: |-
+            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat
+            acceptat en <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Es tracta d'una esmena pel %{amendable_type} %{amendable_link}
+            que s'està avaluant.
+          publish_as: publica aquesta esmena com a %{amendable_type}independent
+          rejected: |-
+            Aquesta esmena del %{amendable_type} %{amendable_link}
+            va ser rebutjada en <strong>%{announcement_date}</strong>.<br>
+            Podeu %{publish_as_button}.
+          withdrawn: |-
+            Aquesta esmena del %{amendable_type} %{amendable_link}
+            ha estat retirada per l'autor.
+      new:
+        amendment_author: Autor de la modificació
+        back: esquena
+        heading: Creeu la vostra esmena
+        help_text: Esteu modificant el %{model_name}
+        send: Envia l'esmena
+      review:
+        back: esquena
+        heading: Revisa la modificació
+        help_text: Esteu modificant el %{model_name}
+        send: Accepta l'esmena
     anonymous_user: Anònim
     application:
       collection:
@@ -211,6 +260,7 @@ ca:
         name: Component de prova
         settings:
           global:
+            amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
@@ -326,6 +376,17 @@ ca:
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
         title: No s'ha trobat la pàgina que busques
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Vostè ha rebut aquesta notificació perquè vostè és un autor o després de %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
+          notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Vostè ha rebut aquesta notificació perquè vostè és un autor o després de %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
+          notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
