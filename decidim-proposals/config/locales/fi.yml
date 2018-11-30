@@ -529,6 +529,7 @@ fi:
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       participatory_text_proposal:
+        alternative_title: Tällä hetkellä ei ole osallistuvia tekstejä
         buttons:
           comment: Kommentti
           comments: Kommentit
