@@ -35,6 +35,9 @@ fi:
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
     models:
+      decidim/amendment:
+        one: muutos
+        other: tarkistukset
       decidim/user:
         one: Ei käyttäjiä
         other: Käyttäjää
@@ -125,6 +128,52 @@ fi:
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
+    amendments:
+      accepted:
+        error: Ongelmana on, että hyväksyisimme huomautuksen, yritä myöhemmin uudelleen.
+        success: Tämä huomautus on hyväksytty onnistuneesti.
+      amendable:
+        amended_by: Muutettu
+        button: Muutetaan %{model_name}
+        error: Virhe on muuttunut tämän resurssin muuttamiseksi.
+        help_text: Paranna tätä %{model_name} muuttamalla sen %{amendable_fields}
+        no_amenders: Ei ole tarkistuksia
+        no_amendments: Ei muutoksia
+        section_heading: Tarkistukset (%{count})
+      created:
+        error: Tämän tarkistuksen tekemisessä tapahtui virhe, yritä myöhemmin uudelleen
+        success: Tarkistus on luotu onnistuneesti
+      emendation:
+        actions:
+          button_accept: Hyväksyä
+          button_reject: Hylätä
+          help_text: Tarkastele muutoksia ja hyväksy tai hylkää tämä muutos. Kirjoittajalle lähetetään ilmoitus.
+        announcement:
+          accepted: |-
+            Tämä emendation varten %{amendable_type} %{amendable_link} on
+            hyväksytty <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Tämä on tarkistus %{amendable_type} %{amendable_link}
+            arvioimiselle.
+          publish_as: julkaisee tämän muutoksen itsenäisenä %{amendable_type}
+          rejected: |-
+            Tämä tarkistus %{amendable_type} %{amendable_link}
+            hylättiin <strong>%{announcement_date}</strong>.<br>
+            Voit %{publish_as_button}.
+          withdrawn: |-
+            Tekijä on peruuttanut tämän muutoksen %{amendable_type} %{amendable_link}
+            : n osalta.
+      new:
+        amendment_author: Tarkistuksen tekijä
+        back: Takaisin
+        heading: Luo tarkistus
+        help_text: Olet muuttamassa %{model_name}
+        send: Lähetä muutos
+      review:
+        back: Takaisin
+        heading: Tarkistetaan tarkistusta
+        help_text: Olet muuttamalla %{model_name}
+        send: Hyväksy muutos
     anonymous_user: Anonyymi
     application:
       collection:
@@ -211,6 +260,7 @@ fi:
         name: Esimerkkikomponentti
         settings:
           global:
+            amendments_enabled: Hyväksytyt tarkistukset
             comments_enabled: Kommentit käytössä
             dummy_global_attribute_1: Esimerkkitietue 1
             dummy_global_attribute_2: Esimerkkitietue 2
@@ -326,6 +376,17 @@ fi:
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
         title: Etsimääsi sivua ei löydy
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Uusi muutos on luotu %{amendable_title}. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija tai seuraa %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Uusi tarkistus %{amendable_title} sta %{emendation_author_nickname}
+          notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uutta tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Hyväksyntä on hyväksytty %{amendable_title}. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija tai seuraa %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: 'Hyväksytään tarkistus %{amendable_title} : ksi %{emendation_author_nickname}'
+          notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
