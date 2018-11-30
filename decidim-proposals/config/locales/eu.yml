@@ -529,6 +529,7 @@ eu:
       new:
         limit_reached: Ezin duzu proposamen berririk sortu muga gainditu zenuenetik.
       participatory_text_proposal:
+        alternative_title: Une honetan ez dago partaidetzazko testurik
         buttons:
           comment: Iruzkina
           comments: Oharrak
