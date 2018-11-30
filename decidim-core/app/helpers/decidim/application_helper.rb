@@ -27,8 +27,9 @@ module Decidim
       Truncato.truncate(text, options)
     end
 
-    def present(object)
-      presenter = "#{object.class.name}Presenter".constantize.new(object)
+    def present(object, presenter_class: nil)
+      presenter_class ||= "#{object.class.name}Presenter".constantize
+      presenter = presenter_class.new(object)
 
       yield(presenter) if block_given?
 
