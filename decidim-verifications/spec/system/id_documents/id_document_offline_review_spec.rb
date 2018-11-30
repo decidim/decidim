@@ -61,7 +61,7 @@ describe "Identity document offline review", type: :system do
   private
 
   def submit_verification_form(doc_type:, doc_number:, user_email: user.email)
-    fill_in "Email", with: user_email
+    fill_in "User email", with: user_email
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
 
