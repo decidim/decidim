@@ -35,6 +35,9 @@ nl:
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
     models:
+      decidim/amendment:
+        one: Amendement
+        other: wijzigingen
       decidim/user:
         one: Geen gebruikers
         other: gebruikers
@@ -125,6 +128,52 @@ nl:
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
+    amendments:
+      accepted:
+        error: Er is een fout opgetreden bij het accepteren van de bevestiging. Probeer het later opnieuw.
+        success: Deze bevestiging is met succes geaccepteerd.
+      amendable:
+        amended_by: Gewijzigd door
+        button: Wijzigen %{model_name}
+        error: Er is een fout opgetreden bij het wijzigen van deze bron.
+        help_text: Verbeter deze %{model_name} door zijn %{amendable_fields}
+        no_amenders: Er zijn geen amendementen
+        no_amendments: Er zijn geen amendementen
+        section_heading: Wijzigingen (%{count})
+      created:
+        error: Er is een fout opgetreden bij het maken van dit amendement, probeer het later opnieuw
+        success: Het amendement is met succes gemaakt
+      emendation:
+        actions:
+          button_accept: Aanvaarden
+          button_reject: afwijzen
+          help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur (s).
+        announcement:
+          accepted: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link} is
+            geaccepteerd op <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Dit is een verbetering voor de %{amendable_type} %{amendable_link}
+            wordt geëvalueerd.
+          publish_as: publiceer deze emendatie als een onafhankelijke %{amendable_type}
+          rejected: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            werd afgewezen op <strong>%{announcement_date}</strong>.<br>
+            U kunt %{publish_as_button}.
+          withdrawn: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            is door de auteur ingetrokken.
+      new:
+        amendment_author: Amendement auteur
+        back: Terug
+        heading: Maak uw amendement
+        help_text: U wijzigt de %{model_name}
+        send: Verstuur emendation
+      review:
+        back: Terug
+        heading: Bekijk het amendement
+        help_text: U wijzigt de %{model_name}
+        send: Accepteer emendation
     anonymous_user: Anoniem
     application:
       collection:
@@ -211,6 +260,7 @@ nl:
         name: Voorbeeld onderdeel
         settings:
           global:
+            amendments_enabled: Wijzigingen ingeschakeld
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
@@ -326,6 +376,17 @@ nl:
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
         title: De opgevraagde pagina kan niet gevonden worden
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: U hebt deze melding ontvangen omdat u een auteur bent of %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een nieuw amendement voor %{amendable_title} van %{emendation_author_nickname}
+          notification_title: Een <a href="%{emendation_path}">nieuwe emendatie</a> is gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: U hebt deze melding ontvangen omdat u een auteur bent of %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+          notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
