@@ -9,7 +9,7 @@ module Decidim
     let(:current_component) { create :proposal_component, manifest_name: "proposals" }
     let(:organization) { current_component.organization }
     let(:scope1) { create :scope, organization: organization }
-    let(:author) { create(:user, organization: organization)}
+    let(:author) { create(:user, organization: organization) }
     let!(:proposal) do
       create(
         :proposal,
@@ -38,6 +38,7 @@ module Decidim
 
           context "when proposals ARE official" do
             let(:author) { organization }
+
             before do
               proposal.update(published_at: Time.current)
             end

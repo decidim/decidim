@@ -66,7 +66,7 @@ module Decidim
                           A: :search_title,
                           datetime: :published_at
                         },
-                        index_on_create: ->(proposal) { proposal.official?},
+                        index_on_create: ->(proposal) { proposal.official? },
                         index_on_update: ->(proposal) { proposal.visible? })
 
       def self.order_randomly(seed)
