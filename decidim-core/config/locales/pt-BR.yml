@@ -684,6 +684,8 @@ pt-BR:
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
+    open_data:
+      not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
     own_user_groups:
       index:
         pending: Pendente
@@ -1054,6 +1056,7 @@ pt-BR:
       edit_link:
         edit: Editar
       footer:
+        download_open_data: Baixar arquivos Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
         close_menu: Fechar menu
