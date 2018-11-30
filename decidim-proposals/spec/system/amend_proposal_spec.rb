@@ -108,7 +108,7 @@ describe "Amend Proposal", type: :system do
 
           expect(page).to have_content(emendation.title)
           expect(page).to have_content(emendation.body)
-          expect(page).to have_css(".card__text--status", text: emendation.state.upcase)
+          expect(page).to have_css(".card__text--status", text: "EVALUATING")
         end
       end
     end
@@ -156,7 +156,7 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is changed the state of the emendation" do
-              expect(page).to have_css(".success", text: "ACCEPTED")
+              expect(page).to have_css(".success", text: "Accepted")
             end
           end
         end
@@ -173,7 +173,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".alert", text: "REJECTED")
+            expect(page).to have_css(".alert", text: "Rejected")
           end
         end
       end

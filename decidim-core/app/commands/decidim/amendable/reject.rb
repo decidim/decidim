@@ -27,8 +27,6 @@ module Decidim
         transaction do
           @emendation.update state: "rejected"
           reject_amendment!
-
-          # The proposal authors and followers are notified that the emendation has been rejected.
           notify_emendation_authors_and_followers
         end
 
