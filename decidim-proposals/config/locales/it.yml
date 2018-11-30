@@ -529,6 +529,7 @@ it:
       new:
         limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
       participatory_text_proposal:
+        alternative_title: Al momento non ci sono testi di partecipazione
         buttons:
           comment: Commento
           comments: Commenti
