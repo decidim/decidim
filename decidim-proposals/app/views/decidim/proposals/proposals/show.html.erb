@@ -12,6 +12,7 @@
     </div>
   </div>
 <% end %>
+<%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
   <h2 class="heading2"><%= present(@proposal).html_title %></h2>
   <% unless component_settings.participatory_texts_enabled? %>
@@ -22,7 +23,12 @@
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% else %>
+      <%= amend_button_for @proposal %>
     <% end %>
+
+    <%= emendation_actions_for @emendation_form if @emendation_form %>
+
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
       <div class="card">
         <div class="card__content">
@@ -36,6 +42,9 @@
         </div>
       </div>
     <% end %>
+
+    <%= amenders_list_for(@proposal) %>
+
     <%= resource_reference(@proposal) %>
     <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
@@ -83,6 +92,7 @@
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
     <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
+    <%= amendments_for @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>

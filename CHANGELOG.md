@@ -59,8 +59,16 @@ Decidim.register_resource(:my_resource) do |resource|
 end
 ```
 
+In order to generate Open Data exports you should add this to your crontab or recurring jobs manager:
+
+```ruby
+  bundle exec rake decidim:open_data:export
+```
+
 **Added**:
 
+- **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component with these working functionalities: create/withdraw/accept amendments. [\#3985](https://github.com/decidim/decidim/pull/3985/)
+- **decidim-meetings**: Add registration form answers when exporting meeting registrations.[\#4589](https://github.com/decidim/decidim/pull/4589)
 - **decidim-core**: Trigger an ActiveSupport::Notification after registering via OmniAuth. [\#4565](https://github.com/decidim/decidim/pull/4565)
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
 - **decidim-proposals**: Admin can create proposals from the admin panel, with a meeting as an author.[\#4382](https://github.com/decidim/decidim/pull/4382)
@@ -86,6 +94,7 @@ end
 - **decidim-core**: Adds default pages and contextual help when creating organizations [\#4541](https://github.com/decidim/decidim/pull/4541)
 - **decidim-core**: Adds a user activity tab on the public profile. [\#4570](https://github.com/decidim/decidim/pull/4570)
 - **decidim-core**: Adds a user timeline tab on the public profile. [\#4574](https://github.com/decidim/decidim/pull/4574)
+- **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
 
 **Changed**:
 
@@ -103,9 +112,11 @@ end
 - **decidim-proposals**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
 - **decidim-admin**: Rename "Officializations" section to "Participants" [\#4510](https://github.com/decidim/decidim/pull/4510)
 - **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
+- **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
 
 **Fixed**:
 
+- **decidim-proposals** Keep proposal new values for title and body when editing and receiving an error message [\#4592](https://github.com/decidim/decidim/pull/4592)
 - **decidim-proposals** Don't show `undefined` option when there is no hashtag to autocomplete after \# [\#4590](https://github.com/decidim/decidim/pull/4590)
 - **decidim-conferences**: Make price optional, and remove weird margin top on program view [\#4564](https://github.com/decidim/decidim/pull/4564)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4535](https://github.com/decidim/decidim/pull/4535)

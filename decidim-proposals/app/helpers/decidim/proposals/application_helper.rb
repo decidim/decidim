@@ -36,9 +36,11 @@ module Decidim
         when "rejected"
           "text-alert"
         when "evaluating"
-          "text-info"
-        else
           "text-warning"
+        when "withdrawn"
+          "text-alert"
+        else
+          "text-info"
         end
       end
 

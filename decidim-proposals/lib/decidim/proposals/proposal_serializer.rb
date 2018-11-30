@@ -16,23 +16,33 @@ module Decidim
       # Public: Exports a hash with the serialized data for this proposal.
       def serialize
         {
-          id: @proposal.id,
+          id: proposal.id,
           category: {
-            id: @proposal.category.try(:id),
-            name: @proposal.category.try(:name)
+            id: proposal.category.try(:id),
+            name: proposal.category.try(:name)
           },
           scope: {
-            id: @proposal.scope.try(:id),
-            name: @proposal.scope.try(:name)
+            id: proposal.scope.try(:id),
+            name: proposal.scope.try(:name)
           },
-          title: present(@proposal).title,
-          body: present(@proposal).body,
-          supports: @proposal.proposal_votes_count,
-          comments: @proposal.comments.count,
-          published_at: @proposal.published_at,
-          url: url,
+          participatory_space: {
+            id: proposal.participatory_space.id,
+            url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
+          },
           component: { id: component.id },
-          meeting_urls: meetings
+          title: present(proposal).title,
+          body: present(proposal).body,
+          state: proposal.state.to_s,
+          reference: proposal.reference,
+          supports: proposal.proposal_votes_count,
+          endorsements: proposal.endorsements.count,
+          comments: proposal.comments.count,
+          attachments: proposal.attachments.count,
+          followers: proposal.followers.count,
+          published_at: proposal.published_at,
+          url: url,
+          meeting_urls: meetings,
+          related_proposals: related_proposals
         }
       end
 
@@ -45,8 +55,14 @@ module Decidim
       end
 
       def meetings
-        @proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
+        proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
           Decidim::ResourceLocatorPresenter.new(meeting).url
+        end
+      end
+
+      def related_proposals
+        proposal.linked_resources(:proposals, "copied_from_component").map do |proposal|
+          Decidim::ResourceLocatorPresenter.new(proposal).url
         end
       end
 
