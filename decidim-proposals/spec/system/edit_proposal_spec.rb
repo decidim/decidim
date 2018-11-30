@@ -30,9 +30,11 @@ describe "Edit proposals", type: :system do
 
       expect(page).to have_content "EDIT PROPOSAL"
 
-      fill_in "Title", with: new_title
-      fill_in "Body", with: new_body
-      click_button "Send"
+      within "form.edit_proposal" do
+        fill_in :proposal_title, with: new_title
+        fill_in :proposal_body, with: new_body
+        click_button "Send"
+      end
 
       expect(page).to have_content(new_title)
       expect(page).to have_content(new_body)
@@ -49,10 +51,30 @@ describe "Edit proposals", type: :system do
 
         expect(page).to have_content "EDIT PROPOSAL"
 
-        fill_in "Body", with: "A"
-        click_button "Send"
+        within "form.edit_proposal" do
+          fill_in :proposal_body, with: "A"
+          click_button "Send"
+        end
 
         expect(page).to have_content("is using too many capital letters (over 25% of the text), is too short (under 15 characters)")
+      end
+
+      it "keeps the submitted values" do
+        visit_component
+
+        click_link proposal.title
+        click_link "Edit proposal"
+
+        expect(page).to have_content "EDIT PROPOSAL"
+
+        within "form.edit_proposal" do
+          fill_in :proposal_title, with: "A title with a #hashtag"
+          fill_in :proposal_body, with: "Ỳü"
+        end
+        click_button "Send"
+
+        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_content("Ỳü")
       end
     end
   end

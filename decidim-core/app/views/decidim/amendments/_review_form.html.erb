@@ -1,0 +1,19 @@
+<%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
+
+  <%= form.fields_for :emendation_fields, form.object.emendation_fields do |emendation_form| %>
+    <% @form.emendation.attributes.each do |key, value| %>
+      <% key = key.to_sym %>
+      <% if @form.emendation.fields.include?(key) %>
+        <div class="field">
+          <%= emendation_form.form_field_for key %>
+        </div>
+      <% else %>
+        <%= emendation_form.hidden_field key, value: value %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit t("send", scope: "decidim.amendments.review"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+  </div>
+<% end %>

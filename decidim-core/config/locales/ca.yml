@@ -777,6 +777,7 @@ ca:
         following: Segueix
         groups: Grups
         members: Membres
+        timeline: Cronologia
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
@@ -1053,6 +1054,7 @@ ca:
       edit_link:
         edit: Edita
       footer:
+        download_open_data: Descarregar dades Open Data
         made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
