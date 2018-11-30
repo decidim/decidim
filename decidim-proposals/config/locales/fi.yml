@@ -69,6 +69,7 @@ fi:
         name: Ehdotukset
         settings:
           global:
+            amendments_enabled: Hyväksytyt tarkistukset
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
