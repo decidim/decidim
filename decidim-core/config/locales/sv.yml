@@ -35,6 +35,9 @@ sv:
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
     models:
+      decidim/amendment:
+        one: Ändring
+        other: Tillägg
       decidim/user:
         one: Inga användare
         other: användare
@@ -125,6 +128,52 @@ sv:
       user_group:
         reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
         verify: "%{user_name} verifierade användargruppen %{resource_name}"
+    amendments:
+      accepted:
+        error: Ett fel uppstod med att acceptera emmendation, var god försök igen senare.
+        success: Denna överföring har godkänts framgångsrikt.
+      amendable:
+        amended_by: Ändrad av
+        button: Ändra %{model_name}
+        error: Det har inträffat ett fel vid ändring av denna resurs.
+        help_text: Förbättra detta %{model_name} genom att ändra dess %{amendable_fields}
+        no_amenders: Det finns inga ändringsförslag
+        no_amendments: Det finns inga ändringar
+        section_heading: Ändringar (%{count})
+      created:
+        error: Ett fel uppstod för att skapa detta ändringsförslag, försök igen senare
+        success: Ändringen har skapats med framgång
+      emendation:
+        actions:
+          button_accept: Acceptera
+          button_reject: Avvisa
+          help_text: Granska ändringarna och acceptera eller avslå detta ändringsförslag. En anmälan kommer att skickas till dess författare (er).
+        announcement:
+          accepted: |-
+            Denna utgåva för %{amendable_type} %{amendable_link} har blivit
+            accepterad på <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Detta är en emendation för %{amendable_type} %{amendable_link}
+            utvärderas.
+          publish_as: publicera denna utgåva som en oberoende %{amendable_type}
+          rejected: |-
+            Denna utgåva för %{amendable_type} %{amendable_link}
+            avvisades på <strong>%{announcement_date}</strong>.<br>
+            Du kan %{publish_as_button}.
+          withdrawn: |-
+            Denna utgåva för %{amendable_type} %{amendable_link}
+            har dragits tillbaka av författaren.
+      new:
+        amendment_author: Ändringsförfattare
+        back: Tillbaka
+        heading: Skapa ditt ändringsförslag
+        help_text: Du ändrar %{model_name}
+        send: Skicka emendation
+      review:
+        back: Tillbaka
+        heading: Granska ändringen
+        help_text: Du ändrar %{model_name}
+        send: Godkänn emendation
     anonymous_user: Anonym
     application:
       collection:
@@ -211,6 +260,7 @@ sv:
         name: Dummy Komponent
         settings:
           global:
+            amendments_enabled: Ändringar möjliga
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
@@ -326,6 +376,17 @@ sv:
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
         title: Sidan du söker kan inte hittas
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du är en författare eller följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
+          notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du är en författare eller följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
+          notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
