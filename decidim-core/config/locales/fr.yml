@@ -684,6 +684,8 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
+    open_data:
+      not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     own_user_groups:
       index:
         pending: En attente
@@ -1054,6 +1056,7 @@ fr:
       edit_link:
         edit: Modifier
       footer:
+        download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
