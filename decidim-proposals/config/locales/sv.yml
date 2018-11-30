@@ -69,6 +69,7 @@ sv:
         name: Förslag
         settings:
           global:
+            amendments_enabled: Ändringar möjliga
             announcement: Notis
             attachments_allowed: Tillåt bifogade filer
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd bortom tröskeln
