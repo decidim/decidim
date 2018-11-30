@@ -684,6 +684,8 @@ fi:
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
+    open_data:
+      not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutamassa minuutissa.
     own_user_groups:
       index:
         pending: Odottaa
@@ -1054,6 +1056,7 @@ fi:
       edit_link:
         edit: Muokkaa
       footer:
+        download_open_data: Lataa Open Data -tiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
