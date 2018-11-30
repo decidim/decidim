@@ -333,6 +333,7 @@ de:
       assemblies: Baugruppen
     metrics:
       assemblies:
+        description: Anzahl der erstellten Baugruppen
         object: Baugruppen
         title: Baugruppen
   errors:

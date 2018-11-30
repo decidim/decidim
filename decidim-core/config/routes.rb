@@ -85,6 +85,8 @@ Decidim::Core::Engine.routes.draw do
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "groups", to: "profiles#groups", as: "profile_groups"
     get "members", to: "profiles#members", as: "profile_members"
+    get "activity", to: "user_activities#index", as: "profile_activity"
+    get "timeline", to: "user_timeline#index", as: "profile_timeline"
   end
 
   resources :pages, only: [:index, :show], format: false
@@ -101,6 +103,8 @@ Decidim::Core::Engine.routes.draw do
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
+
+  get "/open-data/download", to: "open_data#download", as: :open_data_download
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]

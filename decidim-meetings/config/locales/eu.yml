@@ -362,7 +362,7 @@ eu:
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           remaining_slots:
-            one: '%{count} slot geratzen da'
+            one: "%{count} slot geratzen da"
             other: "%{count} slot geratzen dira"
           view: ikusi
       meetings_map:
@@ -406,6 +406,7 @@ eu:
         transparent: gardena
     metrics:
       meetings:
+        description: Bilera kopurua sortu da
         object: bilerak
         title: Bilerak
     participatory_processes:

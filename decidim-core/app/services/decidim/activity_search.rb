@@ -6,9 +6,15 @@ module Decidim
     # Needed by Searchlight, this is the base query that will be used to
     # append other criteria to the search.
     def base_query
-      ActionLog
-        .where(visibility: %w(public-only all))
-        .where(organization: options.fetch(:organization))
+      query = ActionLog
+              .where(visibility: %w(public-only all))
+              .where(organization: options.fetch(:organization))
+
+      query = query.where(user: options[:user]) if options[:user]
+
+      query = filter_follows(query)
+
+      query
     end
 
     # Overwrites the default Searchlight run method since we want to return
@@ -71,6 +77,49 @@ module Decidim
           "create",
           (resource_types - publicable_resource_types)
         )
+    end
+
+    def filter_follows(query)
+      follows = options[:follows]
+      return query if follows.blank?
+
+      conditions = follows.group_by(&:decidim_followable_type).map do |type, grouped_follows|
+        Decidim::ActionLog.arel_table[:resource_type].eq(type).and(
+          Decidim::ActionLog.arel_table[:resource_id].in(grouped_follows.map(&:decidim_followable_id))
+        )
+      end
+
+      conditions += followed_users_conditions(follows)
+      conditions += followed_spaces_conditions(follows)
+
+      chained_conditions = conditions.inject do |previous_condition, condition|
+        next condition unless previous_condition
+        previous_condition.or(condition)
+      end
+
+      query.where(chained_conditions)
+    end
+
+    def followed_users_conditions(follows)
+      followed_users = follows.where(decidim_followable_type: "Decidim::UserBaseEntity")
+      return [] if followed_users.empty?
+
+      [Decidim::ActionLog.arel_table[:decidim_user_id].in(followed_users.map(&:decidim_followable_id))]
+    end
+
+    def followed_spaces_conditions(follows)
+      followed_spaces = follows.where(decidim_followable_type: participatory_space_classes)
+      return [] if followed_spaces.empty?
+
+      followed_spaces.group_by(&:decidim_followable_type).map do |type, grouped_follows|
+        Decidim::ActionLog.arel_table[:participatory_space_type].eq(type).and(
+          Decidim::ActionLog.arel_table[:participatory_space_id].in(grouped_follows.map(&:decidim_followable_id))
+        )
+      end
+    end
+
+    def participatory_space_classes
+      Decidim.participatory_space_manifests.map(&:model_class_name)
     end
   end
 end

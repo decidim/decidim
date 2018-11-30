@@ -48,8 +48,8 @@ hu:
         one: Válasz
         other: Válaszok
       decidim/consultations/vote:
-        one: Szavazat
-        other: Szavazatok
+        one: Szavazás
+        other: Szavazás
   decidim:
     admin:
       actions:

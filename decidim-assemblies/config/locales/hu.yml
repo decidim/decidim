@@ -333,6 +333,7 @@ hu:
       assemblies: Gyűlések
     metrics:
       assemblies:
+        description: A létrehozott összeszerelések száma
         object: szerelvények
         title: szerelvények
   errors:

@@ -35,6 +35,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha nova enquisa en %{participatory_space_title}
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    metrics:
+      survey_answers:
+        description: Número de enquisas respondidas polos usuarios
+        object: respostas a enquisas
+        title: Respostas a enquisas
     surveys:
       admin:
         exports:

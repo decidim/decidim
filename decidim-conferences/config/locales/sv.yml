@@ -43,8 +43,8 @@ sv:
         one: Konferenshögtalare
         other: Konferenshögtalare
       decidim/conference_user_role:
-        one: En konferens användarroll
-        other: Konference användarroller
+        one: Konferens användarroll
+        other: Konferens användarroll
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ sv:
           cancel: Annullera
           confirm: Bekräfta
         show:
+          free: Fri
           going: Gående
           no_slots_available: Inga slots tillgängliga
           registration: Registrering

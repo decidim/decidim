@@ -265,6 +265,7 @@ nl:
       processes: Thema's
     metrics:
       participatory_processes:
+        description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
     participatory_process_groups:

@@ -44,7 +44,7 @@ fi:
         other: Konferenssin puhujat
       decidim/conference_user_role:
         one: Konferenssin käyttäjärooli
-        other: Konferenssin käyttäjäroolit
+        other: Konferenssin käyttäjäroolia
   decidim:
     admin:
       actions:
@@ -154,7 +154,7 @@ fi:
           conference_admins: Konferenssin käyttäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
-          diploma: Tutkintotodistus
+          diploma: Diplomi
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
@@ -252,10 +252,10 @@ fi:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
-        send_conference_diplomas: "%{user_name} lähettää tutkintotodistuksia %{resource_name} konferenssin käyttäjälle"
+        send_conference_diplomas: "%{user_name} lähetti diplomit konferenssin %{resource_name} käyttäjille"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
-        update_diploma: "%{user_name} päivitti tutkintotodistuksen %{resource_name} konferenssin"
+        update_diploma: "%{user_name} päivitti diplomeita konferenssille %{resource_name}"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
@@ -335,8 +335,8 @@ fi:
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
-            save: Tallentaa
-            title: Tutkintotodistus
+            save: Tallenna
+            title: Diplomi
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
@@ -352,19 +352,20 @@ fi:
             title: Ilmoittautumistyypit
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Löydät kokeen <a href="%{url}">%{title}</a> diplomin liitteissä.
+            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> diplomin liitteistä.
           diploma_user:
-            attendance_verified_by: Osallistuminen on vahvistanut
+            attendance_verified_by: Osallistuminen vahvistettu
             certificate_of_attendance: Läsnäolotodistus
-            certificate_of_attendance_description: 'Tämän on todistettava, että <strong>%{user}</strong> on osallistunut ja osallistunut <strong>%{title}</strong> pidettiin <strong>%{location}</strong> : ssä <strong>%{start} - %{end}</strong>'
+            certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Kongressin tutkintotodistusten lähettämisessä on ollut ongelma.
-          success: Konferenssitodistukset lähetetään oikein
+          error: Konferenssin diplomeiden lähettämisessä esiintyi ongelma.
+          success: Konferenssin diplomit on lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
         show:
+          free: Maksuton
           going: Osallistumassa
           no_slots_available: Ei paikkoja vapaana
           registration: Ilmoittautuminen
@@ -434,7 +435,7 @@ fi:
             subject: Kutsu konferenssiin
         send_conference_diploma_mailer:
           diploma:
-            subject: Konferenssin tutkintotodistus on lähetetty
+            subject: Konferenssin diplomit on lähetetty
       models:
         conference_invite:
           fields:

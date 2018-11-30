@@ -209,6 +209,7 @@ de:
           notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a>, ist jetzt zu %{progress}% abgeschlossen.
     metrics:
       results:
+        description: Anzahl der erzeugten Verantwortlichkeitsergebnisse
         object: Ergebnisse
         title: Ergebnisse
     participatory_processes:

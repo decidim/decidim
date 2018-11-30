@@ -1,21 +1,24 @@
-<article class="card">
-  <div class="card__content">
-    <% if title.present? %>
-      <div class="card__text">
-        <div class="text-medium">
-          <span class="icon--container">
-            <%= resource_icon resource, class: "primary" %>&nbsp;
-            <%= title %>
-          </span>
-        </div>
+<article class="card card--widget">
+  <ul class="card-data">
+    <li class="card-data__item">
+      <div class="card__link text-center">
+        <%= resource_icon resource, class: "icon--large" %>
+        <span class="text-medium mt-xs"><%= created_at %></span>
       </div>
-    <% end %>
-    <div class="card__header mb-none">
-      <%= link_to resource_link_path, class: "card__link" do %>
-        <h5 class="card__title mb-none">
-          <%= html_truncate resource_link_text, length: 100 %>
-        </h5>
-      <% end %>
-    </div>
-  </div>
+    </li>
+    <li class="card-data__item card-data__item--expand">
+      <div>
+        <%= author %>
+        <% if title.present? %>
+          <span class="text-small"><%= title %></span>
+        <% end %>
+        <%= link_to resource_link_path, class: "card__link" do %>
+          <h5 class="card__title mb-none">
+            <%= html_truncate resource_link_text, length: 100 %>
+          </h5>
+        <% end %>
+        <%= description %>
+      </div>
+    </li>
+  </ul>
 </article>

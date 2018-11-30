@@ -362,7 +362,7 @@ fi:
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           remaining_slots:
-            one: '%{count} paikka jäljellä'
+            one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
       meetings_map:
@@ -406,6 +406,7 @@ fi:
         transparent: Läpinäkyvä
     metrics:
       meetings:
+        description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
     participatory_processes:

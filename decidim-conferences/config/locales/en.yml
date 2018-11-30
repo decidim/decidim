@@ -44,7 +44,7 @@ en:
         other: Conference speakers
       decidim/conference_user_role:
         one: Conference user role
-        other: Conference user role
+        other: Conference user roles
   decidim:
     admin:
       actions:

@@ -362,7 +362,7 @@ ca:
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
           remaining_slots:
-            one: '%{count} espai restant'
+            one: "%{count} espai restant"
             other: "%{count} places restants restants"
           view: Veure
       meetings_map:
@@ -406,6 +406,7 @@ ca:
         transparent: Transparent
     metrics:
       meetings:
+        description: Nombre de reunions creades
         object: trobades
         title: Trobades
     participatory_processes:

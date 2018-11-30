@@ -12,5 +12,9 @@ module Decidim
       options = options.reverse_merge(views_prefix: "../views/")
       super
     end
+
+    def per_page
+      params[:per_page] || Decidim::Paginable::OPTIONS.first
+    end
   end
 end

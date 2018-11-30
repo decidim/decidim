@@ -91,6 +91,7 @@ fi:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
     metrics:
       comments:
+        description: Käyttäjien kirjoittamien kommenttien määrä
         object: kommentit
         title: Kommentit
   errors:
