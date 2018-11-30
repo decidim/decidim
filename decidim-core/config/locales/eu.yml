@@ -684,6 +684,8 @@ eu:
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
+    open_data:
+      not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
     own_user_groups:
       index:
         pending: Zain
@@ -1054,6 +1056,7 @@ eu:
       edit_link:
         edit: Editatu
       footer:
+        download_open_data: Deskargatu Open Data fitxategiak
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:
         close_menu: Itxi menua
