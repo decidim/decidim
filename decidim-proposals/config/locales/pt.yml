@@ -529,6 +529,7 @@ pt:
       new:
         limit_reached: Você não pode criar novas propostas desde que você excedeu o limite.
       participatory_text_proposal:
+        alternative_title: Não há textos participativos no momento
         buttons:
           comment: Comente
           comments: Comentários
