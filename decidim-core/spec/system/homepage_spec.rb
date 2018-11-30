@@ -343,6 +343,7 @@ describe "Homepage", type: :system do
         Zip::File.open(download_path) do |zipfile|
           expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
           expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
+          expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
         end
       end
     end
