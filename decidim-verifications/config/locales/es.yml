@@ -20,6 +20,11 @@ es:
     admin:
       menu:
         authorization_workflows: Verificaciones
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} actualizado la configuración de verificación de documentos de identidad."
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} utilizando una verificación fuera de línea de documentos de identidad"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +75,13 @@ es:
           other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Configuración de documentos de identidad.
+              update: Actualizar
+            update:
+              error: Se ha producido un error al actualizar la configuración.
+              success: Configuración exitosamente actualizada
           confirmations:
             create:
               error: La verificación no coincide. Inténtalo de nuevo o rechaza la verificación para que el usuario pueda modificarla
@@ -78,9 +90,15 @@ es:
               introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
+          offline_confirmations:
+            create:
+              error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
+              success: Usuario verificado correctamente
+            new:
+              cancel: Cancelar
+              introduce_user_data: Introduzca el correo electrónico del usuario y los datos del documento.
           pending_authorizations:
             index:
-              title: Verificaciones pendientes
               verification_number: 'Verificación #%{n}'
           rejections:
             create:
