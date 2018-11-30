@@ -79,6 +79,7 @@ pl:
         name: Propozycje
         settings:
           global:
+            amendments_enabled: Poprawione włączone
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
