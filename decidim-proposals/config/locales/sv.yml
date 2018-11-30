@@ -529,6 +529,7 @@ sv:
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
+        alternative_title: Det finns inga deltagande texter just nu
         buttons:
           comment: Kommentar
           comments: kommentarer
