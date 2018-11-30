@@ -20,6 +20,11 @@ ca:
     admin:
       menu:
         authorization_workflows: Verificacions
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} actualitzat la configuració de verificació de Documents d'identitat"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificat %{resource_name} utilitzant una verificació de documents d'identitat fora de línia"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +75,13 @@ ca:
           other: 'La participació està restringida als usuaris amb algun dels següents codis postals: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Configuració dels documents d'identitat
+              update: Actualització
+            update:
+              error: S'ha produït un error en actualitzar la configuració.
+              success: La configuració s'ha actualitzat correctament
           confirmations:
             create:
               error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
@@ -78,19 +90,36 @@ ca:
               introduce_user_data: Introdueix les dades de la imatge
               reject: Rebutjar
               verify: Verificar
+          offline_confirmations:
+            create:
+              error: La verificació no coincideix. Torna-ho a provar o digueu-li a l'usuari que la modifiqui
+              success: S'ha verificat l'usuari correctament
+            new:
+              cancel: Cancel · lar
+              introduce_user_data: Introduïu el correu electrònic de l'usuari i les dades del document
+              verify: Verifica
           pending_authorizations:
             index:
-              title: Verificacions pendents
+              config: Configuració
+              offline_verification: Verificació fora de línia
+              title: Verificacions pendents en línia
               verification_number: 'Verificació #%{n}'
           rejections:
             create:
               success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
         authorizations:
+          choose:
+            choose_a_type: "Seleccioneu com voleu verificar:"
+            offline: Fora de línia
+            online: En línia
+            title: Verifica't utilitzant el teu document d'identitat
           create:
             error: S'ha produït un problema en penjar el document
             success: Document penjat correctament
           edit:
             being_reviewed: Estem revisant els teus documents. Et verificarem aviat
+            offline: Utilitzeu la verificació fora de línia
+            online: Utilitzeu la verificació en línia
             rejection_clarity: Assegura't que la informació sigui visible a la imatge carregada
             rejection_correctness: Assegura't que la informació introduïda sigui correcta
             rejection_notice: S'ha produït un problema amb la teva verificació. Siusplau torna-ho a provar
