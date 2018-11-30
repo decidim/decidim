@@ -2,7 +2,7 @@
 
 module Decidim
   module Amendable
-    # A form object used to reject emmendations
+    # A form object used to reject emendations
     class RejectForm < Decidim::Amendable::Form
       mimic :reject_amend
 

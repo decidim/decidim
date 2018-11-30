@@ -156,7 +156,7 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is changed the state of the emendation" do
-              expect(page).to have_css(".success", text: emendation.state.capitalize)
+              expect(page).to have_css(".success", text: "ACCEPTED")
             end
           end
         end
@@ -173,7 +173,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".alert", text: emendation.state.capitalize)
+            expect(page).to have_css(".alert", text: "REJECTED")
           end
         end
       end
