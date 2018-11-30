@@ -215,8 +215,8 @@ module Decidim
       # Checks whether the ActionLog created in the promote command exists.
       def already_promoted
         logs = Decidim::ActionLog.where(decidim_component_id: component)
-        .where(decidim_user_id: creator_author).where(action: :create)
-        log = logs.select { |log| log.extra.key?("promoted_from") }&.first
+                                 .where(decidim_user_id: creator_author).where(action: :create)
+        log = logs.select { |l| l.extra.has_key?("promoted_from") }&.first
         log.extra["promoted_from"] == id if log.present?
       end
 
