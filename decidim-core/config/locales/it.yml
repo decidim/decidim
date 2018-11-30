@@ -35,6 +35,9 @@ it:
         password_confirmation: Conferma della password
         remember_me: Ricordare password
     models:
+      decidim/amendment:
+        one: Emendamento
+        other: Modifiche
       decidim/user:
         one: Nessun utente
         other: utenti
@@ -125,6 +128,52 @@ it:
       user_group:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
+    amendments:
+      accepted:
+        error: Si è verificato un errore durante l'accettazione dell'emendamento, riprova più tardi.
+        success: Questa emendamento è stato accettato con successo.
+      amendable:
+        amended_by: Modificato da
+        button: Modificare %{model_name}
+        error: Si è verificato un errore durante la modifica di questa risorsa.
+        help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
+        no_amenders: Non ci sono emendatori
+        no_amendments: Non ci sono emendamenti
+        section_heading: Emendamenti (%{count})
+      created:
+        error: Si è verificato un errore durante la creazione di questo emendamento, riprovare più tardi
+        success: L'emendamento è stato creato con successo
+      emendation:
+        actions:
+          button_accept: Accettare
+          button_reject: Rifiutare
+          help_text: Esaminare le modifiche e accettare o rifiutare questo emendamento. Una notifica verrà inviata al suo autore (s).
+        announcement:
+          accepted: |-
+            Questa emendazione per lo %{amendable_type} %{amendable_link} è stata
+            accettata su <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Questa è una emendazione per lo %{amendable_type} %{amendable_link}
+            è in fase di valutazione.
+          publish_as: pubblica questa emendazione come %{amendable_type}indipendente
+          rejected: |-
+            Questa emendazione per lo %{amendable_type} %{amendable_link}
+            stata respinta su <strong>%{announcement_date}</strong>.<br>
+            Puoi %{publish_as_button}.
+          withdrawn: |-
+            Questa emendazione per lo %{amendable_type} %{amendable_link}
+            è stata ritirata dall'autore.
+      new:
+        amendment_author: Autore dell'autore
+        back: Indietro
+        heading: Crea il tuo emendamento
+        help_text: Stai modificando lo %{model_name}
+        send: Invia emendation
+      review:
+        back: Indietro
+        heading: Rivedi l'emendamento
+        help_text: Stai modificando lo %{model_name}
+        send: Accetta l'emendamento
     anonymous_user: Anonimo
     application:
       collection:
@@ -211,6 +260,7 @@ it:
         name: Dummy Component
         settings:
           global:
+            amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
@@ -326,6 +376,17 @@ it:
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
         title: La pagina che stai cercando non è stata trovata
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Una nuova emendazione è stata creata per %{amendable_title}. Puoi vederlo da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché sei un autore o stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Un nuovo emendamento per %{amendable_title} da %{emendation_author_nickname}
+          notification_title: Un <a href="%{emendation_path}">nuovo emendation</a> è stato creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché sei un autore o stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
+          notification_title: Il <a href="%{emendation_path}">emendation</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Un nuovo documento è stato aggiunto a %{resource_title}. Puoi vederlo da questa pagina:'
