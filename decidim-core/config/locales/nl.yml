@@ -684,6 +684,8 @@ nl:
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
         success: Uw notificatie instellingen zijn bijgewerkt.
+    open_data:
+      not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
     own_user_groups:
       index:
         pending: In behandeling
@@ -1054,6 +1056,7 @@ nl:
       edit_link:
         edit: Bewerk
       footer:
+        download_open_data: Download Open Data-bestanden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
