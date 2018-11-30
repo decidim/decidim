@@ -69,6 +69,7 @@ nl:
         name: Voorstellen
         settings:
           global:
+            amendments_enabled: Wijzigingen ingeschakeld
             announcement: Aankondiging
             attachments_allowed: Bijlagen toestaan
             can_accumulate_supports_beyond_threshold: Kan stemmen verzamelen die de limiet overschrijden
