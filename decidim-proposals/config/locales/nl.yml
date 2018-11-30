@@ -529,6 +529,7 @@ nl:
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
       participatory_text_proposal:
+        alternative_title: Er zijn op dit moment geen participatieve teksten
         buttons:
           comment: Commentaar
           comments: Comments
