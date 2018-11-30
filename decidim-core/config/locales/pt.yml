@@ -35,6 +35,9 @@ pt:
         password_confirmation: Confirmação da senha
         remember_me: Recorde-me
     models:
+      decidim/amendment:
+        one: Emenda
+        other: Emendas
       decidim/user:
         one: Nenhum usuário
         other: Comercial
@@ -125,6 +128,52 @@ pt:
       user_group:
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
+    amendments:
+      accepted:
+        error: Ocorreu um erro ao aceitar a recomendação, por favor, tente novamente mais tarde.
+        success: Esta recomendação foi aceita com sucesso.
+      amendable:
+        amended_by: Alterada pela
+        button: Emendar %{model_name}
+        error: Houve um erro ao alterar este recurso.
+        help_text: Melhore este %{model_name} modificando seu %{amendable_fields}
+        no_amenders: Não há emendas
+        no_amendments: Não há alterações
+        section_heading: Alterações (%{count})
+      created:
+        error: Ocorreu um erro ao criar esta alteração, tente novamente mais tarde
+        success: A emenda foi criada com sucesso
+      emendation:
+        actions:
+          button_accept: Aceitar
+          button_reject: Rejeitar
+          help_text: Revise as alterações e aceite ou rejeite esta emenda. Uma notificação será enviada para seu (s) autor (es).
+        announcement:
+          accepted: |-
+            Esta emenda para o %{amendable_type} %{amendable_link} foi
+            aceito em <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Esta é uma emendação para o %{amendable_type} %{amendable_link}
+            está sendo avaliado.
+          publish_as: publicar esta emenda como um %{amendable_type}independente
+          rejected: |-
+            Esta emenda para o %{amendable_type} %{amendable_link}
+            foi rejeitada em <strong>%{announcement_date}</strong>.<br>
+            Você pode %{publish_as_button}.
+          withdrawn: |-
+            Esta emenda para o %{amendable_type} %{amendable_link}
+            foi retirada pelo autor.
+      new:
+        amendment_author: Autor de alteração
+        back: De volta
+        heading: Crie sua emenda
+        help_text: Você está modificando o %{model_name}
+        send: Enviar emenda
+      review:
+        back: De volta
+        heading: Revise a emenda
+        help_text: Você está alterando o %{model_name}
+        send: Aceitar emendação
     anonymous_user: Anônimo
     application:
       collection:
@@ -211,6 +260,7 @@ pt:
         name: Componente manequim
         settings:
           global:
+            amendments_enabled: Alterações ativadas
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
@@ -326,6 +376,17 @@ pt:
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
         title: A página que você procura não pode ser encontrada
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'Uma nova emendação foi criada para %{amendable_title}. Você pode ver a partir desta página:'
+          email_outro: Você recebeu esta notificação porque é um autor ou segue %{amendable_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma nova emenda para %{amendable_title} partir de %{emendation_author_nickname}
+          notification_title: Uma <a href="%{emendation_path}">nova emenda</a> foi criada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_accepted:
+          email_intro: 'Uma emendação foi aceita para %{amendable_title}. Você pode ver a partir desta página:'
+          email_outro: Você recebeu esta notificação porque é um autor ou segue %{amendable_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma emenda aceita para %{amendable_title} partir de %{emendation_author_nickname}
+          notification_title: O <a href="%{emendation_path}">emendation</a> criado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceito para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Um novo documento foi adicionado a %{resource_title}. Você pode vê-lo a partir desta página:'
