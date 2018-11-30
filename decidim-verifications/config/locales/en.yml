@@ -80,7 +80,6 @@ en:
               verify: Verify
           pending_authorizations:
             index:
-              title: Pending verifications
               verification_number: 'Verification #%{n}'
           rejections:
             create:
