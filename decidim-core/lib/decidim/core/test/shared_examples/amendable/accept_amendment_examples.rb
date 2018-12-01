@@ -17,5 +17,14 @@ shared_examples "accept amendment" do
         .and change { amendable.authored_by?(emendation.creator_author) }
         .from(false).to(true)
     end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:update!)
+        .with(amendment, amendable.creator_author, state: "accepted")
+        .and_call_original
+
+      expect { command.call }.to change(Decidim::ActionLog, :count).by(1)
+    end
   end
 end

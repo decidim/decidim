@@ -15,7 +15,8 @@ shared_examples "promote amendment" do
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:create, emendation.resource_manifest.model_class_name.constantize, emendation.creator_author)
+        .with("promote", emendation.resource_manifest.model_class_name.constantize, emendation.creator_author, visibility: "public-only",
+                                                                                                               promoted_from: emendation.id)
         .and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(1)

@@ -27,7 +27,6 @@ module Decidim
 
         transaction do
           accept_amendment!
-          accept_emendation!
           update_amendable!
           notify_amendable_and_emendation_authors_and_followers
         end
@@ -37,20 +36,10 @@ module Decidim
 
       private
 
-      attr_reader :amender, :form
-
       def accept_amendment!
         @amendment = Decidim.traceability.update!(
           @amendment,
-          form.current_user,
-          state: "accepted"
-        )
-      end
-
-      def accept_emendation!
-        @emendation = Decidim.traceability.update!(
-          @emendation,
-          form.current_user,
+          @amendable.creator_author,
           state: "accepted"
         )
       end
@@ -59,13 +48,13 @@ module Decidim
         @amendable.update!(
           amendable_attributes
         )
-        @amendable.add_coauthor(amender, user_group: nil)
+        @amendable.add_coauthor(@amender, user_group: nil)
       end
 
       def amendable_attributes
         {
-          title: form.title,
-          body: form.body
+          title: @form.title,
+          body: @form.body
         }
       end
 

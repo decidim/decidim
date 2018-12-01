@@ -24,7 +24,7 @@ module Decidim
         return broadcast(:invalid) if @form.invalid?
 
         transaction do
-          promote_emendation
+          promote_emendation!
           notify_amendable_and_emendation_authors_and_followers
         end
 
@@ -33,17 +33,15 @@ module Decidim
 
       private
 
-      attr_accessor :form
-
-      def promote_emendation
+      def promote_emendation!
         @promoted_emendation = Decidim.traceability.perform_action!(
-          :create,
-          form.amendable_type.constantize,
+          "promote",
+          @form.amendable_type.constantize,
           @emendation.creator_author,
           visibility: "public-only",
           promoted_from: @emendation.id
         ) do
-          promoted_emendation = form.amendable_type.constantize.new(emendation_attributes)
+          promoted_emendation = @form.amendable_type.constantize.new(emendation_attributes)
           promoted_emendation.add_coauthor(@emendation.creator_author, user_group: nil) if promoted_emendation.is_a?(Decidim::Coauthorable)
           promoted_emendation.save!
           promoted_emendation
@@ -52,12 +50,12 @@ module Decidim
 
       def emendation_attributes
         fields = {}
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.title, current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.body, current_organization: form.current_organization).rewrite
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.title, current_organization: @form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.body, current_organization: @form.current_organization).rewrite
         fields[:title] = parsed_title
         fields[:body] = parsed_body
         fields[:component] = @emendation.component
-        fields[:published_at] = Time.current if form.emendation_type == "Decidim::Proposals::Proposal"
+        fields[:published_at] = Time.current if @form.emendation_type == "Decidim::Proposals::Proposal"
         fields
       end
 

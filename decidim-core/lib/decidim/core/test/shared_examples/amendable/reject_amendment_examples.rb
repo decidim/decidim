@@ -16,7 +16,7 @@ shared_examples "reject amendment" do
 
       expect(Decidim.traceability)
         .to receive(:update!)
-        .with(amendment, form.current_user, kind_of(Hash))
+        .with(amendment, amendable.creator_author, state: "rejected")
         .and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(1)
