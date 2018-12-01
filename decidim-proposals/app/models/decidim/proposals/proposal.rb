@@ -217,7 +217,6 @@ module Decidim
         logs = Decidim::ActionLog.where(decidim_component_id: component)
                                  .where(decidim_user_id: creator_author)
                                  .where(action: "promote")
-        logs = logs.select { |l| l.extra.has_key?("promoted_from") }
         log = logs.select { |l| l.extra["promoted_from"] == id }
         log.present?
       end
