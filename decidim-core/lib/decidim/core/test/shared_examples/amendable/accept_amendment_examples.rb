@@ -21,10 +21,26 @@ shared_examples "accept amendment" do
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:update!)
-        .with(amendment, amendable.creator_author, state: "accepted")
-        .and_call_original
+        .with(
+          amendment,
+          amendable.creator_author,
+          state: "accepted"
+        ).and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(1)
+    end
+
+    it "notifies the change" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(
+          event: "decidim.events.amendments.amendment_accepted",
+          event_class: Decidim::Amendable::AmendmentAcceptedEvent,
+          resource: emendation,
+          recipient_ids: kind_of(Array)
+        )
+
+      command.call
     end
   end
 end

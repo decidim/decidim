@@ -42,7 +42,7 @@ shared_examples "amendment created event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("A <a href=\"#{emendation_path}\">new emendation</a> has been created by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type}.")
+        .to include("A <a href=\"#{emendation_path}\">new emendation</a> has been created by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type}.") # rubocop:disable Metrics/LineLength
     end
   end
 end

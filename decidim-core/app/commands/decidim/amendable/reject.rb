@@ -50,7 +50,7 @@ module Decidim
           event: "decidim.events.amendments.amendment_rejected",
           event_class: Decidim::Amendable::AmendmentRejectedEvent,
           resource: @emendation,
-          recipient_ids: recipients.pluck(:id)
+          recipient_ids: recipients.pluck(:id).uniq
         )
       end
     end

@@ -65,7 +65,7 @@ module Decidim
           event: "decidim.events.amendments.amendment_accepted",
           event_class: Decidim::Amendable::AmendmentAcceptedEvent,
           resource: @emendation,
-          recipient_ids: recipients.pluck(:id)
+          recipient_ids: recipients.pluck(:id).uniq
         )
       end
     end
