@@ -47,6 +47,7 @@ module Decidim
 
     def promote
       @form = Decidim::Amendable::PromoteForm.from_params(params)
+      enforce_permission_to :promote, :amendment, amendment: @form.emendation
 
       Decidim::Amendable::Promote.call(@form) do
         on(:ok) do |proposal|
