@@ -11,8 +11,6 @@ module Decidim
       cell "decidim/amendable/amend_button_card", amendable if amendable.amendable?
     end
 
-
-
     # Renders the emendations of a amendable resource that includes the
     # Amendable concern.
     #

@@ -29,9 +29,9 @@ module Decidim
       def promote_amend_help_text
         content_tag :small do
           t("promote_help_text",
-          scope: "decidim.amendments.amendable",
-          model_name: model_name.downcase,
-          amendable_fields: model.fields.to_sentence)
+            scope: "decidim.amendments.amendable",
+            model_name: model_name.downcase,
+            amendable_fields: model.fields.to_sentence)
         end
       end
 

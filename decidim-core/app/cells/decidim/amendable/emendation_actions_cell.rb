@@ -5,13 +5,11 @@ module Decidim::Amendable
   class EmendationActionsCell < Decidim::ViewModel
     include Decidim::LayoutHelper
 
-    def amendment
-      model.amendment
-    end
+    delegate :amendment, to: :model
 
-      def current_component
-        model.component
-      end
+    def current_component
+      model.component
+    end
 
     def review_amend_path
       decidim.review_amend_path(amendment)
@@ -24,6 +22,7 @@ module Decidim::Amendable
     def accept_button_label
       content = icon "thumb-up"
       content += t(:button_accept, scope: "decidim.amendments.emendation.actions")
+      content
     end
 
     def reject_amend_path
@@ -37,6 +36,7 @@ module Decidim::Amendable
     def reject_button_label
       content = icon "thumb-down"
       content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
+      content
     end
 
     def accept_reject_help_text
