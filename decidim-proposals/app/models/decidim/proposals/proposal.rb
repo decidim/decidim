@@ -205,22 +205,6 @@ module Decidim
         !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
-      # Checks whether the user can promote the given rejected emendation to a proposal.
-      #
-      # user - the user to check for authorship
-      def promotable_by?(user)
-        state == "rejected" && created_by?(user) && !already_promoted
-      end
-
-      # Checks whether the ActionLog created in the promote command exists.
-      def already_promoted
-        logs = Decidim::ActionLog.where(decidim_component_id: component)
-                                 .where(decidim_user_id: creator_author)
-                                 .where(action: "promote")
-        log = logs.select { |l| l.extra["promoted_from"] == id }
-        log.present?
-      end
-
       # Checks whether the user can withdraw the given proposal.
       #
       # user - the user to check for withdrawability.
