@@ -25,9 +25,5 @@ module Decidim
     def user_group
       @user_group ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).find_by(nickname: params[:group_id])
     end
-
-    def membership
-      user_group.memberships.find(params[:id])
-    end
   end
 end
