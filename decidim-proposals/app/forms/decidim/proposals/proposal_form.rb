@@ -57,10 +57,6 @@ module Decidim
         current_component.settings.geocoding_enabled? && has_address
       end
 
-      def extra_hashtags_content
-        @extra_hashtags_content ||= extra_hashtags.map { |hashtag| "##{hashtag}" }.join(" ")
-      end
-
       def extra_hashtags
         @extra_hashtags ||= (component_hashtags_auto + hashtags_suggested).uniq
       end

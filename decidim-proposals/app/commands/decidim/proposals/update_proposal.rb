@@ -101,7 +101,7 @@ module Decidim
       def parsed_extra_hashtags
         @parsed_extra_hashtags ||= Decidim::ContentProcessor.parse_with_processor(
           :hashtag,
-          form.extra_hashtags_content,
+          form.extra_hashtags.map { |hashtag| "##{hashtag}" }.join(" "),
           current_organization: form.current_organization,
           extra_hashtags: true
         ).rewrite
