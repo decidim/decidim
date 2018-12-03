@@ -6,28 +6,26 @@ module Decidim
   module Proposals
     describe PublishCollaborativeDraft do
       let(:component) { create(:proposal_component) }
-      let(:organization) { component.organization }
-      let!(:current_user) { create(:user, organization: organization) }
-      let(:follower) { create(:user, organization: organization) }
-      let(:other_author) { create(:user, organization: organization) }
       let(:state) { :open }
-      let(:collaborative_draft) { create(:collaborative_draft, component: component, state: state, users: [current_user, other_author]) }
-      let!(:follow) { create :follow, followable: current_user, user: follower }
+      let!(:collaborative_draft) { create(:collaborative_draft, component: component, state: state) }
+      let(:current_user) { collaborative_draft.creator_author }
+      let(:command) { described_class.new(collaborative_draft, current_user) }
 
       describe "call" do
-        it "broadcasts ok" do
-          expect { described_class.call(collaborative_draft, current_user) }.to broadcast(:ok)
-        end
+        context "when the user is not a coauthor" do
+          let(:current_user) { create(:user, organization: component.organization) }
 
-        it "broadcasts invalid when the user is not a coauthor" do
-          expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
+          it "broadcasts invalid" do
+            expect(collaborative_draft.authored_by?(current_user)).to eq(false)
+            expect { command.call }.to broadcast(:invalid)
+          end
         end
 
         context "when the resource is withdrawn" do
           let(:state) { :withdrawn }
 
           it "broadcasts invalid" do
-            expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
+            expect { command.call }.to broadcast(:invalid)
           end
         end
 
@@ -35,7 +33,28 @@ module Decidim
           let(:state) { :published }
 
           it "broadcasts invalid" do
-            expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when everything is ok" do
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "creates a new proposal" do
+            expect { command.call }
+              .to change(Decidim::Proposals::Proposal, :count)
+              .by(1)
+          end
+
+          it "transfers the attributes correctly" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.category).to eq(collaborative_draft.category)
+            expect(proposal.scope).to eq(collaborative_draft.scope)
+            expect(proposal.address).to eq(collaborative_draft.address)
           end
         end
       end

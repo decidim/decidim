@@ -119,6 +119,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Fixed**:
 
+- **decidim-proposals** Fix proposals created from collaborative drafts inherited attributes [\#4605](https://github.com/decidim/decidim/pull/4605)
 - **decidim-meetings**: Fix meeting registration form with no questions show as already answered [\#4594](https://github.com/decidim/decidim/pull/4594)
 - **decidim-proposals** Keep proposal new values for title and body when editing and receiving an error message [\#4592](https://github.com/decidim/decidim/pull/4592)
 - **decidim-proposals** Don't show `undefined` option when there is no hashtag to autocomplete after \# [\#4590](https://github.com/decidim/decidim/pull/4590)
