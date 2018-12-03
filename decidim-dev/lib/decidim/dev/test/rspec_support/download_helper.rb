@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DownloadHelper
-  TIMEOUT = 60
+  TIMEOUT = 10
   PATH = Rails.root.join("tmp", "downloads").freeze
 
   def downloads
@@ -40,8 +40,10 @@ end
 RSpec.configure do |config|
   config.include DownloadHelper, download: true
   config.before :each, download: true do
+    driven_by(:headless_chrome)
+    switch_to_default_host
     FileUtils.mkdir_p DownloadHelper::PATH.to_s
-    page.driver.browser.download_path = DownloadHelper::PATH.to_s if page.driver.browser.respond_to?(:download_path=)
+    page.driver.browser.download_path = DownloadHelper::PATH.to_s
     clear_downloads
   end
 end
