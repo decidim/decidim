@@ -36,11 +36,7 @@ module Decidim
         end
 
         transaction do
-          if @proposal.draft?
-            update_draft
-          else
-            update_proposal
-          end
+          update_proposal
           create_attachment if process_attachments?
         end
 
@@ -50,24 +46,6 @@ module Decidim
       private
 
       attr_reader :form, :proposal, :current_user, :attachment
-
-      def update_draft
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-        PaperTrail.request(enabled: false) do
-          @proposal.update!(
-            title: parsed_title,
-            body: parsed_body,
-            category: form.category,
-            scope: form.scope,
-            address: form.address,
-            latitude: form.latitude,
-            longitude: form.longitude
-          )
-          @proposal.coauthorships.clear
-          @proposal.add_coauthor(current_user, decidim_user_group_id: user_group&.id)
-        end
-      end
 
       def update_proposal
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
