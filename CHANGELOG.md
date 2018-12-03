@@ -92,6 +92,7 @@ end
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix admin cannot access public view of private processes [\#4591](https://github.com/decidim/decidim/pull/4591)
 - **decidim-conferences**: Make price optional, and remove weird margin top on program view [\#4564](https://github.com/decidim/decidim/pull/4564)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4535](https://github.com/decidim/decidim/pull/4535)
 - **decidim-meetings**: Change title to description in meetings admin form [\#4483](https://github.com/decidim/decidim/pull/4483)
