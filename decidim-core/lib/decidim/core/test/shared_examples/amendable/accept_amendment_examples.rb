@@ -25,7 +25,7 @@ shared_examples "accept amendment" do
           amendment,
           amendable.creator_author,
           { state: "accepted" },
-          { visibility: "public-only" }
+          visibility: "public-only"
         ).and_call_original
 
       expect(Decidim.traceability)
@@ -34,7 +34,7 @@ shared_examples "accept amendment" do
           amendable,
           emendation.creator_author,
           { body: emendation.body, title: emendation.title },
-          { visibility: "public-only" }
+          visibility: "public-only"
         ).and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(2)

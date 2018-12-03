@@ -18,7 +18,7 @@ shared_examples "reject amendment" do
           amendment,
           amendable.creator_author,
           { state: "rejected" },
-          { visibility: "public-only" }
+          visibility: "public-only"
         ).and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(1)
