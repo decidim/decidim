@@ -1,4 +1,5 @@
 $input-margin: 1.5rem;
+$checkboxes-minimum-width: 200px;
 
 button,
 input,
@@ -93,4 +94,24 @@ textarea{
 
 .is-custom-error-visible{
   display: block;
+}
+
+.checkboxes{
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &::after{ /* Align last row to left */
+    min-width: $checkboxes-minimum-width;
+    content: "";
+  }
+
+  label{
+    min-width: $checkboxes-minimum-width;
+
+    input[type=checkbox]{
+      vertical-align: baseline;
+    }
+  }
 }

@@ -19,6 +19,7 @@ module Decidim
         attribute :position, Integer
         attribute :created_in_meeting, Boolean
         attribute :meeting_id, Integer
+        attribute :hashtags_suggested, Array[String]
 
         validates :title, :body, presence: true, etiquette: true
         validates :title, length: { maximum: 150 }
@@ -38,6 +39,8 @@ module Decidim
 
           self.category_id = model.categorization.decidim_category_id
           self.scope_id = model.decidim_scope_id
+
+          @hashtags_suggested = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
         end
 
         alias component current_component
@@ -76,7 +79,29 @@ module Decidim
 
         def author
           return current_organization unless created_in_meeting?
+
           meeting_as_author
+        end
+
+        def extra_hashtags
+          @extra_hashtags ||= (component_hashtags_auto + hashtags_suggested).uniq
+        end
+
+        def hashtags_suggested
+          downcased_hashtags_suggested = (@hashtags_suggested&.map(&:downcase) || []).to_set
+          component_hashtags_suggested.select { |hashtag| downcased_hashtags_suggested.member?(hashtag.downcase) }
+        end
+
+        def hashtag_suggested_checked?(hashtag)
+          hashtags_suggested.member?(hashtag)
+        end
+
+        def component_hashtags_auto
+          @component_hashtags_auto ||= ordered_hashtag_list(current_component.current_settings.hashtags_auto)
+        end
+
+        def component_hashtags_suggested
+          @component_hashtags_suggested ||= ordered_hashtag_list(current_component.current_settings.hashtags_suggested)
         end
 
         private
@@ -91,6 +116,12 @@ module Decidim
         # this problem.
         def notify_missing_attachment_if_errored
           errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+        end
+
+        def ordered_hashtag_list(string)
+          return [] unless string
+
+          string.split.reject(&:blank?).uniq.sort_by(&:parameterize)
         end
       end
     end

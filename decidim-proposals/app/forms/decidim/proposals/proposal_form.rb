@@ -62,12 +62,12 @@ module Decidim
       end
 
       def hashtags_suggested
-        downcased_hashtags_suggested = @hashtags_suggested.map(&:downcase).to_set
+        downcased_hashtags_suggested = (@hashtags_suggested&.map(&:downcase) || []).to_set
         component_hashtags_suggested.select { |hashtag| downcased_hashtags_suggested.member?(hashtag.downcase) }
       end
 
       def hashtag_suggested_checked?(hashtag)
-        @hashtags_suggested.member?(hashtag)
+        hashtags_suggested.member?(hashtag)
       end
 
       def component_hashtags_auto

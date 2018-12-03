@@ -48,9 +48,6 @@ module Decidim
         end
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-
           {
             title: parsed_title,
             body: parsed_body,
@@ -107,6 +104,27 @@ module Decidim
               participatory_space: true
             }
           )
+        end
+
+        def parsed_title
+          @parsed_title ||= Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        end
+
+        def parsed_body
+          @parsed_body ||= begin
+            ret = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite.strip
+            ret += "\n" + parsed_extra_hashtags.strip unless parsed_extra_hashtags.empty?
+            ret
+          end
+        end
+
+        def parsed_extra_hashtags
+          @parsed_extra_hashtags ||= Decidim::ContentProcessor.parse_with_processor(
+            :hashtag,
+            form.extra_hashtags.map { |hashtag| "##{hashtag}" }.join(" "),
+            current_organization: form.current_organization,
+            extra_hashtags: true
+          ).rewrite
         end
       end
     end
