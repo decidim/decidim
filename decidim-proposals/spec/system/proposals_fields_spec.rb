@@ -126,6 +126,39 @@ describe "Proposals", type: :system do
           end
         end
 
+        context "when component has extra hashtags defined" do
+          let(:component) do
+            create(:proposal_component,
+                   :with_extra_hashtags,
+                   hashtags_suggested: component_hashtags_suggested,
+                   hashtags_auto: component_hashtags_auto,
+                   manifest: manifest,
+                   participatory_space: participatory_process)
+          end
+
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+          let(:component_hashtags_auto) { "AutoHashtag1 AutoHashtag2" }
+          let(:component_hashtags_suggested) { "SuggestedHashtag1 SuggestedHashtag2" }
+
+          it "offers and save extra hashtags", :slow do
+            visit complete_proposal_path(component, proposal_draft)
+
+            within ".edit_proposal" do
+              check :proposal_hashtags_suggested_suggestedhashtag1
+
+              find("*[type=submit]").click
+            end
+
+            click_button "Publish"
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("#AutoHashtag1")
+            expect(page).to have_content("#AutoHashtag2")
+            expect(page).to have_content("#SuggestedHashtag1")
+            expect(page).not_to have_content("#SuggestedHashtag2")
+          end
+        end
+
         context "when the user has verified organizations" do
           let(:user_group) { create(:user_group, :verified, organization: organization) }
           let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
