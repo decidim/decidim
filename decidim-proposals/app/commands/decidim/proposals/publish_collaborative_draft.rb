@@ -61,10 +61,9 @@ module Decidim
 
         fields[:title] = parsed_title
         fields[:body] = parsed_body
-        fields[:decidim_component_id] = @collaborative_draft.component.id
-        fields[:decidim_scope_id] = @collaborative_draft&.scope&.id
+        fields[:component] = @collaborative_draft.component
+        fields[:scope] = @collaborative_draft.scope
         fields[:address] = @collaborative_draft.address
-        fields[:published_at] = Time.current
         fields[:published_at] = Time.current
 
         fields
