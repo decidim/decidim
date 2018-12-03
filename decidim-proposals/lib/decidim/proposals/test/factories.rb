@@ -204,6 +204,23 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_extra_hashtags do
+      transient do
+        hashtags_auto { "AutoHashtag AnotherAutoHashtag" }
+        hashtags_suggested { "SuggestedHashtag AnotherSuggestedHashtag" }
+      end
+
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            hashtags_auto: hashtags_auto,
+            hashtags_suggested: hashtags_suggested,
+            creation_enabled: true
+          }
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
