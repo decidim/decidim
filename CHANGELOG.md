@@ -46,8 +46,29 @@ Decidim::Organization.find_each do |organization|
 end
 ```
 
+- **Searchable resources**
+
+As per #4537, if you have a custom module with a resource that uses the `Decidim::Searchable`
+concern, you'll need to make the resource searchable from its manifest, otherwise it won't
+appear under the global search results:
+
+```ruby
+Decidim.register_resource(:my_resource) do |resource|
+  resource.searchable = true
+  # ...
+end
+```
+
+In order to generate Open Data exports you should add this to your crontab or recurring jobs manager:
+
+```ruby
+  bundle exec rake decidim:open_data:export
+```
+
 **Added**:
 
+- **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component with these working functionalities: create/withdraw/accept amendments. [\#3985](https://github.com/decidim/decidim/pull/3985/)
+- **decidim-meetings**: Add registration form answers when exporting meeting registrations.[\#4589](https://github.com/decidim/decidim/pull/4589)
 - **decidim-core**: Trigger an ActiveSupport::Notification after registering via OmniAuth. [\#4565](https://github.com/decidim/decidim/pull/4565)
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
 - **decidim-proposals**: Admin can create proposals from the admin panel, with a meeting as an author.[\#4382](https://github.com/decidim/decidim/pull/4382)
@@ -72,6 +93,10 @@ end
 - **decidim-meetings**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
 - **decidim-core**: Adds default pages and contextual help when creating organizations [\#4541](https://github.com/decidim/decidim/pull/4541)
 - **decidim-core**: Adds a user activity tab on the public profile. [\#4570](https://github.com/decidim/decidim/pull/4570)
+- **decidim-core**: Adds a user timeline tab on the public profile. [\#4574](https://github.com/decidim/decidim/pull/4574)
+- **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
+- **decidim-meetings**: Export meetings [\#4597](https://github.com/decidim/decidim/pull/4597)
+- **decidim-core**: User groups can now confirm their email [\#4603](https://github.com/decidim/decidim/pull/4603)
 
 **Changed**:
 
@@ -89,10 +114,14 @@ end
 - **decidim-proposals**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
 - **decidim-admin**: Rename "Officializations" section to "Participants" [\#4510](https://github.com/decidim/decidim/pull/4510)
 - **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
+- **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
+- **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
 
 **Fixed**:
 
-- **decidim-participatory_processes**: Fix admin cannot access public view of private processes [\#4591](https://github.com/decidim/decidim/pull/4591)
+- **decidim-participatory_processes**: Fix admin cannot access public view of private processes by default [\#4591](https://github.com/decidim/decidim/pull/4591)
+- **decidim-proposals** Keep proposal new values for title and body when editing and receiving an error message [\#4592](https://github.com/decidim/decidim/pull/4592)
+- **decidim-proposals** Don't show `undefined` option when there is no hashtag to autocomplete after \# [\#4590](https://github.com/decidim/decidim/pull/4590)
 - **decidim-conferences**: Make price optional, and remove weird margin top on program view [\#4564](https://github.com/decidim/decidim/pull/4564)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4535](https://github.com/decidim/decidim/pull/4535)
 - **decidim-meetings**: Change title to description in meetings admin form [\#4483](https://github.com/decidim/decidim/pull/4483)

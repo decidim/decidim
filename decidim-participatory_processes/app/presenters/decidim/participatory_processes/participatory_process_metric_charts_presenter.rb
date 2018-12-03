@@ -30,6 +30,7 @@ module Decidim
                                          graph_klass: "small",
                                          title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
                                          description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
+                                         download: true,
                                          data: { ratio: "11:4", axis: true })
             end
           end
@@ -48,6 +49,7 @@ module Decidim
                                              graph_klass: "small",
                                              title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
                                              description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
+                                             download: true,
                                              data: { ratio: "16:9", axis: true })
                 end
               )
@@ -68,6 +70,7 @@ module Decidim
                                       ratio: "16:9",
                                       margin: "margin-top: 30px",
                                       graph_klass: "small",
+                                      download: true,
                                       data: { ratio: "16:9" })
                 end
               )
