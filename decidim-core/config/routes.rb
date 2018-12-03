@@ -21,7 +21,7 @@ Decidim::Core::Engine.routes.draw do
              module: :devise,
              router_name: :decidim,
              controllers: {
-               confirmations: "decidim/devise/user_group_confirmations"
+               confirmations: "decidim/devise/confirmations"
              }
 
   devise_scope :user do
@@ -79,6 +79,7 @@ Decidim::Core::Engine.routes.draw do
           post :demote
         end
       end
+      resource :email_confirmation, only: [:create], controller: "group_email_confirmations"
 
       member do
         delete :leave

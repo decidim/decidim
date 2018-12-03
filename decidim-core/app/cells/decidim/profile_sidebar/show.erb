@@ -107,6 +107,16 @@
     <% end %>
 
     <% if can_edit_user_group_profile? %>
+      <% if user_group_email_to_be_confirmed? %>
+        <div class="text-center">
+          <%= link_to decidim.group_email_confirmation_path(model.nickname), method: :post, class: "button secondary light expanded" do %>
+            <span>
+              <%= t("decidim.profiles.user.resend_email_confirmation_instructions") %>
+            </span>
+          <% end %>
+        </div>
+      <% end %>
+
       <div class="text-center">
         <%= link_to t("decidim.profiles.user.edit_user_group"), edit_group_path(profile_holder.nickname) %>
       </div>

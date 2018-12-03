@@ -1,4 +1,4 @@
-<%- if controller_name != "sessions" %>
+<%- if controller_name != "sessions" && resource_class != Decidim::UserGroup %>
   <p class="text-center">
     <%= link_to t("devise.shared.links.sign_in"), new_session_path(resource_name) %>
   </p>

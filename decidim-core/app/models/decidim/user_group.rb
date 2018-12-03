@@ -17,7 +17,7 @@ module Decidim
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
 
-    devise :confirmable, :decidim_validatable
+    devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
