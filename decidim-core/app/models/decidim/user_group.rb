@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_dependency "devise/models/decidim_validatable"
+require "valid_email2"
+
 module Decidim
   # A UserGroup is an organization of citizens
   class UserGroup < UserBaseEntity
@@ -13,6 +16,8 @@ module Decidim
 
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
+
+    devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
@@ -97,6 +102,18 @@ module Decidim
 
     def has_document_number?
       document_number.present?
+    end
+
+    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # password.
+    def password_required?
+      false
+    end
+
+    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # password.
+    def password
+      nil
     end
   end
 end
