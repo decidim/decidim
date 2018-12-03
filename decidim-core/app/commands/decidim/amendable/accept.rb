@@ -40,19 +40,18 @@ module Decidim
         @amendment = Decidim.traceability.update!(
           @amendment,
           @amendable.creator_author,
-          state: "accepted"
+          { state: "accepted" },
+          visibility: "public-only"
         )
       end
 
       def update_amendable!
-        Decidim.traceability.perform_action!(
-          :update,
+        @amendable = Decidim.traceability.update!(
           @amendable,
           emendation_author,
+          amendable_attributes,
           visibility: "public-only"
-        ) do
-          @amendable.update!(amendable_attributes)
-        end
+        )
         @amendable.add_coauthor(@amender, user_group: nil)
       end
 
