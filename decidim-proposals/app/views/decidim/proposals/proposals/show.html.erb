@@ -21,7 +21,7 @@
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if @proposal.emendation?.nil? %>
+    <% unless @proposal.emendation? %>
       <div class="card text-center">
         <div class="card__content">
           <div>
@@ -49,11 +49,7 @@
       <%= amend_button_for @proposal %>
     <% end %>
 
-<<<<<<< HEAD
-    <%= emendation_actions_for @emendation_form if @emendation_form %>
-=======
     <%= emendation_actions_for @proposal %>
->>>>>>> master
 
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
       <div class="card">

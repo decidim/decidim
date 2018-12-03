@@ -137,7 +137,7 @@ module Decidim
       #
       # Returns Boolean.
       def rejected?
-        answered? && state == "rejected" || state == "rejected"
+        answered? && state == "rejected"
       end
 
       # Public: Checks if the organization has marked the proposal as evaluating it.

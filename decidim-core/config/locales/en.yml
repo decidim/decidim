@@ -3,8 +3,6 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
-      amend:
-        user_group_id: Amendment author
       report:
         details: Additional comments
       user:
