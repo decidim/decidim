@@ -23,8 +23,7 @@ module Decidim::Amendable
         scope: "decidim.amendments.emendation.announcement",
         amendable_type: amendable_type,
         amendable_link: amendable_link,
-        announcement_date: announcement_date,
-        publish_as_button: publish_as_button)
+        announcement_date: announcement_date)
     end
 
     def amendable_link
@@ -39,15 +38,6 @@ module Decidim::Amendable
 
     def announcement_date
       model.amendment.updated_at
-    end
-
-    def publish_as_button
-      return unless model.emendation_state == "rejected"
-      link_to "#publish_as" do
-        t("publish_as",
-          scope: "decidim.amendments.emendation.announcement",
-          amendable_type: amendable_type)
-      end
     end
 
     def state_classes

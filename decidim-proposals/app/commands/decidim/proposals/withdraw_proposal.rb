@@ -22,7 +22,10 @@ module Decidim
       def call
         return broadcast(:invalid) if @proposal.votes.any?
 
-        change_proposal_state_to_withdrawn
+        transaction do
+          change_proposal_state_to_withdrawn
+          reject_emendations_if_any
+        end
 
         broadcast(:ok, @proposal)
       end
@@ -31,6 +34,16 @@ module Decidim
 
       def change_proposal_state_to_withdrawn
         @proposal.update state: "withdrawn"
+      end
+
+      def reject_emendations_if_any
+        return if @proposal.emendations.empty?
+
+        @proposal.emendations.each do |emendation|
+          @form = form(Decidim::Amendable::RejectForm).from_params(id: emendation.amendment.id)
+          result = Decidim::Amendable::Reject.call(@form)
+          return result[:ok] if result[:ok]
+        end
       end
     end
   end
