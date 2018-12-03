@@ -13,6 +13,33 @@ shared_examples "create amendment" do
         .and change(amendable.resource_manifest.model_class_name.constantize, :count)
         .by(1)
     end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:perform_action!)
+        .with(
+          :create,
+          form.amendable_type.constantize,
+          form.current_user,
+          kind_of(Hash)
+        ).and_call_original
+
+      expect { command.call }.to change(Decidim::ActionLog, :count).by(1)
+    end
+
+    it "notifies the change" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(
+          event: "decidim.events.amendments.amendment_created",
+          event_class: Decidim::Amendable::AmendmentCreatedEvent,
+          resource: amendable,
+          recipient_ids: kind_of(Array),
+          extra: kind_of(Hash)
+        )
+
+      command.call
+    end
   end
 
   context "when the form is invalid" do

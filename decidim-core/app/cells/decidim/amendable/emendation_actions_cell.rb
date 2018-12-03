@@ -5,35 +5,41 @@ module Decidim::Amendable
   class EmendationActionsCell < Decidim::ViewModel
     include Decidim::LayoutHelper
 
-    private
+    delegate :amendment, to: :model
 
-    def emendation
-      model.emendation
+    def current_component
+      model.component
     end
 
-    def amendment
-      model.amendment
+    def review_amend_path
+      decidim.review_amend_path(amendment)
     end
 
-    def accept_button
-      link_content = icon "thumb-up"
-      link_content += t(:button_accept, scope: "decidim.amendments.emendation.actions")
-      link_class = "button success hollow expanded button--icon button--sc"
-
-      link_to decidim.review_amend_path(amendment), class: link_class do
-        link_content
-      end
+    def accept_button_classes
+      "button success hollow expanded button--icon button--sc"
     end
 
-    def reject_button
-      link_to "#reject", class: "button alert hollow expanded button--icon button--sc" do
-        content = icon "thumb-down"
-        content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
-        content
-      end
+    def accept_button_label
+      content = icon "thumb-up"
+      content += t(:button_accept, scope: "decidim.amendments.emendation.actions")
+      content
     end
 
-    def help_text
+    def reject_amend_path
+      decidim.reject_amend_path(amendment)
+    end
+
+    def reject_button_classes
+      "button alert hollow expanded button--icon button--sc"
+    end
+
+    def reject_button_label
+      content = icon "thumb-down"
+      content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
+      content
+    end
+
+    def accept_reject_help_text
       content_tag :small do
         t(:help_text, scope: "decidim.amendments.emendation.actions")
       end

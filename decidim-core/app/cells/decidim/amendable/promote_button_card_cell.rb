@@ -3,8 +3,12 @@
 module Decidim
   module Amendable
     # This cell renders the button to amend the given resource.
-    class AmendButtonCardCell < Decidim::ViewModel
+    class PromoteButtonCardCell < Decidim::ViewModel
       delegate :current_user, to: :controller, prefix: false
+
+      def emendation
+        @emendation ||= model
+      end
 
       def model_name
         model.model_name.human
@@ -14,17 +18,17 @@ module Decidim
         model.component
       end
 
-      def new_amend_path
-        decidim.new_amend_path(amendable_gid: model.to_sgid.to_s)
+      def promote_amend_path
+        decidim.promote_amend_path(model)
       end
 
-      def new_amend_button_label
-        t("button", scope: "decidim.amendments.amendable", model_name: model_name)
+      def promote_amend_button_label
+        t("promote_button", scope: "decidim.amendments.amendable", model_name: model_name)
       end
 
-      def new_amend_help_text
+      def promote_amend_help_text
         content_tag :small do
-          t("help_text",
+          t("promote_help_text",
             scope: "decidim.amendments.amendable",
             model_name: model_name.downcase,
             amendable_fields: model.fields.to_sentence)

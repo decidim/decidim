@@ -2,8 +2,8 @@
 
 module Decidim
   module Amendable
-    # A command with all the business logic to accept an amend.
-    class Accept < Rectify::Command
+    # A command with all the business logic to reject an amend.
+    class Reject < Rectify::Command
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -13,7 +13,6 @@ module Decidim
         @amendment = form.amendment
         @amendable = form.amendable
         @emendation = form.emendation
-        @amender = form.emendation.creator_author
       end
 
       # Executes the command. Broadcasts these events:
@@ -26,44 +25,30 @@ module Decidim
         return broadcast(:invalid) if @form.invalid?
 
         transaction do
-          accept_amendment!
-          update_amendable!
-          notify_amendable_and_emendation_authors_and_followers
+          reject_amendment!
+          notify_emendation_authors_and_followers
         end
 
-        broadcast(:ok, @amendable)
+        broadcast(:ok, @emendation)
       end
 
       private
 
-      def accept_amendment!
+      def reject_amendment!
         @amendment = Decidim.traceability.update!(
           @amendment,
           @amendable.creator_author,
-          state: "accepted"
+          state: "rejected"
         )
       end
 
-      def update_amendable!
-        @amendable.update!(
-          amendable_attributes
-        )
-        @amendable.add_coauthor(@amender, user_group: nil)
-      end
+      def notify_emendation_authors_and_followers
+        recipients = @emendation.authors + @emendation.followers
+        recipients += @amendable.authors + @amendable.followers
 
-      def amendable_attributes
-        {
-          title: @form.title,
-          body: @form.body
-        }
-      end
-
-      def notify_amendable_and_emendation_authors_and_followers
-        recipients = @amendable.authors + @amendable.followers
-        recipients += @emendation.authors + @emendation.followers
         Decidim::EventsManager.publish(
-          event: "decidim.events.amendments.amendment_accepted",
-          event_class: Decidim::Amendable::AmendmentAcceptedEvent,
+          event: "decidim.events.amendments.amendment_rejected",
+          event_class: Decidim::Amendable::AmendmentRejectedEvent,
           resource: @emendation,
           recipient_ids: recipients.pluck(:id).uniq
         )
