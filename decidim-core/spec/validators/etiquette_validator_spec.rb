@@ -54,16 +54,18 @@ describe EtiquetteValidator do
     it { is_expected.to be_invalid }
   end
 
-  context "with a single line body" do
-    let(:body) { "i no care about grammer" }
+  context "when the text is written starting in downcase" do
+    context "with a single line body" do
+      let(:body) { "i no care about grammer" }
 
-    it { is_expected.to be_valid }
-  end
+      it { is_expected.to be_invalid }
+    end
 
-  context "with a multiple line body with the second line starting in downcase" do
-    let(:body) { "This is a multiline body\nwith a line starting with downcase." }
+    context "with a multiple line body with the second line starting in downcase" do
+      let(:body) { "This is a multiline body\nwith a line starting with downcase." }
 
-    it { is_expected.to be_valid }
+      it { is_expected.to be_valid }
+    end
   end
 
   context "when the body is too short" do
