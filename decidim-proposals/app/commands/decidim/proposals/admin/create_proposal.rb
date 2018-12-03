@@ -49,8 +49,8 @@ module Decidim
 
         def attributes
           {
-            title: form.formatted_title,
-            body: form.formatted_body,
+            title: form.title,
+            body: form.body,
             category: form.category,
             scope: form.scope,
             component: form.component,
