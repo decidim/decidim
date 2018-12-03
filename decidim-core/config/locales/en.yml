@@ -701,16 +701,18 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      download:
+        csv: Download data (csv)
       followers:
         description: Number of user that follows in organization
         object: followers
         title: Followers
       participants:
-        description: Number of active users in the organization
+        description: Number of active user in organization
         object: participants
         title: Participants
       users:
-        description: Number of users in the organization
+        description: Number of user in organization
         object: users
         title: Users
     newsletter_mailer:
