@@ -16,6 +16,14 @@ Decidim::Core::Engine.routes.draw do
                omniauth_callbacks: "decidim/devise/omniauth_registrations"
              }
 
+  devise_for :user_groups,
+             class_name: "Decidim::UserGroup",
+             module: :devise,
+             router_name: :decidim,
+             controllers: {
+               confirmations: "decidim/devise/user_group_confirmations"
+             }
+
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
