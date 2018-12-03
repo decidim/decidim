@@ -11,7 +11,7 @@ module Decidim
       end
 
       def resource_link_text
-        comment.body
+        comment.formatted_body
       end
 
       def resource_link_path

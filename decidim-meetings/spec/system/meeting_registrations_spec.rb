@@ -163,6 +163,24 @@ describe "Meeting registrations", type: :system do
       let(:registration_form_enabled) { true }
 
       it_behaves_like "has questionnaire"
+
+      context "when the registration form has no questions" do
+        before do
+          questionnaire.questions.last.delete
+          login_as user, scope: :user
+        end
+
+        it "shows the registration form without questions" do
+          visit questionnaire_public_path
+
+          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.description)
+
+          expect(page).to have_no_i18n_content(question.body)
+
+          expect(page).to have_button("Submit")
+        end
+      end
     end
 
     context "and the user is going to the meeting" do
@@ -180,6 +198,7 @@ describe "Meeting registrations", type: :system do
         end
 
         expect(page).to have_content("successfully")
+        expect(questionnaire.answers.where(user: user).empty?).to be(true)
 
         within ".card.extra" do
           expect(page).to have_css(".button", text: "JOIN MEETING")
