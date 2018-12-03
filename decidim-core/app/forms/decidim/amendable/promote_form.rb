@@ -2,7 +2,7 @@
 
 module Decidim
   module Amendable
-    # A form object to be used when users want to amend an amendable resource.
+    # A form object used to promote emendations
     class PromoteForm < Decidim::Amendable::Form
       mimic :amend
 

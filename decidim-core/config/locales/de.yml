@@ -623,23 +623,29 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         index:
-          from: Von
-          last_message_html: Letzte Nachricht <strong>%{time} vor</strong>
           no_conversations: Du hast noch keine Unterhaltungen
-        show:
-          conversation_with_html: Gespräch mit <strong>%{name}</strong>
-          reply: Antworten
+          title: Gespräche
+        reply:
           send: Senden
+          title: Antworten
+        show:
+          title: Gespräch mit %{usernames}
         start:
           send: Senden
           title: Ein Gespräch beginnen
         update:
           error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
+      followers:
+        description: Anzahl der Benutzer, die in der Organisation folgen
+        object: Anhänger
+        title: Anhänger
       participants:
+        description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
         title: Teilnehmer
       users:
+        description: Anzahl der Benutzer in der Organisation
         object: Benutzer
         title: Benutzer
     newsletter_mailer:
@@ -737,6 +743,7 @@ de:
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
+          link: Alle Statistiken anzeigen
       terms_and_conditions:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
@@ -764,13 +771,13 @@ de:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
       default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
+        activity: Aktivität
         badges: Abzeichen
-        conversations: Gespräche
         followers: Follower
         following: Folgt
         groups: Gruppen
         members: Mitglieder
-        notifications: Benachrichtigungen
+        timeline: Zeitleiste
         view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
         badges:
@@ -809,19 +816,27 @@ de:
       prompt: Wählen Sie einen Bereich aus
       scopes: Bereiche
     search:
-      filter:
-        all: Alle
-        component: Komponente
       results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:
-        search: Suche
+        back: Zurück zu den Ergebnissen
+        jump_to: 'Springen zu:'
+        state:
+          active: Aktiv
+          all: Alles
+          future: Zukunft
+          past: Vergangenheit
       filters_small_view:
         close_modal: Modal schließen
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
+      results:
+        results:
+          one: "%{count} Ergebnis"
+          other: "%{count} Ergebnisse"
+        view_all: Alle anzeigen (%{count})
     shared:
       embed_modal:
         close_window: Fenster schließen
@@ -856,6 +871,9 @@ de:
         share_link: Einen Link teilen
       version_author:
         deleted: Gelöschter Benutzer
+    user_activity:
+      index:
+        no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
     welcome_notification:
       default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !

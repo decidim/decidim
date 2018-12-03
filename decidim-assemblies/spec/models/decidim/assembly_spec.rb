@@ -12,6 +12,7 @@ module Decidim
     it { is_expected.to be_versioned }
 
     include_examples "publicable"
+    include_examples "resourceable"
 
     context "when there's an assembly with the same slug in the same organization" do
       let!(:external_assembly) { create :assembly, organization: assembly.organization, slug: "my-slug" }

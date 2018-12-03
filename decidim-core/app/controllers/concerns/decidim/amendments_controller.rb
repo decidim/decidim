@@ -14,7 +14,7 @@ module Decidim
 
     def create
       @form = form(Decidim::Amendable::CreateForm).from_params(params)
-      enforce_permission_to :create, :amend
+      enforce_permission_to :create, :amendment
 
       Decidim::Amendable::Create.call(@form) do
         on(:ok) do
@@ -31,7 +31,7 @@ module Decidim
 
     def reject
       @form = form(Decidim::Amendable::RejectForm).from_params(params)
-      enforce_permission_to :reject, :amend, amend: @form.amendable
+      enforce_permission_to :reject, :amendment, amendment: @form.amendable
 
       Decidim::Amendable::Reject.call(@form) do
         on(:ok) do
@@ -47,6 +47,7 @@ module Decidim
 
     def promote
       @form = Decidim::Amendable::PromoteForm.from_params(params)
+      enforce_permission_to :promote, :amendment, amendment: @form.emendation
 
       Decidim::Amendable::Promote.call(@form) do
         on(:ok) do |proposal|
@@ -67,7 +68,7 @@ module Decidim
 
     def accept
       @form = Decidim::Amendable::ReviewForm.from_params(params)
-      enforce_permission_to :accept, :amend, amend: @form.amendable
+      enforce_permission_to :accept, :amendment, amendment: @form.amendable
 
       Decidim::Amendable::Accept.call(@form) do
         on(:ok) do

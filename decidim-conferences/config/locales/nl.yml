@@ -43,8 +43,8 @@ nl:
         one: Conferentie spreker
         other: Sprekers van de conferentie
       decidim/conference_user_role:
-        one: Een rol van conferentiegebruiker
-        other: Gebruikersrollen van de conferentie
+        one: Conferentiegebruikersrol
+        other: Conferentiegebruikersrol
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ nl:
           cancel: Annuleer
           confirm: Bevestigen
         show:
+          free: Gratis
           going: gaand
           no_slots_available: Geen slots beschikbaar
           registration: registratie

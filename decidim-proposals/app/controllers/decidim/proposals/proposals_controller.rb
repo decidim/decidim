@@ -6,10 +6,14 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
+      helper ParticipatoryTextsHelper
+      include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
       include Orderable
       include Paginable
+
+      helper_method :form_presenter
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -50,7 +54,6 @@ module Decidim
 
       def show
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
-        @emendation_form = form(Decidim::Amendable::Form).from_params(id: @proposal.amendment.id) if @proposal.emendation? && @proposal.amendment.evaluating?
       end
 
       def new
@@ -246,6 +249,10 @@ module Decidim
 
       def form_proposal_model
         form(ProposalForm).from_model(@proposal)
+      end
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
       end
 
       def form_attachment_new

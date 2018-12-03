@@ -49,7 +49,7 @@ eu:
         other: Erantzunak
       decidim/consultations/vote:
         one: Bozkatu
-        other: Botoak
+        other: Bozkatu
   decidim:
     admin:
       actions:

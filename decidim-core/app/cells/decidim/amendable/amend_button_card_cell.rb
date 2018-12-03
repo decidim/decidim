@@ -23,10 +23,12 @@ module Decidim
       end
 
       def new_amend_help_text
-        t("help_text",
-          scope: "decidim.amendments.amendable",
-          model_name: model_name.downcase,
-          amendable_fields: model.fields.to_sentence)
+        content_tag :small do
+          t("help_text",
+            scope: "decidim.amendments.amendable",
+            model_name: model_name.downcase,
+            amendable_fields: model.fields.to_sentence)
+        end
       end
 
       def decidim

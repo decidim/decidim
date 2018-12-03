@@ -35,6 +35,11 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
+    metrics:
+      survey_answers:
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
       admin:
         exports:

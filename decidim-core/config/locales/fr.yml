@@ -623,23 +623,29 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
-          from: De
-          last_message_html: Dernier message <strong>il y a %{time}</strong>
           no_conversations: Vous n'avez encore aucune conversation
-        show:
-          conversation_with_html: Conversation avec <strong>%{name}</strong>
-          reply: Répondre
+          title: Les conversations
+        reply:
           send: Envoyer
+          title: Répondre
+        show:
+          title: Conversation avec %{usernames}
         start:
           send: Envoyer
           title: Commencer une conversation
         update:
           error: Message non envoyé. Réessayez plus tard
     metrics:
+      followers:
+        description: Nombre d'utilisateurs qui suivent dans l'organisation
+        object: suiveurs
+        title: Suiveurs
       participants:
+        description: Nombre d'utilisateurs actifs dans l'organisation
         object: les participants
         title: Participants
       users:
+        description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
         title: Utilisateurs
     newsletter_mailer:
@@ -737,6 +743,7 @@ fr:
       participatory_space:
         metrics:
           headline: Participation en chiffres
+          link: Afficher toutes les statistiques
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -764,13 +771,13 @@ fr:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
+        activity: Activité
         badges: Badges
-        conversations: Conversations
         followers: Abonnés
         following: Est abonné à
         groups: Groupes
         members: Membres
-        notifications: Notifications
+        timeline: Chronologie
         view_full_profile: Voir le profil complet
       sidebar:
         badges:
@@ -809,19 +816,27 @@ fr:
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètre d'application
     search:
-      filter:
-        all: Tout
-        component: Fonctionnalité
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
       filters:
-        search: Rechercher
+        back: Retour aux résultats
+        jump_to: 'Sauter à:'
+        state:
+          active: actif
+          all: Tout
+          future: Futur
+          past: Passé
       filters_small_view:
         close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
         filter_by: Filtrer par
         unfold: Voir plus
+      results:
+        results:
+          one: "%{count} résultat"
+          other: "%{count} résultats"
+        view_all: Tout voir (%{count})
     shared:
       embed_modal:
         close_window: Fermer la fenêtre
@@ -856,6 +871,9 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    user_activity:
+      index:
+        no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!

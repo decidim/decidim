@@ -48,8 +48,8 @@ ca:
         one: Resposta
         other: Respostes
       decidim/consultations/vote:
-        one: Vot
-        other: Vots
+        one: Votació
+        other: Votació
   decidim:
     admin:
       actions:

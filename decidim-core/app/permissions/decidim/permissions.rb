@@ -79,13 +79,14 @@ module Decidim
     end
 
     def amend_action?
-      return unless permission_action.subject == :amend
+      return unless permission_action.subject == :amendment
       return allow! if permission_action.action == :create
       return allow! if permission_action.action == :reject
+      return allow! if permission_action.action == :promote
       return allow! if permission_action.action == :accept
 
-      amend = context.fetch(:amend, nil)
-      toggle_allow(amend&.amender == user)
+      amendment = context.fetch(:amendment, nil)
+      toggle_allow(amendment&.amender == user)
     end
 
     def notification_action?

@@ -299,6 +299,18 @@ module Decidim
             settings.attribute :highlighted, type: :boolean, default: true
             settings.attribute :scopes, type: :array, default: %w(participatory_process)
             settings.attribute :weight, type: :integer, default: 1
+            settings.attribute :stat_block, type: :string, default: "big"
+          end
+        end
+
+        Decidim.metrics_registry.register(:followers) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::FollowersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(participatory_process)
+            settings.attribute :weight, type: :integer, default: 10
+            settings.attribute :stat_block, type: :string, default: "medium"
           end
         end
       end

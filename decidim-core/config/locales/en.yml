@@ -400,10 +400,10 @@ en:
           email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
           notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
-          email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_title}. You can see it from this page:'
+          email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
           email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
           email_subject: An emendation from %{emendation_author_nickname} has been promoted
-          notification_title: A <a href="%{emendation_path}"> rejected emendation </a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>
+          notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
           email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
@@ -719,10 +719,18 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      download:
+        csv: Download data (csv)
+      followers:
+        description: Number of user that follows in organization
+        object: followers
+        title: Followers
       participants:
+        description: Number of active user in organization
         object: participants
         title: Participants
       users:
+        description: Number of user in organization
         object: users
         title: Users
     newsletter_mailer:
@@ -761,6 +769,8 @@ en:
       update:
         error: There's been an error updating your notifications settings.
         success: Your notifications settings were updated successfully.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: Pending
@@ -820,6 +830,7 @@ en:
       participatory_space:
         metrics:
           headline: Participation in figures
+          link: Show all statistics
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
@@ -847,25 +858,30 @@ en:
       default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        activity: Activity
         badges: Badges
         followers: Followers
         following: Follows
         groups: Groups
         members: Members
+        timeline: Timeline
         view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Create group
         edit_profile: Edit profile
         edit_user_group: Edit group profile
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
         invite_user: Invite user
         join_user_group: Request to join group
         leave_user_group: Leave group
         manage_user_group_admins: Manage admins
         manage_user_group_users: Manage members
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -893,19 +909,19 @@ en:
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
-      filters_small_view:
-        close_modal: Close modal
-        filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
       filters:
-        back: Back to all results
-        jump_to: "Jump to:"
+        back: Back to results
+        jump_to: 'Jump to:'
         state:
           active: Active
           all: All
           future: Future
           past: Past
+      filters_small_view:
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       results:
         results:
           one: "%{count} result"
@@ -945,6 +961,9 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    user_activity:
+      index:
+        no_activities_warning: This user hasn't had any activity yet.
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
@@ -1125,6 +1144,7 @@ en:
       edit_link:
         edit: Edit
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu

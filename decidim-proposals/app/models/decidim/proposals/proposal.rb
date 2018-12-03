@@ -93,11 +93,9 @@ module Decidim
       # Public: Updates the vote count of this proposal.
       #
       # Returns nothing.
-      # rubocop:disable Rails/SkipsModelValidations
       def update_votes_count
-        update_columns(proposal_votes_count: votes.count)
+        update_columns(proposal_votes_count: votes.count) # rubocop:disable Rails/SkipsModelValidations
       end
-      # rubocop:enable Rails/SkipsModelValidations
 
       # Public: Check if the user has voted the proposal.
       #
@@ -203,11 +201,6 @@ module Decidim
       def editable_by?(user)
         return true if draft?
         !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
-      end
-
-      def promotable_by?(user)
-        not_likely_to_be_promoted = Proposal.where(title: title).count == 1
-        rejected? && created_by?(user) && not_likely_to_be_promoted
       end
 
       # Checks whether the user can withdraw the given proposal.

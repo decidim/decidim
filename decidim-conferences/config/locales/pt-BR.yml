@@ -43,7 +43,7 @@ pt-BR:
         one: Orador de conferência
         other: Alto-falantes da conferência
       decidim/conference_user_role:
-        one: Um papel de usuário da conferência
+        one: Função de usuário da conferência
         other: Papéis do usuário da conferência
   decidim:
     admin:
@@ -365,6 +365,7 @@ pt-BR:
           cancel: Cancelar
           confirm: confirme
         show:
+          free: Livre
           going: Indo
           no_slots_available: Não há slots disponíveis
           registration: Cadastro

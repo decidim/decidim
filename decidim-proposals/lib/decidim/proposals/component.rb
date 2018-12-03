@@ -100,6 +100,8 @@ Decidim.register_component(:proposals) do |component|
         .includes(:category, component: { participatory_space: :organization })
     end
 
+    exports.include_in_open_data = true
+
     exports.serializer Decidim::Proposals::ProposalSerializer
   end
 
@@ -214,6 +216,7 @@ Decidim.register_component(:proposals) do |component|
         group = Decidim::UserGroup.create!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
+          email: Faker::Internet.email,
           extended_data: {
             document_number: Faker::Code.isbn,
             phone: Faker::PhoneNumber.phone_number,
@@ -221,6 +224,7 @@ Decidim.register_component(:proposals) do |component|
           },
           decidim_organization_id: component.organization.id
         )
+        group.confirm
         Decidim::UserGroupMembership.create!(
           user: author,
           role: "creator",
@@ -301,6 +305,7 @@ Decidim.register_component(:proposals) do |component|
             group = Decidim::UserGroup.create!(
               name: Faker::Name.name,
               nickname: Faker::Twitter.unique.screen_name,
+              email: Faker::Internet.email,
               extended_data: {
                 document_number: Faker::Code.isbn,
                 phone: Faker::PhoneNumber.phone_number,
@@ -308,6 +313,7 @@ Decidim.register_component(:proposals) do |component|
               },
               decidim_organization_id: component.organization.id
             )
+            group.confirm
             Decidim::UserGroupMembership.create!(
               user: author,
               role: "creator",

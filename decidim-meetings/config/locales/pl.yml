@@ -370,7 +370,7 @@ pl:
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           remaining_slots:
-            one: 'Pozostało %{count} szczelin'
+            one: "Pozostało %{count} szczelin"
             few: "Pozostało %{count} gniazd"
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count} gniazd"
@@ -416,6 +416,7 @@ pl:
         transparent: Przezroczysty
     metrics:
       meetings:
+        description: Liczba utworzonych spotkań
         object: spotkania
         title: Spotkania
     participatory_processes:

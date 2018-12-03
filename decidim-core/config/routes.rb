@@ -16,6 +16,14 @@ Decidim::Core::Engine.routes.draw do
                omniauth_callbacks: "decidim/devise/omniauth_registrations"
              }
 
+  devise_for :user_groups,
+             class_name: "Decidim::UserGroup",
+             module: :devise,
+             router_name: :decidim,
+             controllers: {
+               confirmations: "decidim/devise/confirmations"
+             }
+
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
@@ -71,6 +79,7 @@ Decidim::Core::Engine.routes.draw do
           post :demote
         end
       end
+      resource :email_confirmation, only: [:create], controller: "group_email_confirmations"
 
       member do
         delete :leave
@@ -85,6 +94,8 @@ Decidim::Core::Engine.routes.draw do
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "groups", to: "profiles#groups", as: "profile_groups"
     get "members", to: "profiles#members", as: "profile_members"
+    get "activity", to: "user_activities#index", as: "profile_activity"
+    get "timeline", to: "user_timeline#index", as: "profile_timeline"
   end
 
   resources :pages, only: [:index, :show], format: false
@@ -101,6 +112,8 @@ Decidim::Core::Engine.routes.draw do
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
+
+  get "/open-data/download", to: "open_data#download", as: :open_data_download
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]

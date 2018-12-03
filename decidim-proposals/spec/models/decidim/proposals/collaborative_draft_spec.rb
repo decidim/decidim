@@ -15,6 +15,7 @@ module Decidim
       include_examples "coauthorable"
       include_examples "has scope"
       include_examples "has category"
+      include_examples "resourceable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }

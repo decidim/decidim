@@ -348,7 +348,7 @@ ca:
           email_intro: Enhorabona! Has aconseguit la insígnia "<a href="%{resource_url}">%{badge_name}</a>" (nivell %{current_level}).
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
           email_subject: 'Has aconseguit una nova insígnia: %{badge_name}!'
-          notification_title: Enhorabona! Has aconseguit la <a href="%{resource_path}">%{badge_name} insígnia</a> (nivell %{current_level}).
+          notification_title: Enhorabona! Has aconseguit la <a href="%{resource_path}">insígnia de %{badge_name}</a> (nivell %{current_level}).
         level_up:
           email_intro: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
@@ -623,23 +623,29 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
-          from: Des de
-          last_message_html: Últim missatge <strong>fa %{time}</strong>
           no_conversations: Encara no tens converses
-        show:
-          conversation_with_html: Conversa amb <strong>%{name}</strong>
-          reply: Respon
+          title: Converses
+        reply:
           send: Enviar
+          title: Respon
+        show:
+          title: Conversa amb %{usernames}
         start:
           send: Enviar
           title: Comença una conversa
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
     metrics:
+      followers:
+        description: Nombre d'usuari que segueix a l'organització
+        object: seguidors
+        title: Seguidors
       participants:
+        description: Nombre d'usuaris actius de l'organització
         object: participants
         title: Participants
       users:
+        description: Nombre d'usuaris de l'organització
         object: usuaris
         title: Usuaris
     newsletter_mailer:
@@ -737,6 +743,7 @@ ca:
       participatory_space:
         metrics:
           headline: Participació en xifres
+          link: Mostra totes les estadístiques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
@@ -764,13 +771,13 @@ ca:
       default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el teu nom s'ha verificat per correspondre amb el teu nom real
       default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        activity: Activitat
         badges: Insígnies
-        conversations: Converses
         followers: Seguidors
         following: Segueix
         groups: Grups
         members: Membres
-        notifications: Notificacions
+        timeline: Cronologia
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
@@ -809,19 +816,27 @@ ca:
       prompt: Seleccioneu un àmbit
       scopes: Àmbits
     search:
-      filter:
-        all: Tot
-        component: Component
       results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
       term_input_placeholder: Cerca
     searches:
       filters:
-        search: Cerca
+        back: Torna als resultats
+        jump_to: 'Salta a:'
+        state:
+          active: Actiu
+          all: Tots
+          future: Futur
+          past: Passat
       filters_small_view:
         close_modal: Tanca el modal
         filter: Filtre
         filter_by: Filtra per
         unfold: Desplegar
+      results:
+        results:
+          one: "%{count} resultat"
+          other: "%{count} resultats"
+        view_all: Mostra-ho tot (%{count})
     shared:
       embed_modal:
         close_window: Tanca la finestra
@@ -856,6 +871,9 @@ ca:
         share_link: Comparteix l'enllaç
       version_author:
         deleted: Usuari eliminat
+    user_activity:
+      index:
+        no_activities_warning: Aquest usuari encara no ha tingut cap activitat.
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut!</p><ul><li>Si voleu tenir una idea ràpida del que podeu fer aquí, consulteu la secció de <a href="{{help_url}}">Ajuda</a> .</li><li>Una vegada que l'heu llegit, obtindreu la vostra primera distinció. Aquí teniu una llista de <a href="{{badges_url}}">de totes les xapes</a> que podeu obtenir a mesura que participa en {{organization}}</li><li>Finalment, però no menys important, uniu-vos a altres persones, compartiu amb ells l'experiència de participar i participar en {{organization}}. Feu propostes, comentaris, debat, pensi en com contribuir al bé comú, proporcioneu arguments per convèncer, escoltar i llegir per estar convençuts, expressar les vostres idees de manera concreta i directa, respondre amb paciència i decisió, defensar les vostres idees i mantenir-les una ment oberta per col·laborar i unir-se a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
@@ -1036,6 +1054,7 @@ ca:
       edit_link:
         edit: Edita
       footer:
+        download_open_data: Descarregar dades Open Data
         made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú

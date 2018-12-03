@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document review", type: :system do
+describe "Identity document online review", type: :system do
   let!(:organization) do
     create(:organization, available_authorizations: ["id_documents"])
   end
@@ -17,6 +17,7 @@ describe "Identity document review", type: :system do
       name: "id_documents",
       user: user,
       verification_metadata: {
+        "verification_type" => "online",
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX"
       },

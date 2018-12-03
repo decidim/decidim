@@ -30,6 +30,19 @@ Decidim.register_component(:meetings) do |component|
     meetings.count
   end
 
+  component.exports :meetings do |exports|
+    exports.collection do |component_instance|
+      Decidim::Meetings::Meeting
+        .visible
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Meetings::MeetingSerializer
+  end
+
   component.actions = %w(join)
 
   component.settings(:global) do |settings|

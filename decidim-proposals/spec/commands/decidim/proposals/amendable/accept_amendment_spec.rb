@@ -20,20 +20,12 @@ module Decidim
 
       let(:form_params) do
         {
-          id: amendment.id
+          id: amendment.id,
+          emendation_fields: emendation_fields
         }
       end
 
-      let(:form_context) do
-        {
-          current_user: amendable.creator_author,
-          current_organization: component.organization,
-          current_participatory_space: component.participatory_space,
-          current_component: component
-        }
-      end
-
-      let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params).with_context(form_context) }
+      let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
 
       include_examples "accept amendment"
     end

@@ -233,12 +233,19 @@ pl:
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
     metrics:
       accepted_proposals:
+        description: Liczba wniosków zaakceptowanych przez użytkowników
         object: propozycje
         title: Przyjęte propozycje
+      endorsements:
+        description: Liczba potwierdzeń wygenerowanych w propozycjach
+        object: poparcie
+        title: Adnotacje
       proposals:
+        description: Liczba wygenerowanych wniosków
         object: propozycje
         title: Propozycje
       votes:
+        description: Liczba głosów uzyskanych w propozycjach przez użytkowników
         object: głosów
         title: Głosy
     participatory_processes:
@@ -418,7 +425,7 @@ pl:
           title: Uzupełnij swój wspólny projekt
         count:
           drafts_count:
-            one: '%{count} wspólny projekt'
+            one: "%{count} wspólny projekt"
             few: "%{count} wspólny projekt"
             many: "%{count} wspólny projekt"
             other: "%{count} wspólny projekt"
@@ -566,7 +573,7 @@ pl:
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
-            one: '%{count} propozycji'
+            one: "%{count} propozycji"
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"

@@ -22,13 +22,10 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) if @form.invalid?
 
         transaction do
-          @emendation.update state: "rejected"
           reject_amendment!
-
-          # The proposal authors and followers are notified that the emendation has been rejected.
           notify_emendation_authors_and_followers
         end
 
@@ -37,12 +34,10 @@ module Decidim
 
       private
 
-      attr_reader :emendation, :form
-
       def reject_amendment!
         @amendment = Decidim.traceability.update!(
           @amendment,
-          form.current_user,
+          @amendable.creator_author,
           state: "rejected"
         )
       end
@@ -50,11 +45,12 @@ module Decidim
       def notify_emendation_authors_and_followers
         recipients = @emendation.authors + @emendation.followers
         recipients += @amendable.authors + @amendable.followers
+
         Decidim::EventsManager.publish(
           event: "decidim.events.amendments.amendment_rejected",
           event_class: Decidim::Amendable::AmendmentRejectedEvent,
           resource: @emendation,
-          recipient_ids: recipients.pluck(:id)
+          recipient_ids: recipients.pluck(:id).uniq
         )
       end
     end
