@@ -118,6 +118,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
 - **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
 - **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
+- **decidim-core**: "Follows" section in user profiles now show every resource they follow [\#4616](https://github.com/decidim/decidim/pull/4616)
 
 **Fixed**:
 
