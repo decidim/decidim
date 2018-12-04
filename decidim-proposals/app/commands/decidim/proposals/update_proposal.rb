@@ -39,8 +39,8 @@ module Decidim
 
       def update_proposal
         @proposal.update!(
-          title: form.formatted_title,
-          body: form.formatted_body,
+          title: form.title,
+          body: form.body,
           category: form.category,
           scope: form.scope,
           author: current_user,
