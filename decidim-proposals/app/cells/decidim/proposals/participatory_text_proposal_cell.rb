@@ -46,11 +46,11 @@ module Decidim
       end
 
       def resource_comments_path
-        "#{resource_locator(model).path}/#comments"
+        resource_locator(model).path(anchor: "comments")
       end
 
       def resource_amendments_path
-        "#{resource_locator(model).path}/#amendments"
+        resource_locator(model).path(anchor: "amendments")
       end
 
       def current_participatory_space
