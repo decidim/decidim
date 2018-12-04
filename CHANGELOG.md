@@ -67,6 +67,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Added**:
 
+- **decidim-proposals**: Add amend button and amendments counter to participatory text proposals [\#4598](https://github.com/decidim/decidim/pull/4598/)
 - **decidim-core**: Add reject/promote amendments functionalities into Amendment feature. [\#3986](https://github.com/decidim/decidim/pull/3986/)
 - **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component with these working functionalities: create/withdraw/accept amendments. [\#3985](https://github.com/decidim/decidim/pull/3985/)
 - **decidim-meetings**: Add registration form answers when exporting meeting registrations.[\#4589](https://github.com/decidim/decidim/pull/4589)
