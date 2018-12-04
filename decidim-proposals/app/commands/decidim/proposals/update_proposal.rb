@@ -68,11 +68,11 @@ module Decidim
         fields
       end
 
-      # Prevent PaperTrail from creating a version
-      # in the proposal multi-step creation process
+      # Prevent PaperTrail from creating an additional version
+      # in the proposal multi-step creation process (step 3: complete)
       def update_draft
         PaperTrail.request(enabled: false) do
-          @proposal.update!(proposal_attributes)
+          @proposal.update(proposal_attributes)
           @proposal.coauthorships.clear
           @proposal.add_coauthor(current_user, user_group: user_group)
         end

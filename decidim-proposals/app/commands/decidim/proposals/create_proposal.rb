@@ -54,13 +54,19 @@ module Decidim
         fields
       end
 
-      # Prevent PaperTrail from creating a version
-      # in the proposal multi-step creation process
+      # This will be the PaperTrail version that is
+      # shown in the version control feature (1 of 1)
       def create_proposal
-        PaperTrail.request(enabled: false) do
-          @proposal = Proposal.new(proposal_attributes)
-          @proposal.add_coauthor(@current_user, user_group: user_group)
-          @proposal.save!
+        @proposal = Decidim.traceability.perform_action!(
+          :create,
+          Decidim::Proposals::Proposal,
+          @current_user,
+          visibility: "public-only"
+        ) do
+          proposal = Proposal.new(proposal_attributes)
+          proposal.add_coauthor(@current_user, user_group: user_group)
+          proposal.save!
+          proposal
         end
       end
 

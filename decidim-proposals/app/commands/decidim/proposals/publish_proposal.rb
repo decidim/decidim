@@ -24,7 +24,6 @@ module Decidim
 
         transaction do
           publish_proposal
-          set_proposal_version
           increment_scores
           send_notification
           send_notification_to_participatory_space
@@ -35,37 +34,12 @@ module Decidim
 
       private
 
-      # Prevent PaperTrail from creating a version
-      # in the proposal multi-step creation process
+      # Prevent PaperTrail from creating an additional version
+      # in the proposal multi-step creation process (step 4: publish)
       def publish_proposal
         PaperTrail.request(enabled: false) do
           @proposal.update published_at: Time.current
         end
-      end
-
-      # Set the definitive proposal version with: autor, title and body.
-      # A newly created proposal will have only one version, instead of
-      # the three that were created in the multi-step process by default.
-      def set_proposal_version
-        title = reset(:title)
-        body = reset(:body)
-        Decidim.traceability.perform_action!(
-          "publish",
-          @proposal,
-          @current_user,
-          visibility: "public-only"
-        ) do
-          @proposal.update title: title, body: body
-        end
-      end
-
-      # Reset the attribute so the definitive version will recieve new changes
-      def reset(attribute)
-        attribute_value = @proposal[attribute]
-        PaperTrail.request(enabled: false) do
-          @proposal.update_attribute attribute, "" # rubocop:disable Rails/SkipsModelValidations
-        end
-        attribute_value
       end
 
       def send_notification
