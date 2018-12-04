@@ -156,6 +156,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-admin**: Fix image updating in content blocks [\#4549](https://github.com/decidim/decidim/pull/4549)
 - **decidim-proposals**: Fix address toggle in the add proposal form [\#4587](https://github.com/decidim/decidim/pull/4587)
 - **decidim-comments**: Correctly render comments activity with mentions [\#4612](https://github.com/decidim/decidim/pull/4612)
+- **decidim-core**: Fix nickname generation [\#4615](https://github.com/decidim/decidim/pull/4615)
 - **decidim-initiatives**: Don't eager load polymorphic relations [\#4614](https://github.com/decidim/decidim/pull/4614)
 
 **Removed**:
