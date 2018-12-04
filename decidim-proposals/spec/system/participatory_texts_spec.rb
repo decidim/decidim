@@ -13,8 +13,8 @@ describe "Proposals", type: :system do
     expect(prop_block).to have_button("Follow")
     expect(prop_block).to have_link("Amend") if component.settings.amendments_enabled
     expect(prop_block).to have_link(proposal.emendations.count) if component.settings.amendments_enabled
-    expect(prop_block).to have_link("Comment")
-    expect(prop_block).to have_link(proposal.comments.count)
+    expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
+    expect(prop_block).to have_link(proposal.comments.count) if component.settings.comments_enabled
   end
 
   shared_examples_for "lists all the proposals ordered" do
@@ -79,6 +79,30 @@ describe "Proposals", type: :system do
       context "when amendments are disabled" do
         let(:component) do
           create(:proposal_component,
+                 :with_participatory_texts_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it_behaves_like "lists all the proposals ordered"
+      end
+
+      context "when comments are enabled" do
+        let!(:component) do
+          create(:proposal_component,
+                 :with_participatory_texts_enabled,
+                 :with_votes_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it_behaves_like "lists all the proposals ordered"
+      end
+
+      context "when comments are disabled" do
+        let(:component) do
+          create(:proposal_component,
+                 :with_comments_disabled,
                  :with_participatory_texts_enabled,
                  manifest: manifest,
                  participatory_space: participatory_process)
