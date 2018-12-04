@@ -91,6 +91,8 @@ en:
         show_in_footer: Show in the footer
         title: Title
         weight: Weight
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
