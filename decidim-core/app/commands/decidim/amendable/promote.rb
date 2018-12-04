@@ -50,12 +50,15 @@ module Decidim
 
       def emendation_attributes
         fields = {}
+
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.title, current_organization: @form.current_organization).rewrite
         parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.body, current_organization: @form.current_organization).rewrite
+
         fields[:title] = parsed_title
         fields[:body] = parsed_body
         fields[:component] = @emendation.component
         fields[:published_at] = Time.current if @form.emendation_type == "Decidim::Proposals::Proposal"
+
         fields
       end
 

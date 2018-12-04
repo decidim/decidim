@@ -17,7 +17,7 @@
     <% if model.can_follow? %>
       <div>
         <%= link_to decidim.profile_following_path(raw_model.nickname), class: "card__link" do %>
-          <strong><%= model.following_users_count %></strong> <%= t("decidim.profiles.show.following") %>
+          <strong><%= model.following_count %></strong> <%= t("decidim.profiles.show.following") %>
         <% end %>
       </div>
     <% end %>

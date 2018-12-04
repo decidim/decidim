@@ -42,11 +42,5 @@ module Decidim
                        end
                      end
     end
-
-    def following_users
-      @following_users ||= following.select do |f|
-        f.is_a?(Decidim::User) || f.is_a?(Decidim::UserGroup)
-      end
-    end
   end
 end

@@ -12,14 +12,13 @@ shared_examples "reject amendment" do
     end
 
     it "traces the action", versioning: true do
-      amendment.state = "rejected"
-
       expect(Decidim.traceability)
         .to receive(:update!)
         .with(
           amendment,
           amendable.creator_author,
-          state: "rejected"
+          { state: "rejected" },
+          visibility: "public-only"
         ).and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(1)

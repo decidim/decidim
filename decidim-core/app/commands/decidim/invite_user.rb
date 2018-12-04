@@ -43,7 +43,7 @@ module Decidim
       @user = Decidim::User.new(
         name: form.name,
         email: form.email.downcase,
-        nickname: User.nicknamize(form.name, organization: form.organization),
+        nickname: UserBaseEntity.nicknamize(form.name, organization: form.organization),
         organization: form.organization,
         admin: form.role == "admin",
         roles: form.role == "admin" ? [] : [form.role].compact
