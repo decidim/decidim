@@ -48,8 +48,8 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          state: "published",
-          published_at: Time.current
+          { state: "published", published_at: Time.current },
+          visibility: "public-only"
         )
       end
 

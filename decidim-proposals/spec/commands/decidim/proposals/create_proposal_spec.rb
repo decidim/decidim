@@ -66,6 +66,19 @@ module Decidim
             end.to change(Decidim::Proposals::Proposal, :count).by(1)
           end
 
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with(
+                :create,
+                Decidim::Proposals::Proposal,
+                author,
+                visibility: "public-only"
+              ).and_call_original
+
+            expect { described_class.call(form, author) }.to change(Decidim::ActionLog, :count).by(1)
+          end
+
           context "with an author" do
             let(:user_group) { nil }
 

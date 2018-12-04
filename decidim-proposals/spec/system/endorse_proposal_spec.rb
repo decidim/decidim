@@ -89,7 +89,7 @@ describe "Endorse Proposal", type: :system do
 
         it "is able to endorse the proposal" do
           visit_proposal
-          within ".card__content" do
+          within ".buttons__row" do
             click_button "Endorse"
             expect(page).to have_button("Endorsed")
           end

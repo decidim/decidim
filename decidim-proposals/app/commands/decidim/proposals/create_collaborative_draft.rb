@@ -45,7 +45,8 @@ module Decidim
         @collaborative_draft = Decidim.traceability.perform_action!(
           :create,
           CollaborativeDraft,
-          @form.current_user
+          @form.current_user,
+          visibility: "public-only"
         ) do
           draft = CollaborativeDraft.new(
             title: form.title,

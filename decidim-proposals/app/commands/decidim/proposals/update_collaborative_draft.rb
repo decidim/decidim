@@ -40,7 +40,8 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          attributes
+          attributes,
+          visibility: "public-only"
         )
       end
 
