@@ -68,6 +68,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 **Added**:
 
 - **decidim-proposals**: Add amend button and amendments counter to participatory text proposals [\#4598](https://github.com/decidim/decidim/pull/4598/)
+- **decidim-core**: Add version control functionality into Amendment feature. [\#4567](https://github.com/decidim/decidim/pull/4567/)
 - **decidim-core**: Add reject/promote amendments functionalities into Amendment feature. [\#3986](https://github.com/decidim/decidim/pull/3986/)
 - **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component with these working functionalities: create/withdraw/accept amendments. [\#3985](https://github.com/decidim/decidim/pull/3985/)
 - **decidim-meetings**: Add registration form answers when exporting meeting registrations.[\#4589](https://github.com/decidim/decidim/pull/4589)
@@ -119,6 +120,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
 - **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
 - **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
+- **decidim-core**: "Follows" section in user profiles now show every resource they follow [\#4616](https://github.com/decidim/decidim/pull/4616)
 
 **Fixed**:
 
@@ -156,6 +158,8 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-admin**: Fix image updating in content blocks [\#4549](https://github.com/decidim/decidim/pull/4549)
 - **decidim-proposals**: Fix address toggle in the add proposal form [\#4587](https://github.com/decidim/decidim/pull/4587)
 - **decidim-comments**: Correctly render comments activity with mentions [\#4612](https://github.com/decidim/decidim/pull/4612)
+- **decidim-core**: Fix nickname generation [\#4615](https://github.com/decidim/decidim/pull/4615)
+- **decidim-initiatives**: Don't eager load polymorphic relations [\#4614](https://github.com/decidim/decidim/pull/4614)
 
 **Removed**:
 

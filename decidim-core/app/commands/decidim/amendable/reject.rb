@@ -38,7 +38,8 @@ module Decidim
         @amendment = Decidim.traceability.update!(
           @amendment,
           @amendable.creator_author,
-          state: "rejected"
+          { state: "rejected" },
+          visibility: "public-only"
         )
       end
 
