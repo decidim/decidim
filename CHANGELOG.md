@@ -15,6 +15,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
+- **decidim-admin**: Add pagination to private user list. [\#345](https://github.com/OpenSourcePolitics/decidim/pull/345)
 - **decidim-budgets**: Re-introduce vote on budget by number of project.[\#330](https://github.com/OpenSourcePolitics/decidim/pull/330)
 - **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-proposals**: Allow proposals location to be changed on a map [\#296](https://github.com/OpenSourcePolitics/decidim/pull/296)
@@ -40,6 +41,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 **Fixed**:
 
 - **decidim-core**: Fix comments count when a comment has been moderated [\#349](https://github.com/OpenSourcePolitics/decidim/pull/349)
+- **decidim-participatory_processes**: Fix participatory processes pagination[\#351](https://github.com/OpenSourcePolitics/decidim/pull/351)
 - **decidim-core**: Fix newsletter notification modal [\#342](https://github.com/OpenSourcePolitics/decidim/pull/342) 
 - **decidim-proposals**: Fix responsive car preview for proposals[\#325](https://github.com/OpenSourcePolitics/decidim/pull/325)
 - **decidim-budgets**: Add hyphens to budget card. [\#305](https://github.com/OpenSourcePolitics/decidim/pull/305)
