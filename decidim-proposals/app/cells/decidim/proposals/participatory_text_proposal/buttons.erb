@@ -1,53 +1,33 @@
 <div class="columns mediumlarge-4 hidden-section p-sm">
   <div class="medium-8">
-    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user || !current_settings.comments_blocked? %>
-      <%= follow_button_for(model, true) %>
-      <% if component_settings.comments_enabled? %>
-        <div class="button-group button-group--collapse mb-s row collapse">
-          <% if current_settings.comments_blocked? %>
-            <%= content_tag :button, class: "column medium-4 button light secondary", title: t("endorse", scope: "decidim.proposals.participatory_text_proposal.buttons") do %>
-              <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %>
-              <%= model.comments.count %>
-            <% end %>
-            <%= content_tag :button, t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons"), class: "column button hollow secondary button--sc disabled", disabled: true, title: t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
-          <% else %>
-            <%= link_to resource_comments_path, class: "column medium-4 button light secondary" do %>
-              <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %> <%= model.comments.count %>
-            <% end %>
-            <%= link_to resource_comments_path, class: "column button hollow secondary button--sc" do %>
-              <%= t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
-            <% end %>
+    <%= follow_button_for(model, true) %>
+    <% if amendments_enabled? %>
+      <div class="button-group button-group--collapse mb-s row collapse">
+        <%= link_to resource_amendments_path, class: "column medium-4 button light secondary" do %>
+        <%= model.emendations.count %>
           <% end %>
-        </div>
-      <% end %>
-      <% if current_settings.votes_enabled? %>
-        <%= content_tag :div, class: "button-group mb-s row collapse #{"button-group--collapse" unless current_settings.votes_hidden?}" do %>
-          <% unless current_settings.votes_hidden? %>
-            <%= votes_count_for(model, true) %>
+          <%= link_to amend_resource_path, class: "column button hollow secondary button--sc" do %>
+            <%= t("amend", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
           <% end %>
-          <%= vote_button_for(model, true) %>
+      </div>
+    <% end %>
+    <% if component_settings.comments_enabled? %>
+      <div class="button-group button-group--collapse row collapse">
+        <% if current_settings.comments_blocked? %>
+          <%= content_tag :button, class: "column medium-4 button light secondary", title: t("endorse", scope: "decidim.proposals.participatory_text_proposal.buttons") do %>
+            <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %>
+            <%= model.comments.count %>
+          <% end %>
+          <%= content_tag :button, t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons"), class: "column button hollow secondary button--sc disabled", disabled: true, title: t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
+        <% else %>
+          <%= link_to resource_comments_path, class: "column medium-4 button light secondary" do %>
+            <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %> <%= model.comments.count %>
+          <% end %>
+          <%= link_to resource_comments_path, class: "column button hollow secondary button--sc" do %>
+            <%= t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if current_settings.endorsements_enabled? %>
-        <div class="button-group button-group--collapse row collapse">
-          <% endorse_translated = t("decidim.proposals.proposal_endorsements_helper.render_endorsements_button_card_part.endorse") %>
-          <% if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
-            <%= content_tag :button, class: "column medium-4 button secondary light button--sc button--shadow", title: t("endorse", scope: "decidim.proposals.participatory_text_proposal.buttons") do %>
-              <%= icon "bullhorn", class: "icon--small", aria_label: t("endorsements", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %>
-              <%= model.proposal_endorsements_count.to_s %>
-            <% end %>
-            <%= content_tag :button, t("endorse", scope: "decidim.proposals.participatory_text_proposal.buttons"), class: "column button secondary light button--sc disabled", disabled: true, title: t("endorse", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
-          <% else %>
-            <%= link_to resource_path, class: "column medium-4 button secondary light button--sc button--shadow" do %>
-              <%= icon "bullhorn", class: "icon--small", aria_label: t("endorsements", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %>
-              <%= model.proposal_endorsements_count.to_s %>
-            <% end %>
-            <%= link_to resource_path, class: "column button secondary light button--sc" do %>
-              <%= t("endorse", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>

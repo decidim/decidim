@@ -95,20 +95,7 @@ module Decidim
       end
 
       def follow_button_for(model, large = nil)
-        if current_user
-          render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
-        else
-          content_tag(:p, class: "mt-s mb-none") do
-            if current_organization.sign_up_enabled?
-              t("decidim.proposals.proposals.show.sign_in_or_up",
-                in: link_to(t("decidim.proposals.proposals.show.sign_in"), decidim.new_user_session_path),
-                up: link_to(t("decidim.proposals.proposals.show.sign_up"), decidim.new_user_registration_path)).html_safe
-            else
-              t("decidim.proposals.proposals.show.sign_in_to_participate",
-                in: link_to(t("decidim.proposals.proposals.show.sign_in"), decidim.new_user_session_path)).html_safe
-            end
-          end
-        end
+        render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
       end
 
       def votes_count_for(model, from_proposals_list)
