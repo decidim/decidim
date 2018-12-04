@@ -660,54 +660,46 @@ describe "Proposals", type: :system do
     end
 
     context "when amendments_enabled setting is enabled" do
+      let!(:proposal) { create(:proposal, component: component, scope: scope) }
+      let!(:emendation) { create(:proposal, component: component, scope: scope) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
       before do
         component.update!(settings: { amendments_enabled: true })
+        visit_component
+      end
+
+      context "with 'all' type" do
+        it "lists the filtered proposals" do
+          find('input[id="filter_type_all"]').click
+
+          expect(page).to have_css(".card.card--proposal", count: 2)
+          expect(page).to have_content("2 PROPOSALS")
+          expect(page).to have_content("AMENDMENT", count: 1)
+        end
       end
 
       context "with 'proposals' type" do
         it "lists the filtered proposals" do
-          create_list(:proposal, 2, component: component, scope: scope)
-          visit_component
-
           within ".filters" do
             choose "Proposals"
           end
 
-          expect(page).to have_css(".card.card--proposal", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
+          expect(page).to have_css(".card.card--proposal", count: 1)
+          expect(page).to have_content("1 PROPOSAL")
+          expect(page).to have_content("AMENDMENT", count: 0)
         end
       end
 
       context "with 'amendments' type" do
-        let!(:proposal) { create(:proposal, component: component, scope: scope) }
-        let!(:emendation) { create(:proposal, component: component, scope: scope) }
-        let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
-
         it "lists the filtered proposals" do
-          visit_component
-
           within ".filters" do
             choose "Amendments"
           end
 
           expect(page).to have_css(".card.card--proposal", count: 1)
           expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT")
-        end
-      end
-
-      context "with 'all' type" do
-        let!(:proposal) { create(:proposal, component: component, scope: scope) }
-        let!(:emendation) { create(:proposal, component: component, scope: scope) }
-        let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
-
-        it "lists the filtered proposals" do
-          visit_component
-
-          find('input[id="filter_type_all"]').click
-          expect(page).to have_content("2 PROPOSALS")
           expect(page).to have_content("AMENDMENT", count: 1)
-          expect(page).to have_css(".card.card--proposal", count: 2)
         end
       end
     end
