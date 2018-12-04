@@ -9,7 +9,7 @@ module Decidim
 
       def perform(email, verifier, organization)
         @organization = organization
-        @email = email
+        @email = email.downcase.strip
 
         return if email.blank?
         return unless user_group

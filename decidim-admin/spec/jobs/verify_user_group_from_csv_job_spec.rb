@@ -57,7 +57,7 @@ module Decidim
         end
       end
 
-      context "when the user group does not exist in the organization" do
+      context "when the email does not exist in the organization groups" do
         let(:email) { "this is not an email" }
 
         it "does not verify the user group" do
@@ -65,6 +65,17 @@ module Decidim
             described_class.perform_now(email, user, organization)
             user_group.reload
           end.not_to change(user_group, :verified?)
+        end
+      end
+
+      context "when the email exists but is wrongly formatted" do
+        let(:email) { " #{user_group.email.upcase} " }
+
+        it "verifies the user group" do
+          expect do
+            described_class.perform_now(email, user, organization)
+            user_group.reload
+          end.to change(user_group, :verified?).from(false).to(true)
         end
       end
     end
