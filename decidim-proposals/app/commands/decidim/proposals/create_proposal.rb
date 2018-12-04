@@ -41,17 +41,24 @@ module Decidim
 
       attr_reader :form, :proposal, :attachment
 
-      # Prevents PaperTrail from creating a version in the proposal creation process
-      def create_proposal
+      def proposal_attributes
+        fields = {}
+
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
         parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
 
+        fields[:title] = parsed_title
+        fields[:body] = parsed_body
+        fields[:component] = form.component
+
+        fields
+      end
+
+      # Prevent PaperTrail from creating a version
+      # in the proposal multi-step creation process
+      def create_proposal
         PaperTrail.request(enabled: false) do
-          @proposal = Proposal.new(
-            title: parsed_title,
-            body: parsed_body,
-            component: form.component
-          )
+          @proposal = Proposal.new(proposal_attributes)
           @proposal.add_coauthor(@current_user, user_group: user_group)
           @proposal.save!
         end

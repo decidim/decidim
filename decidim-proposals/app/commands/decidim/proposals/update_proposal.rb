@@ -68,7 +68,8 @@ module Decidim
         fields
       end
 
-      # Prevents PaperTrail from creating a version in the proposal creation process
+      # Prevent PaperTrail from creating a version
+      # in the proposal multi-step creation process
       def update_draft
         PaperTrail.request(enabled: false) do
           @proposal.update!(

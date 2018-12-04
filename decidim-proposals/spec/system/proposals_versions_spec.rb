@@ -37,7 +37,7 @@ describe "Explore versions", versioning: true, type: :system do
       visit proposal_path
     end
 
-    it "shows the version number" do
+    it "has only one version" do
       expect(page).to have_content("VERSION 1 (of 1)")
     end
 
@@ -52,7 +52,6 @@ describe "Explore versions", versioning: true, type: :system do
       end
 
       it "creates a new version" do
-        command.call
         expect(page).to have_content("VERSION 2 (of 2)")
       end
     end

@@ -35,14 +35,17 @@ module Decidim
 
       private
 
-      # Prevents PaperTrail from creating a version in the proposal creation process
+      # Prevent PaperTrail from creating a version
+      # in the proposal multi-step creation process
       def publish_proposal
         PaperTrail.request(enabled: false) do
           @proposal.update published_at: Time.current
         end
       end
 
-      # Sets the definitive version so when a proposal is created it has only one version (instead of the three created in the multi-step process)
+      # Set the definitive proposal version with: autor, title and body.
+      # A newly created proposal will have only one version, instead of
+      # the three that were created in the multi-step process by default.
       def set_proposal_version
         title = reset(:title)
         body = reset(:body)
@@ -56,6 +59,7 @@ module Decidim
         end
       end
 
+      # Reset the attribute so the definitive version will recieve new changes
       def reset(attribute)
         attribute_value = @proposal[attribute]
         PaperTrail.request(enabled: false) do
