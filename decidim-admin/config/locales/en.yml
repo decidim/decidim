@@ -615,6 +615,9 @@ en:
         user_groups: User groups
         users: Users
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: There was an error when rejecting this user group.
           success: User group rejected successfully
@@ -634,6 +637,12 @@ en:
             pending: Pending
             rejected: Rejected
             verified: Verified
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: There was an error when inviting this user.
