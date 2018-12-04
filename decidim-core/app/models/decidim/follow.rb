@@ -27,7 +27,6 @@ module Decidim
 
     # rubocop:disable Rails/SkipsModelValidations
     def increase_following_counters
-      user.increment!(:following_users_count) if decidim_followable_type == "Decidim::UserBaseEntity"
       user.increment!(:following_count)
     end
 
@@ -38,7 +37,6 @@ module Decidim
 
     def decrease_following_counters
       return unless user
-      user.decrement!(:following_users_count) if decidim_followable_type == "Decidim::UserBaseEntity"
       user.decrement!(:following_count)
     end
 
