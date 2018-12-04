@@ -72,9 +72,7 @@ module Decidim
       # in the proposal multi-step creation process
       def update_draft
         PaperTrail.request(enabled: false) do
-          @proposal.update!(
-            proposal_attributes
-          )
+          @proposal.update!(proposal_attributes)
           @proposal.coauthorships.clear
           @proposal.add_coauthor(current_user, user_group: user_group)
         end
