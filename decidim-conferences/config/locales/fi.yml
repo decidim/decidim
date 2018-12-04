@@ -12,7 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        participatory_processes_ids: Liittyvät osallistumisprosessit
+        participatory_processes_ids: Liittyvät osallisuusprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -389,29 +389,29 @@ fi:
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
         related_consultations: Liittyvät kuulemiset
-        related_participatory_processes: Liittyvät osallistumisprosessit
+        related_participatory_processes: Liittyvät osallisuusprosessit
       statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        conference_count: Konferenssit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastauksia
+        comments_count: Kommentteja
+        conference_count: Konferensseja
+        debates_count: Keskusteluita
+        endorsements_count: Suosituksia
         headline: Toiminta
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        posts_count: Viestit
-        projects_count: Suunnitelmat
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        posts_count: Viestejä
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
     events:
       conferences:
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallistumistilan hallinnoija.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.
           email_subject: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssista on varattu yli %{percentage}% vapaista paikoista.
         conference_updated:

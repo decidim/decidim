@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -17,7 +16,7 @@ en:
       badges:
         test:
           conditions:
-          - Use a test environment for decidim.
+            - Use a test environment for decidim.
           description: Users get this badge by creating tests.
           description_another: This user has created %{score} tests.
           description_own: You have created %{score} tests.

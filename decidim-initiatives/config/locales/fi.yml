@@ -86,7 +86,7 @@ fi:
       badges:
         initiatives:
           conditions:
-            - Siirry aloitteiden osallistumistilaan
+            - Siirry aloitteiden osallisuustilaan
             - Luo uusi aloite ohjeiden mukaisesti
           description: Tämä kunniamerkki myönnetään, kun laadit uusia aloitteita ja keräät verkoston ihmisiä toteuttamaan niitä.
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
@@ -305,10 +305,10 @@ fi:
           one: " allekirjoitus"
           other: " allekirjoitusta"
         statistics:
-          assistants_count_title: Avustajat
-          comments_count_title: Kommentit
-          meetings_count_title: Tapaamiset
-          supports_count_title: Allekirjoitukset
+          assistants_count_title: Avustajia
+          comments_count_title: Kommentteja
+          meetings_count_title: Tapaamisia
+          supports_count_title: Allekirjoituksia
         supports:
           title: Allekirjoitusten luettelo
         vote_cabin:

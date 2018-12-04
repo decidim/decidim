@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -44,7 +43,7 @@ en:
         one: Conference speaker
         other: Conference speakers
       decidim/conference_user_role:
-        one: Conference user role
+        one: No conference user roles
         other: Conference user roles
   decidim:
     admin:
@@ -276,7 +275,6 @@ en:
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
-              zero: There has not been registrations yet.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         invite_join_conference_mailer:
           invite:
@@ -297,7 +295,6 @@ en:
           remaining_slots:
             one: 1 slot remaining
             other: "%{count} slots remaining"
-            zero: No slots remaining
       conference_program:
         program_meeting:
           content: Content

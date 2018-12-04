@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -344,7 +343,7 @@ en:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assembly"
+            one: "%{count} assemblies"
             other: "%{count} assemblies"
         promoted_assembly:
           more_info: More info

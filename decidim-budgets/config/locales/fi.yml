@@ -54,7 +54,7 @@ fi:
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia suunnitelmiin
-            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
+            no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             select_component: Valitse komponentti
       admin_log:
         project:
@@ -130,7 +130,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             projects_per_page: Suunnitelmat sivua kohden
-            resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
+            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
             total_budget: Kokonaisbudjetti
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:

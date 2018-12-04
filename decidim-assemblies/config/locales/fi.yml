@@ -32,7 +32,7 @@ fi:
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
         parent_id: Liittyvä ryhmä
-        participatory_processes_ids: Liittyvät osallistumisprosessit
+        participatory_processes_ids: Liittyvät osallisuusprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Yksityinen tila
@@ -250,7 +250,7 @@ fi:
         executive: Johtaja
         government: Hallitus
         others: Muut
-        participatory: Osallistuva
+        participatory: Osallisuus
         working_group: Työryhmä
       content_blocks:
         highlighted_assemblies:
@@ -294,26 +294,26 @@ fi:
         purpose_of_action: Toiminnan tarkoitus
         read_less: Vähennä tekstiä
         read_more: Lue lisää
-        related_participatory_processes: Liittyvät osallistumisprosessit
+        related_participatory_processes: Liittyvät osallisuusprosessit
         scope: Teema
         social_networks: Sosiaalinen media
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
-        assemblies_count: Ryhmät
-        comments_count: Kommentit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        assemblies_count: Ryhmiä
+        comments_count: Kommentteja
+        debates_count: Keskusteluja
+        endorsements_count: Suosituksia
         headline: Tilastot
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        projects_count: Projektit
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
