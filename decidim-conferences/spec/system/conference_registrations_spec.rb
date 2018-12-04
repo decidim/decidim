@@ -61,7 +61,7 @@ describe "Conference registrations", type: :system do
 
         within ".extra.join-conference" do
           expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE")
-          expect(page).to have_text("No slots remaining")
+          expect(page).to have_text("0 slots remaining")
         end
       end
     end
