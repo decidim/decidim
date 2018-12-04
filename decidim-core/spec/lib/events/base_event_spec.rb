@@ -119,6 +119,18 @@ module Decidim
           it { is_expected.not_to be_notifiable }
         end
       end
+
+      context "when the resource is a participatory space" do
+        let(:resource) { build(:participatory_process) }
+
+        it { is_expected.to be_notifiable }
+
+        context "when it is not published" do
+          let(:resource) { build(:participatory_process, :unpublished) }
+
+          it { is_expected.not_to be_notifiable }
+        end
+      end
     end
   end
 end
