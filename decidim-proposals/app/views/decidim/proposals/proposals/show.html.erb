@@ -26,10 +26,10 @@
         <div class="card__content">
           <div>
             <strong class="text-large text-uppercase">
-              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@proposal.versions_count}") %>
+              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
             </strong>
             <small class="text-medium">
-              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@proposal.versions_count}") %>
+              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
             </small>
           </div>
 
