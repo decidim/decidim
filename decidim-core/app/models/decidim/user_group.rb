@@ -20,6 +20,7 @@ module Decidim
     devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
+    scope :not_verified, -> { where("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
     scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
 

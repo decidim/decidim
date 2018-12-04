@@ -128,6 +128,7 @@ en:
       user_group:
         reject: "%{user_name} rejected the %{resource_name} user group verification"
         verify: "%{user_name} verified the %{resource_name} user group"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
     amendments:
       accepted:
         error: An error ocurred accepting the emendation, please try again later.

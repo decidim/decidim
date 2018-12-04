@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::Admin
   describe VerifyUserGroup do
-    subject { described_class.new(user_group, current_user) }
+    subject { described_class.new(user_group, current_user, via_csv) }
 
+    let(:via_csv) { false }
     let(:current_user) { create :user, organization: organization }
     let(:organization) { create :organization }
 
@@ -71,6 +72,18 @@ module Decidim::Admin
             .with("verify", user_group, current_user)
 
           subject.call
+        end
+
+        context "when the verification is performed via csv" do
+          let(:via_csv) { true }
+
+          it "uses another action to track the changes" do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with("verify_via_csv", user_group, current_user)
+
+            subject.call
+          end
         end
       end
     end

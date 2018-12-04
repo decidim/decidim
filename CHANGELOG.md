@@ -98,6 +98,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Open Data export [\#4578](https://github.com/decidim/decidim/pull/4578)
 - **decidim-meetings**: Export meetings [\#4597](https://github.com/decidim/decidim/pull/4597)
 - **decidim-core**: User groups can now confirm their email [\#4603](https://github.com/decidim/decidim/pull/4603)
+- **decidim-core**: Admins can verify batches of user groups that have the email confirmed by uploading a CSV file [\#4613](https://github.com/decidim/decidim/pull/4613)
 
 **Changed**:
 

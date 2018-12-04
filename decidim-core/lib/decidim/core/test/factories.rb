@@ -175,6 +175,10 @@ FactoryBot.define do
       rejected_at { Time.current }
     end
 
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
     after(:build) do |user_group, evaluator|
       user_group.extended_data = {
         document_number: evaluator.document_number,
