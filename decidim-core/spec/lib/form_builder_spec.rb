@@ -131,6 +131,38 @@ module Decidim
           end
         end
       end
+
+      context "with an editor field hashtaggable" do
+        let(:output) do
+          builder.translated :editor, :short_description, hashtaggable: true
+        end
+
+        it "renders a tabbed input hidden for each field and a container for the editor" do
+          expect(parsed.css("label[for='resource_short_description']")).not_to be_empty
+
+          expect(parsed.css("li.tabs-title a").count).to eq 3
+          expect(parsed.css(".editor.hashtags__container").count).to eq 3
+
+          expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_nil
+
+          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_ca]']")).not_to be_empty
+          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
+          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_de__CH]']")).not_to be_empty
+
+          expect(parsed.css(".tabs-panel .editor .editor-container").count).to eq 3
+        end
+
+        context "with a single locale" do
+          let(:available_locales) { %w(en) }
+
+          it "renders a single input and a container for the editor" do
+            expect(parsed.css(".editor-container.js-hashtags").count).to eq 1
+            expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
+            expect(parsed.css(".editor label[for='resource_short_description_en']")).not_to be_empty
+            expect(parsed.css(".editor .editor-container")).not_to be_empty
+          end
+        end
+      end
     end
 
     describe "categories_for_select" do
