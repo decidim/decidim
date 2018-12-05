@@ -127,7 +127,9 @@ module Decidim
                 end
         return label unless locale
 
-        locale_name = I18n.t("locale.name", locale: locale)
+        locale_name = I18n.t("locale.name", locale: locale) if I18n.available_locales.include?(locale.to_sym)
+        locale_name ||= locale
+
         "#{label} (#{locale_name})"
       end
     end
