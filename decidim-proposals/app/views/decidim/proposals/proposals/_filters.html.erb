@@ -12,6 +12,9 @@
     </div>
   </div>
 
+  <% if component_settings.amendments_enabled %>
+    <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, legend_title: t(".amendment_type") %>
+  <% end %>
   <% if component_settings.official_proposals_enabled %>
     <%= form.collection_radio_buttons :origin, filter_origin_values, :first, :last, legend_title: t(".origin") %>
   <% end %>
