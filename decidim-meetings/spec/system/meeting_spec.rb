@@ -33,4 +33,22 @@ describe "Meeting", type: :system do
       end
     end
   end
+
+  context "when component is not commentable" do
+    let!(:meetings) { create_list(:meeting, 3, services: services, component: component) }
+    let!(:component) do
+      create(:component,
+             manifest: manifest,
+             participatory_space: participatory_space)
+    end
+
+    it "doesn't displays comments count" do
+      component.update!(settings: { comments_enabled: false })
+      visit_component
+
+      meetings.each do |meeting|
+        expect(page).not_to have_link(resource_locator(meeting).path)
+      end
+    end
+  end
 end
