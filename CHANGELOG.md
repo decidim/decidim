@@ -163,6 +163,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-meetings**: Add the participatory space to the meeting directory listing [\#4620](https://github.com/decidim/decidim/pull/4620)
 - **decidim-core**: Fix nickname generation [\#4615](https://github.com/decidim/decidim/pull/4615)
 - **decidim-initiatives**: Don't eager load polymorphic relations [\#4614](https://github.com/decidim/decidim/pull/4614)
+- **decidim-initiatives**: Fix searching for initiatives with by type [\#4626](https://github.com/decidim/decidim/pull/4626)
 
 **Removed**:
 
