@@ -22,7 +22,7 @@
         <tbody>
         <% initiative_type.scopes.each do |s| %>
           <tr>
-            <td><%= translated_attribute(s.scope.name) %></td>
+            <td><%= translated_attribute(s.scope_name) %></td>
             <td class="text-right"><%= s.supports_required %></td>
             <td class="table-list__actions">
               <%= icon_link_to "pencil",
