@@ -349,6 +349,7 @@ en:
       states:
         accepted: Accepted
         expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
   layouts:
