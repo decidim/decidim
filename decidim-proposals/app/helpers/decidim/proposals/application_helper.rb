@@ -168,6 +168,15 @@ module Decidim
           ["all", t("decidim.proposals.application_helper.filter_state_values.all")]
         ]
       end
+
+      def filter_type_values
+        [
+          ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
+          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
+          ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
+
+        ]
+      end
     end
   end
 end
