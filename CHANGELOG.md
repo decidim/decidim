@@ -167,6 +167,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-initiatives**: Don't eager load polymorphic relations [\#4614](https://github.com/decidim/decidim/pull/4614)
 - **decidim-initiatives**: Fix searching for initiatives with by type [\#4626](https://github.com/decidim/decidim/pull/4626)
 - **decidim-accountability**: Return a 404 when a result doesn't exist. [\#4630](https://github.com/decidim/decidim/pull/4630)
+- **decidim-budgets**: Use bigint instead of int for projects [\#4628](https://github.com/decidim/decidim/pull/4628)
 
 **Removed**:
 
