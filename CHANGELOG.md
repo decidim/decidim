@@ -81,6 +81,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Fixed**:
 
+- **decidim-meeting**: Fix admin update meeting with only one locale [\#4625](https://github.com/decidim/decidim/pull/4625)
 - **decidim-assemblies**: Add parent when duplicating child assembly. [\#4371](https://github.com/decidim/decidim/pull/4371)
 - **decidim-assemblies**: Add paginate on admin site assembly members. [\#4369](https://github.com/decidim/decidim/pull/4369)
 - **decidim-admin**: Adds traceability when creating and deleting Participatory Space private user [\#4332](https://github.com/decidim/decidim/pull/4332)
