@@ -103,7 +103,6 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Changed**:
 
-- **decidim-meetings**: Fix meeting form when only one locale is available [\#4623](https://github.com/decidim/decidim/pull/4623)
 - **decidim-core**: Show hashtags with original case [\#4554](https://github.com/decidim/decidim/pull/4554)
 - **decidim-conferences**: Remove right sidebar completely from the frontend [\#4480](https://github.com/decidim/decidim/pull/4480)
 - **decidim-core**: Allow to configure OmniAuth provider icons [\#4440](https://github.com/decidim/decidim/pull/4440)
@@ -124,6 +123,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Fixed**:
 
+- **decidim-meetings**: Fix meetings form when only one locale is available [\#4625](https://github.com/decidim/decidim/pull/4625)
 - **decidim-participatory_processes**: Fix admin cannot access public view of private processes by default [\#4591](https://github.com/decidim/decidim/pull/4591)
 - **decidim-proposals** Index admin-created proposals. [\#4601](https://github.com/decidim/decidim/pull/4601)
 - **decidim-proposals** Fix proposals created from collaborative drafts inherited attributes [\#4605](https://github.com/decidim/decidim/pull/4605)
