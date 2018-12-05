@@ -187,6 +187,23 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_amendments_and_participatory_texts_enabled do
+      settings do
+        {
+          participatory_texts_enabled: true,
+          amendments_enabled: true
+        }
+      end
+    end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+          comments_enabled: false
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do

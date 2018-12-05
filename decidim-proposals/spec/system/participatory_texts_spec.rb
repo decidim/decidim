@@ -10,15 +10,16 @@ describe "Proposals", type: :system do
     expect(page).to have_tag(selector, text: proposal.title)
     prop_block = page.find(selector)
     prop_block.hover
-    expect(prop_block).to have_link("Sign in")
-    expect(prop_block).to have_link("Comment")
-    expect(prop_block).to have_button("Vote") if component.step_settings[participatory_process.active_step.id.to_s].votes_enabled?
-    expect(prop_block).to have_link("Endorse")
+    expect(prop_block).to have_button("Follow")
+    expect(prop_block).to have_link("Amend") if component.settings.amendments_enabled
+    expect(prop_block).to have_link(proposal.emendations.count) if component.settings.amendments_enabled
+    expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
+    expect(prop_block).to have_link(proposal.comments.count) if component.settings.comments_enabled
   end
 
   shared_examples_for "lists all the proposals ordered" do
     it "by position" do
-      expect(component.settings.participatory_texts_enabled?).to be true
+      expect(component.settings.participatory_texts_enabled).to be true
       visit_component
       count = proposals.count
       expect(page).to have_css(".hover-section", count: count)
@@ -64,7 +65,29 @@ describe "Proposals", type: :system do
         expect(page).to have_content(participatory_text.title)
       end
 
-      context "when voting is enabled" do
+      context "when amendments are enabled" do
+        let!(:component) do
+          create(:proposal_component,
+                 :with_amendments_and_participatory_texts_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it_behaves_like "lists all the proposals ordered"
+      end
+
+      context "when amendments are disabled" do
+        let(:component) do
+          create(:proposal_component,
+                 :with_participatory_texts_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it_behaves_like "lists all the proposals ordered"
+      end
+
+      context "when comments are enabled" do
         let!(:component) do
           create(:proposal_component,
                  :with_participatory_texts_enabled,
@@ -76,10 +99,10 @@ describe "Proposals", type: :system do
         it_behaves_like "lists all the proposals ordered"
       end
 
-      context "when voting is disabled" do
+      context "when comments are disabled" do
         let(:component) do
           create(:proposal_component,
-                 :with_votes_disabled,
+                 :with_comments_disabled,
                  :with_participatory_texts_enabled,
                  manifest: manifest,
                  participatory_space: participatory_process)
