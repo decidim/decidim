@@ -166,6 +166,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Fix nickname generation [\#4615](https://github.com/decidim/decidim/pull/4615)
 - **decidim-initiatives**: Don't eager load polymorphic relations [\#4614](https://github.com/decidim/decidim/pull/4614)
 - **decidim-initiatives**: Fix searching for initiatives with by type [\#4626](https://github.com/decidim/decidim/pull/4626)
+- **decidim-admin**: Add missing locales for organization errors [\#4633](https://github.com/decidim/decidim/pull/4633)
 - **decidim-core**: Don't crash when a log is in an unavailable locale [\#4632](https://github.com/decidim/decidim/pull/4632)
 - **decidim-core**: Fix newsletter rendering when locale content is missing [\#4629](https://github.com/decidim/decidim/pull/4629)
 - **decidim-initiatives**: Provide a fallback when an initative scope is missing [\#4634](https://github.com/decidim/decidim/pull/4634)
