@@ -36,12 +36,12 @@ module Decidim
       it { is_expected.to include(action_log) }
     end
 
-    context "with update actions" do
+    context "with any other actions" do
       let!(:action_log) do
         create(:action_log, action: "update", visibility: "public-only", organization: organization)
       end
 
-      it { is_expected.not_to include(action_log) }
+      it { is_expected.to include(action_log) }
     end
 
     context "when a resource is publicable" do

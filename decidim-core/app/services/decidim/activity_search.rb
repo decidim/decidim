@@ -61,22 +61,19 @@ module Decidim
     end
 
     def scope_for(resource_type)
-      action = if publicable_resource_types.include?(resource_type)
-                 "publish"
-               else
-                 "create"
-               end
-
-      query.where(resource_type: resource_type, action: action)
+      if publicable_resource_types.include?(resource_type)
+        query.where(resource_type: resource_type).where.not(action: "create")
+      else
+        query.where(resource_type: resource_type)
+      end
     end
 
     def all_resources_scope
       query
         .where(
-          "(action = ? AND resource_type IN (?)) OR (action = ? AND resource_type IN (?))",
-          "publish",
-          publicable_resource_types,
+          "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
           "create",
+          publicable_resource_types,
           (resource_types - publicable_resource_types)
         )
     end
