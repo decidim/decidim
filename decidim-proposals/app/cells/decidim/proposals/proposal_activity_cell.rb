@@ -6,7 +6,7 @@ module Decidim
     class ProposalActivityCell < ActivityCell
       def title
         I18n.t(
-          "decidim.proposals.last_activity.new_proposal_at_html",
+          "decidim.proposals.last_activity.new_proposal_at",
           link: participatory_space_link
         )
       end

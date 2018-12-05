@@ -22,7 +22,6 @@ en:
         description: Description
         entry_date: Date
     models:
-      decidim/accountability/proposal_linked_event: Proposal included in a result
       decidim/accountability/result_progress_updated_event: Result progress updated
   activerecord:
     models:
@@ -197,11 +196,6 @@ en:
             comments_blocked: Comments blocked
     events:
       accountability:
-        proposal_linked:
-          email_intro: 'The proposal "%{proposal_title}" has been included in a result. You can see it from this page:'
-          email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
-          email_subject: An update to %{proposal_title}
-          notification_title: The proposal <a href="%{proposal_path}">%{proposal_title}</a> has been included in the <a href="%{resource_path}">%{resource_title}</a> result.
         result_progress_updated:
           email_intro: 'The result "%{resource_title}", which includes the proposal "%{proposal_title}", is now %{progress}% complete. You can see it from this page:'
           email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.

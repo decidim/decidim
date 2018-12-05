@@ -29,8 +29,16 @@ module Decidim
       options = {
         show_author: (context[:user] != activity.user)
       }
+      resource_name = activity.resource_type.constantize.name.underscore
 
-      cell "#{activity.resource_type.constantize.name.underscore}_activity", activity, context: options
+      cell "#{resource_name}_#{activity.action}_activity", activity, context: options
+    rescue NameError
+      default_cell_for(activity)
+    end
+
+    def default_cell_for(activity)
+      resource_name = activity.resource_type.constantize.name.underscore
+      cell "#{resource_name}_activity", activity, context: options
     rescue NameError
       cell "decidim/activity", activity, context: options
     end

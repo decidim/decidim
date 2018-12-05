@@ -134,40 +134,46 @@ module Decidim::Accountability
         follower = create(:user, organization: organization)
         create(:follow, followable: proposals.first, user: follower)
 
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
           .with(
-            event: "decidim.events.accountability.proposal_linked",
-            event_class: Decidim::Accountability::ProposalLinkedEvent,
-            resource: kind_of(Result),
-            recipient_ids: match_array([proposals.first.creator_author.id, follower.id]),
-            extra: {
-              proposal_id: proposals.first.id
-            }
+            :create,
+            Decidim::Accountability::Result,
+            user,
+            visibility: "all"
+          ).and_call_original
+
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(
+            :proposal_linked_with_result,
+            proposals.first,
+            user,
+            visibility: "all",
+            result: kind_of(String),
+            result_title: kind_of(Hash)
           )
 
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
           .with(
-            event: "decidim.events.accountability.proposal_linked",
-            event_class: Decidim::Accountability::ProposalLinkedEvent,
-            resource: kind_of(Result),
-            recipient_ids: [proposals.second.creator_author.id],
-            extra: {
-              proposal_id: proposals.second.id
-            }
+            :proposal_linked_with_result,
+            proposals.second,
+            user,
+            visibility: "all",
+            result: kind_of(String),
+            result_title: kind_of(Hash)
           )
 
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
           .with(
-            event: "decidim.events.accountability.proposal_linked",
-            event_class: Decidim::Accountability::ProposalLinkedEvent,
-            resource: kind_of(Result),
-            recipient_ids: [proposals.third.creator_author.id],
-            extra: {
-              proposal_id: proposals.third.id
-            }
+            :proposal_linked_with_result,
+            proposals.third,
+            user,
+            visibility: "all",
+            result: kind_of(String),
+            result_title: kind_of(Hash)
           )
 
         subject.call

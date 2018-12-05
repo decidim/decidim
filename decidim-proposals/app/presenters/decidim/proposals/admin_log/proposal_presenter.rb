@@ -31,7 +31,7 @@ module Decidim
 
         def action_string
           case action
-          when "answer", "create", "update"
+          when "answer", "create", "update", "proposal_linked_with_result"
             "decidim.proposals.admin_log.proposal.#{action}"
           else
             super
@@ -42,8 +42,20 @@ module Decidim
           "activemodel.attributes.proposal"
         end
 
+        def i18n_params
+          super.merge(result_name: result_presenter.present)
+        end
+
         def has_diff?
           action == "answer" || super
+        end
+
+        def result
+          @result ||= GlobalID::Locator.locate action_log.extra["result"]
+        end
+
+        def result_presenter
+          Decidim::Log::ResourcePresenter.new(result, h, "title" => action_log.extra["result_title"])
         end
       end
     end
