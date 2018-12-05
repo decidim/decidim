@@ -22,7 +22,6 @@ shared_examples "manage meetings" do
         within "#meeting-title-tabs" do
           click_link "English"
         end
-
         expect(page).to have_css("input", text: meeting.title[:en], visible: true)
 
         within "#meeting-title-tabs" do
@@ -40,7 +39,6 @@ shared_examples "manage meetings" do
         within "#meeting-description-tabs" do
           click_link "English"
         end
-
         expect(page).to have_css("input", text: meeting.description[:en], visible: true)
 
         within "#meeting-description-tabs" do
