@@ -54,8 +54,11 @@ module Decidim
         end
 
         def send_email_confirmation
-          Decidim::Conferences::ConferenceRegistrationMailer.confirmation(@conference_registration.user,
-                                                                          @conference_registration.conference, @conference_registration.registration_type).deliver_later
+          Decidim::Conferences::ConferenceRegistrationMailer.confirmation(
+            @conference_registration.user,
+            @conference_registration.conference,
+            @conference_registration.registration_type
+          ).deliver_later
         end
 
         def send_notification_confirmation

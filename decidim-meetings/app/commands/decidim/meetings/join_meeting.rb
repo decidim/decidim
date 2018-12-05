@@ -50,7 +50,7 @@ module Decidim
       end
 
       def create_registration
-        @registration = Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
+        Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
       end
 
       def can_join_meeting?
@@ -58,6 +58,7 @@ module Decidim
       end
 
       def send_email_confirmation
+        registration = Decidim::Meetings::Registration.last
         Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
       end
 
