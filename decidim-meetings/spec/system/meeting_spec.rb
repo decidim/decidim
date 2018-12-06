@@ -33,36 +33,4 @@ describe "Meeting", type: :system do
       end
     end
   end
-
-  context "when the user is logged in and is registered to the meeting" do
-    let!(:registration) { create(:registration, meeting: meeting, user: user) }
-
-    before do
-      login_as user, scope: :user
-    end
-
-    it "shows the registration code" do
-      visit_meeting
-
-      expect(page).to have_css(".registration_code")
-      expect(page).to have_content(registration.code)
-    end
-
-    context "when showing the registration code validation state" do
-      it "shows validation pending if not validated" do
-        visit_meeting
-
-        expect(registration.validated_at).to be(nil)
-        expect(page).to have_content("VALIDATION PENDING")
-      end
-
-      it "shows validated if validated" do
-        registration.update validated_at: Time.current
-        visit_meeting
-
-        expect(registration.validated_at).not_to be(nil)
-        expect(page).to have_content("VALIDATED")
-      end
-    end
-  end
 end
