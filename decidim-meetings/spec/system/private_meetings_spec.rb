@@ -112,9 +112,7 @@ describe "Private meetings", type: :system do
 
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"
-            within ".card.extra" do
-              expect(page).to have_css(".button", text: "GOING")
-            end
+            expect(page).to have_css(".button", text: "GOING")
           end
         end
       end
