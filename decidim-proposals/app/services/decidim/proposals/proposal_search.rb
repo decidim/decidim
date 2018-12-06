@@ -80,6 +80,18 @@ module Decidim
         end
       end
 
+      # Handle the amendment type filter
+      def search_type
+        case type
+        when "proposals"
+          query.where.not(id: query.joins(:amendable).pluck(:id))
+        when "amendments"
+          query.where(id: query.joins(:amendable).pluck(:id))
+        else
+          query
+        end
+      end
+
       # Filters Proposals by the name of the classes they are linked to. By default,
       # returns all Proposals. When a `related_to` param is given, then it camelcases item
       # to find the real class name and checks the links for the Proposals.

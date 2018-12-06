@@ -36,13 +36,7 @@ module Decidim
     #
     # Renders form fields for each locale.
     def translated(type, name, options = {})
-      if locales.count == 1
-        return send(
-          type,
-          "#{name}_#{locales.first.to_s.gsub("-", "__")}",
-          options.merge(label: options[:label] || label_for(name))
-        )
-      end
+      return translated_one_locale(type, name, locales.first, options.merge(label: (options[:label] || label_for(name)))) if locales.count == 1
 
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
@@ -72,7 +66,7 @@ module Decidim
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             if options[:hashtaggable]
-              hashtaggable_text_field(type, name, locale, options)
+              hashtaggable_text_field(type, name, locale, options.merge(label: false))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -81,6 +75,15 @@ module Decidim
       end
 
       safe_join [label_tabs, tabs_content]
+    end
+
+    def translated_one_locale(type, name, locale, options = {})
+      return hashtaggable_text_field(type, name, locale, options.merge(value: options[:value])) if options[:hashtaggable]
+      send(
+        type,
+        "#{name}_#{locale.to_s.gsub("-", "__")}",
+        options.merge(label: options[:label] || label_for(name))
+      )
     end
 
     # Public: Generates a field for hashtaggable type.
@@ -93,9 +96,9 @@ module Decidim
     def hashtaggable_text_field(type, name, locale, options = {})
       content_tag(:div, class: "hashtags__container") do
         if options[:value]
-          send(type, name_with_locale(name, locale), options.merge(label: false, value: options[:value][locale]))
+          send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
         else
-          send(type, name_with_locale(name, locale), options.merge(label: false))
+          send(type, name_with_locale(name, locale), options.merge(label: options[:label]))
         end
       end
     end

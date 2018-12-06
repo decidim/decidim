@@ -226,7 +226,8 @@ module Decidim
           category_id: "",
           state: "except_rejected",
           scope_id: nil,
-          related_to: ""
+          related_to: "",
+          type: "all"
         }
       end
 

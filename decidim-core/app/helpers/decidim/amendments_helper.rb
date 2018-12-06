@@ -20,7 +20,7 @@ module Decidim
     def amendments_for(amendable)
       return unless amendments_enabled? && amendable.emendations.count
       return if amendable.emendation?
-      content = content_tag :h2, class: "section-heading" do
+      content = content_tag :h2, class: "section-heading", id: "amendments" do
         t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
       end
 

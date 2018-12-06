@@ -386,6 +386,10 @@ en:
           evaluating: Evaluating
           except_rejected: All except rejected
           rejected: Rejected
+        filter_type_values:
+          all: All
+          amendments: Amendments
+          proposals: Proposals
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -428,6 +432,7 @@ en:
           title: Edit collaborative draft
         filters:
           all: All
+          amendment: Amendments
           category: Category
           category_prompt: Category Prompt
           open: Open
@@ -532,10 +537,10 @@ en:
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
+          amend: Amend
           comment: Comment
           comments: Comments
           endorse: Endorse
-          endorsements: Endorsements
       proposal_endorsements:
         create:
           error: There's been errors when endorsing the proposal.
@@ -587,6 +592,7 @@ en:
           search: Search
           state: State
           voted: Voted
+          amendment_type: Type
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -637,10 +643,6 @@ en:
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
-          sign_in: Sign in
-          sign_in_or_up: "%{in} or %{up} to participate"
-          sign_in_to_participate: "%{in} to participate"
-          sign_up: sign up
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?
           withdraw_proposal: Withdraw proposal

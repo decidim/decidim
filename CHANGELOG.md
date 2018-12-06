@@ -67,8 +67,10 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Added**:
 
-- **decidim-core**: Add version control functionality into Amendment feature. [\#4567](https://github.com/decidim/decidim/pull/4567/)
-- **decidim-core**: Add reject/promote amendments functionalities into Amendment feature. [\#3986](https://github.com/decidim/decidim/pull/3986/)
+- **decidim-proposals**: Add amend button and amendments counter to participatory text proposals [\#4598](https://github.com/decidim/decidim/pull/4598/)
+- **decidim-proposals**: Add filter by type functionality to Amendments on proposals. [\#4567](https://github.com/decidim/decidim/pull/4567/)
+- **decidim-proposals**: Add version control functionality to Amendments on proposals. [\#4567](https://github.com/decidim/decidim/pull/4567/)
+- **decidim-core**: Add reject/promote amendments functionalities to the Amendment feature. [\#3986](https://github.com/decidim/decidim/pull/3986/)
 - **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component with these working functionalities: create/withdraw/accept amendments. [\#3985](https://github.com/decidim/decidim/pull/3985/)
 - **decidim-meetings**: Add registration form answers when exporting meeting registrations.[\#4589](https://github.com/decidim/decidim/pull/4589)
 - **decidim-core**: Trigger an ActiveSupport::Notification after registering via OmniAuth. [\#4565](https://github.com/decidim/decidim/pull/4565)
@@ -120,9 +122,11 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Improve propoals serialization [\#4593](https://github.com/decidim/decidim/pull/4593)
 - **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
 - **decidim-core**: "Follows" section in user profiles now show every resource they follow [\#4616](https://github.com/decidim/decidim/pull/4616)
+- **decidim-core**: Remove `current_feature` method [\#4624](https://github.com/decidim/decidim/pull/4624)
 
 **Fixed**:
 
+- **decidim-meetings**: Fix meetings form when only one locale is available [\#4623](https://github.com/decidim/decidim/pull/4623)
 - **decidim-participatory_processes**: Fix admin cannot access public view of private processes by default [\#4591](https://github.com/decidim/decidim/pull/4591)
 - **decidim-proposals** Index admin-created proposals. [\#4601](https://github.com/decidim/decidim/pull/4601)
 - **decidim-proposals** Fix proposals created from collaborative drafts inherited attributes [\#4605](https://github.com/decidim/decidim/pull/4605)
@@ -158,8 +162,16 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-admin**: Fix image updating in content blocks [\#4549](https://github.com/decidim/decidim/pull/4549)
 - **decidim-proposals**: Fix address toggle in the add proposal form [\#4587](https://github.com/decidim/decidim/pull/4587)
 - **decidim-comments**: Correctly render comments activity with mentions [\#4612](https://github.com/decidim/decidim/pull/4612)
+- **decidim-meetings**: Add the participatory space to the meeting directory listing [\#4620](https://github.com/decidim/decidim/pull/4620)
 - **decidim-core**: Fix nickname generation [\#4615](https://github.com/decidim/decidim/pull/4615)
 - **decidim-initiatives**: Don't eager load polymorphic relations [\#4614](https://github.com/decidim/decidim/pull/4614)
+- **decidim-initiatives**: Fix searching for initiatives with by type [\#4626](https://github.com/decidim/decidim/pull/4626)
+- **decidim-admin**: Add missing locales for organization errors [\#4633](https://github.com/decidim/decidim/pull/4633)
+- **decidim-core**: Don't crash when a log is in an unavailable locale [\#4632](https://github.com/decidim/decidim/pull/4632)
+- **decidim-core**: Fix newsletter rendering when locale content is missing [\#4629](https://github.com/decidim/decidim/pull/4629)
+- **decidim-initiatives**: Provide a fallback when an initative scope is missing [\#4634](https://github.com/decidim/decidim/pull/4634)
+- **decidim-accountability**: Return a 404 when a result doesn't exist. [\#4630](https://github.com/decidim/decidim/pull/4630)
+- **decidim-budgets**: Use bigint instead of int for projects [\#4628](https://github.com/decidim/decidim/pull/4628)
 
 **Removed**:
 

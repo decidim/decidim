@@ -12,6 +12,71 @@ shared_examples "manage meetings" do
     stub_geocoding(address, [latitude, longitude])
   end
 
+  describe "when rendering the text in the update page" do
+    context "when there are multiple locales" do
+      before do
+        click_link "Edit"
+      end
+
+      it "shows the title correctly in all available locales" do
+        within "#meeting-title-tabs" do
+          click_link "English"
+        end
+        expect(page).to have_css("input", text: meeting.title[:en], visible: true)
+
+        within "#meeting-title-tabs" do
+          click_link "Català"
+        end
+        expect(page).to have_css("input", text: meeting.title[:ca], visible: true)
+
+        within "#meeting-title-tabs" do
+          click_link "Castellano"
+        end
+        expect(page).to have_css("input", text: meeting.title[:es], visible: true)
+      end
+
+      it "shows the description correctly in all available locales" do
+        within "#meeting-description-tabs" do
+          click_link "English"
+        end
+        expect(page).to have_css("input", text: meeting.description[:en], visible: true)
+
+        within "#meeting-description-tabs" do
+          click_link "Català"
+        end
+        expect(page).to have_css("input", text: meeting.description[:ca], visible: true)
+
+        within "#meeting-description-tabs" do
+          click_link "Castellano"
+        end
+        expect(page).to have_css("input", text: meeting.description[:es], visible: true)
+      end
+    end
+
+    context "when there is only one locale" do
+      let(:organization) { create :organization, available_locales: [:en] }
+      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let!(:meeting) do
+        create(:meeting, scope: scope, services: [], component: component,
+                         title: { en: "Title" }, description: { en: "Description" })
+      end
+
+      before do
+        click_link "Edit"
+      end
+
+      it "shows the title correctly" do
+        expect(page).not_to have_css("#meeting-title-tabs")
+        expect(page).to have_css("input", text: meeting.title[:en], visible: true)
+      end
+
+      it "shows the description correctly" do
+        expect(page).not_to have_css("#meeting-description-tabs")
+        expect(page).to have_css("input", text: meeting.description[:en], visible: true)
+      end
+    end
+  end
+
   it "updates a meeting" do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
