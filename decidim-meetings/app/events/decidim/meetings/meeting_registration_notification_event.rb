@@ -14,7 +14,7 @@ module Decidim
           resource_title: resource_title,
           resource_url: resource_url,
           scope: event_name,
-          registration_code: extra["registration"]["code"]
+          registration_code: extra["registration_code"]
         }
       end
     end

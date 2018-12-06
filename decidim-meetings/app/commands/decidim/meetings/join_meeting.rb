@@ -73,7 +73,7 @@ module Decidim
           resource: @meeting,
           recipient_ids: [@user.id],
           extra: {
-            registration: Decidim::Meetings::Registration.last
+            registration_code: Decidim::Meetings::Registration.last.code
           }
         )
       end

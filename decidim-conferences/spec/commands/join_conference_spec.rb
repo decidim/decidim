@@ -15,16 +15,16 @@ module Decidim::Conferences
     let(:user) { create :user, :confirmed, organization: organization }
     let(:participatory_space_admins) { conference.admins }
 
-    let(:user_notification_params) do
+    let(:user_notification) do
       {
         event: "decidim.events.conferences.conference_registration_validation_pending",
-        event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
+        event_class: ConferenceRegistrationNotificationEvent,
         resource: conference,
         recipient_ids: [user.id]
       }
     end
 
-    let(:admin_notification_params) do
+    let(:admin_notification) do
       {
         event: "decidim.events.conferences.conference_registrations_over_percentage",
         event_class: ConferenceRegistrationsOverPercentageEvent,
@@ -56,7 +56,7 @@ module Decidim::Conferences
       end
 
       it "sends a notification to the user with the pending validation" do
-        expect(Decidim::EventsManager).to receive(:publish).with(user_notification_params)
+        expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
 
         subject.call
       end
@@ -77,9 +77,8 @@ module Decidim::Conferences
         end
 
         it "also sends a notification to the process admins" do
-          expect(Decidim::EventsManager).to receive(:publish).with(user_notification_params)
-
-          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification_params)
+          expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
         end
@@ -90,7 +89,7 @@ module Decidim::Conferences
           end
 
           it "doesn't notify it twice to the process admins" do
-            expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification_params)
+            expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
           end
@@ -105,9 +104,8 @@ module Decidim::Conferences
         end
 
         it "also sends a notification to the process admins" do
-          expect(Decidim::EventsManager).to receive(:publish).with(user_notification_params)
-
-          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification_params)
+          expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
         end
@@ -118,7 +116,7 @@ module Decidim::Conferences
           end
 
           it "doesn't notify it twice to the process admins" do
-            expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification_params)
+            expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
           end
@@ -133,9 +131,8 @@ module Decidim::Conferences
         end
 
         it "also sends a notification to the process admins" do
-          expect(Decidim::EventsManager).to receive(:publish).with(user_notification_params)
-
-          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification_params)
+          expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
         end

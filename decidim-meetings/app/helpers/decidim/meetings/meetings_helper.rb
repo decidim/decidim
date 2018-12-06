@@ -87,6 +87,16 @@ module Decidim
         end
         html.html_safe
       end
+
+      def registration
+        @registration ||= Decidim::Meetings::Registration
+                          .where(decidim_user_id: current_user)
+                          .find_by(decidim_meeting_id: @meeting.id)
+      end
+
+      def registration_validation_state
+        @registration.validated_at ? "VALIDATED" : "VALIDATION PENDING"
+      end
     end
   end
 end
