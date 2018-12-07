@@ -145,48 +145,30 @@ module Decidim::Accountability
         expect(result.weight).to eq weight
       end
 
-      it "notifies the linked proposals followers" do
-        follower = create(:user, organization: organization)
-        create(:follow, followable: proposals.first, user: follower)
-
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
+      it "creates an event" do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
           .with(
-            event: "decidim.events.accountability.result_progress_updated",
-            event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
-            resource: result,
-            recipient_ids: match_array([proposals.first.creator_author.id, follower.id]),
-            extra: {
-              progress: progress,
-              proposal_id: proposals.first.id
-            }
+            :update,
+            result,
+            form.current_user,
+            {}
           )
 
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.accountability.result_progress_updated",
-            event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
-            resource: result,
-            recipient_ids: [proposals.second.creator_author.id],
-            extra: {
-              progress: progress,
-              proposal_id: proposals.second.id
-            }
-          )
-
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.accountability.result_progress_updated",
-            event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
-            resource: result,
-            recipient_ids: [proposals.third.creator_author.id],
-            extra: {
-              progress: progress,
-              proposal_id: proposals.third.id
-            }
-          )
+        proposals.each do |proposal|
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with(
+              :proposal_linked_with_result_progress_updated,
+              proposal,
+              form.current_user,
+              visibility: "public-only",
+              result: result.to_gid.to_s,
+              result_title: result.title,
+              result_progress: result.progress,
+              proposal_title: proposal.title
+            )
+        end
 
         subject.call
       end

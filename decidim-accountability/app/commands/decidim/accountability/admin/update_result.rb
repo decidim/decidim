@@ -26,7 +26,7 @@ module Decidim
             link_proposals
             link_meetings
             link_projects
-            send_notifications if should_notify_followers?
+            log_progress_update if should_notify_followers?
           end
 
           broadcast(:ok)
@@ -84,19 +84,18 @@ module Decidim
           result.link_resources(meetings, "meetings_through_proposals")
         end
 
-        def send_notifications
+        # We log the event on the proposal, so the proposal followers can see it
+        def log_progress_update
           result.linked_resources(:proposals, "included_proposals").each do |proposal|
-            recipient_ids = proposal.follower_ids
-
-            Decidim::EventsManager.publish(
-              event: "decidim.events.accountability.result_progress_updated",
-              event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
-              resource: result,
-              recipient_ids: recipient_ids,
-              extra: {
-                progress: result.progress,
-                proposal_id: proposal.id
-              }
+            Decidim.traceability.perform_action!(
+              :proposal_linked_with_result_progress_updated,
+              proposal,
+              form.current_user,
+              visibility: "public-only",
+              result: result.to_gid.to_s,
+              result_title: result.title,
+              result_progress: result.progress,
+              proposal_title: proposal.title
             )
           end
         end

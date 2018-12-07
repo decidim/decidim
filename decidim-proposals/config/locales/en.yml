@@ -515,6 +515,9 @@ en:
       last_activity:
         new_proposal_at: "New proposal at %{link}"
         proposal_linked_with_result: "Proposal included in the result %{result_link}"
+        proposal_linked_with_result_progress_updated:
+          description: "Progress: %{progress}"
+          title: "Result including the proposal %{proposal_link} has updated its progress"
       models:
         collaborative_draft:
           fields:

@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # A cell to display when a proposal has been published.
+    # A cell to display when a proposal has been linked with a result.
     class ProposalProposalLinkedWithResultActivityCell < ProposalActivityCell
       def title
         I18n.t(
@@ -26,6 +26,10 @@ module Decidim
       def result_link
         return result_name unless result
         link_to result_name, result_path
+      end
+
+      def show_author?
+        false
       end
     end
   end

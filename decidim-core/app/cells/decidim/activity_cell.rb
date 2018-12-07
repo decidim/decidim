@@ -31,7 +31,6 @@ module Decidim
     #
     # The card will also be displayed OK if there's no title.
     def title
-      resource_title = resource.try(:resource_title) || resource.try(:title)
       return if resource_title.blank?
 
       if resource_title.is_a?(String)
@@ -106,6 +105,10 @@ module Decidim
         translated_attribute(participatory_space.title),
         resource_locator(participatory_space).path
       )
+    end
+
+    def resource_title
+      resource.try(:resource_title) || resource.try(:title)
     end
 
     def show_author?
