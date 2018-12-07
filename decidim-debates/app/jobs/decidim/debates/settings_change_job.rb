@@ -7,8 +7,6 @@ module Decidim
         return if unchanged?(previous_settings, current_settings)
 
         component = Decidim::Component.find(component_id)
-        event = nil
-        event_class = nil
 
         if debate_creation_enabled?(previous_settings, current_settings)
           event = "decidim.events.debates.creation_enabled"
@@ -34,15 +32,17 @@ module Decidim
         current_settings[:creation_enabled] == previous_settings[:creation_enabled]
       end
 
+      # rubocop:disable Style/DoubleNegation
       def debate_creation_enabled?(previous_settings, current_settings)
         current_settings[:creation_enabled] == true &&
-          previous_settings[:creation_enabled] == false
+          !!previous_settings[:creation_enabled] == false
       end
 
       def debate_creation_disabled?(previous_settings, current_settings)
-        current_settings[:creation_enabled] == false &&
+        !!current_settings[:creation_enabled] == false &&
           previous_settings[:creation_enabled] == true
       end
+      # rubocop:enable Style/DoubleNegation
     end
   end
 end
