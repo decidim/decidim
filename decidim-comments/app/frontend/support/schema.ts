@@ -30,7 +30,7 @@ export interface addCommentMutation {
       createdAt: string,
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
-      // The comment's author
+      // The resource author
       author: ( {
           // The author's name
           name: string,
@@ -88,7 +88,7 @@ export interface addCommentMutation {
         createdAt: string,
         // The creation date of the comment in relative format
         formattedCreatedAt: string,
-        // The comment's author
+        // The resource author
         author: ( {
             // The author's name
             name: string,
@@ -148,7 +148,7 @@ export interface addCommentMutation {
           createdAt: string,
           // The creation date of the comment in relative format
           formattedCreatedAt: string,
-          // The comment's author
+          // The resource author
           author: ( {
               // The author's name
               name: string,
@@ -208,7 +208,7 @@ export interface addCommentMutation {
             createdAt: string,
             // The creation date of the comment in relative format
             formattedCreatedAt: string,
-            // The comment's author
+            // The resource author
             author: ( {
                 // The author's name
                 name: string,
@@ -282,7 +282,7 @@ export interface DownVoteMutation {
       createdAt: string,
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
-      // The comment's author
+      // The resource author
       author: ( {
           // The author's name
           name: string,
@@ -342,7 +342,7 @@ export interface DownVoteMutation {
         createdAt: string,
         // The creation date of the comment in relative format
         formattedCreatedAt: string,
-        // The comment's author
+        // The resource author
         author: ( {
             // The author's name
             name: string,
@@ -402,7 +402,7 @@ export interface DownVoteMutation {
           createdAt: string,
           // The creation date of the comment in relative format
           formattedCreatedAt: string,
-          // The comment's author
+          // The resource author
           author: ( {
               // The author's name
               name: string,
@@ -462,7 +462,7 @@ export interface DownVoteMutation {
             createdAt: string,
             // The creation date of the comment in relative format
             formattedCreatedAt: string,
-            // The comment's author
+            // The resource author
             author: ( {
                 // The author's name
                 name: string,
@@ -536,7 +536,7 @@ export interface UpVoteMutation {
       createdAt: string,
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
-      // The comment's author
+      // The resource author
       author: ( {
           // The author's name
           name: string,
@@ -596,7 +596,7 @@ export interface UpVoteMutation {
         createdAt: string,
         // The creation date of the comment in relative format
         formattedCreatedAt: string,
-        // The comment's author
+        // The resource author
         author: ( {
             // The author's name
             name: string,
@@ -656,7 +656,7 @@ export interface UpVoteMutation {
           createdAt: string,
           // The creation date of the comment in relative format
           formattedCreatedAt: string,
-          // The comment's author
+          // The resource author
           author: ( {
               // The author's name
               name: string,
@@ -716,7 +716,7 @@ export interface UpVoteMutation {
             createdAt: string,
             // The creation date of the comment in relative format
             formattedCreatedAt: string,
-            // The comment's author
+            // The resource author
             author: ( {
                 // The author's name
                 name: string,
@@ -822,7 +822,7 @@ export interface GetCommentsQuery {
       createdAt: string,
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
-      // The comment's author
+      // The resource author
       author: ( {
           // The author's name
           name: string,
@@ -880,7 +880,7 @@ export interface GetCommentsQuery {
         createdAt: string,
         // The creation date of the comment in relative format
         formattedCreatedAt: string,
-        // The comment's author
+        // The resource author
         author: ( {
             // The author's name
             name: string,
@@ -940,7 +940,7 @@ export interface GetCommentsQuery {
           createdAt: string,
           // The creation date of the comment in relative format
           formattedCreatedAt: string,
-          // The comment's author
+          // The resource author
           author: ( {
               // The author's name
               name: string,
@@ -1000,7 +1000,7 @@ export interface GetCommentsQuery {
             createdAt: string,
             // The creation date of the comment in relative format
             formattedCreatedAt: string,
-            // The comment's author
+            // The resource author
             author: ( {
                 // The author's name
                 name: string,
@@ -1088,7 +1088,7 @@ export interface CommentFragment {
   createdAt: string,
   // The creation date of the comment in relative format
   formattedCreatedAt: string,
-  // The comment's author
+  // The resource author
   author: ( {
       // The author's name
       name: string,
@@ -1148,7 +1148,7 @@ export interface CommentFragment {
     createdAt: string,
     // The creation date of the comment in relative format
     formattedCreatedAt: string,
-    // The comment's author
+    // The resource author
     author: ( {
         // The author's name
         name: string,
@@ -1208,7 +1208,7 @@ export interface CommentFragment {
       createdAt: string,
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
-      // The comment's author
+      // The resource author
       author: ( {
           // The author's name
           name: string,
@@ -1268,7 +1268,7 @@ export interface CommentFragment {
         createdAt: string,
         // The creation date of the comment in relative format
         formattedCreatedAt: string,
-        // The comment's author
+        // The resource author
         author: ( {
             // The author's name
             name: string,
@@ -1333,7 +1333,7 @@ export interface CommentDataFragment {
   createdAt: string,
   // The creation date of the comment in relative format
   formattedCreatedAt: string,
-  // The comment's author
+  // The resource author
   author: ( {
       // The author's name
       name: string,
@@ -1397,7 +1397,7 @@ export interface CommentThreadFragment {
   createdAt: string,
   // The creation date of the comment in relative format
   formattedCreatedAt: string,
-  // The comment's author
+  // The resource author
   author: ( {
       // The author's name
       name: string,
@@ -1455,7 +1455,7 @@ export interface CommentThreadFragment {
     createdAt: string,
     // The creation date of the comment in relative format
     formattedCreatedAt: string,
-    // The comment's author
+    // The resource author
     author: ( {
         // The author's name
         name: string,
@@ -1515,7 +1515,7 @@ export interface CommentThreadFragment {
       createdAt: string,
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
-      // The comment's author
+      // The resource author
       author: ( {
           // The author's name
           name: string,
@@ -1575,7 +1575,7 @@ export interface CommentThreadFragment {
         createdAt: string,
         // The creation date of the comment in relative format
         formattedCreatedAt: string,
-        // The comment's author
+        // The resource author
         author: ( {
             // The author's name
             name: string,
