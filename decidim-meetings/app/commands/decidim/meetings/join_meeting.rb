@@ -51,7 +51,7 @@ module Decidim
       end
 
       def create_registration
-        Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
+        @registration = Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
       end
 
       def can_join_meeting?
@@ -62,7 +62,7 @@ module Decidim
         Decidim::Meetings::RegistrationMailer.confirmation(
           @user,
           @meeting,
-          Decidim::Meetings::Registration.last
+          @registration
         ).deliver_now
       end
 
@@ -73,7 +73,7 @@ module Decidim
           resource: @meeting,
           recipient_ids: [@user.id],
           extra: {
-            registration_code: Decidim::Meetings::Registration.last.code
+            registration_code: @registration.code
           }
         )
       end

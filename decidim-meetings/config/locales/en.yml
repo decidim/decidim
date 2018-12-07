@@ -364,6 +364,10 @@ en:
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
