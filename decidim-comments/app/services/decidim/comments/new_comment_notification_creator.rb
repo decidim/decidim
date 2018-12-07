@@ -11,7 +11,8 @@ module Decidim
     # - A new comment has been created on a resource, and I should be notified.
     #
     # A given user will only receive one of these notifications, for a given
-    # comment. If need be, the code to handle this cases can be swapped easily.
+    # comment. The comment author will never be notified about their own comment.
+    # If need be, the code to handle this cases can be swapped easily.
     class NewCommentNotificationCreator
       # comment - the Comment from which to generate notifications.
       # mentioned_users - An ActiveRecord::Relation of the users that have been
@@ -19,7 +20,7 @@ module Decidim
       def initialize(comment, mentioned_users)
         @comment = comment
         @mentioned_users = mentioned_users
-        @already_notified_ids = []
+        @already_notified_ids = [comment.author.id]
       end
 
       # Generates the notifications for the given comment.
@@ -48,7 +49,7 @@ module Decidim
       def notify_parent_comment_author
         return if comment.depth.zero?
 
-        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids - [comment.author.id]
+        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids
         @already_notified_ids += recipient_ids
 
         notify(recipient_ids, :reply_created)
@@ -63,7 +64,7 @@ module Decidim
 
       # Notifies the users the `comment.commentable` resource implements as necessary.
       def notify_commentable_recipients
-        recipient_ids = comment.commentable.users_to_notify_on_comment_created.pluck(:id) - already_notified_ids - [comment.author.id]
+        recipient_ids = comment.commentable.users_to_notify_on_comment_created.pluck(:id) - already_notified_ids
         @already_notified_ids += recipient_ids
 
         notify(recipient_ids, :comment_created)
