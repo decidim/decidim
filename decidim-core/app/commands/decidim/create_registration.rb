@@ -22,6 +22,8 @@ module Decidim
       create_user
 
       broadcast(:ok, @user)
+    rescue ActiveRecord::RecordInvalid
+      broadcast(:invalid)
     end
 
     private
