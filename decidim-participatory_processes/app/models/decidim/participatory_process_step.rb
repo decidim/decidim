@@ -21,7 +21,7 @@ module Decidim
     validates :position, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_blank: true
     validates :position, uniqueness: { scope: :decidim_participatory_process_id }
 
-    before_create :set_position
+    before_validation :set_position, on: :create
 
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::StepPresenter
@@ -42,7 +42,7 @@ module Decidim
       return if position.present?
       return self.position = 0 if participatory_process.steps.select(&:persisted?).empty?
 
-      self.position = participatory_process.steps.pluck(:position).last + 1
+      self.position = participatory_process.steps.maximum(:position) + 1
     end
   end
 end
