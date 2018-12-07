@@ -49,7 +49,7 @@ module Decidim
           case permission_action.action
           when :create, :read, :publish
             allow!
-          when :update, :destroy, :preview
+          when :update, :preview
             toggle_allow(consultation.present?)
           when :publish_results
             toggle_allow(consultation.finished? && !consultation.results_published?)

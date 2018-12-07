@@ -76,8 +76,6 @@ en:
         create:
           error: There was an error creating a new consultation.
           success: Consultation successfully created.
-        destroy:
-          success: Consultation successfully deleted.
         edit:
           update: Update
         form:

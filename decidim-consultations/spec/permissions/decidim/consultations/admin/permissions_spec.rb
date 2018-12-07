@@ -63,21 +63,6 @@ describe Decidim::Consultations::Admin::Permissions do
       end
     end
 
-    context "when destroying a consultation" do
-      let(:action_name) { :destroy }
-
-      context "when consultation is present" do
-        it { is_expected.to eq true }
-      end
-
-      context "when consultation is not present" do
-        let(:consultation) { nil }
-        let(:question) { nil }
-
-        it { is_expected.to eq false }
-      end
-    end
-
     context "when previewing a consultation" do
       let(:action_name) { :preview }
 
