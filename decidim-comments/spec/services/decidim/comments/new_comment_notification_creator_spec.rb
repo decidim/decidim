@@ -66,6 +66,48 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     subject.create
   end
 
+  context "when the author mentions herself" do
+    let(:mentioned_users_to_notify) do
+      Decidim::User.where(
+        id: [
+          mentioned_user.id,
+          another_mentioned_user.id
+        ]
+      )
+    end
+    let(:mentioned_users) do
+      Decidim::User.where(
+        id: [
+          comment_author.id,
+          mentioned_user.id,
+          another_mentioned_user.id
+        ]
+      )
+    end
+
+    it "does not notify herself" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .once
+        .ordered
+        .with(
+          event: "decidim.events.comments.user_mentioned",
+          event_class: Decidim::Comments::UserMentionedEvent,
+          resource: dummy_resource,
+          recipient_ids: a_collection_containing_exactly(*mentioned_users_to_notify.pluck(:id)),
+          extra: {
+            comment_id: comment.id
+          }
+        )
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .twice
+        .ordered
+
+      subject.create
+    end
+  end
+
   it "notifies the followers of the author" do
     expect(Decidim::EventsManager)
       .to receive(:publish)
