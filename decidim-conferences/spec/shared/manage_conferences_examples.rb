@@ -63,22 +63,6 @@ shared_examples "manage conferences" do
     end
   end
 
-  describe "deleting a conference" do
-    before do
-      click_link translated(conference.title)
-    end
-
-    it "deletes a conference" do
-      accept_confirm { click_link "Delete" }
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).not_to have_content(translated(conference.title))
-      end
-    end
-  end
-
   describe "updating a conference" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
