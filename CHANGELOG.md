@@ -172,6 +172,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-initiatives**: Provide a fallback when an initative scope is missing [\#4634](https://github.com/decidim/decidim/pull/4634)
 - **decidim-accountability**: Return a 404 when a result doesn't exist. [\#4630](https://github.com/decidim/decidim/pull/4630)
 - **decidim-budgets**: Use bigint instead of int for projects [\#4628](https://github.com/decidim/decidim/pull/4628)
+- **decidim-comments**: Fix GraphQL comments schema [\#4638](https://github.com/decidim/decidim/pull/4638)
 - **decidim-core**: Better handling setting process step position [\#4638](https://github.com/decidim/decidim/pull/4638)
 - **decidim-core**: Don't crash on registration [\#4637](https://github.com/decidim/decidim/pull/4637)
 
