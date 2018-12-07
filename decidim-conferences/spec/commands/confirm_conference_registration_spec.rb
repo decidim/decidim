@@ -41,6 +41,19 @@ module Decidim::Conferences
         expect(attachment.mime_type).to eq("text/calendar")
         expect(attachment.filename).to match(/conference-calendar-info.ics/)
       end
+
+      it "sends a notification to the user with the pending validation" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.conferences.conference_registration_confirmed",
+            event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
+            resource: conference,
+            recipient_ids: [user.id]
+          )
+
+        subject.call
+      end
     end
   end
 end

@@ -60,6 +60,18 @@ edit_link(
       <% end %>
     </div>
 
+    <% if registration %>
+      <div class="card extra">
+        <div class="card__content">
+            <div class="registration_code">
+              <span><%= registration_code_help_text %></span>
+              <span><strong><%= registration.code %></strong></span>
+              <div class="text-small"><%= registration_validation_state %></div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+
     <% if meeting.services.any? %>
       <div class="card card--list">
         <% meeting.services.each do |service| %>
