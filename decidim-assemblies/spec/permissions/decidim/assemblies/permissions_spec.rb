@@ -203,14 +203,6 @@ describe Decidim::Assemblies::Permissions do
     it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
   end
 
-  context "when destroying a assembly" do
-    let(:action) do
-      { scope: :admin, action: :destroy, subject: :assembly }
-    end
-
-    it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
-  end
-
   context "with a assembly" do
     let(:context) { { assembly: assembly } }
 
@@ -269,14 +261,6 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to eq false }
       end
 
-      context "when destroying a assembly" do
-        let(:action) do
-          { scope: :admin, action: :destroy, subject: :assembly }
-        end
-
-        it { is_expected.to eq false }
-      end
-
       shared_examples "allows any action on subject" do |action_subject|
         context "when action subject is #{action_subject}" do
           let(:action) do
@@ -302,14 +286,6 @@ describe Decidim::Assemblies::Permissions do
       context "when creating a assembly" do
         let(:action) do
           { scope: :admin, action: :create, subject: :assembly }
-        end
-
-        it { is_expected.to eq true }
-      end
-
-      context "when destroying a assembly" do
-        let(:action) do
-          { scope: :admin, action: :destroy, subject: :assembly }
         end
 
         it { is_expected.to eq true }
