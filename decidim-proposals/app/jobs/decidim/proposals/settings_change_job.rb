@@ -5,6 +5,8 @@ module Decidim
     class SettingsChangeJob < ApplicationJob
       def perform(component_id, previous_settings, current_settings)
         component = Decidim::Component.find(component_id)
+        event = nil
+        event_class = nil
 
         if creation_enabled?(previous_settings, current_settings)
           event = "decidim.events.proposals.creation_enabled"

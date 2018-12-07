@@ -7,6 +7,8 @@ module Decidim
         return if unchanged?(previous_settings, current_settings)
 
         component = Decidim::Component.find(component_id)
+        event = nil
+        event_class = nil
 
         if debate_creation_enabled?(previous_settings, current_settings)
           event = "decidim.events.debates.creation_enabled"
@@ -15,6 +17,8 @@ module Decidim
           event = "decidim.events.debates.creation_disabled"
           event_class = Decidim::Debates::CreationDisabledEvent
         end
+
+        return unless event && event_class
 
         Decidim::EventsManager.publish(
           event: event,

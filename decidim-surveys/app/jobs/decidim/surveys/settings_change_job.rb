@@ -7,6 +7,8 @@ module Decidim
         return if unchanged?(previous_settings, current_settings)
 
         component = Decidim::Component.find(component_id)
+        event = nil
+        event_class = nil
 
         if survey_opened?(previous_settings, current_settings)
           event = "decidim.events.surveys.survey_opened"
@@ -16,6 +18,7 @@ module Decidim
           event_class = Decidim::Surveys::ClosedSurveyEvent
         end
 
+        return unless event && event_class
         Decidim::EventsManager.publish(
           event: event,
           event_class: event_class,
