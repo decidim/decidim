@@ -205,8 +205,8 @@ fr:
           not_published: Non publiée
           private: Privée
           promoted:
-            'false': Oui
-            'true': Non
+            'false': 'Non'
+            'true': 'Oui'
           public: Publique
           published: Publiée
         new:

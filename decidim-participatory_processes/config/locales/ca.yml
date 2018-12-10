@@ -206,8 +206,8 @@ ca:
           not_published: No publicada
           private: Privat
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Públic
           published: Publicat
         new:

@@ -212,8 +212,8 @@ ru:
           not_published: Не обнародовано
           private: Частное
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Обнародованные
           published: Обнародовано
         new:
