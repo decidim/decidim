@@ -16,6 +16,9 @@ module Decidim
       # a link to their detail page. The Global IDs representing an
       # invalid Decidim::Hashtag are replaced with an empty string.
       #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
       # @return [String] the content ready to display (contains HTML)
       def render(links: true, extras: true)
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
@@ -34,6 +37,7 @@ module Decidim
         end
       end
 
+      # Returns all the extra hashtags found in the content
       def extra_hashtags
         @extra_hashtags ||= existing_hashtags.select { |hashtag| content_extra_hashtags_ids.member?(hashtag.id) }
       end
