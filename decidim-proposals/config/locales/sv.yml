@@ -409,6 +409,8 @@ sv:
           no_similars_found: Bra gjort! Inga liknande samarbetsutkast hittades
           title: Liknande samarbetsförslag
         complete:
+          attachment_legend: "(Valfritt) Lägg till en bilaga"
+          select_a_category: Var god välj en kategori
           send: Skicka
           title: Färdigställ i ditt samarbetsutkast
         count:
@@ -419,7 +421,6 @@ sv:
           error: Det uppstod ett problem med att skapa dessa samarbetsutkast
           success: Samarbetsutkast framgångsrikt utarbetat.
         edit:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
           select_a_category: Var god välj en kategori
           send: Skicka

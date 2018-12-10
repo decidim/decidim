@@ -419,6 +419,8 @@ pl:
           no_similars_found: Dobra robota! Nie znaleziono podobnych projektów współpracy
           title: Podobne wersje robocze
         complete:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+          select_a_category: Proszę wybierz kategorie
           send: Wysłać
           title: Uzupełnij swój wspólny projekt
         count:
@@ -431,7 +433,6 @@ pl:
           error: Podczas tworzenia tych roboczych wersji roboczych wystąpił problem
           success: Z powodzeniem utworzono wspólny projekt.
         edit:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
           select_a_category: Proszę wybierz kategorie
           send: Wysłać

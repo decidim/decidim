@@ -409,6 +409,8 @@ eu:
           no_similars_found: Ongi egina! Ez da antzeko lankidetza zirriborro aurkitu
           title: Antzeko zirriborro kolaboratzaileak
         complete:
+          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Bete lankidetza zirriborroa
         count:
@@ -419,7 +421,6 @@ eu:
           error: Arazo bat izan da lankidetza-zirriborroak sortzea
           success: Kolaborazio zirriborroa sortu da.
         edit:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Back
           select_a_category: Hautatu kategoria bat
           send: Bidali

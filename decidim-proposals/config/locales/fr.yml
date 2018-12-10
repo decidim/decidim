@@ -409,6 +409,8 @@ fr:
           no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
           title: Projets collaboratifs similaires
         complete:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Complétez votre projet collaboratif
         count:
@@ -419,7 +421,6 @@ fr:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
           success: Projet collaboratif créé avec succès.
         edit:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer

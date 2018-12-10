@@ -409,6 +409,8 @@ it:
           no_similars_found: Molto bene! Nessuna bozza collaborativa simile trovata
           title: Bozze collaborative simili
         complete:
+          attachment_legend: "(Opzionale) Aggiungi un allegato"
+          select_a_category: Si prega di selezionare una categoria
           send: Inviare
           title: Completa la tua bozza collaborativa
         count:
@@ -419,7 +421,6 @@ it:
           error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           select_a_category: Si prega di selezionare una categoria
           send: Inviare

@@ -409,6 +409,8 @@ gl:
           no_similars_found: Ben feito! Non se atoparon borradores colaborativos similares
           title: Borradores colaborativos similares
         complete:
+          attachment_legend: "(Opcional) Engada un anexo"
+          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Completa o teu borrador colaborativo
         count:
@@ -419,7 +421,6 @@ gl:
           error: Produciuse un problema creando estes borradores colaborativos
           success: Creouse un borrador colaborativo.
         edit:
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           select_a_category: Selecciona unha categoría
           send: Enviar

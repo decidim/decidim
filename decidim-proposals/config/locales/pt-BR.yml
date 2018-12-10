@@ -409,6 +409,8 @@ pt-BR:
           no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
           title: Rascunhos colaborativos semelhantes
         complete:
+          attachment_legend: "(Opcional) Adicione um anexo"
+          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Complete seu rascunho colaborativo
         count:
@@ -419,7 +421,6 @@ pt-BR:
           error: Houve um problema ao criar esses rascunhos colaborativos
           success: Rascunho colaborativo criado com sucesso.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Costas
           select_a_category: Por favor, selecione uma categoria
           send: Enviar

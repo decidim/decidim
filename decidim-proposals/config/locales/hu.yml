@@ -409,6 +409,8 @@ hu:
           no_similars_found: Szép munka! Nincsen hasonló közös vázlat
           title: Hasonló közös vázlatok
         complete:
+          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
+          select_a_category: Válassz kategóriát
           send: Küldés
           title: Fejezd be a közös vázlatot
         count:
@@ -419,7 +421,6 @@ hu:
           error: Hiba a közösen szerkesztett vázlatok létrehozásakor
           success: Közös vázlat létrehozása sikeres.
         edit:
-          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
           select_a_category: Válassz kategóriát
           send: Küldés
