@@ -2,6 +2,8 @@
 
 module Decidim
   # A class to search for recent activity performed in a Decidim Organization.
+  # It is intended to be used in the user profile, to retrieve activity and
+  # timeline for that user.
   class ActivitySearch < Searchlight::Search
     # Needed by Searchlight, this is the base query that will be used to
     # append other criteria to the search.
