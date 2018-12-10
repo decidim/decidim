@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  ActivitySearch.class_eval do
+  HomeActivitySearch.class_eval do
     def resource_types
       %w(
         Decidim::Comments::Comment
@@ -12,7 +12,7 @@ module Decidim
     end
   end
 
-  describe ActivitySearch do
+  describe HomeActivitySearch do
     subject { search.results }
 
     let(:search) do
@@ -36,12 +36,12 @@ module Decidim
       it { is_expected.to include(action_log) }
     end
 
-    context "with any other actions" do
+    context "with update actions" do
       let!(:action_log) do
         create(:action_log, action: "update", visibility: "public-only", organization: organization)
       end
 
-      it { is_expected.to include(action_log) }
+      it { is_expected.not_to include(action_log) }
     end
 
     context "when a resource is publicable" do

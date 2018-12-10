@@ -2,6 +2,12 @@
 
 module Decidim
   # A class to search for recent activity performed in a Decidim Organization.
+  # It is intended to be used in the user profile, to retrieve activity and
+  # timeline for that user.
+  #
+  # It will return any action for a given resource, except `create` on resources
+  # that implement the `Decidim::Publicable` concern to avoid leaking private
+  # data.
   class ActivitySearch < Searchlight::Search
     # Needed by Searchlight, this is the base query that will be used to
     # append other criteria to the search.
@@ -59,22 +65,19 @@ module Decidim
     end
 
     def scope_for(resource_type)
-      action = if publicable_resource_types.include?(resource_type)
-                 "publish"
-               else
-                 "create"
-               end
-
-      query.where(resource_type: resource_type, action: action)
+      if publicable_resource_types.include?(resource_type)
+        query.where(resource_type: resource_type).where.not(action: "create")
+      else
+        query.where(resource_type: resource_type)
+      end
     end
 
     def all_resources_scope
       query
         .where(
-          "(action = ? AND resource_type IN (?)) OR (action = ? AND resource_type IN (?))",
-          "publish",
-          publicable_resource_types,
+          "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
           "create",
+          publicable_resource_types,
           (resource_types - publicable_resource_types)
         )
     end
