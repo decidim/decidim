@@ -62,7 +62,7 @@ module Decidim
       end
 
       def suggested_hashtags
-        downcased_suggested_hashtags = (@suggested_hashtags&.map(&:downcase) || []).to_set
+        downcased_suggested_hashtags = Array(@suggested_hashtags&.map(&:downcase)).to_set
         component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
       end
 
@@ -93,9 +93,7 @@ module Decidim
       end
 
       def ordered_hashtag_list(string)
-        return [] unless string
-
-        string.split.reject(&:blank?).uniq.sort_by(&:parameterize)
+        string.to_s.split.reject(&:blank?).uniq.sort_by(&:parameterize)
       end
     end
   end
