@@ -13,6 +13,8 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
+      helper Decidim::OrdersHelper
+      include Orderable
 
       helper_method :collection, :parent_assemblies, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
 
@@ -66,6 +68,7 @@ module Decidim
 
       def parent_assemblies
         @parent_assemblies ||= assemblies | ParentAssemblies.new
+        @parent_assemblies = reorder(@parent_assemblies)
       end
 
       alias collection parent_assemblies
