@@ -5,6 +5,8 @@ module Decidim
     # A command with all the business logic when a user creates a new collaborative draft.
     class CreateCollaborativeDraft < Rectify::Command
       include AttachmentMethods
+      include HashtagsMethods
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -49,8 +51,8 @@ module Decidim
           visibility: "public-only"
         ) do
           draft = CollaborativeDraft.new(
-            title: parsed_title,
-            body: parsed_body,
+            title: title_with_hashtags,
+            body: body_with_hashtags,
             category: form.category,
             scope: form.scope,
             component: form.component,
@@ -73,27 +75,6 @@ module Decidim
 
       def organization
         @organization ||= @current_user.organization
-      end
-
-      def parsed_title
-        @parsed_title ||= Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-      end
-
-      def parsed_body
-        @parsed_body ||= begin
-          ret = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite.strip
-          ret += "\n" + parsed_extra_hashtags.strip unless parsed_extra_hashtags.empty?
-          ret
-        end
-      end
-
-      def parsed_extra_hashtags
-        @parsed_extra_hashtags ||= Decidim::ContentProcessor.parse_with_processor(
-          :hashtag,
-          form.extra_hashtags.map { |hashtag| "##{hashtag}" }.join(" "),
-          current_organization: form.current_organization,
-          extra_hashtags: true
-        ).rewrite
       end
     end
   end
