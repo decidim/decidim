@@ -7,7 +7,7 @@ module Decidim
     describe UpdateProposal do
       let(:form_klass) { ProposalForm }
 
-      let(:component) { create(:proposal_component, :with_extra_hashtags, hashtags_suggested: hashtags_suggested.join(" ")) }
+      let(:component) { create(:proposal_component, :with_extra_hashtags, suggested_hashtags: suggested_hashtags.join(" ")) }
       let(:organization) { component.organization }
       let(:form) do
         form_klass.from_params(
@@ -30,7 +30,7 @@ module Decidim
       let(:address) { nil }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
-      let(:hashtags_suggested) { [] }
+      let(:suggested_hashtags) { [] }
 
       describe "call" do
         let(:form_params) do
@@ -40,7 +40,7 @@ module Decidim
             address: address,
             has_address: has_address,
             user_group_id: user_group.try(:id),
-            hashtags_suggested: hashtags_suggested
+            suggested_hashtags: suggested_hashtags
           }
         end
 
@@ -123,7 +123,7 @@ module Decidim
           end
 
           context "with extra hashtags" do
-            let(:hashtags_suggested) { %w(Hashtag1 Hashtag2) }
+            let(:suggested_hashtags) { %w(Hashtag1 Hashtag2) }
 
             it "saves the extra hashtags" do
               command.call

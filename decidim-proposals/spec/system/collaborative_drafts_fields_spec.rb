@@ -124,20 +124,20 @@ describe "Collaborative drafts", type: :system do
             create(:proposal_component,
                    :with_collaborative_drafts_enabled,
                    :with_extra_hashtags,
-                   hashtags_suggested: component_hashtags_suggested,
+                   suggested_hashtags: component_suggested_hashtags,
                    hashtags_auto: component_hashtags_auto,
                    manifest: manifest,
                    participatory_space: participatory_process)
           end
 
           let(:component_hashtags_auto) { "AutoHashtag1 AutoHashtag2" }
-          let(:component_hashtags_suggested) { "SuggestedHashtag1 SuggestedHashtag2" }
+          let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
 
           it "offers and save extra hashtags", :slow do
             visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
 
             within ".new_collaborative_draft" do
-              check :collaborative_draft_hashtags_suggested_suggestedhashtag1
+              check :collaborative_draft_suggested_hashtags_suggestedhashtag1
 
               find("*[type=submit]").click
             end

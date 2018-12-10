@@ -19,7 +19,7 @@ module Decidim
         attribute :position, Integer
         attribute :created_in_meeting, Boolean
         attribute :meeting_id, Integer
-        attribute :hashtags_suggested, Array[String]
+        attribute :suggested_hashtags, Array[String]
 
         validates :title, :body, presence: true, etiquette: true
         validates :title, length: { maximum: 150 }
@@ -40,7 +40,7 @@ module Decidim
           self.category_id = model.categorization.decidim_category_id
           self.scope_id = model.decidim_scope_id
 
-          @hashtags_suggested = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
+          @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
         end
 
         alias component current_component
@@ -84,24 +84,24 @@ module Decidim
         end
 
         def extra_hashtags
-          @extra_hashtags ||= (component_hashtags_auto + hashtags_suggested).uniq
+          @extra_hashtags ||= (component_hashtags_auto + suggested_hashtags).uniq
         end
 
-        def hashtags_suggested
-          downcased_hashtags_suggested = (@hashtags_suggested&.map(&:downcase) || []).to_set
-          component_hashtags_suggested.select { |hashtag| downcased_hashtags_suggested.member?(hashtag.downcase) }
+        def suggested_hashtags
+          downcased_suggested_hashtags = (@suggested_hashtags&.map(&:downcase) || []).to_set
+          component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
         end
 
-        def hashtag_suggested_checked?(hashtag)
-          hashtags_suggested.member?(hashtag)
+        def suggested_hashtag_checked?(hashtag)
+          suggested_hashtags.member?(hashtag)
         end
 
         def component_hashtags_auto
           @component_hashtags_auto ||= ordered_hashtag_list(current_component.current_settings.hashtags_auto)
         end
 
-        def component_hashtags_suggested
-          @component_hashtags_suggested ||= ordered_hashtag_list(current_component.current_settings.hashtags_suggested)
+        def component_suggested_hashtags
+          @component_suggested_hashtags ||= ordered_hashtag_list(current_component.current_settings.suggested_hashtags)
         end
 
         private

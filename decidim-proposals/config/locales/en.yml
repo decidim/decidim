@@ -16,9 +16,9 @@ en:
         category_id: Category
         has_address: Has address
         hashtags_auto: Hashtags automatically added
-        hashtags_suggested: Hashtags suggested
         scope_id: Scope
         state: State
+        suggested_hashtags: Suggested hashtags
         title: Title
         user_group_id: Create proposal as
       proposal_answer:
@@ -100,8 +100,8 @@ en:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             hashtags_auto: Hashtags added to all proposals
-            hashtags_suggested: Hashtags suggested to users for new proposals
             proposal_answering_enabled: Proposal answering enabled
+            suggested_hashtags: Hashtags suggested to users for new proposals
             votes_blocked: Voting blocked
             votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)

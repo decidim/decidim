@@ -25,12 +25,12 @@
       </div>
     <% end %>
 
-    <% if @form.component_hashtags_suggested.any? %>
+    <% if @form.component_suggested_hashtags.any? %>
       <div class="field">
-        <%= form.label :hashtags_suggested %>
+        <%= form.label :suggested_hashtags %>
         <div class="checkboxes hashtags">
-          <%= form.collection_check_boxes :hashtags_suggested, @form.component_hashtags_suggested.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
-            option.label { option.check_box(checked: @form.hashtag_suggested_checked?(option.value)) + option.text }
+          <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+            option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
           end %>
         </div>
       </div>
