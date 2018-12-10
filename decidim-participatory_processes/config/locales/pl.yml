@@ -212,8 +212,8 @@ pl:
           not_published: Nie opublikowane
           private: Prywatny
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Publiczny
           published: Opublikowany
         new:

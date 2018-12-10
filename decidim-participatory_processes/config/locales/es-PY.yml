@@ -206,8 +206,8 @@ es-PY:
           not_published: No publicado
           private: Privado
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Público
           published: Publicada
         new:

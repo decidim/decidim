@@ -212,8 +212,8 @@ uk:
           not_published: Не оприлюднено
           private: Приватний
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Оприлюдені
           published: Оприлюднено
         new:
