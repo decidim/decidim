@@ -46,9 +46,7 @@ module Decidim
       end
 
       context "when the user doesn't have an email" do
-        before do
-          user.update(email: nil)
-        end
+        let(:user) { create(:user, :deleted) }
 
         it "does nothing" do
           expect(mail.deliver_now).to be_nil

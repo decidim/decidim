@@ -9,6 +9,21 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:newsletter) { create(:newsletter, organization: organization, total_deliveries: 0) }
 
+      it "delivers the email" do
+        expect(ActionMailer::Base.deliveries).to be_empty
+        NewsletterDeliveryJob.perform_now(user, newsletter)
+        expect(ActionMailer::Base.deliveries).not_to be_empty
+      end
+      context "when the user is deleted" do
+        let(:user) { create(:user, :deleted) }
+
+        it "does not deliver the email" do
+          expect(ActionMailer::Base.deliveries).to be_empty
+          NewsletterDeliveryJob.perform_now(user, newsletter)
+          expect(ActionMailer::Base.deliveries).to be_empty
+        end
+      end
+
       it "delivers a newsletter to a single user" do
         NewsletterDeliveryJob.perform_now(user, newsletter)
 

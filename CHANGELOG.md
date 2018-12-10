@@ -56,6 +56,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Backported**:
 
+- **decidim-core**: Don't send emails to deleted users [\#364](https://github.com/OpenSourcePolitics/decidim/pull/364)
 - **decidim-core**: Fix notifications sending when there's no component. [\#348](https://github.com/opensourcepolitics/decidim/pull/348)
 - **decidim-surveys**: Allow deleting surveys components when there are no answers [#211](https://github.com/OpenSourcePolitics/decidim/pull/211)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
