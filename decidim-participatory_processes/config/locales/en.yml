@@ -196,8 +196,6 @@ en:
         create:
           error: There was an error creating a new participatory process.
           success: Participatory process created successfully. Configure now its steps.
-        destroy:
-          success: Participatory process deleted successfully.
         edit:
           update: Update
         form:

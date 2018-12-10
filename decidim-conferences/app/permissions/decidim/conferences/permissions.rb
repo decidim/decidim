@@ -42,7 +42,6 @@ module Decidim
         user_can_export_conference_registrations?
         user_can_confirm_conference_registration?
         user_can_create_conference?
-        user_can_destroy_conference?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -197,14 +196,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      # Only organization admins can destroy a conference
-      def user_can_destroy_conference?
-        return unless permission_action.action == :destroy &&
-                      permission_action.subject == :conference
-
-        toggle_allow(user.admin?)
-      end
-
       # Only organization admins can read a conference registrations
       def user_can_read_conference_registrations?
         return unless permission_action.action == :read_conference_registrations &&
@@ -257,13 +248,11 @@ module Decidim
 
       # Process admins can eprform everything *inside* that conference. They cannot
       # create a conference or perform actions on conference groups or other
-      # conferences. They cannot destroy their conference either.
+      # conferences.
       def conference_admin_action?
         return unless can_manage_conference?(role: :admin)
         return if user.admin?
         return disallow! if permission_action.action == :create &&
-                            permission_action.subject == :conference
-        return disallow! if permission_action.action == :destroy &&
                             permission_action.subject == :conference
 
         is_allowed = [

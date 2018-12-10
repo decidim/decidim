@@ -82,8 +82,6 @@ en:
         create:
           error: There was an error creating a new assembly.
           success: Assembly created successfully.
-        destroy:
-          success: Assembly deleted successfully.
         edit:
           update: Update
         form:

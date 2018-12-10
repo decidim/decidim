@@ -124,6 +124,10 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-verifications**: The ID documents verification now supports online and offline verification modes [\#4573](https://github.com/decidim/decidim/pull/4573)
 - **decidim-core**: "Follows" section in user profiles now show every resource they follow [\#4616](https://github.com/decidim/decidim/pull/4616)
 - **decidim-core**: Remove `current_feature` method [\#4624](https://github.com/decidim/decidim/pull/4624)
+- **decidim-participatory-processes**: Disable deleting participatory processes [\#4640](https://github.com/decidim/decidim/pull/4640)
+- **decidim-assemblies**: Disable deleting assemblies [\#4640](https://github.com/decidim/decidim/pull/4640)
+- **decidim-conferences**: Disable deleting conferences [\#4640](https://github.com/decidim/decidim/pull/4640)
+- **decidim-consultations**: Disable deleting consultations[\#4640](https://github.com/decidim/decidim/pull/4640)
 
 **Fixed**:
 

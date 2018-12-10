@@ -211,14 +211,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
   end
 
-  context "when destroying a process" do
-    let(:action) do
-      { scope: :admin, action: :destroy, subject: :process }
-    end
-
-    it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
-  end
-
   context "with a process" do
     let(:context) { { process: process } }
 
@@ -277,14 +269,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         it { is_expected.to eq false }
       end
 
-      context "when destroying a process" do
-        let(:action) do
-          { scope: :admin, action: :destroy, subject: :process }
-        end
-
-        it { is_expected.to eq false }
-      end
-
       shared_examples "allows any action on subject" do |action_subject|
         context "when action subject is #{action_subject}" do
           let(:action) do
@@ -309,14 +293,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       context "when creating a process" do
         let(:action) do
           { scope: :admin, action: :create, subject: :process }
-        end
-
-        it { is_expected.to eq true }
-      end
-
-      context "when destroying a process" do
-        let(:action) do
-          { scope: :admin, action: :destroy, subject: :process }
         end
 
         it { is_expected.to eq true }

@@ -62,15 +62,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to :destroy, :conference, conference: current_conference
-          current_conference.destroy!
-
-          flash[:notice] = I18n.t("conferences.destroy.success", scope: "decidim.admin")
-
-          redirect_to conferences_path
-        end
-
         def copy
           enforce_permission_to :create, :conference
         end

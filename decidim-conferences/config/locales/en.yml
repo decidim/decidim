@@ -105,8 +105,6 @@ en:
         create:
           error: There was an error creating a new conference.
           success: Conference created successfully.
-        destroy:
-          success: Conference deleted successfully.
         edit:
           update: Update
         exports:

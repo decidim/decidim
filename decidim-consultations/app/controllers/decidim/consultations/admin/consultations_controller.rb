@@ -64,15 +64,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to :destroy, :consultation, consultation: current_consultation
-          current_consultation.destroy!
-
-          flash[:notice] = I18n.t("consultations.destroy.success", scope: "decidim.admin")
-
-          redirect_to consultations_path
-        end
-
         private
 
         def current_consultation
