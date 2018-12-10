@@ -58,7 +58,7 @@ module Decidim
       end
 
       def extra_hashtags
-        @extra_hashtags ||= (component_hashtags_auto + suggested_hashtags).uniq
+        @extra_hashtags ||= (component_automatic_hashtags + suggested_hashtags).uniq
       end
 
       def suggested_hashtags
@@ -70,8 +70,8 @@ module Decidim
         suggested_hashtags.member?(hashtag)
       end
 
-      def component_hashtags_auto
-        @component_hashtags_auto ||= ordered_hashtag_list(current_component.current_settings.hashtags_auto)
+      def component_automatic_hashtags
+        @component_automatic_hashtags ||= ordered_hashtag_list(current_component.current_settings.automatic_hashtags)
       end
 
       def component_suggested_hashtags

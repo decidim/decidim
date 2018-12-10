@@ -6,11 +6,11 @@
   <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
 </div>
 
-<% if @form.component_hashtags_auto.any? %>
+<% if @form.component_automatic_hashtags.any? %>
   <div class="field">
-    <%= form.label :hashtags_auto %>
+    <%= form.label :automatic_hashtags %>
     <div class="checkboxes hashtags">
-      <% @form.component_hashtags_auto.each do |hashtag| %>
+      <% @form.component_automatic_hashtags.each do |hashtag| %>
         <label>
           <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
         </label>

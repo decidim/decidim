@@ -232,16 +232,16 @@ shared_examples "a proposal form" do |options|
         :with_extra_hashtags,
         participatory_space: participatory_space,
         suggested_hashtags: component_suggested_hashtags,
-        hashtags_auto: component_hashtags_auto
+        automatic_hashtags: component_automatic_hashtags
       )
     end
-    let(:component_hashtags_auto) { "" }
+    let(:component_automatic_hashtags) { "" }
     let(:component_suggested_hashtags) { "" }
 
     it { is_expected.to eq([]) }
 
     context "when there are auto hashtags" do
-      let(:component_hashtags_auto) { "HashtagAuto1 HashtagAuto2" }
+      let(:component_automatic_hashtags) { "HashtagAuto1 HashtagAuto2" }
 
       it { is_expected.to eq(%w(HashtagAuto1 HashtagAuto2)) }
     end
@@ -261,7 +261,7 @@ shared_examples "a proposal form" do |options|
     end
 
     context "when there are both suggested and auto hashtags" do
-      let(:component_hashtags_auto) { "HashtagAuto1 HashtagAuto2" }
+      let(:component_automatic_hashtags) { "HashtagAuto1 HashtagAuto2" }
       let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2" }
       let(:suggested_hashtags) { %w(HashtagSuggested2) }
 

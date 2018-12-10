@@ -225,14 +225,14 @@ FactoryBot.define do
 
     trait :with_extra_hashtags do
       transient do
-        hashtags_auto { "AutoHashtag AnotherAutoHashtag" }
+        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
         suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
       end
 
       step_settings do
         {
           participatory_space.active_step.id => {
-            hashtags_auto: hashtags_auto,
+            automatic_hashtags: automatic_hashtags,
             suggested_hashtags: suggested_hashtags,
             creation_enabled: true
           }

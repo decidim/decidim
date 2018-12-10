@@ -131,13 +131,13 @@ describe "Proposals", type: :system do
             create(:proposal_component,
                    :with_extra_hashtags,
                    suggested_hashtags: component_suggested_hashtags,
-                   hashtags_auto: component_hashtags_auto,
+                   automatic_hashtags: component_automatic_hashtags,
                    manifest: manifest,
                    participatory_space: participatory_process)
           end
 
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
-          let(:component_hashtags_auto) { "AutoHashtag1 AutoHashtag2" }
+          let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
 
           it "offers and save extra hashtags", :slow do
