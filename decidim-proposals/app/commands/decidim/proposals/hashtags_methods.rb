@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # A module with all the attachment common methods for proposals
+    # A module with all the hash tags common methods for proposals
     # and collaborative draft commands.
     module HashtagsMethods
       private
