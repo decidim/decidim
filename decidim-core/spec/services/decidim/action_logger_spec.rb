@@ -114,9 +114,40 @@ describe Decidim::ActionLogger do
         expect(action_log.participatory_space).to be_nil
         expect(action_log.user).to eq user
         expect(action_log.action).to eq action
+        expect(action_log.scope).to be_nil
         expect(action_log.extra["component"]).to be_empty
         expect(action_log.extra["participatory_space"]).to be_empty
         expect(action_log.extra["resource"]).not_to be_empty
+      end
+    end
+
+    describe "scope" do
+      context "when the resource has scope" do
+        it "saves the resource scope" do
+          subject
+          expect(action_log.scope).to eq resource.scope
+        end
+      end
+
+      context "when the resource has no scope" do
+        let(:resource) { create :dummy_resource, component: component, scope: nil }
+
+        context "when the space has a scope" do
+          let(:participatory_space) { create :participatory_process, organization: organization, scope: scope }
+          let(:scope) { create :scope, organization: organization }
+
+          it "saves the participatory_space scope" do
+            subject
+            expect(action_log.scope).to eq participatory_space.scope
+          end
+        end
+
+        context "when the space has no scope" do
+          it "saves the participatory_space scope" do
+            subject
+            expect(action_log.scope).to be_nil
+          end
+        end
       end
     end
   end

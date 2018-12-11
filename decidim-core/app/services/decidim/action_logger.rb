@@ -53,6 +53,7 @@ module Decidim
         resource_type: resource.class.name,
         participatory_space: participatory_space,
         component: component,
+        scope: scope,
         version_id: version_id,
         extra: extra_data,
         visibility: visibility
@@ -74,6 +75,10 @@ module Decidim
     def participatory_space
       return component.participatory_space if component.respond_to?(:participatory_space)
       resource.participatory_space if resource.respond_to?(:participatory_space)
+    end
+
+    def scope
+      resource.try(:scope) || participatory_space.try(:scope)
     end
 
     def title_for(resource)
