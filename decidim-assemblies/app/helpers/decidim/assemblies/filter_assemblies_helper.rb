@@ -8,8 +8,8 @@ module Decidim
         %w(all government executive consultative_advisory participatory working_group commission others)
       end
 
-      def filter_link(filter, options = {})
-        link_to t("#{options[:i18n_scope]}.#{filter}"), url_for(params.to_unsafe_h.merge(page: nil, filter: filter)), data: { filter: filter }, remote: true
+      def filter_link(filter)
+        link_to t(filter, scope: "decidim.assemblies.filter"), url_for(params.to_unsafe_h.merge(page: nil, filter: filter)), data: { filter: filter }, remote: true
       end
     end
   end

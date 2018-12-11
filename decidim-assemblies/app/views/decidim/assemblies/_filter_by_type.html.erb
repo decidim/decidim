@@ -4,8 +4,8 @@
   <button data-toggle="inline-filter-sort">Filter by type</button>
   <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
     <ul class="list-reset">
-      <% available_filters.each do |order_name| %>
-        <li><%= filter_link order_name, i18n_scope: "decidim.assemblies.filter" %></li>
+      <% available_filters.each do |filter| %>
+        <li><%= filter_link(filter) %></li>
       <% end %>
     </ul>
   </div>
