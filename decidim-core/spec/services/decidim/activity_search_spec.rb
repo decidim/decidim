@@ -69,98 +69,121 @@ module Decidim
 
         it { is_expected.to include(action_log) }
       end
+    end
 
-      context "for followed resources" do
-        let(:comment) { create(:comment) }
-        let(:user) { create(:user, organization: organization) }
-        let(:user2) { create(:user, organization: organization) }
+    context "for followed resources" do
+      let(:comment) { create(:comment) }
+      let(:user) { create(:user, organization: organization) }
+      let(:user2) { create(:user, organization: organization) }
 
-        let(:component) do
-          create(:component, :published, organization: organization)
-        end
+      let(:area) { create(:area, organization: organization) }
 
-        let(:component2) do
-          create(:component, :published, organization: organization)
-        end
+      let(:assembly_with_area) do
+        create(:assembly, organization: organization, area: area)
+      end
 
-        let(:component3) do
-          create(:component, :published, organization: organization)
-        end
+      let(:area_component) do
+        create(:component, :published, organization: organization, participatory_space: assembly_with_area)
+      end
 
-        let(:resource) do
-          create(:dummy_resource, component: component, published_at: Time.current)
-        end
+      let(:component) do
+        create(:component, :published, organization: organization)
+      end
 
-        let(:resource2) do
-          create(:dummy_resource, component: component2, published_at: Time.current)
-        end
+      let(:component2) do
+        create(:component, :published, organization: organization)
+      end
 
-        let(:scoped_resource) do
-          create(:dummy_resource, component: component3, published_at: Time.current)
-        end
+      let(:component3) do
+        create(:component, :published, organization: organization)
+      end
 
-        let!(:uninteresting_resource) do
-          create(:dummy_resource, component: component3, published_at: Time.current)
-        end
+      let(:resource) do
+        create(:dummy_resource, component: component, published_at: Time.current)
+      end
 
-        let(:interesting_scope) do
-          scoped_resource.scope
-        end
+      let(:resource2) do
+        create(:dummy_resource, component: component2, published_at: Time.current)
+      end
 
-        let!(:action_log) do
-          create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user2)
-        end
+      let(:scoped_resource) do
+        create(:dummy_resource, component: component3, published_at: Time.current)
+      end
 
-        let!(:action_log_2) do
-          create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
-        end
+      let(:area_resource) do
+        create(:dummy_resource, component: area_component, published_at: Time.current)
+      end
 
-        let!(:action_log_3) do
-          create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization)
-        end
+      let!(:uninteresting_resource) do
+        create(:dummy_resource, component: component3, published_at: Time.current)
+      end
 
-        let!(:scoped_resource_action_log) do
-          create(:action_log, action: "publish", visibility: "all", resource: scoped_resource, organization: organization, scope: scoped_resource.scope)
-        end
+      let(:interesting_scope) do
+        scoped_resource.scope
+      end
 
-        let!(:uninteresting_resource_action_log) do
-          create(:action_log, action: "publish", visibility: "all", resource: uninteresting_resource, organization: organization)
-        end
+      let!(:followed_user_action_log) do
+        create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user2)
+      end
 
-        let(:search) do
-          described_class.new(
-            organization: organization,
-            resource_type: resource_type,
-            follows: user.following_follows,
-            scopes: [interesting_scope]
-          )
-        end
+      let!(:followed_space_action_log) do
+        create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
+      end
 
-        before do
-          Decidim::Follow.create!(user: user, followable: user2)
-          Decidim::Follow.create!(user: user, followable: action_log_2.participatory_space)
-          Decidim::Follow.create!(user: user, followable: resource2)
-        end
+      let!(:followed_resource_action_log) do
+        create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization)
+      end
 
-        it "includes results from followed resources" do
-          expect(subject).to include(action_log)
-        end
+      let!(:scoped_resource_action_log) do
+        create(:action_log, action: "publish", visibility: "all", resource: scoped_resource, organization: organization, scope: scoped_resource.scope)
+      end
 
-        it "includes results from followed spaces" do
-          expect(subject).to include(action_log_2)
-        end
+      let!(:area_resource_action_log) do
+        create(:action_log, action: "publish", visibility: "all", resource: area_resource, organization: organization, area: area)
+      end
 
-        it "includes results from followed scopes" do
-          expect(subject).to include(scoped_resource_action_log)
-        end
+      let!(:uninteresting_resource_action_log) do
+        create(:action_log, action: "publish", visibility: "all", resource: uninteresting_resource, organization: organization)
+      end
 
-        it "includes results from followed resources" do
-          expect(subject).to include(action_log)
-        end
+      let(:search) do
+        described_class.new(
+          organization: organization,
+          resource_type: resource_type,
+          follows: user.following_follows,
+          scopes: [interesting_scope],
+          areas: [area]
+        )
+      end
 
-        it "does not include results from uninteresting resources" do
-          expect(subject).not_to include(uninteresting_resource_action_log)
-        end
+      before do
+        Decidim::Follow.create!(user: user, followable: user2)
+        Decidim::Follow.create!(user: user, followable: followed_space_action_log.participatory_space)
+        Decidim::Follow.create!(user: user, followable: resource2)
+      end
+
+      it "includes results performed by followed users" do
+        expect(subject).to include(followed_user_action_log)
+      end
+
+      it "includes results from followed spaces" do
+        expect(subject).to include(followed_space_action_log)
+      end
+
+      it "includes results from interesting scopes" do
+        expect(subject).to include(scoped_resource_action_log)
+      end
+
+      it "includes results from followed resources" do
+        expect(subject).to include(followed_resource_action_log)
+      end
+
+      it "includes results from interesting areas" do
+        expect(subject).to include(area_resource_action_log)
+      end
+
+      it "does not include results from uninteresting resources" do
+        expect(subject).not_to include(uninteresting_resource_action_log)
       end
     end
   end

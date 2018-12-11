@@ -18,6 +18,8 @@ module Decidim
   #   contained in any of them as spaces.
   # :scopes - a collection of `Decidim::Scope`. It will return any activity that
   #   took place in any of those scopes.
+  # :areas - a collection of `Decidim::Area`. It will return any activity that
+  #   took place in any of those areas.
   class ActivitySearch < Searchlight::Search
     # Needed by Searchlight, this is the base query that will be used to
     # append other criteria to the search.
@@ -94,7 +96,8 @@ module Decidim
 
     def filter_follows(query)
       follows = options[:follows]
-      followed_scopes = options[:scopes]
+      interesting_scopes = options[:scopes]
+      interesting_areas = options[:areas]
       conditions = []
 
       if follows.present?
@@ -108,7 +111,8 @@ module Decidim
         conditions += followed_spaces_conditions(follows)
       end
 
-      conditions += followed_scopes_conditions(followed_scopes)
+      conditions += interesting_scopes_conditions(interesting_scopes)
+      conditions += interesting_areas_conditions(interesting_areas)
 
       return query if conditions.empty?
 
@@ -138,10 +142,16 @@ module Decidim
       end
     end
 
-    def followed_scopes_conditions(followed_scopes)
-      return [] if followed_scopes.blank?
+    def interesting_scopes_conditions(interesting_scopes)
+      return [] if interesting_scopes.blank?
 
-      [Decidim::ActionLog.arel_table[:decidim_scope_id].in(followed_scopes.map(&:id))]
+      [Decidim::ActionLog.arel_table[:decidim_scope_id].in(interesting_scopes.map(&:id))]
+    end
+
+    def interesting_areas_conditions(interesting_areas)
+      return [] if interesting_areas.blank?
+
+      [Decidim::ActionLog.arel_table[:decidim_area_id].in(interesting_areas.map(&:id))]
     end
 
     def participatory_space_classes
