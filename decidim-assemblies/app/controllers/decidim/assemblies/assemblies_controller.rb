@@ -28,6 +28,12 @@ module Decidim
             render "index"
           end
 
+          format.js do
+            raise ActionController::RoutingError, "Not Found" if published_assemblies.none?
+
+            render "index"
+          end
+
           format.json do
             render json: published_assemblies.query.includes(:children).where(parent: nil).collect { |assembly|
               {

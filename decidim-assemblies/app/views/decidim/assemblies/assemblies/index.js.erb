@@ -1,0 +1,5 @@
+var $grid = $('#assemblies-grid');
+var $loading = $grid.find('.loading');
+
+$grid.find('.card-grid').html('<%= j(render(collection)).strip.html_safe %>');
+$loading.hide();

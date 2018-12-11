@@ -35,10 +35,10 @@ module Decidim
           case order
           when "all"
             assemblies
-          when "government"
-            proposals
-          when "recent"
-            proposals.order(created_at: :desc)
+          when "consultative_advisory"
+            Decidim::Assembly.where(assembly_type: "consultative_advisory")
+          when "others"
+            Decidim::Assembly.where(assembly_type: "others")
           end
         end
       end
