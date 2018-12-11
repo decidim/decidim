@@ -375,7 +375,7 @@ module Decidim
           end
 
           context "and Administrator" do
-            let!(:admin) { create(:user, :confirmed, :admin) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -408,7 +408,7 @@ module Decidim
           end
 
           context "and Administrator" do
-            let(:admin) { create(:user, :confirmed, :admin) }
+            let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -442,7 +442,7 @@ module Decidim
           end
 
           context "and Administrator" do
-            let(:admin) { create(:user, :confirmed, :admin) }
+            let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -475,7 +475,7 @@ module Decidim
           end
 
           context "when Administrator" do
-            let!(:admin) { create(:user, :confirmed, :admin) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -507,7 +507,7 @@ module Decidim
           end
 
           context "when Administrator" do
-            let!(:admin) { create(:user, :confirmed, :admin) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
