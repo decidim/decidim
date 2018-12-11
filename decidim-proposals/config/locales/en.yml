@@ -12,11 +12,13 @@ en:
       proposal:
         answer: Answer
         answered_at: Answered at
+        automatic_hashtags: Hashtags automatically added
         body: Body
         category_id: Category
         has_address: Has address
         scope_id: Scope
         state: State
+        suggested_hashtags: Suggested hashtags
         title: Title
         user_group_id: Create proposal as
       proposal_answer:
@@ -93,11 +95,13 @@ en:
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
+            automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
+            suggested_hashtags: Hashtags suggested to users for new proposals
             votes_blocked: Voting blocked
             votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
@@ -414,8 +418,6 @@ en:
           no_similars_found: Well done! No similar collaborative drafts found
           title: Similar collaborative drafts
         complete:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
           send: Send
           title: Complete your collaborative draft
         count:
@@ -426,6 +428,7 @@ en:
           error: There's been a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
         edit:
+          attachment_legend: "(Optional) Add an attachment"
           back: Back
           select_a_category: Please select a category
           send: Send

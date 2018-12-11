@@ -5,12 +5,36 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.text_field :title, class: "js-hashtags", hashtaggable: true %>
+      <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: form_presenter.title(extras: false).strip %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true %>
+      <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
     </div>
+
+    <% if @form.component_automatic_hashtags.any? %>
+      <div class="field">
+        <%= form.label :automatic_hashtags %>
+        <div class="checkboxes hashtags">
+          <% @form.component_automatic_hashtags.each do |hashtag| %>
+            <label>
+              <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @form.component_suggested_hashtags.any? %>
+      <div class="field">
+        <%= form.label :suggested_hashtags %>
+        <div class="checkboxes hashtags">
+          <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+            option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
+          end %>
+        </div>
+      </div>
+    <% end %>
 
     <% if @form.meetings %>
       <div class="meeting-fields">

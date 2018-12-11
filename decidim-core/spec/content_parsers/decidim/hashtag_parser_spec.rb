@@ -7,7 +7,8 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:hashtag) { create(:hashtag, organization: organization, name: name) }
     let(:name) { "a_hashtag" }
-    let(:context) { { current_organization: organization } }
+    let(:context) { { current_organization: organization, extra_hashtags: extra_hashtags } }
+    let(:extra_hashtags) { false }
     let(:parser) { described_class.new(content, context) }
 
     let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name}" }
@@ -76,6 +77,15 @@ module Decidim
     context "when content contains non-hash characters next to the hashtag name" do
       let(:content) { "You can't add some characters to hashtags: ##{hashtag.name}+extra" }
       let(:parsed_content) { "You can't add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
+
+      it_behaves_like "find and stores the hashtags references"
+    end
+
+    context "when parsing extra hashtags" do
+      let(:extra_hashtags) { true }
+
+      let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name}" }
+      let(:parsed_content) { "This text contains a hashtag present on DB: #{hashtag.to_global_id}/_#{hashtag.name}" }
 
       it_behaves_like "find and stores the hashtags references"
     end

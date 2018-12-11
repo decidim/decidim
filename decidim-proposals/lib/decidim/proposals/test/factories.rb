@@ -160,6 +160,24 @@ FactoryBot.define do
       end
     end
 
+    trait :with_geocoding_and_collaborative_drafts_enabled do
+      settings do
+        {
+          geocoding_enabled: true,
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
+    trait :with_attachments_allowed_and_collaborative_drafts_enabled do
+      settings do
+        {
+          attachments_allowed: true,
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
     trait :with_minimum_votes_per_user do
       transient do
         minimum_votes_per_user { 3 }
@@ -201,6 +219,23 @@ FactoryBot.define do
       settings do
         {
           comments_enabled: false
+        }
+      end
+    end
+
+    trait :with_extra_hashtags do
+      transient do
+        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
+        suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
+      end
+
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            automatic_hashtags: automatic_hashtags,
+            suggested_hashtags: suggested_hashtags,
+            creation_enabled: true
+          }
         }
       end
     end

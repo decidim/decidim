@@ -27,6 +27,8 @@ module Decidim
                class_name: "Decidim::User",
                foreign_key: :decidim_user_id
 
+      geocoded_by :address, http_headers: ->(collaborative_draft) { { "Referer" => collaborative_draft.component.organization.host } }
+
       scope :open, -> { where(state: "open") }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }

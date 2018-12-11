@@ -42,7 +42,7 @@
 
 <% if @form.categories&.any? %>
   <div class="field">
-    <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.proposals.edit.select_a_category") %>
+    <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.collaborative_drafts.edit.select_a_category") %>
   </div>
 <% end %>
 
@@ -58,9 +58,9 @@
   </div>
 <% end %>
 
-<% if component_settings.attachments_allowed? && @proposal %>
+<% if component_settings.attachments_allowed? %>
   <fieldset>
-    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit") %></legend>
     <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
       <div class="field">
         <%= nested_form.text_field :title %>

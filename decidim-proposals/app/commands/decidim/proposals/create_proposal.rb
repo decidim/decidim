@@ -5,6 +5,8 @@ module Decidim
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
       include AttachmentMethods
+      include HashtagsMethods
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -44,11 +46,8 @@ module Decidim
       def proposal_attributes
         fields = {}
 
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-
-        fields[:title] = parsed_title
-        fields[:body] = parsed_body
+        fields[:title] = title_with_hashtags
+        fields[:body] = body_with_hashtags
         fields[:component] = form.component
 
         fields
