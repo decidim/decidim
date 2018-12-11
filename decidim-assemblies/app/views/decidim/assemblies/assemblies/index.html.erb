@@ -20,10 +20,7 @@ edit_link(
     <div class="row column">
       <div class="flex--sbe">
         <h2 class="section-heading collapse"><%= t("assemblies.order_by_assemblies.assemblies", scope: "layouts.decidim", count: collection.count) %></h2>
-        <div class="inline-filters">
-          <%= order_selector available_orders, i18n_scope: "decidim.assemblies.filter" %>
-          <%# render partial: "decidim/assemblies/order_by_assemblies" %>
-        </div>
+          <%= render partial: "decidim/assemblies/filter_by_type" %>
       </div>
       <hr class="reset mt-s mb-s">
     </div>
@@ -41,4 +38,3 @@ edit_link(
     </div>
   </section>
 <% end %>
-<%= javascript_include_tag "decidim/orders" %>
