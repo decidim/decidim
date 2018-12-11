@@ -647,7 +647,6 @@ describe "Proposals", type: :system do
   context "when component is not commentable" do
     let!(:proposals) { create_list(:proposal, 3, component: component) }
     let!(:component) do
-
       create(:component,
              manifest: manifest,
              participatory_space: participatory_space)
