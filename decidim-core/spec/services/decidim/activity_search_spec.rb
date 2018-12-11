@@ -95,8 +95,16 @@ module Decidim
           create(:dummy_resource, component: component2, published_at: Time.current)
         end
 
+        let(:scoped_resource) do
+          create(:dummy_resource, component: component3, published_at: Time.current)
+        end
+
         let!(:uninteresting_resource) do
           create(:dummy_resource, component: component3, published_at: Time.current)
+        end
+
+        let(:interesting_scope) do
+          scoped_resource.scope
         end
 
         let!(:action_log) do
@@ -111,6 +119,10 @@ module Decidim
           create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization)
         end
 
+        let!(:scoped_resource_action_log) do
+          create(:action_log, action: "publish", visibility: "all", resource: scoped_resource, organization: organization, scope: scoped_resource.scope)
+        end
+
         let!(:uninteresting_resource_action_log) do
           create(:action_log, action: "publish", visibility: "all", resource: uninteresting_resource, organization: organization)
         end
@@ -119,7 +131,8 @@ module Decidim
           described_class.new(
             organization: organization,
             resource_type: resource_type,
-            follows: user.following_follows
+            follows: user.following_follows,
+            scopes: [interesting_scope]
           )
         end
 
@@ -135,6 +148,10 @@ module Decidim
 
         it "includes results from followed spaces" do
           expect(subject).to include(action_log_2)
+        end
+
+        it "includes results from followed scopes" do
+          expect(subject).to include(scoped_resource_action_log)
         end
 
         it "includes results from followed resources" do
