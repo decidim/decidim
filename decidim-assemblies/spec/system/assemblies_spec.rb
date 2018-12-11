@@ -121,10 +121,9 @@ describe "Assemblies", type: :system do
     context "when filtering the parent assemblies" do
       let!(:assembly3) { create(:assembly, :published, organization: organization, assembly_type: "consultative_advisory") }
       let!(:assembly4) { create(:assembly, :published, organization: organization, assembly_type: "participatory") }
-      let!(:assembly5) { create(:assembly, :published, organization: organization, assembly_type: "government") }
+      let!(:assembly5) { create(:assembly, :published, organization: organization, assembly_type: "executive") }
       let!(:assembly6) { create(:assembly, :published, organization: organization, assembly_type: "working_group") }
       let!(:assembly7) { create(:assembly, :published, organization: organization, assembly_type: "commission") }
-      let!(:assembly8) { create(:assembly, :published, organization: organization, assembly_type: "executive") }
 
       before do
         visit decidim_assemblies.assemblies_path
@@ -133,7 +132,7 @@ describe "Assemblies", type: :system do
 
       it "filters by All types" do
         click_link "All"
-        expect(page).to have_selector("article.card.card--assembly", count: 8)
+        expect(page).to have_selector("article.card.card--assembly", count: 7)
       end
 
       it "filters by Government type" do
