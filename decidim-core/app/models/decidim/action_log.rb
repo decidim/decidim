@@ -32,6 +32,11 @@ module Decidim
                optional: true,
                class_name: "PaperTrail::Version"
 
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
+               optional: true
+
     validates :organization, :user, :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
     validates :visibility, presence: true, inclusion: { in: %w(admin-only public-only all) }

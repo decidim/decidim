@@ -143,9 +143,30 @@ describe Decidim::ActionLogger do
         end
 
         context "when the space has no scope" do
-          it "saves the participatory_space scope" do
+          it "doesn't save any scope" do
             subject
             expect(action_log.scope).to be_nil
+          end
+        end
+      end
+    end
+
+    describe "area" do
+      context "when the resource has no area" do
+        context "when the space has an area" do
+          let(:participatory_space) { create :assembly, organization: organization, area: area }
+          let(:area) { create :area, organization: organization }
+
+          it "saves the participatory_space area" do
+            subject
+            expect(action_log.area).to eq participatory_space.area
+          end
+        end
+
+        context "when the space has no area" do
+          it "doesn't save any area" do
+            subject
+            expect(action_log.area).to be_nil
           end
         end
       end
