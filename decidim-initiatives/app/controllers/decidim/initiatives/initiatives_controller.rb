@@ -15,6 +15,7 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::Comments::CommentsHelper
       helper Decidim::Admin::IconLinkHelper
+      helper Decidim::ResourceReferenceHelper
       helper PaginateHelper
       helper InitiativeHelper
       include InitiativeSlug
