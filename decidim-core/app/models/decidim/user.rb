@@ -165,11 +165,11 @@ module Decidim
     end
 
     def interested_scopes
-      organization.scopes.where(id: interested_scopes_ids)
+      @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
     end
 
     def interested_areas
-      organization.areas.where(id: interested_areas_ids)
+      @interested_areas ||= organization.areas.where(id: interested_areas_ids)
     end
 
     protected
