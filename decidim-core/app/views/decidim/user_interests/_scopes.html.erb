@@ -1,6 +1,6 @@
 <ul>
   <% scopes.each do |scope| %>
-    <li class="switch tiny switch-with-label email_on_notification">
+    <li class="switch tiny switch-with-label">
       <%= f.fields_for "scopes[]", scope do |form| %>
         <label>
           <%= form.check_box "checked", label: false, class: "switch-input" %>

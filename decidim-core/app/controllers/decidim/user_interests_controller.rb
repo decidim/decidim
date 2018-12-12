@@ -18,21 +18,15 @@ module Decidim
 
       UpdateUserInterests.call(current_user, @user_interests) do
         on(:ok) do
-          flash.now[:notice] = t("user_interests.update.success", scope: "decidim")
+          flash.keep[:notice] = t("user_interests.update.success", scope: "decidim")
         end
 
         on(:invalid) do
-          flash.now[:alert] = t("user_interests.update.error", scope: "decidim")
+          flash.keep[:alert] = t("user_interests.update.error", scope: "decidim")
         end
       end
 
       redirect_to action: :show
-    end
-
-    private
-
-    def scopes
-      @scopes ||= current_organization.scopes.top_level.limit(1)
     end
   end
 end

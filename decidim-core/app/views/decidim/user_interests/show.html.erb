@@ -7,7 +7,15 @@
     <% else %>
       <p><%= t(".no_scopes") %></p>
     <% end %>
-    <% if @user_interests.scopes.any? %>
+
+    <p><strong><%= t(".areas") %></strong></p>
+    <% if @user_interests.areas.any? %>
+      <%= render partial: "areas", locals: { areas: @user_interests.areas, f: f } %>
+    <% else %>
+      <p><%= t(".no_areas") %></p>
+    <% end %>
+
+    <% if @user_interests.scopes.any? || @user_interests.areas.any? %>
       <%= f.submit t(".update_my_interests"), disable_with: true %>
     <% end %>
   <% end %>
