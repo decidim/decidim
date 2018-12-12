@@ -54,6 +54,7 @@ ca:
         initiatives:
           fields:
             created_at: Creat a
+            id: ID
             state: Estat
             supports_count: Suports
             title: Iniciatives

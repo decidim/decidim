@@ -54,6 +54,7 @@ es:
         initiatives:
           fields:
             created_at: Creado en
+            id: Identificador
             state: Estado
             supports_count: Apoyos
             title: Iniciativas
