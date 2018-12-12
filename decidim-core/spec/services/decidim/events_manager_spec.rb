@@ -8,35 +8,45 @@ describe Decidim::EventsManager do
     let(:event_class) { Decidim::Events::BaseEvent }
     let(:resource) { double }
     let(:extra) { double }
-    let(:recipient_ids) { [1, 2, 3] }
+    let(:organization) { create :organization }
+    let(:followers) { create_list :user, 3, organization: organization }
+    let(:affected_users) { create_list :user, 3, organization: organization }
 
     it "delegates the params to ActiveSupport::Notifications" do
       expect(ActiveSupport::Notifications)
         .to receive(:publish)
-        .with(event, event_class: "Decidim::Events::BaseEvent", resource: resource, recipient_ids: recipient_ids, extra: extra)
+        .with(
+          event,
+          event_class: "Decidim::Events::BaseEvent",
+          resource: resource,
+          recipient_ids: a_collection_containing_exactly(*affected_users.map(&:id), *followers.map(&:id)),
+          extra: extra
+        )
 
       described_class.publish(
         event: event,
         event_class: event_class,
         resource: resource,
-        recipient_ids: recipient_ids,
+        followers: followers,
+        affected_users: affected_users,
         extra: extra
       )
     end
 
     context "when there are invalid values as the recipient ids" do
-      let(:recipient_ids) { [1, nil, 2, 3, 2] }
+      let(:followers) { affected_users + [nil] }
 
       it "sanitizes the recipients" do
         expect(ActiveSupport::Notifications)
           .to receive(:publish)
-          .with(event, hash_including(recipient_ids: [1, 2, 3]))
+          .with(event, hash_including(recipient_ids: a_collection_containing_exactly(*affected_users.map(&:id))))
 
         described_class.publish(
           event: event,
           event_class: event_class,
           resource: resource,
-          recipient_ids: recipient_ids,
+          followers: followers,
+          affected_users: affected_users,
           extra: extra
         )
       end
