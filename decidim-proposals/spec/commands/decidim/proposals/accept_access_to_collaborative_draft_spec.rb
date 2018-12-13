@@ -55,7 +55,7 @@ module Decidim
                 event: "decidim.events.proposals.collaborative_draft_access_accepted",
                 event_class: Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent,
                 resource: collaborative_draft,
-                recipient_ids: collaborative_draft.authors.pluck(:id) - [requester_user_id],
+                affected_users: collaborative_draft.notifiable_identities - [requester_user],
                 extra: {
                   requester_id: requester_user_id
                 }
@@ -67,7 +67,7 @@ module Decidim
                 event: "decidim.events.proposals.collaborative_draft_access_requester_accepted",
                 event_class: Decidim::Proposals::CollaborativeDraftAccessRequesterAcceptedEvent,
                 resource: collaborative_draft,
-                recipient_ids: [requester_user_id]
+                affected_users: [requester_user]
               )
 
             command.call

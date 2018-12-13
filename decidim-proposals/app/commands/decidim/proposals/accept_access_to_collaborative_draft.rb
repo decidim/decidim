@@ -45,12 +45,12 @@ module Decidim
       private
 
       def notify_collaborative_draft_authors
-        recipient_ids = @collaborative_draft.authors.pluck(:id) - [@requester_user.id]
+        affected_users = @collaborative_draft.notifiable_identities - [@requester_user]
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.collaborative_draft_access_accepted",
           event_class: Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent,
           resource: @collaborative_draft,
-          recipient_ids: recipient_ids.uniq,
+          affected_users: affected_users.uniq,
           extra: {
             requester_id: @requester_user.id
           }
@@ -62,7 +62,7 @@ module Decidim
           event: "decidim.events.proposals.collaborative_draft_access_requester_accepted",
           event_class: Decidim::Proposals::CollaborativeDraftAccessRequesterAcceptedEvent,
           resource: @collaborative_draft,
-          recipient_ids: [@requester_user.id]
+          affected_users: [@requester_user]
         )
       end
     end
