@@ -46,7 +46,7 @@ module Decidim
               event: "decidim.events.proposals.proposal_mentioned",
               event_class: Decidim::Proposals::ProposalMentionedEvent,
               resource: commentable,
-              recipient_ids: [linked_proposal.creator_author.id],
+              affected_users: [linked_proposal.creator_author],
               extra: {
                 comment_id: comment.id,
                 mentioned_proposal_id: linked_proposal.id
@@ -59,7 +59,7 @@ module Decidim
               event: "decidim.events.proposals.proposal_mentioned",
               event_class: Decidim::Proposals::ProposalMentionedEvent,
               resource: commentable,
-              recipient_ids: [space_admin.id],
+              affected_users: [space_admin],
               extra: {
                 comment_id: comment.id,
                 mentioned_proposal_id: linked_proposal_official.id
