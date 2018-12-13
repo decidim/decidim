@@ -74,7 +74,8 @@ module Decidim
                 event: "decidim.events.initiatives.milestone_completed",
                 event_class: Decidim::Initiatives::MilestoneCompletedEvent,
                 resource: initiative,
-                recipient_ids: [follower.id],
+                affected_users: [initiative.author],
+                followers: [follower],
                 extra: { percentage: 75 }
               )
 
