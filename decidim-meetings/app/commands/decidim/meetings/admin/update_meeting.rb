@@ -64,7 +64,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_updated",
             event_class: Decidim::Meetings::UpdateMeetingEvent,
             resource: meeting,
-            recipient_ids: meeting.followers.pluck(:id)
+            followers: meeting.followers
           )
         end
 
