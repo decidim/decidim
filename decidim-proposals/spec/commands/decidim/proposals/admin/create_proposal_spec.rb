@@ -106,6 +106,25 @@ module Decidim
               expect(action_log.version).to be_present
             end
 
+            it "notifies the space followers" do
+              follower = create(:user, organization: component.participatory_space.organization)
+              create(:follow, followable: component.participatory_space, user: follower)
+
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.proposals.proposal_published",
+                  event_class: Decidim::Proposals::PublishProposalEvent,
+                  resource: kind_of(Decidim::Proposals::Proposal),
+                  followers: [follower],
+                  extra: {
+                    participatory_space: true
+                  }
+                )
+
+              command.call
+            end
+
             context "when geocoding is enabled" do
               let(:component) { create(:proposal_component, :with_geocoding_enabled) }
 
