@@ -34,7 +34,7 @@ module Decidim::Meetings
         event: "decidim.events.meetings.meeting_registrations_over_percentage",
         event_class: MeetingRegistrationsOverPercentageEvent,
         resource: meeting,
-        recipient_ids: [process_admin.id],
+        affected_users: [process_admin],
         extra: extra
       }
     end
