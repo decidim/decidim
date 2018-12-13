@@ -446,6 +446,16 @@ $datetime-bg: $primary;
   @include breakpoint(medium){
     padding-left: $card-padding;
   }
+
+  svg{
+    flex-basis: 15%;
+    flex-shrink: 0;
+  }
+
+  svg + div{
+    max-width: calc(85% - #{$global-margin});
+    overflow-wrap: break-word;
+  }
 }
 
 .card--list__icon{
