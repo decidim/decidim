@@ -97,6 +97,16 @@ shared_examples "update an initiative" do
         expect(initiative.offline_votes).not_to eq(form_params[:offline_votes])
       end
 
+      describe "when not in created state" do
+        let!(:initiative) { create(:initiative, :published, signature_type: "online") }
+
+        before { form.signature_type = "offline" }
+
+        it "doesn't update signature type" do
+          expect { command.call }.not_to change(initiative, :signature_type)
+        end
+      end
+
       context "when administrator user" do
         let(:administrator) { create(:user, :admin, organization: organization) }
 

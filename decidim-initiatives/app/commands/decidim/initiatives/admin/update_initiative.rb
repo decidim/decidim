@@ -44,12 +44,12 @@ module Decidim
           attrs = {
             title: form.title,
             description: form.description,
-            signature_type: form.signature_type,
             hashtag: form.hashtag,
             answer: form.answer,
             answer_url: form.answer_url
           }
 
+          attrs[:signature_type] = form.signature_type if initiative.created?
           attrs[:answered_at] = Time.current if form.answer.present?
 
           if current_user.admin?
