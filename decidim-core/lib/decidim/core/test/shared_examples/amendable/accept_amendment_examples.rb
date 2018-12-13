@@ -7,7 +7,7 @@ shared_examples "accept amendment" do
     end
 
     it "changes the emendation state to accepted" do
-      expect { command.call }.to change(emendation, :state)
+      expect { command.call && emendation.reload }.to change(emendation, :state)
         .from("evaluating").to("accepted")
     end
 
@@ -47,7 +47,8 @@ shared_examples "accept amendment" do
           event: "decidim.events.amendments.amendment_accepted",
           event_class: Decidim::Amendable::AmendmentAcceptedEvent,
           resource: emendation,
-          recipient_ids: kind_of(Array)
+          followers: kind_of(Array),
+          affected_users: kind_of(Array)
         )
 
       command.call
