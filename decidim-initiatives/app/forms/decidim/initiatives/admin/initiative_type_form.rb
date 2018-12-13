@@ -12,8 +12,10 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
         attribute :banner_image, String
+        attribute :online_signature_enabled, Boolean
 
         validates :title, :description, translatable_presence: true
+        validates :online_signature_enabled, inclusion: { in: [true, false] }
         validates :banner_image, presence: true, if: lambda { |form|
           form.context.initiative_type.nil?
         }

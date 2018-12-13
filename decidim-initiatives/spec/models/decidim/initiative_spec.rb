@@ -4,10 +4,14 @@ require "spec_helper"
 
 module Decidim
   describe Initiative do
+    let(:organization) { create(:organization) }
+
     context "when created initiative" do
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
+      let(:offline_type) { create(:initiatives_type, :online_signature_disabled, organization: organization) }
+      let(:offline_scope) { create(:initiatives_type_scope, type: offline_type) }
 
       before do
         allow(message_delivery).to receive(:deliver_later)
@@ -15,6 +19,14 @@ module Decidim
 
       it "is versioned" do
         expect(initiative).to be_versioned
+      end
+
+      it "enforces signature types specified in the type" do
+        online_initiative = build(:initiative, :created, organization: organization, scoped_type: offline_scope, signature_type: "online")
+        offline_initiative = build(:initiative, :created, organization: organization, scoped_type: offline_scope, signature_type: "offline")
+
+        expect(online_initiative).to be_invalid
+        expect(offline_initiative).to be_valid
       end
 
       it "technical revission request is notified by email" do
@@ -37,9 +49,21 @@ module Decidim
 
     context "when published initiative" do
       let(:published_initiative) { build :initiative }
+      let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
+      let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 
       it "is valid" do
         expect(published_initiative).to be_valid
+      end
+
+      it "does not enforce signature type if the type was updated" do
+        initiative = build(:initiative, :published, organization: organization, scoped_type: online_allowed_scope, signature_type: "online")
+
+        expect(initiative.save).to be_truthy
+
+        online_allowed_type.update!(online_signature_enabled: false)
+
+        expect(initiative).to be_valid
       end
 
       it "unpublish!" do

@@ -56,6 +56,8 @@ module Decidim
 
     validates :title, :description, :state, presence: true
     validates :signature_type, presence: true
+    validate :signature_type_allowed
+
     validates :hashtag,
               uniqueness: true,
               allow_blank: true,
@@ -281,6 +283,10 @@ module Decidim
     end
 
     private
+
+    def signature_type_allowed
+      errors.add(:signature_type, :invalid) if !published? && type.allowed_signature_types_for_initiatives.exclude?(signature_type)
+    end
 
     def notify_state_change
       return unless saved_change_to_state?

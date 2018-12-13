@@ -39,7 +39,8 @@ module Decidim
         def attributes
           result = {
             title: form.title,
-            description: form.description
+            description: form.description,
+            online_signature_enabled: form.online_signature_enabled
           }
 
           result[:banner_image] = form.banner_image unless form.banner_image.nil?

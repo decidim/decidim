@@ -27,6 +27,7 @@ es:
       initiatives_type:
         banner_image: Imagen de banner
         description: Descripción
+        online_signature_enabled: Firma digital habilitada
         title: Título
       organization_data:
         address: Dirección
