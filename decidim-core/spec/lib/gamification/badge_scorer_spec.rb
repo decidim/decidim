@@ -134,7 +134,7 @@ module Decidim
                   event: "decidim.events.gamification.badge_earned",
                   event_class: BadgeEarnedEvent,
                   resource: user,
-                  recipient_ids: [user.id],
+                  affected_users: [user],
                   extra: {
                     badge_name: "test",
                     previous_level: 0,
@@ -165,7 +165,7 @@ module Decidim
                 event: "decidim.events.gamification.level_up",
                 event_class: LevelUpEvent,
                 resource: user,
-                recipient_ids: [user.id],
+                affected_users: [user],
                 extra: {
                   badge_name: "test",
                   previous_level: 1,
