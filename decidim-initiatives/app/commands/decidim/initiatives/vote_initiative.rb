@@ -53,7 +53,7 @@ module Decidim
           event: "decidim.events.initiatives.initiative_endorsed",
           event_class: Decidim::Initiatives::EndorseInitiativeEvent,
           resource: @initiative,
-          recipient_ids: @initiative.author.followers.pluck(:id)
+          followers: @initiative.author.followers
         )
       end
 
