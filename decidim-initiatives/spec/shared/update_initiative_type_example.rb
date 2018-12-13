@@ -3,7 +3,6 @@
 shared_examples "update an initiative type" do
   let(:organization) { create(:organization) }
   let(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
-
   let(:form) do
     form_klass.from_params(
       form_params
@@ -19,6 +18,7 @@ shared_examples "update an initiative type" do
         title: Decidim::Faker::Localized.sentence(5),
         description: Decidim::Faker::Localized.sentence(25),
         online_signature_enabled: false,
+        min_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
       }
     end
@@ -39,6 +39,7 @@ shared_examples "update an initiative type" do
         expect(initiative_type.title).not_to eq(form_params[:title])
         expect(initiative_type.description).not_to eq(form_params[:description])
         expect(initiative_type.online_signature_enabled).not_to eq(form_params[:online_signature_enabled])
+        expect(initiative_type.min_committee_members).not_to eq(form_params[:min_committee_members])
       end
     end
 
@@ -55,6 +56,7 @@ shared_examples "update an initiative type" do
         expect(initiative_type.title).to eq(form_params[:title])
         expect(initiative_type.description).to eq(form_params[:description])
         expect(initiative_type.online_signature_enabled).to eq(form_params[:online_signature_enabled])
+        expect(initiative_type.min_committee_members).to eq(form_params[:min_committee_members])
       end
 
       it "propagates signature type to created initiatives" do

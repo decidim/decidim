@@ -13,12 +13,18 @@ module Decidim
         translatable_attribute :description, String
         attribute :banner_image, String
         attribute :online_signature_enabled, Boolean
+        attribute :min_committee_members, Integer
 
         validates :title, :description, translatable_presence: true
         validates :online_signature_enabled, inclusion: { in: [true, false] }
+        validates :min_committee_members, numericality: { only_integer: true }, allow_nil: true
         validates :banner_image, presence: true, if: lambda { |form|
           form.context.initiative_type.nil?
         }
+
+        def min_committee_members=(value)
+          super(value.presence)
+        end
       end
     end
   end
