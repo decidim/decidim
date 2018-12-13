@@ -53,7 +53,7 @@ module Decidim
             event: "decidim.events.debates.debate_created",
             event_class: Decidim::Debates::CreateDebateEvent,
             resource: debate,
-            recipient_ids: form.current_component.participatory_space.followers.pluck(:id),
+            followers: form.current_component.participatory_space.followers,
             extra: {
               type: "participatory_space"
             }
