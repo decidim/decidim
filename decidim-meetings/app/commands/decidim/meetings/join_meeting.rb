@@ -71,7 +71,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          recipient_ids: [@user.id],
+          affected_users: [@user],
           extra: {
             registration_code: @registration.code
           }
