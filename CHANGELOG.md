@@ -107,6 +107,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: User groups can now confirm their email [\#4603](https://github.com/decidim/decidim/pull/4603)
 - **decidim-core**: Admins can verify batches of user groups that have the email confirmed by uploading a CSV file [\#4613](https://github.com/decidim/decidim/pull/4613)
 - **decidim-core**: Let users select their interests (scopes/areas). They will see relevant activity in the Timeline tab in their profile [\#4621](https://github.com/decidim/decidim/pull/4621)
+- **decidim-initiatives**: Add setting in `Decidim::InitiativesType` to restrict online signatures [\#4668](https://github.com/decidim/decidim/pull/4668)
 
 **Changed**:
 
