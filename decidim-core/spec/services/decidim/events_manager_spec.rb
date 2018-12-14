@@ -19,7 +19,8 @@ describe Decidim::EventsManager do
           event,
           event_class: "Decidim::Events::BaseEvent",
           resource: resource,
-          recipient_ids: a_collection_containing_exactly(*affected_users.map(&:id), *followers.map(&:id)),
+          followers: followers,
+          affected_users: affected_users,
           extra: extra
         )
 
@@ -33,13 +34,32 @@ describe Decidim::EventsManager do
       )
     end
 
-    context "when there are invalid values as the recipient ids" do
-      let(:followers) { affected_users + [nil] }
+    context "when there are invalid values as affected_users" do
+      let(:affected_users) { followers + followers + [nil] }
 
       it "sanitizes the recipients" do
         expect(ActiveSupport::Notifications)
           .to receive(:publish)
-          .with(event, hash_including(recipient_ids: a_collection_containing_exactly(*affected_users.map(&:id))))
+          .with(event, hash_including(affected_users: followers))
+
+        described_class.publish(
+          event: event,
+          event_class: event_class,
+          resource: resource,
+          followers: followers,
+          affected_users: affected_users,
+          extra: extra
+        )
+      end
+    end
+
+    context "when there are invalid values as followers" do
+      let(:followers) { affected_users + affected_users + [nil] }
+
+      it "sanitizes the recipients" do
+        expect(ActiveSupport::Notifications)
+          .to receive(:publish)
+          .with(event, hash_including(followers: affected_users))
 
         described_class.publish(
           event: event,

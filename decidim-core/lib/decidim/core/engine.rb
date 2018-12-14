@@ -183,18 +183,22 @@ module Decidim
 
       initializer "decidim.notifications" do
         Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
+          followers = data[:followers]
+          affected_users = data[:affected_users]
+          recipient_ids = followers.compact.map(&:id) + affected_users.compact.map(&:id)
+
           EmailNotificationGeneratorJob.perform_later(
             event_name,
             data[:event_class],
             data[:resource],
-            data[:recipient_ids],
+            recipient_ids,
             data[:extra]
           )
           NotificationGeneratorJob.perform_later(
             event_name,
             data[:event_class],
             data[:resource],
-            data[:recipient_ids],
+            recipient_ids,
             data[:extra]
           )
         end
