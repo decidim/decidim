@@ -763,8 +763,11 @@ en:
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
+        everything_followed: Everything I follow
         newsletters: Newsletters
         newsletter_notifications: I want to receive newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
