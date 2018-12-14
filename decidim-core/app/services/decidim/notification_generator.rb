@@ -54,7 +54,7 @@ module Decidim
         event,
         event_class.name,
         resource,
-        recipient.id,
+        recipient,
         extra
       )
     end

@@ -25,10 +25,10 @@ describe Decidim::NotificationGenerator do
       it "schedules a job for each recipient" do
         expect(Decidim::NotificationGeneratorForRecipientJob)
           .to receive(:perform_later)
-          .with(event, event_class_name, resource, recipient.id, extra)
+          .with(event, event_class_name, resource, recipient, extra)
         expect(Decidim::NotificationGeneratorForRecipientJob)
           .to receive(:perform_later)
-          .with(event, event_class_name, resource, follower.id, extra)
+          .with(event, event_class_name, resource, follower, extra)
 
         subject.generate
       end

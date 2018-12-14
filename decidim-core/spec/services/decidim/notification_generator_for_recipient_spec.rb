@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::NotificationGeneratorForRecipient do
-  subject { described_class.new(event, event_class, resource, recipient.id, extra) }
+  subject { described_class.new(event, event_class, resource, recipient, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource, published_at: Time.current) }
