@@ -23,6 +23,8 @@ module Decidim
     # Returns nothing.
     # rubocop:disable Metrics/ParameterLists
     def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, affected_users: [], followers: [], recipient_ids: nil, extra: {})
+      ActiveSupport::Deprecation.warn("FAILS HERE") if followers.any? { |e| e.is_a?(Integer) } || affected_users.any? { |e| e.is_a?(Integer) }
+
       if recipient_ids
         ActiveSupport::Deprecation.warn("Event with old API found!")
       else
