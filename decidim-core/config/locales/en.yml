@@ -763,7 +763,9 @@ en:
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
+        newsletters: Newsletters
         newsletter_notifications: I want to receive newsletters
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There's been an error updating your notifications settings.

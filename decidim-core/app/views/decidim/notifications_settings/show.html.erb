@@ -1,5 +1,6 @@
 <div class="row">
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
+    <p><strong><%= t(".send_notifications_by_email") %></strong></p>
     <div class="switch tiny switch-with-label email_on_notification">
       <label>
         <%= f.check_box :email_on_notification, label: false, class: "switch-input" %>
@@ -7,6 +8,7 @@
         <span class="switch-label"><%= t(".email_on_notification") %></span>
       </label>
     </div>
+    <p><strong><%= t(".newsletters") %></strong></p>
     <div class="switch tiny switch-with-label newsletter_notifications">
       <label>
         <%= f.check_box :newsletter_notifications, label: false, class: "switch-input" %>
