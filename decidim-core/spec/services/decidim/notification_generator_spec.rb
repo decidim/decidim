@@ -7,11 +7,11 @@ describe Decidim::NotificationGenerator do
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource) }
-  let(:follow) { create(:follow, followable: resource, user: recipient) }
-  let(:recipient) { resource.author }
+  let(:follow) { create(:follow, followable: resource, user: affected_user) }
+  let(:affected_user) { resource.author }
   let(:event_class) { Decidim::Events::BaseEvent }
   let(:event_class_name) { "Decidim::Events::BaseEvent" }
-  let(:affected_users) { [recipient] }
+  let(:affected_users) { [affected_user] }
   let(:follower) { create :user }
   let(:followers) { [follower] }
   let(:extra) { double }
@@ -22,15 +22,100 @@ describe Decidim::NotificationGenerator do
         allow(event_class).to receive(:types).and_return([:notification])
       end
 
-      it "schedules a job for each recipient" do
-        expect(Decidim::NotificationGeneratorForRecipientJob)
-          .to receive(:perform_later)
-          .with(event, event_class_name, resource, recipient, extra)
-        expect(Decidim::NotificationGeneratorForRecipientJob)
-          .to receive(:perform_later)
-          .with(event, event_class_name, resource, follower, extra)
+      describe "followers" do
+        let(:affected_users) { [] }
 
-        subject.generate
+        context "when the follower asks for notifications on all" do
+          let(:follower) { create :user, notification_types: "all" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .to receive(:perform_later)
+              .with(event, event_class_name, resource, follower, extra)
+            subject.generate
+          end
+        end
+
+        context "when the follower asks for notifications on followed" do
+          let(:follower) { create :user, notification_types: "followed-only" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .to receive(:perform_later)
+              .with(event, event_class_name, resource, follower, extra)
+            subject.generate
+          end
+        end
+
+        context "when the follower asks for notifications on none" do
+          let(:follower) { create :user, notification_types: "none" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .not_to receive(:perform_later)
+              .with(event, event_class_name, resource, follower, extra)
+            subject.generate
+          end
+        end
+
+        context "when the follower asks for notifications on own-only" do
+          let(:follower) { create :user, notification_types: "own-only" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .not_to receive(:perform_later)
+              .with(event, event_class_name, resource, follower, extra)
+            subject.generate
+          end
+        end
+      end
+
+      describe "affected_users" do
+        let(:followers) { [] }
+
+        context "when the affected_user asks for notifications on all" do
+          let(:affected_user) { create :user, notification_types: "all" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .to receive(:perform_later)
+              .with(event, event_class_name, resource, affected_user, extra)
+            subject.generate
+          end
+        end
+
+        context "when the affected_user asks for notifications on followed" do
+          let(:affected_user) { create :user, notification_types: "followed-only" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .not_to receive(:perform_later)
+              .with(event, event_class_name, resource, affected_user, extra)
+            subject.generate
+          end
+        end
+
+        context "when the affected_user asks for notifications on none" do
+          let(:affected_user) { create :user, notification_types: "none" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .not_to receive(:perform_later)
+              .with(event, event_class_name, resource, affected_user, extra)
+            subject.generate
+          end
+        end
+
+        context "when the affected_user asks for notifications on own-only" do
+          let(:affected_user) { create :user, notification_types: "own-only" }
+
+          it "sends the notification" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .to receive(:perform_later)
+              .with(event, event_class_name, resource, affected_user, extra)
+            subject.generate
+          end
+        end
       end
     end
 

@@ -37,10 +37,12 @@ module Decidim
       return unless event_class.types.include?(:email)
 
       followers.each do |recipient|
+        next unless ["all", "followed-only"].include?(recipient.notification_types)
         send_email_to(recipient)
       end
 
       affected_users.each do |recipient|
+        next unless ["all", "own-only"].include?(recipient.notification_types)
         send_email_to(recipient)
       end
     end
