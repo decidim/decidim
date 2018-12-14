@@ -27,7 +27,6 @@ ca:
       initiatives_type:
         banner_image: Imatge del bàner
         description: Descripció
-        online_signature_enabled: Signatura digital habilitada
         title: Títol
       organization_data:
         address: Adreça
