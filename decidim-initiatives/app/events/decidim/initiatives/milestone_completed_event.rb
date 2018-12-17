@@ -12,6 +12,10 @@ module Decidim
       def participatory_space
         resource
       end
+
+      def event_has_roles?
+        true
+      end
     end
   end
 end
