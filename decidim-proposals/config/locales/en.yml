@@ -148,10 +148,16 @@ en:
           email_subject: Proposals endorsing has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
-          email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-          email_subject: A proposal you're following has been accepted
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal has been accepted
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
+          follower:
+            email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following has been accepted
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed the "%{resource_title}" proposal and we think it may be interesting to you. Check it out and contribute:'
           email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
