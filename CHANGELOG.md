@@ -67,6 +67,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Added**:
 
+- **decidim-assemblies**: Add feature filter assemblies by type [\#4659](https://github.com/decidim/decidim/pull/4659/)
 - **decidim-meetings**: Add notification to conferences and meetings registrations [\#4636](https://github.com/decidim/decidim/pull/4636/)
 - **decidim-proposals**: Add amend button and amendments counter to participatory text proposals [\#4598](https://github.com/decidim/decidim/pull/4598/)
 - **decidim-proposals**: Add filter by type functionality to Amendments on proposals. [\#4567](https://github.com/decidim/decidim/pull/4567/)
