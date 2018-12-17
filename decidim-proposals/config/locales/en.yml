@@ -176,6 +176,7 @@ en:
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+          email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
           notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
         proposal_published:
