@@ -400,10 +400,16 @@ en:
             email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
-          email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
-          email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-          notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
             email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
