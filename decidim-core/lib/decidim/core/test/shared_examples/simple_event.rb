@@ -3,11 +3,14 @@
 require "spec_helper"
 
 shared_context "when a simple event" do
-  subject do
+  subject { event_instance }
+
+  let(:event_instance) do
     described_class.new(
       resource: resource,
       event_name: event_name,
       user: user,
+      user_role: user_role,
       extra: extra
     )
   end
@@ -20,6 +23,7 @@ shared_context "when a simple event" do
     end
   end
   let(:user) { create :user, organization: organization }
+  let(:user_role) { :follower }
   let(:extra) { {} }
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
@@ -116,7 +120,14 @@ shared_examples_for "a simple event" do |skip_space_checks|
     it { is_expected.to include(resource_path: satisfy(&:present?)) }
     it { is_expected.to include(resource_title: satisfy(&:present?)) }
     it { is_expected.to include(resource_url: start_with("http")) }
-    it { is_expected.to include(scope: i18n_scope) }
+
+    it "includes the i18n scope" do
+      if event_instance.event_has_roles?
+        expect(subject).to include(scope: "#{i18n_scope}.#{user_role}")
+      else
+        expect(subject).to include(scope: i18n_scope)
+      end
+    end
 
     unless skip_space_checks
       it { is_expected.to include(participatory_space_title: satisfy(&:present?)) }

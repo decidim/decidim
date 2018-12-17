@@ -47,11 +47,11 @@ describe Decidim::EmailNotificationGenerator do
         it "schedules a job for each recipient" do
           expect(Decidim::NotificationMailer)
             .to receive(:event_received)
-            .with(event, event_class_name, resource, recipient, extra)
+            .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
             .and_return(mailer)
           expect(Decidim::NotificationMailer)
             .to receive(:event_received)
-            .with(event, event_class_name, resource, follower, extra)
+            .with(event, event_class_name, resource, follower, :follower.to_s, extra)
             .and_return(mailer)
           expect(mailer).to receive(:deliver_later)
 

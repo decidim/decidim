@@ -13,11 +13,12 @@ module Decidim
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
     # recipient - the User that will receive the notification.
     # extra - a Hash with extra information to be included in the notification.
-    def initialize(event, event_class, resource, recipient, extra)
+    def initialize(event, event_class, resource, recipient, user_role, extra) # rubocop:disable Metrics/ParameterLists
       @event = event
       @event_class = event_class
       @resource = resource
       @recipient = recipient
+      @user_role = user_role
       @extra = extra
     end
 
@@ -42,10 +43,10 @@ module Decidim
         event_class: event_class,
         resource: resource,
         event_name: event,
-        extra: extra
+        extra: extra.merge(received_as: user_role)
       )
     end
 
-    attr_reader :event, :event_class, :resource, :recipient, :extra
+    attr_reader :event, :event_class, :resource, :recipient, :user_role, :extra
   end
 end

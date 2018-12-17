@@ -38,12 +38,12 @@ module Decidim
 
       followers.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.notification_types)
-        send_email_to(recipient)
+        send_email_to(recipient, user_role: :follower)
       end
 
       affected_users.each do |recipient|
         next unless ["all", "own-only"].include?(recipient.notification_types)
-        send_email_to(recipient)
+        send_email_to(recipient, user_role: :affected_user)
       end
     end
 
@@ -55,9 +55,11 @@ module Decidim
     # `email_on_notification` flag active.
     #
     # recipient - The user that will receive the email.
+    # user_role - the role the user takes for this notification (either
+    #   `:follower` or `:affected_user`)
     #
     # Returns nothing.
-    def send_email_to(recipient)
+    def send_email_to(recipient, user_role:)
       return unless recipient
       return unless recipient.email_on_notification?
 
@@ -67,6 +69,7 @@ module Decidim
           event_class.name,
           resource,
           recipient,
+          user_role.to_s,
           extra
         )
         .deliver_later
