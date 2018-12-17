@@ -37,7 +37,7 @@ module Decidim
                 event: "decidim.events.groups.join_request_accepted",
                 event_class: JoinRequestAcceptedEvent,
                 resource: membership.user_group,
-                recipient_ids: [membership.user.id],
+                affected_users: [membership.user],
                 extra: {
                   user_group_name: membership.user_group.name,
                   user_group_nickname: membership.user_group.nickname

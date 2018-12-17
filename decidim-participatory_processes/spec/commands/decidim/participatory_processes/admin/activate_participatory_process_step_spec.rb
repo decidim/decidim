@@ -68,7 +68,7 @@ module Decidim::ParticipatoryProcesses
             event: "decidim.events.participatory_process.step_activated",
             event_class: Decidim::ParticipatoryProcessStepActivatedEvent,
             resource: process_step,
-            recipient_ids: [follower.id]
+            followers: [follower]
           )
 
         subject.call

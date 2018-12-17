@@ -38,7 +38,7 @@ module Decidim
               event: "decidim.events.initiatives.initiative_endorsed",
               event_class: Decidim::Initiatives::EndorseInitiativeEvent,
               resource: initiative,
-              recipient_ids: [follower.id]
+              followers: [follower]
             )
 
           command.call
@@ -74,7 +74,8 @@ module Decidim
                 event: "decidim.events.initiatives.milestone_completed",
                 event_class: Decidim::Initiatives::MilestoneCompletedEvent,
                 resource: initiative,
-                recipient_ids: [follower.id],
+                affected_users: [initiative.author],
+                followers: [follower],
                 extra: { percentage: 75 }
               )
 

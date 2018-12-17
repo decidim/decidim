@@ -65,7 +65,7 @@ module Decidim::Meetings
               event: "decidim.events.meetings.registrations_enabled",
               event_class: MeetingRegistrationsEnabledEvent,
               resource: meeting,
-              recipient_ids: [user.id]
+              followers: [user]
             )
 
           subject.call

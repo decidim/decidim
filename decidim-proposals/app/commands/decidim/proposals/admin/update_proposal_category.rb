@@ -59,7 +59,7 @@ module Decidim
             event: "decidim.events.proposals.proposal_update_category",
             event_class: Decidim::Proposals::Admin::UpdateProposalCategoryEvent,
             resource: proposal,
-            recipient_ids: proposal.coauthorships.pluck(:decidim_author_id)
+            affected_users: proposal.notifiable_identities
           )
         end
       end

@@ -21,7 +21,7 @@ module Decidim
           event: "decidim.events.meetings.upcoming_meeting",
           event_class: Decidim::Meetings::UpcomingMeetingEvent,
           resource: meeting,
-          recipient_ids: meeting.followers.pluck(:id)
+          followers: meeting.followers
         )
       end
 

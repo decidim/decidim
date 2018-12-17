@@ -146,6 +146,19 @@ module Decidim::Conferences
         linked_consultations = conference.linked_participatory_space_resources("Consultations", "included_consultations")
         expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
       end
+
+      it "notifies the change" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.conferences.registrations_enabled",
+            event_class: ConferenceRegistrationsEnabledEvent,
+            resource: kind_of(Decidim::Conference),
+            followers: [current_user]
+          )
+
+        subject.call
+      end
     end
   end
 end

@@ -177,7 +177,7 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.call
@@ -205,7 +205,7 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.call
@@ -222,7 +222,7 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.call

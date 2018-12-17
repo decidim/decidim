@@ -94,7 +94,7 @@ module Decidim
             event: "decidim.events.conferences.registrations_enabled",
             event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
             resource: @conference,
-            recipient_ids: @conference.followers.pluck(:id)
+            followers: @conference.followers
           )
         end
 
@@ -107,7 +107,7 @@ module Decidim
             event: "decidim.events.conferences.conference_updated",
             event_class: Decidim::Conferences::UpdateConferenceEvent,
             resource: @conference,
-            recipient_ids: @conference.followers.pluck(:id)
+            followers: @conference.followers
           )
         end
 

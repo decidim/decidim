@@ -11,6 +11,12 @@ module Decidim
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
+    has_many :managers,
+             -> { where(decidim_user_group_memberships: { role: [:creator, :admin] }) },
+             through: :memberships,
+             class_name: "Decidim::User",
+             foreign_key: :decidim_user_id,
+             source: :user
 
     validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
 

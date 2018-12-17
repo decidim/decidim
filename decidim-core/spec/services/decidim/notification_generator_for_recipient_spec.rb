@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe Decidim::NotificationGeneratorForRecipient do
-  subject { described_class.new(event, event_class, resource, recipient.id, extra) }
+  subject { described_class.new(event, event_class, resource, recipient, :affected_user, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource, published_at: Time.current) }
   let(:follow) { create(:follow, followable: resource, user: recipient) }
   let(:recipient) { resource.author }
-  let(:extra) { double }
+  let(:extra) { {} }
   let(:event_class) { Decidim::Events::BaseEvent }
 
   describe "generate" do
@@ -22,6 +22,7 @@ describe Decidim::NotificationGeneratorForRecipient do
       expect(notification.user).to eq recipient
       expect(notification.event_name).to eq event
       expect(notification.resource).to eq resource
+      expect(notification.extra["received_as"]).to eq "affected_user"
     end
 
     context "when the event is not notifiable" do

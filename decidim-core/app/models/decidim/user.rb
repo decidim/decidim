@@ -195,7 +195,7 @@ module Decidim
         event: "decidim.events.core.welcome_notification",
         event_class: WelcomeNotificationEvent,
         resource: self,
-        recipient_ids: [id]
+        affected_users: [self]
       )
     end
 

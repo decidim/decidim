@@ -20,7 +20,7 @@ module Decidim
       def initialize(comment, mentioned_users)
         @comment = comment
         @mentioned_users = mentioned_users
-        @already_notified_ids = [comment.author.id]
+        @already_notified_users = [comment.author]
       end
 
       # Generates the notifications for the given comment.
@@ -35,13 +35,13 @@ module Decidim
 
       private
 
-      attr_reader :comment, :mentioned_users, :already_notified_ids
+      attr_reader :comment, :mentioned_users, :already_notified_users
 
       def notify_mentioned_users
-        recipient_ids = mentioned_users.pluck(:id) - already_notified_ids
-        @already_notified_ids += recipient_ids
+        affected_users = mentioned_users - already_notified_users
+        @already_notified_users += affected_users
 
-        notify(recipient_ids, :user_mentioned)
+        notify(:user_mentioned, affected_users: affected_users)
       end
 
       # Notifies the author of a comment that their comment has been replied.
@@ -49,49 +49,50 @@ module Decidim
       def notify_parent_comment_author
         return if comment.depth.zero?
 
-        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids
-        @already_notified_ids += recipient_ids
+        affected_users = [comment.commentable.author] - already_notified_users
+        @already_notified_users += affected_users
 
-        notify(recipient_ids, :reply_created)
+        notify(:reply_created, affected_users: affected_users)
       end
 
       def notify_author_followers
-        recipient_ids = comment.author.followers.pluck(:id) - already_notified_ids
-        @already_notified_ids += recipient_ids
+        followers = comment.author.followers - already_notified_users
+        @already_notified_users += followers
 
-        notify(recipient_ids, :comment_by_followed_user)
+        notify(:comment_by_followed_user, followers: followers)
       end
 
       # Notifies the users the `comment.commentable` resource implements as necessary.
       def notify_commentable_recipients
-        recipient_ids = comment.commentable.users_to_notify_on_comment_created.pluck(:id) - already_notified_ids
-        @already_notified_ids += recipient_ids
+        followers = comment.commentable.users_to_notify_on_comment_created - already_notified_users
+        @already_notified_users += followers
 
-        notify(recipient_ids, :comment_created)
+        notify(:comment_created, followers: followers)
       end
 
       # Creates the notifications for the given user IDS and the given event.
       # It builds the event class from the `event` argument, and will raise an error if the
       # class cannot be found.
       #
-      # user_ids - an Array of IDs
+      # users - a Hash with `followers` and `affected_users` keys, both containing
+      #   a collection of users.
       # event - a Symbol representing the event to be notified.
       #
       # Returns nothing.
-      def notify(user_ids, event)
-        return if user_ids.blank?
+      def notify(event, users)
+        return if users.values.flatten.blank?
 
         event_class = "Decidim::Comments::#{event.to_s.camelcase}Event".constantize
-
-        Decidim::EventsManager.publish(
+        data = {
           event: "decidim.events.comments.#{event}",
           event_class: event_class,
           resource: comment.root_commentable,
-          recipient_ids: user_ids.uniq,
           extra: {
             comment_id: comment.id
           }
-        )
+        }.merge(users)
+
+        Decidim::EventsManager.publish(data)
       end
     end
   end

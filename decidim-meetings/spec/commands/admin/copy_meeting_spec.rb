@@ -76,5 +76,22 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:ok)
       end
     end
+
+    describe "events" do
+      let!(:follow) { create :follow, followable: meeting.participatory_space, user: current_user }
+
+      it "notifies the change" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_created",
+            event_class: CreateMeetingEvent,
+            resource: kind_of(Decidim::Meetings::Meeting),
+            followers: [current_user]
+          )
+
+        subject.call
+      end
+    end
   end
 end

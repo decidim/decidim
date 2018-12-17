@@ -71,7 +71,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          recipient_ids: [@user.id],
+          affected_users: [@user],
           extra: {
             registration_code: @registration.code
           }
@@ -93,7 +93,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registrations_over_percentage",
           event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
           resource: @meeting,
-          recipient_ids: participatory_space_admins.pluck(:id),
+          affected_users: participatory_space_admins,
           extra: {
             percentage: percentage
           }
