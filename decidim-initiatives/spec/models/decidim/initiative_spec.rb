@@ -4,6 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe Initiative do
+    subject { initiative }
+
+    let(:initiative) { build :initiative }
+
+    include_examples "has reference"
+
     context "when created initiative" do
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }

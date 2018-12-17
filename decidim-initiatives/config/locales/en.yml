@@ -54,6 +54,7 @@ en:
         initiatives:
           fields:
             created_at: Created at
+            id: ID
             state: State
             supports_count: Supports
             title: Initiatives

@@ -50,6 +50,7 @@
       <table class="table-list">
         <thead>
           <tr>
+            <th><%= t("models.initiatives.fields.id", scope: "decidim.admin") %></th>
             <th><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
             <th><%= t("models.initiatives.fields.supports_count", scope: "decidim.admin") %></th>
@@ -60,6 +61,7 @@
         <tbody>
           <% @initiatives.each do |initiative| %>
           <tr>
+            <td><%= initiative.id %></td>
             <td>
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= link_to translated_attribute(initiative.title),
