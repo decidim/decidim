@@ -15,5 +15,9 @@ module Decidim::Amendable
     def emendation_resource
       @emendation_resource ||= amendment_resource.emendation
     end
+
+    def event_has_roles?
+      true
+    end
   end
 end

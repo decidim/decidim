@@ -140,7 +140,8 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: match_array([proposals.first.creator_author.id, follower.id]),
+            affected_users: [proposals.first.creator_author],
+            followers: [follower],
             extra: {
               proposal_id: proposals.first.id
             }
@@ -152,7 +153,8 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: [proposals.second.creator_author.id],
+            affected_users: [proposals.second.creator_author],
+            followers: [],
             extra: {
               proposal_id: proposals.second.id
             }
@@ -164,7 +166,8 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: [proposals.third.creator_author.id],
+            affected_users: [proposals.third.creator_author],
+            followers: [],
             extra: {
               proposal_id: proposals.third.id
             }

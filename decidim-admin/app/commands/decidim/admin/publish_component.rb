@@ -44,7 +44,7 @@ module Decidim
           event: "decidim.events.components.component_published",
           event_class: Decidim::ComponentPublishedEvent,
           resource: component,
-          recipient_ids: component.participatory_space.followers.pluck(:id)
+          followers: component.participatory_space.followers
         )
       end
     end

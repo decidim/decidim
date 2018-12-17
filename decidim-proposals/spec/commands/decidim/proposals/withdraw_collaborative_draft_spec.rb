@@ -47,14 +47,14 @@ module Decidim
           end
 
           it "notifies the collaborative draft is withdrawn to coauthors" do
-            recipient_ids = collaborative_draft.authors.pluck(:id) - [current_user.id]
+            affected_users = collaborative_draft.authors - [current_user]
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
                 event: event,
                 event_class: event_class,
                 resource: collaborative_draft,
-                recipient_ids: recipient_ids.uniq,
+                affected_users: affected_users.uniq,
                 extra: {
                   author_id: current_user.id
                 }

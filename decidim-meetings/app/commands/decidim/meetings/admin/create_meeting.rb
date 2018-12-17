@@ -72,7 +72,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_created",
             event_class: Decidim::Meetings::CreateMeetingEvent,
             resource: @meeting,
-            recipient_ids: @meeting.participatory_space.followers.pluck(:id)
+            followers: @meeting.participatory_space.followers
           )
         end
       end

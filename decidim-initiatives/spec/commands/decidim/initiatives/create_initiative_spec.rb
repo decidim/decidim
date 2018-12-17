@@ -60,7 +60,7 @@ module Decidim
               event: "decidim.events.initiatives.initiative_created",
               event_class: Decidim::Initiatives::CreateInitiativeEvent,
               resource: kind_of(Decidim::Initiative),
-              recipient_ids: [follower.id]
+              followers: [follower]
             )
 
           subject.call

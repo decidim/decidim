@@ -26,6 +26,12 @@ module Decidim
             render "index"
           end
 
+          format.js do
+            raise ActionController::RoutingError, "Not Found" if published_assemblies.none?
+
+            render "index"
+          end
+
           format.json do
             render json: published_assemblies.query.includes(:children).where(parent: nil).collect { |assembly|
               {
@@ -65,7 +71,7 @@ module Decidim
       end
 
       def parent_assemblies
-        @parent_assemblies ||= assemblies | ParentAssemblies.new
+        @parent_assemblies ||= assemblies | ParentAssemblies.new | FilteredAssemblies.new(params[:filter])
       end
 
       alias collection parent_assemblies

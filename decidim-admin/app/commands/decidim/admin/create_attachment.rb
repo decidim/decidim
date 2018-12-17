@@ -57,7 +57,7 @@ module Decidim
           event: "decidim.events.attachments.attachment_created",
           event_class: Decidim::AttachmentCreatedEvent,
           resource: @attachment,
-          recipient_ids: @attachment.attached_to.followers.pluck(:id)
+          followers: @attachment.attached_to.followers
         )
       end
     end

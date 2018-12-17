@@ -31,7 +31,8 @@ shared_examples "reject amendment" do
           event: "decidim.events.amendments.amendment_rejected",
           event_class: Decidim::Amendable::AmendmentRejectedEvent,
           resource: emendation,
-          recipient_ids: kind_of(Array)
+          affected_users: kind_of(Array),
+          followers: kind_of(Array)
         )
 
       command.call

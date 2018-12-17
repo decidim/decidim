@@ -23,7 +23,7 @@ module Decidim
                     event: "decidim.events.initiatives.initiative_extended",
                     event_class: Decidim::Initiatives::ExtendInitiativeEvent,
                     resource: initiative,
-                    recipient_ids: [follower.id]
+                    followers: [follower]
                   )
 
                 command.call

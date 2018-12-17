@@ -76,7 +76,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_created",
             event_class: Decidim::Meetings::CreateMeetingEvent,
             resource: @copied_meeting,
-            recipient_ids: @copied_meeting.participatory_space.followers.pluck(:id)
+            followers: @copied_meeting.participatory_space.followers
           )
         end
       end

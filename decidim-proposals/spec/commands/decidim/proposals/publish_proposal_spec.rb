@@ -46,7 +46,7 @@ module Decidim
                 event: "decidim.events.proposals.proposal_published",
                 event_class: Decidim::Proposals::PublishProposalEvent,
                 resource: kind_of(Decidim::Proposals::Proposal),
-                recipient_ids: [follower.id]
+                followers: [follower]
               )
 
             expect(Decidim::EventsManager)
@@ -55,7 +55,7 @@ module Decidim
                 event: "decidim.events.proposals.proposal_published",
                 event_class: Decidim::Proposals::PublishProposalEvent,
                 resource: kind_of(Decidim::Proposals::Proposal),
-                recipient_ids: [other_follower.id],
+                followers: [other_follower],
                 extra: {
                   participatory_space: true
                 }

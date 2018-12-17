@@ -108,7 +108,7 @@ module Decidim
           event: name,
           event_class: klass,
           resource: @model,
-          recipient_ids: recipients,
+          affected_users: recipients,
           extra: {
             badge_name: @badge.name.to_s,
             previous_level: previous_level,
@@ -123,9 +123,9 @@ module Decidim
 
       def recipients
         if @model.is_a?(User)
-          [@model.id]
+          [@model]
         elsif @model.is_a?(UserGroup)
-          @model.users.pluck(:id)
+          @model.users
         end
       end
     end

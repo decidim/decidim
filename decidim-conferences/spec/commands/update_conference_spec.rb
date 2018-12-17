@@ -255,7 +255,7 @@ module Decidim::Conferences
                 event: "decidim.events.conferences.conference_updated",
                 event_class: UpdateConferenceEvent,
                 resource: my_conference,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             command.call
@@ -283,7 +283,7 @@ module Decidim::Conferences
                 event: "decidim.events.conferences.conference_updated",
                 event_class: UpdateConferenceEvent,
                 resource: my_conference,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             command.call
@@ -300,7 +300,7 @@ module Decidim::Conferences
                 event: "decidim.events.conferences.conference_updated",
                 event_class: UpdateConferenceEvent,
                 resource: my_conference,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             command.call

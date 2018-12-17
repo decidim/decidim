@@ -39,7 +39,7 @@ module Decidim
             event: "decidim.events.meetings.registration_code_validated",
             event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,
             resource: meeting,
-            recipient_ids: [form.registration.user.id],
+            affected_users: [form.registration.user],
             extra: {
               registration: form.registration
             }

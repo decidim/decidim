@@ -22,7 +22,7 @@ module Decidim::Meetings
         event: "decidim.events.meetings.meeting_registration_confirmed",
         event_class: MeetingRegistrationNotificationEvent,
         resource: meeting,
-        recipient_ids: [user.id],
+        affected_users: [user],
         extra: { registration_code: kind_of(String) }
       }
     end
@@ -34,7 +34,7 @@ module Decidim::Meetings
         event: "decidim.events.meetings.meeting_registrations_over_percentage",
         event_class: MeetingRegistrationsOverPercentageEvent,
         resource: meeting,
-        recipient_ids: [process_admin.id],
+        affected_users: [process_admin],
         extra: extra
       }
     end

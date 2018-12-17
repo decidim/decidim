@@ -30,7 +30,7 @@ module Decidim
                 event: "decidim.events.proposals.creation_enabled",
                 event_class: Decidim::Proposals::CreationEnabledEvent,
                 resource: component,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.perform_now(component.id, previous_settings, current_settings)
@@ -77,7 +77,7 @@ module Decidim
                 event: "decidim.events.proposals.voting_enabled",
                 event_class: Decidim::Proposals::VotingEnabledEvent,
                 resource: component,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.perform_now(component.id, previous_settings, current_settings)
@@ -140,7 +140,7 @@ module Decidim
                 event: "decidim.events.proposals.endorsing_enabled",
                 event_class: Decidim::Proposals::EndorsingEnabledEvent,
                 resource: component,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.perform_now(component.id, previous_settings, current_settings)

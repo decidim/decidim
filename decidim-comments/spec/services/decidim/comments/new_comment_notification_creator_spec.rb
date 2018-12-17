@@ -53,7 +53,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         event: "decidim.events.comments.user_mentioned",
         event_class: Decidim::Comments::UserMentionedEvent,
         resource: dummy_resource,
-        recipient_ids: a_collection_containing_exactly(*mentioned_users.pluck(:id)),
+        affected_users: a_collection_containing_exactly(*mentioned_users),
         extra: {
           comment_id: comment.id
         }
@@ -94,7 +94,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event: "decidim.events.comments.user_mentioned",
           event_class: Decidim::Comments::UserMentionedEvent,
           resource: dummy_resource,
-          recipient_ids: a_collection_containing_exactly(*mentioned_users_to_notify.pluck(:id)),
+          affected_users: a_collection_containing_exactly(*mentioned_users_to_notify),
           extra: {
             comment_id: comment.id
           }
@@ -122,7 +122,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         event: "decidim.events.comments.comment_by_followed_user",
         event_class: Decidim::Comments::CommentByFollowedUserEvent,
         resource: dummy_resource,
-        recipient_ids: a_collection_containing_exactly(user_following_comment_author.id),
+        followers: a_collection_containing_exactly(user_following_comment_author),
         extra: {
           comment_id: comment.id
         }
@@ -149,7 +149,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         event: "decidim.events.comments.comment_created",
         event_class: Decidim::Comments::CommentCreatedEvent,
         resource: dummy_resource,
-        recipient_ids: a_collection_containing_exactly(*commentable_recipients.pluck(:id)),
+        followers: a_collection_containing_exactly(*commentable_recipients),
         extra: {
           comment_id: comment.id
         }
@@ -183,7 +183,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: dummy_resource,
-          recipient_ids: a_collection_containing_exactly(commentable_recipient.id, commentable_author.id),
+          followers: a_collection_containing_exactly(commentable_recipient, commentable_author),
           extra: {
             comment_id: comment.id
           }
@@ -206,7 +206,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             event: "decidim.events.comments.reply_created",
             event_class: Decidim::Comments::ReplyCreatedEvent,
             resource: dummy_resource,
-            recipient_ids: [comment_author.id],
+            affected_users: [comment_author],
             extra: {
               comment_id: comment.id
             }
@@ -234,7 +234,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             event: "decidim.events.comments.reply_created",
             event_class: Decidim::Comments::ReplyCreatedEvent,
             resource: dummy_resource,
-            recipient_ids: a_collection_containing_exactly(top_level_comment_author.id),
+            affected_users: a_collection_containing_exactly(top_level_comment_author),
             extra: {
               comment_id: comment.id
             }

@@ -60,7 +60,7 @@ module Decidim
             event: "decidim.events.participatory_process.step_changed",
             event_class: Decidim::ParticipatoryProcessStepChangedEvent,
             resource: step,
-            recipient_ids: step.participatory_process.followers.pluck(:id)
+            followers: step.participatory_process.followers
           )
         end
       end

@@ -88,7 +88,7 @@ module Decidim::Admin
             event: "decidim.events.users.user_officialized",
             event_class: Decidim::ProfileUpdatedEvent,
             resource: kind_of(Decidim::User),
-            recipient_ids: [follower.id]
+            followers: [follower]
           )
 
         subject.call
