@@ -59,30 +59,35 @@ shared_examples_for "a simple event" do |skip_space_checks|
   describe "email_subject" do
     it "is generated correctly" do
       expect(subject.email_subject).to be_kind_of(String)
+      expect(subject.email_subject).not_to include("translation missing")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro).to be_kind_of(String)
+      expect(subject.email_intro).not_to include("translation missing")
     end
   end
 
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro).to be_kind_of(String)
+      expect(subject.email_outro).not_to include("translation missing")
     end
   end
 
   describe "email_greeting" do
     it "is generated correctly" do
       expect(subject.email_greeting).to be_kind_of(String)
+      expect(subject.email_greeting).not_to include("translation missing")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title).to be_kind_of(String)
+      expect(subject.notification_title).not_to include("translation missing")
     end
   end
 
