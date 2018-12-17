@@ -11,7 +11,7 @@ module Decidim
     let(:extra) { { foo: "bar" } }
     let(:event) { "decidim.events.users.profile_updated" }
     let(:event_instance) do
-      event_class_name.constantize.new(resource: resource, event_name: event, user: user, as: :follower, extra: extra)
+      event_class_name.constantize.new(resource: resource, event_name: event, user: user, user_role: :follower, extra: extra)
     end
 
     describe "event_received" do
