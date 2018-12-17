@@ -71,7 +71,7 @@ module Decidim
             event: "decidim.events.initiatives.initiative_extended",
             event_class: Decidim::Initiatives::ExtendInitiativeEvent,
             resource: initiative,
-            recipient_ids: initiative.followers.pluck(:id)
+            followers: initiative.followers - [initiative.author]
           )
         end
       end

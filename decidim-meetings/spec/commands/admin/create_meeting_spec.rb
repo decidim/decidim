@@ -150,7 +150,7 @@ module Decidim::Meetings
             event: "decidim.events.meetings.meeting_created",
             event_class: Decidim::Meetings::CreateMeetingEvent,
             resource: kind_of(Meeting),
-            recipient_ids: [follower.id]
+            followers: [follower]
           )
 
         subject.call

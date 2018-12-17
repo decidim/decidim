@@ -14,19 +14,25 @@ module Decidim
     #   the resource and builds the needed information to publish the event to
     #   the different subscribers in the system.
     # resource - an instance of a class that received the event.
-    # recipient_ids - an Array of IDs of the users that will receive the event
+    # affected_users - a collection of `Decidim::Users` that are affected by the
+    #   event and will receive a notification about it.
+    # followers - a collection of `Decidim::Users` that should be notified about
+    #   the event, even though it doesn't affect them directly
     # extra - a Hash with extra information to be included in the notification.
     #
     # Returns nothing.
-    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, recipient_ids:, extra: {})
+    # rubocop:disable Metrics/ParameterLists
+    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, affected_users: [], followers: [], extra: {})
       ActiveSupport::Notifications.publish(
         event,
         event_class: event_class.name,
         resource: resource,
-        recipient_ids: recipient_ids.compact.uniq,
+        affected_users: affected_users.uniq.compact,
+        followers: followers.uniq.compact,
         extra: extra
       )
     end
+    # rubocop:enable Metrics/ParameterLists
 
     # Subscribes to the given event, and runs the block every time that event
     # is received.

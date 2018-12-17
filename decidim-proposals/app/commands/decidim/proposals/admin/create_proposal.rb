@@ -101,7 +101,7 @@ module Decidim
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            recipient_ids: @proposal.participatory_space.followers.pluck(:id),
+            followers: @proposal.participatory_space.followers,
             extra: {
               participatory_space: true
             }

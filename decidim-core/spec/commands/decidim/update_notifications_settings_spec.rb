@@ -9,19 +9,18 @@ module Decidim
     let(:valid) { true }
     let(:data) do
       {
-        email_on_notification: "1",
+        email_on_notification: true,
         newsletter_notifications_at: Time.current
       }
     end
 
     let(:form) do
-      form = double(
+      double(
+        notification_types: "none",
         email_on_notification: data[:email_on_notification],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         valid?: valid
       )
-
-      form
     end
 
     context "when invalid" do
@@ -37,8 +36,10 @@ module Decidim
 
       it "updates the users's notifications settings" do
         expect { command.call }.to broadcast(:ok)
-        expect(user.reload.email_on_notification).to be_truthy
-        expect(user.reload.newsletter_notifications_at).not_to be_nil
+        user.reload
+        expect(user.email_on_notification).to be_truthy
+        expect(user.newsletter_notifications_at).not_to be_nil
+        expect(user.notification_types).to eq "none"
       end
     end
   end

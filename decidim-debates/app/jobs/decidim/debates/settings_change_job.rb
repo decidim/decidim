@@ -22,7 +22,7 @@ module Decidim
           event: event,
           event_class: event_class,
           resource: component,
-          recipient_ids: component.participatory_space.followers.pluck(:id)
+          followers: component.participatory_space.followers
         )
       end
 

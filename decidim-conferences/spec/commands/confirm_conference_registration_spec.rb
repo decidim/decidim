@@ -49,7 +49,7 @@ module Decidim::Conferences
             event: "decidim.events.conferences.conference_registration_confirmed",
             event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
             resource: conference,
-            recipient_ids: [user.id]
+            affected_users: [user]
           )
 
         subject.call

@@ -34,7 +34,7 @@ module Decidim
                 event: "decidim.events.proposals.proposal_endorsed",
                 event_class: Decidim::Proposals::ProposalEndorsedEvent,
                 resource: proposal,
-                recipient_ids: [follower.id],
+                followers: [follower],
                 extra: {
                   endorser_id: current_user.id
                 }

@@ -49,7 +49,7 @@ module Decidim
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
-          recipient_ids: coauthors_followers(@proposal)
+          followers: coauthors_followers
         )
       end
 
@@ -58,19 +58,15 @@ module Decidim
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
-          recipient_ids: @proposal.participatory_space.followers.pluck(:id) - coauthors_followers(@proposal),
+          followers: @proposal.participatory_space.followers - coauthors_followers,
           extra: {
             participatory_space: true
           }
         )
       end
 
-      def coauthors_followers(_proposal)
-        followers_ids = []
-        @proposal.authors.each do |author|
-          followers_ids += author.followers.pluck(:id)
-        end
-        followers_ids
+      def coauthors_followers
+        @coauthors_followers ||= @proposal.authors.flat_map(&:followers)
       end
 
       def increment_scores

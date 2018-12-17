@@ -35,7 +35,7 @@ shared_examples "amendment created event" do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you are an author or following #{amendable_title}. You can stop receiving notifications following the previous link.")
+        .to eq("You have received this notification because you are following #{amendable_title}. You can stop receiving notifications following the previous link.")
     end
   end
 

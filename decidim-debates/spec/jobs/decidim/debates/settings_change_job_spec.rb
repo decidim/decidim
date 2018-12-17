@@ -29,7 +29,7 @@ module Decidim
               event: "decidim.events.debates.creation_enabled",
               event_class: Decidim::Debates::CreationEnabledEvent,
               resource: component,
-              recipient_ids: [user.id]
+              followers: [user]
             )
 
           subject.perform_now(component.id, previous_settings, current_settings)
@@ -47,7 +47,7 @@ module Decidim
               event: "decidim.events.debates.creation_disabled",
               event_class: Decidim::Debates::CreationDisabledEvent,
               resource: component,
-              recipient_ids: [user.id]
+              followers: [user]
             )
 
           subject.perform_now(component.id, previous_settings, current_settings)

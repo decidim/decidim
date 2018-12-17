@@ -74,7 +74,7 @@ module Decidim
                 event: "decidim.events.blogs.post_created",
                 event_class: Decidim::Blogs::CreatePostEvent,
                 resource: kind_of(Post),
-                recipient_ids: [follower.id]
+                followers: [follower]
               )
 
             subject.call

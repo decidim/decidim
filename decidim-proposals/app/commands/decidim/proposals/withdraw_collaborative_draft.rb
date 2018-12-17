@@ -47,14 +47,14 @@ module Decidim
       end
 
       def send_notification_to_authors
-        recipient_ids = @collaborative_draft.authors.pluck(:id) - [@current_user.id]
-        return if recipient_ids.blank?
+        recipients = @collaborative_draft.authors - [@current_user]
+        return if recipients.blank?
 
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.collaborative_draft_withdrawn",
           event_class: Decidim::Proposals::CollaborativeDraftWithdrawnEvent,
           resource: @collaborative_draft,
-          recipient_ids: recipient_ids.uniq,
+          affected_users: recipients.uniq,
           extra: {
             author_id: @current_user.id
           }

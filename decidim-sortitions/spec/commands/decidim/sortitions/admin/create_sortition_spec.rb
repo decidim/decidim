@@ -122,7 +122,7 @@ module Decidim
                 event: "decidim.events.sortitions.sortition_created",
                 event_class: Decidim::Sortitions::CreateSortitionEvent,
                 resource: kind_of(Sortition),
-                recipient_ids: [follower.id]
+                followers: [follower]
               )
 
             command.call

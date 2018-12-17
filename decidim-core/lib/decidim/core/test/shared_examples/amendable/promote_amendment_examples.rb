@@ -33,7 +33,8 @@ shared_examples "promote amendment" do
           event: "decidim.events.amendments.amendment_promoted",
           event_class: Decidim::Amendable::EmendationPromotedEvent,
           resource: emendation,
-          recipient_ids: kind_of(Array)
+          affected_users: kind_of(Array),
+          followers: kind_of(Array)
         )
 
       command.call
