@@ -79,6 +79,7 @@ module Decidim
     scope :with_state, ->(state) { where(state: state) if state.present? }
 
     scope :public_spaces, -> { published }
+    scope :signature_type_updatable, -> { created }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }

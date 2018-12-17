@@ -27,5 +27,10 @@ module Decidim
 
       signature_types
     end
+
+    def initiatives
+      initiatives_ids = scopes.map { |scope| scope.initiatives.pluck(:id) }.flatten
+      Initiative.where(id: initiatives_ids)
+    end
   end
 end

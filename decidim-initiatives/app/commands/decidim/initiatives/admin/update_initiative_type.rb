@@ -26,6 +26,7 @@ module Decidim
           initiative_type.update(attributes)
 
           if initiative_type.valid?
+            upate_initiatives_signature_type
             broadcast(:ok, initiative_type)
           else
             broadcast(:invalid)
@@ -45,6 +46,14 @@ module Decidim
 
           result[:banner_image] = form.banner_image unless form.banner_image.nil?
           result
+        end
+
+        def upate_initiatives_signature_type
+          unless initiative_type.online_signature_enabled
+            initiative_type.initiatives.signature_type_updatable.each do |initiative|
+              initiative.update!(signature_type: Initiative.signature_types["offline"])
+            end
+          end
         end
       end
     end

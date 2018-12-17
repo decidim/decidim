@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "update an initiative type" do
-  let(:initiative_type) { create(:initiatives_type, :online_signature_enabled) }
+  let(:organization) { create(:organization) }
+  let(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
 
   let(:form) do
     form_klass.from_params(
@@ -42,6 +43,8 @@ shared_examples "update an initiative type" do
     end
 
     describe "when the form is valid" do
+      let(:scope) { create(:initiatives_type_scope, type: initiative_type) }
+
       it "broadcasts ok" do
         expect { command.call }.to broadcast(:ok)
       end
@@ -53,6 +56,25 @@ shared_examples "update an initiative type" do
         expect(initiative_type.description).to eq(form_params[:description])
         expect(initiative_type.online_signature_enabled).to eq(form_params[:online_signature_enabled])
       end
+
+      it "propagates signature type to created initiatives" do
+        initiative = create(:initiative, :created, organization: organization, scoped_type: scope, signature_type: "online")
+
+        command.call
+        initiative.reload
+
+        expect(initiative.signature_type).to eq("offline")
+      end
+
+      it "doesn't propagate signature type to non-created initiatives" do
+        initiative = create(:initiative, :published, organization: organization, scoped_type: scope, signature_type: "online")
+
+        command.call
+        initiative.reload
+
+        expect(initiative.signature_type).to eq("online")
+      end
+
     end
   end
 end
