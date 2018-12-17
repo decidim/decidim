@@ -71,7 +71,6 @@ module Decidim
           expect(signature_type_options).to match_array(all)
         end
       end
-
     end
   end
 end

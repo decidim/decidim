@@ -74,7 +74,6 @@ shared_examples "update an initiative type" do
 
         expect(initiative.signature_type).to eq("online")
       end
-
     end
   end
 end
