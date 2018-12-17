@@ -19,8 +19,10 @@ edit_link(
   <section id="assemblies-grid" class="section row collapse">
     <div class="row column">
       <div class="flex--sbe">
-        <h2 class="section-heading collapse"><%= t("assemblies.order_by_assemblies.assemblies", scope: "layouts.decidim", count: collection.count) %></h2>
-          <%= render partial: "decidim/assemblies/filter_by_type" %>
+        <h2 id="assemblies-count" class="section-heading collapse">
+          <%= render partial: "count" %>
+        </h2>
+        <%= render partial: "decidim/assemblies/filter_by_type" %>
       </div>
       <hr class="reset mt-s mb-s" />
     </div>

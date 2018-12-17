@@ -359,7 +359,7 @@ en:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblies"
+            one: "%{count} assembly"
             other: "%{count} assemblies"
         promoted_assembly:
           more_info: More info

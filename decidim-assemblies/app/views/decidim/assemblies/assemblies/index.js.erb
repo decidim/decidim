@@ -1,3 +1,5 @@
 var $grid = $('#assemblies-grid');
+var $assembliesCount = $('#assemblies-count');
 
 $grid.find('.card-grid').html('<%= j(render(collection)).strip.html_safe %>');
+$assembliesCount.html('<%= j(render partial: "count").strip.html_safe %>');
