@@ -994,14 +994,12 @@ en:
         no_activities_warning: This user hasn't had any activity yet.
     user_interests:
       show:
-        areas: Areas
-        no_areas: This organization doesn't have any area yet!
         no_scopes: This organization doesn't have any scope yet!
-        scopes: Scopes
+        my_interests: My interests
         select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:
-        error: There was an erorr while updating your interests.
+        error: There was an error while updating your interests.
         success: Your interests have been successfully updated.
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>

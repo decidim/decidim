@@ -25,6 +25,7 @@ module Decidim
         ActivitySearch.new(
           organization: current_organization,
           resource_type: "all",
+          scopes: current_user.interested_scopes,
           follows: follows
         ).run
       )

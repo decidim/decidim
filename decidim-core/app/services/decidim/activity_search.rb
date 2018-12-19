@@ -112,7 +112,6 @@ module Decidim
       end
 
       conditions += interesting_scopes_conditions(interesting_scopes)
-      conditions += interesting_areas_conditions(interesting_areas)
 
       return query if conditions.empty?
 
@@ -146,12 +145,6 @@ module Decidim
       return [] if interesting_scopes.blank?
 
       [Decidim::ActionLog.arel_table[:decidim_scope_id].in(interesting_scopes.map(&:id))]
-    end
-
-    def interesting_areas_conditions(interesting_areas)
-      return [] if interesting_areas.blank?
-
-      [Decidim::ActionLog.arel_table[:decidim_area_id].in(interesting_areas.map(&:id))]
     end
 
     def participatory_space_classes

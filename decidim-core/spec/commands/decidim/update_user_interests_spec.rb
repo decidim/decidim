@@ -8,7 +8,6 @@ module Decidim
     let(:user) { create(:user) }
     let(:interested_scope) { create :scope, organization: user.organization }
     let(:ignored_scope) { create :scope, organization: user.organization }
-    let(:interested_area) { create :area, organization: user.organization }
     let(:ignored_area) { create :area, organization: user.organization }
     let(:data) do
       {
@@ -20,16 +19,6 @@ module Decidim
           interested_scope.id.to_s => {
             "checked": "1",
             "id": interested_scope.id.to_s
-          }
-        },
-        areas: {
-          ignored_area.id.to_s => {
-            "checked": "0",
-            "id": ignored_area.id.to_s
-          },
-          interested_area.id.to_s => {
-            "checked": "1",
-            "id": interested_area.id.to_s
           }
         }
       }
@@ -54,7 +43,6 @@ module Decidim
         expect { command.call }.to broadcast(:ok)
         user.reload
         expect(user.interested_scopes).to eq [interested_scope]
-        expect(user.interested_areas).to eq [interested_area]
       end
     end
   end
