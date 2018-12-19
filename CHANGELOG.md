@@ -191,7 +191,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-debates**: Don't crash on settings change [\#4642](https://github.com/decidim/decidim/pull/4642)
 - **decidim-proposals**: Don't crash on settings change [\#4642](https://github.com/decidim/decidim/pull/4642)
 - **decidim-surveys**: Don't crash on settings change [\#4642](https://github.com/decidim/decidim/pull/4642)
-- **decidim-core**: Update Ransack to work with Rails 5.2.2 [\#4681](https://github.com/decidim/decidim/pull/4681)
+- **decidim-core**: Update Ransack to work with Rails 5.2.2 [\#4682](https://github.com/decidim/decidim/pull/4682)
 - **decidim-core**: Fix background-size on home page [\#4678](https://github.com/decidim/decidim/pull/4678)
 
 **Removed**:
