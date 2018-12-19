@@ -26,7 +26,10 @@ en:
         user: Committee member
       initiatives_type:
         banner_image: Banner image
+        collect_user_extra_fields: Collect user personal data on signature
         description: Description
+        extra_fields_legal_information: Legal information about the collection of
+          personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title

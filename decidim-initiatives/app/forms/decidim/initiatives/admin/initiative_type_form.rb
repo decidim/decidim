@@ -14,6 +14,8 @@ module Decidim
         attribute :banner_image, String
         attribute :online_signature_enabled, Boolean
         attribute :minimum_committee_members, Integer
+        attribute :collect_user_extra_fields, Boolean
+        translatable_attribute :extra_fields_legal_information, String
 
         validates :title, :description, translatable_presence: true
         validates :online_signature_enabled, inclusion: { in: [true, false] }
