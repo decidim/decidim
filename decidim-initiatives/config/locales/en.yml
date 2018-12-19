@@ -33,6 +33,11 @@ en:
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
+      initiatives_vote:
+        name_and_surname: Name and surname
+        document_number: Document number
+        date_of_birth: Date of birth
+        postal_code: Postal code
       organization_data:
         address: Address
         id_document: ID document
@@ -274,6 +279,11 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continue
+          help: Please, fill the following fields with your personal data to sign
+            the initiative
       initiative_votes:
         create:
           error: There's been errors when signing the initiative.
@@ -389,6 +399,13 @@ en:
         title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Back
+        fill_personal_data: Complete your data
+        select_identity: Select identity
+        see_steps: see steps
+        step: Step %{current} of %{total}
+        title: Sign %{initiative_title}
       initiatives:
         initiative:
           check: Check it out
