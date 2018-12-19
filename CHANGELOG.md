@@ -5,6 +5,7 @@
 **Fixed**:
 
 - **decidim-meetings**: Fix meetings form when only one locale is available [\#4625](https://github.com/decidim/decidim/pull/4625)
+- **decidim-core**: Remove `current_feature` [\#4680](https://github.com/decidim/decidim/pull/4680)
 
 ## [0.15.1](https://github.com/decidim/decidim/tree/v0.15.1)
 
