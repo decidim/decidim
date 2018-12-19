@@ -71,7 +71,7 @@ module Decidim
       end
     end
 
-    context "with followed resources and interesting scopes/areas" do
+    context "with followed resources and interesting scopes" do
       let(:comment) { create(:comment) }
       let(:user) { create(:user, organization: organization) }
       let(:user2) { create(:user, organization: organization) }
