@@ -5,11 +5,35 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe VoteInitiative do
+      let(:form_klass) { VoteForm }
       let(:initiative) { create(:initiative) }
+
       let(:current_user) { create(:user, organization: initiative.organization) }
+      let(:form) do
+        form_klass
+          .from_params(
+            form_params
+          )
+      end
+
+      let(:form_params) do
+        {
+          initiative_id: initiative.id,
+          author_id: current_user.id
+        }
+      end
+
+      let(:personal_data_params) do
+        {
+          name_and_surname: ::Faker::Name.name,
+          document_number: ::Faker::IDNumber.spanish_citizen_number,
+          date_of_birth: ::Faker::Date.birthday(18, 40),
+          postal_code: ::Faker::Address.zip_code
+        }
+      end
 
       describe "User votes initiative" do
-        let(:command) { described_class.new(initiative, current_user, nil) }
+        let(:command) { described_class.new(form, current_user) }
 
         it "broadcasts ok" do
           expect { command.call }.to broadcast :ok
@@ -82,12 +106,40 @@ module Decidim
             command.call
           end
         end
+
+        context "when initiative type requires extra user fields" do
+          let(:organization) { create(:organization) }
+          let(:initiative) do
+            create(
+              :initiative,
+              :with_user_extra_fields_collection,
+              organization: organization
+            )
+          end
+          let(:form_with_personal_data) do
+            form_klass.from_params(form_params.merge(personal_data_params))
+          end
+
+          let(:invalid_command) { described_class.new(form, current_user) }
+          let(:valid_command) { described_class.new(form_with_personal_data, current_user) }
+
+          it "broadcasts invalid when form doesn't contain personal data" do
+            expect { invalid_command.call }.to broadcast :invalid
+          end
+
+          it "broadcasts ok when form contains personal data" do
+            expect { valid_command.call }.to broadcast :ok
+          end
+        end
       end
 
       describe "Organization supports initiative" do
         let(:user_group) { create(:user_group) }
         let(:user_group_membership) { create(:user_group_membership, user: current_user, user_group: user_group) }
-        let(:command) { described_class.new(initiative, current_user, user_group.id) }
+        let(:group_form) do
+          form_klass.from_params(form_params.merge(group_id: user_group.id))
+        end
+        let(:command) { described_class.new(group_form, current_user) }
 
         it "broadcasts ok" do
           expect { command.call }.to broadcast :ok
