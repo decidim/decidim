@@ -4,6 +4,8 @@ module Decidim
   # The controller to show all the last activities in a Decidim Organization.
   class UserTimelineController < Decidim::ApplicationController
     include Paginable
+    include UserGroups
+
     helper Decidim::ResourceHelper
     helper_method :activities, :user
 
