@@ -285,8 +285,6 @@ en:
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
           send: Send
           title: Complete your proposal
         count:
@@ -298,6 +296,7 @@ en:
           secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           address: Address
+          attachment_legend: "(Optional) Add an attachment"
           back: Back
           not_geocoded: Not geocoded
           select_a_category: Please select a category
