@@ -28,7 +28,7 @@ module Decidim
       end
 
       def signature_type_updatable?
-        state == "created"
+        state == "created" || state.nil?
       end
     end
   end
