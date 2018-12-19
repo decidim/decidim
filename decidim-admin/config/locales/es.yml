@@ -267,7 +267,7 @@ es:
             managed: Administrado
             not_managed: No gestionado
           filter_by: Filtrado por
-          impersonate: Suplantar
+          impersonate: Impersonar
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
           managed: Administrado
           name: Nombre
@@ -279,8 +279,8 @@ es:
           view_logs: Ver los registros
       impersonations:
         close_session:
-          error: Se ha producido un error al cerrar la sesión de suplantación actual.
-          success: Se ha finalizado con éxito la sesión de suplantación actual.
+          error: Se ha producido un error al cerrar la sesión de impersonación actual.
+          success: Se ha finalizado con éxito la sesión de impersonación actual.
         create:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha creado correctamente.
@@ -289,7 +289,7 @@ es:
           name: Nombre
           reason: Razón
         new:
-          impersonate: Suplantar
+          impersonate: Impersonar
           impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
           impersonate_existing_user: Impersonar usuario "%{name}"
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
@@ -302,7 +302,7 @@ es:
           success: El usuario gestionado se ha promocionado correctamente.
         promotions:
           new:
-            explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
+            explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de impersonarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
             new_managed_user_promotion: Nueva promoción de usuarios gestionados
             promote: Promocionar
       menu:
@@ -607,7 +607,7 @@ es:
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
-        impersonations: Suplantaciones
+        impersonations: Impersonaciones
         participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos

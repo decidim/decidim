@@ -267,7 +267,7 @@ ca:
             managed: Gestionat
             not_managed: No gestionat
           filter_by: Filtra per
-          impersonate: Suplantar
+          impersonate: Impersonar
           impersonate_new_managed_user: Substitueix un nou usuari administrat
           managed: Gestionat
           name: Nom
@@ -279,8 +279,8 @@ ca:
           view_logs: Veure registres
       impersonations:
         close_session:
-          error: S'ha produït un error en tancar la sessió de suplantació actual.
-          success: La sessió de suplantació actual s'ha finalitzat amb èxit.
+          error: S'ha produït un error en tancar la sessió d'impersonació actual.
+          success: La sessió d'impersonació actual s'ha finalitzat amb èxit.
         create:
           error: S'ha produït un error en impersonar l'usuari.
           success: L'usuari gestionat s'ha creat correctament.
@@ -289,7 +289,7 @@ ca:
           name: Nom
           reason: Raó
         new:
-          impersonate: Suplantar
+          impersonate: Impersonar
           impersonate_existing_managed_user: Impersonar l'usuari gestionat "%{name}"
           impersonate_existing_user: Impersona l'usuari "%{name}"
           impersonate_new_managed_user: Impersona un nou usuari administrat
@@ -302,7 +302,7 @@ ca:
           success: S'ha promogut amb èxit l'usuari gestionat.
         promotions:
           new:
-            explanation: Els usuaris gestionats es poden promocionar a usuaris estàndard. Significa que seran convidats al sistema i no podreu tornar a suplantar-los. L'usuari convidat rebrà un correu electrònic per acceptar la vostra invitació.
+            explanation: Els usuaris gestionats es poden promocionar a usuaris estàndard. Significa que seran convidats al sistema i no podreu tornar a impersonar-los. L'usuari convidat rebrà un correu electrònic per acceptar la vostra invitació.
             new_managed_user_promotion: Nova promoció d'usuari gestionat
             promote: Promocionar
       menu:
@@ -607,7 +607,7 @@ ca:
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
-        impersonations: Suplantacions
+        impersonations: Impersonacions
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
