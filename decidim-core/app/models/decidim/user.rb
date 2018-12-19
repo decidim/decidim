@@ -160,16 +160,8 @@ module Decidim
       extended_data["interested_scopes"] || []
     end
 
-    def interested_areas_ids
-      extended_data["interested_areas"] || []
-    end
-
     def interested_scopes
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
-    end
-
-    def interested_areas
-      @interested_areas ||= organization.areas.where(id: interested_areas_ids)
     end
 
     protected
