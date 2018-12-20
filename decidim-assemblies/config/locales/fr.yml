@@ -262,6 +262,17 @@ fr:
         city_council: Conseil municipal
         others: Autres
         public: Public
+      filter:
+        all: Tous
+        commission: Commission
+        consultative_advisory: Consultatif/Consultatif
+        executive: Exécutif
+        government: Gouvernement
+        label: 'Montrer :'
+        others: Autres
+        participatory: Participatif
+        placeholder: Filtrer par type
+        working_group: Groupe de travail
       index:
         title: Assemblées
       last_activity:

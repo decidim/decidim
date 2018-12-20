@@ -50,10 +50,11 @@ if !Rails.env.production? || ENV["SEED"]
       organization: organization
     )
 
+    country_code_index = 0
     3.times do
       parent = Decidim::Scope.create!(
         name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-        code: Faker::Address.unique.country_code,
+        code: Faker::Address.country_code + country_code_index.to_s,
         scope_type: province,
         organization: organization
       )
@@ -67,6 +68,7 @@ if !Rails.env.production? || ENV["SEED"]
           parent: parent
         )
       end
+      country_code_index += 1
     end
   end
 

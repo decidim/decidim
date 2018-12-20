@@ -2,6 +2,11 @@
 fr:
   activemodel:
     attributes:
+      config:
+        available_methods: Méthodes disponibles
+        offline: Hors ligne
+        offline_explanation: Instructions pour la vérification hors ligne
+        online: En ligne
       id_document_information:
         document_number: Numéro de document (avec lettre)
         document_type: Type de document
@@ -10,6 +15,8 @@ fr:
         document_type: Type de votre document
         user: Utilisateur
         verification_attachment: Copie scannée du document
+      offline_confirmation:
+        email: Courriel de l'utilisateur
       postal_letter_address:
         full_address: Adresse complète
       postal_letter_confirmation:
@@ -21,6 +28,11 @@ fr:
     admin:
       menu:
         authorization_workflows: Vérifications
+    admin_log:
+      organization:
+        update_id_documents_config: "%{nom_utilisateur} mise à jour de la configuration de vérification des documents d'identité"
+      user:
+        grant_id_documents_offline_verification: "%{nom_utilisateur} vérifié %{nom_ressource} utilisant une vérification hors ligne des documents d'identité"
     authorization_handlers:
       admin:
         id_documents:
@@ -71,6 +83,13 @@ fr:
           other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Configuration des documents d'identité
+              update: Mise à jour
+            update:
+              error: Une erreur s'est produite lors de la mise à jour de la configuration.
+              success: Configuration mise à jour avec succès
           confirmations:
             create:
               error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
@@ -79,19 +98,36 @@ fr:
               introduce_user_data: Introduire les données dans l'image
               reject: Rejeter
               verify: Vérifier
+          offline_confirmations:
+            create:
+              error: La vérification ne correspond pas. Essayez à nouveau ou demandez à l'utilisateur de le modifier
+              success: Utilisateur vérifié avec succès
+            new:
+              cancel: Annuler
+              introduce_user_data: Introduire le courriel de l'utilisateur et les données du document
+              verify: Vérifier
           pending_authorizations:
             index:
+              config: Config
+              offline_verification: Vérification hors ligne
               title: Vérifications en attente
               verification_number: 'Vérification # %{n}'
           rejections:
             create:
               success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
+          choose:
+            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez être vérifié :'
+            offline: Hors ligne
+            online: En ligne
+            title: Vérifiez vous-même à l'aide de votre pièce d'identité
           create:
             error: Un problème est survenu lors du téléchargement de votre document
             success: Document téléchargé avec succès
           edit:
             being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
+            offline: Utiliser la vérification hors ligne
+            online: Utiliser la vérification en ligne
             rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
             rejection_correctness: Assurez-vous que les informations entrées sont correctes
             rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau

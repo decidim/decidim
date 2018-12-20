@@ -92,12 +92,20 @@ fr:
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Poids
+      user_group_csv_verification:
+        file: Fichier
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI de redirection doit être un URI SSL
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Fichier image invalide
+            official_img_header:
+              allowed_file_content_types: Fichier image invalide
   activerecord:
     attributes:
       decidim/static_page:
@@ -653,6 +661,9 @@ fr:
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
       user_group:
+        csv_verify:
+          invalid: Il y a eu une erreur dans la lecture du fichier CSV.
+          success: CSV téléchargé avec succès, nous vérifions que les groupes d'utilisateurs correspondent aux critères. Ça pourrait prendre du temps.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
@@ -672,6 +683,12 @@ fr:
             pending: En attente
             rejected: Non retenu
             verified: Vérifié
+          verify_via_csv: Vérifier via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Téléchargez votre fichier CSV. Il doit contenir les courriels officiels des groupes d'utilisateurs de votre organisation dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs qui ont confirmé leur courriel et qui ont un courriel apparaissant dans le fichier CSV seront validés.
+          title: Téléchargez votre fichier CSV
+          upload: Télécharger
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.

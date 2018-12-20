@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
+        exports:
+          comments: commentaires
+          debates: débats
         models:
           debate:
             name: Débat
@@ -140,7 +144,7 @@ fr:
       badges:
         commented_debates:
           conditions:
-            - Choisissez un débat ouvert pour participer à
+          - Choisissez un débat ouvert pour participer à
           description: Ce badge est attribué lorsque vous participez activement aux différents débats en laissant vos commentaires.
           description_another: Cet utilisateur a participé à %{score} débats.
           description_own: Vous avez participé à %{score} débats.

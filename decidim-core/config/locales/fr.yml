@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -35,6 +36,9 @@ fr:
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
     models:
+      decidim/amendment:
+        one: Amendement
+        other: Modifications
       decidim/user:
         one: Aucun utilisateur
         other: Utilisateurs
@@ -42,8 +46,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': Non
+    'true': Oui
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -125,6 +129,59 @@ fr:
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
+        verify_via_csv: "%{nom_utilisateur} vérifié le groupe d'utilisateurs %{nom_ressource} via un fichier CSV"
+    amendments:
+      accepted:
+        error: Une erreur s'est produite lors de l'acceptation de l'emendation, veuillez réessayer plus tard.
+        success: Cette modification a été acceptée avec succès.
+      amendable:
+        amended_by: Modifié par
+        button: Modifier %{nom_du_modèle}>%{nom_du_modèle
+        error: Il y a eu une erreur en modifiant cette ressource.
+        help_text: Améliorez ce %{nom_du_modèle} en modifiant son %{champs_amendables}
+        no_amenders: Il n'y a pas d'amendement
+        no_amendments: Il n'y a pas de modifications
+        promote_button: Promouvoir à %{nom_du_modèle}>>i18n
+        promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant que %{model_name} indépendant
+        section_heading: Modifications (%{count})
+      created:
+        error: Une erreur s'est produite lors de la création de cette modification, réessayez plus tard
+        success: L'amendement a été créé avec succès
+      emendation:
+        actions:
+          button_accept: Accepter
+          button_reject: Rejeter
+          help_text: Examinez les modifications et acceptez ou rejetez cet amendement. Une notification sera envoyée à son (ses) auteur(s).
+        announcement:
+          accepted: |-
+            Cette correction pour le %{type_amendable}  %{lien_amendable} a été effectuée
+            accepté le <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Ceci est une correction pour le %{amendable_type}  %{amendable_link}>%
+            est en cours d'évaluation.
+          rejected: |-
+            Cette correction pour le %{type_amendable}  %{lien_amendable}%{lien_amendable
+            a été rejeté le <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Cette correction pour le %{type_amendable}  %{lien_amendable}%{lien_amendable
+            a été retirée par l'auteur.
+      new:
+        amendment_author: Auteur de la modification
+        back: Retour
+        heading: Créez votre amendement
+        help_text: Vous modifiez le %{nom_du_modèle}
+        send: Envoyer l'amendement
+      promoted:
+        error: Il y a eu des erreurs lors de la promotion de l'emendation
+        success: La mention élogieuse a été promue avec succès
+      rejected:
+        error: Une erreur s'est produite lors du rejet de cette correction, veuillez réessayer plus tard
+        success: L'amendement a été rejeté avec succès
+      review:
+        back: Retour
+        heading: Examiner la modification
+        help_text: Vous modifiez le %{nom_du_modèle}i18n>
+        send: Accepter l'amendement
     anonymous_user: Anonyme
     application:
       collection:
@@ -211,6 +268,7 @@ fr:
         name: Composant factice
         settings:
           global:
+            amendments_enabled: Modifications permises
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
@@ -326,6 +384,51 @@ fr:
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
         title: La page que vous recherchez ne peut être trouvée
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Une correction a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
+            email_subject: Amendement accepté pour %{amendable_title} de %{emendation_author_nickname}%{amendable_title
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+          follower:
+            email_intro: 'Une correction a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+            email_subject: Amendement accepté pour %{amendable_title} de %{emendation_author_nickname}%{amendable_title
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+        amendment_created:
+          affected_user:
+            email_intro: 'Une nouvelle correction a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
+            email_subject: Un nouvel amendement pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
+            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{chemin_amendable}">%{titre_amendable}</a> %{type_amendable}.
+          follower:
+            email_intro: 'Une nouvelle correction a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+            email_subject: Un nouvel amendement pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
+            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{chemin_amendable}">%{titre_amendable}</a> %{type_amendable}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Une correction rejetée pour %{amendable_title} a été promue à un %{amendable_type} indépendant. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
+            email_subject: Une emendation de %{emendation_author_nickname} a été promue
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{type_amendable} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
+          follower:
+            email_intro: 'Une correction rejetée pour %{amendable_title} a été promue à un %{amendable_type} indépendant. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+            email_subject: Une emendation de %{emendation_author_nickname} a été promue
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{type_amendable} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Une correction a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
+            email_subject: Un amendement rejeté pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+          follower:
+            email_intro: 'Une correction a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+            email_subject: Un amendement rejeté pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
@@ -340,7 +443,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
+        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -445,7 +548,7 @@ fr:
       badges:
         continuity:
           conditions:
-            - Viens ici souvent
+          - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -455,7 +558,7 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -470,9 +573,9 @@ fr:
           title: Insignes
         invitations:
           conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+          - Personnalisez, si vous le souhaitez, le message que vous envoyez
+          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -636,6 +739,8 @@ fr:
         update:
           error: Message non envoyé. Réessayez plus tard
     metrics:
+      download:
+        csv: Télécharger les données (csv)
       followers:
         description: Nombre d'utilisateurs qui suivent dans l'organisation
         object: suiveurs
@@ -679,11 +784,18 @@ fr:
     notifications_settings:
       show:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
+        everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
+        newsletters: Bulletins d'information
+        own_activity: Ma propre activité, par exemple lorsque quelqu'un commente ma proposition ou me mentionne
+        receive_notifications_about: Je veux recevoir des notifications sur
+        send_notifications_by_email: Envoyer des notifications par e-mail
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
+    open_data:
+      not_available_yet: Les fichiers Open Data ne sont pas encore disponibles, veuillez réessayer dans quelques minutes.
     own_user_groups:
       index:
         pending: En attente
@@ -784,14 +896,17 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
+        confirmation_instructions_sent: Envoi des instructions de confirmation par courriel
         create_user_group: Créer un groupe
         edit_profile: Mettre à jour le profil
         edit_user_group: Modifier le profil du groupe
+        fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
         join_user_group: Demande de rejoindre un groupe
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
+        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courriel
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -874,6 +989,15 @@ fr:
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
+    user_interests:
+      show:
+        my_interests: Mes intérêts
+        no_scopes: Cette organisation n'a pas encore d'envergure !
+        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
+        update_my_interests: Mettre à jour mes intérêts
+      update:
+        error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
+        success: Vos intérêts ont été mis à jour avec succès.
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
@@ -887,11 +1011,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invalid: "%{authentication_keys} ou mot de passe invalide."
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
@@ -1054,6 +1178,7 @@ fr:
       edit_link:
         edit: Modifier
       footer:
+        download_open_data: Télécharger Fichiers de données ouverts
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
@@ -1078,6 +1203,7 @@ fr:
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
         my_data: Mes données
+        my_interests: Mes intérêts
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
         user_groups: Groupes
