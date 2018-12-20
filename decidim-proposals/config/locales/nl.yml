@@ -326,7 +326,7 @@ nl:
           no_similars_found: Goed gedaan! Geen vergelijkbare samenwerkingsconcepten gevonden
           title: Vergelijkbare samenwerkende concepten
         complete:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
+          attachment_legend: "(Optioneel) Een bijlage toevoegen"
           select_a_category: Selecteer een categorie
           send: Sturen
           title: Voltooi uw gezamenlijke concept
