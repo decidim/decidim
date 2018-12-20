@@ -193,6 +193,8 @@ id:
         create:
           error: Terjadi kesalahan saat membuat proses partisipatif baru.
           success: Proses partisipatif berhasil dibuat. Konfigurasikan sekarang langkahnya.
+        destroy:
+          success: Proses partisipatif berhasil dihapus.
         edit:
           update: Memperbarui
         form:
@@ -368,6 +370,9 @@ id:
           active_step: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian
+      process_header:
+        process_menu_item: Proses
+        unfold: Membuka
       process_header_steps:
         step: Langkah %{current} dari %{total}
         view_steps: Lihat langkah
