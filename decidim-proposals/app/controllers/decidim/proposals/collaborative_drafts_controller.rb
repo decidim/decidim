@@ -24,6 +24,7 @@ module Decidim
       def index
         @collaborative_drafts = search
                                 .results
+                                .not_hidden
                                 .includes(:category)
                                 .includes(:scope)
 
@@ -32,6 +33,7 @@ module Decidim
       end
 
       def show
+        redirect_to "/404" if @collaborative_draft.hidden?
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})

@@ -53,6 +53,7 @@ module Decidim
       end
 
       def show
+        redirect_to "/404" if @proposal.hidden?
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
