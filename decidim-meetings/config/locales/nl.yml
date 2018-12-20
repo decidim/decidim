@@ -89,7 +89,7 @@ nl:
       meetings:
         meeting_closed:
           email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
           email_subject: Het event "%{resource_title}" is afgelopen
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
@@ -355,8 +355,8 @@ nl:
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           remaining_slots:
-            one: 1 plaats resterend
-            other: "%{count} resterende plaatsen"
+            one: '%{count} slot over'
+            other: "%{count} slots over"
           view: Uitzicht
       meetings_map:
         view_meeting: Bekijk vergadering
