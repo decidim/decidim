@@ -47,6 +47,9 @@ tr:
       decidim/consultations/response:
         one: Tepki
         other: Tepkiler
+      decidim/consultations/vote:
+        one: Oy yok
+        other: oy
   decidim:
     admin:
       actions:
@@ -73,6 +76,8 @@ tr:
         create:
           error: Yeni bir danışma oluştururken bir hata oluştu.
           success: Danışmanlık başarıyla oluşturuldu.
+        destroy:
+          success: Danışmanlık başarıyla silindi.
         edit:
           update: Güncelleştirme
         form:
