@@ -76,8 +76,6 @@ hu:
         create:
           error: Hiba történt az új konzultáció létrehozása során.
           success: Konzultáció létrehozása sikeres.
-        destroy:
-          success: Konzultáció törlése sikeres.
         edit:
           update: Frissítés
         form:
