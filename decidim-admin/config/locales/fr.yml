@@ -103,9 +103,6 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
         site: Site Internet
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -654,7 +651,3 @@ fr:
           title: Paramètres
         users:
           title: Utilisateurs
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"
