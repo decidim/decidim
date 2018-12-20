@@ -91,12 +91,20 @@ gl:
         show_in_footer: Amosar no pé de páxina
         title: Título
         weight: Peso
+      user_group_csv_verification:
+        file: Arquivo
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ficheiro de imaxe non válido
+            official_img_footer:
+              allowed_file_content_types: Ficheiro de imaxe non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -615,6 +623,9 @@ gl:
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
+        csv_verify:
+          invalid: Produciuse un erro ao ler o ficheiro CSV.
+          success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
           success: Grupo de usuarios rexeitado con éxito
@@ -634,6 +645,12 @@ gl:
             pending: Pendente
             rejected: Rexeitado
             verified: Verificado
+          verify_via_csv: Verifique a través de CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
+          title: Carga o teu ficheiro CSV
+          upload: Cargar
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.
