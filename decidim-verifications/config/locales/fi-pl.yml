@@ -1,6 +1,11 @@
 fi-pl:
   activemodel:
     attributes:
+      config:
+        available_methods: Käytettävissä olevat menetelmät
+        offline: Poissa
+        offline_explanation: Ohjeet offline-todentamiseen
+        online: Online
       id_document_information:
         document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
@@ -9,6 +14,8 @@ fi-pl:
         document_type: Asiakirjan tyyppi
         user: Käyttäjä
         verification_attachment: Asiakirjan skannattu kopio
+      offline_confirmation:
+        email: Käyttäjän sähköposti
       postal_letter_address:
         full_address: Koko osoite
       postal_letter_confirmation:
