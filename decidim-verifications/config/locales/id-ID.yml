@@ -1,1 +1,137 @@
 id:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Nomor dokumen (dengan huruf)
+        document_type: Jenis dokumen
+      id_document_upload:
+        document_number: Nomor dokumen (dengan huruf)
+        document_type: Jenis dokumen Anda
+        user: Pengguna
+        verification_attachment: Salinan hasil pindaian dokumen Anda
+      postal_letter_address:
+        full_address: Alamat lengkap
+      postal_letter_confirmation:
+        verification_code: Kode verifikasi
+      postal_letter_postage:
+        full_address: Alamat lengkap
+        verification_code: Kode verifikasi
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Verifikasi
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Pengguna mengisi informasi identitas mereka dan mengunggah salinan dokumen mereka.
+            - Anda mengisi informasi yang ada di gambar yang diunggah.
+            - Informasi harus sesuai dengan apa pun yang diisi oleh pengguna.
+            - Jika Anda tidak dapat melihat informasi dengan jelas atau Anda tidak dapat memverifikasinya, Anda dapat menolak permintaan dan pengguna akan dapat memperbaikinya.
+        postal_letter:
+          help:
+            - Pengguna meminta kode verifikasi untuk dikirim ke alamat mereka.
+            - Anda mengirim surat ke alamat mereka dengan kode verifikasi.
+            - Anda menandai surat yang dikirim.
+            - Setelah Anda menandai surat yang dikirim, pengguna akan dapat memperkenalkan kode dan diverifikasi.
+      direct: Langsung
+      help: Membantu
+      id_documents:
+        explanation: Unggah dokumen identitas Anda sehingga kami dapat memeriksa identitas Anda
+        name: Dokumen identitas
+      multistep: Multi-Langkah
+      name: Nama
+      postal_letter:
+        explanation: Kami akan mengirimi Anda surat pos dengan kode yang harus Anda masukkan sehingga kami dapat memverifikasi alamat Anda
+        name: Kode melalui surat pos
+    verifications:
+      authorizations:
+        create:
+          error: Ada kesalahan saat membuat otorisasi.
+          success: Anda telah berhasil diotorisasi.
+          unconfirmed: Anda perlu mengkonfirmasi email Anda untuk mengotorisasi diri Anda sendiri.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verifikasi terhadap contoh lain dari pengendali otorisasi
+            dummy_authorization_handler: Verifikasi terhadap contoh handler otorisasi
+            dummy_authorization_workflow: Verifikasi terhadap contoh alur kerja otorisasi
+            id_documents: Dapatkan verifikasi dengan mengunggah dokumen identitas Anda
+            postal_letter: Dapatkan verifikasi dengan menerima kode verifikasi melalui surat pos
+          title: Verifikasi identitas Anda
+          verify_with_these_options: 'Ini adalah opsi yang tersedia untuk memverifikasi identitas Anda:'
+        new:
+          authorize: Kirim
+          authorize_with: Verifikasi dengan %{authorizer}
+        skip_verification: Anda dapat melewati ini untuk sekarang dan %{link}
+        start_exploring: mulai menjelajah
+      dummy_authorization:
+        extra_explanation:
+          other: 'Partisipasi dibatasi untuk pengguna dengan salah satu kode pos berikut: %{postal_codes}.'
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Verifikasi tidak cocok. Coba lagi atau tolak verifikasi sehingga pengguna dapat mengubahnya
+              success: Pengguna berhasil diverifikasi
+            new:
+              introduce_user_data: Perkenalkan data dalam gambar
+              reject: Menolak
+              verify: Memeriksa
+          pending_authorizations:
+            index:
+              title: Verifikasi tertunda
+              verification_number: 'Verifikasi #%{n}'
+          rejections:
+            create:
+              success: Verifikasi ditolak. Pengguna akan diminta untuk mengubah dokumennya
+        authorizations:
+          create:
+            error: Ada masalah saat mengunggah dokumen Anda
+            success: Dokumen berhasil diunggah
+          edit:
+            being_reviewed: Kami sedang meninjau dokumen Anda. Anda akan segera diverifikasi
+            rejection_clarity: Pastikan informasinya terlihat jelas di gambar yang diunggah
+            rejection_correctness: Pastikan informasi yang dimasukkan sudah benar
+            rejection_notice: Ada masalah dengan verifikasi Anda. Silakan coba lagi
+            send: Meminta verifikasi lagi
+          new:
+            send: Meminta verifikasi
+            title: Unggah dokumen identitas Anda
+          update:
+            error: Terjadi masalah saat memuat ulang dokumen Anda
+            success: Dokumen berhasil diunggah ulang
+        dni: DNI
+        nie: NIE
+        passport: Paspor
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Alamat
+              letter_sent_at: Surat dikirim pada
+              mark_as_sent: Tandai sebagai terkirim
+              not_yet_sent: belum dikirim
+              title: Verifikasi berkelanjutan
+              username: Nama pengguna
+              verification_code: Kode verifikasi
+          postages:
+            create:
+              error: Kesalahan menandai huruf yang dikirim
+              success: Surat berhasil ditandai sebagai terkirim
+        authorizations:
+          create:
+            error: Ada masalah dengan permintaan anda
+            success: Terima kasih! Kami akan mengirimkan kode verifikasi ke alamat Anda
+          edit:
+            send: Memastikan
+            title: Perkenalkan kode verifikasi yang Anda terima
+            waiting_for_letter: Kami akan segera mengirim surat ke alamat Anda dengan kode verifikasi Anda
+          new:
+            send: Kirimkan saya surat
+            title: Minta kode verifikasi Anda
+          update:
+            error: Kode verifikasi Anda tidak sesuai dengan kami. Silakan periksa kembali surat yang kami kirimkan kepada Anda
+            success: Selamat. Anda telah berhasil diverifikasi
+  errors:
+    messages:
+      uppercase_only_letters_numbers: harus semuanya huruf besar dan hanya berisi huruf dan / atau angka
