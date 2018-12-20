@@ -1,6 +1,11 @@
 sv:
   activemodel:
     attributes:
+      config:
+        available_methods: Tillgängliga metoder
+        offline: Off-line
+        offline_explanation: Instruktioner för offline verifiering
+        online: Uppkopplad
       id_document_information:
         document_number: Dokumentnummer (med bokstav)
         document_type: Typ av dokumentet
@@ -9,6 +14,8 @@ sv:
         document_type: Typ av ditt dokument
         user: Användare
         verification_attachment: Skannad kopia av ditt dokument
+      offline_confirmation:
+        email: Användar-e-post
       postal_letter_address:
         full_address: Fullständig adress
       postal_letter_confirmation:
