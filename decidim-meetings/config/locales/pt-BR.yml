@@ -355,7 +355,7 @@ pt-BR:
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
           remaining_slots:
-            one: 1 slot restante
+            one: '%{count} slot restante'
             other: "%{count} slots restantes"
           view: Visualizar
       meetings_map:
