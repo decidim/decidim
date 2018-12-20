@@ -9,7 +9,7 @@ eu:
         about: About
         email: Zure helbide elektronikoa
         name: Zure izena
-        nickname: Zure identifikatzaile labur eta berezia
+        nickname: ezizena
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
@@ -36,7 +36,7 @@ eu:
         remember_me: Gogoratu
     models:
       decidim/user:
-        one: Erabiltzaileak
+        one: Ez dago erabiltzailerik
         other: erabiltzaileak
       decidim/user_group:
         one: Erabiltzaile taldea
@@ -196,7 +196,7 @@ eu:
           title: Berretsi zure posta elektronikoa
     collapsible_list:
       hidden_elements_count:
-        one: eta beste bat
+        one: eta %{count} gehiago
         other: eta %{count} gehiago
       see_less: "(ikusi gutxiago)"
       see_more: "(gehiago ikusi)"
