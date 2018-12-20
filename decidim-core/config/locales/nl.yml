@@ -450,7 +450,7 @@ nl:
         show:
           conversation_with_html: Gesprek met <strong>%{name}</strong>
           reply: Beantwoorden
-          send: Sturen
+          send: Verzenden
         start:
           send: Verzenden
           title: Een gesprek beginnen
@@ -567,7 +567,7 @@ nl:
         conversations: conversaties
         followers: Volgers
         following: volgt
-        notifications: meldingen
+        notifications: Meldingen
       user:
         edit_profile: Bewerk profiel
     reported_mailer:
