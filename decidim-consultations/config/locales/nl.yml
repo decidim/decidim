@@ -49,7 +49,7 @@ nl:
         other: Antwoorden
       decidim/consultations/vote:
         one: Stemmen
-        other: stemmen
+        other: Stemmen
   decidim:
     admin:
       actions:
