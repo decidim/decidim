@@ -355,8 +355,8 @@ eu:
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           remaining_slots:
-            one: Izen-emate 1 erabilgarri
-            other: "%{count} izen-emate erabilgarri"
+            one: '%{count} slot geratzen da'
+            other: "%{count} slot geratzen dira"
           view: ikusi
       meetings_map:
         view_meeting: Ikusi bilera
