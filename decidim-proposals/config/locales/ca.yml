@@ -229,8 +229,8 @@ ca:
         object: propostes
         title: Propostes
       votes:
-        object: vots
-        title: Vots
+        object: suports
+        title: Suports
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -388,14 +388,14 @@ ca:
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
-          select_a_category: Selecciona una categoria
+          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
-            one: 1 esborrany col·laboratiu
-            other: "%{count} esborranys col·laboratius"
+            one: '%{count} esborrany de col·laboració'
+            other: "%{count} esborrany de col·laboració"
         create:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
@@ -449,7 +449,7 @@ ca:
           final_proposal: proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
           hidden_authors_count:
-            one: i 1 persona més
+            one: i %{count} persones més
             other: i %{count} persones més
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar els seus autors a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un cop els autors et donin accés, podràs fer canvis en aquest esborrany.
           of_versions: "(de %{number})"
@@ -532,7 +532,7 @@ ca:
           title: Completa la teva proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} propostes"
         edit:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
@@ -635,7 +635,7 @@ ca:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
-            description: Heu de distribuir un mínim de %{votes} vots entre diferents propostes.
+            description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
           proposal_limit:
