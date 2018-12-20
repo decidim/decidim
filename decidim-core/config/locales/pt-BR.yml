@@ -9,7 +9,7 @@ pt-BR:
         about: Sobre
         email: O seu email
         name: Seu nome
-        nickname: O seu identificador curto e único
+        nickname: Apelido
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
@@ -36,8 +36,8 @@ pt-BR:
         remember_me: Lembrar-me
     models:
       decidim/user:
-        one: Usuário
-        other: Usuários
+        one: Nenhum usuário
+        other: Comercial
       decidim/user_group:
         one: Grupo de usuários
         other: Grupos de usuários
@@ -196,7 +196,7 @@ pt-BR:
           title: Confirme seu e-mail
     collapsible_list:
       hidden_elements_count:
-        one: e mais 1
+        one: e mais %{count}
         other: e mais %{count}
       see_less: "(ver menos)"
       see_more: "(ver mais)"
