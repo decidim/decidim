@@ -409,7 +409,6 @@ pl:
         success: Wysłaliśmy zaproszenia do Twoich znajomych!
       index:
         customize_message: Dostosuj wiadomość z zaproszeniem
-        friend_email: 'Friend #%{index} email'
         invitations_subtitle: Powiadom znajomych o tej stronie
         invitations_title: Czy uważasz, że więcej głosów powinno być słyszanych w %{organization_name}?
         invite: Zapraszam
@@ -605,7 +604,7 @@ pl:
       scopes: Zakresy
     search:
       filter:
-        all: Wszystko
+        all: Wszystkie
         component: Składnik
       results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
       term_input_placeholder: Szukaj
