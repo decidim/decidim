@@ -600,9 +600,6 @@ en:
         show:
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
-          hidden_endorsers_count:
-            one: and %{count} more people
-            other: and %{count} more people
           link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
           link_to_collaborative_draft_text: See the collaborative draft
           proposal_accepted_reason: 'This proposal has been accepted because:'
