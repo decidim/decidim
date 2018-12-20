@@ -103,6 +103,9 @@ id:
         organization_url: URL Organisasi
         redirect_uri: Alihkan URI
         site: Situs web
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -304,6 +307,7 @@ id:
         impersonations: Peniruan identitas
         newsletters: Nawala
         oauth_applications: Aplikasi OAuth
+        officializations: Officialisasi
         scope_types: Tipe lingkup
         scopes: Scopes
         settings: Pengaturan
@@ -570,6 +574,7 @@ id:
         dashboard: Dasbor
         impersonatable_users: Pengguna yang tidak dapat disalahgunakan
         impersonations: Peniruan identitas
+        officializations: Officialisasi
         scope_types: Tipe lingkup
         scopes: Scopes
         static_pages: Halaman
@@ -649,3 +654,7 @@ id:
           title: Pengaturan
         users:
           title: Pengguna
+  time:
+    formats:
+      datepicker: "%m/%d/%Y"
+      timepicker: "%m/%d/%Y %H:%M"
