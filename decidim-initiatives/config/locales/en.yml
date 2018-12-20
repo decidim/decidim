@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -88,7 +87,6 @@ en:
         initiatives:
           description_another: This user has gotten %{score} initiatives published.
           description_own: You've got %{score} initiatives published.
-          explanation: Users get this badge by getting their initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
           unearned_another: This user hasn't gotten any initiatives published yet.
