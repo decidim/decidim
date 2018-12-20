@@ -48,8 +48,8 @@ sv:
         one: Svar
         other: Svar
       decidim/consultations/vote:
-        one: Röst
-        other: Röster
+        one: Rösta
+        other: Rösta
   decidim:
     admin:
       actions:
