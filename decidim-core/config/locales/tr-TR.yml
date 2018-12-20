@@ -589,6 +589,7 @@ tr:
       no_members: Bu kullanıcı grubunun henüz üye yok.
     menu:
       home: Ev
+      more_information: Daha fazla bilgi
     messaging:
       conversation_mailer:
         new_conversation:
@@ -605,8 +606,12 @@ tr:
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
         index:
+          from: itibaren
+          last_message_html: Son mesaj <strong>%{time}</strong>
           no_conversations: Henüz konuşma yok
         show:
+          conversation_with_html: <strong>%{name}</strong>ile Söyleşi
+          reply: cevap
           send: göndermek
         start:
           send: göndermek
@@ -699,6 +704,8 @@ tr:
           votes_count: oy
         sub_hero:
           register: Kayıt olmak
+      index:
+        title: Daha fazla bilgi
       terms_and_conditions:
         accept:
           error: Şartları ve koşulları kabul ederken bir hata oluştu.
@@ -772,6 +779,7 @@ tr:
     search:
       filter:
         all: Herşey
+        component: Bileşen
       results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
       term_input_placeholder: Arama
     searches:
