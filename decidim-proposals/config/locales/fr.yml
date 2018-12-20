@@ -12,11 +12,13 @@ fr:
       proposal:
         answer: Répondre
         answered_at: Répondu à
+        automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         category_id: Catégorie
         has_address: Renseigner une adresse
         scope_id: Périmètre d'application
         state: État
+        suggested_hashtags: Hashtags suggérés
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
@@ -69,6 +71,7 @@ fr:
         name: Propositions
         settings:
           global:
+            amendments_enabled: Modifications activées
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -92,11 +95,13 @@ fr:
             vote_limit: Limite de votes par utilisateur
           step:
             announcement: Annonce
+            automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
+            suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
@@ -143,22 +148,35 @@ fr:
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
-          email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
-          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-          email_subject: Une proposition que vous suivez a été acceptée
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+          affected_user:
+            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_subject: Votre proposition a été acceptée
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+          follower:
+            email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_subject: Une proposition que vous suivez a été acceptée
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, qui vous suivez, vient d’approuver la proposition "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez:'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: "%{endorser_nickname} a soutenu une nouvelle proposition"
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
-          email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
-          email_subject: Une proposition que vous suivez est en cours d'évaluation
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+          affected_user:
+            email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_subject: Votre proposition est en cours d'évaluation
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+          follower:
+            email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_subject: Une proposition que vous suivez est en cours d'évaluation
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
         proposal_published:
@@ -172,10 +190,16 @@ fr:
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
         proposal_rejected:
-          email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
-          email_subject: Une proposition que vous suivez n'a pas été retenue
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
+          affected_user:
+            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_subject: Votre proposition a été rejetée
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+          follower:
+            email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_subject: Une proposition que vous suivez n'a pas été retenue
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -385,6 +409,10 @@ fr:
           evaluating: Évaluer
           except_rejected: Toutes sauf les propositions non retenues
           rejected: Rejeté
+        filter_type_values:
+          all: Tout
+          amendments: Amendements
+          proposals: Les propositions
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -409,8 +437,6 @@ fr:
           no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
           title: Projets collaboratifs similaires
         complete:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Complétez votre projet collaboratif
         count:
@@ -421,12 +447,14 @@ fr:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
           success: Projet collaboratif créé avec succès.
         edit:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier un brouillon collaboratif
         filters:
           all: Tout
+          amendment: Amendements
           category: Catégorie
           category_prompt: Catégories
           open: Ouvrir
@@ -529,11 +557,12 @@ fr:
       new:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       participatory_text_proposal:
+        alternative_title: Il n'y a pas de textes participatifs pour le moment
         buttons:
+          amend: Modifier
           comment: Commentaire
           comments: commentaires
           endorse: Endosser
-          endorsements: Endossements
       proposal_endorsements:
         create:
           error: Des erreurs sont survenues au moment de soutenir la proposition.
@@ -585,6 +614,7 @@ fr:
           search: Rechercher
           state: État
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
+          amendment_type: Type
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -635,10 +665,6 @@ fr:
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
           report: Signaler
-          sign_in: Se connecter
-          sign_in_or_up: "%{in} ou %{up} pour participer"
-          sign_in_to_participate: "%{in} pour participer"
-          sign_up: S'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
@@ -699,6 +725,7 @@ fr:
           title: Des versions
         stats:
           back_to_collaborative_draft: Revenir au brouillon collaboratif
+          back_to_proposal: Retourner à la proposition
           number_of_versions: Des versions
           show_all_versions: Afficher toutes les versions
           version_author: Auteur de la version
