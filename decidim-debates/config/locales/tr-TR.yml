@@ -1,1 +1,16 @@
 tr:
+  decidim:
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Merhaba,
+               %{space_title} katılımcı uzayda yeni bir tartışma oluşturuldu, kontrol edip katkıda bulunun:
+            email_subject: '%{space_title}yeni tartışma'
+          user_followers:
+            email_intro: |-
+              Merhaba,
+              %{author_name} %{author_nickname}, takip ediyor, yeni bir tartışma oluşturdu, kontrol et ve katkıda bulun:
+            email_subject: Yeni tartışma %{author_nickname}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> tartışma <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından oluşturuldu.
