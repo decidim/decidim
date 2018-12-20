@@ -70,6 +70,8 @@ id:
         create:
           error: Ada kesalahan saat membuat konsultasi baru.
           success: Konsultasi berhasil dibuat.
+        destroy:
+          success: Konsultasi berhasil dihapus.
         edit:
           update: Memperbarui
         form:
