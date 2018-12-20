@@ -12,16 +12,16 @@ sv:
         signature_type_values:
           any: Blandad
           offline: Ansikte mot ansikte
-          online: Uppkopplad
+          online: Digitala
         title: Titel
       initiative_author:
         address: Adress
         city: Stad
-        id_document: DNI / NIE
+        id_document: Personnummer
         name: Namn och efternamn
         phone_number: Telefonnummer
         post_code: Postnummer
-        province: Provins
+        province: Län
       initiatives_committee_member:
         user: Kommittémedlem
       initiatives_type:
@@ -38,8 +38,8 @@ sv:
         one: intitiativ
         other: Initatives
       decidim/initiative_comittee:
-        one: KOMMITTÉN
-        other: Comittees
+        one: Kommitté
+        other: Kommittéer
       decidim/initiative_vote:
         one: Signatur
         other: signaturer
@@ -54,8 +54,8 @@ sv:
         initiatives:
           fields:
             created_at: Skapad vid
-            state: stat
-            supports_count: stöder
+            state: Status
+            supports_count: Stöder
             title: initiativ
         initiatives_type_scope:
           fields:
@@ -111,18 +111,18 @@ sv:
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
             success: Initiativet har skickats till teknisk validering
-            update: Uppdatering
+            update: Uppdatera
           form:
             title: Allmän information
           index:
-            actions_title: Handling
+            actions_title: Åtgärd
             filter:
               accepted: Accepterad
-              all: Allt
+              all: Alla
               created: Skapad
               discarded: kasserad
               published: Publicerad
-              rejected: avvisade
+              rejected: Avvisad
               validating: Teknisk validering
             filter_by: Filtrera efter
             preview: Förhandsvisning
@@ -144,7 +144,7 @@ sv:
             confirm_destroy: Är du säker?
             destroy: Radera
             title: Redigera typ av initiativtyp
-            update: Uppdatering
+            update: Uppdatera
           new:
             back: Tillbaka
             create: Skapa
@@ -161,7 +161,7 @@ sv:
           edit:
             confirm_destroy: Är du säker?
             destroy: Radera
-            update: Uppdatering
+            update: Uppdatera
           form:
             title: Allmän information
           initiative_type_scopes:
@@ -183,7 +183,7 @@ sv:
         created: Skapad
         discarded: kasserad
         published: Publicerad
-        rejected: avvisade
+        rejected: Avvisad
         validating: Teknisk validering
       committee_requests:
         new:
@@ -255,7 +255,7 @@ sv:
           error: Det har varit fel när du undertecknade initiativet.
       initiatives:
         author:
-          deleted: raderade
+          deleted: Raderad
         author_list:
           hidden_authors_count:
             one: och ytterligare 1 person
@@ -265,18 +265,18 @@ sv:
             one: "%{count} initiativ"
             other: "%{count} initiativ"
         filters:
-          any: Några
+          any: Vilken som helst
           author: Författare
           closed: Stängd
           myself: Mina initiativ
-          open: Öppen
+          open: Öppet
           search: Sök
-          state: stat
+          state: Status
           type: Typ
           type_prompt: Välj en typ
         filters_small_view:
           close_modal: Stäng fönstret
-          filter: Filtrera
+          filter: Filter
           filter_by: Filtrera efter
           unfold: Veckla ut
         index_header:
@@ -300,15 +300,15 @@ sv:
           other: " signaturer"
         statistics:
           assistants_count_title: assistenter
-          comments_count_title: kommentarer
-          meetings_count_title: möten
+          comments_count_title: Kommentarer
+          meetings_count_title: Möten
           supports_count_title: signaturer
         supports:
           title: Förteckning över signaturer
         vote_cabin:
           already_voted: Redan undertecknad
           supports_required: "%{total_supports} signaturer krävs"
-          vote: Skylt
+          vote: Signera
           votes_blocked: Signering inaktiverad
         votes_count:
           count:
