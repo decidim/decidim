@@ -130,6 +130,13 @@ module Decidim
           it "broadcasts ok when form contains personal data" do
             expect { valid_command.call }.to broadcast :ok
           end
+
+          it "stores encrypted user personal data in vote" do
+            valid_command.call
+            vote = InitiativesVote.last
+            expect(vote.encrypted_metadata).to be_present
+            expect(form_klass.from_model(vote).decrypted_metadata).to eq personal_data_params
+          end
         end
       end
 
