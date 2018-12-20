@@ -388,14 +388,14 @@ es-PY:
           no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
           title: Borradores colaborativos similares
         complete:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
-          select_a_category: Por favor selecciona una categoría
+          attachment_legend: "(Opcional) Añadir un archivo adjunto"
+          select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Completa tu borrador colaborativo
         count:
           drafts_count:
-            one: 1 borrador colaborativo
-            other: "%{count} borradores colaborativos"
+            one: '%{count} borrador colaborativo'
+            other: "%{count} borrador colaborativo"
         create:
           error: Ha habido un problema al crear este borradores colaborativo
           success: Borrador colaborativo creado con éxito.
@@ -449,7 +449,7 @@ es-PY:
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
-            one: y 1 persona más
+            one: y %{count} persona más
             other: y %{count} personas más
           info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
           of_versions: "(de %{number})"
@@ -532,7 +532,7 @@ es-PY:
           title: Completa tu propuesta
         count:
           proposals_count:
-            one: 1 propuesta
+            one: '%{count} propuesta'
             other: "%{count} propuestas"
         edit:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
