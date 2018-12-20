@@ -25,7 +25,8 @@ module Decidim::Meetings
       create(
         :meeting,
         component: current_component,
-        start_time: 2.days.from_now,
+        start_time: 1.day.ago,
+        end_time: 2.days.from_now,
         category: subcategory,
         scope: scope2,
         description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
@@ -59,7 +60,7 @@ module Decidim::Meetings
       context "with date" do
         let(:params) { default_params.merge(date: date) }
         let!(:past_meeting) do
-          create(:meeting, component: current_component, start_time: 1.day.ago)
+          create(:meeting, component: current_component, start_time: 10.days.ago, end_time: 1.day.ago)
         end
 
         context "when upcoming" do
