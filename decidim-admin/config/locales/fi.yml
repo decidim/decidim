@@ -223,9 +223,9 @@ fi:
           title: Muokkaa komponenttia
           update: Päivitä
         form:
-          default_step_settings: Vaiheen oletusasetukset
+          default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
-          step_settings: Vaiheen asetukset
+          step_settings: Vaiheiden asetukset
         index:
           add: Lisää komponentti
           headers:
@@ -304,7 +304,7 @@ fi:
         configuration: Asetukset
         dashboard: Hallintapaneeli
         homepage: Kotisivu
-        impersonations: Käyttäjänä esiintymiset
+        impersonations: Esiintymiset toisena käyttäjänä
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
@@ -355,7 +355,7 @@ fi:
             name: Nimi
           name: OAuth-sovellus
         participatory_space_private_user:
-          name: Osallistumistilan yksityinen käyttäjä
+          name: Osallisuustilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -506,15 +506,15 @@ fi:
           update: Päivitä
       participatory_space_private_users:
         create:
-          error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
+          error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
+          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
+          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
-          title: Osallistumistilan yksityinen käyttäjä
+          title: Osallisuustilan yksityinen käyttäjä
         new:
           create: Luo
-          title: Uusi osallistumistilan yksityinen käyttäjä.
+          title: Uusi osallisuustilan yksityinen käyttäjä.
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
@@ -572,8 +572,8 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        impersonatable_users: Toisena käyttäjänä esitettävät käyttäjät
-        impersonations: Esiintymiset käyttäjinä
+        impersonatable_users: Käyttäjien puolesta tehdyt istunnot
+        impersonations: Esiintymiset toisena käyttäjänä
         officializations: Virallistamiset
         scope_types: Teematyypit
         scopes: Teemat
@@ -624,7 +624,7 @@ fi:
         hide: Piilota
         not_hidden: Näkyvillä
         title: Toiminnot
-        unreport: Poista raportointi
+        unreport: Poista ilmoitus
       admin:
         reportable:
           hide:
