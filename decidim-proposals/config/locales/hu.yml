@@ -394,8 +394,8 @@ hu:
           title: Fejezd be a közös vázlatot
         count:
           drafts_count:
-            one: 1 közös vázlat
-            other: "%{count} közös vázlat"
+            one: '%{count} együttműködési tervezet'
+            other: "%{count} együttműködési tervezet"
         create:
           error: Hiba a közösen szerkesztett vázlatok létrehozásakor
           success: Közös vázlat létrehozása sikeres.
@@ -449,7 +449,7 @@ hu:
           final_proposal: végleges javaslat
           final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
-            one: és még 1 ember
+            one: és még %{count} személy
             other: és még %{count} ember
           info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
           of_versions: "(ennyiből: %{number})"
@@ -532,8 +532,8 @@ hu:
           title: Fejezd be a javaslatod
         count:
           proposals_count:
-            one: 1 javaslat
-            other: "%{count} javaslat"
+            one: '%{count} javaslat'
+            other: "%{count} javaslatot"
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
