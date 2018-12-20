@@ -341,10 +341,6 @@ it:
           organizational_chart: Grafico organizzativo
           promoted_assemblies: Assiemi evidenziati
           reset_chart: Reset
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} montaggio"
-            other: "%{count} assemblies"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa
