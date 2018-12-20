@@ -88,7 +88,7 @@ sv:
       meetings:
         meeting_closed:
           email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-          email_outro: Du har fått den här notifikationen eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från den föregående länken.
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
           email_subject: Mötet "%{resource_title}" stängdes
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
@@ -180,7 +180,7 @@ sv:
           form:
             attendee_type: Deltagartyp
             existing_user: Existerande användare
-            invite: Bjud in
+            invite: Bjuda in
             invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
             non_user: Icke-existerande användare
             select_user: Välj användare
