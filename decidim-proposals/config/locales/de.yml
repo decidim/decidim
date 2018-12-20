@@ -394,8 +394,8 @@ de:
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
-            one: 1 gemeinsamer Entwurf
-            other: "%{count} kollaborative Entwürfe"
+            one: '%{count} kollaborativer Entwurf'
+            other: "%{count} kollaborativer Entwurf"
         create:
           error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
           success: Collaborative Draft wurde erfolgreich erstellt.
@@ -449,8 +449,8 @@ de:
           final_proposal: endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
-            one: und 1 weitere Person
-            other: und %{count} weitere Leute
+            one: und %{count} weitere Person
+            other: und %{count} weitere Personen
           info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Dies bedeutet, dass Sie ihren Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie den Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
           of_versions: "(von %{number})"
           publish: Veröffentlichen
@@ -532,7 +532,7 @@ de:
           title: Vervollständigen Sie Ihren Vorschlag
         count:
           proposals_count:
-            one: 1 Vorschlag
+            one: '%{count} Vorschlag'
             other: "%{count} Vorschläge"
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
