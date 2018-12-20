@@ -326,7 +326,7 @@ eu:
           no_similars_found: Ongi egina! Ez da antzeko lankidetza zirriborro aurkitu
           title: Antzeko zirriborro kolaboratzaileak
         complete:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Bete lankidetza zirriborroa
