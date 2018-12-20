@@ -79,6 +79,8 @@ id:
         create:
           error: Ada kesalahan saat membuat perakitan baru.
           success: Majelis berhasil dibuat.
+        destroy:
+          success: Majelis berhasil dihapus.
         edit:
           update: Memperbarui
         form:
@@ -336,11 +338,16 @@ id:
           organizational_chart: Struktur organisasi
           promoted_assemblies: Majelis yang disorot
           reset_chart: Setel ulang
+        order_by_assemblies:
+          assemblies:
+            other: "%{count} rakitan"
         promoted_assembly:
           more_info: Info lebih lanjut
           take_part: Ambil bagian
       assembly_header:
         assembly_member_menu_item: Anggota
+        assembly_menu_item: Perakitan
+        unfold: Membuka
       assembly_widgets:
         show:
           take_part: Ambil bagian
