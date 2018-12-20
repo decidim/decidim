@@ -564,7 +564,7 @@ sv:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
-        conversations: Samtal
+        conversations: Konversationer
         followers: Anhängare
         following: Följer
         notifications: Notiser
@@ -595,7 +595,7 @@ sv:
       scopes: Omfattningar
     search:
       filter:
-        all: Allt
+        all: Alla
         component: Komponent
       results_found_for_term: '%{count} Resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
