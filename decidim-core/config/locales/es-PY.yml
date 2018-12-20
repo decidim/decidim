@@ -250,6 +250,7 @@ es-PY:
           sign_up: Regístrate
           sign_up_as:
             legend: Inscribirse como
+            user: Individual
             user_group: Organización/Colectivo
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
