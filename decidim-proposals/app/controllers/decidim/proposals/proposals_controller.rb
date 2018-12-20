@@ -53,7 +53,7 @@ module Decidim
       end
 
       def show
-        redirect_to "/404" if @proposal.hidden?
+        redirect_to "/404" unless set_proposal
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -242,7 +242,7 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def form_proposal_params

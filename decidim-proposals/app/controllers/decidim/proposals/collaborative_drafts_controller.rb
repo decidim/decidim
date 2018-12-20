@@ -33,7 +33,7 @@ module Decidim
       end
 
       def show
-        redirect_to "/404" if @collaborative_draft.hidden?
+        redirect_to "/404" unless retrieve_collaborative_draft
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})
@@ -155,7 +155,7 @@ module Decidim
       end
 
       def retrieve_collaborative_draft
-        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+        @collaborative_draft = CollaborativeDraft.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def geocoded_collaborative_draft
