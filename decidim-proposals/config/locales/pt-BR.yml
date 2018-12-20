@@ -326,8 +326,8 @@ pt-BR:
           no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
           title: Rascunhos colaborativos semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
+          attachment_legend: "(Opcional) Adicionar um anexo"
+          select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete seu rascunho colaborativo
         count:
