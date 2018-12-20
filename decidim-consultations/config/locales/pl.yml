@@ -55,9 +55,9 @@ pl:
         other: Odpowiedzi
       decidim/consultations/vote:
         one: Głosować
-        few: Głosy
-        many: Głosy
-        other: Głosy
+        few: Głosować
+        many: Głosować
+        other: Głosować
   decidim:
     admin:
       actions:
