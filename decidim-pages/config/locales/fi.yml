@@ -20,7 +20,7 @@ fi:
       admin:
         models:
           components:
-            body: Leipäteksti
+            body: Sisältöteksti
         pages:
           edit:
             save: Päivitä
