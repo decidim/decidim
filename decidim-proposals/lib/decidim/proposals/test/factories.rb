@@ -89,6 +89,18 @@ FactoryBot.define do
       end
     end
 
+    trait :with_proposal_length do
+      transient do
+        proposal_length { 500 }
+      end
+
+      settings do
+        {
+          proposal_length: proposal_length
+        }
+      end
+    end
+
     trait :with_endorsements_blocked do
       step_settings do
         {
