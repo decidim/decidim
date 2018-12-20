@@ -35,42 +35,44 @@ class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, Co
   }
 
   public render() {
-    const { orderBy } =  this.state;
+    const { orderBy } = this.state;
 
     return (
-      <div className="order-by__dropdown order-by__dropdown--right">
-        <span className="order-by__text">{I18n.t("components.comment_order_selector.title")}</span>
-        <ul
-          className="dropdown menu"
-          data-dropdown-menu="data-dropdown-menu"
-          ref={this.setDropdown}
-        >
-          <li>
-            <a>{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
-            <ul className="menu">
-              <li>
-                <a href="" className="test" onClick={this.updateOrder("best_rated")} >
-                  {I18n.t("components.comment_order_selector.order.best_rated")}
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={this.updateOrder("recent")} >
-                  {I18n.t("components.comment_order_selector.order.recent")}
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={this.updateOrder("older")} >
-                  {I18n.t("components.comment_order_selector.order.older")}
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={this.updateOrder("most_discussed")} >
-                  {I18n.t("components.comment_order_selector.order.most_discussed")}
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+      <div className="order-by">
+        <div className="order-by__dropdown order-by__dropdown--right">
+          <span className="order-by__text">{I18n.t("components.comment_order_selector.title")}</span>
+          <ul
+            className="dropdown menu"
+            data-dropdown-menu="data-dropdown-menu"
+            ref={this.setDropdown}
+          >
+            <li>
+              <a>{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
+              <ul className="menu">
+                <li>
+                  <a href="" className="test" onClick={this.updateOrder("best_rated")} >
+                    {I18n.t("components.comment_order_selector.order.best_rated")}
+                  </a>
+                </li>
+                <li>
+                  <a href="" onClick={this.updateOrder("recent")} >
+                    {I18n.t("components.comment_order_selector.order.recent")}
+                  </a>
+                </li>
+                <li>
+                  <a href="" onClick={this.updateOrder("older")} >
+                    {I18n.t("components.comment_order_selector.order.older")}
+                  </a>
+                </li>
+                <li>
+                  <a href="" onClick={this.updateOrder("most_discussed")} >
+                    {I18n.t("components.comment_order_selector.order.most_discussed")}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }
