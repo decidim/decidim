@@ -1,0 +1,413 @@
+tr:
+  activemodel:
+    attributes:
+      area:
+        area_type: Alan Türü
+        name: Adı
+        organization: Kuruluş
+      area_type:
+        name: Adı
+        organization: Kuruluş
+        plural: Çoğul
+      attachment:
+        attachment_collection_id: Klasör
+        description: Açıklama
+        file: Dosya
+        title: Başlık
+      attachment_collection:
+        description: Açıklama
+        name: isim
+      category:
+        description: Açıklama
+        name: isim
+        parent_id: ebeveyn
+      id: İD
+      newsletter:
+        body: Vücut
+        subject: konu
+      organization:
+        cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
+        cta_button_text: Harekete Geçirici Mesaj metni
+        default_locale: Varsayılan yerel ayar
+        description: Açıklama
+        enable_omnipresent_banner: Her yerde banner göster
+        facebook_handler: Facebook işleyicisi
+        favicon: ikon
+        github_handler: GitHub işleyicisi
+        header_snippets: Üstbilgi snippet'leri
+        highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
+        highlighted_content_banner_action_title: Eylem düğmesi başlığı
+        highlighted_content_banner_action_url: Eylem düğmesi URL'si
+        name: isim
+        reference_prefix: Referans öneki
+      scope:
+        code: kod
+        name: isim
+        organization: organizasyon
+        scope_type: Kapsam türü
+      scope_type:
+        name: isim
+        organization: organizasyon
+        plural: Çoğul
+      static_page:
+        content: içerik
+        organization: organizasyon
+        slug: URL sümüklü böcek
+        title: Başlık
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: içerik
+        slug: URL sümüklü böcek
+        title: Başlık
+  decidim:
+    admin:
+      actions:
+        add: Eklemek
+        browse: Araştır
+        export: ihracat
+        manage: yönetme
+        permissions: İzinler
+        reject: reddetmek
+        verify: DOĞRULAYIN
+      attachment_collections:
+        edit:
+          update: Güncelleştirme
+        new:
+          create: yaratmak
+      attachments:
+        create:
+          error: Yeni bir ek oluştururken bir hata oluştu.
+          success: Ek başarıyla oluşturuldu.
+        destroy:
+          success: Ek başarıyla başarılı bir şekilde yok edildi.
+        edit:
+          title: Eki düzenle
+          update: Güncelleştirme
+        index:
+          attachments_title: Ekler
+        new:
+          create: Ek oluştur
+          title: Yeni ek
+        update:
+          error: Bu eki güncellerken bir hata oluştu.
+          success: Ek başarıyla güncellendi.
+      categories:
+        create:
+          error: Bu kategori oluşturulurken bir hata oluştu.
+          success: Kategori başarıyla oluşturuldu.
+        destroy:
+          error: Bu kategoriyi silerken bir hata oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka bir varlığın bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
+          success: Kategori başarıyla silindi.
+        edit:
+          title: Kategoriyi düzenle
+          update: Güncelleştirme
+        index:
+          categories_title: Kategoriler
+          category_used: Bu kategori kullanımda olduğu için kaldırılamaz.
+        new:
+          create: Kategori oluştur
+          title: Yeni kategori
+        update:
+          error: Bu kategori güncellenirken bir hata oluştu.
+          success: Kategori başarıyla güncellendi.
+      dashboard:
+        show:
+          view_more_logs: Daha fazla günlükleri görüntüle
+          welcome: Decidim Yönetici Paneline hoş geldiniz.
+      exports:
+        export_as: "%{name} olarak %{export_format}"
+        notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
+      managed_users:
+        promotion:
+          error: Yönetilen kullanıcıyı tanıtan bir hata oluştu.
+          success: Yönetilen kullanıcı başarıyla tanıtıldı.
+        promotions:
+          new:
+            explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
+            new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
+            promote: Desteklemek
+      menu:
+        admin_log: Yönetici etkinlik günlüğü
+        admins: Yöneticiler
+        appearance: Görünüm
+        configuration: Yapılandırma
+        dashboard: gösterge paneli
+        newsletters: Haber bültenleri
+        scope_types: Kapsam türleri
+        scopes: kapsamları
+        settings: Ayarlar
+        static_pages: Sayfalar
+        user_groups: Kullanıcı Grupları
+        users: Kullanıcılar
+      models:
+        attachment:
+          fields:
+            content_type: tip
+            file_size: Boyut
+            title: Başlık
+          name: Ek dosya
+        category:
+          name: Kategori
+        impersonation_log:
+          fields:
+            admin: yönetim
+            ended_at: İle bitti
+            expired_at: Süresi doldu
+            started_at: Başlangıç
+            user: kullanıcı
+        newsletter:
+          fields:
+            created_at: Düzenlendi
+            progress: İlerleme
+            sent_at: Adresine gönderildi
+            subject: konu
+          name: Bülten
+        scope:
+          fields:
+            name: isim
+            scope_type: Kapsam türü
+        scope_type:
+          fields:
+            name: isim
+            plural: Çoğul
+        static_page:
+          fields:
+            created_at: Düzenlendi
+            title: Başlık
+        user:
+          fields:
+            created_at: Oluşturulma tarihi
+            email: E-posta
+            last_sign_in_at: Son giriş tarihi
+            name: isim
+            role: rol
+            roles:
+              admin: yönetim
+              user_manager: Kullanıcı yöneticisi
+          name: kullanıcı
+        user_group:
+          fields:
+            actions: Eylemler
+            created_at: Düzenlendi
+            document_number: Belge Numarası
+            name: isim
+            phone: Telefon
+            state: Belirtmek, bildirmek
+            users_count: Kullanıcılar
+      moderations:
+        index:
+          title: Denetimler
+        report:
+          reasons:
+            does_not_belong: Ait değil
+            offensive: saldırgan
+            spam: İstenmeyen e
+      newsletters:
+        create:
+          error: Bu bülteni oluştururken bir hata oluştu.
+          success: Bülten başarıyla oluşturuldu. Lütfen göndermeden önce gözden geçirin.
+        deliver:
+          error: Bu bülteni veren bir hata oluştu.
+          success: Bülten başarıyla teslim edildi.
+        destroy:
+          error_already_sent: 'Haber bülteni yok edilemez: Zaten gönderilmiş.'
+          success: Bülten başarıyla imha edildi.
+        edit:
+          save_and_preview: Kaydet ve önizle
+          title: Bülten düzenle
+        form:
+          interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
+        index:
+          confirm_delete: Bu bülteni silmek istediğinizden emin misiniz?
+          title: Haber bültenleri
+        new:
+          save: Kayıt etmek
+          title: Yeni bülten
+        show:
+          confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
+          deliver: Bülten sunun
+          preview: Ön izleme
+          subject: konu
+        update:
+          error: Bu bülteni güncellerken bir hata oluştu.
+          success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
+      officializations:
+        create:
+          success: Kullanıcı başarıyla onaylandı
+        destroy:
+          success: Kullanıcı başarıyla gayri resmi
+        index:
+          actions: Eylemler
+          badge: rozet
+          created_at: At düzenlendi
+          filter:
+            all: Herşey
+            not_officialized: Resmi değil
+            officialized: resmileştirilmiş
+          filter_by: Tarafından filtre
+          name: isim
+          nickname: Takma ad
+          not_officialized: Resmi değil
+          officialize: ', resmiyete'
+          officialized: resmileştirilmiş
+          reofficialize: Reofficialize
+          search: Arama
+          status: durum
+          unofficialize: Unofficialize
+        new:
+          badge: Resmi görevlendirme rozeti
+          officialize: ', resmiyete'
+          title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
+      organization:
+        edit:
+          title: Kuruluş düzenle
+          update: Güncelleştirme
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Sosyal
+          twitter: heyecan
+          url: URL
+          youtube: Youtube
+        update:
+          error: Bu kuruluşu güncellerken bir hata oluştu.
+          success: Kuruluş başarıyla güncellendi.
+      organization_appearance:
+        edit:
+          update: Güncelleştirme
+        form:
+          cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
+          cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
+          header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
+          homepage_appearance_title: Ana sayfa görünümünü düzenle
+          homepage_highlighted_content_banner_title: Yüksek içerikli banner
+          layout_appearance_title: Düzen görünümünü düzenle
+      scope_types:
+        create:
+          error: Yeni kapsam türü oluştururken bir hata oluştu.
+          success: Kapsam türü başarıyla oluşturuldu.
+        destroy:
+          success: Kapsam türü başarıyla yok edildi
+        edit:
+          title: Kapsam türünü düzenle
+          update: Güncelleştirme
+        new:
+          create: Kapsam türü oluştur
+          title: Yeni kapsam
+        update:
+          error: Bu kapsam türünü güncellerken bir hata oluştu.
+          success: Kapsam türü başarıyla güncellendi
+      scopes:
+        create:
+          error: Yeni kapsam oluştururken bir hata oluştu.
+          success: Kapsam başarıyla oluşturuldu.
+        destroy:
+          success: Kapsam başarıyla yok edildi
+        edit:
+          title: Kapsamı düzenle
+          update: Güncelleştirme
+        new:
+          create: Kapsam oluştur
+          title: Yeni kapsam
+        no_scopes: Bu seviyede hiçbir kapsam yok.
+        update:
+          error: Bu kapsamı güncellerken bir hata oluştu.
+          success: Kapsam başarıyla güncellendi
+      static_pages:
+        actions:
+          view: Genel sayfayı görüntüle
+        create:
+          error: Yeni bir sayfa oluşturulurken bir hata oluştu.
+          success: Sayfa başarıyla oluşturuldu.
+        destroy:
+          success: Sayfa başarıyla yok edildi
+        edit:
+          title: Sayfayı düzenle
+          update: Güncelleştirme
+        new:
+          title: Yeni sayfa
+        update:
+          error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi
+      titles:
+        admin_log: Yönetici günlüğü
+        authorization_workflows: Doğrulama yöntemleri
+        dashboard: gösterge paneli
+        impersonations: impersonations
+        scope_types: Kapsam türleri
+        scopes: kapsamları
+        static_pages: Sayfalar
+        user_groups: Kullanıcı Grupları
+        users: Kullanıcılar
+      user_group:
+        reject:
+          invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
+          success: Kullanıcı grubu başarıyla reddedildi
+        verify:
+          invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
+          success: Kullanıcı grubu başarıyla doğrulandı
+      user_groups:
+        index:
+          filter:
+            all: Herşey
+            pending: kadar
+            rejected: Reddedilen
+            verified: Doğrulanmış
+          filter_by: Tarafından filtre
+          search: Arama
+          state:
+            pending: kadar
+            rejected: Reddedilen
+            verified: Doğrulanmış
+      users:
+        create:
+          error: Bu kullanıcıyı davet ederken bir hata oluştu.
+          success: Kullanıcı başarıyla davet edildi.
+        destroy:
+          error: Bu kullanıcıyı silmeye çalışırken bir hata oluştu.
+          success: Kullanıcı artık yönetici değil.
+        form:
+          email: E-posta
+          name: isim
+          role: rol
+        new:
+          create: Davet et
+          title: Kullanıcıyı yönetici olarak davet et
+    moderations:
+      actions:
+        hidden: Gizli
+        hide: Saklamak
+        not_hidden: Gizli değil
+        title: Eylemler
+        unreport: Bildir
+      admin:
+        reportable:
+          hide:
+            invalid: Kaynağı gizleyen bir sorun oluştu.
+            success: Kaynak başarıyla gizlendi.
+          unreport:
+            invalid: Kaynağı bildirmeyen bir sorun oluştu.
+            success: Kaynak başarıyla bildirilmedi.
+      models:
+        moderation:
+          fields:
+            hidden_at: Gizli
+            report_count: saymak
+            reportable: bildirilmesi zorunlu
+            reported_content_url: Raporlanan içerik URL'si
+            reports: Raporlar
+            visit_url: URL'yi ziyaret et
+  errors:
+    messages:
+      invalid_json: Geçersiz JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Haber bültenleri
+        settings:
+          title: Ayarlar
+        users:
+          title: Kullanıcılar
