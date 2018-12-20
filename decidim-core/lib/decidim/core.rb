@@ -6,6 +6,7 @@ require "decidim/core/version"
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"

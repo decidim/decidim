@@ -23,6 +23,13 @@ if !Rails.env.production? || ENV["SEED"]
     instagram_handler: Faker::Hipster.word,
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
+    smtp_settings: {
+      mail_from: Faker::Internet.email,
+      username: Faker::Twitter.unique.screen_name,
+      password: Faker::Internet.password(8),
+      hostname: ENV["DECIDIM_HOST"] || "localhost",
+      port: ENV["DECIDIM_SMTP_PORT"] || "25"
+    },
     host: ENV["DECIDIM_HOST"] || "localhost",
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)
