@@ -9,7 +9,7 @@ de:
         about: Über
         email: Ihre E-Mail
         name: Ihr Name
-        nickname: Ihr kurzer, eindeutiger Benutzername
+        nickname: Spitzname
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
@@ -36,8 +36,8 @@ de:
         remember_me: Erinneren Sie mich
     models:
       decidim/user:
-        one: Benutzer*in
-        other: Benutzer*innen
+        one: Keine Benutzer
+        other: Benutzer
       decidim/user_group:
         one: Benutzergruppe
         other: Benutzergruppen
@@ -196,7 +196,7 @@ de:
           title: Bestätige deine E-Mail
     collapsible_list:
       hidden_elements_count:
-        one: und 1 mehr
+        one: und %{count} mehr
         other: und %{count} mehr
       see_less: "(Weniger anzeigen)"
       see_more: "(Mehr anzeigen)"
