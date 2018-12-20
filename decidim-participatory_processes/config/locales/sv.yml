@@ -196,8 +196,6 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa en ny deltagandeprocess.
           success: Deltagandeprocessen skapades framgångsrikt. Konfigurera nu dess steg.
-        destroy:
-          success: Deltagandeprocessen raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
