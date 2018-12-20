@@ -394,7 +394,7 @@ fi:
           title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
-            one: 1 yhteistyöluonnos
+            one: '%{count} yhteistyöluonnos'
             other: "%{count} yhteistyöluonnosta"
         create:
           error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
@@ -449,7 +449,7 @@ fi:
           final_proposal: lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
-            one: ja vielä yksi henkilö
+            one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
           of_versions: "( %{number}:sta)"
@@ -532,7 +532,7 @@ fi:
           title: Viimeistele ehdotuksesi
         count:
           proposals_count:
-            one: 1 ehdotus
+            one: '%{count} ehdotus'
             other: "%{count} ehdotusta"
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
