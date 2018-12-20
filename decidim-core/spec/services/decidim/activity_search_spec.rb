@@ -71,20 +71,10 @@ module Decidim
       end
     end
 
-    context "with followed resources and interesting scopes/areas" do
+    context "with followed resources and interesting scopes" do
       let(:comment) { create(:comment) }
       let(:user) { create(:user, organization: organization) }
       let(:user2) { create(:user, organization: organization) }
-
-      let(:area) { create(:area, organization: organization) }
-
-      let(:assembly_with_area) do
-        create(:assembly, organization: organization, area: area)
-      end
-
-      let(:area_component) do
-        create(:component, :published, organization: organization, participatory_space: assembly_with_area)
-      end
 
       let(:component) do
         create(:component, :published, organization: organization)
@@ -108,10 +98,6 @@ module Decidim
 
       let(:scoped_resource) do
         create(:dummy_resource, component: component3, published_at: Time.current)
-      end
-
-      let(:area_resource) do
-        create(:dummy_resource, component: area_component, published_at: Time.current)
       end
 
       let!(:uninteresting_resource) do
@@ -138,10 +124,6 @@ module Decidim
         create(:action_log, action: "publish", visibility: "all", resource: scoped_resource, organization: organization, scope: scoped_resource.scope)
       end
 
-      let!(:area_resource_action_log) do
-        create(:action_log, action: "publish", visibility: "all", resource: area_resource, organization: organization, area: area)
-      end
-
       let!(:uninteresting_resource_action_log) do
         create(:action_log, action: "publish", visibility: "all", resource: uninteresting_resource, organization: organization)
       end
@@ -151,8 +133,7 @@ module Decidim
           organization: organization,
           resource_type: resource_type,
           follows: user.following_follows,
-          scopes: [interesting_scope],
-          areas: [area]
+          scopes: [interesting_scope]
         )
       end
 
@@ -176,10 +157,6 @@ module Decidim
 
       it "includes results from followed resources" do
         expect(subject).to include(followed_resource_action_log)
-      end
-
-      it "includes results from interesting areas" do
-        expect(subject).to include(area_resource_action_log)
       end
 
       it "does not include results from uninteresting resources" do
