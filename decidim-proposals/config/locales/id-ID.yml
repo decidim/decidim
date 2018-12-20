@@ -1,0 +1,387 @@
+id:
+  activemodel:
+    attributes:
+      proposal:
+        answer: Menjawab
+        answered_at: Dijawab di
+        body: Tubuh
+        category_id: Kategori
+        has_address: Memiliki alamat
+        scope_id: Cakupan
+        state: Negara
+        title: Judul
+        user_group_id: Buat proposal sebagai
+      proposal_answer:
+        answer: Menjawab
+      proposals_copy:
+        copy_proposals: Saya memahami bahwa ini akan mengimpor semua proposal dari komponen yang dipilih ke komponen saat ini dan bahwa tindakan ini tidak dapat dibatalkan.
+        origin_component_id: Komponen untuk menyalin proposal dari
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Perlu disambungkan kembali
+    models:
+      decidim/proposals/accepted_proposal_event: Proposal diterima
+      decidim/proposals/admin/update_proposal_category_event: Kategori proposal berubah
+      decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
+      decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
+      decidim/proposals/evaluating_proposal_event: Proposal sedang dievaluasi
+      decidim/proposals/proposal_endorsed_event: Proposal disetujui
+      decidim/proposals/proposal_mentioned_event: Proposal disebutkan
+      decidim/proposals/publish_proposal_event: Proposal dipublikasikan
+      decidim/proposals/rejected_proposal_event: Proposal ditolak
+      decidim/proposals/voting_enabled_event: Pemungutan suara proposal diaktifkan
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        other: Proposal
+      decidim/proposals/proposal_endorsement:
+        other: Endorsemen
+      decidim/proposals/proposal_note:
+        other: Catatan
+      decidim/proposals/proposal_vote:
+        other: Suara
+  decidim:
+    components:
+      proposals:
+        actions:
+          create: Membuat
+          endorse: Mengesahkan
+          vote: Memilih
+          withdraw: Menarik
+        name: Proposal
+        settings:
+          global:
+            announcement: Pengumuman
+            attachments_allowed: Izinkan lampiran
+            can_accumulate_supports_beyond_threshold: Dapat mengumpulkan dukungan di luar ambang batas
+            comments_enabled: Komentar diaktifkan
+            geocoding_enabled: Geocoding diaktifkan
+            new_proposal_help_text: Teks bantuan proposal baru
+            official_proposals_enabled: Proposal resmi diaktifkan
+            proposal_answering_enabled: Pengangkatan proposal diaktifkan
+            proposal_edit_before_minutes: Proposal dapat diedit oleh penulis sebelum ini banyak menit berlalu
+            proposal_length: Panjang badan proposal maksimum
+            proposal_limit: Batas proposal per pengguna
+            proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
+            proposal_wizard_step_2_help_text: Proposal wizard "Bandingkan" langkah bantuan teks
+            proposal_wizard_step_3_help_text: Panduan proposal, selesaikan langkah bantuan teks
+            proposal_wizard_step_4_help_text: Panduan proposal "Publikasikan" langkah bantuan teks
+            resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
+            threshold_per_proposal: Ambang batas per proposal
+            vote_limit: Batas suara per pengguna
+          step:
+            announcement: Pengumuman
+            comments_blocked: Komentar diblokir
+            creation_enabled: Pembuatan proposal diaktifkan
+            endorsements_blocked: Pengesahan dicekal
+            endorsements_enabled: Pengesahan diaktifkan
+            proposal_answering_enabled: Pengangkatan proposal diaktifkan
+            votes_blocked: Voting diblokir
+            votes_enabled: Voting diaktifkan
+            votes_hidden: Memberi suara tersembunyi (jika suara diaktifkan, memeriksa ini akan menyembunyikan jumlah suara)
+    events:
+      proposals:
+        creation_enabled:
+          email_intro: 'Anda sekarang dapat membuat proposal baru di %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Proposal kini tersedia dalam %{participatory_space_title}
+          notification_title: Anda sekarang dapat mengajukan <a href="%{resource_path}">proposal baru</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Anda dapat mendukung proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Proposal yang mendukung telah dimulai untuk %{participatory_space_title}
+          notification_title: Anda sekarang dapat mulai <a href="%{resource_path}">mengesahkan proposal</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_endorsed:
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{endorser_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: "%{endorser_nickname} telah mengesahkan proposal baru"
+          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah disetujui oleh <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        proposal_mentioned:
+          email_intro: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
+          email_subject: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan
+          notification_title: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan <a href="%{resource_path}">dalam ruang</a> di komentar.
+        proposal_published:
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> diterbitkan oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
+          email_subject: Kategori proposal %{resource_title} telah diperbarui
+          notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
+        voting_enabled:
+          email_intro: 'Anda dapat memilih proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Proposal voting telah dimulai untuk %{participatory_space_title}
+          notification_title: Anda sekarang dapat memulai <a href="%{resource_path}">proposal voting</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Pengguna ini telah membuat %{score} proposal.
+          description_own: Anda telah membuat %{score} proposal.
+          name: Proposal
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Proposal
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Proposal
+    proposals:
+      actions:
+        answer: Menjawab
+        import: Impor dari komponen lain
+        new: Proposal baru
+        private_notes: Catatan pribadi
+        title: Tindakan
+      admin:
+        actions:
+          preview: Preview
+        exports:
+          comments: Komentar
+          proposals: Proposal
+        models:
+          proposal:
+            name: Usul
+        proposal_answers:
+          edit:
+            accepted: Diterima
+            answer_proposal: Menjawab
+            evaluating: Mengevaluasi
+            rejected: Ditolak
+            title: Jawaban untuk proposal %{title}
+        proposal_notes:
+          create:
+            error: Ada masalah saat membuat catatan proposal ini
+            success: Catatan proposal berhasil dibuat
+          form:
+            note: Catatan
+            submit: Menyerahkan
+          leave_your_note: Tinggalkan catatanmu
+          title: Catatan pribadi
+        proposals:
+          answer:
+            invalid: Ada masalah saat menjawab proposal ini
+            success: Proposal berhasil dijawab
+          create:
+            invalid: Ada masalah saat membuat proposal ini
+            success: Proposal berhasil dibuat
+          form:
+            attachment_legend: "(Opsional) Tambahkan lampiran"
+            select_a_category: Pilih Kategori
+          index:
+            actions: Tindakan
+            cancel: Membatalkan
+            change_category: Ubah kategori
+            selected: terpilih
+            title: Proposal
+            update: Memperbarui
+          new:
+            create: Membuat
+            title: Buat proposal
+          update_category:
+            invalid: 'Proposal ini sudah memiliki kategori %{category} : %{proposals}.'
+            select_a_category: Silakan pilih kategori
+            select_a_proposal: Silakan pilih proposal
+            success: 'Proposal berhasil diperbarui ke kategori %{category} : %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: Ada masalah saat mengimpor proposal
+            success: "%{number} proposal berhasil diimpor"
+          new:
+            create: Mengimpor proposal
+            no_components: Tidak ada komponen proposal lain dalam ruang partisipatif ini untuk mengimpor proposal dari.
+            select_component: Silakan pilih komponen
+            select_states: Periksa status proposal untuk diimpor
+        shared:
+          info_proposal:
+            body: Tubuh
+            created_at: Tanggal pembuatan
+            proposal_votes_count: Suara menghitung
+            proposals: Proposal
+      admin_log:
+        proposal:
+          answer: "%{user_name} menjawab %{resource_name} proposal pada %{space_name} ruang"
+          create: "%{user_name} membuat %{resource_name} proposal pada %{space_name} ruang sebagai proposal resmi"
+        proposal_note:
+          create: "%{user_name} meninggalkan catatan pribadi pada %{resource_name} proposal pada %{space_name} ruang"
+      answers:
+        accepted: Diterima
+        evaluating: Mengevaluasi
+        not_answered: Tidak dijawab
+        rejected: Ditolak
+        withdrawn: Ditarik
+      collaborative_drafts:
+        complete:
+          attachment_legend: "(Opsional) Tambahkan lampiran"
+          select_a_category: Silakan pilih kategori
+      create:
+        error: Sudah ada kesalahan saat menyimpan proposal.
+        success: Proposal berhasil dibuat. Disimpan sebagai Draf.
+      destroy_draft:
+        error: Terjadi kesalahan saat menghapus draf proposal.
+        success: Proposal proposal berhasil dihapus.
+      models:
+        proposal:
+          fields:
+            category: Kategori
+            comments: Komentar
+            endorsements: Endorsemen
+            id: ID
+            notes: Catatan
+            official_proposal: Proposal resmi
+            published_at: Diterbitkan di
+            scope: Cakupan
+            state: Negara
+            title: Judul
+            votes: Suara
+      new:
+        limit_reached: Anda tidak dapat membuat proposal baru karena Anda telah melampaui batas.
+      proposal_endorsements:
+        create:
+          error: Sudah ada kesalahan saat mendukung proposal.
+        identities:
+          done: Selesai
+          select_identity: Pilih identitas
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Didukung
+          endorse: Mengesahkan
+        render_endorsements_button_card_part:
+          endorse: Mengesahkan
+      proposal_votes:
+        create:
+          error: Ada kesalahan saat memilih proposal.
+      proposals:
+        compare:
+          mine_is_different: Proposal saya berbeda
+          no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ada proposal serupa yang ditemukan
+          title: Proposal serupa
+        complete:
+          send: Kirim
+          title: Selesaikan proposal Anda
+        edit:
+          attachment_legend: "(Opsional) Tambahkan lampiran"
+          back: Kembali
+          select_a_category: Silakan pilih kategori
+          send: Kirim
+          title: Edit proposal
+        edit_draft:
+          discard: Buang draf ini
+          discard_confirmation: Anda yakin ingin membuang draf proposal ini?
+          send: Preview
+          title: Edit Draf Proposal
+        endorsement_identities_cabin:
+          endorse: Mengesahkan
+        endorsements_card_row:
+          comments: Komentar
+        filters:
+          accepted: Diterima
+          activity: Aktivitas
+          category: Kategori
+          category_prompt: Pilih Kategori
+          evaluating: Mengevaluasi
+          origin: Asal
+          rejected: Ditolak
+          related_to: Berhubungan dengan
+          search: Pencarian
+          state: Negara
+          voted: Dipilih
+        filters_small_view:
+          close_modal: Tutup modal
+          filter: Filter
+          filter_by: Filter berdasarkan
+          unfold: Membuka
+        index:
+          new_proposal: Proposal baru
+          see_all_withdrawn: Lihat semua proposal yang ditarik
+          view_proposal: Lihat proposal
+        linked_proposals:
+          proposal_votes:
+            other: suara
+        new:
+          send: Terus
+          title: Buat Proposal Anda
+        orders:
+          label: 'Memesan proposal dengan:'
+          most_voted: Sebagian besar memilih
+          random: Acak
+          recent: Baru
+        preview:
+          modify: Ubah proposal
+          proposal_edit_before_minutes:
+            other: Anda akan dapat mengedit proposal ini selama %{count} menit pertama setelah proposal diterbitkan. Setelah jendela waktu ini berlalu, Anda tidak akan dapat mengedit proposal.
+          publish: Menerbitkan
+          title: Publikasikan proposal Anda
+        proposal:
+          creation_date: 'Penciptaan: %{date}'
+          view_proposal: Lihat proposal
+        show:
+          edit_proposal: Edit proposal
+          endorsements_list: Daftar Endorsemen
+          proposal_accepted_reason: 'Proposal ini telah diterima karena:'
+          proposal_in_evaluation_reason: Proposal ini sedang dievaluasi
+          proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
+          report: Melaporkan
+          withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
+          withdraw_confirmation: Apakah Anda yakin untuk membatalkan proposal ini?
+          withdraw_proposal: Tarik proposal
+        tags:
+          changed_from: "(diubah dari <u>%{previous_category}</u> oleh administrator)"
+          filed_as: Diarsipkan sebagai
+        vote_button:
+          already_voted: Sudah memilih
+          already_voted_hover: Batalkan suara
+          maximum_votes_reached: Batas suara tercapai
+          no_votes_remaining: Tidak ada suara yang tersisa
+          vote: Memilih
+          votes_blocked: Voting dinonaktifkan
+        votes_count:
+          count:
+            other: SUARA
+          most_popular_proposal: Proposal paling populer
+          need_more_votes: Butuh lebih banyak suara
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Setiap proposal dapat mengumpulkan lebih dari %{limit} dukungan
+          proposal_limit:
+            description: Anda dapat membuat hingga %{limit} proposal.
+          threshold_per_proposal:
+            description: Agar proposal yang divalidasi harus mencapai %{limit} dukungan
+          title: 'Voting tunduk pada aturan berikut:'
+          vote_limit:
+            description: Anda dapat memilih hingga %{limit} proposal.
+            left: Sisa
+            votes: Suara
+        wizard_aside:
+          back: Kembali
+          info: Anda membuat <strong>proposal</strong>.
+        wizard_steps:
+          see_steps: lihat langkah-langkahnya
+          step_1: Buat proposal Anda
+          step_2: Membandingkan
+          step_3: Lengkap
+          step_4: Publikasikan proposal Anda
+          step_of: Langkah %{current_step_num} dari %{total_steps}
+      publish:
+        error: Sudah ada kesalahan saat memublikasikan proposal.
+        success: Proposal berhasil diterbitkan.
+      update:
+        error: Sudah ada kesalahan saat menyimpan proposal.
+        success: Proposal berhasil diperbarui.
+      update_draft:
+        error: Ada kesalahan saat menyimpan draf proposal.
+        success: Proposal proposal berhasil diperbarui.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Proposal terkait
+      included_projects:
+        project_result: 'Hasil yang muncul dalam proyek ini:'
+      included_proposals:
+        proposal_project: 'Proposal yang muncul dalam proyek-proyek ini:'
+        proposal_result: 'Proposal yang muncul dalam hasil ini:'
