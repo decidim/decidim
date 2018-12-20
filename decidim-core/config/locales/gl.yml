@@ -9,7 +9,7 @@ gl:
         about: Acerca de
         email: O teu correo electrónico
         name: O teu nome
-        nickname: O teu identificador breve e único
+        nickname: Alcume
         password: Contrasinal
         password_confirmation: Confirma o teu contrasinal
         personal_url: URL persoal
@@ -36,7 +36,7 @@ gl:
         remember_me: Lémbrame
     models:
       decidim/user:
-        one: Usuario
+        one: Non hai usuarios
         other: Usuarios
       decidim/user_group:
         one: Grupo de usuarios
@@ -196,7 +196,7 @@ gl:
           title: Confirma o teu correo electrónico
     collapsible_list:
       hidden_elements_count:
-        one: e 1 máis
+        one: e %{count} máis
         other: e %{count} máis
       see_less: "(ver menos)"
       see_more: "(Ver máis)"
