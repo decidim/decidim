@@ -9,10 +9,14 @@ id:
         about: Tentang
         email: Email mu
         name: Namamu
+        nickname: Pengenal unik dan pendek Anda
         password: Kata sandi
         password_confirmation: Konfirmasi password Anda
         personal_url: URL pribadi
         remove_avatar: Hapus avatar
+        user_group_document_number: Nomor dokumen organisasi
+        user_group_name: Nama Organisasi
+        user_group_phone: Telepon organisasi
     models:
       decidim/attachment_created_event: Lampiran
       decidim/component_published_event: Komponen aktif
@@ -28,7 +32,12 @@ id:
         password: Kata sandi
         password_confirmation: konfirmasi kata kunci
         remember_me: Ingat saya
+        user_group_document_number: Nomor dokumen organisasi
+        user_group_name: Nama Organisasi
+        user_group_phone: Telepon organisasi
     models:
+      decidim/user:
+        other: Pengguna
       decidim/user_group:
         other: Grup Pengguna
   booleans:
@@ -172,6 +181,8 @@ id:
           ok: Baik
           title: Tidak diizinkan
     collapsible_list:
+      hidden_elements_count:
+        other: dan %{count} lagi
       see_less: "(lihat lebih sedikit)"
       see_more: "(lihat lebih lanjut)"
     components:
@@ -234,6 +245,8 @@ id:
           sign_up: Daftar
           sign_up_as:
             legend: Mendaftar sebagai
+            user: Individu
+            user_group: Organisasi / Kolektif
           subtitle: Mendaftarlah untuk berpartisipasi dalam diskusi dan dukung proposal.
           terms: syarat dan ketentuan penggunaan
           tos_agreement: Dengan mendaftar Anda menyetujui %{link}.
@@ -370,6 +383,7 @@ id:
         invitations:
           description_another: Pengguna ini telah mengundang %{score} pengguna.
           description_own: Anda telah mengundang %{score} pengguna.
+          explanation: Pengguna mendapatkan lencana ini dengan mengundang pengguna lain.
           name: Undangan
           next_level_in: Undang %{score} lebih banyak pengguna untuk mencapai level berikutnya!
           unearned_another: Pengguna ini belum mengundang pengguna apa pun.
@@ -377,6 +391,18 @@ id:
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
       reached_top: Anda telah mencapai level teratas untuk lencana ini.
+    invitations:
+      create:
+        error: Ada beberapa masalah saat mengundang teman-teman Anda
+        error_empty_form: Silakan masukkan beberapa alamat email
+        success: Kami telah mengirim undangan ke teman Anda!
+      index:
+        customize_message: Sesuaikan pesan undangan
+        friend_email: 'Email teman #%{index}'
+        invitations_subtitle: Beri tahu teman Anda tentang situs ini
+        invitations_title: Apakah Anda pikir lebih banyak suara harus didengar di %{organization_name}?
+        invite: Undang
+        visit_your_profile: Kunjungi profil Anda
     log:
       base_presenter:
         create: "%{user_name} dibuat %{resource_name}"
@@ -400,6 +426,7 @@ id:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
     menu:
       home: Rumah
+      more_information: Informasi lebih lanjut
     messaging:
       conversation_mailer:
         new_conversation:
@@ -416,8 +443,12 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
+          from: Dari
+          last_message_html: Pesan terakhir <strong>%{time} lalu</strong>
           no_conversations: Anda belum memiliki percakapan
         show:
+          conversation_with_html: Percakapan dengan <strong>%{name}</strong>
+          reply: Balasan
           send: Kirim
         start:
           send: Kirim
@@ -503,6 +534,8 @@ id:
           votes_count: Suara
         sub_hero:
           register: Daftar
+      index:
+        title: Informasi lebih lanjut
       terms_and_conditions:
         accept:
           error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
@@ -527,6 +560,7 @@ id:
       deleted: Pengguna yang dihapus
       view: Melihat
     profiles:
+      default_officialization_text: Peserta ini diverifikasi secara publik, nama atau perannya telah diverifikasi untuk sesuai dengan nama dan peran aslinya
       show:
         badges: Lencana
         conversations: Percakapan
@@ -561,6 +595,7 @@ id:
     search:
       filter:
         all: Semua
+        component: Komponen
       results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
     searches:
@@ -617,6 +652,7 @@ id:
           Jika Anda tidak ingin menerima undangan, silakan abaikan email ini.<br />
           Akun Anda tidak akan dibuat sampai Anda mengakses tautan di atas dan mengatur nama panggilan dan kata sandi Anda.
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
+        invited_you_as_friend: "%{invited_by} telah mengundang Anda untuk %{application}."
         invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
@@ -625,6 +661,10 @@ id:
         subject: Anda telah diundang untuk mengelola %{organization}
       invite_collaborator:
         subject: Anda telah diundang untuk berkolaborasi pada %{organization}
+      invite_friend:
+        accept_invitation: 'Anda dapat menerima undangan melalui tautan di bawah ini:'
+        friend_custom_text: 'Mereka meninggalkan pesan ini untuk Anda:'
+        subject: Anda telah diundang ke %{organization}
       invite_private_user:
         subject: Anda telah diundang ke proses partisipasi pribadi di %{organization}
       organization_admin_invitation_instructions:
@@ -641,7 +681,11 @@ id:
       content_type_whitelist_error: jenis file tidak valid
       cycle_detected: orang tua ruang lingkup tidak bisa menjadi salah satu keturunannya
       file_size_is_less_than_or_equal_to: ukuran file harus kurang dari atau sama dengan %{count}
+      long_words: mengandung kata-kata yang terlalu panjang
+      must_start_with_caps: harus dimulai dengan topi
       nesting_too_deep: tidak dapat berada di dalam suatu subkategori
+      too_many_marks: menggunakan terlalu banyak nilai
+      too_much_caps: terlalu banyak menggunakan topi
       too_short: terlalu pendek
   forms:
     required: Wajib
@@ -672,6 +716,7 @@ id:
       user_menu:
         admin_dashboard: Dasbor admin
         conversations: Percakapan
+        invite_friends: Mengundang teman-teman
         notifications: Notifikasi
         profile: Akun saya
         public_profile: Profil publik saya
@@ -683,6 +728,7 @@ id:
         my_data: Data saya
         notifications_settings: Pengaturan Notifikasi
         title: Pengaturan pengguna
+        user_groups: Organisasi
       widget:
         see_more: Lihat lebih banyak
   locale:
