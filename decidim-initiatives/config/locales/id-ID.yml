@@ -75,7 +75,10 @@ id:
           email_subject: Tanggal akhir tanda tangan inisiatif diperpanjang!
           notification_title: Tanggal akhir tanda tangan untuk inisiatif <a href="%{resource_path}">%{resource_title}</a> telah diperpanjang.
         milestone_completed:
+          email_intro: Inisiatif %{resource_title} telah mencapai %{percentage}% tanda tangan!
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{resource_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Tonggak baru selesai!
+          notification_title: Inisiatif <a href="%{resource_path}">%{resource_title}</a> telah mencapai %{percentage}% tanda tangan.
     gamification:
       badges:
         initiatives:
