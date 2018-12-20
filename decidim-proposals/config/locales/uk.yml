@@ -242,6 +242,10 @@ uk:
         not_answered: Без відповідей
         rejected: Відхилено
         withdrawn: Відкликана
+      collaborative_drafts:
+        complete:
+          attachment_legend: "(Необов'язково) Додати вкладений файл"
+          select_a_category: Будь ласка, виберіть категорію
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
