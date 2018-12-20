@@ -9,7 +9,7 @@ nl:
         about: Over
         email: Je e-mailadres
         name: Uw naam
-        nickname: Jouw korte unieke ID
+        nickname: Bijnaam
         password: Wachtwoord
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
@@ -36,7 +36,7 @@ nl:
         remember_me: Blijf ingelogd
     models:
       decidim/user:
-        one: Gebruiker
+        one: Geen gebruikers
         other: gebruikers
       decidim/user_group:
         one: Gebruikersgroep
@@ -196,7 +196,7 @@ nl:
           title: bevestig je email
     collapsible_list:
       hidden_elements_count:
-        one: en nog 1
+        one: en %{count} meer
         other: en %{count} meer
       see_less: "(zie minder)"
       see_more: "(Bekijk meer)"
