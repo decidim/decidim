@@ -73,6 +73,8 @@ tr:
         create:
           error: Yeni bir danışma oluştururken bir hata oluştu.
           success: Danışmanlık başarıyla oluşturuldu.
+        destroy:
+          success: Danışmanlık başarıyla silindi.
         edit:
           update: Güncelleştirme
         form:
