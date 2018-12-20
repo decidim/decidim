@@ -295,10 +295,8 @@ en:
           primary: You can move the point on the map.
           secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
-          address: Address
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          not_geocoded: Not geocoded
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
@@ -349,8 +347,6 @@ en:
           most_voted: Most voted
           random: Random
           recent: Recent
-        placeholder:
-          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           address: 'Address : %{address}'
           modify: Modify the proposal

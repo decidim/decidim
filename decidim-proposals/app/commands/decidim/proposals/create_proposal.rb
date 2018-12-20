@@ -43,7 +43,9 @@ module Decidim
         @proposal = Proposal.create!(
           title: form.title,
           body: form.body,
-          component: form.component
+          component: form.component,
+          author: @current_user,
+          user_group: @user_group
         )
       end
 

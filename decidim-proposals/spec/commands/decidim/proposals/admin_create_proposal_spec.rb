@@ -39,7 +39,7 @@ module Decidim
           end
 
           let(:command) do
-            described_class.new(form, user)
+            described_class.new(form)
           end
 
           describe "when the form is not valid" do
