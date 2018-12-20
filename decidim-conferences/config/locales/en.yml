@@ -42,9 +42,6 @@ en:
       decidim/conference_speaker:
         one: Conference speaker
         other: Conference speakers
-      decidim/conference_user_role:
-        one: No conference user roles
-        other: Conference user roles
   decidim:
     admin:
       actions:
