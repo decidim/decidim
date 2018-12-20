@@ -242,6 +242,10 @@ ru:
         not_answered: Без ответов
         rejected: Отклонено
         withdrawn: Отозван
+      collaborative_drafts:
+        complete:
+          attachment_legend: "(Необязательно) Прикрепить файл"
+          select_a_category: Пожалуйста, выберите категорию
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -287,12 +291,6 @@ ru:
         complete:
           send: Отправить
           title: Завершите свое предложение
-        count:
-          proposals_count:
-            one: 1 предложение
-            few: "%{count} предложения"
-            many: "%{count} предложений"
-            other: "%{count} предложений"
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
