@@ -9,7 +9,7 @@ it:
         about: Di
         email: La tua email
         name: Il tuo nome
-        nickname: Il tuo identificatore breve e univoco
+        nickname: soprannome
         password: Parola d'ordine
         password_confirmation: Conferma la tua password
         personal_url: URL personale
@@ -36,7 +36,7 @@ it:
         remember_me: Ricordare password
     models:
       decidim/user:
-        one: Utente
+        one: Nessun utente
         other: utenti
       decidim/user_group:
         one: Gruppo di utenti
@@ -196,7 +196,7 @@ it:
           title: conferma la tua email
     collapsible_list:
       hidden_elements_count:
-        one: e 1 altro
+        one: e altri %{count}
         other: e altri %{count}
       see_less: "(vedi meno)"
       see_more: "(Vedi altro)"
