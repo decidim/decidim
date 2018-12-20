@@ -122,9 +122,9 @@ es:
           user_followers:
             email_intro: |-
               Hola,
-              %{author_name} %{author_nickname}, a quien está siguiendo, ha creado un nuevo debate "%{resource_title}". Échale un vistazo y contribuye:
+              %{author_name} %{author_nickname}, a quien estás siguiendo, ha creado un nuevo debate "%{resource_title}". Échale un vistazo y contribuye:
             email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Nuevo debate "%{resource_title}" por %{author_nickname}
+            email_subject: Nuevo debate "%{resource_title}" de %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creó el debate <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La creación de debate ya no está activa en %{participatory_space_title}. Aún puede participar en debates abiertos desde esta página:'
@@ -150,6 +150,6 @@ es:
           unearned_own: Aún no has participado en ningún debate.
     metrics:
       debates:
-        description: Número de debates creados.
+        description: Número de debates creados
         object: debates
         title: Debates
