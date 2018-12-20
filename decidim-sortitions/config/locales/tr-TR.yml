@@ -1,1 +1,7 @@
 tr:
+  decidim:
+    sortitions:
+      sortitions:
+        show:
+          candidate_proposals_info: 'Sıralama, aşağıdaki kimliklerle (seçilen tekliflerin kalınlığında) aşağıdaki teklifler (%{category_label}) arasında gerçekleştirilmiştir. '
+          introduction: 'Bu sayfa sıralama %{reference}sonuçlarını içermektedir. Bu sıralama ile %{target_items} adet sonuç rasgele seçildi ve görüntülenen teklif kümesinden eşit bir olasılık dağılımı ile seçildi. Sonuçlarla birlikte, bu sayfada görüntülenen bilgiler garantileri en üst düzeye çıkarmak ve sonuçları çoğaltmak için gereken tüm bilgileri sağlar. Bu sıralamadaki kalitenin anahtarı, bir zarın (tanıkların doğruladığı) yuvarlanması ve rastgele seçim yaratan bir algoritma için girdi sağlayan sıralama işleminin kesin zamanı tarafından sağlanan çifte rastlantısallıktır. Sıralama için zaman-tohumu o kadar kesin (saniye) ki, insanlar tarafından kontrol edilmenin imkânsız olduğu ve böylece adil bir sonucu garantilemek için çifte "kontrol edilemez" bir girdi sağlandığı. '
