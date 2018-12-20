@@ -9,7 +9,6 @@ ru:
         about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
-        nickname: Ваш короткий, уникальный псевдоним
         password: Пароль
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
@@ -28,11 +27,6 @@ ru:
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
     models:
-      decidim/user:
-        one: Участник
-        few: Участника
-        many: Участников
-        other: Участников
       decidim/user_group:
         one: Группа участников
         few: Группы участников
@@ -184,11 +178,6 @@ ru:
           ok: Хорошо
           title: Не подтвердили свою личность
     collapsible_list:
-      hidden_elements_count:
-        one: и еще 1
-        few: и еще %{count}
-        many: и еще %{count}
-        other: и еще %{count}
       see_less: "(читать меньше)"
       see_more: "(читать подробнее)"
     components:
