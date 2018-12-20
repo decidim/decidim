@@ -250,7 +250,6 @@ es-PY:
           sign_up: Regístrate
           sign_up_as:
             legend: Inscribirse como
-            user: Individual
             user_group: Organización/Colectivo
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
@@ -595,7 +594,7 @@ es-PY:
       scopes: Ámbitos
     search:
       filter:
-        all: Todo
+        all: Todas
         component: Componente
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
