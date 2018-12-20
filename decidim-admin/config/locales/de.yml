@@ -468,6 +468,7 @@ de:
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
+          title: Benutzer "%{name}" offiziellisieren
       organization:
         edit:
           title: Organisation bearbeiten
