@@ -39,6 +39,18 @@ module Decidim
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(meeting.description))
         renderer.render.html_safe
       end
+
+      def title_with_locales
+        return unless meeting
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(meeting.title)
+        renderer.render_without_link
+      end
+
+      def description_with_locales
+        return unless meeting
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(meeting.description)
+        renderer.render_without_link
+      end
     end
   end
 end

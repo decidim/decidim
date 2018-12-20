@@ -645,7 +645,7 @@ nl:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
           minimum_votes_per_user:
-            description: U moet minimaal 3 stemmen verdelen over verschillende voorstellen.
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
             given_enough_votes: Je hebt voldoende steun gegeven.
             supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
           proposal_limit:

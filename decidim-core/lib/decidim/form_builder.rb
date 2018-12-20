@@ -36,15 +36,9 @@ module Decidim
     #
     # Renders form fields for each locale.
     def translated(type, name, options = {})
-      if locales.count == 1
-        return send(
-          type,
-          "#{name}_#{locales.first.to_s.gsub("-", "__")}",
-          options.merge(label: options[:label] || label_for(name))
-        )
-      end
+      return translated_one_locale(type, name, locales.first, options.merge(label: (options[:label] || label_for(name)))) if locales.count == 1
 
-      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         field_label = label_i18n(name, options[:label] || label_for(name))
@@ -57,7 +51,7 @@ module Decidim
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
                 element_class = nil
                 element_class = "is-tab-error" if error?(name_with_locale(name, locale))
-                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
                 content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
               end
             end
@@ -72,9 +66,7 @@ module Decidim
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             if options[:hashtaggable]
-              content_tag(:div, class: "hashtags__container") do
-                send(type, name_with_locale(name, locale), options.merge(label: false))
-              end
+              hashtaggable_text_field(type, name, locale, options.merge(label: false))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -83,6 +75,32 @@ module Decidim
       end
 
       safe_join [label_tabs, tabs_content]
+    end
+
+    def translated_one_locale(type, name, locale, options = {})
+      return hashtaggable_text_field(type, name, locale, options.merge(value: options[:value])) if options[:hashtaggable]
+      send(
+        type,
+        "#{name}_#{locale.to_s.gsub("-", "__")}",
+        options.merge(label: options[:label] || label_for(name))
+      )
+    end
+
+    # Public: Generates a field for hashtaggable type.
+    # type - The form field's type, like `text_area` or `text_input`
+    # name - The name of the field
+    # handlers - The social handlers to be created
+    # options - The set of options to send to the field
+    #
+    # Renders form fields for each locale.
+    def hashtaggable_text_field(type, name, locale, options = {})
+      content_tag(:div, class: "hashtags__container") do
+        if options[:value]
+          send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
+        else
+          send(type, name_with_locale(name, locale), options.merge(label: options[:label]))
+        end
+      end
     end
 
     # Public: Generates an form field for each social.
@@ -94,7 +112,7 @@ module Decidim
     #
     # Renders form fields for each locale.
     def social_field(type, name, handlers, options = {})
-      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         field_label = label_i18n(name, options[:label] || label_for(name))
@@ -105,7 +123,7 @@ module Decidim
             handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}")
-                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
                 content_tag(:a, title, href: "##{tab_content_id}")
               end
             end
@@ -117,7 +135,7 @@ module Decidim
 
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
-          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+          tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             send(type, "#{handler}_handler", options.merge(label: false))
           end
@@ -608,6 +626,10 @@ module Decidim
 
     def ruby_format_to_datepicker(ruby_date_format)
       ruby_date_format.gsub("%d", "dd").gsub("%m", "mm").gsub("%Y", "yyyy").gsub("%H", "hh").gsub("%M", "ii")
+    end
+
+    def sanitize_tabs_selector(id)
+      id.tr("[", "-").tr("]", "-")
     end
   end
 end

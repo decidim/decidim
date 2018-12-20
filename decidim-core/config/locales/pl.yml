@@ -785,7 +785,7 @@ pl:
       scopes: Zakresy
     search:
       filter:
-        all: Wszystko
+        all: Wszystkie
         component: Składnik
       results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
       term_input_placeholder: Szukaj

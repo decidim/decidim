@@ -635,7 +635,7 @@ ca:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
-            description: Has de distribuir un mínim de 3 suports entre diferents propostes.
+            description: Heu de distribuir un mínim de %{votes} vots entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
           proposal_limit:

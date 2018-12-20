@@ -146,7 +146,7 @@ de:
           notification_title: Sie können nun beginnen <a href="%{resource_path}">Vorschläge befürworten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
         proposal_endorsed:
@@ -156,7 +156,7 @@ de:
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>gebilligt.
         proposal_evaluating:
           email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
         proposal_mentioned:
@@ -170,12 +170,12 @@ de:
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{partizipatory_space_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Neuer Vorschlag wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         proposal_rejected:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
         proposal_update_category:
@@ -643,7 +643,7 @@ de:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
           minimum_votes_per_user:
-            description: Sie müssen mindestens 3 Stimmen unter verschiedenen Vorschlägen verteilen.
+            description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
             given_enough_votes: Du hast genug Unterstützung gegeben.
             supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:

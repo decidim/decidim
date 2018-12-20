@@ -53,6 +53,26 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.15-stable)
+
+**Fixed**:
+
+- **decidim-meetings**: Fix meetings form when only one locale is available [\#4625](https://github.com/decidim/decidim/pull/4625)
+- **decidim-core**: Update Ransack to make it work with Rails 5.2.2 [\#4683](https://github.com/decidim/decidim/pull/4683)
+- **decidim-core**: Remove `current_feature` [\#4680](https://github.com/decidim/decidim/pull/4680)
+- **decidim-meetings**: Filter meeting by end time instead of start time [\#4703](https://github.com/decidim/decidim/pull/4703)
+
+## [0.15.1](https://github.com/decidim/decidim/tree/v0.15.1)
+
+**Fixed**:
+
+- **decidim-meetings**: Change title to description in meetings admin form. [\#4484](https://github.com/decidim/decidim/pull/4484)
+- **decidim-meetings**: Fix title and description fields in admin form. [\#4547](https://github.com/decidim/decidim/pull/4547)
+- **decidim-proposals**: Fix vote-rerendering on a proposal's page [\#4558](https://github.com/decidim/decidim/pull/4558)
+- **decidim-admin**: Fix image updating in content blocks [\#4561](https://github.com/decidim/decidim/pull/4561)
+- **decidim-core**: Fix tabs with inputs with invalid characters [\#4561](https://github.com/decidim/decidim/pull/4561)
+
+## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
 
 **Upgrade notes**:
 
@@ -451,7 +471,6 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Fixed**:
 
-- **decidim-meetings**: Change title to description in meetings admin form. [\#4484](https://github.com/decidim/decidim/pull/4484)
 - **decidim-assemblies**: Add parent when duplicating child assembly. [\#4371](https://github.com/decidim/decidim/pull/4371)
 - **decidim-assemblies**: Add paginate on admin site assembly members. [\#4369](https://github.com/decidim/decidim/pull/4369)
 - **decidim-admin**: Adds traceability when creating and deleting Participatory Space private user [\#4332](https://github.com/decidim/decidim/pull/4332)
@@ -465,7 +484,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-debates**: Fix create debates as a normal user in a private space [\4108](https://github.com/decidim/decidim/pull/4108)
 - **decidim-admin**: English locale now uses a consistent date format (UK style everywhere). [\#3724](https://github.com/decidim/decidim/pull/3724)
 - **decidim**: Fix crashes when sending incorrectly formatted dates to forms with date fields. [\#3724](https://github.com/decidim/decidim/pull/3724)
-- **decidim-proposals**: Fix hashtags on title when showing proposals related. [\4081](https://github.com/decidim/decidim/pull/4081)
+- **decidim-proposals**: Fix hashtags on title when showing proposals related. [\#4081](https://github.com/decidim/decidim/pull/4081)
 - **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
 - **decidim-core**: Fix default content block creation migration [\#4084](https://github.com/decidim/decidim/pull/4084)
 - **decidim-generators**: Bootsnap warnings when generating test applications [\#4098](https://github.com/decidim/decidim/pull/4098)
@@ -486,7 +505,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Thread safe locale switching [\#4237](https://github.com/decidim/decidim/pull/4237)
 - **decidim-core**: Don't crash when given wrong format at pages [\#4314](https://github.com/decidim/decidim/pull/4314)
 - **decidim-initiatives**: Fix initiative search with multiple types [\#4322](https://github.com/decidim/decidim/pull/4322)
-- **decidim-debates**: Fix debate search with categories [\4313](https://github.com/decidim/decidim/pull/4313)
+- **decidim-debates**: Fix debate search with categories [\#4313](https://github.com/decidim/decidim/pull/4313)
 - **decidim-core**: Fix events for polymorphic authors [\#4387](https://github.com/decidim/decidim/pull/4387)
 
 **Removed**:

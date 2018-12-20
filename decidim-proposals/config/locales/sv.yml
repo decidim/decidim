@@ -636,7 +636,7 @@ sv:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
           minimum_votes_per_user:
-            description: Du måste distribuera minst 3 röster bland olika förslag.
+            description: Du måste distribuera minst %{votes} röster mellan olika förslag.
             given_enough_votes: Du har gett tillräckligt med stöd.
             supports_remaining: Du måste rösta %{remaining_votes} ytterligare förslag för att dina röster ska beaktas.
           proposal_limit:

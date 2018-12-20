@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -192,8 +191,8 @@ en:
       badges:
         accepted_proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: You got %{score} proposals accepted.
@@ -203,8 +202,8 @@ en:
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
-          - Browse and spend some time reading other people's proposals
-          - Give support to the proposals you like or find interesting
+            - Browse and spend some time reading other people's proposals
+            - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
           description_another: This user has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -214,8 +213,8 @@ en:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Create a new proposal
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.
@@ -396,8 +395,8 @@ en:
           title: Complete your collaborative draft
         count:
           drafts_count:
-            one: 1 collaborative draft
-            other: "%{count} collaborative drafts"
+            one: '%{count} collaborative draft'
+            other: "%{count} collaborative draft"
         create:
           error: There's been a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
@@ -451,7 +450,7 @@ en:
           final_proposal: final proposal
           final_proposal_help_text: This draft is finished. You can see the final finished proposal
           hidden_authors_count:
-            one: and 1 more person
+            one: and %{count} more person
             other: and %{count} more people
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           of_versions: "(of %{number})"
@@ -534,7 +533,7 @@ en:
           title: Complete your proposal
         count:
           proposals_count:
-            one: 1 proposal
+            one: '%{count} proposal'
             other: "%{count} proposals"
         edit:
           attachment_legend: "(Optional) Add an attachment"
@@ -603,7 +602,7 @@ en:
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
           hidden_endorsers_count:
-            one: and 1 more person
+            one: and %{count} more people
             other: and %{count} more people
           link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
           link_to_collaborative_draft_text: See the collaborative draft

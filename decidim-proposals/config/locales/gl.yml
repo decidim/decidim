@@ -637,7 +637,7 @@ gl:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios
           minimum_votes_per_user:
-            description: Debes distribuír un mínimo de 3 votos entre diferentes propostas.
+            description: Debes distribuír un mínimo de %{votes} votos entre diferentes propostas.
             given_enough_votes: Dicho soporte.
             supports_remaining: Tes que votar máis %{remaining_votes} propostas para que os teus votos sexan tidos en conta.
           proposal_limit:

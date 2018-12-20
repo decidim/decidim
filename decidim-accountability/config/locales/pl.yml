@@ -216,7 +216,7 @@ pl:
           results: Wyniki
     participatory_spaces:
       highlighted_results:
-        results: Wyniki
+        results: wyniki
         see_all_results: Zobacz wszystkie wyniki
     resource_links:
       included_projects:

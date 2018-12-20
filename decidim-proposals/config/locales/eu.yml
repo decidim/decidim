@@ -238,7 +238,7 @@ eu:
           proposals: proposamenak
     participatory_spaces:
       highlighted_proposals:
-        proposals: proposamenak
+        proposals: Proposamenak
         see_all_proposals: Ikusi proposamen guztiak
     proposals:
       actions:
@@ -636,7 +636,7 @@ eu:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
           minimum_votes_per_user:
-            description: Gutxienez 3 boto eman behar dituzu proposamen desberdinen artean.
+            description: Gutxienez %{votes} boto eman behar dituzu proposamen desberdinen artean.
             given_enough_votes: Onartutako euskarri guztiak eman dituzu.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:

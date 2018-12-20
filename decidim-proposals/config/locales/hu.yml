@@ -636,7 +636,7 @@ hu:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
           minimum_votes_per_user:
-            description: A különböző javaslatok között legalább 3 szavazatot kell elosztanod.
+            description: A különböző javaslatok között legalább %{votes} szavazatot kell elosztania.
             given_enough_votes: Elég támogatást kapott a javaslatod.
             supports_remaining: Meg kell szavaznod %{remaining_votes} további javaslatot hogy a szavazataid figyelembe vételre kerüljenek.
           proposal_limit:

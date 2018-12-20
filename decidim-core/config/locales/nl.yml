@@ -617,7 +617,7 @@ nl:
         show:
           conversation_with_html: Gesprek met <strong>%{name}</strong>
           reply: Beantwoorden
-          send: Sturen
+          send: Verzenden
         start:
           send: Verzenden
           title: Een gesprek beginnen
@@ -745,7 +745,7 @@ nl:
         following: volgt
         groups: groepen
         members: leden
-        notifications: meldingen
+        notifications: Meldingen
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
