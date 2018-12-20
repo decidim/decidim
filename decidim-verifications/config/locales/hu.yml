@@ -1,6 +1,11 @@
 hu:
   activemodel:
     attributes:
+      config:
+        available_methods: Elérhető módszerek
+        offline: Offline
+        offline_explanation: Az offline ellenőrzésre vonatkozó utasítások
+        online: Online
       id_document_information:
         document_number: Dokumentum száma (betűvel)
         document_type: A dokumentum típusa
@@ -9,6 +14,8 @@ hu:
         document_type: Dokumentumod típusa
         user: Felhasználó
         verification_attachment: Dokumentumod szkennelt példánya
+      offline_confirmation:
+        email: Felhasználói e-mail
       postal_letter_address:
         full_address: Teljes lakcím
       postal_letter_confirmation:
