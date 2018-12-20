@@ -9,7 +9,7 @@ fi:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Oma yksilöllinen käyttäjätunnuksesi
+        nickname: Nimimerkki
         password: Salasana
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
@@ -36,8 +36,8 @@ fi:
         remember_me: Muista minut
     models:
       decidim/user:
-        one: Käyttäjä
-        other: Käyttäjät
+        one: Ei käyttäjiä
+        other: Käyttäjää
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -196,7 +196,7 @@ fi:
           title: Vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
-        one: ja 1 lisää
+        one: ja %{count} lisää
         other: ja %{count} lisää
       see_less: "(näytä vähemmän)"
       see_more: "(näytä enemmän)"
