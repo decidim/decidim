@@ -25,6 +25,27 @@
     <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>
 
+  <div class="fieldset">
+    <h4><%= t(".smtp_settings") %></h4>
+    <%= f.fields_for :smtp_settings do |fields| %>
+      <div class="field">
+        <%= f.email_field :mail_from %>
+      </div>
+      <div class="field">
+        <%= f.text_field :username %>
+      </div>
+      <div class="field">
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.text_field :hostname %>
+      </div>
+      <div class="field">
+        <%= f.number_field :port %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit t("decidim.system.actions.save") %>
   </div>

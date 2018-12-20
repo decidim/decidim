@@ -46,6 +46,7 @@ module Decidim
         organization.secondary_hosts = form.clean_secondary_hosts
         organization.available_authorizations = form.clean_available_authorizations
         organization.users_registration_mode = form.users_registration_mode
+        organization.smtp_settings = form.smtp_settings
 
         organization.save!
       end

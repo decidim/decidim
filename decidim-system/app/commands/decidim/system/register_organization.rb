@@ -54,6 +54,7 @@ module Decidim
           users_registration_mode: form.users_registration_mode,
           badges_enabled: true,
           default_locale: form.default_locale,
+          smtp_settings: form.smtp_settings,
           send_welcome_notification: true
         )
       end

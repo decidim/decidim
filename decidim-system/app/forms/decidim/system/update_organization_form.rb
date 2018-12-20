@@ -8,6 +8,7 @@ module Decidim
     #
     class UpdateOrganizationForm < Form
       include TranslatableAttributes
+      include JsonbAttributes
 
       mimic :organization
 
@@ -16,6 +17,7 @@ module Decidim
       attribute :secondary_hosts, String
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
+      jsonb_attribute :smtp_settings, [:mail_from, :username, :password, :hostname, :port]
 
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
