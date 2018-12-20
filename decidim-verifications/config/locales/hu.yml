@@ -20,6 +20,11 @@ hu:
     admin:
       menu:
         authorization_workflows: Ellenőrzések
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ellenőrzött %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +75,13 @@ hu:
           other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Azonosító dokumentumok konfigurálása
+              update: frissítés
+            update:
+              error: Hiba történt a konfiguráció frissítésében.
+              success: A konfiguráció sikeresen frissült
           confirmations:
             create:
               error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
@@ -78,19 +90,36 @@ hu:
               introduce_user_data: Add meg a képen látható adatokat
               reject: Elutasít
               verify: Ellenőrzés
+          offline_confirmations:
+            create:
+              error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
+              success: A felhasználó sikeresen ellenőrizte
+            new:
+              cancel: Megszünteti
+              introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
+              verify: Ellenőrizze
           pending_authorizations:
             index:
+              config: config
+              offline_verification: Offline ellenőrzés
               title: Folyamatban lévő ellenőrzések
               verification_number: 'Ellenőrzés #%{n}'
           rejections:
             create:
               success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
+          choose:
+            choose_a_type: "Kérjük, adja meg, hogy miként szeretné ellenőrizni:"
+            offline: Offline
+            online: Online
+            title: Ellenőrizze magát személyazonosító okmányával
           create:
             error: Hiba történt a dokumentum feltöltése során
             success: Dokumentum feltöltése sikeres
           edit:
             being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
+            offline: Az offline ellenőrzés használata
+            online: Online ellenőrzés használatával
             rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
             rejection_correctness: Győződjön meg a megadott adatok helyességéről
             rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra
