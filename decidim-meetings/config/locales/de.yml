@@ -355,8 +355,8 @@ de:
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           remaining_slots:
-            one: 1 Steckplatz übrig
-            other: "%{count} freie Plätze"
+            one: '%{count} Slot bleibt übrig'
+            other: "Noch %{count} Slots"
           view: Aussicht
       meetings_map:
         view_meeting: Besprechung anzeigen
