@@ -20,6 +20,11 @@ pl:
     admin:
       menu:
         authorization_workflows: Weryfikacje
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} zaktualizowano konfigurację weryfikacji dokumentów tożsamości"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} zweryfikowanych %{resource_name} przy użyciu weryfikacji dokumentów tożsamości offline"
     authorization_handlers:
       admin:
         id_documents:
@@ -72,6 +77,13 @@ pl:
           other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Konfiguracja dokumentów tożsamości
+              update: Aktualizacja
+            update:
+              error: Wystąpił błąd podczas aktualizowania konfiguracji.
+              success: Konfiguracja została pomyślnie zaktualizowana
           confirmations:
             create:
               error: Weryfikacja nie pasuje. Spróbuj ponownie lub odrzuć weryfikację, aby użytkownik mógł ją poprawić
@@ -80,19 +92,36 @@ pl:
               introduce_user_data: Przedstaw dane w obrazie
               reject: Odrzucać
               verify: Zweryfikować
+          offline_confirmations:
+            create:
+              error: Weryfikacja nie pasuje. Spróbuj ponownie lub powiedz użytkownikowi, aby to poprawił
+              success: Użytkownik pomyślnie zweryfikowany
+            new:
+              cancel: Anuluj
+              introduce_user_data: Przedstaw adres e-mail użytkownika i dane dokumentu
+              verify: Zweryfikować
           pending_authorizations:
             index:
+              config: Config
+              offline_verification: Weryfikacja offline
               title: Oczekujące weryfikacje
               verification_number: 'Weryfikacja # %{n}'
           rejections:
             create:
               success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o zmianę swoich dokumentów
         authorizations:
+          choose:
+            choose_a_type: "Wybierz sposób weryfikacji:"
+            offline: Offline
+            online: online
+            title: Zweryfikuj się, używając swojego dokumentu tożsamości
           create:
             error: Podczas przesyłania dokumentu wystąpił problem
             success: Dokument przesłany pomyślnie
           edit:
             being_reviewed: Sprawdzamy Twoje dokumenty. Wkrótce zostaniesz zweryfikowany
+            offline: Użyj weryfikacji offline
+            online: Użyj weryfikacji online
             rejection_clarity: Upewnij się, że informacje są wyraźnie widoczne w przesłanym obrazie
             rejection_correctness: Upewnij się, że wprowadzone informacje są poprawne
             rejection_notice: Wystąpił problem z Twoją weryfikacją. Proszę spróbuj ponownie
