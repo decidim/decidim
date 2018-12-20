@@ -9,7 +9,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Votre pseudonyme
+        nickname: Surnom
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -36,7 +36,7 @@ fr:
         remember_me: Retenir le mot de passe
     models:
       decidim/user:
-        one: Utilisateur
+        one: Aucun utilisateur
         other: Utilisateurs
       decidim/user_group:
         one: Groupe d'utilisateurs
@@ -196,8 +196,8 @@ fr:
           title: confirmez votre email
     collapsible_list:
       hidden_elements_count:
-        one: et 1 de plus
-        other: et %{count} de plus
+        one: et %{count} plus
+        other: et %{count} plus
       see_less: "(voir moins)"
       see_more: "(voir plus)"
     components:
