@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -10,14 +9,11 @@ en:
         about: About
         email: Your email
         name: Your name
-        nickname: Your short, unique identifier
+        nickname: Nickname
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -33,12 +29,9 @@ en:
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/user:
-        one: User
+        one: No users
         other: Users
       decidim/user_group:
         one: User group
@@ -187,7 +180,7 @@ en:
           title: Not authorized
     collapsible_list:
       hidden_elements_count:
-        one: and 1 more
+        one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
       see_more: "(see more)"
@@ -251,8 +244,6 @@ en:
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
-            user: Individual
-            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
@@ -389,7 +380,6 @@ en:
         invitations:
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.
-          explanation: Users get this badge by inviting other users.
           name: Invitations
           next_level_in: Invite %{score} more users to reach the next level!
           unearned_another: This user hasn't invited any user yet.
@@ -398,17 +388,8 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     invitations:
-      create:
-        error: There were some problems while inviting your friends
-        error_empty_form: Please enter some email addresses
-        success: We've sent the invites to your friends!
       index:
-        customize_message: Customize the invitation message
-        friend_email: 'Friend #%{index} email'
-        invitations_subtitle: Let your friends know about this site
-        invitations_title: Do you think more voices should be heard in %{organization_name}?
         invite: Invite
-        visit_your_profile: Visit your profile
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -658,7 +639,6 @@ en:
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
-        invited_you_as_friend: "%{invited_by} has invited you to %{application}."
         invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
@@ -667,10 +647,6 @@ en:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
-      invite_friend:
-        accept_invitation: 'You can accept the invitation through the link below:'
-        friend_custom_text: 'They left this message for you:'
-        subject: You've been invited to %{organization}
       invite_private_user:
         subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
@@ -687,11 +663,7 @@ en:
       content_type_whitelist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      long_words: contains words that are too long
-      must_start_with_caps: must start with caps
       nesting_too_deep: can't be inside of a subcategory
-      too_many_marks: is using too many marks
-      too_much_caps: is using too much caps
       too_short: is too short
   forms:
     required: Required
@@ -722,7 +694,6 @@ en:
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
-        invite_friends: Invite friends
         notifications: Notifications
         profile: My account
         public_profile: My public profile
@@ -734,7 +705,6 @@ en:
         my_data: My data
         notifications_settings: Notifications settings
         title: User settings
-        user_groups: Organizations
       widget:
         see_more: See more
   locale:
