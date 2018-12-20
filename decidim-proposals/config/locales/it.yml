@@ -388,14 +388,14 @@ it:
           no_similars_found: Molto bene! Nessuna bozza collaborativa simile trovata
           title: Bozze collaborative simili
         complete:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
-          select_a_category: Si prega di selezionare una categoria
+          attachment_legend: "(Opzionale) Aggiungere un allegato"
+          select_a_category: Seleziona una categoria
           send: Inviare
           title: Completa la tua bozza collaborativa
         count:
           drafts_count:
-            one: 1 progetto collaborativo
-            other: "%{count} bozze collaborative"
+            one: '%{count} bozza collaborativa'
+            other: "%{count} bozza collaborativa"
         create:
           error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
@@ -449,7 +449,7 @@ it:
           final_proposal: proposta finale
           final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
           hidden_authors_count:
-            one: e 1 altra persona
+            one: e %{count} altra persona
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
           of_versions: "(di %{number})"
@@ -532,7 +532,7 @@ it:
           title: Completa la tua proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} proposte"
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
