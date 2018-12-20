@@ -1,1 +1,71 @@
 tr:
+  activemodel:
+    attributes:
+      survey_question:
+        mandatory: Zorunlu
+        max_choices: Maksimum seçim sayısı
+        question_type: tip
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: tamamlanmadı
+              too_many: çok fazla
+  decidim:
+    forms:
+      errors:
+        survey_answer:
+          body: Vücut boş bırakılamaz
+    surveys:
+      admin:
+        models:
+          components:
+            description: Açıklama
+            tos: Kullanım Şartları
+        surveys:
+          answer_option:
+            answer_option: Cevap seçeneği
+            free_text: Ücretsiz Metin
+            remove: Kaldır
+            statement: Beyan
+          edit:
+            save: Kayıt etmek
+            title: Başlık
+          form:
+            add_question: Soru ekle
+            already_answered_warning: Anket, bazı kullanıcılar tarafından zaten yanıtlanmıştır, bu yüzden sorularını değiştiremezsiniz.
+          question:
+            add_answer_option: Cevap ekle seçeneği
+            any: herhangi
+            description: Açıklama
+            down: Aşağı
+            question: Soru
+            remove: Kaldır
+            statement: Beyan
+            up: yukarı
+      question_types:
+        long_answer: Uzun cevap
+        multiple_option: Çoklu seçenek
+        short_answer: Kısa cevap
+        single_option: Tek seçenek
+        sorting: sınıflandırma
+      surveys:
+        question:
+          max_choices: 'Maksimum seçim sayısı: %{n}'
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Anketi cevaplamak için hesabınıza giriş yapın</a> veya <a href="%{sign_up_link}">üye olun</a>.
+            title: Ankete cevap verin
+          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
+          submit: Gönder
+          survey_answered:
+            body: Bu anketi zaten yanıtladı.
+            title: Anket cevaplandı
+          survey_closed:
+            body: Anket kapatıldı ve cevaplanamadı.
+            title: Anket kapatıldı
+          survey_for_private_users:
+            body: Anket sadece özel kullanıcılar için kullanılabilir
+            title: Anket kapatıldı
+          tos_agreement: Bu ankete katılarak Hizmet Şartlarını kabul etmiş oluyorsunuz.
