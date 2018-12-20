@@ -1,6 +1,11 @@
 gl:
   activemodel:
     attributes:
+      config:
+        available_methods: Métodos dispoñibles
+        offline: Desconectado
+        offline_explanation: Instrucións para a verificación sen conexión
+        online: En liña
       id_document_information:
         document_number: Número do documento (con letra)
         document_type: Tipo do documento
@@ -9,6 +14,8 @@ gl:
         document_type: Tipo do documento
         user: Usuario
         verification_attachment: Copia escaneada do documento
+      offline_confirmation:
+        email: Correo electrónico do usuario
       postal_letter_address:
         full_address: Enderezo completo
       postal_letter_confirmation:
