@@ -1,1 +1,188 @@
 tr:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Mevcut yöntemler
+        offline: Çevrimdışı
+        offline_explanation: Çevrimdışı doğrulama için talimatlar
+        online: İnternet üzerinden
+      id_document_information:
+        document_number: Belge numarası (harf ile)
+        document_type: Belgenin türü
+      id_document_upload:
+        document_number: Belge numarası (harf ile)
+        document_type: Belgenizin tipi
+        user: kullanıcı
+        verification_attachment: Belgenizin taranmış kopyası
+      offline_confirmation:
+        email: Kullanıcı e-postası
+      postal_letter_address:
+        full_address: Açık adres
+      postal_letter_confirmation:
+        verification_code: Doğrulama kodu
+      postal_letter_postage:
+        full_address: Açık adres
+        verification_code: Doğrulama kodu
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Doğrulama
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} Kimlik Belgeleri doğrulama yapılandırmasını güncelledi"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} bir çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} doğrulandı"
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
+            - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
+            - Bilgi, kullanıcının doldurduğu her şeyle eşleşmelidir.
+            - Bilgileri açıkça göremiyorsanız veya doğrulamıyorsanız, isteği reddedebilirsiniz ve kullanıcı bunu düzeltebilir.
+        postal_letter:
+          help:
+            - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.
+            - Mektubu adreslerine doğrulama koduyla gönderirsiniz.
+            - Mektubu gönderildiği gibi işaretlersiniz.
+            - Mektubu gönderildiği şekilde işaretledikten sonra, kullanıcı kodu tanıtabilir ve doğrulanabilir.
+      direct: direkt
+      help: yardım et
+      id_documents:
+        explanation: Kimlik belgelerinizi yükleyin, böylece kimliğinizi kontrol edebiliriz
+        name: Kimlik belgeleri
+      multistep: Çok Adım
+      name: isim
+      postal_letter:
+        explanation: Size adresinizi doğrulayabilmemiz için girmeniz gereken bir kod içeren bir posta mektubu göndereceğiz.
+        name: Posta mektubu ile kod
+    verifications:
+      authorizations:
+        create:
+          error: Yetkilendirme oluşturulurken bir hata oluştu.
+          success: Başarılı bir şekilde yetkilendirildiniz.
+          unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
+            dummy_authorization_handler: Örnek yetkilendirme işleyicisine karşı doğrulayın
+            dummy_authorization_workflow: Örnek yetkilendirme iş akışına karşı doğrulayın
+            id_documents: Kimlik belgenizi yükleyerek doğrulanma
+            postal_letter: Posta koduyla doğrulama kodu alarak doğrulanma
+          title: Kimliginizi dogrulayin
+          verify_with_these_options: 'Bunlar kimliğinizi doğrulamak için kullanılabilecek seçenekler:'
+        new:
+          authorize: göndermek
+          authorize_with: '%{authorizer}ile doğrulayın'
+        skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
+        start_exploring: keşfetmeye başla
+      dummy_authorization:
+        extra_explanation:
+          one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
+          other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Kimlik belgeleri yapılandırması
+              update: Güncelleştirme
+            update:
+              error: Yapılandırma güncellenirken bir hata oluştu.
+              success: Yapılandırma başarıyla güncellendi
+          confirmations:
+            create:
+              error: Doğrulama uyuşmuyor. Tekrar deneyebilir veya doğrulamayı reddedebilir, böylece kullanıcı bunu değiştirebilir
+              success: Kullanıcı başarıyla doğrulandı
+            new:
+              introduce_user_data: Resimdeki verileri tanıtın
+              reject: reddetmek
+              verify: DOĞRULAYIN
+          offline_confirmations:
+            create:
+              error: Doğrulama uyuşmuyor. Tekrar dene veya kullanıcıyı değiştirmesini söyle
+              success: Kullanıcı başarıyla doğrulandı
+            new:
+              cancel: İptal etmek
+              introduce_user_data: Kullanıcı e-postasını ve belge verilerini tanıtın
+              verify: DOĞRULAYIN
+          pending_authorizations:
+            index:
+              config: Yapılandırma
+              offline_verification: Çevrimdışı doğrulama
+              title: Bekleyen çevrimiçi doğrulamalar
+              verification_number: 'Doğrulama #%{n}'
+          rejections:
+            create:
+              success: Doğrulama reddedildi. Kullanıcı dokümanlarını değiştirmek için istenecektir
+        authorizations:
+          choose:
+            choose_a_type: "Lütfen nasıl doğrulanmak istediğinizi seçin:"
+            offline: Çevrimdışı
+            online: İnternet üzerinden
+            title: Kimlik belgenizi kullanarak kendinizi doğrulayın
+          create:
+            error: Belgenizi yüklerken bir sorun oluştu
+            success: Belge başarıyla yüklendi
+          edit:
+            being_reviewed: Belgelerini inceliyoruz. Kısa bir süre sonra doğrulanacaksınız
+            offline: Çevrimdışı doğrulamayı kullan
+            online: Çevrimiçi doğrulamayı kullan
+            rejection_clarity: Yüklenen görselde bilgilerin net bir şekilde göründüğünden emin olun.
+            rejection_correctness: Girilen bilgilerin doğru olduğundan emin olun.
+            rejection_notice: Doğrulamanızla ilgili bir sorun oluştu. Lütfen tekrar deneyin
+            send: Doğrulamayı tekrar isteyin
+          new:
+            send: Doğrulama isteğinde bulun
+            title: Kimlik belgenizi yükleyin
+          update:
+            error: Belgenizi yeniden yüklerken bir sorun oluştu
+            success: Belge başarıyla yeniden yüklendi
+        dni: DNI
+        nie: NIE
+        passport: Pasaport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adres
+              letter_sent_at: Gönderdiği mektup
+              mark_as_sent: Gönderildiği gibi işaretle
+              not_yet_sent: Henüz gönderilmedi
+              title: Devam eden doğrulamalar
+              username: Kullanıcı adı
+              verification_code: Doğrulama kodu
+          postages:
+            create:
+              error: Gönderilen mektup işaretlenirken hata oluştu
+              success: Mektup başarıyla gönderildi olarak işaretlendi
+        authorizations:
+          create:
+            error: İsteğiniz ile ilgili bir sorun vardı
+            success: Teşekkürler! Adresinize bir doğrulama kodu göndereceğiz
+          edit:
+            send: Onaylamak
+            title: Aldığınız doğrulama kodunu tanıtın
+            waiting_for_letter: Yakında doğrulama kodunuzla adresinize bir mektup gönderiyoruz
+          new:
+            send: Bana bir mektup gönder
+            title: Doğrulama kodunuzu isteyin
+          update:
+            error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz mektubu iki kez kontrol edin
+            success: Tebrikler. Başarıyla doğrulandı
+      sms:
+        authorizations:
+          create:
+            error: İsteğiniz ile ilgili bir sorun vardı
+            success: Teşekkürler! Telefonunuza bir SMS gönderdik.
+          edit:
+            send: Onaylamak
+            title: Aldığınız doğrulama kodunu tanıtın
+          new:
+            send: Bana bir SMS gönder
+            title: Doğrulama kodunuzu isteyin
+          update:
+            error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz SMS'i tekrar kontrol edin.
+            success: Tebrikler. Başarıyla doğrulandı.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: tüm büyük harf olmalı ve sadece harf ve / veya sayı içermelidir
