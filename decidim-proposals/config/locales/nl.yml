@@ -388,14 +388,14 @@ nl:
           no_similars_found: Goed gedaan! Geen vergelijkbare samenwerkingsconcepten gevonden
           title: Vergelijkbare samenwerkende concepten
         complete:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
+          attachment_legend: "(Optioneel) Een bijlage toevoegen"
           select_a_category: Selecteer een categorie
           send: Sturen
           title: Voltooi uw gezamenlijke concept
         count:
           drafts_count:
-            one: 1 gezamenlijke trekking
-            other: "%{count} samenwerkende concepten"
+            one: '%{count} gezamenlijke trekking'
+            other: "%{count} gezamenlijke trekking"
         create:
           error: Er is een probleem opgetreden bij het maken van deze samenwerkingsconcepten
           success: Samenwerkingsconcept met succes gemaakt.
@@ -449,7 +449,7 @@ nl:
           final_proposal: definitief voorstel
           final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
           hidden_authors_count:
-            one: en nog 1 persoon
+            one: en nog %{count} persoon
             other: en nog %{count} mensen
           info-message: Dit is een <strong>concept</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen om het voorstel vorm te geven door gebruik te maken van de commentaarsectie hieronder of het direct te verbeteren door toegang aan te vragen om het te bewerken. Zodra de auteurs u toegang verlenen, kunt u wijzigingen aanbrengen in dit concept.
           of_versions: "(van %{number})"
@@ -532,7 +532,7 @@ nl:
           title: Maak uw voorstel af
         count:
           proposals_count:
-            one: 1 voorstel
+            one: '%{count} voorstel'
             other: "%{count} voorstellen"
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
