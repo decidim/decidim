@@ -257,6 +257,17 @@ fi-pl:
         city_council: Kaupunginvaltuusto
         others: Muut
         public: Julkinen
+      filter:
+        all: Kaikki
+        commission: komissio
+        consultative_advisory: Neuvoa / Advisory
+        executive: Johtaja
+        government: Hallitus
+        label: 'Show:'
+        others: toiset
+        participatory: osallistava
+        placeholder: Suodata tyypin mukaan
+        working_group: Työryhmä
       index:
         title: Ryhmät
       last_activity:
