@@ -332,11 +332,6 @@ uk:
           meeting_report: Звіт про зустріч
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          remaining_slots:
-            one: Залишилось 1 місце
-            few: "Залишилось %{count} місця"
-            many: "Залишилось %{count} місць"
-            other: "Залишилось %{count} місць"
           view: Переглянути
       models:
         invite:
