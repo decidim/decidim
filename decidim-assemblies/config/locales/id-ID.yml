@@ -1,0 +1,335 @@
+id:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Daerah
+        assembly_type: Tipe perakitan
+        assembly_type_other: Jenis perakitan lainnya
+        banner_image: Gambar spanduk
+        closing_date: Tanggal Penutupan
+        closing_date_reason: Alasan tanggal penutupan
+        composition: Komposisi
+        copy_categories: Salin kategori
+        copy_components: Salin komponen
+        copy_features: Salin fitur
+        created_by: Dibuat oleh
+        created_by_other: Dibuat oleh lainnya
+        creation_date: Tanggal Diciptakan
+        decidim_area_id: Daerah
+        decidim_scope_id: Cakupan
+        description: Deskripsi
+        developer_group: Grup promotor
+        domain: Domain
+        duration: Lamanya
+        facebook: Facebook
+        github: GitHub
+        hashtag: Tanda pagar
+        hero_image: Gambar rumah
+        included_at: Termasuk di
+        instagram: Instagram
+        internal_organisation: Organisasi internal
+        is_transparent: Transparan
+        local_area: Area organisasi
+        meta_scope: Ruang lingkup metadata
+        parent_id: Perakitan orang tua
+        participatory_processes_ids: Proses Partisipatif Terkait
+        participatory_scope: Apa yang diputuskan
+        participatory_structure: Bagaimana cara memutuskannya
+        private_space: Ruang pribadi
+        promoted: Dipromosikan
+        published_at: Diterbitkan di
+        purpose_of_action: Tujuan tindakan
+        scope_id: Cakupan
+        scopes_enabled: Lingkup diaktifkan
+        short_description: Deskripsi Singkat
+        show_statistics: Tampilkan statistik
+        slug: Siput URL
+        special_features: Fitur spesial
+        subtitle: Subtitle
+        target: Yang berpartisipasi
+        title: Judul
+        twitter: Kericau
+        youtube: Youtube
+      assembly_member:
+        birthday: Ulang tahun
+        birthplace: Tempat lahir
+        ceased_date: Tanggal berhenti
+        designation_date: Tanggal penunjukan
+        designation_mode: Mode penunjukan
+        full_name: Nama lengkap
+        gender: Jenis kelamin
+        position: Posisi
+      assembly_user_role:
+        email: E-mail
+        name: Nama
+        role: Peran
+  activerecord:
+    models:
+      decidim/assembly:
+        other: Assemblies
+      decidim/assembly_member:
+        other: Anggota dewan
+      decidim/assembly_user_role:
+        other: Perakitan peran pengguna
+  decidim:
+    admin:
+      actions:
+        new_assembly: Perakitan baru
+      assemblies:
+        create:
+          error: Ada kesalahan saat membuat perakitan baru.
+          success: Majelis berhasil dibuat.
+        edit:
+          update: Memperbarui
+        form:
+          title: Informasi Umum
+        index:
+          not_published: Tidak diterbitkan
+          private: Pribadi
+          public: Publik
+          published: Diterbitkan
+        new:
+          create: Membuat
+          title: Perakitan baru
+        update:
+          error: Ada kesalahan saat memperbarui perakitan ini.
+          success: Majelis berhasil diperbarui.
+      assemblies_copies:
+        create:
+          error: Ada kesalahan saat menduplikasi majelis ini.
+          success: Majelis berhasil digandakan.
+      assembly_copies:
+        new:
+          copy: Salinan
+          select: Pilih data mana yang ingin Anda gandakan
+          title: Rakitan duplikat
+      assembly_members:
+        create:
+          error: Terjadi kesalahan saat menambahkan anggota untuk majelis ini.
+          success: Anggota berhasil dibuat untuk perakitan ini.
+        destroy:
+          success: Anggota berhasil dihapus untuk perakitan ini.
+        edit:
+          title: Perbarui anggota majelis.
+          update: Memperbarui
+        index:
+          assembly_members_title: Anggota dewan
+        new:
+          create: Membuat
+          title: Anggota majelis baru.
+        update:
+          error: Terjadi kesalahan saat memperbarui anggota untuk perakitan ini.
+          success: Anggota berhasil diperbarui untuk perakitan ini.
+      assembly_publications:
+        create:
+          error: Terjadi kesalahan saat mempublikasikan perakitan ini.
+          success: Majelis berhasil diterbitkan.
+        destroy:
+          error: Terjadi kesalahan saat membatalkan publikasi rakitan ini.
+          success: Majelis tidak berhasil diterbitkan.
+      assembly_user_roles:
+        create:
+          error: Terjadi kesalahan saat menambahkan pengguna untuk perakitan ini.
+          success: Pengguna berhasil ditambahkan ke majelis ini.
+        destroy:
+          success: Pengguna berhasil dihapus dari rakitan ini.
+        edit:
+          title: Perbarui pengguna perakitan.
+          update: Memperbarui
+        index:
+          assembly_admins_title: Pengguna majelis
+        new:
+          create: Membuat
+          title: Pengguna perakitan baru.
+        update:
+          error: Terjadi kesalahan saat memperbarui pengguna untuk perakitan ini.
+          success: Pengguna berhasil diperbarui untuk perakitan ini.
+      menu:
+        assemblies: Assemblies
+        assemblies_submenu:
+          assembly_admins: Pengguna majelis
+          assembly_members: Anggota
+          attachment_collections: Folder
+          attachment_files: File
+          attachments: Lampiran
+          categories: Kategori
+          components: Komponen
+          info: Info
+          moderations: Moderasi
+          private_users: Pengguna pribadi
+      models:
+        assembly:
+          fields:
+            created_at: Dibuat di
+            private: Pribadi
+            promoted: Disorot
+            published: Diterbitkan
+            title: Judul
+          name: Majelis
+        assembly_member:
+          fields:
+            ceased_date: Tanggal berhenti
+            designation_date: Tanggal penunjukan
+            full_name: Nama
+            position: Posisi
+          name: Anggota
+          positions:
+            other: Lain
+            president: Presiden
+            secretary: Sekretaris
+            vice_president: Wakil Presiden
+        assembly_user_role:
+          fields:
+            email: E-mail
+            name: Nama
+            role: Peran
+          name: Pengguna Majelis
+          roles:
+            admin: Administrator
+            collaborator: Kolaborator
+            moderator: Moderator
+      titles:
+        assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} menciptakan perakitan %{resource_name}"
+        publish: "%{user_name} mempublikasikan %{resource_name} perakitan"
+        unpublish: "%{user_name} tidak mempublikasikan %{resource_name} perakitan"
+        update: "%{user_name} memperbarui perakitan %{resource_name}"
+      assembly_member:
+        create: "%{user_name} membuat %{resource_name} anggota dalam %{space_name} perakitan"
+        delete: "%{user_name} mengeluarkan %{resource_name} anggota dari %{space_name} rakitan"
+        update: "%{user_name} memperbarui %{resource_name} anggota dalam %{space_name} perakitan"
+      assembly_user_role:
+        create: "%{user_name} diundang %{resource_name} ke majelis %{space_name}"
+        delete: "%{user_name} mengeluarkan pengguna %{resource_name} dari %{space_name} rakitan"
+        update: "%{user_name} mengubah peran %{resource_name} dalam %{space_name} perakitan"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: Jika durasi rakitan ini terbatas, pilih tanggal akhir. Jika tidak, itu akan muncul sebagai tidak terbatas.
+            included_at_help: Pilih tanggal saat perakitan ini ditambahkan ke Decidim. Tidak harus sama dengan tanggal pembuatan.
+            select_a_created_by: Pilih yang dibuat oleh
+            select_an_area: Pilih Area
+            select_an_assembly_type: Pilih jenis perakitan
+            select_parent_assembly: Pilih perakitan induk
+            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
+            social_handlers: Sosial
+        assembly_copies:
+          form:
+            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
+        assembly_members:
+          form:
+            existing_user: Pengguna yang sudah ada
+            non_user: Non-pengguna
+            select_a_position: Pilih posisi
+            select_user: Pilih seorang pengguna
+            user_type: Tipe Pengguna
+          index:
+            filter:
+              all: Semua
+              ceased: Hentikan
+              not_ceased: Tidak berhenti
+            filter_by: Filter berdasarkan
+            search: Pencarian
+      assembly_members:
+        index:
+          members: Anggota
+      assembly_types:
+        commission: Komisi
+        consultative_advisory: Konsultatif / Penasihat
+        executive: Eksekutif
+        government: Pemerintah
+        others: Lainnya
+        participatory: Partisipatif
+        working_group: Kelompok kerja
+      content_blocks:
+        highlighted_assemblies:
+          name: Majelis yang disorot
+      created_by:
+        city_council: Dewan Kota
+        others: Lainnya
+        public: Publik
+      index:
+        title: Assemblies
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Majelis aktif
+            see_all_assemblies: Lihat semua majelis
+        user_profile:
+          member_of:
+            member_of: Anggota dari
+      show:
+        area: Daerah
+        assembly_type: Tipe perakitan
+        children: Assemblies
+        closing_date: Tanggal Penutupan
+        composition: Komposisi
+        created_by: Dibuat oleh
+        creation_date: Tanggal Diciptakan
+        developer_group: Grup promotor
+        duration: Lamanya
+        included_at: Termasuk di
+        indefinite_duration: Tak terbatas
+        internal_organisation: Organisasi internal
+        is_transparent:
+          'false': buram
+          'true': transparan
+        local_area: Area organisasi
+        participatory_scope: Apa yang diputuskan
+        participatory_structure: Bagaimana cara memutuskannya
+        private_space: Ini adalah pertemuan pribadi
+        purpose_of_action: Tujuan tindakan
+        read_less: Baca lebih sedikit
+        read_more: Baca lebih lajut
+        related_participatory_processes: Proses partisipatif terkait
+        scope: Cakupan
+        social_networks: Jaringan sosial
+        target: Yang berpartisipasi
+      statistics:
+        answers_count: Jawaban
+        assemblies_count: Assemblies
+        comments_count: Komentar
+        debates_count: Perdebatan
+        endorsements_count: Endorsemen
+        headline: Aktivitas
+        meetings_count: Rapat
+        orders_count: Suara
+        pages_count: Halaman
+        projects_count: Proyek
+        proposals_count: Proposal
+        results_count: Hasil
+        surveys_count: Survei
+        users_count: Peserta
+        votes_count: Suara
+    assembly_members:
+      assembly_member:
+        designated_on: Ditunjuk pada
+      index:
+        title: Anggota
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Perakitan tidak ditemukan di database (ID: %{id})'
+    menu:
+      assemblies: Assemblies
+  errors:
+    messages:
+      cannot_be_blank: tidak bisa kosong
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Ambil bagian
+        index:
+          promoted_assemblies: Majelis yang disorot
+        promoted_assembly:
+          more_info: Info lebih lanjut
+          take_part: Ambil bagian
+      assembly_header:
+        assembly_member_menu_item: Anggota
+      assembly_widgets:
+        show:
+          take_part: Ambil bagian
