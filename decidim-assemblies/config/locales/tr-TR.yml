@@ -82,6 +82,8 @@ tr:
         create:
           error: Yeni bir derleme oluştururken bir hata oluştu.
           success: Montaj başarıyla oluşturuldu.
+        destroy:
+          success: Montaj başarıyla silindi.
         edit:
           update: Güncelleştirme
         form:
@@ -339,11 +341,17 @@ tr:
           organizational_chart: Organizasyon şeması
           promoted_assemblies: Vurgulanan derlemeler
           reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} derleme"
+            other: "%{count} derleme"
         promoted_assembly:
           more_info: Daha fazla bilgi
           take_part: Yer almak
       assembly_header:
         assembly_member_menu_item: Üyeler
+        assembly_menu_item: Meclis
+        unfold: açılmak
       assembly_widgets:
         show:
           take_part: Yer almak
