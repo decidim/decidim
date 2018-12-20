@@ -11,7 +11,7 @@ module Decidim
       attribute :longitude, Float
       attribute :category_id, Integer
       attribute :scope_id, Integer
-      
+
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
 

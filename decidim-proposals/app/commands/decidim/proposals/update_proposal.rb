@@ -31,7 +31,7 @@ module Decidim
 
           build_attachment
           return broadcast(:invalid) if attachment_invalid?
-         end
+        end
 
         transaction do
           update_proposal
