@@ -42,6 +42,9 @@ tr:
       decidim/conference_speaker:
         one: Konferans konuşmacı
         other: Konferans konuşmacıları
+      decidim/conference_user_role:
+        one: Konferans kullanıcısı rolü yok
+        other: Konferans kullanıcı rolleri
   decidim:
     admin:
       actions:
@@ -96,6 +99,8 @@ tr:
         create:
           error: Yeni bir konferans oluştururken bir hata oluştu.
           success: Konferans başarıyla oluşturuldu.
+        destroy:
+          success: Konferans başarıyla silindi.
         edit:
           update: Güncelleştirme
         exports:
@@ -140,6 +145,9 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
+          conference_admins: Konferans yöneticileri
+          conference_invites: Konferans Davetleri
+          conference_registrations: Konferans Kayıtları
           conference_speakers: Konferans konuşmacıları
           info: Bilgi
           media_links: Medya Bağlantıları
@@ -272,6 +280,7 @@ tr:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
             invited_you_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
+            join: '''%{conference_title}'' toplantısına katıl'
         partners:
           index:
             title: Ortaklar
@@ -281,7 +290,11 @@ tr:
           confirm: Onaylamak
         show:
           going: Gidiyor
+          join: Konferansa Katıl
           no_slots_available: Mevcut yuva yok
+          remaining_slots:
+            one: 1 yuva kaldı
+            other: "%{count} yuva kaldı"
       conference_program:
         program_meeting:
           content: içerik
@@ -294,6 +307,7 @@ tr:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Konferans için kaydınız <a href="%{url}">%{title}</a> onaylandı.
+          details: Konferansın detaylarını ekte bulabilirsiniz.
       conference_registrations:
         create:
           invalid: Bu konferansa katılırken bir sorun oluştu.
@@ -319,9 +333,17 @@ tr:
         index:
           speakers: Hoparlörler
       conferences:
+        partners:
+          collaborators: İşbirlikçiler
+          main_promotors: Ana promotor
         show:
+          already_account: Decidim'de hesabınız var mı?
+          login_as: '%{name} <%{email}> olarak giriş yaptınız'
           make_conference_registration: 'Kaydınızı konferansta yapın:'
+          new_user: Yeni kullanıcı?
           register: Kayıt olmak
+          sign_in: Bu konferansa kayıt olmak için giriş yapın
+          sign_up: Kayıt olmak için decidim'e ücretsiz üye ol
       content_blocks:
         highlighted_conferences:
           name: Vurgulanan konferanslar
@@ -438,4 +460,5 @@ tr:
         conference_partners_menu_item: Ortaklar
         conference_speaker_menu_item: Hoparlörler
         media: medya
+        unfold: açılmak
         venues: Mekanları
