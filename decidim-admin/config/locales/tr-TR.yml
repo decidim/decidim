@@ -103,6 +103,9 @@ tr:
         organization_url: Kuruluş URL'si
         redirect_uri: Yönlendiren URI
         site: Web sitesi
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -304,6 +307,7 @@ tr:
         impersonations: impersonations
         newsletters: Haber bültenleri
         oauth_applications: OAuth uygulamaları
+        officializations: Officializations
         scope_types: Kapsam türleri
         scopes: kapsamları
         settings: Ayarlar
@@ -570,6 +574,7 @@ tr:
         dashboard: gösterge paneli
         impersonatable_users: Impersonatable kullanıcılar
         impersonations: impersonations
+        officializations: Officializations
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar
@@ -649,3 +654,7 @@ tr:
           title: Ayarlar
         users:
           title: Kullanıcılar
+  time:
+    formats:
+      datepicker: "%m/%d/%Y"
+      timepicker: "%m/%d/%Y %H:%M"
