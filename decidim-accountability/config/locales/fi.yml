@@ -8,7 +8,7 @@ fi:
         description: Kuvaus
         end_date: Päättymispäivä
         progress: Edistyminen
-        project_ids: Liitetyt projektit
+        project_ids: Liitetyt suunnitelmat
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         title: Otsikko
@@ -183,13 +183,13 @@ fi:
         name: Vastuullisuus
         settings:
           global:
-            categories_label: Nimi kohteelle "Luokat"
+            categories_label: Nimi termille "Aihepiirit"
             comments_enabled: Kommentointi käytössä
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi kohteelle "Projektit"
-            heading_parent_level_results: Nimi kohteelle "Tulokset"
+            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
-            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
+            subcategories_label: Nimi termille "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     events:
@@ -209,6 +209,6 @@ fi:
         see_all_results: Katso kaikki tulokset
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät hankkeet
+        result_project: Tähän tulokseen liittyvät suunnitelmat
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
