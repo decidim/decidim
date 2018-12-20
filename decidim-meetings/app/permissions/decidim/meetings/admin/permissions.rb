@@ -8,6 +8,7 @@ module Decidim
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
 
+          allowed_registration_form_action?
           allowed_meeting_action?
           allowed_agenda_action?
           allowed_minutes_action?
@@ -29,6 +30,10 @@ module Decidim
           @minutes ||= context.fetch(:minutes, nil)
         end
 
+        def registration_form
+          @registration_form ||= context.fetch(:questionnaire, nil)
+        end
+
         def allowed_meeting_action?
           return unless permission_action.subject == :meeting
 
@@ -39,6 +44,15 @@ module Decidim
             toggle_allow(meeting.present? && meeting.registrations_enabled?)
           when :create
             allow!
+          end
+        end
+
+        def allowed_registration_form_action?
+          return unless permission_action.subject == :questionnaire
+
+          case permission_action.action
+          when :update
+            toggle_allow(registration_form.present?)
           end
         end
 

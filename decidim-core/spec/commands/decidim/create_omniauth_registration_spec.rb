@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateOmniauthRegistration do
       describe "call" do
-        let(:organization) { create(:organization, :with_tos) }
+        let(:organization) { create(:organization) }
         let(:email) { "user@from-facebook.com" }
         let(:provider) { "facebook" }
         let(:uid) { "12345" }
@@ -84,6 +84,28 @@ module Decidim
             expect(user.email_on_notification).to eq(true)
             expect(user).to be_confirmed
             expect(user.valid_password?("abcde1234")).to eq(true)
+          end
+
+          it "notifies about registration with oauth data" do
+            user = create(:user, email: email, organization: organization)
+            identity = Decidim::Identity.new(id: 1234)
+            expect(command).to receive(:create_identity).and_return(identity)
+
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
+              .with(
+                "decidim.events.user.omniauth_registration",
+                user_id: user.id,
+                identity_id: 1234,
+                provider: provider,
+                uid: uid,
+                email: email,
+                name: "Facebook User",
+                nickname: "facebook_user",
+                avatar_url: "http://www.example.com/foo.jpg",
+                raw_data: {}
+              )
+            command.call
           end
 
           describe "user linking" do

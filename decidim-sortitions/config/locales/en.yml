@@ -126,10 +126,10 @@ en:
           any_category: from all categories
           cancelled: Cancelled sortition
           candidate_proposal_ids: Sortition proposals order and IDs
-          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals) '
+          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
           category: from the %{category} category
           dice_result: "(1) Dice result"
-          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result. '
+          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
           mathematical_result: Result (1) x (2)
           proposals_selected_by_sortition: Proposals selected by sortition
           sortition_reproducibility_details: Sortition reproducibility details

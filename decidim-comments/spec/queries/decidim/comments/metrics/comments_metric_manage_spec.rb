@@ -8,15 +8,16 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
   let(:component) { create(:component, participatory_space: participatory_process) }
   let(:commentable) { create(:dummy_resource, component: component) }
   let(:author) { create(:user, organization: organization) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:comments) { create_list(:comment, 5, created_at: day, author: author, commentable: commentable) }
+  let!(:old_comments) { create_list(:comment, 5, created_at: day - 1.week, author: author, commentable: commentable) }
 
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
 
       expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
 
@@ -32,13 +33,13 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
 end
 
 def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
+  metric = described_class.new(date, organization)
   metric.save
 end

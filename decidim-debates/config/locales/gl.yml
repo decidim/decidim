@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -70,7 +69,7 @@ gl:
       debates:
         count:
           debates_count:
-            one: Debate %{count}
+            one: "Debate %{count}"
             other: "%{count} debates"
         create:
           invalid: Produciuse un problema ao crear o debate.
@@ -114,15 +113,19 @@ gl:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Ola, creouse un novo debate sobre o espazo participativo %{space_title}, verifícalo e contribuír:'
+            email_intro: |-
+              Ola,
+              Creouse un novo debate "%{resource_title}" nos %{space_title} espazos participativos, verifícalo e contribuír:
             email_outro: Recibiches esta notificación porque estás seguindo o %{space_title} espazo participativo. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Novo debate sobre %{space_title}
+            email_subject: Novo debate "%{resource_title}" en %{space_title}
             notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado en <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Ola, %{author_name} %{author_nickname}, a quen estás seguindo, creou un novo debate, revisádeo e contribuíu:'
+            email_intro: |-
+              Ola,
+              %{author_name} %{author_nickname}, a quen estás seguindo, creou un novo debate "%{resource_title}". Consulte e contribúa:
             email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Novo debate por %{author_nickname}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Novo debate "%{resource_title}" por %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creou o debate <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'A creación de debates xa non está activa en %{participatory_space_title}. Aínda podes participar nos debates abertos desta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -137,11 +140,16 @@ gl:
       badges:
         commented_debates:
           conditions:
-          - Escolle un debate aberto para participar
+            - Escolle un debate aberto para participar
           description: Este distintivo é concedido cando participas activamente nos diferentes debates deixando os teus comentarios.
           description_another: Este usuario participou en %{score} debates.
           description_own: Participaches en %{score} debates.
           name: Debates
-          next_level_in: "¡Participa en %{score} debates máis para alcanzar o seguinte nivel!"
+          next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.
           unearned_own: Participaches nos debates aínda.
+    metrics:
+      debates:
+        description: Número de debates creados
+        object: debates
+        title: Debates

@@ -6,6 +6,8 @@ module Decidim
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ApplicationHelper
       helper Decidim::ResourceHelper
+      helper Decidim::Conferences::ConferenceHelper
+
       include NeedsPermission
 
       private

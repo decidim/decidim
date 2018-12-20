@@ -95,6 +95,12 @@ eu:
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
+          page: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
+          title: Zer dira ekimenak?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ eu:
         promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
+        step: Step %{current} of %{total}
+        title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Zabaldu
       initiatives:
         initiative:
           check: Begiratu

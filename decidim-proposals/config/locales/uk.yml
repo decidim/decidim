@@ -113,7 +113,6 @@ uk:
           email_subject: Пропозиція, за якою ви стежите, була прийнята
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, за яким ви стежите, щойно підтримав пропозицію, яка може бути цікавою для вас, подивіться її та зробіть свій внесок:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{endorser_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: "%{endorser_nickname} підтримав нову пропозицію"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> підтримав пропозицію <a href="%{resource_path}">%{resource_title}</a>.
@@ -127,14 +126,11 @@ uk:
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, оприлюднив нову пропозицію. Прочитайте її та зробіть свій внесок:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Нова пропозиція від %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> оприлюднив пропозицію <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: До %{participatory_space_title} додано нову пропозицію
           notification_title: До %{participatory_space_title} було додано пропозицію <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
@@ -155,10 +151,6 @@ uk:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Пропозиції
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Пропозиції
-        see_all_proposals: Переглянути всі пропозиції
     proposals:
       actions:
         answer: Відповісти
@@ -243,6 +235,12 @@ uk:
         not_answered: Без відповідей
         rejected: Відхилено
         withdrawn: Відкликана
+      application_helper:
+        filter_origin_values:
+          citizens: Громадяни
+          official: Службове
+        filter_state_values:
+          except_rejected: Усі, окрім відхилених
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -288,12 +286,6 @@ uk:
         complete:
           send: Надіслати
           title: Завершіть свою пропозицію
-        count:
-          proposals_count:
-            one: 1 пропозиція
-            few: "%{count} пропозиції"
-            many: "%{count} пропозицій"
-            other: "%{count} пропозицій"
         edit:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
@@ -310,16 +302,10 @@ uk:
         endorsements_card_row:
           comments: Коментарі
         filters:
-          accepted: Прийнято
           activity: Діяльність
           category: Категорія
           category_prompt: Оберіть категорію
-          citizens: Громадяни
-          evaluating: Розглядається
-          except_rejected: Усі, окрім відхилених
-          official: Службове
           origin: Джерело
-          rejected: Відхилено
           related_to: Пов'язане з
           search: Шукати
           state: Стан
@@ -362,11 +348,6 @@ uk:
         show:
           edit_proposal: Редагувати пропозицію
           endorsements_list: Перелік тих, хто підтримав
-          hidden_endorsers_count:
-            one: і ще 1 особа
-            few: і ще %{count} людей
-            many: і ще %{count} людей
-            other: і ще %{count} людей
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'

@@ -4,16 +4,17 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe LeaveConference do
-    subject { described_class.new(conference, user_leaving_conference) }
+    subject { described_class.new(conference, registration_type, user_leaving_conference) }
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
     let!(:conference) { create :conference, registrations_enabled: registrations_enabled, available_slots: available_slots }
+    let!(:registration_type) { create :registration_type, conference: conference }
     let(:user) { create :user, :confirmed, organization: conference.organization }
     let(:user_leaving_conference) { user }
 
     before do
-      create(:conference_registration, conference: conference, user: user)
+      create(:conference_registration, conference: conference, user: user, registration_type: registration_type)
     end
 
     context "when everything is ok" do

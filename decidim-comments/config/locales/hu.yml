@@ -91,6 +91,7 @@ hu:
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
     metrics:
       comments:
+        description: A felhasználók által generált megjegyzések száma
         object: Hozzászólások
         title: Hozzászólások
   errors:

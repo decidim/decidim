@@ -7,6 +7,8 @@ module Decidim
   # A concern with the features needed when you want a model to be searchable.
   #
   # A Searchable should include this concern and declare its `searchable_fields`.
+  # You'll also need to define it as `searchable` in its resource manifest,
+  # otherwise it won't appear as possible results.
   #
   # The indexing of Searchables is managed through:
   # - after_create callback configurable via `index_on_create`.
@@ -16,12 +18,12 @@ module Decidim
   module Searchable
     extend ActiveSupport::Concern
 
-    @searchable_resources = {}
-
     # Public: a Hash of searchable resources where keys are class names, and values
     #   are the class instance for the resources.
     def self.searchable_resources
-      @searchable_resources
+      Decidim.resource_manifests.select(&:searchable).inject({}) do |searchable_resources, manifest|
+        searchable_resources.update(manifest.model_class_name => manifest.model_class)
+      end
     end
 
     included do
@@ -108,6 +110,14 @@ module Decidim
         @search_resource_indexable_fields
       end
 
+      def order_by_id_list(id_list)
+        return ApplicationRecord.none if id_list.to_a.empty?
+
+        values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(", ")
+        joins("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id")
+          .order("#{table_name}_id_order.ordering")
+      end
+
       # Declares the searchable fields for this instance and, optionally, some conditions.
       # `declared_fields` must be a Hash that follow the following format:
       # {
@@ -125,7 +135,6 @@ module Decidim
       #
       def searchable_fields(declared_fields, conditions = {})
         @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
         conditions = { index_on_create: true, index_on_update: true }.merge(conditions)
         if conditions[:index_on_create]
           after_create :try_add_to_index_as_search_resource

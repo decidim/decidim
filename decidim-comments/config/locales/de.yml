@@ -94,6 +94,7 @@ de:
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Anzahl der von Benutzern generierten Kommentare
         object: Bemerkungen
         title: Bemerkungen
   errors:

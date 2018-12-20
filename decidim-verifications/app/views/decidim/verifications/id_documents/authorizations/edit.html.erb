@@ -17,37 +17,28 @@
     </div>
   </div>
 
-  <% if authorization.rejected? %>
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="row column">
-          <div class="card">
-            <div class="card__content">
-              <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
-              <div class="card-section">
-                <div class="field">
-                  <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
-                </div>
-
-                <div class="field">
-                  <%= form.text_field :document_number %>
-                </div>
-
-                <div class="field">
-                  <%= form.upload :verification_attachment, optional: false %>
-                </div>
-              </div>
+  <div class="row">
+    <div class="columns large-6 medium-centered">
+      <div class="row column">
+        <div class="card">
+          <div class="card__content">
+            <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
+            <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+              <%= render partial: "form", locals: { form: form } %>
 
               <div class="card-section">
                 <div class="actions">
                   <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+                  <% if available_methods.count > 1 %>
+                    <%= link_to t(".offline"), { action: :edit, using: :offline }, class: "button expanded hollow" if using_online? %>
+                    <%= link_to t(".online"), { action: :edit, using: :online }, class: "button expanded hollow" if using_offline? %>
+                  <% end %>
                 </div>
               </div>
-              <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>

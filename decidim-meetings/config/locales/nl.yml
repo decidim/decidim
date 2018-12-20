@@ -23,6 +23,7 @@ nl:
         location_hints: Locatie hints
         organizer_id: Organisator
         private_meeting: Privé vergadering
+        registration_form_enabled: Registratieformulier ingeschakeld
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
@@ -82,6 +83,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             default_registration_terms: Standaard registratievoorwaarden
+            enable_pads_creation: Schakel het maken van pads in
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
           step:
             announcement: Aankondiging
@@ -109,9 +111,9 @@ nl:
           email_subject: Het event "%{resource_title}" is bijgewerkt
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registration_code_validated:
-          email_intro: Uw registratiecode "%{registration_code}" is gevalideerd.
+          email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd.
           email_outro: U hebt deze melding ontvangen omdat uw registratiecode voor de "%{resource_title}" -vergadering is gevalideerd.
-          email_subject: Uw registratiecode "%{registration_code}" is gevalideerd
+          email_subject: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd
           notification_title: Uw registratiecode "%{registration_code}" voor de <a href="%{resource_path}">%{resource_title}</a> vergadering is gevalideerd.
         registrations_enabled:
           email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
@@ -270,8 +272,9 @@ nl:
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
+            registration_form: Registratieformulier
             registrations_count:
-              one: Er is 1 registratie geweest.
+              one: Er is %{count} registratie geweest.
               other: Er zijn %{count} registraties geweest.
             reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
@@ -298,6 +301,10 @@ nl:
         minutes:
           create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
           update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
+      calendar_modal:
+        calendar_url: Agenda-URL
+        close_window: Venster sluiten
+        export_calendar: Kalender exporteren
       conference_venues: Conferentie locaties
       content_blocks:
         upcoming_events:
@@ -356,8 +363,8 @@ nl:
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           remaining_slots:
-            one: 1 plaats resterend
-            other: "%{count} resterende plaatsen"
+            one: "%{count} slot over"
+            other: "%{count} slots over"
           view: Uitzicht
       meetings_map:
         view_meeting: Bekijk vergadering
@@ -400,6 +407,7 @@ nl:
         transparent: Transparant
     metrics:
       meetings:
+        description: Aantal gemaakte vergaderingen
         object: vergaderingen
         title: vergaderingen
     participatory_processes:
@@ -410,7 +418,7 @@ nl:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events
-        see_all_meetings: Bekijk alle events
+        see_all: Alles zien (%{count})
         upcoming_meetings: Toekomstige events
       upcoming_meeting_for_card:
         upcoming_meeting: Aankomende vergadering

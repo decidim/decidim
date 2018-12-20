@@ -208,10 +208,6 @@ ru:
       participatory_process_groups:
         highlighted_results:
           results: Итоги
-    participatory_spaces:
-      highlighted_results:
-        results: Итоги
-        see_all_results: Просмотреть все итоги
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги

@@ -54,6 +54,7 @@ en:
         initiatives:
           fields:
             created_at: Created at
+            id: ID
             state: State
             supports_count: Supports
             title: Initiatives
@@ -78,10 +79,16 @@ en:
           email_subject: Initiative signatures end date extended!
           notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
-          email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-          email_subject: New milestone completed!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
     gamification:
       badges:
         initiatives:
@@ -95,6 +102,12 @@ en:
           next_level_in: Get %{score} more initiatives published to reach the next level!
           unearned_another: This user hasn't gotten any initiatives published yet.
           unearned_own: You got no initiatives published yet.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          title: What are initiatives?
     initiatives:
       admin:
         committee_requests:
@@ -343,6 +356,7 @@ en:
       states:
         accepted: Accepted
         expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
   layouts:
@@ -360,9 +374,10 @@ en:
         promotal_committee: Promoter committee
         select_initiative_type: Choose
         show_similar_initiatives: Compare
+        step: Step %{current} of %{total}
+        title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Unfold
       initiatives:
         initiative:
           check: Check it out

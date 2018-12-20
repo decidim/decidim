@@ -1,6 +1,6 @@
 $(() => {
   const $notificationsBellIcon = $(".title-bar .topbar__notifications");
-  const $wrapper = $(".tabs-content");
+  const $wrapper = $(".wrapper");
   const $section = $wrapper.find("#notifications");
   const $noNotificationsText = $(".empty-notifications");
   const $pagination = $wrapper.find("ul.pagination");

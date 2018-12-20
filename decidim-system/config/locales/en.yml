@@ -63,6 +63,10 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
+        users_registration_mode:
+          disabled: Access only can be done with external accounts
+          enabled: Allow users to register and login
+          existing: Don't allow users to register, but allow existing users to login
       shared:
         notices:
           no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.

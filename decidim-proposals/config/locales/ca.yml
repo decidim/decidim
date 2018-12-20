@@ -148,7 +148,7 @@ ca:
           email_subject: Una proposta que segueixes ha estat acceptada
           notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d'adherir-se a una proposta que et pot resultar interessant, revisar-la i contribueix:"
+          email_intro: '%{endorser_name} %{endorser_nickname}, qui sigueu, acaba d''aprovar la proposta "%{resource_title}" i creiem que pot ser interessant per a vostè. Consulta i contribueix:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
@@ -162,14 +162,14 @@ ca:
           email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
           notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta. Comprova-ho i contribueix:"
+          email_intro: '%{author_name} %{author_nickname}, a qui sigueu, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta per %{author_nickname}
+          email_subject: Nova proposta "%{resource_title}" per %{author_nickname}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha afegit una nova proposta a %{participatory_space_title}
+          email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
@@ -223,12 +223,19 @@ ca:
           unearned_own: Encara no has creat cap proposta.
     metrics:
       accepted_proposals:
+        description: Nombre de propostes acceptades pels usuaris
         object: propostes
         title: Propostes acceptades
+      endorsements:
+        description: Nombre de reconeixements generats en propostes
+        object: aprovacions
+        title: Aprovacions
       proposals:
+        description: Nombre de propostes generades
         object: propostes
         title: Propostes
       votes:
+        description: Nombre de vots generats en les propostes dels usuaris
         object: vots
         title: Vots
     participatory_processes:
@@ -237,8 +244,7 @@ ca:
           proposals: Propostes
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostes
-        see_all_proposals: Veure totes les propostes
+        see_all: Veure tots (%{count})
     proposals:
       actions:
         answer: Respondre
@@ -307,7 +313,9 @@ ca:
             update: Actualització
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+            created_in_meeting: Aquesta proposta prové d'una reunió
             select_a_category: Selecciona una categoria
+            select_a_meeting: Seleccioneu una reunió
           index:
             actions: Accions
             cancel: Cancel·lar
@@ -364,6 +372,19 @@ ca:
         not_answered: No resposta
         rejected: Rebutjada
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Tots
+          citizens: Ciutadania
+          meetings: Reunions
+          official: Oficial
+          user_groups: Grups d'usuaris
+        filter_state_values:
+          accepted: Acceptat
+          all: Tots
+          evaluating: Avaluació
+          except_rejected: Totes menys rebutjades
+          rejected: Rebutjat
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -394,8 +415,8 @@ ca:
           title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
-            one: 1 esborrany col·laboratiu
-            other: "%{count} esborranys col·laboratius"
+            one: "%{count} esborrany de col·laboració"
+            other: "%{count} esborrany de col·laboració"
         create:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
@@ -449,7 +470,7 @@ ca:
           final_proposal: proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
           hidden_authors_count:
-            one: i 1 persona més
+            one: i %{count} persones més
             other: i %{count} persones més
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar els seus autors a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un cop els autors et donin accés, podràs fer canvis en aquest esborrany.
           of_versions: "(de %{number})"
@@ -507,6 +528,12 @@ ca:
             votes: Suports
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
+      participatory_text_proposal:
+        buttons:
+          comment: Comentari
+          comments: Comentaris
+          endorse: Endossar
+          endorsements: Aprovacions
       proposal_endorsements:
         create:
           error: Hi ha hagut errors en adherir-te a la proposta.
@@ -532,7 +559,7 @@ ca:
           title: Completa la teva proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: "%{count} proposta"
             other: "%{count} propostes"
         edit:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
@@ -552,13 +579,8 @@ ca:
         filters:
           accepted: Acceptada
           activity: Activitat
-          all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizens: Ciutadania
-          evaluating: En avaluació
-          except_rejected: Totes menys rebutjades
-          official: Oficial
           origin: Origen
           rejected: Rebutjada
           related_to: Relacionat amb
@@ -587,6 +609,11 @@ ca:
           most_voted: Ha rebut més suports
           random: Aleatori
           recent: Recent
+        participatory_texts:
+          index:
+            document_index: Índex del document
+          view_index:
+            see_index: Veure índex
         preview:
           modify: Modifica la proposta
           proposal_edit_before_minutes:
@@ -598,10 +625,11 @@ ca:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
         show:
+          back_to: Tornar
           edit_proposal: Editar proposta
           endorsements_list: Llistat d'adhesions
           hidden_endorsers_count:
-            one: i 1 persona més
+            one: i %{count} persones més
             other: i %{count} persones més
           link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
           link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
@@ -611,6 +639,7 @@ ca:
           report: Informe
           sign_in: Inicia sessió
           sign_in_or_up: "%{in} o %{up} per participar"
+          sign_in_to_participate: "%{in} per participar"
           sign_up: Registra't
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?

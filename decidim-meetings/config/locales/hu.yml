@@ -22,6 +22,7 @@ hu:
         location_hints: Tippek a helyre
         organizer_id: Szervező
         private_meeting: Privát találkozó
+        registration_form_enabled: Engedélyezési űrlap engedélyezve
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
         start_time: Kezdő időpont
@@ -81,6 +82,7 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             default_registration_terms: Alapértelmezett regisztrációs feltételek
+            enable_pads_creation: A párna létrehozásának engedélyezése
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
           step:
             announcement: Közlemény
@@ -108,9 +110,9 @@ hu:
           email_subject: A "%{resource_title}" találkozót frissítettük
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
         registration_code_validated:
-          email_intro: A(z) "%{registration_code}" regisztrációs kód hitelesítése kész.
+          email_intro: Az "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett.
           email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
-          email_subject: A(z) "%{registration_code}" regisztrációs kódod hitelesítése kész
+          email_subject: Az "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett
           notification_title: A(z)z <a href="%{resource_path}">%{resource_title}</a> találkozó "%{registration_code}" regisztrációs kódjának érvényesítése kész.
         registrations_enabled:
           email_intro: 'A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz. Tedd meg bármikor ezen az oldalon:'
@@ -269,9 +271,10 @@ hu:
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívottak
+            registration_form: Regisztrációs űrlap
             registrations_count:
-              one: 1 regisztráció.
-              other: '%{count} regisztráció.'
+              one: '%{count} regisztráció volt.'
+              other: '%{count} regisztráció volt.'
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
@@ -297,6 +300,10 @@ hu:
         minutes:
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+      calendar_modal:
+        calendar_url: Naptár URL
+        close_window: Zárja be az ablakot
+        export_calendar: Export naptár
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_events:
@@ -355,8 +362,8 @@ hu:
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
           remaining_slots:
-            one: 1 hely maradt
-            other: "%{count} hely maradt"
+            one: "%{count} hely marad"
+            other: "%{count} hely marad"
           view: Nézet
       meetings_map:
         view_meeting: Találkozó megtekintése
@@ -399,6 +406,7 @@ hu:
         transparent: Átlátszó
     metrics:
       meetings:
+        description: A létrehozott találkozók száma
         object: ülések
         title: találkozók
     participatory_processes:
@@ -409,7 +417,7 @@ hu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Korábbi találkozók
-        see_all_meetings: Összes találkozó
+        see_all: Összes (%{count})
         upcoming_meetings: Közelgő találkozók
       upcoming_meeting_for_card:
         upcoming_meeting: Közelgő találkozó

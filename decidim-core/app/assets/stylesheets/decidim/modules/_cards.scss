@@ -446,6 +446,16 @@ $datetime-bg: $primary;
   @include breakpoint(medium){
     padding-left: $card-padding;
   }
+
+  svg{
+    flex-basis: 15%;
+    flex-shrink: 0;
+  }
+
+  svg + div{
+    max-width: calc(85% - #{$global-margin});
+    overflow-wrap: break-word;
+  }
 }
 
 .card--list__icon{
@@ -752,7 +762,7 @@ $datetime-bg: $primary;
     content: " ";
     height: $border-width;
     display: inline-block;
-    background: $card-bg;
+    background-color: $body-background;
     position: absolute;
     left: 0;
     right: 0;
@@ -922,9 +932,15 @@ $datetime-bg: $primary;
 .card__top{
   @extend .card__footer;
 
+  border-top: 0;
+
   .card__content{
     line-height: $global-lineheight;
     padding: $card-padding-small / 4 $card-padding-small;
+
+    > :first-child{
+      flex-shrink: 0;
+    }
 
     @include breakpoint(medium){
       padding: $card-padding / 4 $card-padding;

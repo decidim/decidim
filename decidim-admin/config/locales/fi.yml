@@ -82,8 +82,15 @@ fi:
         changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
+        show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        weight: Paino
+      static_page_topic:
+        description: Kuvaus
+        show_in_footer: Näytä alatunnisteessa
+        title: Otsikko
+        weight: Paino
     errors:
       models:
         oauth_application:
@@ -248,6 +255,11 @@ fi:
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
+      help_sections:
+        error: Ohjeosioiden päivittämisessä tapahtui virhe
+        form:
+          save: Tallenna
+        success: Ohjeosiot päivitetty onnistuneesti
       impersonatable_users:
         index:
           filter:
@@ -301,11 +313,12 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
-        officializations: Virallistamiset
+        participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -545,6 +558,21 @@ fi:
         update:
           error: Tämän teeman päivityksessä tapahtui virhe.
           success: Teema päivitetty onnistuneesti
+      static_page_topics:
+        create:
+          error: Uuden aiheen luomisessa tapahtui virhe.
+          success: Aihe luotiin onnistuneesti.
+        destroy:
+          success: Aihe tuhottu onnistuneesti
+        edit:
+          title: Muokkaa aihetta
+          update: Päivitä aihe
+        new:
+          create: Luo aihe
+          title: Uusi aihe
+        update:
+          error: Tämän aiheen päivittämisessä tapahtui virhe.
+          success: Aihe päivitettiin onnistuneesti
       static_pages:
         actions:
           view: Näytä julkinen sivu
@@ -557,11 +585,18 @@ fi:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään uudet käyttöehdot.
           title: Muokkaa sivua
           update: Päivitä
+        form:
+          none: Ei mitään
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
-          create: Luo
+          create: Luo sivu
           title: Uusi sivu
+        topic:
+          destroy: Poista aihe
+          edit: Muokkaa aihetta
+          empty: Tämän aiheen alla ei ole sivuja
+          without_topic: Sivut ilman aihetta
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti
@@ -574,6 +609,7 @@ fi:
         impersonatable_users: Käyttäjien puolesta tehdyt istunnot
         impersonations: Esiintymiset toisena käyttäjänä
         officializations: Virallistamiset
+        participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut

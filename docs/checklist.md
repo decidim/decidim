@@ -32,6 +32,8 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Check that you don't have any **default users, emails and passwords**, neither on the admin or on the system panel.
 
+1. Configure recurring jobs for [**metrics**](advanced/metrics.md) and [**open data**](advanced/open-data.md)
+
 ## Contents
 
 1. Ideally you'll have a **Team** formed with experts on IT, Communication, Participation, Design and Law.
@@ -44,6 +46,6 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Read the **[Administration manual](https://decidim.org/docs/)**.
 
-1. Participate on **[MetaDecidim](http://meta.decidim.barcelona)**.
+1. Participate on **[MetaDecidim](http://meta.decidim.org)**.
 
 1. Read the Decidim **[Social Contract](https://decidim.org/contract/)**.

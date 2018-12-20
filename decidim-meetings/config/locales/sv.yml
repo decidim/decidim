@@ -22,6 +22,7 @@ sv:
         location_hints: Platstips
         organizer_id: Arrangör
         private_meeting: Privat möte
+        registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
@@ -81,6 +82,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             default_registration_terms: Villkor för standardregistrering
+            enable_pads_creation: Aktivera skapandet av pads
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
@@ -108,9 +110,9 @@ sv:
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
-          email_intro: Din registreringskod "%{registration_code}" har validerats.
+          email_intro: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats.
           email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
-          email_subject: Din registreringskod "%{registration_code}" har validerats
+          email_subject: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats
           notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
@@ -269,8 +271,9 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
+            registration_form: Anmälningsblankett
             registrations_count:
-              one: Det har gjorts 1 registrering.
+              one: Det har varit %{count} registrering.
               other: Det har gjorts %{count} registreringar.
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
@@ -297,6 +300,10 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      calendar_modal:
+        calendar_url: Kalenderadress
+        close_window: Stäng fönstret
+        export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
         upcoming_events:
@@ -355,8 +362,8 @@ sv:
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           remaining_slots:
-            one: 1 plats kvar
-            other: "%{count} platser kvar"
+            one: "%{count} slits kvar"
+            other: "%{count} slits kvar"
           view: Visa
       meetings_map:
         view_meeting: Visa möte
@@ -399,6 +406,7 @@ sv:
         transparent: Transparent
     metrics:
       meetings:
+        description: Antal möten skapade
         object: möten
         title: möten
     participatory_processes:
@@ -409,7 +417,7 @@ sv:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
-        see_all_meetings: Se alla möten
+        see_all: Se alla (%{count})
         upcoming_meetings: Kommande möten
       upcoming_meeting_for_card:
         upcoming_meeting: Kommande möte

@@ -56,26 +56,6 @@
   text-transform: lowercase !important;
 }
 
-.initiative-creation-header__container{
-  position: relative;
-  z-index: 1;
-  padding: 0 0 0 1rem;
-  background: #fafafa;
-
-  .initiative-creation-header__phase{
-    background: #fafafa;
-    color: #fff;
-    text-align: center;
-    padding: 0 1rem;
-    margin-left: -1rem;
-
-    .caption{
-      color: #8c838a;
-      font-size: .9em;
-    }
-  }
-}
-
 .legal_text{
   font-size: 8pt;
 }

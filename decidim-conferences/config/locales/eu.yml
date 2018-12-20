@@ -44,11 +44,13 @@ eu:
         other: Hitzaldi hiztunak
       decidim/conference_user_role:
         one: Konferentzia erabiltzailearen rola
-        other: Konferentzia erabiltzailearen rolak
+        other: Konferentzia erabiltzailearen rola
   decidim:
     admin:
       actions:
+        confirm: Berretsi
         new_conference: Konferentzia berria
+        send_diplomas: Bidali diplomak
       conference_copies:
         new:
           copy: Copy
@@ -61,6 +63,10 @@ eu:
         destroy:
           error: Errore bat gertatu da hitzaldi hau argitaratzea.
           success: Kongresua argitaratu egin da.
+      conference_registration:
+        confirm:
+          error: Errore bat gertatu da konferentzia erregistroan baieztatzeko.
+          success: Biltzarraren erregistroa ongi onartu da.
       conference_speakers:
         create:
           error: Errore bat gertatu da konferentzia honetarako bozgorailua gehitzean.
@@ -145,14 +151,17 @@ eu:
           attachments: eranskinak
           categories: Kategoriak
           components: Osagaiak
-          conference_admins: Konferentzia-kudeatzaileak
-          conference_invites: Konferentzia gonbidatuak
-          conference_registrations: Kongresuaren erregistroak
-          conference_speakers: Hitzaldi hiztunak
+          conference_admins: Konferentzia erabiltzaileak
+          conference_invites: Gonbidapenak
+          conference_speakers: Hizlariak
+          diploma: Diploma
           info: info
           media_links: Media Links
           moderations: moderazioa
           partners: Bazkideak
+          registration_types: Izen-emate motak
+          registrations: Izen-emateak
+          user_registrations: Erabiltzaileen erregistroak
       models:
         conference:
           fields:
@@ -192,6 +201,14 @@ eu:
           types:
             collaborator: Kolaboratzaile
             main_promotor: Garapen nagusia
+        registration_type:
+          fields:
+            conference_meetings: Bilera bilerak
+            price: Prezioa
+            registrations_count: Erregistroak zenbatzea
+            title: Izenburua
+            weight: pisu
+          name: Izen-emate mota
       partners:
         create:
           error: Errore bat gertatu da bilera honetan bazkide bat gehitzea.
@@ -207,14 +224,38 @@ eu:
         update:
           error: Errore bat gertatu da biltzarrerako bazkide bat eguneratzea.
           success: Bazkidea eguneratu da konferentzia honetarako.
+      registration_type_publications:
+        create:
+          error: Errore bat gertatu da izen-emate mota hau argitaratzean.
+          success: Izen-emate mota ondo argitaratu da.
+        destroy:
+          error: Errore bat gertatu da izen-emate mota hau argitaratzea.
+          success: Izen ematea ezin da argitaratu.
+      registration_types:
+        create:
+          error: Errore bat gertatu da hitzaldi honetarako inskripzio mota bat gehitzea.
+          success: Erregistro motak arrakastaz gehitu du konferentzia honetara.
+        destroy:
+          success: Izen-emate mota kongresu honetatik atera da.
+        edit:
+          title: Eguneratu erregistro mota.
+          update: eguneratzearen
+        new:
+          create: Sortu
+          title: Izena emateko mota berria
+        update:
+          error: Errore bat gertatu da hitzaldi honetarako izena emateko mota.
+          success: Izen-emate mota arrakastaz eguneratu da konferentzia honetarako.
       titles:
         conferences: Jardunaldiak
     admin_log:
       conference:
         create: "%{user_name} sortutako %{resource_name} konferentzia"
         publish: "%{user_name} argitaratu %{resource_name} konferentzia"
+        send_conference_diplomas: "%{user_name} diploma bidali %{resource_name} konferentzia erabiltzaileari"
         unpublish: "%{user_name} argitaratutako %{resource_name} konferentzia"
         update: "%{user_name} eguneratu %{resource_name} konferentzia"
+        update_diploma: "%{user_name} eguneratu diploma konfigurazio %{resource_name} konferentzia"
       conference_speaker:
         create: "%{user_name} hizlari %{resource_name} sortu zen %{space_name} hitzaldian"
         delete: "%{user_name} kendu %{resource_name} hizlari batetik %{space_name} konferentzia"
@@ -223,6 +264,22 @@ eu:
         create: "%{user_name} gonbidatu %{resource_name} %{space_name} konferentzia"
         delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
         update: "%{user_name} %{resource_name} rola aldatu zen %{space_name} hitzaldian"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} Kongresuko matrikula bat baieztatu da %{resource_name} Kongresuan"
+        partner:
+          create: "%{user_name} sortu %{resource_name} %{space_name} konferentzia"
+          delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
+          update: "%{user_name} eguneratzen %{resource_name} parte %{space_name} konferentzia"
+        registration_type:
+          create: "%{user_name} sortutako %{resource_name} matrikula mota %{space_name} konferentzia"
+          publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"
+          unpublish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} hitzaldian argitaratu gabe"
+          update: "%{user_name} eguneratu zen %{resource_name} izen-emate mota %{space_name} hitzaldian"
+      media_link:
+        create: "%{user_name} sortutako %{resource_name} media lotura honetan %{space_name} konferentzia"
+        delete: "%{user_name} kendu du %{resource_name} -tik media link %{space_name} konferentzia"
+        update: "%{user_name} eguneratu %{resource_name} komunikabideen arteko %{space_name} esteka"
     conference_program:
       index:
         title: Programa
@@ -276,25 +333,42 @@ eu:
               one: Izena eman da.
               other: Dena den, %{count} matrikulazioak.
             slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        diplomas:
+          edit:
+            save: Save
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
-            join: Parte hartu '%{conference_title}' konferentzia
+            registration: '''%{conference_title}'' izen-ematea'
         partners:
           index:
             title: Bazkideak
+        registration_types:
+          form:
+            select_conference_meetings: Aukeratu konferentzia bilerak
+          index:
+            title: Izen-emate motak
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Biltzarraren diploma aurkituko duzu <a href="%{url}">%{title}</a> eranskinetan.
+          diploma_user:
+            attendance_verified_by: Egiaztatua egiaztatuta
+            certificate_of_attendance: Asistentzia ziurtagiria
+            certificate_of_attendance_description: Hau dela ziurtatzeko <strong>%{user}</strong> parte hartu du eta parte hartu ere <strong>%{title}</strong> etan ospatuko <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Arazo bat izan da konferentzia diploma bidaltzean.
+          success: Kongresuko Diplomak behar bezala bidali dira
       conference:
         registration_confirm:
           cancel: Utzi
           confirm: Berretsi
         show:
+          free: Free
           going: joatean
-          join: Parte hartu Kongresua
           no_slots_available: Ez dago slotarik erabilgarri
-          remaining_slots:
-            one: 1 zutoina geratzen da
-            other: "%{count} slot geratzen dira"
+          registration: Izen-ematea
       conference_program:
         program_meeting:
           content: Edukia
@@ -307,7 +381,12 @@ eu:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
-          details: Biltzarraren xehetasunak eranskinean aurkituko dituzu.
+          details_1: '%{registration_type} motako hitzaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
+          details_2: Biltzarraren xehetasunak eranskinean aurkituko dituzu.
+        pending_validation:
+          confirmation_pending: Berrespena jasoko duzu laster
+          details: 'To You erregistratu %{registration_type} motako kostua batekin %{price} eta ondorengo gertaerak joateko daiteke:'
+          pending_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> zain dago berresteko.
       conference_registrations:
         create:
           invalid: Arazo bat izan da konferentzia honetan.
@@ -334,16 +413,12 @@ eu:
           speakers: Hizlariak
       conferences:
         partners:
-          collaborators: Laguntzaileak
-          main_promotors: Garapen nagusiak
+          collaborators: Bazkideak
+          main_promotors: Antolatzaileak
         show:
-          already_account: Dagoeneko kontu bat duzu erabakitzeko?
-          login_as: '%{name} <%{email}> saioan zaude'
+          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           make_conference_registration: 'Egin zure izen ematea hitzaldian:'
-          new_user: Erabiltzaile berria?
           register: Eman izena
-          sign_in: Saio honetan izena emateko saioa
-          sign_up: Erregistratu dohainik erregistroan erabakitzeko
       content_blocks:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
@@ -353,14 +428,20 @@ eu:
         conference_registration_mailer:
           confirmation:
             subject: Zure hitzaldiko erregistroa baieztatu da
+          pending_validation:
+            subject: Zure hitzaldiko erregistroa baieztatu behar da
         invite_join_conference_mailer:
           invite:
             subject: Hitzaldi baterako gonbidapena
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Zure hitzaldiko diploma bidali da
       models:
         conference_invite:
           fields:
             email: Emaila
             name: izena
+            registration_type: Izen-emate mota
             sent_at: Bidalitakoan
             status: Egoera
           status:
@@ -371,6 +452,11 @@ eu:
           fields:
             email: Emaila
             name: izena
+            registration_type: Izen-emate mota
+            state: Estatu
+            states:
+              confirmed: baieztatu
+              pending: Zain
       pages:
         home:
           highlighted_conferences:
@@ -383,6 +469,18 @@ eu:
       photos_list:
         show:
           related_photos: Argazkiak
+      registration_types:
+        index:
+          choose_an_option: 'Aukeratu zure erregistro-aukera:'
+          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          register: Eman izena
+          title: Izen-emate motak
+      shared:
+        conference_user_login:
+          already_account: Dagoeneko kontu bat duzu erabakitzeko?
+          new_user: Erabiltzaile berria?
+          sign_in: Saioa hasteko erregistratzeko saioa
+          sign_up: Sortu kontua erabakitzeko biltzea erregistratzeko
       show:
         details: Xehetasunak
         introduction: Sarrera
@@ -440,6 +538,8 @@ eu:
         subject: Hitzaldi baterako gonbidapena
   layouts:
     decidim:
+      conference_hero:
+        register: Eman izena
       conference_widgets:
         show:
           take_part: Parte hartu
@@ -460,5 +560,4 @@ eu:
         conference_partners_menu_item: Bazkideak
         conference_speaker_menu_item: Hizlariak
         media: Media
-        unfold: Zabaldu
         venues: Egoitzak

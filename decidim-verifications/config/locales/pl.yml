@@ -136,6 +136,20 @@ pl:
           update:
             error: Twój kod weryfikacyjny nie pasuje do naszego. Proszę dokładnie sprawdzić list, który do Ciebie wysłaliśmy
             success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona
+      sms:
+        authorizations:
+          create:
+            error: Był problem z Twoją prośbą
+            success: Dzięki! Wysłaliśmy SMS-a na Twój telefon.
+          edit:
+            send: Potwierdzać
+            title: Wprowadź kod weryfikacyjny, który otrzymałeś
+          new:
+            send: Wyślij mi SMS-a
+            title: Poproś o kod weryfikacyjny
+          update:
+            error: Twój kod weryfikacyjny nie pasuje do naszego. Sprawdź dokładnie SMS, który Ci wysłaliśmy.
+            success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona.
   errors:
     messages:
       uppercase_only_letters_numbers: musi być wielkimi literami i zawierać wyłącznie litery i / lub cyfry

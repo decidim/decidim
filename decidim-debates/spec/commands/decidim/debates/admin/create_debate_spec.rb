@@ -86,7 +86,7 @@ describe Decidim::Debates::Admin::CreateDebate do
             event: "decidim.events.debates.debate_created",
             event_class: Decidim::Debates::CreateDebateEvent,
             resource: kind_of(Decidim::Debates::Debate),
-            recipient_ids: [space_follower.id],
+            followers: [space_follower],
             extra: { type: "participatory_space" }
           )
 

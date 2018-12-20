@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ de:
         about: Über
         email: Ihre E-Mail
         name: Ihr Name
-        nickname: Ihr kurzer, eindeutiger Benutzername
+        nickname: Spitzname
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
@@ -37,14 +36,14 @@ de:
         remember_me: Erinneren Sie mich
     models:
       decidim/user:
-        one: Benutzer*in
-        other: Benutzer*innen
+        one: Keine Benutzer
+        other: Benutzer
       decidim/user_group:
         one: Benutzergruppe
         other: Benutzergruppen
   booleans:
-    'false': Nein
-    'true': Ja
+    'false': 'Nein'
+    'true': 'Ja'
   carrierwave:
     errors:
       image_too_big: Das Bild ist zu groß
@@ -164,6 +163,9 @@ de:
           foo: Foo
         name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
+      sms:
+        explanation: Geben Sie Ihre Handynummer ein, damit wir Ihre Identität überprüfen können.
+        name: Code per SMS
       started_at: Begann am %{timestamp}
     authorization_modals:
       show:
@@ -197,7 +199,7 @@ de:
           title: Bestätige deine E-Mail
     collapsible_list:
       hidden_elements_count:
-        one: und 1 mehr
+        one: und %{count} mehr
         other: und %{count} mehr
       see_less: "(Weniger anzeigen)"
       see_more: "(Mehr anzeigen)"
@@ -212,6 +214,7 @@ de:
             comments_enabled: Kommentare aktiviert
             dummy_global_attribute_1: Dummy-Attribut 1
             dummy_global_attribute_2: Dummy-Attribut 2
+            enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
           step:
             comments_blocked: Kommentare blockiert
@@ -281,6 +284,8 @@ de:
         new:
           are_you_new?: Neu auf der Plattform?
           register: Konto erstellen
+          sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen
+          sign_up_disabled: Die Anmeldung ist deaktiviert. Sie können einen vorhandenen Benutzer für den Zugriff verwenden
       shared:
         newsletter_modal:
           buttons:
@@ -387,14 +392,6 @@ de:
           notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Betreff der E-Mail
-        moderation:
-          email_intro: E-Mail-Einführung
-          email_subject: Betreff der E-Mail
-          moderation_url: Moderations-URL
-        notification_title: Titel der Benachrichtigung
-        url: Url
       users:
         profile_updated:
           email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
@@ -448,7 +445,7 @@ de:
       badges:
         continuity:
           conditions:
-          - Komm oft hierher
+            - Komm oft hierher
           description: Dieses Abzeichen wird gewährt, wenn Sie die Plattform regelmäßig besuchen. Wir möchten dich hier in der Nähe haben!
           description_another: Dieser Benutzer hat sich irgendwann einmal für %{score} aufeinanderfolgende Tage verbunden.
           description_own: Sie haben an einem bestimmten Punkt für %{score} aufeinanderfolgende Tage verbunden.
@@ -458,7 +455,7 @@ de:
           unearned_own: Sie haben seit mehr als einem aufeinanderfolgenden Tag keine Verbindung hergestellt.
         followers:
           conditions:
-          - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
           description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
           description_another: Diese*r Benutzer*in hat %{score} Follower.
           description_own: "%{score} Benutzer*innen folgen dir."
@@ -473,9 +470,9 @@ de:
           title: Abzeichen
         invitations:
           conditions:
-          - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
-          - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
-          - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
+            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
+            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
+            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
           description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
           description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
           description_own: Sie haben %{score} Benutzer*innen eingeladen.
@@ -541,6 +538,13 @@ de:
       edit:
         edit_user_group: Gruppe bearbeiten
         update_user_group: Gruppe aktualisieren
+      form:
+        document_number_help: Verwenden Sie keine Bindestriche oder Leerzeichen
+        email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
+        fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
+        name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
+        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen
       join:
         error: Es ist ein Problem aufgetreten, der Gruppe beizutreten
         success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
@@ -554,6 +558,7 @@ de:
       new:
         create_user_group: Gruppe erstellen
         new_user_group: Neue Gruppe
+        subtitle: Erstellen Sie eine Gruppe und laden Sie andere Benutzer ein, an einer kollektiven Ebene teilzunehmen.
       no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
@@ -562,6 +567,13 @@ de:
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
         success: Gruppe wurde erfolgreich aktualisiert
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} Sie durch die Leerzeichen, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Baugruppen, Initiativen, Konsultationen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
+          title: Was kann ich in %{organization}?
+        description: Lesen Sie mehr über %{organization}
+        title: Allgemeine Hilfe
     last_activities:
       activities:
         no_activities_warning: Keine Aktivität
@@ -593,8 +605,8 @@ de:
     members:
       no_members: Diese Benutzergruppe hat noch kein Mitglied.
     menu:
+      help: Hilfe
       home: Start
-      more_information: Weitere Informationen
     messaging:
       conversation_mailer:
         new_conversation:
@@ -611,20 +623,29 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         index:
-          from: Von
-          last_message_html: Letzte Nachricht <strong>%{time} vor</strong>
           no_conversations: Du hast noch keine Unterhaltungen
-        show:
-          conversation_with_html: Gespräch mit <strong>%{name}</strong>
-          reply: Antworten
+          title: Gespräche
+        reply:
           send: Senden
+          title: Antworten
+        show:
+          title: Gespräch mit %{usernames}
         start:
           send: Senden
           title: Ein Gespräch beginnen
         update:
           error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
+      followers:
+        description: Anzahl der Benutzer, die in der Organisation folgen
+        object: Anhänger
+        title: Anhänger
+      participants:
+        description: Anzahl der aktiven Benutzer in der Organisation
+        object: Teilnehmer
+        title: Teilnehmer
       users:
+        description: Anzahl der Benutzer in der Organisation
         object: Benutzer
         title: Benutzer
     newsletter_mailer:
@@ -668,6 +689,10 @@ de:
         pending: Ausstehend
         rejected: Abgelehnt
         verified: Überprüft
+    pad_iframe:
+      disclaimer: Der Inhalt dieses Blocks wird von registrierten Benutzern verfasst und gibt deren Meinung wieder. %{organization} kann nicht für den Inhalt verantwortlich gemacht werden.
+      explanation: Verwenden Sie dieses Pad, um während des Meetings gemeinsam Notizen zu machen.
+      pad: Pad
     pages:
       home:
         extended:
@@ -710,7 +735,15 @@ de:
         sub_hero:
           register: Registrieren
       index:
-        title: Mehr Informationen
+        read_more: Weiterlesen
+        standalone_pages: Seiten
+        subheading: Navigieren Sie durch die Hilfeseiten von %{name}
+        title: Hilfe
+        topics: Themen
+      participatory_space:
+        metrics:
+          headline: Teilnahme an Zahlen
+          link: Alle Statistiken anzeigen
       terms_and_conditions:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
@@ -735,17 +768,17 @@ de:
       deleted: Gelöschte*r Benutzer*in
       view: Anzeigen
     profiles:
-      default_officialization_text: Standardmäßiger Offizialisierungstext
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
       default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
+        activity: Aktivität
         badges: Abzeichen
-        conversations: Gespräche
         followers: Follower
         following: Folgt
         groups: Gruppen
         members: Mitglieder
-        notifications: Benachrichtigungen
+        timeline: Zeitleiste
+        view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
         badges:
           info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
@@ -783,24 +816,35 @@ de:
       prompt: Wählen Sie einen Bereich aus
       scopes: Bereiche
     search:
-      filter:
-        all: Alle
-        component: Komponente
       results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:
-        search: Suche
+        back: Zurück zu den Ergebnissen
+        jump_to: 'Springen zu:'
+        state:
+          active: Aktiv
+          all: Alles
+          future: Zukunft
+          past: Vergangenheit
       filters_small_view:
         close_modal: Modal schließen
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
+      results:
+        results:
+          one: "%{count} Ergebnis"
+          other: "%{count} Ergebnisse"
+        view_all: Alle anzeigen (%{count})
     shared:
       embed_modal:
         close_window: Fenster schließen
         embed: Bitte fügen Sie diesen Code in Ihre Seite ein
         embed_link: Einbetten
+      extended_navigation_bar:
+        more: Mehr
+        unfold: Entfalten
       flag_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
@@ -810,6 +854,8 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+      floating_help:
+        help: Hilfe
       follow_button:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
@@ -825,6 +871,12 @@ de:
         share_link: Einen Link teilen
       version_author:
         deleted: Gelöschter Benutzer
+    user_activity:
+      index:
+        no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
+    welcome_notification:
+      default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
+      default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
   devise:
     confirmations:
       confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.

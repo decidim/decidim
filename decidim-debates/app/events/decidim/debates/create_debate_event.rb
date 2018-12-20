@@ -16,6 +16,10 @@ module Decidim
 
       delegate :author, to: :resource
 
+      def resource_text
+        translated_attribute(resource.description)
+      end
+
       private
 
       def space

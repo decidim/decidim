@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ nl:
         about: Over
         email: Je e-mailadres
         name: Uw naam
-        nickname: Jouw korte unieke ID
+        nickname: Bijnaam
         password: Wachtwoord
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
@@ -37,14 +36,14 @@ nl:
         remember_me: Blijf ingelogd
     models:
       decidim/user:
-        one: Gebruiker
+        one: Geen gebruikers
         other: gebruikers
       decidim/user_group:
         one: Gebruikersgroep
         other: Gebruikersgroepen
   booleans:
-    'false': Nee
-    'true': Ja
+    'false': 'Nee'
+    'true': 'Ja'
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -164,6 +163,9 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
+      sms:
+        explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
+        name: Code per sms
       started_at: Gestart om %{timestamp}
     authorization_modals:
       show:
@@ -197,7 +199,7 @@ nl:
           title: bevestig je email
     collapsible_list:
       hidden_elements_count:
-        one: en nog 1
+        one: en %{count} meer
         other: en %{count} meer
       see_less: "(zie minder)"
       see_more: "(Bekijk meer)"
@@ -212,6 +214,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            enable_pads_creation: Schakel het maken van pads in
             resources_permissions_enabled: Resources permissies ingeschakeld
           step:
             comments_blocked: Reacties geblokkeerd
@@ -281,6 +284,8 @@ nl:
         new:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
+          sign_in_disabled: U hebt toegang met een extern account
+          sign_up_disabled: Aanmelden is uitgeschakeld, u kunt een bestaande gebruiker gebruiken om toegang te krijgen
       shared:
         newsletter_modal:
           buttons:
@@ -387,14 +392,6 @@ nl:
           notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Onderwerp e-mail
-        moderation:
-          email_intro: E-mail intro
-          email_subject: Onderwerp e-mail
-          moderation_url: Matige url
-        notification_title: Titel van de kennisgeving
-        url: Url
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -448,7 +445,7 @@ nl:
       badges:
         continuity:
           conditions:
-          - Kom hier vaker
+            - Kom hier vaker
           description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
           description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
           description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
@@ -458,7 +455,7 @@ nl:
           unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
-          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen u."
@@ -473,9 +470,9 @@ nl:
           title: badges
         invitations:
           conditions:
-          - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-          - Pas, als u wilt, het bericht aan dat u verzendt
-          - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+            - Pas, als u wilt, het bericht aan dat u verzendt
+            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om je in %{organization_name} te registreren en deelnemers te worden. Dank u voor u %{organization_name} bekend bij anderen en het helpen om de community uit te breiden!
           description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
           description_own: Je hebt %{score} gebruikers uitgenodigd.
@@ -541,6 +538,13 @@ nl:
       edit:
         edit_user_group: Groep bewerken
         update_user_group: Groep bijwerken
+      form:
+        document_number_help: Gebruik geen streepjes of spaties
+        email_help: E-mail van uw organisatie, vereniging, collectief, groep, etc.
+        fill_in_for_verification: 'Vul deze velden in als u wilt dat uw groep wordt geverifieerd:'
+        name_help: Naam van uw organisatie, vereniging, collectief, groep, etc.
+        nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
+        phone_help: Gebruik geen streepjes of spaties
       join:
         error: Er is een probleem opgetreden bij de groep
         success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
@@ -554,6 +558,7 @@ nl:
       new:
         create_user_group: Maak een groep
         new_user_group: Nieuwe groep
+        subtitle: Maak een groep en nodig andere gebruikers uit om deel te nemen aan een collectief niveau.
       no_user_groups: Behoort nog niet tot een groep.
       roles:
         admin: Beheerder
@@ -562,6 +567,13 @@ nl:
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
         success: Groep succesvol geüpdatet
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} kunt u deelnemen aan en beslissen over verschillende onderwerpen, via de spaties die u ziet in het bovenste menu: Processen, Assemblies, Initiatieven, Consultaties.</p> <p>Binnen elk daarvan vindt u verschillende mogelijkheden om deel te nemen: voorstellen doen - individueel of met andere mensen -, deelnemen aan debatten, prioriteit geven aan te implementeren projecten, persoonlijke vergaderingen bijwonen en andere acties.</p>\n"
+          title: Wat kan ik doen in %{organization}?
+        description: Lees meer over %{organization}
+        title: Algemene hulp
     last_activities:
       activities:
         no_activities_warning: Geen activiteit
@@ -593,8 +605,8 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
+      help: Helpen
       home: Home
-      more_information: Meer informatie
     messaging:
       conversation_mailer:
         new_conversation:
@@ -611,20 +623,29 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
-          from: Van
-          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
+          title: conversaties
+        reply:
+          send: Sturen
+          title: Beantwoorden
         show:
-          conversation_with_html: Gesprek met <strong>%{name}</strong>
-          reply: Beantwoorden
-          send: Verzenden
+          title: Gesprek met %{usernames}
         start:
           send: Verzenden
           title: Een gesprek beginnen
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
     metrics:
+      followers:
+        description: Aantal gebruikers dat volgt in de organisatie
+        object: volgelingen
+        title: Volgers
+      participants:
+        description: Aantal actieve gebruikers in de organisatie
+        object: deelnemers
+        title: Deelnemers
       users:
+        description: Aantal gebruikers in de organisatie
         object: gebruikers
         title: gebruikers
     newsletter_mailer:
@@ -668,6 +689,10 @@ nl:
         pending: In behandeling
         rejected: Geweigerd
         verified: Geverifieerd
+    pad_iframe:
+      disclaimer: De inhoud van dit notitieblok is geschreven door geregistreerde gebruikers en geeft hun mening weer. %{organization} kan niet verantwoordelijk worden gehouden voor de inhoud ervan.
+      explanation: Gebruik deze pad om tijdens de vergadering gezamenlijk notities te maken, zodat u de minuut erna gemakkelijker kunt noteren.
+      pad: stootkussen
     pages:
       home:
         extended:
@@ -710,7 +735,15 @@ nl:
         sub_hero:
           register: Registreren
       index:
-        title: Meer informatie
+        read_more: Lees verder
+        standalone_pages: Pages
+        subheading: Navigeer door de helppagina's van %{name}
+        title: Helpen
+        topics: Onderwerpen
+      participatory_space:
+        metrics:
+          headline: Deelname aan cijfers
+          link: Toon alle statistieken
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -735,17 +768,17 @@ nl:
       deleted: Verwijderde gebruiker
       view: Uitzicht
     profiles:
-      default_officialization_text: Standaard officialisatietekst
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        activity: Activiteit
         badges: badges
-        conversations: conversaties
         followers: Volgers
         following: volgt
         groups: groepen
         members: leden
-        notifications: Meldingen
+        timeline: Tijdlijn
+        view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
@@ -783,24 +816,35 @@ nl:
       prompt: Selecteer een scope
       scopes: scopes
     search:
-      filter:
-        all: Alle
-        component: bestanddeel
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:
-        search: Zoeken
+        back: Terug naar resultaten
+        jump_to: 'Spring naar:'
+        state:
+          active: Actief
+          all: Allemaal
+          future: Toekomst
+          past: Verleden
       filters_small_view:
         close_modal: Modal sluiten
         filter: Filter
         filter_by: Filteren op
         unfold: Ontvouwen
+      results:
+        results:
+          one: "%{count} resultaat"
+          other: "%{count} resultaten"
+        view_all: Bekijk alles (%{count})
     shared:
       embed_modal:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
         embed_link: Insluiten
+      extended_navigation_bar:
+        more: Meer
+        unfold: Ontvouwen
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -810,6 +854,8 @@ nl:
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
+      floating_help:
+        help: Helpen
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
@@ -825,6 +871,12 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    user_activity:
+      index:
+        no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.
+    welcome_notification:
+      default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
+      default_subject: Bedankt dat je lid bent geworden van {{organization}}!
   devise:
     confirmations:
       confirmed: Uw e-mailadres is succesvol bevestigd.
@@ -1033,11 +1085,6 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: lijkt te veel op deze domeinnaam
     email_included_in_password: lijkt te veel op uw e-mail

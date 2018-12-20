@@ -22,6 +22,10 @@ module Decidim
         def document_text
           document&.read
         end
+
+        def document_type
+          document.content_type
+        end
       end
     end
   end

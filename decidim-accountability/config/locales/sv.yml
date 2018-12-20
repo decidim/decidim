@@ -23,6 +23,7 @@ sv:
         entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Förslaget ingår i ett resultat
+      decidim/accountability/result_progress_updated_event: Resultatutveckling uppdaterad
   activerecord:
     models:
       decidim/accountability/result:
@@ -201,8 +202,14 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{proposal_title}
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i resultat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Resultatet "%{resource_title}", som innehåller förslaget "%{proposal_title}", är nu %{progress}% färdigt. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{resource_title} framsteg
+          notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som innehåller förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
     metrics:
       results:
+        description: Antal resultat som genererats
         object: resultat
         title: Resultat
     participatory_processes:
@@ -211,8 +218,7 @@ sv:
           results: Resultat
     participatory_spaces:
       highlighted_results:
-        results: Resultat
-        see_all_results: Se alla resultat
+        see_all: Se alla (%{count})
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat

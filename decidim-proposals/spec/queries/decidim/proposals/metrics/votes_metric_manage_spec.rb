@@ -7,7 +7,7 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
   let(:proposal) { create(:proposal, component: component) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:votes) { create_list(:proposal_vote, 5, proposal: proposal, created_at: day) }
 
   context "when executing" do

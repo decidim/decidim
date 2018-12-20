@@ -96,6 +96,12 @@ fr:
           next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
           unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
           unearned_own: Vous n'avez pas encore publié d'initiative.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
+          page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
+          title: Quelles sont les initiatives?
     initiatives:
       admin:
         committee_requests:
@@ -361,9 +367,10 @@ fr:
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionner
         show_similar_initiatives: Comparer
+        step: Étape %{current} de %{total}
+        title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Voir la suite
       initiatives:
         initiative:
           check: Découvrez l'initiative

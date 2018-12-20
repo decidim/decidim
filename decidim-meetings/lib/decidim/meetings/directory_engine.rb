@@ -13,6 +13,7 @@ module Decidim
 
       routes do
         resources :meetings, only: [:index], format: :html
+        get "/calendar", to: "meetings#calendar"
         root to: "meetings#index", format: :html
       end
 

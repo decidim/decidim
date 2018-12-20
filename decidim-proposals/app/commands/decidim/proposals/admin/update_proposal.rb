@@ -6,6 +6,7 @@ module Decidim
       # A command with all the business logic when a user updates a proposal.
       class UpdateProposal < Rectify::Command
         include AttachmentMethods
+        include HashtagsMethods
 
         # Public: Initializes the command.
         #
@@ -35,6 +36,7 @@ module Decidim
 
           transaction do
             update_proposal
+            update_proposal_author
             create_attachment if process_attachments?
           end
 
@@ -46,20 +48,25 @@ module Decidim
         attr_reader :form, :proposal, :attachment
 
         def update_proposal
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-
           Decidim.traceability.update!(
             proposal,
             form.current_user,
-            title: parsed_title,
-            body: parsed_body,
+            title: title_with_hashtags,
+            body: body_with_hashtags,
             category: form.category,
             scope: form.scope,
             address: form.address,
             latitude: form.latitude,
-            longitude: form.longitude
+            longitude: form.longitude,
+            created_in_meeting: form.created_in_meeting
           )
+        end
+
+        def update_proposal_author
+          proposal.coauthorships.clear
+          proposal.add_coauthor(form.author)
+          proposal.save!
+          proposal
         end
       end
     end

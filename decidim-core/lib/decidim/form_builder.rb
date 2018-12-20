@@ -372,6 +372,14 @@ module Decidim
       end
     end
 
+    def form_field_for(attribute)
+      if attribute == :body
+        text_area attribute, rows: 10
+      else
+        text_field attribute
+      end
+    end
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render

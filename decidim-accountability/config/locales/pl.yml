@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -24,12 +23,13 @@ pl:
         entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Wniosek zawarty w wyniku
+      decidim/accountability/result_progress_updated_event: Aktualizacja wyników
   activerecord:
     models:
       decidim/accountability/result:
+        one: Wynik
         few: Wyniki
         many: Wyniki
-        one: Wynik
         other: Wyniki
   decidim:
     accountability:
@@ -142,9 +142,9 @@ pl:
       results:
         count:
           results_count:
+            one: 1 wynik
             few: "%{count} wyników"
             many: "%{count} wyniki"
-            one: 1 wynik
             other: "%{count} wyników"
         filters:
           all: Wszystkie
@@ -206,8 +206,14 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Aktualizacja do %{proposal_title}
           notification_title: Wniosek <a href="%{proposal_path}">%{proposal_title}</a> został uwzględniony w wyniku <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Wynik "%{resource_title}", który obejmuje propozycję "%{proposal_title}", jest teraz %{progress}% ukończony. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}", a ta propozycja jest uwzględniona w wyniku "%{resource_title}". Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{resource_title} postępów
+          notification_title: Wynik <a href="%{resource_path}">%{resource_title}</a>, który obejmuje wniosek <a href="%{proposal_path}">%{proposal_title}</a>, jest teraz ukończony w %{progress}%.
     metrics:
       results:
+        description: Liczba wygenerowanych wyników rozliczalności
         object: wyniki
         title: Wyniki
     participatory_processes:
@@ -216,8 +222,7 @@ pl:
           results: Wyniki
     participatory_spaces:
       highlighted_results:
-        results: wyniki
-        see_all_results: Zobacz wszystkie wyniki
+        see_all: Zobacz wszystko (%{count})
     resource_links:
       included_projects:
         result_project: Projekty uwzględnione w tym wyniku

@@ -47,7 +47,8 @@ module Decidim
             transparent: @form.transparent,
             organizer: @form.organizer,
             registration_terms: @form.current_component.settings.default_registration_terms,
-            component: @form.current_component
+            component: @form.current_component,
+            questionnaire: Decidim::Forms::Questionnaire.new
           }
 
           @meeting = Decidim.traceability.create!(
@@ -71,7 +72,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_created",
             event_class: Decidim::Meetings::CreateMeetingEvent,
             resource: @meeting,
-            recipient_ids: @meeting.participatory_space.followers.pluck(:id)
+            followers: @meeting.participatory_space.followers
           )
         end
       end

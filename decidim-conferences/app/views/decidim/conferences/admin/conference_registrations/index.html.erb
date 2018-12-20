@@ -22,6 +22,9 @@
           <tr>
             <th><%= t("models.conference_registration.fields.name", scope: "decidim.conferences") %></th>
             <th><%= t("models.conference_registration.fields.email", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_registration.fields.registration_type", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_registration.fields.state", scope: "decidim.conferences") %></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +35,19 @@
               </td>
               <td>
                 <%= registration.user.email %>
+              </td>
+              <td>
+                <%= translated_attribute(registration.registration_type.title) %>
+              </td>
+              <td>
+                <%= t("models.conference_registration.fields.states.#{registration.confirmed? ? "confirmed" : "pending"}", scope: "decidim.conferences") %>
+              </td>
+              <td>
+                <% if allowed_to?(:confirm, :conference_registration, conference_registration: registration) %>
+                  <% if !registration.confirmed? %>
+                    <%= icon_link_to "check", confirm_conference_conference_registration_path(current_conference, registration), t("actions.confirm", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
+                  <% end %>
+                <% end %>
               </td>
             </tr>
           <% end %>

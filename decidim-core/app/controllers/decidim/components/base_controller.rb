@@ -22,6 +22,7 @@ module Decidim
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::PadHelper
 
       helper_method :current_component,
                     :current_participatory_space,

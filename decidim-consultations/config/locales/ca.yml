@@ -39,7 +39,7 @@ ca:
           not_found: La resposta no s'ha trobat.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: Consultes
       decidim/consultations/question:
@@ -49,8 +49,8 @@ ca:
         one: Resposta
         other: Respostes
       decidim/consultations/vote:
-        one: Vot
-        other: Vots
+        one: Votació
+        other: Votació
   decidim:
     admin:
       actions:
@@ -247,6 +247,12 @@ ca:
           view_results: Veure resultats
           vote: Votació
         unspecified: Sense especificar
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>consultes són un espai que us permet fer una pregunta clara a totes les persones que formen una organització, a fer una crida per participar a la consulta, fer xocs i ordenar el debat a favor o en contra d'una resposta. Quan arribi la data de consulta, podeu votar i publicar els resultats dels vots.</p> <p>Exemples: les consultes poden ser gairebé qualsevol aspecte que afecti a una organització: alguns exemples estan canviant el nom o el logotip de l'organització que ofereix diverses alternatives, decidir si o no per formar part d'una organització més gran, validar o rebutjar un nou estratègic pla o el resultat d'un grup de treball, o definir si les posicions han de romandre com a màxim 1, 2 o 3 mandats.</p>\n"
+          page: "<p>consultes són un espai que us permet fer una pregunta clara a totes les persones que formen una organització, a fer una crida per participar a la consulta, fer xocs i ordenar el debat a favor o en contra d'una resposta. Quan arribi la data de consulta, podeu votar i publicar els resultats dels vots.</p> <p>Exemples: les consultes poden ser gairebé qualsevol aspecte que afecti a una organització: alguns exemples estan canviant el nom o el logotip de l'organització que ofereix diverses alternatives, decidir si o no per formar part d'una organització més gran, validar o rebutjar un nou estratègic pla o el resultat d'un grup de treball, o definir si les posicions han de romandre com a màxim 1, 2 o 3 mandats.</p>ard en l'organització.</p>\n"
+          title: Què són les consultes?
     menu:
       consultations: Consultes
     pages:

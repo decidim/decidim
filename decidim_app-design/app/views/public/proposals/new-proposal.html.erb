@@ -8,50 +8,52 @@
 
 <main class="wrapper">
   <%= partial "process_header" %>
-  <div class="row columns">
-    <a href="" class="muted-link">
-      <%= icon "chevron-left", class: "icon--small" %>
-      Volver
-    </a>
-    <h2 class="section-heading">Nueva propuesta</h2>
-  </div>
-  <div class="row">
-    <div class="columns large-6 medium-centered">
-      <div class="card">
-        <div class="card__content">
-          <form class="register-form">
-            <div>
+  <div class="wrapper">
+    <div class="row columns">
+      <a href="" class="muted-link">
+        <%= icon "chevron-left", class: "icon--small" %>
+        Volver
+      </a>
+      <h2 class="section-heading">Nueva propuesta</h2>
+    </div>
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <div class="card">
+          <div class="card__content">
+            <form class="register-form">
               <div>
-                <label>Título de la propuesta
-                  <input type="text" placeholder="Nueva propuesta en decidim.barcelona" />
-                </label>
+                <div>
+                  <label>Título de la propuesta
+                    <input type="text" placeholder="Nueva propuesta en decidim.barcelona" />
+                  </label>
+                </div>
+                <div>
+                  <label>Descripción de la propuesta
+                    <textarea placeholder="¿Qué propones?" rows="10"></textarea>
+                  </label>
+                </div>
+                <div>
+                  <label>Categoría
+                    <select>
+                      <option></option>
+                      <option>Categoría 1</option>
+                      <option>Categoría 2</option>
+                    </select>
+                  </label>
+                </div>
+                <div>
+                  <label>Subcategoría
+                    <select>
+                      <option></option>
+                      <option>Subcategoría 1</option>
+                      <option>Subcategoría 2</option>
+                    </select>
+                  </label>
+                </div>
               </div>
-              <div>
-                <label>Descripción de la propuesta
-                  <textarea placeholder="¿Qué propones?" rows="10"></textarea>
-                </label>
-              </div>
-              <div>
-                <label>Categoría
-                  <select>
-                    <option></option>
-                    <option>Categoría 1</option>
-                    <option>Categoría 2</option>
-                  </select>
-                </label>
-              </div>
-              <div>
-                <label>Subcategoría
-                  <select>
-                    <option></option>
-                    <option>Subcategoría 1</option>
-                    <option>Subcategoría 2</option>
-                  </select>
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="button expanded">Enviar</button>
-          </form>
+              <button type="submit" class="button expanded">Enviar</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

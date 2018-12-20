@@ -28,6 +28,15 @@ module Decidim::Conferences
         expect(serialized_user).to include(email: resource.user.email)
       end
 
+      it "includes the registration_type" do
+        serialized_registration_type = subject.serialize[:registration_type]
+
+        expect(serialized_registration_type).to be_a(Hash)
+
+        expect(serialized_registration_type).to include(title: resource.registration_type.title)
+        expect(serialized_registration_type).to include(price: resource.registration_type.price)
+      end
+
       it "includes the conference" do
         serialized_conference = subject.serialize[:conference]
 

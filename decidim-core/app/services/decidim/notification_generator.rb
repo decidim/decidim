@@ -12,14 +12,21 @@ module Decidim
     # event - A String with the name of the event.
     # event_class - A class that wraps the event.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
+    # followers - a collection of Users that receive the notification because
+    #   they're following it
+    # affected_users - a collection of Users that receive the notification because
+    #   they're affected by it
     # extra - a Hash with extra information for the event.
-    def initialize(event, event_class, resource, recipient_ids, extra)
+    # rubocop:disable Metrics/ParameterLists
+    def initialize(event, event_class, resource, followers, affected_users, extra)
       @event = event
       @event_class = event_class
       @resource = resource
-      @recipient_ids = recipient_ids
+      @followers = followers
+      @affected_users = affected_users
       @extra = extra
     end
+    # rubocop:enable Metrics/ParameterLists
 
     # Schedules a job for each recipient to create the notification. Returns `nil`
     # if the resource is not resource or if it is not present.
@@ -29,21 +36,26 @@ module Decidim
       return unless resource
       return unless event_class.types.include?(:notification)
 
-      recipient_ids.each do |recipient_id|
-        generate_notification_for(recipient_id)
+      followers.each do |recipient|
+        generate_notification_for(recipient, user_role: :follower) if ["all", "followed-only"].include?(recipient.notification_types)
+      end
+
+      affected_users.each do |recipient|
+        generate_notification_for(recipient, user_role: :affected_user) if ["all", "own-only"].include?(recipient.notification_types)
       end
     end
 
     private
 
-    attr_reader :event, :event_class, :resource, :recipient_ids, :extra
+    attr_reader :event, :event_class, :resource, :followers, :affected_users, :extra
 
-    def generate_notification_for(recipient_id)
+    def generate_notification_for(recipient, user_role:)
       NotificationGeneratorForRecipientJob.perform_later(
         event,
         event_class.name,
         resource,
-        recipient_id,
+        recipient,
+        user_role.to_s,
         extra
       )
     end

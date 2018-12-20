@@ -16,6 +16,7 @@ module Decidim::Meetings
     include_examples "has scope"
     include_examples "has category"
     include_examples "has reference"
+    include_examples "resourceable"
 
     it "has an association with one agenda" do
       subject.agenda = build_stubbed(:agenda)
@@ -26,6 +27,11 @@ module Decidim::Meetings
       subject.invites << build_stubbed(:invite)
       subject.invites << build_stubbed(:invite)
       expect(subject.invites.size).to eq(2)
+    end
+
+    it "has an association with one questionnaire" do
+      subject.questionnaire = build_stubbed(:questionnaire)
+      expect(subject.questionnaire).to be_present
     end
 
     context "without a title" do
@@ -112,6 +118,92 @@ module Decidim::Meetings
         before { subject.update(private_meeting: true, transparent: true) }
 
         it { is_expected.to be_resource_visible }
+      end
+    end
+
+    describe "pad_is_visible?" do
+      let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+
+      before do
+        allow(meeting).to receive(:pad).and_return(pad)
+      end
+
+      context "when there's no pad" do
+        let(:pad) { nil }
+
+        it "returns false" do
+          expect(subject).not_to be_pad_is_visible
+        end
+      end
+
+      context "when the meeting starts more than 24 hours from now" do
+        before do
+          meeting.start_time = 2.days.from_now
+        end
+
+        it "returns false" do
+          expect(subject).not_to be_pad_is_visible
+        end
+      end
+
+      context "when the meeting starts less than 24 hours from now" do
+        before do
+          meeting.start_time = 24.hours.from_now
+        end
+
+        it "returns true" do
+          expect(subject).to be_pad_is_visible
+        end
+      end
+
+      context "when the meeting has started" do
+        before do
+          meeting.start_time = 1.hour.ago
+        end
+
+        it "returns true" do
+          expect(subject).to be_pad_is_visible
+        end
+      end
+    end
+
+    describe "pad_is_writable?" do
+      let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+
+      before do
+        allow(meeting).to receive(:pad).and_return(pad)
+        subject.start_time = Time.current
+        expect(subject).to be_pad_is_visible
+      end
+
+      context "when the meeting ended more than 72 hours ago" do
+        before do
+          meeting.end_time = 4.days.ago
+        end
+
+        it "returns false" do
+          expect(subject).not_to be_pad_is_writable
+        end
+      end
+
+      context "when the meeting ended less than 72 hours ago" do
+        before do
+          meeting.end_time = 2.days.ago
+        end
+
+        it "returns true" do
+          expect(subject).to be_pad_is_writable
+        end
+      end
+
+      context "when the pad is not visible" do
+        before do
+          expect(meeting).to receive(:pad_is_visible?).and_return(false)
+        end
+
+        it "returns false" do
+          expect(subject).not_to be_pad_is_writable
+        end
       end
     end
   end

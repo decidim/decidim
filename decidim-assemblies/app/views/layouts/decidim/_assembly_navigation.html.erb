@@ -1,0 +1,24 @@
+<%
+  components = participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
+%>
+
+<%=
+  extended_navigation_bar(([
+    {
+      name: t(".assembly_menu_item"),
+      url: decidim_assemblies.assembly_path(current_participatory_space),
+      active: is_active_link?(decidim_assemblies.assembly_path(current_participatory_space), :exclusive)
+    },
+    participatory_space.members.not_ceased.any? ? {
+      name: t(".assembly_member_menu_item"),
+      url: decidim_assemblies.assembly_assembly_members_path(current_participatory_space),
+      active: is_active_link?(decidim_assemblies.assembly_assembly_members_path(current_participatory_space), :inclusive)
+    } : nil
+  ] + components.map do |component|
+    {
+      name: translated_attribute(component.name),
+      url: main_component_path(component),
+      active: is_active_link?(main_component_path(component), :inclusive)
+    }
+  end).compact)
+%>

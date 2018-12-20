@@ -40,6 +40,7 @@
         fakeRoot: false,
         nodeGutter: { x: 16, y: 8 },
         childrenIndicatorRadius: 15,
+        fakeBorderWidth: 32,
         data: null
       }
 
@@ -98,7 +99,7 @@
             let fakeRadius = (diagonal / 2)
 
             // return d3.max([attrs.nodeDistance * 3, fakeRadius])
-            return fakeRadius * 1.2
+            return fakeRadius * 1.5
           })
 
           // manually set x positions (which is calculated using custom radial layout)
@@ -305,23 +306,19 @@
 
           // tick handler
           function ticked() {
+            const fakeBorderWidth = attrs.fakeBorderWidth
+            const maxXValueAvailable = (value) => Math.max(Math.min(calc.chartWidth - fakeBorderWidth, value), fakeBorderWidth)
+            const maxYValueAvailable = (value) => Math.max(Math.min(calc.chartHeight - fakeBorderWidth, value), fakeBorderWidth)
             // set links position
             links
-              .attr("x1", function (d) { return d.source.x; })
-              .attr("y1", function (d) { return d.source.y; })
-              .attr("x2", function (d) { return d.target.x; })
-              .attr("y2", function (d) { return d.target.y; })
+              .attr("x1", (d) => maxXValueAvailable(d.source.x))
+              .attr("y1", (d) => maxYValueAvailable(d.source.y))
+              .attr("x2", (d) => maxXValueAvailable(d.target.x))
+              .attr("y2", (d) => maxYValueAvailable(d.target.y))
 
             // set nodes position
             svg.selectAll(".node")
-              .attr("transform", (d) => {
-                let bounds = {
-                  x: Math.max(Math.min(calc.chartWidth, d.x), 0),
-                  y: Math.max(Math.min(calc.chartHeight, d.y), 0)
-                }
-
-                return `translate(${bounds.x},${bounds.y})`
-              })
+              .attr("transform", (d) => `translate(${maxXValueAvailable(d.x)},${maxYValueAvailable(d.y)})`)
           }
 
           // handler drag start event

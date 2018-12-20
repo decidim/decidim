@@ -19,13 +19,14 @@ module Decidim
         # user - The user being invited
         # conference - The conference being joined.
         # invited_by - The user performing the invitation.
-        def invite(user, conference, invited_by)
+        def invite(user, conference, registration_type, invited_by)
           with_user(user) do
             @user = user
             @conference = conference
             @invited_by = invited_by
             @organization = @conference.organization
             @locator = Decidim::ResourceLocatorPresenter.new(@conference)
+            @registration_type = registration_type
 
             subject = I18n.t("invite.subject", scope: "decidim.conferences.mailer.invite_join_conference_mailer")
             mail(to: user.email, subject: subject)

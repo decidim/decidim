@@ -24,6 +24,7 @@ nl:
         entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
+      decidim/accountability/result_progress_updated_event: Resultaat voortgang bijgewerkt
   activerecord:
     models:
       decidim/accountability/result:
@@ -202,8 +203,14 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
           email_subject: Een update voor %{proposal_title}
           notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het <a href="%{resource_path}">%{resource_title}</a> resultaat.
+        result_progress_updated:
+          email_intro: 'Het resultaat "%{resource_title}", dat het voorstel "%{proposal_title}" bevat, is nu voor %{progress}% gereed. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: U hebt deze melding ontvangen omdat u "%{proposal_title}" volgt en dit voorstel is opgenomen in resultaat "%{resource_title}". Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{resource_title} voortgang
+          notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, inclusief het voorstel <a href="%{proposal_path}">%{proposal_title}</a>, is nu %{progress}% voltooid.
     metrics:
       results:
+        description: Aantal gegenereerde verantwoordingsresultaten
         object: uitslagen
         title: resultaten
     participatory_processes:
@@ -212,8 +219,7 @@ nl:
           results: resultaten
     participatory_spaces:
       highlighted_results:
-        results: Resultaten
-        see_all_results: Bekijk alle resultaten
+        see_all: Alles zien (%{count})
     resource_links:
       included_projects:
         result_project: Projecten opgenomen in dit resultaat

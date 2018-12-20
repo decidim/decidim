@@ -95,6 +95,12 @@ fi:
           next_level_in: Julkaise %{score} uutta aloitetta saavuttaaksesi seuraavan tason!
           unearned_another: Tämä käyttäjä ei ole vielä julkaissut yhtään aloitetta.
           unearned_own: Sinulla ei ole vielä julkaistuja aloitteita.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Aloite on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallisuustiloista riippumatta) kokoamalla (digitaaliset) allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys , alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukea, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn organisaation, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
+          page: "<p>Aloite on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallisuustiloista riippumatta) kokoamalla (digitaaliset) allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys , alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukea, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn organisaation, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>"
+          title: Mitkä ovat aloitteet?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ fi:
         promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
         show_similar_initiatives: Vertaile
+        step: Vaihe %{current} / %{total}
+        title: Luo uusi aloite
       initiative_header:
         initiative_menu_item: Aloite
-        unfold: Avaa
       initiatives:
         initiative:
           check: Tarkasta

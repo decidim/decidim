@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe JoinUserGroup do
       describe "call" do
-        let(:organization) { create(:organization, :with_tos) }
+        let(:organization) { create(:organization) }
         let(:user) { create :user, :confirmed, organization: organization }
         let(:user_group) { create :user_group, users: [], organization: organization }
 
@@ -44,18 +44,18 @@ module Decidim
           end
 
           it "sends a notification" do
-            creator_id = create(:user_group_membership, user_group: user_group, role: "creator").decidim_user_id
-            admin_id = create(:user_group_membership, user_group: user_group, role: "admin").decidim_user_id
+            creator = create(:user_group_membership, user_group: user_group, role: "creator").user
+            admin = create(:user_group_membership, user_group: user_group, role: "admin").user
             create(:user_group_membership, user_group: user_group, role: "member")
 
-            recipient_ids = [creator_id, admin_id]
+            affected_users = [creator, admin]
 
             expect(Decidim::EventsManager).to receive(:publish).with(
               hash_including(
                 event: "decidim.events.groups.join_request_created",
                 event_class: JoinRequestCreatedEvent,
                 resource: user_group,
-                recipient_ids: [recipient_ids],
+                affected_users: affected_users,
                 extra: {
                   user_group_name: user_group.name,
                   user_group_nickname: user_group.nickname

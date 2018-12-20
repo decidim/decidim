@@ -1,22 +1,5 @@
----
 nl:
   activemodel:
-    attributes:
-      survey_answer:
-        body: Antwoorden
-        choices: De keuzes
-        selected_choices: De selectie
-      survey_question:
-        mandatory: Verplicht
-        max_choices: Maximum aantal keuzes
-        question_type: Type
-    errors:
-      models:
-        survey_answer:
-          attributes:
-            choices:
-              missing: zijn niet compleet
-              too_many: zijn te veel
     models:
       decidim/surveys/closed_survey_event: Enquête beëindigd
       decidim/surveys/opened_survey_event: Enquête is gestart
@@ -52,70 +35,22 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de voorgaande link te volgen.
           email_subject: Een nieuwe enquête in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
-    forms:
-      errors:
-        survey_answer:
-          body: Mag niet leeg zijn
+    metrics:
+      survey_answers:
+        description: Aantal enquêtes beantwoord door gebruikers
+        object: antwoorden op enquêtes
+        title: Antwoorden op enquêtes
     surveys:
       admin:
         exports:
           survey_user_answers: Enquête gebruikersantwoorden
-        models:
-          components:
-            description: Beschrijving
-            title: Titel
-            tos: Servicevoorwaarden
         surveys:
-          answer_option:
-            answer_option: Antwoord optie
-            free_text: Vrije tekst
-            remove: Verwijderen
-            statement: Stelling
-          edit:
-            save: Opslaan
-            title: Titel
-          form:
-            add_question: Vraag toevoegen
-            already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, hierdoor kunt u de vragen niet meer bewerken.
-          question:
-            add_answer_option: Voeg antwoord optie toe
-            any: Elk
-            description: Omschrijving
-            down: Omlaag
-            question: Vraag
-            remove: Verwijder
-            statement: Stelling
-            up: Omhoog
           update:
             invalid: Er zijn fouten geweest bij het opslaan van de enquête.
             success: Enquête succesvol opgeslagen.
       last_activity:
         new_survey_at_html: "<span>Nieuwe enquête op %{link}</span>"
-      question_types:
-        long_answer: Lang antwoord
-        multiple_option: Meerdere opties
-        short_answer: Kort antwoord
-        single_option: Enkelvoudige optie
-        sorting: Sorteren
       surveys:
         answer:
           invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
           success: Enquête met succes beantwoord.
-        question:
-          max_choices: 'Max. aantal keuzes: %{n}'
-        show:
-          answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">schrijf u in</a> om uw reactie toe te voegen.
-            title: Antwoorden op de enquête
-          are_you_sure: Deze actie kan niet ongedaan gemaakt worden en u kunt uw antwoorden niet wijzigen. Weet u het zeker?
-          submit: Verzenden
-          survey_answered:
-            body: U heeft deze enquête al beantwoord.
-            title: Enquête beantwoord
-          survey_closed:
-            body: De enquête is gesloten en kan niet worden beantwoord.
-            title: Enquête gesloten
-          survey_for_private_users:
-            body: De enquête is alleen beschikbaar voor privé-gebruikers
-            title: Enquête gesloten
-          tos_agreement: Door deel te nemen aan dit onderzoek accepteert u de gebruiksvoorwaarden

@@ -1,0 +1,75 @@
+# Please replace all the values that start with CHANGE_ME.
+version: '3'
+services:
+  app:
+    environment:
+      # Title of the Etherpad Lite instance. Defaults to "Etherpad".
+      - ETHERPAD_TITLE=Decidim pads
+      # Port of the Etherpad Lite instance. Defaults to 9001.
+      - ETHERPAD_PORT=9001
+      # If set, an admin account is enabled for Etherpad, and the /admin/ interface is accessible via it.
+      - ETHERPAD_ADMIN_PASSWORD=CHANGE_ME_ADMIN_PASSWORD
+      # If the admin password is set, this defaults to "admin". Otherwise the user can set it to another username.
+      - ETHERPAD_ADMIN_USER=CHANGE_ME_ADMIN_USER
+      # Type of databse to use. Defaults to mysql.
+      - ETHERPAD_DB_TYPE=mysql
+      # Hostname of the database to use. Defaults to mysql.
+      - ETHERPAD_DB_HOST=mysql
+      # By default Etherpad Lite will attempt to connect as root to the database container.
+      - ETHERPAD_DB_USER=root
+      # Password to use, mandatory. If legacy links are used and ETHERPAD_DB_USER is root, then MYSQL_ENV_MYSQL_ROOT_PASSWORD is automatically used.
+      - ETHERPAD_DB_PASSWORD=CHANGE_ME_PASSWORD
+      # The database to use. Defaults to etherpad. If the database is not available, it will be created when the container is launched (only if the database type is either mysql or postgres, and the user need to have the right to create the database).
+      - ETHERPAD_DB_NAME=etherpad
+      # The charset to use. Defaults to utf8mb4.
+      - ETHERPAD_DB_CHARSET=utf8mb4
+      # if file APIKEY.txt is missing, the variable value is used to provision it
+      - ETHERPAD_API_KEY=CHANGE_ME_API_KEY
+    image: 'tvelocity/etherpad-lite'
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+      labels:
+        - com.df.notify=true
+        - com.df.port=9001
+        - com.df.serviceDomain=CHANGE_ME_PADS_SERVER_HOST_NAME
+  proxy:
+    image: dockerflow/docker-flow-proxy
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - LISTENER_ADDRESS=swarm-listener
+      - MODE=swarm
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+  swarm-listener:
+    image: dockerflow/docker-flow-swarm-listener
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DF_NOTIFY_CREATE_SERVICE_URL=http://proxy:8080/v1/docker-flow-proxy/reconfigure
+      - DF_NOTIFY_REMOVE_SERVICE_URL=http://proxy:8080/v1/docker-flow-proxy/remove
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+  mysql:
+    environment:
+      - MYSQL_ROOT_PASSWORD=CHANGE_ME_PASSWORD
+    image: 'mysql:5.7'
+    volumes:
+      - mysql:/var/lib/mysql
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+volumes:
+  mysql:

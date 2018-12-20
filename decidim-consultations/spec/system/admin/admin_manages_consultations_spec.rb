@@ -181,25 +181,6 @@ describe "Admin manages consultations", type: :system do
     end
   end
 
-  describe "deleting a consultation" do
-    let!(:consultation2) { create(:consultation, organization: organization) }
-
-    before do
-      visit decidim_admin_consultations.consultations_path
-    end
-
-    it "deletes a consultation" do
-      click_link translated(consultation2.title)
-      accept_confirm { click_link "Delete" }
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).not_to have_content(translated(consultation2.title))
-      end
-    end
-  end
-
   describe "previewing consultations" do
     let!(:consultation) { create(:consultation, :unpublished, organization: organization) }
 

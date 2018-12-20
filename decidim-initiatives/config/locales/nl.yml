@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -87,8 +86,8 @@ nl:
       badges:
         initiatives:
           conditions:
-          - Ga naar de participatieruimte van Intiatives
-          - Volg de stappen om een ​​nieuw initiatief te maken
+            - Ga naar de participatieruimte van Intiatives
+            - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           description_own: Je hebt %{score} initiatieven gepubliceerd.
@@ -96,6 +95,12 @@ nl:
           next_level_in: Ontvang nog %{score} initiatieven die zijn gepubliceerd om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
           unearned_own: Je hebt nog geen initiatieven gepubliceerd.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan worden gepromoot door middel van het verzamelen van (digitale) handtekeningen voor de organisatie om een ​​specifieke actie uit te voeren (een verordening wijzigen, een project initiëren , verander de naam van een afdeling of een straat, enz.).</p> <p>De initiatiefnemers van een initiatief kunnen hun doelstellingen definiëren, steun verzamelen, debatteren, verspreiden en vergaderingspunten definiëren waar handtekeningen kunnen worden verzameld bij de deelnemers of debatten kunnen worden geopend voor andere deelnemers.</p> <p>Voorbeelden: een initiatief kan handtekeningen verzamelen om een ​​raadpleging bijeen te roepen onder alle mensen van een organisatie, of om een ​​vergadering te creëren of bijeen te roepen, of om een ​​proces van budgetverhoging op te zetten voor een territorium of een deel van de organisatie. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen aan deze vraag toevoegen en deze verder brengen in de organisatie.</p>\n"
+          page: "<p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan worden gepromoot door middel van het verzamelen van (digitale) handtekeningen voor de organisatie om een ​​specifieke actie uit te voeren (een verordening wijzigen, een project initiëren , verander de naam van een afdeling of een straat, enz.).</p> <p>De initiatiefnemers van een initiatief kunnen hun doelstellingen definiëren, steun verzamelen, debatteren, verspreiden en vergaderingspunten definiëren waar handtekeningen kunnen worden verzameld bij de deelnemers of debatten kunnen worden geopend voor andere deelnemers.</p> <p>Voorbeelden: een initiatief kan handtekeningen verzamelen om een ​​raadpleging bijeen te roepen onder alle mensen van een organisatie, of om een ​​vergadering te creëren of bijeen te roepen, of om een ​​proces van budgetverhoging op te zetten voor een territorium of een deel van de organisatie. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen aan deze vraag toevoegen en deze verder brengen in de organisatie.</p>\n"
+          title: Wat zijn initiatieven?
     initiatives:
       admin:
         committee_requests:
@@ -361,9 +366,10 @@ nl:
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
+        step: Stap %{current} van %{total}
+        title: Maak nieuw initiatief
       initiative_header:
         initiative_menu_item: Initiatief
-        unfold: Uitvouwen
       initiatives:
         initiative:
           check: Bekijken

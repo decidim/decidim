@@ -255,10 +255,17 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Un aggiornamento a %{participatory_space_title}
           notification_title: Le date per il passaggio <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> sono state aggiornate.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>processo partecipativo</strong> è una sequenza di attività partecipative (ad esempio, prima compilando un sondaggio, poi formulando proposte, discutendole in riunioni faccia a faccia o virtuali e infine dando la priorità a esse) allo scopo di definire e prendere una decisione su un argomento specifico.</p> <p>Esempi di processi partecipativi sono: un processo di elezione dei membri del comitato (in cui le candidature vengono presentate per la prima volta, poi discusse e infine si sceglie una candidatura), i budget partecipativi (dove le proposte sono fatte, valutate economicamente e votate con i soldi disponibili), un processo di pianificazione strategica, la stesura collaborativa di un regolamento o norma, la progettazione di uno spazio urbano o la produzione di un piano di politica pubblica.</p>\n"
+          page: "<p>A <strong>processo partecipativo</strong> è una sequenza di attività partecipative (ad esempio, prima compilando un sondaggio, poi formulando proposte, discutendole in riunioni faccia a faccia o virtuali e infine dando la priorità a esse) allo scopo di definire e prendere una decisione su un argomento specifico.</p> <p>Esempi di processi partecipativi sono: un processo di elezione dei membri del comitato (in cui le candidature vengono presentate per la prima volta, poi discusse e infine si sceglie una candidatura), i budget partecipativi (dove le proposte sono fatte, valutate economicamente e votate con i soldi disponibili), un processo di pianificazione strategica, la stesura collaborativa di un regolamento o norma, la progettazione di uno spazio urbano o la produzione di un piano di politica pubblica.</p>\n"
+          title: Cos'è un processo partecipativo?
     menu:
       processes: Processi
     metrics:
       participatory_processes:
+        description: Numero di processi partecipativi in ​​questa organizzazione
         object: processi partecipativi
         title: Processi partecipativi
     participatory_process_groups:
@@ -378,9 +385,8 @@ it:
           active_step: 'Fase attuale:'
           more_info: Maggiori informazioni
           take_part: Partecipa
-      process_header:
-        process_menu_item: Il processo
-        unfold: Espandi
       process_header_steps:
         step: Fase %{current} di %{total}
         view_steps: Visualizza le fasi
+      process_navigation:
+        process_menu_item: Il processo

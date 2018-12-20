@@ -25,12 +25,11 @@ module Decidim
     included do
       include Decidim::NeedsOrganization
 
-      helper ParticipatorySpaceHelpers, IconHelper
+      helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
-
-      delegate :manifest, to: :current_participatory_space, prefix: true
+      helper_method :help_section, :help_id
     end
 
     private
@@ -43,6 +42,17 @@ module Decidim
       raise NotImplementedError
     end
 
+    def current_participatory_space_manifest
+      return current_participatory_space.manifest if current_participatory_space
+
+      manifest = Decidim.find_participatory_space_manifest(
+        self.class.name.demodulize.underscore.gsub("_controller", "")
+      )
+
+      raise NotImplementedError unless manifest
+      manifest
+    end
+
     def authorize_participatory_space
       enforce_permission_to :read, :participatory_space, current_participatory_space: current_participatory_space
     end
@@ -53,11 +63,12 @@ module Decidim
 
     # Method for current user can visit the space (assembly or proces)
     def current_user_can_visit_space?
-      (current_participatory_space.try(:private_space?) &&
-       current_participatory_space.users.include?(current_user)) ||
+      current_user&.admin ||
+        (current_participatory_space.try(:private_space?) &&
+         current_participatory_space.users.include?(current_user)) ||
         !current_participatory_space.try(:private_space?) ||
         (current_participatory_space.try(:private_space?) &&
-        current_participatory_space.try(:is_transparent?))
+         current_participatory_space.try(:is_transparent?))
     end
 
     def check_current_user_can_visit_space
@@ -65,6 +76,17 @@ module Decidim
 
       flash[:alert] = I18n.t("participatory_space_private_users.not_allowed", scope: "decidim")
       redirect_to action: "index"
+    end
+
+    def help_section
+      @help_section ||= Decidim::ContextualHelpSection.find_content(
+        current_organization,
+        help_id
+      )
+    end
+
+    def help_id
+      @help_id ||= current_participatory_space_manifest.name
     end
   end
 end

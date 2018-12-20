@@ -9,7 +9,7 @@ hu:
         about: Rólunk
         email: Email címed
         name: Neved
-        nickname: Rövid, egyedi azonosítód
+        nickname: Becenév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
@@ -36,8 +36,8 @@ hu:
         remember_me: Emlékezz rám
     models:
       decidim/user:
-        one: Felhasználó
-        other: Felhasználók
+        one: Nincsenek felhasználók
+        other: felhasználók
       decidim/user_group:
         one: Felhasználói csoport
         other: Felhasználói csoportok
@@ -163,6 +163,9 @@ hu:
           foo: Foo
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
+      sms:
+        explanation: Küldje el mobiltelefonszámát, hogy ellenőrizhessük személyazonosságát.
+        name: Kód SMS szerint
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       show:
@@ -196,7 +199,7 @@ hu:
           title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
-        one: és még egy
+        one: és még %{count}
         other: és még %{count}
       see_less: "(kevesebb)"
       see_more: "(tovább)"
@@ -211,6 +214,7 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
+            enable_pads_creation: A párna létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
@@ -280,6 +284,8 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
+          sign_in_disabled: Külső fiókkal érhető el
+          sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználó hozzáférhet
       shared:
         newsletter_modal:
           buttons:
@@ -531,6 +537,13 @@ hu:
       edit:
         edit_user_group: Csoport szerkesztése
         update_user_group: Csoport frissítése
+      form:
+        document_number_help: Ne használjon kötőjeleket és tereket
+        email_help: A szervezet, az egyesület, a kollektív, a csoport stb. E-mailje.
+        fill_in_for_verification: 'Töltse ki ezeket a mezőket, ha azt szeretné, hogy csoportja ellenőrizhető legyen:'
+        name_help: A szervezet, az egyesület, a kollektív, a csoport stb. Neve.
+        nickname_help: A szervezet, az egyesület, a kollektív, a csoport stb. Felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
+        phone_help: Ne használjon kötőjeleket és tereket
       join:
         error: Hiba történt a csoporthoz való csatlakozáskor
         success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmedet, mielőtt elfogadja a csatlakozásodat.
@@ -544,6 +557,7 @@ hu:
       new:
         create_user_group: Csoport létrehozása
         new_user_group: Új csoport
+        subtitle: Hozzon létre egy csoportot, és hívja meg a többi felhasználót, hogy vegyen részt kollektív szinten.
       no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
@@ -552,6 +566,13 @@ hu:
       update:
         error: Probléma történt a csoport frissítésével
         success: A csoport sikeresen frissült
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Az %{organization} részt vehet és dönthet különböző témákról a főmenüben megjelenő mezőkön keresztül: Folyamatok, összeállítások, kezdeményezések, konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyen részt vitákban, fontolja meg a végrehajtandó projekteket, vegyen részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
+          title: Mit tehetek a %{organization}?
+        description: További információ a %{organization}
+        title: Általános segítség
     last_activities:
       activities:
         no_activities_warning: Nincs aktivitás
@@ -583,8 +604,8 @@ hu:
     members:
       no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
+      help: Segítség
       home: Kezdőlap
-      more_information: További információk
     messaging:
       conversation_mailer:
         new_conversation:
@@ -601,20 +622,29 @@ hu:
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
-          from: Feladó
-          last_message_html: Utolsó üzenet <strong>%{time}-ja</strong>
           no_conversations: Még nincsenek beszélgetések
+          title: beszélgetések
+        reply:
+          send: Elküld
+          title: Válasz
         show:
-          conversation_with_html: 'Beszélgetés vele: <strong>%{name}</strong>'
-          reply: Válasz
-          send: Küldés
+          title: Beszélgetés %{usernames}
         start:
           send: Küldés
           title: Beszélgetés indítása
         update:
           error: Üzenet elküldése sikertelen. Próbáld újra később
     metrics:
+      followers:
+        description: A szervezetben megjelenő felhasználók száma
+        object: követői
+        title: Követő
+      participants:
+        description: Az aktív felhasználók száma a szervezetben
+        object: résztvevők
+        title: résztvevők
       users:
+        description: A felhasználók száma a szervezetben
         object: felhasználók
         title: felhasználók
     newsletter_mailer:
@@ -658,6 +688,10 @@ hu:
         pending: Függőben
         rejected: Elutasítva
         verified: Megerősítve
+    pad_iframe:
+      disclaimer: A pad tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
+      explanation: Ezzel a párnával együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a percet.
+      pad: Párna
     pages:
       home:
         extended:
@@ -700,7 +734,15 @@ hu:
         sub_hero:
           register: Regisztráció
       index:
-        title: További információk
+        read_more: Olvass tovább
+        standalone_pages: Oldalak
+        subheading: Navigáljon a %{name} súgó oldalán
+        title: Segítség
+        topics: Témakörök
+      participatory_space:
+        metrics:
+          headline: Részvétel számokban
+          link: Az összes statisztika megjelenítése
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
@@ -728,13 +770,14 @@ hu:
       default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
       default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
+        activity: Tevékenység
         badges: Jelvények
-        conversations: Beszélgetések
         followers: Követők
         following: Követés
         groups: Csoportok
         members: Belépés
-        notifications: Értesítések
+        timeline: Idővonal
+        view_full_profile: Teljes profil megtekintése
       sidebar:
         badges:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
@@ -772,24 +815,35 @@ hu:
       prompt: Válassz hatáskört
       scopes: Hatáskörök
     search:
-      filter:
-        all: Összes
-        component: Elem
       results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
       filters:
-        search: Keresés
+        back: Vissza az eredményekhez
+        jump_to: 'Ugorj:'
+        state:
+          active: Aktív
+          all: Minden
+          future: Jövő
+          past: Múlt
       filters_small_view:
         close_modal: Modal bezárása
         filter: Szűrés
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
+      results:
+        results:
+          one: "%{count} eredmény"
+          other: "%{count} találat"
+        view_all: Összes megtekintése (%{count})
     shared:
       embed_modal:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
         embed_link: Beágyaz
+      extended_navigation_bar:
+        more: Több
+        unfold: kibontakozik
       flag_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás
@@ -799,6 +853,8 @@ hu:
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
         title: Hibabejelentés
+      floating_help:
+        help: Segítség
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
@@ -814,6 +870,12 @@ hu:
         share_link: Hivatkozás megosztása
       version_author:
         deleted: Törölt felhasználó
+    user_activity:
+      index:
+        no_activities_warning: Ennek a felhasználónak még nem volt aktívja.
+    welcome_notification:
+      default_body: <p>Hi {{name}}, köszönöm, hogy csatlakozott a {{organization}} és üdvözlöm!</p><ul><li>Ha gyorsan meg szeretné tudni, hogy mit tehet itt, nézze meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvények közül, amiket {{organization}}</li><li>részt veszel. Végül, de nem utolsósorban, csatlakozz más emberekkel is, ossza meg velük a {{organization}}részvétel és a részvétel tapasztalatait. Tegyen javaslatokat, megjegyzéseket, vitákat, gondoljon arra, hogyan járuljon hozzá a közös jóléthez, nyújtson érveket, hogy meggyőzze, hallgassa és olvassa el a meggyőződést, konkrét és közvetlen módon fejezze ki ötleteit, türelmesen és határozottan válaszoljon, megvédje ötleteit és tartsa meg egy nyitott elme, hogy együttműködjenek és csatlakozzanak más emberek ötleteivel.</li></ul>
+      default_subject: Köszönjük, hogy csatlakozott a {{organization}}!
   devise:
     confirmations:
       confirmed: E-mail címed sikeresen meg lett erősítve.

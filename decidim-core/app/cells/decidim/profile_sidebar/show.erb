@@ -10,7 +10,9 @@
         </span>
       <% end %>
     </h5>
-    <p><%= profile_user.about %></p>
+    <div class="mb-s text-compact">
+      <small><%= profile_user.about %></small>
+    </div>
     <% if profile_user.personal_url.present? %>
       <%= link_to html_truncate(profile_user.personal_url.gsub(%r{https?\:\/\/}, ""), length: 30), profile_user.personal_url %>
     <% end %>
@@ -32,13 +34,13 @@
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+            <h2 class="heading2"><strong><%= profile_user.followers_count %></strong></h2>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.following") %>
-            <h1 class="heading1"><%= profile_user.following_count %></h1>
+            <h2 class="heading2"><strong><%= profile_user.following_count %></strong></h2>
           <% end %>
         </div>
       <% else %>
@@ -101,10 +103,20 @@
         <% end %>
       </div>
     <% elsif logged_in? %>
-      <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
+      <%= cell "decidim/follow_button", profile_holder, inline: false %>
     <% end %>
 
     <% if can_edit_user_group_profile? %>
+      <% if user_group_email_to_be_confirmed? %>
+        <div class="text-center">
+          <%= link_to decidim.group_email_confirmation_path(model.nickname), method: :post, class: "button secondary light expanded" do %>
+            <span>
+              <%= t("decidim.profiles.user.resend_email_confirmation_instructions") %>
+            </span>
+          <% end %>
+        </div>
+      <% end %>
+
       <div class="text-center">
         <%= link_to t("decidim.profiles.user.edit_user_group"), edit_group_path(profile_holder.nickname) %>
       </div>

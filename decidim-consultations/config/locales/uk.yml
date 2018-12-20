@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -39,25 +38,20 @@ uk:
           not_found: Відповідь не знайдено.
   activerecord:
     models:
-      decidim/consultations:
-        few: Консультації
-        many: Консультацій
-        one: Консультація
-        other: Консультацій
       decidim/consultations/question:
+        one: Питання
         few: Питання
         many: Питань
-        one: Питання
         other: Питань
       decidim/consultations/response:
+        one: Відповідь
         few: Відповіді
         many: Відповідей
-        one: Відповідь
         other: Відповідей
       decidim/consultations/vote:
+        one: Голос
         few: Голоси
         many: Голосів
-        one: Голос
         other: Голосів
   decidim:
     admin:
@@ -117,24 +111,29 @@ uk:
             created_at: 'Створено:'
             published: Оприлюднено
             title: Назва
+          name:
+            one: Консультація
+            few: Консультації
+            many: Консультацій
+            other: Консультацій
         question:
           fields:
             created_at: 'Створено:'
             published: Оприлюднено
             title: Назва
           name:
+            one: Питання
             few: Питання
             many: Питань
-            one: Питання
             other: Питань
         response:
           fields:
             created_at: 'Створено:'
             title: Назва
           name:
+            one: Відповідь
             few: Відповіді
             many: Відповідей
-            one: Відповідь
             other: Відповідей
       question_publications:
         create:
@@ -196,9 +195,9 @@ uk:
           recent: Найновіші
       count:
         title:
+          one: "%{count} консультація"
           few: "%{count} консультації"
           many: "%{count} консультацій"
-          one: "%{count} консультація"
           other: "%{count} консультацій"
       filters:
         active: Діючі
@@ -224,9 +223,9 @@ uk:
         take_part: Взяти участь
         view_results: Переглянути підсумки
         votes_out_of:
+          one: голос з
           few: голоси з
           many: голосів з
-          one: голос з
           other: голосів з
       question_votes:
         create:

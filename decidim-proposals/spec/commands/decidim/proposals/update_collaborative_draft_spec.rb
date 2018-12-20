@@ -7,7 +7,7 @@ module Decidim
     describe UpdateCollaborativeDraft do
       let(:form_klass) { CollaborativeDraftForm }
 
-      let(:component) { create(:proposal_component) }
+      let(:component) { create(:proposal_component, :with_extra_hashtags, suggested_hashtags: suggested_hashtags.join(" ")) }
       let(:organization) { component.organization }
       let(:form) do
         form_klass.from_params(
@@ -30,6 +30,7 @@ module Decidim
       let(:address) { nil }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
+      let(:suggested_hashtags) { [] }
 
       describe "call" do
         let(:form_params) do
@@ -38,7 +39,8 @@ module Decidim
             body: "This is the collaborative draft body",
             address: address,
             has_address: has_address,
-            user_group_id: user_group.try(:id)
+            user_group_id: user_group.try(:id),
+            suggested_hashtags: suggested_hashtags
           }
         end
 
@@ -106,6 +108,17 @@ module Decidim
               expect(collaborative_draft.coauthorships.count).to eq(1)
               expect(collaborative_draft.authors.count).to eq(1)
               expect(collaborative_draft.authors.first).to eq(author)
+            end
+          end
+
+          context "with extra hashtags" do
+            let(:suggested_hashtags) { %w(Hashtag1 Hashtag2) }
+
+            it "saves the extra hashtags" do
+              command.call
+              collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
+              expect(collaborative_draft.body).to include("_Hashtag1")
+              expect(collaborative_draft.body).to include("_Hashtag2")
             end
           end
 

@@ -83,8 +83,15 @@ ca:
         changed_notably: S'han produït canvis notables.
         content: Contingut
         organization: Organització
+        show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        weight: Pes
+      static_page_topic:
+        description: Descripció
+        show_in_footer: Mostra al peu de pàgina
+        title: Títol
+        weight: Pes
     errors:
       models:
         oauth_application:
@@ -249,6 +256,11 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      help_sections:
+        error: S'ha produït un error en actualitzar les seccions d'ajuda
+        form:
+          save: Desa
+        success: Les seccions d'ajuda s'han actualitzat correctament
       impersonatable_users:
         index:
           filter:
@@ -307,11 +319,12 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
-        officializations: Oficialitzacions
+        participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -580,6 +593,21 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquest àmbit.
           success: Àmbit actualitzat correctament
+      static_page_topics:
+        create:
+          error: S'ha produït un error en crear un tema nou.
+          success: S'ha creat el tema amb èxit.
+        destroy:
+          success: S'ha destruït el tema amb èxit
+        edit:
+          title: Edita el tema
+          update: Actualitza el tema
+        new:
+          create: Crea un tema
+          title: Nou tema
+        update:
+          error: S'ha produït un error en actualitzar aquest tema.
+          success: S'ha actualitzat el tema amb èxit
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
@@ -592,11 +620,18 @@ ca:
           changed_notably_help: Si està marcada, els usuaris seran notificats per acceptar els nous termes i condicions.
           title: Editar pàgina
           update: Actualitzar
+        form:
+          none: Cap
         index:
           last_notable_change: Últims canvis notables
         new:
-          create: Crear
+          create: Crea una pàgina
           title: Nova pàgina
+        topic:
+          destroy: Elimina el tema
+          edit: Edita el tema
+          empty: No hi ha cap pàgina sobre aquest tema
+          without_topic: Pàgines sense tema
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
@@ -611,6 +646,7 @@ ca:
         managed_users: Managed users
         navbar_links: Navbar links
         officializations: Oficialitzacions
+        participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines

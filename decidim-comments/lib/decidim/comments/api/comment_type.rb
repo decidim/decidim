@@ -8,9 +8,14 @@ module Decidim
       description "A comment"
 
       interfaces [
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AuthorableInterface }
+        -> { Decidim::Comments::CommentableInterface }
       ]
+
+      field :author, !Decidim::Core::AuthorInterface, "The resource author" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.author
+        }
+      end
 
       field :id, !types.ID, "The Comment's unique ID"
 

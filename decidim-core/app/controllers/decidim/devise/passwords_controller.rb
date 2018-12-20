@@ -6,7 +6,13 @@ module Decidim
     class PasswordsController < ::Devise::PasswordsController
       include Decidim::DeviseControllers
 
+      before_action :check_sign_in_enabled
+
       private
+
+      def check_sign_in_enabled
+        redirect_to new_user_session_path unless current_organization.sign_in_enabled?
+      end
 
       # Since we're using a single Devise installation for multiple
       # organizations, and user emails can be repeated across organizations,

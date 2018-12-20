@@ -420,6 +420,20 @@ jobs:
       - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
+  forms:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   build_design_app:
     working_directory: /app
     docker:
@@ -532,6 +546,10 @@ workflows:
             - build_test_app
             - main
       - debates:
+          requires:
+            - build_test_app
+            - main
+      - forms:
           requires:
             - build_test_app
             - main

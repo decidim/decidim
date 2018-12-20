@@ -358,7 +358,6 @@ ru:
         show_similar_initiatives: Сравнить
       initiative_header:
         initiative_menu_item: Почин
-        unfold: Развернуть
       initiatives:
         initiative:
           check: Проверьте это

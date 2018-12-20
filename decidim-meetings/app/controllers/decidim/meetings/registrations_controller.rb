@@ -4,6 +4,31 @@ module Decidim
   module Meetings
     # Exposes the registration resource so users can join and leave meetings.
     class RegistrationsController < Decidim::Meetings::ApplicationController
+      include Decidim::Forms::Concerns::HasQuestionnaire
+
+      def answer
+        enforce_permission_to :join, :meeting, meeting: meeting
+
+        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
+
+        JoinMeeting.call(meeting, current_user, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
+            redirect_to after_answer_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
+            render template: "decidim/forms/questionnaires/show"
+          end
+
+          on(:invalid_form) do
+            flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
+            render template: "decidim/forms/questionnaires/show"
+          end
+        end
+      end
+
       def create
         enforce_permission_to :join, :meeting, meeting: meeting
 
@@ -50,6 +75,24 @@ module Decidim
             redirect_after_path
           end
         end
+      end
+
+      def allow_answers?
+        meeting.registrations_enabled? && meeting.registration_form_enabled? && meeting.has_available_slots?
+      end
+
+      def after_answer_path
+        meeting_path(meeting)
+      end
+
+      # You can implement this method in your controller to change the URL
+      # where the questionnaire will be submitted.
+      def update_url
+        answer_meeting_registration_path(meeting_id: meeting.id)
+      end
+
+      def questionnaire_for
+        meeting
       end
 
       private

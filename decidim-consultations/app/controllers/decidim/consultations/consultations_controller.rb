@@ -11,6 +11,7 @@ module Decidim
       include FilterResource
       include Paginable
       include Orderable
+      include ParticipatorySpaceContext
 
       helper_method :collection, :consultations, :finished_consultations, :active_consultations, :filter
 
@@ -31,6 +32,10 @@ module Decidim
       end
 
       private
+
+      def current_participatory_space_manifest
+        @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:consultations)
+      end
 
       def consultations
         @consultations = search.results

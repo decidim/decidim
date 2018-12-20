@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -39,26 +38,26 @@ pl:
           not_found: Odpowiedź nie znaleziono.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
+        one: Konsultacja
         few: Konsultacje
         many: Konsultacje
-        one: Konsultacja
         other: Konsultacje
       decidim/consultations/question:
+        one: Pytanie
         few: pytania
         many: pytania
-        one: Pytanie
         other: pytania
       decidim/consultations/response:
+        one: Odpowiedź
         few: Odpowiedzi
         many: Odpowiedzi
-        one: Odpowiedź
         other: Odpowiedzi
       decidim/consultations/vote:
-        few: Głosy
-        many: Głosy
         one: Głosować
-        other: Głosy
+        few: Głosować
+        many: Głosować
+        other: Głosować
   decidim:
     admin:
       actions:
@@ -117,24 +116,29 @@ pl:
             created_at: Utworzono w
             published: Opublikowany
             title: Tytuł
+          name:
+            one: Konsultacja
+            few: Konsultacje
+            many: Konsultacje
+            other: Konsultacje
         question:
           fields:
             created_at: Utworzono w
             published: Opublikowany
             title: Tytuł
           name:
+            one: Pytanie
             few: pytania
             many: pytania
-            one: Pytanie
             other: pytania
         response:
           fields:
             created_at: Utworzono w
             title: Tytuł
           name:
+            one: Odpowiedź
             few: Odpowiedzi
             many: Odpowiedzi
-            one: Odpowiedź
             other: Odpowiedzi
       question_publications:
         create:
@@ -203,9 +207,9 @@ pl:
           name: Wyróżnione konsultacje
       count:
         title:
+          one: "%{count} konsultacja"
           few: "%{count} konsultacji"
           many: "%{count} konsultacji"
-          one: "%{count} konsultacja"
           other: "%{count} konsultacji"
       filters:
         active: Aktywny
@@ -232,18 +236,18 @@ pl:
             active_consultations: Aktywne konsultacje
             see_all_consultations: Zobacz wszystkie konsultacje
             voting_ends_in:
+              one: Głosowanie kończy się na <strong>jutro</strong>
               few: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
               many: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
-              one: Głosowanie kończy się na <strong>jutro</strong>
               other: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
             voting_ends_today: Głosowanie kończy się dzisiaj <strong></strong>
       question:
         take_part: Wziąć udział
         view_results: Pokaż wyniki
         votes_out_of:
+          one: zagłosuj na
           few: głosów z
           many: głosów z
-          one: zagłosuj na
           other: głosów z
       question_votes:
         create:
@@ -262,6 +266,12 @@ pl:
           view_results: Pokaż wyniki
           vote: Głosować
         unspecified: Nieokreślony
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Konsultacje to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, wezwać do wzięcia udziału w konsultacjach, nakręcić i zlecić debatę za lub przeciw odpowiedzi. Po nadejściu daty konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: niektóre przykłady zmieniają nazwę lub logo organizacji oferującej kilka alternatyw, decydując Tak lub Nie, aby stać się częścią większej organizacji, zatwierdzając lub odrzucając nowy strategiczny plan lub wynik grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          page: "<p>Konsultacje to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, wezwać do wzięcia udziału w konsultacjach, nakręcić i zlecić debatę za lub przeciw odpowiedzi. Po nadejściu daty konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: niektóre przykłady zmieniają nazwę lub logo organizacji oferującej kilka alternatyw, decydując Tak lub Nie, aby stać się częścią większej organizacji, zatwierdzając lub odrzucając nowy strategiczny plan lub wynik grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>ard w organizacji.</p>\n"
+          title: Czym są konsultacje?
     menu:
       consultations: Konsultacje
     pages:

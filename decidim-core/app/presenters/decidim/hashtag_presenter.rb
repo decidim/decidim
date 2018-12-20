@@ -8,11 +8,16 @@ module Decidim
     include Rails.application.routes.mounted_helpers
     include ActionView::Helpers::UrlHelper
 
+    def initialize(hashtag, cased_name: nil)
+      super(hashtag)
+      @cased_name = cased_name if cased_name&.downcase == hashtag.name
+    end
+
     #
-    # name presented in a twitter-like style
+    # hashtag presented in a twitter-like style
     #
     def name
-      "##{super}"
+      "##{@cased_name || super}"
     end
 
     delegate :url, to: :hashtag, prefix: true

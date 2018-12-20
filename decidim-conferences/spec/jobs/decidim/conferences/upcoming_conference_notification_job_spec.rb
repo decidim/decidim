@@ -21,7 +21,7 @@ describe Decidim::Conferences::UpcomingConferenceNotificationJob do
           event: "decidim.events.conferences.upcoming_conference",
           event_class: Decidim::Conferences::UpcomingConferenceEvent,
           resource: conference,
-          recipient_ids: [user.id]
+          followers: [user]
         )
 
       subject.perform_now(conference.id, checksum)

@@ -83,8 +83,15 @@ nl:
         changed_notably: Er zijn merkbare veranderingen geweest.
         content: Inhoud
         organization: Organisatie
+        show_in_footer: Laat het in het voettekst zien
         slug: URL slug
         title: Titel
+        weight: Gewicht
+      static_page_topic:
+        description: Omschrijving
+        show_in_footer: Laat het in het voettekst zien
+        title: Titel
+        weight: Gewicht
     errors:
       models:
         oauth_application:
@@ -249,6 +256,11 @@ nl:
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
+      help_sections:
+        error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
+        form:
+          save: Opslaan
+        success: Help-secties met succes bijgewerkt
       impersonatable_users:
         index:
           filter:
@@ -307,11 +319,12 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        help_sections: Help secties
         homepage: Startpagina
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
-        officializations: Bevestigde gebruikers
+        participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -582,6 +595,21 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze scope.
           success: Scope is succesvol bijgewerkt
+      static_page_topics:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw onderwerp.
+          success: Onderwerp met succes gemaakt.
+        destroy:
+          success: Onderwerp succesvol vernietigd
+        edit:
+          title: Onderwerp bewerken
+          update: Onderwerp bijwerken
+        new:
+          create: Maak een onderwerp aan
+          title: Nieuw onderwerp
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
+          success: Onderwerp met succes bijgewerkt
       static_pages:
         actions:
           view: Bekijk de openbare pagina
@@ -594,11 +622,18 @@ nl:
           changed_notably_help: Indien ingeschakeld, zullen gebruikers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
           title: Pagina bewerken
           update: Bijwerken
+        form:
+          none: Geen
         index:
           last_notable_change: Laatste opvallende verandering
         new:
-          create: creëren
+          create: Creëer pagina
           title: Nieuwe pagina
+        topic:
+          destroy: Verwijder onderwerp
+          edit: Onderwerp bewerken
+          empty: Er is geen pagina onder dit onderwerp
+          without_topic: Pagina's zonder onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
@@ -613,6 +648,7 @@ nl:
         managed_users: Beheerde gebruikers
         navbar_links: Navigatiebalk links
         officializations: Bevestigen gebruikers
+        participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's

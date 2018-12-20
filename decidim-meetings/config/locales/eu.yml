@@ -22,6 +22,7 @@ eu:
         location_hints: Kokapen-argibideak
         organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
+        registration_form_enabled: Izena emateko inprimakia gaituta
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
@@ -81,6 +82,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             default_registration_terms: Izen-emate baldintzak lehenetsiak
+            enable_pads_creation: Gaitu pads sortzea
             resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
           step:
             announcement: Anuntzio
@@ -108,9 +110,9 @@ eu:
           email_subject: '"%{resource_title}" bilera eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
         registration_code_validated:
-          email_intro: Zure izena emateko kodea "%{registration_code}" balidatu da.
+          email_intro: Zure izen-emate kodea "%{registration_code}" bilera "%{resource_title}" egiteko baliozkoa izan da.
           email_outro: Jakinarazpen hau jaso duzu zure "%{resource_title}" bilera-kodearen kodea erregistratu delako.
-          email_subject: Zure izena emateko kodea "%{registration_code}" balidatu da
+          email_subject: Zure izen-emate kodea "%{registration_code}" bilera "%{resource_title}" egiteko baliozkoa izan da
           notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> bilerako balioztatu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
@@ -269,9 +271,10 @@ eu:
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
+            registration_form: Izena emateko inprimakia
             registrations_count:
-              one: Izen-emate bat egin da.
-              other: '%{count} izen-emate egin dira.'
+              one: Dena den, %{count} erregistratzeko.
+              other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
           update:
@@ -297,6 +300,10 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      calendar_modal:
+        calendar_url: Egutegiaren URLa
+        close_window: Itxi leihoa
+        export_calendar: Esportatu egutegia
       conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_events:
@@ -355,8 +362,8 @@ eu:
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           remaining_slots:
-            one: Izen-emate 1 erabilgarri
-            other: "%{count} izen-emate erabilgarri"
+            one: "%{count} slot geratzen da"
+            other: "%{count} slot geratzen dira"
           view: ikusi
       meetings_map:
         view_meeting: Ikusi bilera
@@ -399,6 +406,7 @@ eu:
         transparent: gardena
     metrics:
       meetings:
+        description: Bilera kopurua sortu da
         object: bilerak
         title: Bilerak
     participatory_processes:
@@ -409,7 +417,7 @@ eu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken bilerak
-        see_all_meetings: Ikusi bilera guztiak
+        see_all: Ikusi dena (%{count})
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo bilera

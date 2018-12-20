@@ -1,15 +1,15 @@
 <%= render "layouts/decidim/application" do %>
-    <div class="wrapper">
-      <%= render partial: "layouts/decidim/initiative_header" %>
-      <%= yield %>
-    </div>
-    <% if content_for? :expanded %>
-        <div class="expanded">
-          <div class="wrapper wrapper--inner">
-            <div class="row">
-              <%= yield :expanded %>
-            </div>
-          </div>
+  <%= render partial: "layouts/decidim/initiative_header" %>
+  <div class="wrapper">
+    <%= yield %>
+  </div>
+  <% if content_for? :expanded %>
+    <div class="expanded">
+      <div class="wrapper wrapper--inner">
+        <div class="row">
+          <%= yield :expanded %>
         </div>
-    <% end %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

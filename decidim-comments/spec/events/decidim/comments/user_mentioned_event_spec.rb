@@ -41,4 +41,10 @@ describe Decidim::Comments::UserMentionedEvent do
         .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{comment_author.name} @#{comment_author.nickname}</a>")
     end
   end
+
+  describe "resource_text" do
+    it "outputs the comment body" do
+      expect(subject.resource_text).to eq comment.body
+    end
+  end
 end

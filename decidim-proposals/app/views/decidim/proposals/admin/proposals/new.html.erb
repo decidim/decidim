@@ -1,10 +1,4 @@
-<%= decidim_form_for(@form, html: { class: "form new_proposal" }) do |f| %>
-  <div class="callout warning">
-    <p>
-      <%= t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes) %>
-    </p>
-  </div>
-
+<%= decidim_form_for(@form, html: { class: "form new_proposal proposal_form_admin" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
   <div class="button--double form-general-submit">

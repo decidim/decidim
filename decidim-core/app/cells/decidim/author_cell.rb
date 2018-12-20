@@ -10,9 +10,11 @@ module Decidim
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
+    include ERB::Util
 
     property :profile_path
     property :can_be_contacted?
+    property :has_tooltip?
 
     delegate :current_user, to: :controller, prefix: false
 
@@ -92,6 +94,10 @@ module Decidim
 
     def profile_path?
       profile_path.present?
+    end
+
+    def raw_model
+      model.try(:__getobj__) || model
     end
   end
 end

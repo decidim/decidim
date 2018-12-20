@@ -6,16 +6,35 @@
   <span class="label label--small label--basic">
     <%= t("decidim.profile.deleted") %>
   </span>
-<% else %>
-  <span class="author__name"><%= model.name %></span>
+<% elsif has_tooltip? %>
+  <span
+    class="author__name m-none"
+    data-tooltip
+    data-position="top"
+    data-show-on="medium"
+    data-alignment="center"
+    data-click-open="false"
+    data-keep-on-hover="true"
+    data-allow-html="true"
+    data-template-classes="light expanded"
+    tabindex="1"
+    data-tip-text='<%= h render(:profile_minicard) %>'>
+    <%= model.name %>
+  </span>
 
   <% if model.badge.present? %>
     <span class="author__badge">
       <%= icon model.badge %>
     </span>
   <% end %>
+<% else %>
+  <span class="author__name">
+    <%= model.name %>
+  </span>
 
-  <% if model.nickname.present? %>
-    <span class="author__nickname"><%= model.nickname %></span>
+  <% if model.badge.present? %>
+    <span class="author__badge">
+      <%= icon model.badge %>
+    </span>
   <% end %>
 <% end %>

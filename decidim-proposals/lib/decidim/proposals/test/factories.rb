@@ -2,6 +2,7 @@
 
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   factory :proposal_component, parent: :component do
@@ -177,6 +178,24 @@ FactoryBot.define do
       end
     end
 
+    trait :with_geocoding_and_collaborative_drafts_enabled do
+      settings do
+        {
+          geocoding_enabled: true,
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
+    trait :with_attachments_allowed_and_collaborative_drafts_enabled do
+      settings do
+        {
+          attachments_allowed: true,
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
     trait :with_minimum_votes_per_user do
       transient do
         minimum_votes_per_user { 3 }
@@ -188,10 +207,53 @@ FactoryBot.define do
         }
       end
     end
+
     trait :with_participatory_texts_enabled do
       settings do
         {
           participatory_texts_enabled: true
+        }
+      end
+    end
+
+    trait :with_amendments_enabled do
+      settings do
+        {
+          amendments_enabled: true
+        }
+      end
+    end
+
+    trait :with_amendments_and_participatory_texts_enabled do
+      settings do
+        {
+          participatory_texts_enabled: true,
+          amendments_enabled: true
+        }
+      end
+    end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+          comments_enabled: false
+        }
+      end
+    end
+
+    trait :with_extra_hashtags do
+      transient do
+        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
+        suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
+      end
+
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            automatic_hashtags: automatic_hashtags,
+            suggested_hashtags: suggested_hashtags,
+            creation_enabled: true
+          }
         }
       end
     end
@@ -232,6 +294,14 @@ FactoryBot.define do
       after :build do |proposal|
         proposal.coauthorships.clear
         proposal.coauthorships.build(author: proposal.organization)
+      end
+    end
+
+    trait :official_meeting do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        component = create(:meeting_component, participatory_space: proposal.component.participatory_space)
+        proposal.coauthorships.build(author: build(:meeting, component: component))
       end
     end
 
@@ -340,5 +410,11 @@ FactoryBot.define do
     trait :withdrawn do
       state { "withdrawn" }
     end
+  end
+
+  factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
+    title { Faker::Hacker.say_something_smart }
+    description { Faker::Lorem.sentences(3).join("\n") }
+    component { create(:proposal_component) }
   end
 end

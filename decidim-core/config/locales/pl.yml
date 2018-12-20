@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ pl:
         about: O
         email: Twój email
         name: Twoje imię
-        nickname: Twój krótki, niepowtarzalny identyfikator
+        nickname: Przezwisko
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
@@ -37,18 +36,18 @@ pl:
         remember_me: Zapamiętaj mnie
     models:
       decidim/user:
+        one: Brak użytkowników
         few: Użytkownicy
         many: Użytkownicy
-        one: Użytkownik
         other: Użytkownicy
       decidim/user_group:
+        one: Grupa użytkowników
         few: Grupy użytkowników
         many: Grupy użytkowników
-        one: Grupa użytkowników
         other: Grupy użytkowników
   booleans:
-    'false': Nie
-    'true': Tak
+    'false': 'Nie'
+    'true': 'Tak'
   carrierwave:
     errors:
       image_too_big: Obraz jest zbyt duży
@@ -134,9 +133,9 @@ pl:
     application:
       collection:
         documents:
+          one: Dokument
           few: Dokumenty
           many: Dokumenty
-          one: Dokument
           other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
@@ -144,9 +143,9 @@ pl:
         related_photos: Powiązane zdjęcia
     author:
       comments:
+        one: komentarz
         few: komentarze
         many: komentarze
-        one: komentarz
         other: komentarze
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -172,6 +171,9 @@ pl:
           foo: Foo
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
+      sms:
+        explanation: Prześlij swój numer telefonu komórkowego, abyśmy mogli sprawdzić Twoją tożsamość.
+        name: Kod przez SMS
       started_at: Rozpoczęty pod adresem %{timestamp}
     authorization_modals:
       show:
@@ -205,9 +207,9 @@ pl:
           title: Potwierdź swój email
     collapsible_list:
       hidden_elements_count:
+        one: i %{count} więcej
         few: i %{count} więcej
         many: i %{count} więcej
-        one: i 1 więcej
         other: i %{count} więcej
       see_less: "(patrz mniej)"
       see_more: "(Zobacz więcej)"
@@ -222,6 +224,7 @@ pl:
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
+            enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Włączono uprawnienia do zasobów
           step:
             comments_blocked: Komentarze zablokowane
@@ -291,6 +294,8 @@ pl:
         new:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
+          sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego
+          sign_up_disabled: Zarejestruj się jest wyłączone, możesz użyć istniejącego użytkownika, aby uzyskać dostęp
       shared:
         newsletter_modal:
           buttons:
@@ -450,7 +455,7 @@ pl:
       badges:
         continuity:
           conditions:
-          - Chodź tu często
+            - Chodź tu często
           description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
           description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
           description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
@@ -460,7 +465,7 @@ pl:
           unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
           conditions:
-          - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
+            - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
           description: Ta odznaka jest przyznawana, gdy dotrzesz do określonej liczby obserwujących. %{organization_name} to sieć społeczna i polityczna, tkanie sieci w celu komunikowania się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
@@ -475,9 +480,9 @@ pl:
           title: Odznaki
         invitations:
           conditions:
-          - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
-          - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
-          - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
+            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
+            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
+            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
           description: Ta odznaka jest przyznawana, gdy zaprosiłeś niektórych ludzi i spędzili trochę czasu, aby zarejestrować się w %{organization_name} i zostać uczestnikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozszerzeniu społeczności!
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
@@ -543,6 +548,13 @@ pl:
       edit:
         edit_user_group: Edytuj grupę
         update_user_group: Zaktualizuj grupę
+      form:
+        document_number_help: Nie używaj myślników ani spacji
+        email_help: E-mail do Twojej organizacji, stowarzyszenia, grupy, grupy itp.
+        fill_in_for_verification: 'Wypełnij te pola, jeśli chcesz zweryfikować swoją grupę:'
+        name_help: Nazwa organizacji, stowarzyszenia, grupy, grupy itp.
+        nickname_help: Nazwa użytkownika Twojej organizacji, stowarzyszenia, grupy, grupy itp. Nie używaj spacji ani akcentów.
+        phone_help: Nie używaj myślników ani spacji
       join:
         error: Podczas dołączania do grupy wystąpił problem
         success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twoją prośbę przed zaakceptowaniem Cię do grupy.
@@ -556,6 +568,7 @@ pl:
       new:
         create_user_group: Stworzyć grupę
         new_user_group: Nowa grupa
+        subtitle: Utwórz grupę i zaproś innych użytkowników do przyłączenia się, aby uczestniczyć w zbiorowym poziomie.
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
@@ -564,6 +577,13 @@ pl:
       update:
         error: Wystąpił problem podczas aktualizacji grupy
         success: Grupa zaktualizowana pomyślnie
+    help:
+      main_topic:
+        default_page:
+          content: "<p>W %{organization} możesz uczestniczyć i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Złożenia, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
+          title: Co mogę zrobić w %{organization}?
+        description: Przeczytaj więcej o %{organization}
+        title: Ogólna pomoc
     last_activities:
       activities:
         no_activities_warning: Brak aktywności
@@ -595,8 +615,8 @@ pl:
     members:
       no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
+      help: Wsparcie
       home: Ekran startowy
-      more_information: Więcej informacji
     messaging:
       conversation_mailer:
         new_conversation:
@@ -613,20 +633,29 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
-          from: Od
-          last_message_html: Ostatnia wiadomość <strong>%{time} temu</strong>
           no_conversations: Nie masz jeszcze żadnych rozmów
-        show:
-          conversation_with_html: Rozmowa z <strong>%{name}</strong>
-          reply: Odpowiadać
+          title: Rozmowy
+        reply:
           send: Wysłać
+          title: Odpowiadać
+        show:
+          title: Konwersacja z %{usernames}
         start:
           send: Wysłać
           title: Zacząć rozmowę
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
     metrics:
+      followers:
+        description: Liczba użytkowników następujących po organizacji
+        object: Obserwujący
+        title: Obserwujący
+      participants:
+        description: Liczba aktywnych użytkowników w organizacji
+        object: Uczestnicy
+        title: Uczestnicy
       users:
+        description: Liczba użytkowników w organizacji
         object: użytkowników
         title: Użytkownicy
     newsletter_mailer:
@@ -670,6 +699,10 @@ pl:
         pending: W oczekiwaniu
         rejected: Odrzucone
         verified: Zweryfikowane
+    pad_iframe:
+      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyrażana jest ich opinia. %{organization} nie może być pociągnięty do odpowiedzialności za jego zawartość.
+      explanation: Używaj tej podkładki do wspólnego robienia notatek podczas spotkania, więc łatwiej jest zapisać minutę później.
+      pad: Podkładka
     pages:
       home:
         extended:
@@ -712,7 +745,15 @@ pl:
         sub_hero:
           register: Zarejestrować
       index:
-        title: Więcej informacji
+        read_more: Czytaj więcej
+        standalone_pages: Strony
+        subheading: Przejdź przez strony pomocy %{name}
+        title: Wsparcie
+        topics: Tematy
+      participatory_space:
+        metrics:
+          headline: Udział w liczbach
+          link: Pokaż wszystkie statystyki
       terms_and_conditions:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
@@ -740,13 +781,14 @@ pl:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        activity: Czynność
         badges: Odznaki
-        conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
         groups: Grupy
         members: Członkowie
-        notifications: Powiadomienia
+        timeline: Oś czasu
+        view_full_profile: Zobacz pełny profil
       sidebar:
         badges:
           info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
@@ -784,24 +826,37 @@ pl:
       prompt: Wybierz zakres
       scopes: Zakresy
     search:
-      filter:
-        all: Wszystkie
-        component: Składnik
       results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:
-        search: Szukaj
+        back: Powrót do wyników
+        jump_to: 'Skocz do:'
+        state:
+          active: Aktywny
+          all: Wszystko
+          future: Przyszłość
+          past: Przeszłość
       filters_small_view:
         close_modal: Zamknij modalne
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwijać się
+      results:
+        results:
+          one: "%{count} wynik"
+          few: "%{count} wyników"
+          many: "%{count} wyników"
+          other: "%{count} wyników"
+        view_all: Zobacz wszystko (%{count})
     shared:
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
         embed_link: Osadzać
+      extended_navigation_bar:
+        more: Więcej
+        unfold: Rozwijać się
       flag_modal:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Blisko
@@ -811,6 +866,8 @@ pl:
         report: Raport
         spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
         title: Zgłoś problem
+      floating_help:
+        help: Wsparcie
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
@@ -826,6 +883,12 @@ pl:
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
+    user_activity:
+      index:
+        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
+    welcome_notification:
+      default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
+      default_subject: Dzięki za przyłączenie się do {{organization}}!
   devise:
     confirmations:
       confirmed: Twój adres e-mail został pomyślnie potwierdzony.
@@ -959,9 +1022,9 @@ pl:
         sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zapisz się
       minimum_password_length:
+        one: "(Minimum%{count} znaków)"
         few: "(Minimum%{count} znaków)"
         many: "(Minimum%{count} znaków)"
-        one: "(Minimum%{count} znaków)"
         other: "(Minimum%{count} znaków)"
     unlocks:
       new:
@@ -986,9 +1049,9 @@ pl:
       not_found: nie znaleziono
       not_locked: nie był zablokowany
       not_saved:
+        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
         few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
         many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
-        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
         other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
@@ -1038,11 +1101,6 @@ pl:
         see_more: Zobacz więcej
   locale:
     name: język angielski
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: jest zbyt podobny do tej nazwy domeny
     email_included_in_password: jest zbyt podobny do twojego adresu e-mail

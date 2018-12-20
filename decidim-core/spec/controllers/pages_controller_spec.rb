@@ -13,14 +13,6 @@ module Decidim
         request.env["decidim.current_organization"] = organization
       end
 
-      context "when a template exists" do
-        it "renders it" do
-          get :show, params: { id: "home" }
-
-          expect(response).to render_template(:home)
-        end
-      end
-
       context "when a page exists" do
         let(:page) { create(:static_page, organization: organization) }
 
@@ -29,8 +21,7 @@ module Decidim
         it "renders the page contents" do
           get :show, params: { id: page.slug }
 
-          expect(response).to render_template(:decidim_page)
-          expect(controller.page).to eq(page)
+          expect(response).to render_template(:show)
 
           expect(response.body).to include(page.title[I18n.locale.to_s])
           expect(response.body).to include(page.content[I18n.locale.to_s])
@@ -40,7 +31,7 @@ module Decidim
           it "ignores them" do
             get :show, params: { id: page.slug }, format: :text
 
-            expect(response).to render_template(:decidim_page)
+            expect(response).to render_template(:show)
           end
         end
       end
@@ -48,7 +39,7 @@ module Decidim
       context "when a page doesn't exist" do
         it "redirects to the 404" do
           expect { get :show, params: { id: "some-page" } }
-            .to raise_error(ActionController::RoutingError)
+            .to raise_error(ActiveRecord::RecordNotFound)
         end
       end
 

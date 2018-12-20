@@ -95,6 +95,12 @@ pt-BR:
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não publicou nenhuma iniciativa.
           unearned_own: Você não tem iniciativas publicadas ainda.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Uma iniciativa é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto , mude o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembléia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
+          page: "<p>Uma iniciativa é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto , mude o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembléia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
+          title: O que são iniciativas?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ pt-BR:
         promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
         show_similar_initiatives: Comparar
+        step: Etapa %{current} de %{total}
+        title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desdobrar
       initiatives:
         initiative:
           check: Confira

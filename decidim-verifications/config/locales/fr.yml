@@ -134,6 +134,20 @@ fr:
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
             success: Félicitations, votre identité a été vérifiée avec succès
+      sms:
+        authorizations:
+          create:
+            error: Il y avait un problème avec votre demande
+            success: Merci! Nous avons envoyé un SMS sur votre téléphone.
+          edit:
+            send: Confirmer
+            title: Introduisez le code de vérification que vous avez reçu
+          new:
+            send: Envoyez moi un SMS
+            title: Demander votre code de vérification
+          update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+            success: Toutes nos félicitations. Vous avez été vérifié avec succès.
   errors:
     messages:
       uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres

@@ -10,12 +10,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        post "/", to: "surveys#update", as: :survey
+        put "/", to: "surveys#update", as: :survey
         root to: "surveys#edit"
-      end
-
-      initializer "decidim_surveys.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_surveys_manifest.js)
       end
 
       def load_seed

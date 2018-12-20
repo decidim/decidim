@@ -10,6 +10,7 @@ module Decidim
 
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+      belongs_to :registration_type, foreign_key: "decidim_conference_registration_type_id", class_name: "Decidim::Conferences::RegistrationType"
 
       validates :user, uniqueness: { scope: :conference }
 

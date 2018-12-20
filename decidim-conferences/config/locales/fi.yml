@@ -44,11 +44,13 @@ fi:
         other: Konferenssin puhujat
       decidim/conference_user_role:
         one: Konferenssin käyttäjärooli
-        other: Konferenssin käyttäjäroolit
+        other: Konferenssin käyttäjäroolia
   decidim:
     admin:
       actions:
+        confirm: Vahvista
         new_conference: Uusi konferenssi
+        send_diplomas: Lähetä diplomit
       conference_copies:
         new:
           copy: Kopio
@@ -61,6 +63,10 @@ fi:
         destroy:
           error: Tämän konferenssin julkaisun perumisessa tapahtui virhe.
           success: Konferenssin julkaisu peruutettu onnistuneesti.
+      conference_registration:
+        confirm:
+          error: Tapahtui virhe vahvistettaessa tämän konferenssin ilmoittautumista.
+          success: Konferenssi-ilmoittautumisen vahvistaminen onnistui.
       conference_speakers:
         create:
           error: Puhujan lisääminen tähän konferenssiin ei onnistunut.
@@ -145,14 +151,17 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin ylläpitäjät
-          conference_invites: Konferenssin kutsut
-          conference_registrations: Konferenssin ilmoittautumiset
-          conference_speakers: Konferenssin puhujat
+          conference_admins: Konferenssin käyttäjät
+          conference_invites: Kutsut
+          conference_speakers: Puhujat
+          diploma: Diplomi
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
+          registration_types: Ilmoittautumistyypit
+          registrations: Ilmoittautumiset
+          user_registrations: Käyttäjien ilmoittautumiset
       models:
         conference:
           fields:
@@ -192,6 +201,14 @@ fi:
           types:
             collaborator: Työryhmän jäsen
             main_promotor: Pääpromoottori
+        registration_type:
+          fields:
+            conference_meetings: Konferenssin tapaamiset
+            price: Hinta
+            registrations_count: Ilmoittautuneiden määrä
+            title: Otsikko
+            weight: Painoarvo
+          name: Ilmoittautumistyypit
       partners:
         create:
           error: Tapahtui virhe lisätessä yhteistyökumppania tähän konferenssiin.
@@ -207,14 +224,38 @@ fi:
         update:
           error: Tapahtui virhe päivitettäessä tämän konferenssin yhteistyökumppania.
           success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
+      registration_type_publications:
+        create:
+          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
+          success: Ilmoittautumistyyppi julkaistiin onnistuneesti.
+        destroy:
+          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
+          success: Ilmoittamistyypin julkaisu lopetettiin onnistuneesti.
+      registration_types:
+        create:
+          error: Tapahtui virhe lisätessä ilmoittautumistyyppiä tälle konferenssille.
+          success: Ilmoittautumistyyppi lisättiin onnistuneesti tähän konferenssiin.
+        destroy:
+          success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
+        edit:
+          title: Päivitä ilmoittautumistyyppi.
+          update: Päivitä
+        new:
+          create: Luo
+          title: Uusi ilmoittautumistyyppi
+        update:
+          error: Tapahtui virhe päivitettäessä tämän konferenssin ilmoittautumistyyppiä.
+          success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
     admin_log:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
+        send_conference_diplomas: "%{user_name} lähetti diplomit konferenssin %{resource_name} käyttäjille"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
+        update_diploma: "%{user_name} päivitti diplomeita konferenssille %{resource_name}"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
@@ -223,6 +264,22 @@ fi:
         create: "%{user_name} kutsui %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
         update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} vahvisti konferenssin %{resource_name} ilmoittautumisen"
+        partner:
+          create: "%{user_name} loi %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
+          update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
+        registration_type:
+          create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
+          publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
+          unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
+          update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
+      media_link:
+        create: "%{user_name} loi medialinkin %{resource_name} konferenssissa %{space_name}"
+        delete: "%{user_name} poisti medialinkin %{resource_name} konferenssista %{space_name}"
+        update: "%{user_name} päivitti medialinkin %{resource_name} konferenssiin %{space_name}"
     conference_program:
       index:
         title: Ohjelma
@@ -276,25 +333,42 @@ fi:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+        diplomas:
+          edit:
+            save: Tallenna
+            title: Diplomi
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
-            join: Liity konferenssiin '%{conference_title}'
+            registration: Ilmoittautuminen konferenssiin "%{conference_title}"
         partners:
           index:
             title: Yhteistyökumppanit
+        registration_types:
+          form:
+            select_conference_meetings: Valitse konferenssin tapaamiset
+          index:
+            title: Ilmoittautumistyypit
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> diplomin liitteistä.
+          diploma_user:
+            attendance_verified_by: Osallistuminen vahvistettu
+            certificate_of_attendance: Läsnäolotodistus
+            certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Konferenssin diplomeiden lähettämisessä esiintyi ongelma.
+          success: Konferenssin diplomit on lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
         show:
+          free: Maksuton
           going: Osallistumassa
-          join: Liity konferenssiin
           no_slots_available: Ei paikkoja vapaana
-          remaining_slots:
-            one: 1 paikka jäljellä
-            other: "%{count} paikkaa jäljellä"
+          registration: Ilmoittautuminen
       conference_program:
         program_meeting:
           content: Sisältö
@@ -307,7 +381,12 @@ fi:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
-          details: Konferenssin tiedot löytyvät liitetiedostosta.
+          details_1: 'Olet ilmoittautunut konferenssiin ilmoittautumistyypillä %{registration_type}. Hinta on %{price} ja voit osallistua seuraaviin tapahtumiin:'
+          details_2: Konferenssin tiedot löytyvät liitetiedostosta.
+        pending_validation:
+          confirmation_pending: Saat vahvistuksen pian
+          details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tapahtumiin:'
+          pending_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> odottaa vahvistusta.
       conference_registrations:
         create:
           invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
@@ -334,16 +413,12 @@ fi:
           speakers: Puhujat
       conferences:
         partners:
-          collaborators: yhteistyökumppanit
-          main_promotors: Pääpromoottorit
+          collaborators: Yhteistyökumppanit
+          main_promotors: Järjestäjät
         show:
-          already_account: Onko sinulla jo käyttäjätili?
-          login_as: Olet kirjautunut sisään %{name} <%{email}>
+          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
-          new_user: Uusi käyttäjä?
           register: Rekisteröidy
-          sign_in: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
-          sign_up: Rekisteröidy maksutta ilmoittautuaksesi
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit
@@ -353,14 +428,20 @@ fi:
         conference_registration_mailer:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
+          pending_validation:
+            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Konferenssin diplomit on lähetetty
       models:
         conference_invite:
           fields:
             email: Sähköposti
             name: Nimi
+            registration_type: Ilmoittautumistyyppi
             sent_at: Lähetyksen ajankohta
             status: Tila
           status:
@@ -371,6 +452,11 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
+            registration_type: Ilmoittautumistyyppi
+            state: Tila
+            states:
+              confirmed: Vahvistettu
+              pending: Odottaa
       pages:
         home:
           highlighted_conferences:
@@ -383,6 +469,18 @@ fi:
       photos_list:
         show:
           related_photos: Kuvat
+      registration_types:
+        index:
+          choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
+          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
+          register: Ilmoittaudu
+          title: Ilmoittautumistyypit
+      shared:
+        conference_user_login:
+          already_account: Onko sinulla jo käyttäjätili?
+          new_user: Uusi käyttäjä?
+          sign_in: Kirjaudu sisään ilmoittautuaksesi konferenssiin
+          sign_up: Luo tili palveluun ilmoittautuaksesi konferenssin
       show:
         details: Tarkemmat tiedot
         introduction: Esittely
@@ -440,6 +538,8 @@ fi:
         subject: Kutsu konferenssiin
   layouts:
     decidim:
+      conference_hero:
+        register: Ilmoittaudu
       conference_widgets:
         show:
           take_part: Osallistu
@@ -460,5 +560,4 @@ fi:
         conference_partners_menu_item: Yhteistyökumppanit
         conference_speaker_menu_item: Puhujat
         media: Media
-        unfold: Avaa
         venues: Tapahtumapaikat

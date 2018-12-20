@@ -10,6 +10,13 @@ module Decidim
 
       field :title, !TranslatedFieldType, "The name of this participatory space."
 
+      field :type, !types.String do
+        description "The participatory space class name. i.e. Decidim::ParticipatoryProcess"
+        resolve ->(participatory_space, _args, _ctx) {
+          participatory_space.class.name
+        }
+      end
+
       field :components, types[ComponentInterface] do
         description "Lists the components this space contains."
 

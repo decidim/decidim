@@ -1,22 +1,5 @@
----
 ca:
   activemodel:
-    attributes:
-      survey_answer:
-        body: Resposta
-        choices: The choices
-        selected_choices: The selection
-      survey_question:
-        mandatory: Obligatori
-        max_choices: Nombre màxim d'opcions
-        question_type: Tipus
-    errors:
-      models:
-        survey_answer:
-          attributes:
-            choices:
-              missing: no estan complets
-              too_many: són massa
     models:
       decidim/surveys/closed_survey_event: S'ha acabat l'enquesta
       decidim/surveys/opened_survey_event: S'ha iniciat l'enquesta
@@ -52,70 +35,22 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
-    forms:
-      errors:
-        survey_answer:
-          body: El cos no pot estar en blanc
+    metrics:
+      survey_answers:
+        description: Nombre d'enquestes contestades pels usuaris
+        object: respostes a enquestes
+        title: Respostes a enquestes
     surveys:
       admin:
         exports:
           survey_user_answers: Respostes dels usuaris
-        models:
-          components:
-            description: Descripció
-            title: Títol
-            tos: Termes del servei
         surveys:
-          answer_option:
-            answer_option: Opció de resposta
-            free_text: Text lliure
-            remove: Eliminar
-            statement: Enunciat
-          edit:
-            save: Desar
-            title: Títol
-          form:
-            add_question: Afegir pregunta
-            already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
-          question:
-            add_answer_option: Afegir opció de resposta
-            any: Qualsevol
-            description: Descripció
-            down: Avall
-            question: Pregunta
-            remove: Elimina
-            statement: Enunciat
-            up: Pujar
           update:
             invalid: Hi ha hagut errors en desar l'enquesta.
             success: Enquesta desada correctament.
       last_activity:
         new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
-      question_types:
-        long_answer: Resposta llarga
-        multiple_option: Opció múltiple
-        short_answer: Resposta curta
-        single_option: Única opció
-        sorting: Ordenació
       surveys:
         answer:
           invalid: Hi ha hagut errors en respondre a l'enquesta.
           success: Enquesta resposta correctament.
-        question:
-          max_choices: 'Opcions màximes: %{n}'
-        show:
-          answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.
-            title: Respon a l'enquesta
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols seguir?
-          submit: Enviar
-          survey_answered:
-            body: Ja ha respost a aquesta enquesta.
-            title: Enquesta resposta
-          survey_closed:
-            body: L'enquesta està tancada i no s'hi pot participar.
-            title: Enquesta tancada
-          survey_for_private_users:
-            body: L'enquesta només està disponible per a usuaris privats
-            title: Enquesta tancada
-          tos_agreement: En participar en aquesta enquesta acceptes els Termes de Servei

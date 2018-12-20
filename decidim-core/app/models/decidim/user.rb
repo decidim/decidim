@@ -138,10 +138,13 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed || organization.tos_version.nil?
+      return true if managed
       return false if accepted_tos_version.nil?
 
-      accepted_tos_version >= organization.tos_version
+      # For some reason, if we don't use `#to_i` here we get some
+      # cases where the comparison returns false, but calling `#to_i` returns
+      # the same number :/
+      accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
     # Whether this user can be verified against some authorization or not.
@@ -151,6 +154,14 @@ module Decidim
 
     def being_impersonated?
       ImpersonationLog.active.where(user: self).exists?
+    end
+
+    def interested_scopes_ids
+      extended_data["interested_scopes"] || []
+    end
+
+    def interested_scopes
+      @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
     end
 
     protected
@@ -169,6 +180,17 @@ module Decidim
       return false if managed?
 
       super
+    end
+
+    def after_confirmation
+      return unless organization.send_welcome_notification?
+
+      Decidim::EventsManager.publish(
+        event: "decidim.events.core.welcome_notification",
+        event_class: WelcomeNotificationEvent,
+        resource: self,
+        affected_users: [self]
+      )
     end
 
     private

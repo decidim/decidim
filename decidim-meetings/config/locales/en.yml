@@ -22,6 +22,7 @@ en:
         location_hints: Location hints
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
@@ -81,6 +82,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
@@ -88,15 +90,23 @@ en:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
         meeting_created:
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New meeting added to %{participatory_space_title}
           notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
           email_outro: You have received this notification because you are an admin of the meeting's participatory space.
@@ -108,9 +118,9 @@ en:
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: Your registration code "%{registration_code}" has been validated.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
-          email_subject: Your registration code "%{registration_code}" has been validated
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
           notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
@@ -180,6 +190,7 @@ en:
             invalid: There's been a problem updating this agenda
             success: Agenda successfully updated
         exports:
+          meetings: Meetings
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
@@ -269,8 +280,9 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
+            registration_form: Registration form
             registrations_count:
-              one: There has been %{count} registrations.
+              one: There has been %{count} registration.
               other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
@@ -297,6 +309,10 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      calendar_modal:
+        calendar_url: Calendar URL
+        close_window: Close window
+        export_calendar: Export calendar
       conference_venues: Conference Venues
       content_blocks:
         upcoming_events:
@@ -354,8 +370,12 @@ en:
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
-            one: '%{count} slot remaining'
+            one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
       meetings_map:
@@ -399,6 +419,7 @@ en:
         transparent: Transparent
     metrics:
       meetings:
+        description: Number of meetings created
         object: meetings
         title: Meetings
     participatory_processes:
@@ -409,7 +430,7 @@ en:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
-        see_all_meetings: See all meetings
+        see_all: See all (%{count})
         upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming meeting

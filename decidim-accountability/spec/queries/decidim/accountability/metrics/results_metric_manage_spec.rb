@@ -6,7 +6,7 @@ describe Decidim::Accountability::Metrics::ResultsMetricManage do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization: organization) }
   let(:component) { create(:accountability_component, :published, participatory_space: participatory_space) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:results) { create_list(:result, 5, created_at: day, component: component) }
 
   context "when executing" do

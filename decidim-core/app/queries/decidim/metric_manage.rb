@@ -9,10 +9,9 @@ module Decidim
     end
 
     def initialize(day_string, organization)
-      @day = day_string.present? ? Date.parse(day_string) : Time.zone.today - 1.day
+      @day = day_string.present? ? Date.parse(day_string) : Time.zone.yesterday
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
-
-      @day ||= Time.zone.today - 1.day
+      @day ||= Time.zone.yesterday
       @organization = organization
       @metric_name = metric_name
     end
@@ -56,6 +55,20 @@ module Decidim
 
     def quantity
       @quantity ||= cumulative
+    end
+
+    # Search for all Participatory Space manifests and then all records available
+    # Limited to ParticipatoryProcesses only
+    def retrieve_participatory_spaces
+      Decidim.participatory_space_manifests.map do |space_manifest|
+        next unless space_manifest.name == :participatory_processes # Temporal limitation
+        space_manifest.participatory_spaces.call(@organization)
+      end.flatten.compact
+    end
+
+    # Search for all components published, within a fixed list of available
+    def retrieve_components(participatory_space)
+      participatory_space.components.published
     end
   end
 end

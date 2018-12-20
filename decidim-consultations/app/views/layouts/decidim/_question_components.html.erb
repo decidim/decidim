@@ -12,28 +12,25 @@
         <% end %>
       </div>
     </button>
-    <div class="row column process-nav__content is-active" id="process-nav-content" data-toggler=".is-active">
-      <ul>
-        <li class="<%= "is-active" if is_active_link?(decidim_consultations.question_path(question), :exclusive) %>">
-          <%= active_link_to decidim_consultations.question_path(question),
-                             active: :exclusive,
-                             class: "process-nav__link",
-                             class_active: "is-active" do %>
-            <%= external_icon "decidim/pages/icon.svg" %>
-            <%= t ".question_menu_item" %>
-          <% end %>
-        </li>
-        <% question.components.each do |component| %>
-          <% if component.published? || component == self.try(:current_component) %>
-            <li class="<%= "is-active" if is_active_link?(main_component_path(component), :inclusive) %>">
-              <%= active_link_to main_component_path(component), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
-                <%= component_icon(component) %>
-                <%= translated_attribute(component.name) %>
-              <% end %>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
+
+    <%
+      components = question.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
+    %>
+
+    <%=
+      extended_navigation_bar([
+        {
+          name: t(".question_menu_item"),
+          url: decidim_consultations.question_path(question),
+          active: is_active_link?(decidim_consultations.question_path(question), :exclusive)
+        }
+      ] + components.map do |component|
+        {
+          name: translated_attribute(component.name),
+          url: main_component_path(component),
+          active: is_active_link?(main_component_path(component), :inclusive)
+        }
+      end)
+    %>
   </div>
 </div>

@@ -39,7 +39,7 @@ sv:
           not_found: Svar ej hittat.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Samråd
         other: samråd
       decidim/consultations/question:
@@ -50,7 +50,7 @@ sv:
         other: Svar
       decidim/consultations/vote:
         one: Rösta
-        other: röster
+        other: Rösta
   decidim:
     admin:
       actions:
@@ -244,6 +244,12 @@ sv:
           view_results: Se Resultat
           vote: Rösta
         unspecified: Ej angivet
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
+          page: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>ard i organisationen.</p>\n"
+          title: Vad är samråd?
     menu:
       consultations: samråd
     pages:

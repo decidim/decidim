@@ -319,6 +319,12 @@ eu:
         designated_on: Izendatuta
       index:
         title: Bazkideek
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Batzar bat erakunde bateko kideen taldea da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Ireki ezkero, haiekin parte har dezakete (esate baterako: gaitasuna ahalbidetzen duen tokian parte hartzera, agenda puntuak gehituz edo organo horri egindako proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta organo exekutiboak boto bidez), berdintasun aholku-kontseiluak (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu bat kontrolatzeko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
+          page: "<p>Batzar bat erakunde bateko kideen taldea da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Ireki ezkero, haiekin parte har dezakete (esate baterako: gaitasuna ahalbidetzen duen tokian parte hartzera, agenda puntuak gehituz edo organo horri egindako proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta organo exekutiboak boto bidez), berdintasun aholku-kontseiluak (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu bat kontrolatzeko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
+          title: Zer dira batzarrak?
     log:
       value_types:
         assembly_presenter:
@@ -327,6 +333,7 @@ eu:
       assemblies: Biltzarrak
     metrics:
       assemblies:
+        description: Sortutako multzo kopurua
         object: batzarrak
         title: Batzar
   errors:
@@ -343,15 +350,14 @@ eu:
           reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
-            one: "%{count} batzarra"
+            one: "%{count} batzarrak"
             other: "%{count} batzarrak"
         promoted_assembly:
           more_info: Informazio gehiago
           take_part: Parte hartu
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Bazkideek
         assembly_menu_item: Biltzarra
-        unfold: Zabaldu
       assembly_widgets:
         show:
           take_part: Parte hartu

@@ -5,7 +5,7 @@
         <%= link_to proposal, target: "_blank" do %>
           <h5 class="card__title"><%= present(proposal).title %></h5>
         <% end %>
-        <%= cell("decidim/coauthorships", proposal, has_actions: false) %>
+        <%= cell("decidim/coauthorships", proposal, has_actions: false, context: { current_user: current_user }) %>
 
         <div class="tech-info tech-info--text-left">
           <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
@@ -15,7 +15,7 @@
 
       <%== cell("decidim/proposals/proposal_m", proposal).badge %>
 
-      <p><%= truncate(present(proposal).html_body, length: 100) %></p>
+      <p><%= truncate(present(proposal).body, length: 100) %></p>
       <%= cell "decidim/tags", proposal, context: { extra_classes: ["tags--proposal"] } %>
     </div>
   </article>

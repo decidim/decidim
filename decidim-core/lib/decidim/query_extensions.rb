@@ -79,6 +79,8 @@ module Decidim
       type.field :metrics do
         type types[Decidim::Core::MetricType]
         argument :names, types[types.String], "The names of the metrics you want to retrieve"
+        argument :space_type, types.String, "The type of ParticipatorySpace you want to filter with"
+        argument :space_id, types.Int, "The ID of ParticipatorySpace you want to filter with"
 
         resolve lambda { |_, args, ctx|
                   manifests = if args[:names].blank?
@@ -88,9 +90,14 @@ module Decidim
                                   args[:names].include?(manifest.metric_name.to_s)
                                 end
                               end
+                  filters = {}
+                  if args[:space_type].present? && args[:space_id].present?
+                    filters[:participatory_space_type] = args[:space_type]
+                    filters[:participatory_space_id] = args[:space_id]
+                  end
 
                   manifests.map do |manifest|
-                    Decidim::Core::MetricResolver.new(manifest.metric_name, ctx[:current_organization])
+                    Decidim::Core::MetricResolver.new(manifest.metric_name, ctx[:current_organization], filters)
                   end
                 }
       end

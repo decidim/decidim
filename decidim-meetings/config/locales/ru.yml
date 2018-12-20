@@ -114,9 +114,7 @@ ru:
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
         registration_code_validated:
-          email_intro: Ваш регистрационный код «%{registration_code}» подтвержден.
           email_outro: Вы получили это уведомление, потому что ваш регистрационный код для встречи «%{resource_title}» был подтвержден.
-          email_subject: Ваш регистрационный код «%{registration_code}» подтвержден
           notification_title: Ваш регистрационный код «%{registration_code}» для встречи <a href="%{resource_path}">%{resource_title}</a> был подтвержден.
         registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
@@ -263,11 +261,6 @@ ru:
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
-            registrations_count:
-              one: Зарегистрировался 1 человек.
-              few: Зарегистрировалось %{count} человека.
-              many: Зарегистрировалось %{count} человек.
-              other: Зарегистрировалось %{count} человек.
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
           update:
@@ -332,11 +325,6 @@ ru:
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
-          remaining_slots:
-            one: Осталось 1 место
-            few: "Осталось %{count} места"
-            many: "Осталось %{count} мест"
-            other: "Осталось %{count} мест"
           view: Посмотреть
       models:
         invite:
@@ -383,7 +371,6 @@ ru:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Прошедшие встречи
-        see_all_meetings: Просмотреть все встречи
         upcoming_meetings: Предстоящие встречи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстоящая встреча

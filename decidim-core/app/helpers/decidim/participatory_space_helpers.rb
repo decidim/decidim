@@ -26,5 +26,20 @@ module Decidim
 
       @participatory_space_helpers = klass.new(self)
     end
+
+    def participatory_space_floating_help
+      return if help_section.blank?
+
+      content_tag "div", class: "row collapse" do
+        floating_help(help_id) { translated_attribute(help_section).html_safe }
+      end
+    end
+
+    def participatory_space_wrapper(&block)
+      content_tag :main, class: "wrapper" do
+        concat(participatory_space_floating_help)
+        concat(capture(&block))
+      end
+    end
   end
 end

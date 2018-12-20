@@ -304,7 +304,6 @@ ru:
         impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
-        officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты
         settings: Настройки
@@ -555,7 +554,6 @@ ru:
         index:
           last_notable_change: Последнее заметное изменение
         new:
-          create: Создать
           title: Создать страницу
         update:
           error: При попытке обновить эту страницу произошла ошибка.
@@ -568,7 +566,6 @@ ru:
         dashboard: Панель управления
         impersonatable_users: Участники, в роли которых можно выступить
         impersonations: Выступления в роли участника
-        officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты
         static_pages: Страницы

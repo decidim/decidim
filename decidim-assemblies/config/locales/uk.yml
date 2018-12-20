@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -66,19 +65,19 @@ uk:
   activerecord:
     models:
       decidim/assembly:
+        one: Збори
         few: Зібрань
         many: Зібрань
-        one: Збори
         other: Зібрань
       decidim/assembly_member:
+        one: Член президії зборів
         few: Члени президії зборів
         many: Членів президії зборів
-        one: Член президії зборів
         other: Членів президії зборів
       decidim/assembly_user_role:
+        one: Роль учасника зборів
         few: Ролей учасників зборів
         many: Ролей учасників зборів
-        one: Роль учасника зборів
         other: Ролей учасників зборів
   decidim:
     admin:
@@ -176,6 +175,7 @@ uk:
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
+          name: Збори
         assembly_member:
           fields:
             ceased_date: Дата припинення повноважень
@@ -334,19 +334,11 @@ uk:
           take_part: Взяти участь
         index:
           promoted_assemblies: Висвітлені збори
-        order_by_assemblies:
-          assemblies:
-            few: "%{count} зборів"
-            many: "%{count} зборів"
-            one: "%{count} (одні) збори"
-            other: "%{count} зборів"
         promoted_assembly:
           more_info: Додаткові відомості
           take_part: Взяти участь
-      assembly_header:
-        assembly_member_menu_item: Члени президії
+      assembly_navigation:
         assembly_menu_item: Збори
-        unfold: Розгорнути
       assembly_widgets:
         show:
           take_part: Взяти участь

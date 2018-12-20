@@ -1,20 +1,6 @@
 ---
 it:
   activemodel:
-    attributes:
-      survey_answer:
-        body: Risposta
-      survey_question:
-        mandatory: Obbligatorio
-        max_choices: Numero massimo di scelte
-        question_type: Tipo
-    errors:
-      models:
-        survey_answer:
-          attributes:
-            choices:
-              missing: non sono completi
-              too_many: sono troppi
     models:
       decidim/surveys/closed_survey_event: Sondaggio terminato
       decidim/surveys/opened_survey_event: Sondaggio iniziato
@@ -50,69 +36,22 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Una nuova indagine su %{participatory_space_title}
           notification_title: Il sondaggio <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
-    forms:
-      errors:
-        survey_answer:
-          body: Il corpo non può essere vuoto
+    metrics:
+      survey_answers:
+        description: Numero di sondaggi rispondenti dagli utenti
+        object: risposte ai sondaggi
+        title: Risposte ai sondaggi
     surveys:
       admin:
         exports:
           survey_user_answers: Risposte degli utente al questionario
-        models:
-          components:
-            description: Descrizione
-            tos: Termini del servizio
         surveys:
-          answer_option:
-            answer_option: Opzione di risposta
-            free_text: Testo libero
-            remove: Rimuovere
-            statement: Dichiarazione
-          edit:
-            save: Salva
-            title: Titolo
-          form:
-            add_question: Aggiungi domanda
-            already_answered_warning: Dato che alcuni utenti hanno già risposto al questionario, non è più possibile modificare le domande.
-          question:
-            add_answer_option: Aggiungre opzione di risposta
-            any: Qualunque
-            description: Descrizione
-            down: Giù
-            question: Domanda
-            remove: Rimuovere
-            statement: Dichiarazione
-            up: Su
           update:
             invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
             success: Il questionario è stato salvato correttamente.
       last_activity:
         new_survey_at_html: "<span>Nuovo sondaggio al %{link}</span>"
-      question_types:
-        long_answer: Risposta lunga
-        multiple_option: Opzione multipla
-        short_answer: Risposta breve
-        single_option: Opzione unica
-        sorting: Ordinamento
       surveys:
         answer:
           invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
           success: Il questionario è stato salvato correttamente.
-        question:
-          max_choices: 'Scelte massime: %{n}'
-        show:
-          answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Entra con il tuo account</a> or <a href="%{sign_up_link}">Registrati</a> per poter commentare.
-            title: Rispondi al questionario
-          are_you_sure: Questa azione non potrà essere cancellata e non sarà più possibile modificare le risposte. Sei sicuro?
-          submit: Invia
-          survey_answered:
-            body: Hai già risposto a questo sondaggio, grazie.
-            title: Questionario risposto
-          survey_closed:
-            body: L'indagine è chiusa e non è più possibile rispondere.
-            title: Questionario chiuso
-          survey_for_private_users:
-            body: Il sondaggio è disponibile solo per gli utenti privati
-            title: Sondaggio chiuso
-          tos_agreement: Partecipando a questo sondaggio, accetti le sue condizioni di servizio

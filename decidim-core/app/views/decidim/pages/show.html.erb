@@ -1,0 +1,28 @@
+<% add_decidim_meta_tags(
+  title: translated_attribute(@page.title),
+  description: translated_attribute(@page.content)
+) %>
+
+<%
+edit_link(
+  decidim_admin.edit_static_page_path(@page),
+  :update,
+  :static_page,
+  static_page: @page
+)
+%>
+
+<% if @topic %>
+  <%= render partial: "tabbed", locals: {
+    title: translated_attribute(@topic.title),
+    description: translated_attribute(@topic.description),
+    page: @page,
+    pages: @pages
+  } %>
+<% else %>
+  <%= render partial: "standalone", locals: {
+    title: translated_attribute(@page.title),
+    description: nil,
+    page: @page
+  } %>
+<% end %>

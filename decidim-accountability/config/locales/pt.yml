@@ -24,6 +24,7 @@ pt:
         entry_date: Encontro
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
+      decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
   activerecord:
     models:
       decidim/accountability/result:
@@ -202,8 +203,14 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}". Você pode parar de receber notificações após o link anterior.
           email_subject: Uma atualização para %{proposal_title}
           notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no resultado <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'O resultado "%{resource_title}", que inclui a proposta "%{proposal_title}", está agora com %{progress}% de conclusão. Você pode ver a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}" e esta proposta está incluída no resultado "%{resource_title}". Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{resource_title} progresso
+          notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
     metrics:
       results:
+        description: Número de resultados de responsabilidade gerados
         object: resultados
         title: Resultados
     participatory_processes:
@@ -212,8 +219,7 @@ pt:
           results: Resultados
     participatory_spaces:
       highlighted_results:
-        results: Resultados
-        see_all_results: Ver todos os resultados
+        see_all: Ver todos (%{count})
     resource_links:
       included_projects:
         result_project: Projetos incluídos neste resultado

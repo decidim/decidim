@@ -10,9 +10,5 @@
         <%= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button hollow" %>
       <% end %>
     <% end %>
-
-    <% if allowed_to? :destroy, :conference, conference: current_conference %>
-      <%= link_to t("decidim.admin.actions.destroy"), current_conference, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
-    <% end %>
   </div>
 <% end %>

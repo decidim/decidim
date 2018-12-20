@@ -38,6 +38,7 @@ require "doorkeeper-i18n"
 require "nobspw"
 require "kaminari"
 require "batch-loader"
+require "etherpad-lite"
 
 require "decidim/api"
 
@@ -135,7 +136,7 @@ module Decidim
                     position: 1,
                     active: :exclusive
 
-          menu.item I18n.t("menu.more_information", scope: "decidim"),
+          menu.item I18n.t("menu.help", scope: "decidim"),
                     decidim.pages_path,
                     position: 7,
                     active: :inclusive
@@ -165,9 +166,13 @@ module Decidim
                       position: 1.3
           end
 
+          menu.item t("my_interests", scope: "layouts.decidim.user_profile"),
+                    decidim.user_interests_path,
+                    position: 1.4
+
           menu.item t("my_data", scope: "layouts.decidim.user_profile"),
                     decidim.data_portability_path,
-                    position: 1.4
+                    position: 1.5
 
           menu.item t("delete_my_account", scope: "layouts.decidim.user_profile"),
                     decidim.delete_account_path,
@@ -182,14 +187,16 @@ module Decidim
             event_name,
             data[:event_class],
             data[:resource],
-            data[:recipient_ids],
+            data[:followers],
+            data[:affected_users],
             data[:extra]
           )
           NotificationGeneratorJob.perform_later(
             event_name,
             data[:event_class],
             data[:resource],
-            data[:recipient_ids],
+            data[:followers],
+            data[:affected_users],
             data[:extra]
           )
         end
@@ -207,6 +214,7 @@ module Decidim
 
       initializer "add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
 
@@ -270,6 +278,7 @@ module Decidim
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
+          resource.searchable = true
         end
 
         Decidim.register_resource(:user_group) do |resource|
@@ -279,12 +288,37 @@ module Decidim
       end
 
       initializer "decidim.core.register_metrics" do
-        Decidim.metrics_registry.register(
-          :users,
-          "Decidim::Metrics::UsersMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED,
-          1
-        )
+        Decidim.metrics_registry.register(:users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::UsersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: true
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:participants) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::ParticipantsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: true
+            settings.attribute :scopes, type: :array, default: %w(participatory_process)
+            settings.attribute :weight, type: :integer, default: 1
+            settings.attribute :stat_block, type: :string, default: "big"
+          end
+        end
+
+        Decidim.metrics_registry.register(:followers) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::FollowersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(participatory_process)
+            settings.attribute :weight, type: :integer, default: 10
+            settings.attribute :stat_block, type: :string, default: "medium"
+          end
+        end
       end
 
       initializer "decidim.core.content_blocks" do

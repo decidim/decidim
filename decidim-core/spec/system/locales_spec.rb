@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Locales", type: :system do
   describe "switching locales" do
-    let(:organization) { create(:organization, :with_tos, available_locales: %w(en ca)) }
+    let(:organization) { create(:organization, available_locales: %w(en ca)) }
 
     before do
       switch_to_host(organization.host)
@@ -44,7 +44,7 @@ describe "Locales", type: :system do
     end
 
     context "with a signed in user" do
-      let(:user) { create(:user, :confirmed, locale: "ca") }
+      let(:user) { create(:user, :confirmed, locale: "ca", organization: organization) }
 
       before do
         login_as user, scope: :user

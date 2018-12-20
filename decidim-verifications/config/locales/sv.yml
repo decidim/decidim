@@ -133,6 +133,20 @@ sv:
           update:
             error: Din verifieringskod stämmer inte överens med vår. Vänligen dubbelklicka på det brev vi skickade till dig
             success: Grattis. Du har blivit verifierad
+      sms:
+        authorizations:
+          create:
+            error: Ett problem uppstod med din förfrågan
+            success: Tack! Vi har skickat ett SMS till din telefon.
+          edit:
+            send: Bekräfta
+            title: Presentera verifieringskoden du fick
+          new:
+            send: Skicka mig ett SMS
+            title: Begär din verifieringskod
+          update:
+            error: Din verifieringskod stämmer inte överens med vår. Vänligen dubbelklicka på det SMS vi skickade till dig.
+            success: Grattis. Du har blivit verifierad.
   errors:
     messages:
       uppercase_only_letters_numbers: måste vara versaler och endast innehålla bokstäver och/eller siffror

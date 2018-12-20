@@ -95,6 +95,12 @@ sv:
           next_level_in: Få %{score} fler initiativ publicerade för att nå nästa nivå!
           unearned_another: Den här användaren har inte fått några initiativ publicerade än.
           unearned_own: Du har ännu inte publicerat några initiativ.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Ett initiativ är ett förslag som kan främjas av någon på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) signaturer för organisationen att genomföra en specifik åtgärd (ändra en förordning, initiera ett projekt , ändra namn på en avdelning eller en gata, etc.).</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida och definiera mötespunkter där signaturer kan hämtas från deltagarna eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att sammankalla samråd med alla organisationer i en organisation eller att skapa eller sammankalla en sammansättning eller att initiera en budgethöjning för ett område eller område i organisationen. Under processen att samla signaturer kan fler människor lägga till denna efterfrågan och vidarebefordra den i organisationen.</p>\n"
+          page: "<p>Ett initiativ är ett förslag som kan främjas av någon på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) signaturer för organisationen att genomföra en specifik åtgärd (ändra en förordning, initiera ett projekt , ändra namn på en avdelning eller en gata, etc.).</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida och definiera mötespunkter där signaturer kan hämtas från deltagarna eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att sammankalla samråd med alla organisationer i en organisation eller att skapa eller sammankalla en sammansättning eller att initiera en budgethöjning för ett område eller område i organisationen. Under processen att samla signaturer kan fler människor lägga till denna efterfrågan och vidarebefordra den i organisationen.</p>\n"
+          title: Vad är initiativ?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ sv:
         promotal_committee: Promotörskommitté
         select_initiative_type: Välja
         show_similar_initiatives: Jämföra
+        step: Steg %{current} av %{total}
+        title: Skapa ny satsning
       initiative_header:
         initiative_menu_item: Initiativ
-        unfold: Veckla ut
       initiatives:
         initiative:
           check: Kolla in det

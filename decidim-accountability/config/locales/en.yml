@@ -23,6 +23,7 @@ en:
         entry_date: Date
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
+      decidim/accountability/result_progress_updated_event: Result progress updated
   activerecord:
     models:
       decidim/accountability/result:
@@ -201,8 +202,14 @@ en:
           email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
           email_subject: An update to %{proposal_title}
           notification_title: The proposal <a href="%{proposal_path}">%{proposal_title}</a> has been included in the <a href="%{resource_path}">%{resource_title}</a> result.
+        result_progress_updated:
+          email_intro: 'The result "%{resource_title}", which includes the proposal "%{proposal_title}", is now %{progress}% complete. You can see it from this page:'
+          email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title} progress
+          notification_title: The result <a href="%{resource_path}">%{resource_title}</a>, which includes the proposal <a href="%{proposal_path}">%{proposal_title}</a>, is now %{progress}% complete.
     metrics:
       results:
+        description: Number of accountability results generated
         object: results
         title: Results
     participatory_processes:
@@ -211,8 +218,7 @@ en:
           results: Results
     participatory_spaces:
       highlighted_results:
-        results: Results
-        see_all_results: See all results
+        see_all: See all (%{count})
     resource_links:
       included_projects:
         result_project: Projects included in this result

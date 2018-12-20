@@ -36,6 +36,7 @@ describe "Initiative", type: :system do
         expect(page).to have_content(translated(initiative.scope.name, locale: :en))
         expect(page).to have_content(initiative.author_name)
         expect(page).to have_content(initiative.hashtag)
+        expect(page).to have_content(initiative.reference)
       end
     end
 

@@ -1,6 +1,11 @@
 en:
   activemodel:
     attributes:
+      config:
+        available_methods: Available methods
+        offline: Offline
+        offline_explanation: Instructions for offline verification
+        online: Online
       id_document_information:
         document_number: Document number (with letter)
         document_type: Type of the document
@@ -9,6 +14,8 @@ en:
         document_type: Type of your document
         user: User
         verification_attachment: Scanned copy of your document
+      offline_confirmation:
+        email: User email
       postal_letter_address:
         full_address: Full address
       postal_letter_confirmation:
@@ -20,6 +27,11 @@ en:
     admin:
       menu:
         authorization_workflows: Verifications
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +82,13 @@ en:
           other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Identity documents configuration
+              update: Update
+            update:
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
             create:
               error: Verification doesn't match. Try again or reject the verification so the user can amend it
@@ -78,19 +97,36 @@ en:
               introduce_user_data: Introduce the data in the picture
               reject: Reject
               verify: Verify
+          offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
+            new:
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
+              verify: Verify
           pending_authorizations:
             index:
-              title: Pending verifications
+              config: Config
+              offline_verification: Offline verification
+              title: Pending online verifications
               verification_number: 'Verification #%{n}'
           rejections:
             create:
               success: Verification rejected. User will be prompted to amend her documents
         authorizations:
+          choose:
+            choose_a_type: "Please select how you want to be verified:"
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
             error: There was a problem uploading your document
             success: Document uploaded successfully
           edit:
             being_reviewed: We're reviewing your documents. You'll be verified shortly
+            offline: Use offline verification
+            online: Use online verification
             rejection_clarity: Make sure the information is clearly visible in the uploaded image
             rejection_correctness: Make sure the information entered is correct
             rejection_notice: There was a problem with your verification. Please try again
@@ -133,6 +169,20 @@ en:
           update:
             error: Your verification code doesn't match ours. Please double-check the letter we sent to you
             success: Congratulations. You've been successfully verified
+      sms:
+        authorizations:
+          create:
+            error: There was a problem with your request
+            success: Thanks! We've sent an SMS to your phone.
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            send: Send me an SMS
+            title: Request your verification code
+          update:
+            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You've been successfully verified.
   errors:
     messages:
       uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

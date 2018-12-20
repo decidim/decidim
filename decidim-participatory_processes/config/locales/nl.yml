@@ -256,10 +256,17 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update op %{participatory_space_title} werd uitgevoerd
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Een <strong>participatief proces</strong> is een reeks participerende activiteiten (bijvoorbeeld eerst een enquête invullen, vervolgens voorstellen doen, deze in persoonlijke of virtuele vergaderingen bespreken en uiteindelijk prioriteiten stellen) met als doel een beslissing te nemen en een beslissing te nemen over een specifiek onderwerp.</p> <p>Voorbeelden van participerende processen zijn: een proces van verkiezing van commissieleden (waarbij kandidaturen eerst worden gepresenteerd, vervolgens besproken en uiteindelijk een kandidatuur wordt gekozen), participatieve begrotingen (waar voorstellen worden gedaan, economisch worden gewaardeerd en met het beschikbare geld worden gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of norm, het ontwerp van een stedelijke ruimte of de productie van een openbaar beleidsplan.</p>\n"
+          page: "<p>Een <strong>participatief proces</strong> is een reeks participerende activiteiten (bijvoorbeeld eerst een enquête invullen, vervolgens voorstellen doen, deze in persoonlijke of virtuele vergaderingen bespreken en uiteindelijk prioriteiten stellen) met als doel een beslissing te nemen en een beslissing te nemen over een specifiek onderwerp.</p> <p>Voorbeelden van participerende processen zijn: een proces van verkiezing van commissieleden (waarbij kandidaturen eerst worden gepresenteerd, vervolgens besproken en uiteindelijk een kandidatuur wordt gekozen), participatieve begrotingen (waar voorstellen worden gedaan, economisch worden gewaardeerd en met het beschikbare geld worden gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of norm, het ontwerp van een stedelijke ruimte of de productie van een openbaar beleidsplan.</p>\n"
+          title: Wat is een participatief proces?
     menu:
       processes: Thema's
     metrics:
       participatory_processes:
+        description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
     participatory_process_groups:
@@ -379,9 +386,8 @@ nl:
           active_step: 'Huidige stap:'
           more_info: Meer informatie
           take_part: Deelnemen
-      process_header:
-        process_menu_item: Het thema
-        unfold: Uitvouwen
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen
+      process_navigation:
+        process_menu_item: Het thema

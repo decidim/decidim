@@ -18,8 +18,12 @@ module Decidim
         true
       end
 
+      def title
+        present(model).title
+      end
+
       def description
-        truncate(model.body, length: 100)
+        truncate(present(model).body, length: 100)
       end
 
       def has_badge?

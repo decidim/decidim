@@ -91,6 +91,7 @@ es-PY:
           notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Número de comentarios generados por los usuarios.
         object: comentarios
         title: Comentarios
   errors:

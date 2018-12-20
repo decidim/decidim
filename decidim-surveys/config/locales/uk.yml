@@ -1,34 +1,19 @@
----
 uk:
   activemodel:
-    attributes:
-      survey_answer:
-        body: Відповідь
-      survey_question:
-        mandatory: Обов’язкове поле
-        max_choices: Гранична кількість варіантів
-        question_type: Різновид
-    errors:
-      models:
-        survey_answer:
-          attributes:
-            choices:
-              missing: наведені не всі
-              too_many: занадто багато
     models:
       decidim/surveys/closed_survey_event: Опитування закінчилося
       decidim/surveys/opened_survey_event: Опитування почалося
   activerecord:
     models:
       decidim/surveys/survey:
+        one: Опитування
         few: Опитування
         many: Опитувань
-        one: Опитування
         other: Опитувань
       decidim/surveys/survey_answer:
+        one: Відповідь
         few: Відповіді
         many: Відповідей
-        one: Відповідь
         other: Відповідей
   decidim:
     components:
@@ -54,67 +39,15 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Нове опитування в %{participatory_space_title}
           notification_title: В <a href="%{participatory_space_url}">%{participatory_space_title}</a> почалось опитування <a href="%{resource_path}">%{resource_title}</a>.
-    forms:
-      errors:
-        survey_answer:
-          body: Основний текст не може бути порожнім
     surveys:
       admin:
         exports:
           survey_user_answers: Відповіді учасників на опитування
-        models:
-          components:
-            description: Опис
-            tos: Умови участі
         surveys:
-          answer_option:
-            answer_option: Варіант відповіді
-            free_text: Довільний текст
-            remove: Видалити
-            statement: Висловлювання
-          edit:
-            save: Зберегти
-            title: Назва
-          form:
-            add_question: Додати питання
-            already_answered_warning: Деякі учасники вже відповіли на це опитування, тому ви не можете змінювати його питання.
-          question:
-            add_answer_option: Додати варіант відповіді
-            any: Будь-який
-            description: Опис
-            down: Донизу
-            question: Питання
-            remove: Видалити
-            statement: Висловлювання
-            up: Догори
           update:
             invalid: При спробі збереження цього опитування сталися помилки.
             success: Опитування успішно збережено.
-      question_types:
-        long_answer: Довга відповідь
-        multiple_option: Кілька варіантів
-        short_answer: Коротка відповідь
-        single_option: Єдиний варіант
-        sorting: Впорядкування
       surveys:
         answer:
           invalid: При відповідях на опитування сталися помилки.
           success: Опитування успішно пройдено.
-        question:
-          max_choices: 'Гранична кількість варантів: %{n}'
-        show:
-          answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_link}">зареєструйтесь</a>, щоб відповісти на опитування.
-            title: Пройдіть опитування
-          are_you_sure: Цю дію не можна буде скасувати, і ви не зможете редагувати свої відповіді. Ви впевнені?
-          submit: Надіслати
-          survey_answered:
-            body: Ви вже відповіли на це опитування.
-            title: Опитування пройдене
-          survey_closed:
-            body: Опитування завершене, дати відповіді на нього не можна.
-            title: Опитування завершене
-          survey_for_private_users:
-            body: Це опитування доступне лише для приватних учасників
-            title: Опитування завершене
-          tos_agreement: Беручи участь у цьому опитуванні, ви приймаєте його умови використання

@@ -39,7 +39,7 @@ es:
           not_found: Respuesta no encontrada
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: Consultas
       decidim/consultations/question:
@@ -49,8 +49,8 @@ es:
         one: Respuesta
         other: Respuestas
       decidim/consultations/vote:
-        one: Voto
-        other: Votos
+        one: Votar
+        other: Votar
   decidim:
     admin:
       actions:
@@ -247,6 +247,12 @@ es:
           view_results: Ver resultados
           vote: Votar
         unspecified: No especificado
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>consultas son un espacio que le permite hacer una pregunta clara a todas las personas que forman una organización, hacer una llamada para participar en la consulta, provocar y ordenar el debate a favor o en contra de una respuesta. Cuando llega la fecha de consulta, puede votar y publicar los resultados de los votos.</p> <p>Ejemplos: Las consultas pueden ser sobre casi cualquier aspecto que afecte a una organización: algunos ejemplos están cambiando el nombre o el logotipo de la organización que ofrece varias alternativas, decidiendo Sí o No para formar parte de una organización más grande, validando o rechazando una nueva estrategia plan o el resultado de un grupo de trabajo, o definir si las posiciones deben permanecer como máximo de 1, 2 o 3 mandatos.</p>\n"
+          page: "<p>consultas son un espacio que le permite hacer una pregunta clara a todas las personas que forman una organización, hacer una llamada para participar en la consulta, provocar y ordenar el debate a favor o en contra de una respuesta. Cuando llega la fecha de consulta, puede votar y publicar los resultados de los votos.</p> <p>Ejemplos: Las consultas pueden ser sobre casi cualquier aspecto que afecte a una organización: algunos ejemplos están cambiando el nombre o el logotipo de la organización que ofrece varias alternativas, decidiendo Sí o No para formar parte de una organización más grande, validando o rechazando una nueva estrategia plan o el resultado de un grupo de trabajo, o definir si las posiciones deben permanecer como máximo de 1, 2 o 3 mandatos.</p>ard en la organización.</p>\n"
+          title: '¿Qué son las consultas?'
     menu:
       consultations: Consultas
     pages:

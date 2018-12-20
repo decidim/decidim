@@ -15,6 +15,8 @@ edit_link(
 )
 %>
 
+<%= participatory_space_floating_help %>
+
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.banner_image.url %>
 <div class="row">
@@ -42,7 +44,7 @@ edit_link(
         <% end %>
 
         <% if current_user %>
-          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_initiative } %>
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_initiative, large: false } %>
         <% end %>
       </div>
     </div>
@@ -51,6 +53,7 @@ edit_link(
     <%= embed_modal_for initiative_initiative_widget_url(current_initiative, format: :js) %>
 
     <%= render partial: "statistics" %>
+    <%= resource_reference(current_initiative) %>
   </div>
 
   <div class="columns mediumlarge-8 mediumlarge-pull-4">

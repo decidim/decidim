@@ -38,7 +38,7 @@ fi:
           not_found: Vastausta ei löytynyt.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Kuuleminen
         other: Kuulemiset
       decidim/consultations/question:
@@ -48,8 +48,8 @@ fi:
         one: Vastaus
         other: Vastaukset
       decidim/consultations/vote:
-        one: Ääni
-        other: Äänet
+        one: Äänestys
+        other: Äänestys
   decidim:
     admin:
       actions:
@@ -246,6 +246,12 @@ fi:
           view_results: Näytä tulokset
           vote: Äänestä
         unspecified: Ei määritelty
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Kuulemiset ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kun kuulemisen päivä tulee, voit äänestää ja julkaista äänestyksen tulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta näkökulmasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen validoinnista tai hylkäämisestä, tai mandaattien vaaditusta määrästä päättäminen.</p>\n"
+          page: "<p>Kuulemiset ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kun kuulemisen päivä tulee, voit äänestää ja julkaista äänestyksen tulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta näkökulmasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen validoinnista tai hylkäämisestä, tai mandaattien vaaditusta määrästä päättäminen.</p>"
+          title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset
     pages:

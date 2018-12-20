@@ -25,6 +25,9 @@
       <li <% if is_active_link?(decidim_admin.area_types_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.area_types", scope: "decidim.admin"), decidim_admin.area_types_path %>
       </li>
+      <li <% if allowed_to?(:update, :help_sections) && is_active_link?(decidim_admin.help_sections_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.help_sections", scope: "decidim.admin"), decidim_admin.help_sections_path %>
+      </li>
     </ul>
   </div>
 <% end %>

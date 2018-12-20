@@ -12,4 +12,5 @@ describe "Admin manages conferences", type: :system do
   end
 
   it_behaves_like "manage conferences"
+  it_behaves_like "manage diplomas"
 end

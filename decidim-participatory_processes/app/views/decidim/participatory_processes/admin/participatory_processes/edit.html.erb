@@ -10,9 +10,5 @@
         <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :post, class: "button hollow" %>
       <% end %>
     <% end %>
-
-    <% if allowed_to? :destroy, :process, process: current_participatory_process %>
-      <%= link_to t("decidim.admin.actions.destroy"), current_participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
-    <% end %>
   </div>
 <% end %>

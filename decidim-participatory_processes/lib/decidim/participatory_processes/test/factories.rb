@@ -26,6 +26,7 @@ FactoryBot.define do
     target { generate_localized_title }
     participatory_scope { generate_localized_title }
     participatory_structure { generate_localized_title }
+    announcement { generate_localized_title }
     show_statistics { true }
     private_space { false }
     start_date { Date.current }
@@ -60,6 +61,11 @@ FactoryBot.define do
       end
     end
 
+    trait :active do
+      start_date { 2.weeks.ago }
+      end_date { 1.week.from_now }
+    end
+
     trait :past do
       start_date { 2.weeks.ago }
       end_date { 1.week.ago }
@@ -68,6 +74,11 @@ FactoryBot.define do
     trait :upcoming do
       start_date { 1.week.from_now }
       end_date { 2.weeks.from_now }
+    end
+
+    trait :with_scope do
+      scopes_enabled { true }
+      scope { create :scope, organization: organization }
     end
   end
 

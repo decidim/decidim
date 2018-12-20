@@ -94,6 +94,7 @@ gl:
           notification_title: Foi mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Número de comentarios xerados polos usuarios
         object: comentarios
         title: Comentarios
   errors:

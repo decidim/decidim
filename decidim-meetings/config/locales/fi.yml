@@ -22,9 +22,9 @@ fi:
         location_hints: Paikan tarkemmat tiedot
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
+        registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
-        reserved_slots: Places réservées
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
@@ -82,6 +82,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             default_registration_terms: Ilmoittautumisen oletusehdot
+            enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
@@ -109,9 +110,9 @@ fi:
           email_subject: Tapahtuma "%{resource_title}" päivitettiin
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
-          email_intro: Ilmoittautumiskoodisi "%{registration_code}" on vahvistettu.
+          email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapahtumaan "%{resource_title}" on vahvistettu.
-          email_subject: Ilmoittautumiskoodisi "%{registration_code}" on vahvistettu
+          email_subject: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu
           notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
           email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
@@ -270,9 +271,10 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            registration_form: Ilmoittautumislomake
             registrations_count:
-              one: 1 ilmoittautuminen.
-              other: '%{count} ilmoittautumista.'
+              one: Tapahtumaan on %{count} ilmoittautuminen.
+              other: Tapahtumaan on %{count} ilmoittautumista.
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
@@ -298,6 +300,10 @@ fi:
         minutes:
           create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+      calendar_modal:
+        calendar_url: Kalenterin URL
+        close_window: Sulje ikkuna
+        export_calendar: Vie kalenterin tiedot
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_events:
@@ -356,7 +362,7 @@ fi:
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           remaining_slots:
-            one: 1 paikka jäljellä
+            one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
       meetings_map:
@@ -400,6 +406,7 @@ fi:
         transparent: Läpinäkyvä
     metrics:
       meetings:
+        description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
     participatory_processes:
@@ -410,7 +417,7 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
-        see_all_meetings: Katso kaikki tapahtumat
+        see_all: Näytä kaikki (%{count})
         upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva tapahtuma

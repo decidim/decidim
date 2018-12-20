@@ -22,27 +22,19 @@ module Decidim
             collection do
               get :create
               get :decline_invitation
+              get :join, action: :show
+              post :answer
             end
           end
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+        resource :calendar, only: [:show], format: :text
       end
 
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(component: published_components)
-
-          next unless meetings.any?
-
-          view_context.render(
-            partial: "decidim/participatory_spaces/highlighted_meetings",
-            locals: {
-              past_meetings: meetings.past.order(end_time: :desc, start_time: :desc).limit(3),
-              upcoming_meetings: meetings.upcoming.order(:start_time, :end_time).limit(3)
-            }
-          )
+          view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
         end
 
         if defined? Decidim::ParticipatoryProcesses
@@ -63,18 +55,7 @@ module Decidim
         end
 
         Decidim.view_hooks.register(:current_participatory_space_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(component: published_components)
-
-          next unless meetings.any?
-
-          view_context.render(
-            partial: "decidim/participatory_spaces/highlighted_meetings",
-            locals: {
-              past_meetings: meetings.past.order(end_time: :desc, start_time: :desc).limit(3),
-              upcoming_meetings: meetings.upcoming.order(:start_time, :end_time).limit(3)
-            }
-          )
+          view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
         end
 
         # This view hook is used in card cells. It renders the next upcoming
@@ -124,12 +105,20 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_metrics" do
-        Decidim.metrics_registry.register(
-          :meetings,
-          "Decidim::Meetings::Metrics::MeetingsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
-          5
-        )
+        Decidim.metrics_registry.register(:meetings) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Meetings::Metrics::MeetingsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
+            settings.attribute :weight, type: :integer, default: 5
+            settings.attribute :stat_block, type: :string, default: "small"
+          end
+        end
+
+        Decidim.metrics_operation.register(:followers, :meetings) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
+        end
       end
 
       initializer "decidim_meetings.assets" do |app|

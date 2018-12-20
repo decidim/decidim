@@ -52,6 +52,8 @@ module Decidim
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
   autoload :MetricRegistry, "decidim/metric_registry"
   autoload :MetricManifest, "decidim/metric_manifest"
+  autoload :MetricOperation, "decidim/metric_operation"
+  autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
@@ -65,9 +67,13 @@ module Decidim
   autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
   autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
   autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
   autoload :Hashtaggable, "decidim/hashtaggable"
+  autoload :Paddable, "decidim/paddable"
+  autoload :OpenDataExporter, "decidim/open_data_exporter"
+
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
@@ -82,7 +88,20 @@ module Decidim
       railtie.load_seed
     end
 
-    participatory_space_manifests.each(&:seed!)
+    participatory_space_manifests.each do |manifest|
+      manifest.seed!
+
+      Organization.all.each do |organization|
+        ContextualHelpSection.set_content(
+          organization,
+          manifest.name,
+          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.sentence(15)
+          end
+        )
+      end
+    end
+
     Gamification.badges.each do |badge|
       puts "Setting random values for the \"#{badge.name}\" badge..."
       User.all.find_each do |user|
@@ -230,11 +249,17 @@ module Decidim
     2.days
   end
 
+  # Exposes a configuration option: an object to configure Etherpad
+  config_accessor :etherpad
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
   config_accessor :base_uploads_path
+
+  # Exposes a configuration option: an object to deliver SMS codes to users.
+  config_accessor :sms_gateway_service
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
@@ -307,6 +332,14 @@ module Decidim
   # Returns nothing.
   def self.register_resource(name, &block)
     resource_registry.register(name, &block)
+  end
+
+  # Public: Finds all registered resource manifests via the `register_component`
+  # method.
+  #
+  # Returns an Array[ResourceManifest].
+  def self.resource_manifests
+    resource_registry.manifests
   end
 
   # Public: Finds all registered component manifest's via the `register_component`
@@ -398,8 +431,13 @@ module Decidim
     @traceability ||= Traceability.new
   end
 
-  # Public: Stores an instance of ContentBlockRegistry
+  # Public: Stores an instance of MetricRegistry
   def self.metrics_registry
     @metrics_registry ||= MetricRegistry.new
+  end
+
+  # Public: Stores an instance of MetricOperation
+  def self.metrics_operation
+    @metrics_operation ||= MetricOperation.new
   end
 end

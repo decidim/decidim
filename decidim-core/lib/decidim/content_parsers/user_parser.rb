@@ -16,9 +16,9 @@ module Decidim
       #   @return [Array] an array of Decidim::User mentioned in content
       Metadata = Struct.new(:users)
 
-      # Matches a nickname if they start with a letter or number
+      # Matches a nickname if it starts with a letter or number
       # and only contains letters, numbers or underscores.
-      MENTION_REGEX = /(^|\s)@([a-zA-Z0-9]\w*)/
+      MENTION_REGEX = /\B@([a-zA-Z0-9]\w*)\b/
 
       # Replaces found mentions matching a nickname of an existing
       # user in the current organization with a global id. Other
@@ -28,19 +28,35 @@ module Decidim
       # @return [String] the content with the valid mentions replaced by a global id
       def rewrite
         content.gsub(MENTION_REGEX) do |match|
-          if (user = Decidim::User.find_by(nickname: Regexp.last_match[2], organization: context[:current_organization]))
-            Regexp.last_match[1] + user.to_global_id.to_s
-          else
-            match
-          end
+          users[match[1..-1]]&.to_global_id&.to_s || match
         end
       end
 
       # (see BaseParser#metadata)
       def metadata
-        Metadata.new(
-          Decidim::User.where(nickname: content.scan(MENTION_REGEX).flatten, organization: context[:current_organization])
-        )
+        Metadata.new(existing_users)
+      end
+
+      private
+
+      def users
+        @users ||= Hash[
+          existing_users.map do |user|
+            [user.nickname, user]
+          end
+        ]
+      end
+
+      def existing_users
+        @existing_users ||= Decidim::User.where(organization: current_organization, nickname: content_nicknames)
+      end
+
+      def content_nicknames
+        @content_nicknames ||= content.scan(MENTION_REGEX).flatten.uniq
+      end
+
+      def current_organization
+        @current_organization ||= context[:current_organization]
       end
     end
   end

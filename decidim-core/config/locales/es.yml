@@ -9,7 +9,7 @@ es:
         about: Acerca de
         email: Tu correo electrónico
         name: Tu nombre
-        nickname: Su identificador, corto y único
+        nickname: Apodo
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -36,7 +36,7 @@ es:
         remember_me: Recuérdame
     models:
       decidim/user:
-        one: Usuario
+        one: No hay usuarios
         other: Usuarios
       decidim/user_group:
         one: Grupo de usuarios
@@ -163,6 +163,9 @@ es:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
+      sms:
+        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
+        name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       show:
@@ -196,7 +199,7 @@ es:
           title: Confirma tu email
     collapsible_list:
       hidden_elements_count:
-        one: y 1 más
+        one: y %{count} más
         other: y %{count} más
       see_less: "(ver menos)"
       see_more: "(ver más)"
@@ -211,6 +214,7 @@ es:
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Habilitar permisos de recursos
           step:
             comments_blocked: Comentarios bloqueados
@@ -280,6 +284,8 @@ es:
         new:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
+          sign_in_disabled: Puedes acceder con una cuenta externa.
+          sign_up_disabled: El registro está deshabilitado, puede usar un usuario existente para acceder
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +538,13 @@ es:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Actualizar grupo
+      form:
+        document_number_help: No utilice guiones ni espacios.
+        email_help: Correo electrónico de su organización, asociación, colectivo, grupo, etc.
+        fill_in_for_verification: 'Rellene estos campos si desea que se verifique su grupo:'
+        name_help: Nombre de su organización, asociación, colectivo, grupo, etc.
+        nickname_help: Nombre de usuario de su organización, asociación, colectivo, grupo, etc. No use espacios ni acentos.
+        phone_help: No utilice guiones ni espacios.
       join:
         error: Ha habido un problema al unirte al grupo
         success: Solicitud enviada correctamente. Un administrador la revisará antes de aceptarte en el grupo.
@@ -545,6 +558,7 @@ es:
       new:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
+        subtitle: Cree un grupo e invite a otros usuarios a unirse para participar en un nivel colectivo.
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administrador
@@ -553,6 +567,13 @@ es:
       update:
         error: Ha habido un problema al actualizar el grupo
         success: Grupo actualizado con éxito
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} puede participar y decidir sobre diferentes temas, a través de los espacios que ve en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada una encontrará diferentes opciones para participar: hacer propuestas, individualmente o con otras personas, participar en debates, priorizar proyectos para implementar, asistir a reuniones cara a cara y otras acciones.</p>\n"
+          title: '¿Qué puedo hacer en %{organization}?'
+        description: Leer más sobre %{organization}
+        title: Ayuda general
     last_activities:
       activities:
         no_activities_warning: Ninguna actividad
@@ -584,8 +605,8 @@ es:
     members:
       no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
+      help: Ayuda
       home: Inicio
-      more_information: Más información
     messaging:
       conversation_mailer:
         new_conversation:
@@ -602,20 +623,29 @@ es:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
-          from: De
-          last_message_html: Último mensaje <strong>hace %{time}</strong>
           no_conversations: Aún no tienes conversaciones
-        show:
-          conversation_with_html: Conversación con <strong>%{name}</strong>
-          reply: Respuesta
+          title: Conversaciones
+        reply:
           send: Enviar
+          title: Respuesta
+        show:
+          title: Conversacion con %{usernames}
         start:
           send: Enviar
           title: Iniciar una conversación
         update:
           error: Mensaje no enviado. Inténtalo más tarde
     metrics:
+      followers:
+        description: Número de usuario que sigue en la organización.
+        object: seguidores
+        title: Seguidores
+      participants:
+        description: Número de usuarios activos en la organización.
+        object: Participantes
+        title: Participantes
       users:
+        description: Número de usuarios en la organización.
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -659,6 +689,10 @@ es:
         pending: Pendientes
         rejected: Rechazados
         verified: Verificada
+    pad_iframe:
+      disclaimer: Los contenidos de este panel están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
+      explanation: Use este teclado para tomar notas de manera colaborativa durante la reunión para que sea más fácil escribir el minuto después.
+      pad: Almohadilla
     pages:
       home:
         extended:
@@ -701,7 +735,15 @@ es:
         sub_hero:
           register: Regístrate
       index:
-        title: Más información
+        read_more: Leer más
+        standalone_pages: Páginas
+        subheading: Navegar por las páginas de ayuda de %{name}
+        title: Ayuda
+        topics: Temas
+      participatory_space:
+        metrics:
+          headline: Participación en cifras.
+          link: Mostrar todas las estadísticas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
@@ -729,13 +771,14 @@ es:
       default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, tu nombre se ha verificado para que se corresponda con tu nombre real
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
+        activity: Actividad
         badges: Insignias
-        conversations: Conversaciones
         followers: Seguidores
         following: Sigue
         groups: Grupos
         members: Miembros
-        notifications: Notificaciones
+        timeline: Línea de tiempo
+        view_full_profile: Ver todo el perfil
       sidebar:
         badges:
           info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
@@ -773,24 +816,35 @@ es:
       prompt: Seleccione un ámbito
       scopes: Ámbitos
     search:
-      filter:
-        all: Todas
-        component: Componente
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
-        search: Buscar
+        back: Volver a resultados
+        jump_to: 'Salta a:'
+        state:
+          active: Activo
+          all: Todos
+          future: Futuro
+          past: Pasado
       filters_small_view:
         close_modal: Cerrar modal
         filter: Filtrar
         filter_by: Filtrar por
         unfold: Desplegar
+      results:
+        results:
+          one: "%{count} resultado"
+          other: "%{count} resultados"
+        view_all: Ver todo (%{count})
     shared:
       embed_modal:
         close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
         embed_link: Incrustar
+      extended_navigation_bar:
+        more: Más
+        unfold: Desplegar
       flag_modal:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
@@ -800,6 +854,8 @@ es:
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
+      floating_help:
+        help: Ayuda
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
@@ -815,6 +871,12 @@ es:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
+    user_activity:
+      index:
+        no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+    welcome_notification:
+      default_body: <p>Hola {{name}}, gracias por unirte {{organization}} y bienvenido!</p><ul><li>Si desea obtener una idea rápida de lo que puede hacer aquí, consulte la sección <a href="{{help_url}}">Ayuda</a> .</li><li>Una vez que lo hayas leído, obtendrás tu primera placa. Aquí está un <a href="{{badges_url}}">lista de todas las insignias</a> se puede obtener a medida que participen en el {{organization}}</li><li>Por último, pero no menos importante, se une a otras personas, compartir con ellos la experiencia de ser ocupados y participando en {{organization}}. Haga propuestas, comentarios, debate, piense en cómo contribuir al bien común, proporcione argumentos para convencer, escuche y lea para convencerse, exprese sus ideas de manera concreta y directa, responda con paciencia y decisión, defienda sus ideas y mantenga Una mente abierta para colaborar y unirse a las ideas de otras personas.</li></ul>
+      default_subject: Gracias por unirte a {{organization}}!
   devise:
     confirmations:
       confirmed: Tu dirección de correo electrónico ha sido confirmada con éxito.

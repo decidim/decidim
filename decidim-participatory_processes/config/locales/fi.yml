@@ -255,10 +255,17 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{participatory_space_title}
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
+          page: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>"
+          title: Mikä on osallisuusprosessi?
     menu:
       processes: Prosessit
     metrics:
       participatory_processes:
+        description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
     participatory_process_groups:
@@ -378,9 +385,8 @@ fi:
           active_step: 'Aktiivinen vaihe:'
           more_info: Lisätietoja
           take_part: Osallistu
-      process_header:
-        process_menu_item: Prosessi
-        unfold: Avaa
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet
+      process_navigation:
+        process_menu_item: Prosessi

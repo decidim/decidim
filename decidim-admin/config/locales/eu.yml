@@ -82,8 +82,15 @@ eu:
         changed_notably: Aldaketa nabarmenak izan dira.
         content: Edukia
         organization: Erakundea
+        show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
+        weight: pisu
+      static_page_topic:
+        description: deskribapena
+        show_in_footer: Erakutsi orri-oinean
+        title: Izenburua
+        weight: pisu
     errors:
       models:
         oauth_application:
@@ -248,6 +255,11 @@ eu:
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
+      help_sections:
+        error: Errore bat gertatu da laguntza-atalak eguneratuz
+        form:
+          save: Save
+        success: Laguntza atalak behar bezala eguneratu dira
       impersonatable_users:
         index:
           filter:
@@ -301,11 +313,12 @@ eu:
         areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
+        help_sections: Laguntza atalak
         homepage: Hasiera
         impersonations: impersonations
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
-        officializations: Officializations
+        participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -545,6 +558,21 @@ eu:
         update:
           error: Errorea gertatu da esparru hau eguneratzean.
           success: Esparrua zuzen eguneratu da
+      static_page_topics:
+        create:
+          error: Errore bat gertatu da gai berri bat sortzean.
+          success: Gaia arrakastaz sortu da.
+        destroy:
+          success: Gaia arrakastaz suntsitu da
+        edit:
+          title: Editatu gaia
+          update: Eguneratu gaia
+        new:
+          create: Sortu gaia
+          title: Gai berria
+        update:
+          error: Gai hau eguneratzean errorea gertatu da.
+          success: Gaia ondo eguneratu da
       static_pages:
         actions:
           view: Ikusi orri publikoa
@@ -557,11 +585,18 @@ eu:
           changed_notably_help: Egiaztatuta badago, erabiltzaileei jakinaraziko zaie baldintza eta baldintza berriak onartzeko.
           title: Editatu orria
           update: Eguneratu
+        form:
+          none: Bat ere ez
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
-          create: Sortu
+          create: Sortu orrialdea
           title: Orri berria
+        topic:
+          destroy: Kendu gaia
+          edit: Editatu gaia
+          empty: Ez dago orrialde honen azpian
+          without_topic: Gai gabeko orriak
         update:
           error: Errorea gertatu da orri hau eguneratzean.
           success: Orria zuzen eguneratu da.
@@ -573,7 +608,7 @@ eu:
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile ustekabekoak
         impersonations: Ordezteak
-        officializations: Officializations
+        participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak

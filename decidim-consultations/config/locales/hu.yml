@@ -38,9 +38,9 @@ hu:
           not_found: Válasz nem található.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Konzultáció
-        other: Konzultációk
+        other: konzultációk
       decidim/consultations/question:
         one: Kérdés
         other: Kérdések
@@ -48,8 +48,8 @@ hu:
         one: Válasz
         other: Válaszok
       decidim/consultations/vote:
-        one: Szavazat
-        other: Szavazatok
+        one: Szavazás
+        other: Szavazás
   decidim:
     admin:
       actions:
@@ -246,6 +246,12 @@ hu:
           view_results: Eredmények megtekintése
           vote: Szavazás
         unspecified: Nem meghatározott
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyen fel mindazoknak, akik egy szervezetet alkotnak, hívják a konzultációban való részvételt, szikrázzák és rendezik a vitát a válaszért vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteheti a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan szempontra vonatkozhatnak, amelyek egy szervezetet érintenek: néhány példa megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, döntve az Igen vagy a Nemet, hogy egy nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása tervet vagy munkacsoport eredményét, vagy meghatározza, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
+          page: "<p>konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyen fel mindazoknak, akik egy szervezetet alkotnak, hívják a konzultációban való részvételt, szikrázzák és rendezik a vitát a válaszért vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteheti a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan szempontra vonatkozhatnak, amelyek egy szervezetet érintenek: néhány példa megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, döntve az Igen vagy a Nemet, hogy egy nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása tervet vagy munkacsoport eredményét, vagy meghatározza, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>ard a szervezetben.</p>\n"
+          title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
     pages:

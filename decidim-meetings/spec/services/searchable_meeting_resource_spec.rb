@@ -71,8 +71,21 @@ module Decidim
 
         it "returns Meeting results" do
           Decidim::Search.call("Nulla", organization, resource_type: meeting.class.name) do
-            on(:ok) do |results|
-              expect(results.count).to eq 2
+            on(:ok) do |results_by_type|
+              results = results_by_type[meeting.class.name]
+              expect(results[:count]).to eq 2
+              expect(results[:results]).to match_array [meeting, meeting2]
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+
+        it "allows searching by prefix characters" do
+          Decidim::Search.call("subu", organization, resource_type: meeting.class.name) do
+            on(:ok) do |results_by_type|
+              results = results_by_type[meeting.class.name]
+              expect(results[:count]).to eq 1
+              expect(results[:results]).to eq [meeting2]
             end
             on(:invalid) { raise("Should not happen") }
           end

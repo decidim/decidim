@@ -95,6 +95,12 @@ ca:
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha publicat cap iniciativa.
           unearned_own: Encara no has publicat cap iniciativa.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Una iniciativa és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte , canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
+          page: "<p>Una iniciativa és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte , canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
+          title: Quines iniciatives?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ ca:
         promotal_committee: Comitè promotor
         select_initiative_type: Tria
         show_similar_initiatives: Compara
+        step: Pas %{current} de %{total}
+        title: Crea una nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desplegar
       initiatives:
         initiative:
           check: Comprova-ho

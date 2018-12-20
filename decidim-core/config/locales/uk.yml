@@ -9,7 +9,6 @@ uk:
         about: Про учасника
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
-        nickname: Ваш короткий, унікальний псевдонім
         password: Пароль
         password_confirmation: Підтвердьте свій пароль
         personal_url: Особиста веб-адреса
@@ -28,11 +27,6 @@ uk:
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
     models:
-      decidim/user:
-        one: Учасник
-        few: Учасників
-        many: Учасників
-        other: Учасників
       decidim/user_group:
         one: Гурт учасників
         few: Гурти учасників
@@ -185,11 +179,6 @@ uk:
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
-      hidden_elements_count:
-        one: і ще 1
-        few: і ще %{count}
-        many: і ще %{count}
-        other: і ще %{count}
       see_less: "(читати менше)"
       see_more: "(читати далі)"
     components:
@@ -385,7 +374,6 @@ uk:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
-      more_information: Додаткові відомості
     messaging:
       conversation_mailer:
         new_conversation:
@@ -402,13 +390,9 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
-          from: Від
-          last_message_html: Останнє повідомлення <strong>%{time} тому</strong>
           no_conversations: У вас ще немає бесід
-        show:
-          conversation_with_html: Бесіда з <strong>%{name}</strong>
-          reply: Відповісти
-          send: Надіслати
+        reply:
+          title: Відповісти
         start:
           send: Надіслати
           title: Почати бесіду
@@ -493,8 +477,6 @@ uk:
           votes_count: Голосів
         sub_hero:
           register: Зареєструватися
-      index:
-        title: Додаткові відомості
       terms_and_conditions:
         accept:
           error: Під час прийняття умов участі виникла помилка.
@@ -521,10 +503,8 @@ uk:
     profiles:
       default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
-        conversations: Бесіди
         followers: Ті, хто стежить
         following: 'Стежить за:'
-        notifications: Сповіщення
       user:
         edit_profile: Редагувати профіль
     reported_mailer:
@@ -551,14 +531,9 @@ uk:
       prompt: Оберіть обсяг
       scopes: Обсяги
     search:
-      filter:
-        all: Усі
-        component: Складові
       results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
-      filters:
-        search: Шукати
       filters_small_view:
         close_modal: Закрити віконце
         filter: Відібрати

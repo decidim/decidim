@@ -16,11 +16,13 @@ module Decidim
           event_class = Decidim::Debates::CreationDisabledEvent
         end
 
+        return unless event && event_class
+
         Decidim::EventsManager.publish(
           event: event,
           event_class: event_class,
           resource: component,
-          recipient_ids: component.participatory_space.followers.pluck(:id)
+          followers: component.participatory_space.followers
         )
       end
 
@@ -30,15 +32,17 @@ module Decidim
         current_settings[:creation_enabled] == previous_settings[:creation_enabled]
       end
 
+      # rubocop:disable Style/DoubleNegation
       def debate_creation_enabled?(previous_settings, current_settings)
         current_settings[:creation_enabled] == true &&
-          previous_settings[:creation_enabled] == false
+          !!previous_settings[:creation_enabled] == false
       end
 
       def debate_creation_disabled?(previous_settings, current_settings)
-        current_settings[:creation_enabled] == false &&
+        !!current_settings[:creation_enabled] == false &&
           previous_settings[:creation_enabled] == true
       end
+      # rubocop:enable Style/DoubleNegation
     end
   end
 end

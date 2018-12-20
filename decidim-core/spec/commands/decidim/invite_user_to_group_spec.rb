@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe InviteUserToGroup do
       describe "call" do
-        let(:organization) { create(:organization, :with_tos) }
+        let(:organization) { create(:organization) }
         let(:user) { create :user, :confirmed, organization: organization }
         let(:user_group) { create :user_group, users: [], organization: organization }
         let(:nickname) { user.nickname }
@@ -73,7 +73,7 @@ module Decidim
                 event: "decidim.events.groups.invited_to_group",
                 event_class: InvitedToGroupEvent,
                 resource: user_group,
-                recipient_ids: [user.id],
+                affected_users: [user],
                 extra: {
                   user_group_name: user_group.name,
                   user_group_nickname: user_group.nickname

@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: conference_diploma_path, html: { class: "form edit_conference_diploma" })  do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("diplomas.edit.title", scope: "decidim.conferences.admin") } %>
+
+   <div class="button--double form-general-submit">
+    <%= f.submit t(".save") %>
+  </div>
+<% end %>

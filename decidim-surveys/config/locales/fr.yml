@@ -1,23 +1,5 @@
----
 fr:
   activemodel:
-    attributes:
-      survey_answer:
-        body: Réponse
-        selected_choices: La réponse à la question
-        choices: Les choix
-        selected_choices: La selection
-      survey_question:
-        mandatory: La réponse à la question est obligatoire
-        max_choices: Nombre de choix maximum
-        question_type: Type de question
-    errors:
-      models:
-        survey_answer:
-          attributes:
-            choices:
-              missing: ne sont pas complets
-              too_many: sont trop nombreux
     models:
       decidim/surveys/closed_survey_event: Enquête terminée
       decidim/surveys/opened_survey_event: Enquête commencée
@@ -53,74 +35,22 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-    forms:
-      errors:
-        survey_answer:
-          body: Ce champ ne peut pas être vide
+    metrics:
+      survey_answers:
+        description: Nombre d'enquêtes auxquelles ont répondu les utilisateurs
+        object: réponses aux enquêtes
+        title: Réponses aux enquêtes
     surveys:
       admin:
         exports:
           survey_user_answers: Réponses des participants à l'enquête
-        models:
-          components:
-            title: Titre
-            description: Description
-            title: Titre
-            tos: Conditions d'utilisation
         surveys:
-          answer_option:
-            answer_option: Option de réponse
-            free_text: Texte libre
-            remove: Retirer
-            statement: Intitulé de la réponse
-          edit:
-            save: Sauvegarder
-            title: Titre
-          form:
-            add_question: Ajouter une question
-            already_answered_warning: L'enquête ayant déjà reçu des réponses, vous ne pouvez plus modifier les questions.
-          question:
-            add_answer_option: Ajouter une option de réponse
-            any: Tout
-            description: Description
-            down: Descendre
-            question: Question
-            remove: Retirer
-            statement: Intitulé de la question
-            up: Monter
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
       last_activity:
         new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
-      question_types:
-        long_answer: Réponse longue
-        multiple_option: Options multiples
-        short_answer: Réponse courte
-        single_option: Option unique
-        sorting: Tri
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
           success: Votre réponse à l'enquête a bien été enregistrée.
-        question:
-          max_choices: 'Nombre de choix maximum : %{n}'
-        show:
-          answer_survey:
-            anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a>.
-            title: Participer à l'enquête
-          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez plus modifier vos réponses. Êtes-vous prêt à valider votre participation ?
-          submit: Envoyer
-          survey_answered:
-            body: Vous avez déjà participé à cette enquête.
-            title: Enquête complétée
-          survey_closed:
-            body: L'enquête est terminée et n'accepte plus de réponse.
-            title: Enquête terminée
-          survey_for_private_users:
-            body: L'enquête est disponible uniquement pour les utilisateurs privés
-            title: Enquête terminée
-          tos_agreement: En participant à cette enquête, vous acceptez ses conditions d'utilisation
-  errors:
-    messages:
-      blank: est obligatoire

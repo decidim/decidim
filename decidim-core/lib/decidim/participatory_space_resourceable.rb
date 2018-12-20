@@ -77,6 +77,18 @@ module Decidim
           end
         end
       end
+
+      # Public: This method will be used to represent this participatory space in other contexts, like cards
+      # or search results.
+      def resource_title
+        try(:title) || try(:name)
+      end
+
+      # Public: This method will be used to represent this participatory space in other contexts, like cards
+      # or search results.
+      def resource_description
+        try(:description) || try(:body) || try(:content)
+      end
     end
 
     class_methods do

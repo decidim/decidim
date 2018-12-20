@@ -9,6 +9,7 @@ module Decidim::Meetings
     let(:meeting) { create(:meeting) }
     let(:invalid) { false }
     let(:registrations_enabled) { true }
+    let(:registration_form_enabled) { true }
     let(:available_slots) { 10 }
     let(:reserved_slots) { 2 }
     let(:registration_terms) do
@@ -22,6 +23,7 @@ module Decidim::Meetings
       double(
         invalid?: invalid,
         registrations_enabled: registrations_enabled,
+        registration_form_enabled: registration_form_enabled,
         available_slots: available_slots,
         reserved_slots: reserved_slots,
         registration_terms: registration_terms
@@ -44,6 +46,7 @@ module Decidim::Meetings
       it "updates the meeting" do
         subject.call
         expect(meeting.registrations_enabled).to eq(registrations_enabled)
+        expect(meeting.registration_form_enabled).to eq(registration_form_enabled)
         expect(meeting.available_slots).to eq(available_slots)
         expect(meeting.reserved_slots).to eq(reserved_slots)
         expect(translated(meeting.registration_terms)).to eq "A legal text"
@@ -62,7 +65,7 @@ module Decidim::Meetings
               event: "decidim.events.meetings.registrations_enabled",
               event_class: MeetingRegistrationsEnabledEvent,
               resource: meeting,
-              recipient_ids: [user.id]
+              followers: [user]
             )
 
           subject.call

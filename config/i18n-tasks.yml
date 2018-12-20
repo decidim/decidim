@@ -67,6 +67,8 @@ search:
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
     - "*.jpeg"
+    - "*.odt"
+    - "*.docx"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -176,9 +178,19 @@ ignore_unused:
   - decidim.conferences.conference_speaker.*
   - decidim.conferences.statistics.*
   - decidim.conferences.show.*
+  - decidim.conferences.models.conference_registration.fields.states.*
   - decidim.proposals.admin.participatory_texts.sections.*
   - decidim.gamification.badges.*
+  - decidim.surveys.surveys.answer.*
+  - decidim.surveys.admin.surveys.update.*
   - decidim.groups.roles.*
+  - decidim.welcome_notification.*
+  - decidim.help.*
+  - decidim.amendments.amendable.error
+  - decidim.amendments.emendation.announcement.*
+  - decidim.amendments.accept.error
+  - decidim.searches.filters.state.*
+  - decidim.assemblies.filter.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

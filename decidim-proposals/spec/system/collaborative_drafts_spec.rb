@@ -88,6 +88,37 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         expect(page).to have_css(".label.collaborative-draft-status", text: translated(collaborative_draft.state))
       end
 
+      context "when geocoding is enabled" do
+        let!(:component) do
+          create(:proposal_component,
+                 :with_creation_enabled,
+                 :with_geocoding_and_collaborative_drafts_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process,
+                 organization: organization)
+        end
+        let!(:collaborative_draft) { create(:collaborative_draft, :open, component: component, address: address, category: category, scope: scope, users: [author]) }
+        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:latitude) { 40.1234 }
+        let(:longitude) { 2.1234 }
+
+        before do
+          stub_geocoding(address, [latitude, longitude])
+        end
+
+        it "shows the title" do
+          expect(page).to have_content(collaborative_draft.title)
+        end
+
+        it "shows the body" do
+          expect(page).to have_content(collaborative_draft.body)
+        end
+
+        it "shows the address" do
+          expect(page).to have_content(collaborative_draft.address)
+        end
+      end
+
       context "without category or scope" do
         before do
           visit_component

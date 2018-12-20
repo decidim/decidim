@@ -262,10 +262,17 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Aktualizacja do %{participatory_space_title}
           notification_title: Zmieniono daty <a href="%{resource_path}">%{resource_title}</a> kroku <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p> <strong>proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnić ankietę, a następnie składanie propozycji, omawiając je twarzą w twarz lub wirtualnych spotkań, a na końcu ich priorytetów) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie dyskutowane, a ostatecznie wybierana jest kandydatura), budżety partycypacyjne (w których propozycje są składane, wyceniane ekonomicznie i głosowane za pomocą dostępnych pieniędzy), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
+          page: "<p> <strong>proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnić ankietę, a następnie składanie propozycji, omawiając je twarzą w twarz lub wirtualnych spotkań, a na końcu ich priorytetów) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie dyskutowane, a ostatecznie wybierana jest kandydatura), budżety partycypacyjne (w których propozycje są składane, wyceniane ekonomicznie i głosowane za pomocą dostępnych pieniędzy), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
+          title: Czym jest proces partycypacyjny?
     menu:
       processes: Procesy
     metrics:
       participatory_processes:
+        description: Liczba procesów uczestniczących w tej organizacji
         object: procesy uczestniczące
         title: Procesy partycypacyjne
     participatory_process_groups:
@@ -395,9 +402,8 @@ pl:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
           take_part: Wziąć udział
-      process_header:
-        process_menu_item: Proces
-        unfold: Rozwiń
       process_header_steps:
         step: Krok %{current} z %{total}
         view_steps: Wyświetl kroki
+      process_navigation:
+        process_menu_item: Proces

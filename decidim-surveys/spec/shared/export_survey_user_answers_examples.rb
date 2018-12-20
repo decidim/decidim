@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 shared_examples "export survey user answers" do
-  let!(:survey_questions) { create_list :survey_question, 3, survey: survey }
-  let!(:survey_answers) do
-    survey_questions.map do |question|
-      create_list :survey_answer, 3, survey: survey, question: question
+  let!(:questionnaire) { create(:questionnaire) }
+  let!(:questions) { create_list :questionnaire_question, 3, questionnaire: questionnaire }
+  let!(:answers) do
+    questions.map do |question|
+      create_list :answer, 3, questionnaire: questionnaire, question: question
     end.flatten
   end
 

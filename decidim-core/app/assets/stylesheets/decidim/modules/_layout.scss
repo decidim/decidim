@@ -1,5 +1,6 @@
 .wrapper{
   padding: 1.2rem 1rem;
+  position: relative;
 
   @include breakpoint(medium){
     padding: 5rem 1.5rem 3rem;

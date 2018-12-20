@@ -44,11 +44,13 @@ pt:
         other: Alto-falantes da conferência
       decidim/conference_user_role:
         one: Função de usuário da conferência
-        other: Papéis do usuário da conferência
+        other: Função de usuário da conferência
   decidim:
     admin:
       actions:
+        confirm: confirme
         new_conference: Nova conferência
+        send_diplomas: Envie Diplomas
       conference_copies:
         new:
           copy: cópia de
@@ -61,6 +63,10 @@ pt:
         destroy:
           error: Ocorreu um erro ao cancelar a publicação desta conferência.
           success: Conferência não publicada com sucesso.
+      conference_registration:
+        confirm:
+          error: Houve um erro ao confirmar este registro da conferência.
+          success: Registro de conferência confirmado com sucesso.
       conference_speakers:
         create:
           error: Houve um erro ao adicionar um palestrante para essa conferência.
@@ -145,14 +151,17 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          conference_admins: Administradores da conferência
-          conference_invites: Conferência Convida
-          conference_registrations: Registros de conferência
-          conference_speakers: Alto-falantes da conferência
+          conference_admins: Usuários da conferência
+          conference_invites: Convites
+          conference_speakers: caixas de som
+          diploma: Diploma
           info: Info
           media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
+          registration_types: Tipos de registro
+          registrations: Inscrições
+          user_registrations: Registros de usuários
       models:
         conference:
           fields:
@@ -192,6 +201,14 @@ pt:
           types:
             collaborator: Colaborador
             main_promotor: Principal promotor
+        registration_type:
+          fields:
+            conference_meetings: Reuniões da conferência
+            price: Preço
+            registrations_count: Contagem de registros
+            title: Título
+            weight: Peso
+          name: Tipo de Registro
       partners:
         create:
           error: Ocorreu um erro ao adicionar um parceiro para esta conferência.
@@ -207,14 +224,38 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
           success: Parceiro atualizado com sucesso para esta conferência.
+      registration_type_publications:
+        create:
+          error: Ocorreu um erro ao publicar este tipo de registro.
+          success: Tipo de registro publicado com sucesso.
+        destroy:
+          error: Ocorreu um erro ao cancelar a publicação deste tipo de registro.
+          success: Tipo de registro não publicado com sucesso.
+      registration_types:
+        create:
+          error: Houve um erro ao adicionar um tipo de registro para esta conferência.
+          success: Tipo de registro adicionado com sucesso a esta conferência.
+        destroy:
+          success: Tipo de registro removido com sucesso desta conferência.
+        edit:
+          title: Atualize o tipo de registro.
+          update: Atualizar
+        new:
+          create: Crio
+          title: Novo tipo de registro
+        update:
+          error: Ocorreu um erro ao atualizar um tipo de registro para esta conferência.
+          success: Tipo de registro atualizado com sucesso para esta conferência.
       titles:
         conferences: Conferências
     admin_log:
       conference:
         create: "%{user_name} criou a %{resource_name} conferência"
         publish: "%{user_name} publicou a %{resource_name} conferência"
+        send_conference_diplomas: "%{user_name} enviar diplomas para os %{resource_name} usuários da conferência"
         unpublish: "%{user_name} não publicada a %{resource_name} conferência"
         update: "%{user_name} atualizou a %{resource_name} conferência"
+        update_diploma: "%{user_name} atualizou a configuração do diploma %{resource_name} conference"
       conference_speaker:
         create: "%{user_name} criou o %{resource_name} alto-falante na conferência de %{space_name}"
         delete: "%{user_name} removeu o %{resource_name} alto-falante da conferência de %{space_name}"
@@ -223,6 +264,22 @@ pt:
         create: "%{user_name} convidados %{resource_name} para a conferência %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
         update: "%{user_name} mudou o papel de %{resource_name} na conferência de %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} confirmou o registro da conferência em %{resource_name} conferência"
+        partner:
+          create: "%{user_name} criado %{resource_name} para a conferência %{space_name}"
+          delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
+          update: "%{user_name} atualizado %{resource_name} na conferência de %{space_name}"
+        registration_type:
+          create: "%{user_name} criou o tipo de registro %{resource_name} na conferência de %{space_name}"
+          publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
+          unpublish: "%{user_name} não publicado o tipo de registro %{resource_name} na conferência %{space_name}"
+          update: "%{user_name} atualizou o tipo de registro %{resource_name} na conferência %{space_name}"
+      media_link:
+        create: "%{user_name} criou o link de mídia %{resource_name} na conferência de %{space_name}"
+        delete: "%{user_name} removeu o link de mídia %{resource_name} da conferência de %{space_name}"
+        update: "%{user_name} atualizou a %{resource_name} link de mídia no %{space_name} conferência"
     conference_program:
       index:
         title: Programa
@@ -276,25 +333,42 @@ pt:
               one: Houve 1 registro.
               other: Houve %{count} inscrições.
             slug_help: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+        diplomas:
+          edit:
+            save: Salve 
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
-            join: Participe da conferência '%{conference_title}'
+            registration: Registro para '%{conference_title}'
         partners:
           index:
             title: Parceiros
+        registration_types:
+          form:
+            select_conference_meetings: Selecione as reuniões da conferência
+          index:
+            title: Tipos de registro
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Você encontrará o diploma para a conferência <a href="%{url}">%{title}</a> nos anexos.
+          diploma_user:
+            attendance_verified_by: Atendimento verificado por
+            certificate_of_attendance: Certificado de participação
+            certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e participou nos <strong>%{title}</strong> realizados em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Houve um problema ao enviar os diplomas da conferência.
+          success: Diplomas da Conferência enviados corretamente
       conference:
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
         show:
+          free: Livre
           going: Indo
-          join: Junte-se à conferência
           no_slots_available: Não há slots disponíveis
-          remaining_slots:
-            one: 1 slot restante
-            other: "%{count} slots restantes"
+          registration: Cadastro
       conference_program:
         program_meeting:
           content: Conteúdo
@@ -307,7 +381,12 @@ pt:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Sua inscrição para a conferência <a href="%{url}">%{title}</a> foi confirmada.
-          details: Você encontrará os detalhes da conferência no anexo.
+          details_1: 'Você está registrado na conferência com o tipo %{registration_type} . Tem um custo de %{price} e você pode assistir aos seguintes eventos:'
+          details_2: Você encontrará os detalhes da conferência no anexo.
+        pending_validation:
+          confirmation_pending: Você receberá a confirmação em breve
+          details: 'Você se registrou no tipo %{registration_type} com um custo de %{price} e pode participar dos seguintes eventos:'
+          pending_html: Seu registro para a conferência <a href="%{url}">%{title}</a> está pendente de ser confirmado.
       conference_registrations:
         create:
           invalid: Houve um problema em participar desta conferência.
@@ -334,16 +413,12 @@ pt:
           speakers: caixas de som
       conferences:
         partners:
-          collaborators: Colaboradores
-          main_promotors: Principais promotores
+          collaborators: Parceiros
+          main_promotors: Organizadores
         show:
-          already_account: Você já tem uma conta na decidim?
           login_as: Você está logado como %{name} <%{email}>
           make_conference_registration: 'Faça seu cadastro na conferência:'
-          new_user: Novo usuário?
           register: registo
-          sign_in: Entre para se registrar nesta conferência
-          sign_up: Registre-se gratuitamente em decidim para registrar
       content_blocks:
         highlighted_conferences:
           name: Conferências destacadas
@@ -353,14 +428,20 @@ pt:
         conference_registration_mailer:
           confirmation:
             subject: O registro da sua conferência foi confirmado
+          pending_validation:
+            subject: O registro da sua conferência está pendente de confirmação
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
+        send_conference_diploma_mailer:
+          diploma:
+            subject: O diploma da sua conferência foi enviado
       models:
         conference_invite:
           fields:
             email: O email
             name: Nome
+            registration_type: Tipo de Registro
             sent_at: Enviado em
             status: Status
           status:
@@ -371,6 +452,11 @@ pt:
           fields:
             email: O email
             name: Nome
+            registration_type: Tipo de Registro
+            state: Estado
+            states:
+              confirmed: Confirmado
+              pending: Pendente
       pages:
         home:
           highlighted_conferences:
@@ -383,6 +469,18 @@ pt:
       photos_list:
         show:
           related_photos: Fotos
+      registration_types:
+        index:
+          choose_an_option: 'Escolha sua opção de registro:'
+          login_as: Você está logado como %{name} <%{email}>
+          register: registo
+          title: Tipos de registro
+      shared:
+        conference_user_login:
+          already_account: Você já tem uma conta na decidim?
+          new_user: Novo usuário?
+          sign_in: Entre para se inscrever na conferência
+          sign_up: Crie uma conta no decidim para se inscrever na conferência
       show:
         details: Detalhes
         introduction: Introdução
@@ -440,6 +538,8 @@ pt:
         subject: Convite para participar de uma conferência
   layouts:
     decidim:
+      conference_hero:
+        register: registo
       conference_widgets:
         show:
           take_part: Participar
@@ -460,5 +560,4 @@ pt:
         conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: caixas de som
         media: meios de comunicação
-        unfold: Desdobrar
         venues: Venues

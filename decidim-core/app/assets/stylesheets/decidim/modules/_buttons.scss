@@ -21,6 +21,10 @@
       letter-spacing: 0;
     }
   }
+
+  &.button--right{
+    float: right;
+  }
 }
 
 // Overwrite Foundation hover styles in hollow disabled buttons

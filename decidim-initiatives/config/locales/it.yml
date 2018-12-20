@@ -95,6 +95,12 @@ it:
           next_level_in: Ricevi altre %{score} iniziative pubblicate per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora ottenuto alcuna iniziativa pubblicata.
           unearned_own: Non hai ancora pubblicato nessuna iniziativa.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Un'iniziativa è una proposta che può essere promossa da chiunque di propria iniziativa (indipendentemente da altri canali o spazi di partecipazione) attraverso la raccolta di firme (digitali) per l'organizzazione per svolgere un'azione specifica (modificare un regolamento, avviare un progetto , cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, diffonderlo e definire i punti di incontro in cui raccogliere le firme dai partecipanti o dai dibattiti aperti agli altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per creare o convocare un'assemblea, o per avviare un processo di aumento del budget per un territorio o un'area dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono aggiungere a questa domanda e portarla avanti nell'organizzazione.</p>\n"
+          page: "<p>Un'iniziativa è una proposta che può essere promossa da chiunque di propria iniziativa (indipendentemente da altri canali o spazi di partecipazione) attraverso la raccolta di firme (digitali) per l'organizzazione per svolgere un'azione specifica (modificare un regolamento, avviare un progetto , cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, diffonderlo e definire i punti di incontro in cui raccogliere le firme dai partecipanti o dai dibattiti aperti agli altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per creare o convocare un'assemblea, o per avviare un processo di aumento del budget per un territorio o un'area dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono aggiungere a questa domanda e portarla avanti nell'organizzazione.</p>\n"
+          title: Quali sono le iniziative?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ it:
         promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
         show_similar_initiatives: Confrontare
+        step: Passaggio %{current} di %{total}
+        title: Crea una nuova iniziativa
       initiative_header:
         initiative_menu_item: Iniziativa
-        unfold: spiegare
       initiatives:
         initiative:
           check: Controlla

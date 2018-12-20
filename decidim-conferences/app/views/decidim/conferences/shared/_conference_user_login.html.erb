@@ -1,0 +1,14 @@
+<div class="row" data-equalizer>
+  <div class="column medium-6">
+    <div class="card p-m" data-equalizer-watch>
+      <p><%= t(".already_account") %></p>
+      <%= link_to t(".sign_in"), decidim.new_user_session_path, class: "" %>
+    </div>
+  </div>
+  <div class="column medium-6">
+    <div class="card p-m" data-equalizer-watch>
+      <p><%= t(".new_user") %></p>
+      <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "" %>
+    </div>
+  </div>
+</div>

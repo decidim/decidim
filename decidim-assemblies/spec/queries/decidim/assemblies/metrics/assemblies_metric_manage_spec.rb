@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Assemblies::Metrics::AssembliesMetricManage do
   let(:organization) { create(:organization) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:assemblies) { create_list(:assembly, 5, organization: organization, published_at: day) }
 
   context "when executing" do

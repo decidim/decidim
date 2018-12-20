@@ -23,6 +23,7 @@ fi:
         entry_date: Päivämäärä
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
+      decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
   activerecord:
     models:
       decidim/accountability/result:
@@ -201,8 +202,14 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohtaan %{proposal_title}
           notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit nähdä sen tällä sivulla:'
+          email_outro: Saat tämän ilmoituksen, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohteen %{resource_title} edistykseen
+          notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
     metrics:
       results:
+        description: Vastuullisuustulosten määrä
         object: tulokset
         title: Tulokset
     participatory_processes:
@@ -211,8 +218,7 @@ fi:
           results: Tulokset
     participatory_spaces:
       highlighted_results:
-        results: Tulokset
-        see_all_results: Katso kaikki tulokset
+        see_all: Näytä kaikki (%{count})
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät suunnitelmat

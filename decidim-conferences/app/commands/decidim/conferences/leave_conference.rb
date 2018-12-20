@@ -7,9 +7,11 @@ module Decidim
       # Initializes a LeaveConference Command.
       #
       # conference - The current instance of the conference to be left.
+      # registration_type - The registration type selected to attend the conference
       # user - The user leaving the conference.
-      def initialize(conference, user)
+      def initialize(conference, registration_type, user)
         @conference = conference
+        @registration_type = registration_type
         @user = user
       end
 
@@ -31,7 +33,7 @@ module Decidim
       private
 
       def registration
-        @registration ||= Decidim::Conferences::ConferenceRegistration.find_by(conference: @conference, user: @user)
+        @registration ||= Decidim::Conferences::ConferenceRegistration.find_by(conference: @conference, user: @user, registration_type: @registration_type)
       end
 
       def destroy_registration
@@ -40,7 +42,7 @@ module Decidim
 
       def meetings_registrations
         published_meeting_components = Decidim::Component.where(participatory_space: @conference).where(manifest_name: "meetings").published
-        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components)
+        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
         @meetings_registrations ||= Decidim::Meetings::Registration.where(meeting: meetings, user: @user)
       end

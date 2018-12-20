@@ -27,6 +27,10 @@ module Decidim
         check_current_user_can_visit_space
       end
 
+      def user_diploma
+        render layout: "decidim/diploma"
+      end
+
       private
 
       def current_participatory_space

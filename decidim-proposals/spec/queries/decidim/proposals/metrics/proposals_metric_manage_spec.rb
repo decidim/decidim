@@ -6,7 +6,7 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:proposals) { create_list(:proposal, 5, published_at: day, component: component) }
 
   context "when executing" do

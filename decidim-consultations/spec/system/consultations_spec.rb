@@ -1,9 +1,19 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Consultations", type: :system do
   let(:organization) { create(:organization) }
+
+  before do
+    switch_to_host(organization.host)
+  end
+
+  it_behaves_like "shows contextual help" do
+    let(:index_path) { decidim_consultations.consultations_path }
+    let(:manifest_name) { :consultations }
+  end
 
   context "when ordering by 'Most recent'" do
     let!(:older_consultation) do

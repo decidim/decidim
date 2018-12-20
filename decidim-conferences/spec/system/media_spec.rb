@@ -26,8 +26,7 @@ describe "Conferences", type: :system do
     end
 
     it "the menu link is not shown" do
-      expect(page).to have_no_selector(".process-nav")
-      expect(page).to have_no_content("Media")
+      expect(page).to have_no_content("MEDIA")
     end
   end
 
@@ -36,6 +35,14 @@ describe "Conferences", type: :system do
 
     before do
       visit decidim_conferences.conference_media_path(conference)
+    end
+
+    it "the menu link is shown" do
+      visit decidim_conferences.conference_path(conference)
+
+      within ".process-nav" do
+        expect(page).to have_content("MEDIA")
+      end
     end
 
     it "shows them" do

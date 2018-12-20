@@ -1,0 +1,18 @@
+<% tooltip = true unless local_assigns.has_key?(:tooltip) %>
+<a href="javascript:void(0);" class="author__name show-for-medium"
+  <% if tooltip %>
+    data-tooltip
+    data-position="top"
+    data-show-on="medium"
+    data-alignment="center"
+    data-click-open="false"
+    data-keep-on-hover="true"
+    data-allow-html="true"
+    data-template-classes="light expanded"
+    data-tip-text='<%= partial "author_data--minicard" %>'
+    tabindex="1"
+  <% end %>>
+  <%= Faker::Name.name %>
+</a>
+<%# On mobile, disable tooltip, touch event redirects to profile %>
+<%= link_to Faker::Name.name, page_path("profile/user-profile-public"), class: "card__link author__name hide-for-medium" %>

@@ -31,6 +31,16 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials
       end
+
+      initializer "decidim_budgets.register_metrics" do
+        Decidim.metrics_operation.register(:participants, :budgets) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetParticipantsMetricMeasure"
+        end
+
+        Decidim.metrics_operation.register(:followers, :budgets) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
+        end
+      end
     end
   end
 end

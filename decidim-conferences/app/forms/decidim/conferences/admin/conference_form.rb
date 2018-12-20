@@ -49,8 +49,8 @@ module Decidim
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
 
-        validates :start_date, presence: true, date: { before: :end_date }
-        validates :end_date, presence: true, date: { after: :start_date }
+        validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
+        validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -61,6 +61,7 @@ module Decidim
         end
 
         def processes_for_select
+          return unless Decidim.participatory_space_manifests.map(&:name).include?(:participatory_processes)
           @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
                                            .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
             [
@@ -71,6 +72,7 @@ module Decidim
         end
 
         def assemblies_for_select
+          return unless Decidim.participatory_space_manifests.map(&:name).include?(:assemblies)
           @assemblies_for_select ||= Decidim.find_participatory_space_manifest(:assemblies)
                                             .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |assembly|
             [
@@ -81,6 +83,7 @@ module Decidim
         end
 
         def consultations_for_select
+          return unless Decidim.participatory_space_manifests.map(&:name).include?(:consultations)
           @consultations_for_select ||= Decidim.find_participatory_space_manifest(:consultations)
                                                .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |consultation|
             [

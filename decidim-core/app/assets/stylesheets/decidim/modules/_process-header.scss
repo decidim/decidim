@@ -1,21 +1,48 @@
 .process-header{
-  margin-bottom: $margin-sm;
-
-  @include breakpoint(medium){
-    margin-bottom: $margin-m;
-  }
+  background-image: linear-gradient(to right, rgba($black, .8) 50%, $primary 50%);
 
   .heading2{
     font-weight: bold;
   }
 }
 
+.process-header__inner{
+  position: relative;
+
+  @include flex;
+  @include flex-align($x: center);
+}
+
 .process-header__main{
   background-size: cover;
-  position: relative;
+  position: absolute;
   z-index: 0;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: rem-calc(1920);
+  margin: 0 auto;
+  background-color: lighten($dark-gray, 30);
+
+  // decorators
+  @include breakpoint(small){
+    -webkit-clip-path: polygon(0 0, 95% 0, 80% 100%, 0% 100%);
+    clip-path: polygon(0 0, 95% 0, 80% 100%, 0% 100%);
+  }
+
+  @include breakpoint(large){
+    -webkit-clip-path: polygon(0 0, 90% 0, 70% 100%, 0% 100%);
+    clip-path: polygon(0 0, 90% 0, 70% 100%, 0% 100%);
+  }
+
+  @include breakpoint(xlarge){
+    -webkit-clip-path: polygon(0 0, 80% 0, 70% 100%, 0% 100%);
+    clip-path: polygon(0 0, 80% 0, 70% 100%, 0% 100%);
+  }
+
+  @include breakpoint(100rem){
+    -webkit-clip-path: polygon(0 0, 75% 0, 65% 100%, 0% 100%);
+    clip-path: polygon(0 0, 75% 0, 65% 100%, 0% 100%);
+  }
 
   &::after{
     content: "";
@@ -23,6 +50,7 @@
     position: absolute;
     z-index: -1;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba($black, .6);
@@ -32,7 +60,6 @@
 .process-header__container{
   position: relative;
   z-index: 1;
-  padding: 0 0 0 1rem;
 
   @include breakpoint(mediumlarge){
     display: flex;
@@ -49,35 +76,6 @@
 
   @include breakpoint(mediumlarge){
     padding-left: 2rem;
-  }
-}
-
-.process-header__phase{
-  background: rgba($dark-gray, .8);
-  color: $white;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-left: -1rem;
-
-  .button{
-    margin-top: 1rem;
-    margin-bottom: 0;
-    color: $white;
-    border-color: $white;
-
-    &:hover,
-    &.is-active{
-      color: $primary;
-      border-color: $primary;
-    }
-  }
-}
-
-.process-header__phase--simple{
-  padding: .5rem 1rem;
-
-  @include breakpoint (medium){
-    padding: 2rem 1rem;
   }
 }
 

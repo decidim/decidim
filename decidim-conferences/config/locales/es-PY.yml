@@ -48,7 +48,9 @@ es-PY:
   decidim:
     admin:
       actions:
+        confirm: Confirmar
         new_conference: Nueva conferencia
+        send_diplomas: Enviar diplomas
       conference_copies:
         new:
           copy: Dupdo
@@ -61,6 +63,10 @@ es-PY:
         destroy:
           error: Hubo un error al anular la publicación de esta conferencia.
           success: Conferencia no publicada con éxito.
+      conference_registration:
+        confirm:
+          error: Hubo un error al confirmar la inscripción a esta conferencia.
+          success: Inscripción a la conferencia confirmada con éxito.
       conference_speakers:
         create:
           error: Hubo un error al agregar un orador para esta conferencia.
@@ -145,14 +151,17 @@ es-PY:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          conference_admins: Administradores de conferencia
-          conference_invites: Invitaciones a conferencias
-          conference_registrations: Registros de conferencia
-          conference_speakers: Conferenciantes
+          conference_admins: Usuarios de la conferencia
+          conference_invites: Invita
+          conference_speakers: Ponentes
+          diploma: Diploma
           info: Información
           media_links: Enlaces de medios
           moderations: Moderaciones
           partners: Fogonadura
+          registration_types: Tipos de inscripción
+          registrations: Inscripciones
+          user_registrations: Inscripciones de usuario
       models:
         conference:
           fields:
@@ -192,6 +201,14 @@ es-PY:
           types:
             collaborator: Colaborador
             main_promotor: Promotor principal
+        registration_type:
+          fields:
+            conference_meetings: Encuentros de la conferencia
+            price: Precio
+            registrations_count: Número de inscripciones
+            title: Título
+            weight: Peso
+          name: Tipo de inscripción
       partners:
         create:
           error: Hubo un error al agregar un socio para esta conferencia.
@@ -207,14 +224,38 @@ es-PY:
         update:
           error: Hubo un error actualizado de un socio para esta conferencia.
           success: Socio actualizado exitosamente para esta conferencia.
+      registration_type_publications:
+        create:
+          error: Se ha producido un error al publicar este tipo de registro.
+          success: Tipo de registro publicado con éxito.
+        destroy:
+          error: Se ha producido un error al publicar este tipo de registro.
+          success: Tipo de registro despublicado con éxito.
+      registration_types:
+        create:
+          error: Se produjo un error al agregar un tipo de registro para esta conferencia.
+          success: Tipo de registro agregado con éxtio a esta conferencia.
+        destroy:
+          success: Tipo de registro eliminado con éxito de esta conferencia.
+        edit:
+          title: Actualizar el tipo de registro.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo tipo de registro
+        update:
+          error: Hubo un error al actualizar un tipo de registro para esta conferencia.
+          success: Tipo de registro actualizado con éxito para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
       conference:
         create: "%{user_name} creó la %{resource_name} conferencia"
         publish: "%{user_name} publicado la %{resource_name} conferencia"
+        send_conference_diplomas: "%{user_name} enviar diplomas a los %{resource_name} usuarios de la conferencia."
         unpublish: "%{user_name} inédito la %{resource_name} conferencia."
         update: "%{user_name} actualizado la %{resource_name} conferencia"
+        update_diploma: "%{user_name} actualizó la configuración de diploma %{resource_name} conferencia"
       conference_speaker:
         create: "%{user_name} creó el altavoz de %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} quitó el %{resource_name} altavoz de la conferencia %{space_name}"
@@ -223,6 +264,22 @@ es-PY:
         create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
         delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
         update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
+        partner:
+          create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
+          delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
+          update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
+        registration_type:
+          create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+      media_link:
+        create: "%{user_name} creó el enlace %{resource_name} media en la conferencia %{space_name}"
+        delete: "%{user_name} eliminó el %{resource_name} enlace de medios de la conferencia %{space_name}"
+        update: "%{user_name} actualizado el enlace de %{resource_name} media en la conferencia %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -276,25 +333,42 @@ es-PY:
               one: Ha habido 1 registro.
               other: Ha habido %{count} registros.
             slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        diplomas:
+          edit:
+            save: Salvar
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
-            join: Únete a la conferencia '%{conference_title}'
+            registration: Registro para '%{conference_title}'
         partners:
           index:
             title: Fogonadura
+        registration_types:
+          form:
+            select_conference_meetings: Seleccionar los encuentros de la conferencia
+          index:
+            title: Tipos de inscripción
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Encontrará el diploma para la conferencia <a href="%{url}">%{title}</a> en los anexos.
+          diploma_user:
+            attendance_verified_by: Asistencia verificada por
+            certificate_of_attendance: Certificado de asistencia
+            certificate_of_attendance_description: Esto es para certificar que <strong>%{user}</strong> ha asistido y participado en los <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Ha habido un problema al enviar los diplomas de la conferencia.
+          success: Diplomas de Conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
         show:
+          free: Gratis
           going: Yendo
-          join: Únete a la Conferencia
           no_slots_available: No hay espacios disponibles
-          remaining_slots:
-            one: 1 ranura restante
-            other: "%{count} ranuras restantes"
+          registration: Registro
       conference_program:
         program_meeting:
           content: Contenido
@@ -307,7 +381,12 @@ es-PY:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Su registro para la conferencia <a href="%{url}">%{title}</a> ha sido confirmado.
-          details: Encontrará los detalles de la conferencia en el archivo adjunto.
+          details_1: 'Tu inscripción a la conferencia es de tipo %{registration_type}. Tiene un costo de %{price} y puedes asistir a los siguientes eventos:'
+          details_2: Encontrará los detalles de la conferencia en el archivo adjunto.
+        pending_validation:
+          confirmation_pending: Recibirás la confirmación en breve
+          details: 'Tu inscripción a la conferencia es de tipo %{registration_type} con un coste de %{price} y puede asistir a los siguientes eventos:'
+          pending_html: Tu inscripción a la conferencia <a href="%{url}">%{title}</a> está pendiente de confirmación.
       conference_registrations:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
@@ -334,16 +413,12 @@ es-PY:
           speakers: Altavoces
       conferences:
         partners:
-          collaborators: Colaboradores
-          main_promotors: Promotores principales
+          collaborators: Fogonadura
+          main_promotors: Organizadores
         show:
-          already_account: '¿Ya tienes una cuenta en decidim?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Haga su inscripción en la conferencia:'
-          new_user: '¿Nuevo usuario?'
           register: Registro
-          sign_in: Inicie sesión para registrarse en esta conferencia
-          sign_up: Regístrese gratis en decidim para registrarse
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -353,14 +428,20 @@ es-PY:
         conference_registration_mailer:
           confirmation:
             subject: El registro de su conferencia ha sido confirmado
+          pending_validation:
+            subject: Tu inscripción a la conferencia está pendiente de confirmación
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: El diploma de su conferencia ha sido enviado.
       models:
         conference_invite:
           fields:
             email: Correo electrónico
             name: Nombre
+            registration_type: Tipo de inscripción
             sent_at: Enviado a
             status: Estado
           status:
@@ -371,6 +452,11 @@ es-PY:
           fields:
             email: Correo electrónico
             name: Nombre
+            registration_type: Tipo de inscripción
+            state: Estado
+            states:
+              confirmed: Confirmada
+              pending: Pendiente
       pages:
         home:
           highlighted_conferences:
@@ -383,6 +469,18 @@ es-PY:
       photos_list:
         show:
           related_photos: Las fotos
+      registration_types:
+        index:
+          choose_an_option: 'Elige tu tipo de inscripción:'
+          login_as: Has iniciado sesión como %{name} <%{email}>
+          register: Inscribirse
+          title: Tipos de inscripción
+      shared:
+        conference_user_login:
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Nuevo usuario?'
+          sign_in: Inicie sesión para registrarse para la conferencia
+          sign_up: Crear una cuenta en decidim para registrarse para la conferencia
       show:
         details: Detalles
         introduction: Introducción
@@ -440,6 +538,8 @@ es-PY:
         subject: Invitación para unirse a una conferencia
   layouts:
     decidim:
+      conference_hero:
+        register: Inscripción
       conference_widgets:
         show:
           take_part: Participar
@@ -460,5 +560,4 @@ es-PY:
         conference_partners_menu_item: Fogonadura
         conference_speaker_menu_item: Altavoces
         media: Medios de comunicación
-        unfold: Desplegar
         venues: Sedes

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::AcceptedProposalEvent do
-  let(:resource) { create :proposal }
+  let(:resource) { create :proposal, :with_answer }
   let(:event_name) { "decidim.events.proposals.proposal_accepted" }
 
   include_context "when a simple event"
@@ -33,6 +33,12 @@ describe Decidim::Proposals::AcceptedProposalEvent do
     it "is generated correctly" do
       expect(subject.notification_title)
         .to include("The <a href=\"#{resource_path}\">#{resource.title}</a> proposal has been accepted")
+    end
+  end
+
+  describe "resource_text" do
+    it "shows the proposal answer" do
+      expect(subject.resource_text).to eq translated(resource.answer)
     end
   end
 end

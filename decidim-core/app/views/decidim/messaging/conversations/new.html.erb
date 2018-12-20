@@ -1,1 +1,5 @@
-<%= cell "decidim/profile", current_user, context: { content_cell: "decidim/new_conversation", form: @form } %>
+<%= render layout: "show", locals: { participants: [@form.recipient] } do %>
+  <div id="messages"></div>
+
+  <%= render "start", form: @form %>
+<% end %>

@@ -21,12 +21,11 @@ Decidim.register_component(:surveys) do |component|
     end
   end
 
-  component.data_portable_entities = ["Decidim::Surveys::SurveyAnswer"]
+  component.data_portable_entities = ["Decidim::Forms::Answer"]
 
   component.on(:before_destroy) do |instance|
-    survey_answers_for_component = Decidim::Surveys::SurveyAnswer
-                                   .includes(:survey)
-                                   .where(decidim_surveys_surveys: { decidim_component_id: instance.id })
+    survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
+    survey_answers_for_component = Decidim::Forms::Answer.where(questionnaire: survey.questionnaire)
 
     raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
   end
@@ -50,8 +49,8 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.register_stat :answers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    surveys = Decidim::Surveys::Survey.where(component: components)
-    answers = Decidim::Surveys::SurveyAnswer.where(survey: surveys)
+    surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
+    answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
     answers = answers.where("created_at >= ?", start_at) if start_at.present?
     answers = answers.where("created_at <= ?", end_at) if end_at.present?
     answers.group(:decidim_user_id).count.size
@@ -72,10 +71,10 @@ Decidim.register_component(:surveys) do |component|
   component.exports :survey_user_answers do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Surveys::SurveyUserAnswers.for(survey)
+      Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
     end
 
-    exports.serializer Decidim::Surveys::SurveyUserAnswersSerializer
+    exports.serializer Decidim::Forms::UserAnswersSerializer
   end
 
   component.seeds do |participatory_space|
@@ -100,8 +99,7 @@ Decidim.register_component(:surveys) do |component|
       Decidim::Component.create!(params)
     end
 
-    params = {
-      component: component,
+    questionnaire = Decidim::Forms::Questionnaire.new(
       title: Decidim::Faker::Localized.paragraph,
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
@@ -109,9 +107,14 @@ Decidim.register_component(:surveys) do |component|
       tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(2)
       end
+    )
+
+    params = {
+      component: component,
+      questionnaire: questionnaire
     }
 
-    survey = Decidim.traceability.create!(
+    Decidim.traceability.create!(
       Decidim::Surveys::Survey,
       admin_user,
       params,
@@ -119,16 +122,16 @@ Decidim.register_component(:surveys) do |component|
     )
 
     %w(short_answer long_answer).each do |text_question_type|
-      Decidim::Surveys::SurveyQuestion.create!(
-        survey: survey,
+      Decidim::Forms::Question.create!(
+        questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
         question_type: text_question_type
       )
     end
 
     %w(single_option multiple_option).each do |multiple_choice_question_type|
-      question = Decidim::Surveys::SurveyQuestion.create!(
-        survey: survey,
+      question = Decidim::Forms::Question.create!(
+        questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
         question_type: multiple_choice_question_type
       )

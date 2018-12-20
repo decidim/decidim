@@ -29,6 +29,10 @@ module Decidim
       user ? true : false
     end
 
+    def has_tooltip?
+      false
+    end
+
     private
 
     def user

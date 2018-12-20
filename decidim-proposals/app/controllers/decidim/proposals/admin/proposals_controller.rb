@@ -5,8 +5,10 @@ module Decidim
     module Admin
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
+        include Decidim::ApplicationHelper
+
         helper Proposals::ApplicationHelper
-        helper_method :proposals, :query
+        helper_method :proposals, :query, :form_presenter
 
         def new
           enforce_permission_to :create, :proposal
@@ -122,6 +124,10 @@ module Decidim
             proposals: response[:errored].to_sentence,
             scope: "decidim.proposals.admin"
           )
+        end
+
+        def form_presenter
+          @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
         end
       end
     end

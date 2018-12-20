@@ -4,6 +4,8 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user updates a collaborative_draft.
     class UpdateCollaborativeDraft < Rectify::Command
+      include HashtagsMethods
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -40,19 +42,20 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          attributes
+          attributes,
+          visibility: "public-only"
         )
       end
 
       def attributes
         {
-          title: @form.title,
-          body: @form.body,
-          category: @form.category,
-          scope: @form.scope,
-          address: @form.address,
-          latitude: @form.latitude,
-          longitude: @form.longitude
+          title: title_with_hashtags,
+          body: body_with_hashtags,
+          category: form.category,
+          scope: form.scope,
+          address: form.address,
+          latitude: form.latitude,
+          longitude: form.longitude
         }
       end
     end

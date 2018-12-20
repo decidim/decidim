@@ -5,41 +5,54 @@
     <div class="row collapse">
       <div class="columns large-8 large-centered text-center page-title">
         <h1 class="heading1"><%= t("devise.sessions.new.sign_in") %></h1>
-        <p>
-          <%= t(".are_you_new?") %>
-          <%= link_to t(".register"), new_user_registration_path %>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
-              <div>
-                <div class="field">
-                  <%= f.email_field :email, autofocus: true %>
-                </div>
-                <div class="field">
-                  <%= f.password_field :password, autocomplete: "off" %>
-                </div>
-              </div>
-              <fieldset>
-                <% if devise_mapping.rememberable? %>
-                  <div class="field">
-                    <%= f.check_box :remember_me %>
-                  </div>
-                <% end %>
-              </fieldset>
-              <div class="actions">
-                <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
-              </div>
-            <% end %>
-            <%= render "decidim/devise/shared/links" %>
-          </div>
-        </div>
+        <% if current_organization.sign_up_enabled? %>
+          <p>
+            <%= t(".are_you_new?") %>
+            <%= link_to t(".register"), new_user_registration_path %>
+          </p>
+        <% elsif current_organization.sign_in_enabled? %>
+          <p>
+            <%= t(".sign_up_disabled") %>
+          </p>
+        <% else %>
+          <p>
+            <%= t(".sign_in_disabled") %>
+          </p>
+        <% end %>
       </div>
     </div>
     <%= render "decidim/devise/shared/omniauth_buttons" %>
+
+    <% if current_organization.sign_in_enabled? %>
+      <div class="row">
+        <div class="columns large-6 medium-centered">
+          <div class="card">
+            <div class="card__content">
+              <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+                <div>
+                  <div class="field">
+                    <%= f.email_field :email, autofocus: true %>
+                  </div>
+                  <div class="field">
+                    <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
+                </div>
+                <fieldset>
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                    </div>
+                  <% end %>
+                </fieldset>
+                <div class="actions">
+                  <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
+                </div>
+              <% end %>
+              <%= render "decidim/devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </main>

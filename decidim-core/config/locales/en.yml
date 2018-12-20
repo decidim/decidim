@@ -35,6 +35,9 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
+      decidim/amendment:
+        one: Amendment
+        other: Amendments
       decidim/user:
         one: No users
         other: Users
@@ -125,6 +128,59 @@ en:
       user_group:
         reject: "%{user_name} rejected the %{resource_name} user group verification"
         verify: "%{user_name} verified the %{resource_name} user group"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+    amendments:
+      accepted:
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
+      amendable:
+        amended_by: Amended by
+        button: Amend %{model_name}
+        promote_button: Promote to %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        section_heading: Amendments (%{count})
+      created:
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
+      emendation:
+        actions:
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+        announcement:
+          accepted: |-
+            This emendation for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            This is an emendation for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
+      new:
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
+        send: Send emendation
+      rejected:
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
+      promoted:
+          success: Emendation promoted successfully
+          error: There's been errors when promoting the emendation
+      review:
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept emendation
     anonymous_user: Anonymous
     application:
       collection:
@@ -163,6 +219,9 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
+      sms:
+        explanation: Submit your mobile phone number so we can check your identity.
+        name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
       show:
@@ -208,9 +267,11 @@ en:
         name: Dummy Component
         settings:
           global:
+            amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
@@ -280,6 +341,8 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
+          sign_in_disabled: You can access with an external account
+          sign_up_disabled: Sign up is disabled, you can use an existing user to access
       shared:
         newsletter_modal:
           buttons:
@@ -324,6 +387,51 @@ en:
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
     events:
+      amendments:
+        amendment_created:
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -390,14 +498,6 @@ en:
           notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Email subject
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Notification title
-        url: Url
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -544,6 +644,13 @@ en:
       edit:
         edit_user_group: Edit group
         update_user_group: Update group
+      form:
+        document_number_help: Do not use dashes nor spaces
+        email_help: Email of your organization, association, collective, group, etc.
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
+        name_help: Name of your organization, association, collective, group, etc.
+        nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        phone_help: Do not use dashes nor spaces
       join:
         error: There has been a problem joining the group
         success: Join request created successfully. An admin will review your request before accepting you to the group.
@@ -557,6 +664,7 @@ en:
       new:
         create_user_group: Create group
         new_user_group: New group
+        subtitle: Create a group and invite other users to join to participate in a collective level.
       no_user_groups: Doesn't belong to any group yet.
       roles:
         admin: Administrator
@@ -565,6 +673,13 @@ en:
       update:
         error: There has been a problem updating the group
         success: Group updated successfully
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
+          title: What can I do in %{organization}?
+        description: Read more about %{organization}
+        title: General Help
     last_activities:
       activities:
         no_activities_warning: No activity
@@ -596,8 +711,8 @@ en:
     members:
       no_members: This user groups doesn't have any member yet.
     menu:
+      help: Help
       home: Home
-      more_information: More information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -614,20 +729,31 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
-          from: From
-          last_message_html: Last message <strong>%{time} ago</strong>
           no_conversations: You have no conversations yet
-        show:
-          conversation_with_html: Conversation with <strong>%{name}</strong>
-          reply: Reply
+          title: Conversations
+        reply:
           send: Send
+          title: Reply
+        show:
+          title: Conversation with %{usernames}
         start:
           send: Send
           title: Start a conversation
         update:
           error: Message not sent. Try again later
     metrics:
+      download:
+        csv: Download data (csv)
+      followers:
+        description: Number of user that follows in organization
+        object: followers
+        title: Followers
+      participants:
+        description: Number of active user in organization
+        object: participants
+        title: Participants
       users:
+        description: Number of user in organization
         object: users
         title: Users
     newsletter_mailer:
@@ -661,16 +787,27 @@ en:
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
+        everything_followed: Everything I follow
+        newsletters: Newsletters
         newsletter_notifications: I want to receive newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There's been an error updating your notifications settings.
         success: Your notifications settings were updated successfully.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: Pending
         rejected: Rejected
         verified: Verified
+    pad_iframe:
+      disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
+      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      pad: Pad
     pages:
       home:
         extended:
@@ -713,7 +850,15 @@ en:
         sub_hero:
           register: Register
       index:
-        title: More information
+        read_more: Read more
+        standalone_pages: Pages
+        subheading: Navigate through the help pages of %{name}
+        title: Help
+        topics: Topics
+      participatory_space:
+        metrics:
+          headline: Participation in figures
+          link: Show all statistics
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
@@ -738,30 +883,33 @@ en:
       deleted: Deleted user
       view: View
     profiles:
-      default_officialization_text: Default officialization text
       default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        activity: Activity
         badges: Badges
-        conversations: Conversations
         followers: Followers
         following: Follows
         groups: Groups
         members: Members
-        notifications: Notifications
+        timeline: Timeline
+        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Create group
         edit_profile: Edit profile
         edit_user_group: Edit group profile
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
         invite_user: Invite user
         join_user_group: Request to join group
         leave_user_group: Leave group
         manage_user_group_admins: Manage admins
         manage_user_group_users: Manage members
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -786,24 +934,35 @@ en:
       prompt: Select a scope
       scopes: Scopes
     search:
-      filter:
-        all: All
-        component: Component
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
-        search: Search
+        back: Back to results
+        jump_to: 'Jump to:'
+        state:
+          active: Active
+          all: All
+          future: Future
+          past: Past
       filters_small_view:
         close_modal: Close modal
         filter: Filter
         filter_by: Filter by
         unfold: Unfold
+      results:
+        results:
+          one: "%{count} result"
+          other: "%{count} results"
+        view_all: View all (%{count})
     shared:
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
         embed_link: Embed
+      extended_navigation_bar:
+        more: More
+        unfold: Unfold
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
@@ -813,6 +972,8 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report a problem
+      floating_help:
+        help: Help
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:
@@ -828,6 +989,21 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    user_activity:
+      index:
+        no_activities_warning: This user hasn't had any activity yet.
+    user_interests:
+      show:
+        no_scopes: This organization doesn't have any scope yet!
+        my_interests: My interests
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
+    welcome_notification:
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_subject: Thanks for joining {{organization}}!
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
@@ -1005,6 +1181,7 @@ en:
       edit_link:
         edit: Edit
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu
@@ -1029,6 +1206,7 @@ en:
         authorizations: Authorizations
         delete_my_account: Delete my account
         my_data: My data
+        my_interests: My interests
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Groups
@@ -1036,11 +1214,6 @@ en:
         see_more: See more
   locale:
     name: English
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email

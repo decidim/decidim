@@ -9,7 +9,7 @@ module Decidim
         described_class.new(proposal)
       end
 
-      let!(:proposal) { create(:proposal) }
+      let!(:proposal) { create(:proposal, :accepted) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -18,10 +18,14 @@ module Decidim
       let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
       let(:meetings) { create_list(:meeting, 2, component: meetings_component) }
 
+      let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
+      let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
+
       before do
         proposal.update!(category: category)
         proposal.update!(scope: scope)
         proposal.link_resources(meetings, "proposals_from_meeting")
+        proposal.link_resources(other_proposals, "copied_from_component")
       end
 
       describe "#serialize" do
@@ -72,6 +76,32 @@ module Decidim
         it "serializes the meetings" do
           expect(serialized[:meeting_urls].length).to eq(2)
           expect(serialized[:meeting_urls].first).to match(%r{http.*/meetings})
+        end
+
+        it "serializes the participatory space" do
+          expect(serialized[:participatory_space]).to include(id: participatory_process.id)
+          expect(serialized[:participatory_space][:url]).to include("http", participatory_process.slug)
+        end
+
+        it "serializes the state" do
+          expect(serialized).to include(state: proposal.state)
+        end
+
+        it "serializes the reference" do
+          expect(serialized).to include(reference: proposal.reference)
+        end
+
+        it "serializes the amount of attachments" do
+          expect(serialized).to include(attachments: proposal.attachments.count)
+        end
+
+        it "serializes the amount of endorsements" do
+          expect(serialized).to include(endorsements: proposal.endorsements.count)
+        end
+
+        it "serializes related proposals" do
+          expect(serialized[:related_proposals].length).to eq(2)
+          expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
       end
     end

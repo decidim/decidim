@@ -10,22 +10,24 @@
     <div class="columns large-12">
       <h1>Decidim Barcelona</h1>
       <h2 class="text-center heading2 mb-m">Redesigning decidim</h2>
-      <div class="section" style="columns:2">
-        <h2 class="section-heading">Vistas principales</h2>
+      <div class="section" style="columns:3">
+        <h2 class="section-heading">Home</h2>
         <ul>
           <li><%= link_to "Home", page_path("home") %></li>
           <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
           <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
           <li><%= link_to "Estadísticas", page_path("stats") %></li>
         </ul>
+        <h2 class="section-heading">Search</h2>
+        <ul>
+          <li><%= link_to "Página de resultados", page_path("search") %></li>
+        </ul>
         <h2 class="section-heading">Process</h2>
         <ul>
-          <li><%= link_to "Listado de procesos", page_path("processes/processes") %></li>
+          <li><%= link_to "Procesos - Lista", page_path("processes/processes") %></li>
           <li><%= link_to "Estadísticas del proceso", page_path("processes/process-stats") %></li>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
-          <li><%= link_to "Debates - Lista", page_path("debates") %></li>
-          <li><%= link_to "Resultados - Lista", page_path("results") %></li>
           <li><%= link_to "Gestor de documentos", page_path("documents") %></li>
         </ul>
         <h2 class="section-heading">Proposals</h2>
@@ -38,9 +40,6 @@
             </ul>
           </li>
           <li><%= link_to "Estadísticas de la propuesta", page_path("proposals/proposal-stats") %></li>
-          <li><%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %></li>
-          <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
-          <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
           <li>
             <%= link_to "Propuesta: aprobada", page_path("proposals/proposal-view") %>
             <ul>
@@ -113,8 +112,12 @@
         </ul>
         <h2 class="section-heading">Assemblies</h2>
         <ul>
-          <li><%= link_to "Asambleas - Listado", page_path("assemblies/assemblies") %></li>
+          <li><%= link_to "Asambleas - Lista", page_path("assemblies/assemblies") %></li>
           <li><%= link_to "Asamblea", page_path("assemblies/assembly-view") %></li>
+        </ul>
+        <h2 class="section-heading">Debates</h2>
+        <ul>
+          <li><%= link_to "Debates - Lista", page_path("debates") %></li>
         </ul>
         <h2 class="section-heading">Meetings</h2>
         <ul>
@@ -191,12 +194,6 @@
             </ul>
           </li>
           <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
-          <li>
-            <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>
-            <ul>
-              <li><%= link_to "Usuario - notificaciones (versión antigua)", page_path("user/user-notifications-old") %></li>
-            </ul>
-          </li>
         </ul>
       </div>
       <hr />
@@ -251,6 +248,15 @@
           <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
           <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
           <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budget-finish") %></li>
+        </ul>
+        <h2 class="section-heading">User</h2>
+        <ul>
+          <li>
+            <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>
+            <ul>
+              <li><%= link_to "Usuario - notificaciones (versión antigua)", page_path("user/user-notifications-old") %></li>
+            </ul>
+          </li>
         </ul>
         <h2 class="section-heading">Multiconsulta</h2>
         <ul>

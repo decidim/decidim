@@ -9,7 +9,6 @@
 <div class="row">
   <div class="column medium-10 medium-push-2">
     <% attribute = present(meeting).description %>
-    <div class="programme-resume"><%= decidim_sanitize(html_truncate((attribute), length: 50)) %></div>
     <div class="programme-extra">
       <% conference_meeting = meeting.becomes(Decidim::ConferenceMeeting) %>
       <% speakers = conference_meeting.conference_speakers %>
@@ -44,7 +43,7 @@
             <strong><%= t(".content") %></strong>
           </div>
           <div class="column medium-10">
-            <%= decidim_sanitize(present(meeting).html_description) %>
+            <%= decidim_sanitize(present(meeting).description(links: true)) %>
           </div>
         </div>
       <% end %>

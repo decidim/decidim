@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -320,6 +319,12 @@ ca:
         designated_on: Designat a
       index:
         title: Membres
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Una assemblea és un grup de membres d'una organització que es reuneixen periòdicament per prendre decisions sobre una àrea o àmbit específic de l'organització.</p> <p>assemblees celebren reunions, algunes són privades i algunes estan obertes. Si estan oberts, és possible participar-hi (per exemple: assistir si la capacitat ho permet, afegir punts a l'agenda o fer comentaris sobre les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: una assemblea general (que es reuneix un cop l'any per definir les principals línies d'actuació de l'organització i els seus òrgans executius per vot), un consell assessor d'igualtat (que es reuneix cada dos mesos per formular propostes sobre com millorar les relacions de gènere a l'organització), una comissió d'avaluació (que es reuneix cada mes per supervisar un procés) o un organisme de garantia (que recull incidents, abusos o propostes per millorar els procediments de presa de decisions) són tots exemples d'assemblees.</p>\n"
+          page: "<p>Una assemblea és un grup de membres d'una organització que es reuneixen periòdicament per prendre decisions sobre una àrea o àmbit específic de l'organització.</p> <p>assemblees celebren reunions, algunes són privades i algunes estan obertes. Si estan oberts, és possible participar-hi (per exemple: assistir si la capacitat ho permet, afegir punts a l'agenda o fer comentaris sobre les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: una assemblea general (que es reuneix un cop l'any per definir les principals línies d'actuació de l'organització i els seus òrgans executius per vot), un consell assessor d'igualtat (que es reuneix cada dos mesos per formular propostes sobre com millorar les relacions de gènere a l'organització), una comissió d'avaluació (que es reuneix cada mes per supervisar un procés) o un organisme de garantia (que recull incidents, abusos o propostes per millorar els procediments de presa de decisions) són tots exemples d'assemblees.</p>\n"
+          title: Què són les assemblees?
     log:
       value_types:
         assembly_presenter:
@@ -328,6 +333,7 @@ ca:
       assemblies: Assemblees
     metrics:
       assemblies:
+        description: Nombre d'acoblats creats
         object: assemblees
         title: Assemblees
   errors:
@@ -344,15 +350,14 @@ ca:
           reset_chart: Restablir
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblea"
-            other: "%{count} assemblees"
+            one: "%{count} muntats"
+            other: "%{count} muntats"
         promoted_assembly:
           more_info: Més informació
           take_part: Participa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblea
-        unfold: Desplega
       assembly_widgets:
         show:
           take_part: Participa

@@ -42,7 +42,7 @@ module Decidim
 
           @query = retrieve_comments.each_with_object({}) do |comment, grouped_comments|
             related_object = comment.root_commentable
-            return grouped_comments unless related_object
+            next grouped_comments unless related_object
 
             group_key = generate_group_key(related_object)
             grouped_comments[group_key] ||= { cumulative: 0, quantity: 0 }

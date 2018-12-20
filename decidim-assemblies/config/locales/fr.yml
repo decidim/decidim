@@ -322,6 +322,12 @@ fr:
         designated_on: Désigné le
       index:
         title: Membres
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
+          page: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
+          title: Que sont les assemblées?
     log:
       value_types:
         assembly_presenter:
@@ -330,6 +336,7 @@ fr:
       assemblies: Assemblées
     metrics:
       assemblies:
+        description: Nombre d'assemblages créés
         object: assemblées
         title: Assemblages
   errors:
@@ -346,15 +353,14 @@ fr:
           reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblée"
+            one: "%{count} assemblées"
             other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblée
-        unfold: Dérouler
       assembly_widgets:
         show:
           take_part: Participer

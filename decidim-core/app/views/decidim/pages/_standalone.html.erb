@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="row column">
+    <div class="text-center">
+      <h1 class="heading1 page-title">
+        <%= title %>
+      </h1>
+    </div>
+
+    <main>
+      <%= cell "decidim/tos_page", :announcement %>
+
+      <div class="columns small-12">
+        <div class="card">
+          <div class="card__content"><%= decidim_sanitize translated_attribute page.content %></div>
+        </div>
+      </div>
+
+      <%= cell "decidim/tos_page", :sticky_form %>
+    </main>
+  </div>
+</div>

@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -44,12 +43,14 @@ ca:
         one: Ponent de la conferència
         other: Ponents de la conferència
       decidim/conference_user_role:
-        one: Rol d'usuari de la conferència
-        other: Rols d'usuari de la conferència
+        one: Funció d'usuari de la conferència
+        other: Funció d'usuari de la conferència
   decidim:
     admin:
       actions:
+        confirm: Confirmar
         new_conference: Nova conferència
+        send_diplomas: Enviar diplomes
       conference_copies:
         new:
           copy: Copiar
@@ -62,6 +63,10 @@ ca:
         destroy:
           error: S'ha produït un error en publicar aquesta conferència.
           success: La conferència no s'ha publicat correctament.
+      conference_registration:
+        confirm:
+          error: S'ha produït un error en confirmar aquest registre de la conferència.
+          success: El registre de la conferència s'ha confirmat amb èxit.
       conference_speakers:
         create:
           error: S'ha produït un error en afegir un ponent per a aquesta conferència.
@@ -146,14 +151,17 @@ ca:
           attachments: Fitxers adjunts
           categories: Categoríes
           components: Components
-          conference_admins: Administradors de conferències
-          conference_invites: Invitacions de la conferència
-          conference_registrations: Inscripcions de la conferència
-          conference_speakers: Ponents de les conferències
+          conference_admins: Usuaris de la conferència
+          conference_invites: Convida
+          conference_speakers: Ponents
+          diploma: Diploma
           info: Info
           media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Col·laboradors
+          registration_types: Tipus de registre
+          registrations: Inscripcions
+          user_registrations: Registre d'usuaris
       models:
         conference:
           fields:
@@ -193,6 +201,14 @@ ca:
           types:
             collaborator: Col·laborador
             main_promotor: Promotor principal
+        registration_type:
+          fields:
+            conference_meetings: Trobades de la conferència
+            price: Preu
+            registrations_count: Contador d'inscripcions
+            title: Títol
+            weight: Pes
+          name: Tipus de registre
       partners:
         create:
           error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
@@ -208,14 +224,38 @@ ca:
         update:
           error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
           success: Col·laborador actualitzat correctament per a aquesta jornada.
+      registration_type_publications:
+        create:
+          error: S'ha produït un error en publicar aquest tipus de registre.
+          success: El tipus de registre s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en publicar aquest tipus d'inscripció.
+          success: El tipus de registre no s'ha publicat correctament.
+      registration_types:
+        create:
+          error: S'ha produït un error en afegir un tipus de registre per a aquesta conferència.
+          success: El tipus de registre s'ha afegit amb èxit a aquesta conferència.
+        destroy:
+          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta conferència.
+        edit:
+          title: Actualitzar el tipus de registre.
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nou tipus de registre
+        update:
+          error: S'ha produït un error en actualitzar un tipus de registre per a aquesta conferència.
+          success: El tipus de registre s'ha actualitzat amb èxit per a aquesta conferència.
       titles:
         conferences: Conferències
     admin_log:
       conference:
         create: "%{user_name} ha creat la conferènica %{resource_name}"
         publish: "%{user_name} ha publicat la conferència %{resource_name}"
+        send_conference_diplomas: "%{user_name} envieu els títols als %{resource_name} usuaris de la conferència"
         unpublish: "%{user_name} no publicada la conferència %{resource_name}"
         update: "%{user_name} actualitzem la conferència %{resource_name}"
+        update_diploma: "%{user_name} va actualitzar el títol de configuració %{resource_name} conferència"
       conference_speaker:
         create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
         delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
@@ -224,6 +264,22 @@ ca:
         create: "%{user_name} ha estat convidat com a %{resource_name} per la conferència %{space_name}"
         delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
         update: "%{user_name} ha canviat el rol d' %{resource_name} a la conferència %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} ha confirmat un registre per a la conferència %{resource_name}"
+        partner:
+          create: "%{user_name} ha creat %{resource_name} a la conferència %{space_name}"
+          delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
+          update: "%{user_name} ha actualitzat %{resource_name} a la conferència %{space_name}"
+        registration_type:
+          create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} per a la conferència %{space_name}"
+          publish: "%{user_name} ha publicat el tipus de registre %{resource_name} per a la conferència %{space_name}"
+          unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la conferència %{space_name}"
+          update: "%{user_name} ha actualitzat el tipus de registre %{resource_name} a la conferència %{space_name}"
+      media_link:
+        create: "%{user_name} crear l'enllaç %{resource_name} mitjans de comunicació a la %{space_name} conferències"
+        delete: "%{user_name} eliminar l'enllaç %{resource_name} de la %{space_name} conferències"
+        update: "%{user_name} actualitzar l'enllaç %{resource_name} mitjans a la %{space_name} conferència"
     conference_program:
       index:
         title: Programa
@@ -277,25 +333,42 @@ ca:
               one: Hi ha 1 inscripció.
               other: Hi ha %{count} inscripcions.
             slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        diplomas:
+          edit:
+            save: Desa
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Rebutjar la invitació '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l'%{application}. Pots rebutjar-la o acceptar-la a través dels enllaços a continuació."
-            join: Uneix-te a la conferència '%{conference_title}'
+            registration: Registre per a '%{conference_title}'
         partners:
           index:
             title: Col·laboradors
+        registration_types:
+          form:
+            select_conference_meetings: Seleccioneu trobades de la conferència
+          index:
+            title: Tipus de registre
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Trobareu el diploma de la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+          diploma_user:
+            attendance_verified_by: Assistència verificada per
+            certificate_of_attendance: Certificat d'assistència
+            certificate_of_attendance_description: Es tracta de certificar que <strong>%{user}</strong> ha assistit i ha participat en el <strong>%{title}</strong> celebrat al <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Hi ha hagut un problema en enviar els diplomes de la conferència.
+          success: Diplomes de la conferència enviats correctament
       conference:
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
         show:
+          free: Gratuït
           going: Assistiré
-          join: Participa a la conferència
           no_slots_available: No hi ha places disponibles
-          remaining_slots:
-            one: 1 plaça restant
-            other: "%{count} places restants"
+          registration: Registre
       conference_program:
         program_meeting:
           content: Contingut
@@ -308,7 +381,12 @@ ca:
       conference_registration_mailer:
         confirmation:
           confirmed_html: S'ha confirmat la teva inscripció a la conferència <a href="%{url}">%{title}</a>.
-          details: Trobareu les dades de la conferència al fitxer adjunt.
+          details_1: 'T''has inscrit a la conferència amb %{registration_type} tipus. Té un cost de %{price} i pots assistir als següents esdeveniments:'
+          details_2: Trobareu les dades de la conferència al fitxer adjunt.
+        pending_validation:
+          confirmation_pending: Rebràs la confirmació en breu
+          details: 'T''has inscrit a %{registration_type} tipus amb un cost de %{price} i pots assistir als següents esdeveniments:'
+          pending_html: La teva inscripció a la conferència <a href="%{url}">%{title}</a> està pendent de ser confirmada.
       conference_registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure't a aquesta conferència.
@@ -335,16 +413,12 @@ ca:
           speakers: Ponents
       conferences:
         partners:
-          collaborators: Col·laboradors
-          main_promotors: Promotors principals
+          collaborators: Socis
+          main_promotors: Organitzadors
         show:
-          already_account: Ja tens un compte a Decidim?
-          login_as: Estàs entrant com %{name} <%{email}>
+          login_as: Heu iniciat la sessió com a %{name} <%{email}>
           make_conference_registration: 'Fes la teva inscripció a la conferència:'
-          new_user: Nou usuari?
           register: Registre
-          sign_in: Inicia sessió per registrar-te en aquesta conferència
-          sign_up: Registra't de forma gratuïta per inscriure't
       content_blocks:
         highlighted_conferences:
           name: Conferències destacades
@@ -354,14 +428,20 @@ ca:
         conference_registration_mailer:
           confirmation:
             subject: S'ha confirmat la teva inscripció a la conferència
+          pending_validation:
+            subject: La teva inscripció a la conferència està pendent de confirmació
         invite_join_conference_mailer:
           invite:
             subject: Invitació per participar a una conferència
+        send_conference_diploma_mailer:
+          diploma:
+            subject: S'ha enviat el diploma de la vostra conferència
       models:
         conference_invite:
           fields:
             email: Correu electrònic
             name: Nom
+            registration_type: Tipus de registre
             sent_at: Enviat a
             status: Estat
           status:
@@ -372,6 +452,11 @@ ca:
           fields:
             email: Correu electrònic
             name: Nom
+            registration_type: Tipus de registre
+            state: Estat
+            states:
+              confirmed: Confirmat
+              pending: Pendents
       pages:
         home:
           highlighted_conferences:
@@ -384,6 +469,18 @@ ca:
       photos_list:
         show:
           related_photos: Fotografies
+      registration_types:
+        index:
+          choose_an_option: 'Trieu l''opció de registre:'
+          login_as: Heu iniciat la sessió com a %{name} <%{email}>
+          register: Registre
+          title: Tipus de registre
+      shared:
+        conference_user_login:
+          already_account: Ja tens un compte a Decidim?
+          new_user: Nou usuari?
+          sign_in: Inicieu sessió per registrar-se a la conferència
+          sign_up: Creeu un compte per decidir registrar-se a la conferència
       show:
         details: Detalls
         introduction: Introducció
@@ -441,6 +538,8 @@ ca:
         subject: Invitació a participar en una conferència
   layouts:
     decidim:
+      conference_hero:
+        register: Registre
       conference_widgets:
         show:
           take_part: Formar part
@@ -461,5 +560,4 @@ ca:
         conference_partners_menu_item: Col·laboradors
         conference_speaker_menu_item: Ponents
         media: Mèdia
-        unfold: Desplegar
         venues: Llocs de realització

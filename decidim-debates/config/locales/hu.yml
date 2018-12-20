@@ -114,17 +114,18 @@ hu:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Szia, új vita található itt: %{space_title}, nézd rá és tegyél hozzá te is valamit:
+              Szia,
+              Új vitát "%{resource_title}" hoztak létre a %{space_title} részvételi téren, ellenőrizzük és hozzájárulunk:
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: 'Új vita itt: %{space_title}'
+            email_subject: Új vita "%{resource_title}" %{space_title}
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Szia,
-              %{author_name} %{author_nickname} (akit követsz) új vitát hozott létre, nézd meg és tegyél hozzá te is valamit:
+              %{author_name} %{author_nickname}, akit figyelsz, új vita született "%{resource_title}". Nézze meg és járuljon hozzá:
             email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: '%{author_nickname} új vitát indított'
-            notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
+            email_subject: Új vita "%{resource_title}" %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> létrehozta a <a href="%{resource_path}">%{resource_title}</a> vitát.
         creation_disabled:
           email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -147,3 +148,8 @@ hu:
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
           unearned_another: Ez a felhasználó még nem vett részt vitában.
           unearned_own: Vannak résztvevők a vitákban.
+    metrics:
+      debates:
+        description: A létrehozott viták száma
+        object: viták
+        title: viták

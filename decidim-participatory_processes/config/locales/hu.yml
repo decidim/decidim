@@ -255,10 +255,17 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Frissítés ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> lépés időpontjai frissítve ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>részvételi folyamat</strong> a részvételi tevékenységek sorrendje (pl. Először egy felmérést tölt be, majd javaslatokat tesz, személyes vagy virtuális találkozókkal foglalkozik, végül pedig kiemelteti őket) a döntés megfogalmazása és meghozatala érdekében egy adott témában.</p> <p>Példák a részvételi folyamatokra: a bizottsági tagok megválasztásának folyamata (ahol a jelölteket először bemutatták, vitatták és végül jelöltségüket választották), részvételi költségvetések (ahol javaslatokat tesznek, gazdaságilag értékelik és szavaznak a rendelkezésre álló pénzzel) egy stratégiai tervezési folyamatot, egy rendelet vagy normaterv kidolgozását, egy városi tér kialakítását vagy egy közpolitikai terv elkészítését.</p>\n"
+          page: "<p>A <strong>részvételi folyamat</strong> a részvételi tevékenységek sorrendje (pl. Először egy felmérést tölt be, majd javaslatokat tesz, személyes vagy virtuális találkozókkal foglalkozik, végül pedig kiemelteti őket) a döntés megfogalmazása és meghozatala érdekében egy adott témában.</p> <p>Példák a részvételi folyamatokra: a bizottsági tagok megválasztásának folyamata (ahol a jelölteket először bemutatták, vitatták és végül jelöltségüket választották), részvételi költségvetések (ahol javaslatokat tesznek, gazdaságilag értékelik és szavaznak a rendelkezésre álló pénzzel) egy stratégiai tervezési folyamatot, egy rendelet vagy normaterv kidolgozását, egy városi tér kialakítását vagy egy közpolitikai terv elkészítését.</p>\n"
+          title: Mi a részvételi folyamat?
     menu:
       processes: Folyamatok
     metrics:
       participatory_processes:
+        description: A részvételi folyamatok száma ebben a szervezetben
         object: részvételi folyamatok
         title: Részvételi folyamatok
     participatory_process_groups:
@@ -378,9 +385,8 @@ hu:
           active_step: 'Aktuális lépés:'
           more_info: További információ
           take_part: Vegyél részt
-      process_header:
-        process_menu_item: A folyamat
-        unfold: Kibont
       process_header_steps:
         step: '%{current}. lépés ennyiből: %{total}'
         view_steps: Lépések megtekintése
+      process_navigation:
+        process_menu_item: A folyamat

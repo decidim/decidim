@@ -1,0 +1,19 @@
+<section class="section row collapse highlighted_proposals">
+  <h4 class="section-heading">
+    <%= translated_attribute(model.name) %>  <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_proposals.see_all", count: proposals_count) %></a>
+  </h4>
+
+  <%= cell(
+    "decidim/collapsible_list",
+    proposals_to_render,
+    cell_options: {},
+    list_class: "row small-up-1 medium-up-2 card-grid",
+    size: proposals_count
+    ) %>
+
+  <%= link_to(
+    t("decidim.participatory_spaces.highlighted_proposals.see_all", count: proposals_count),
+    main_component_path(model),
+    class: "button button--sc light secondary button--right"
+  ) %>
+</section>

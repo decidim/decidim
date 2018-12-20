@@ -94,6 +94,7 @@ it:
           notification_title: Sei stato citato in <a href="%{resource_path}">%{resource_title}</a> di <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Numero di commenti generati dagli utenti
         object: Commenti
         title: Commenti
   errors:

@@ -94,6 +94,7 @@ pt-BR:
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Número de comentários gerados pelos usuários
         object: comentários
         title: Comentários
   errors:

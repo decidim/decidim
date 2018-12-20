@@ -95,6 +95,12 @@ hu:
           next_level_in: Szerezz még %{score} kezdeményezéseket a következő szint eléréséhez!
           unearned_another: A felhasználó még nem tett közzé kezdeményezéseket.
           unearned_own: Még nem tettél közzé kezdeményezéseket.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>A kezdeményezés egy olyan javaslat, amelyet bármelyik saját kezdeményezésére (függetlenül más csatornáktól vagy részvételi helyektől függetlenül) támogathat a szervezet (digitális) aláírásának gyűjtése révén egy adott tevékenység végrehajtására (szabály módosítása, projekt kezdeményezése , megváltoztathatja az osztály vagy utcanév nevét stb.).</p> <p>A kezdeményezés támogatói meghatározhatják céljait, támogatást nyújthatnak, megvitathatják, terjeszthetik azt, és meghatározhatják azokat a találkozási pontokat, ahol az aláírások gyűjthetők a résztvevőkről vagy a többi résztvevők előtt megnyíló vitákról.</p> <p>Példák: egy kezdeményezés gyűjthetünk aláírásokat, hogy összehívja a konzultáció az egész nép közül egy szervezet, vagy hozzon létre, vagy hív egy összeállítást, illetve a folyamat elindítását egy költségvetés növelése egy terület vagy övezet a szervezet. Az aláírások gyűjtésének folyamata során több ember hozzá tud járulni ehhez a kereslethez, és továbbadhatja a szervezetben.</p>\n"
+          page: "<p>A kezdeményezés egy olyan javaslat, amelyet bármelyik saját kezdeményezésére (függetlenül más csatornáktól vagy részvételi helyektől függetlenül) támogathat a szervezet (digitális) aláírásának gyűjtése révén egy adott tevékenység végrehajtására (szabály módosítása, projekt kezdeményezése , megváltoztathatja az osztály vagy utcanév nevét stb.).</p> <p>A kezdeményezés támogatói meghatározhatják céljait, támogatást nyújthatnak, megvitathatják, terjeszthetik azt, és meghatározhatják azokat a találkozási pontokat, ahol az aláírások gyűjthetők a résztvevőkről vagy a többi résztvevők előtt megnyíló vitákról.</p> <p>Példák: egy kezdeményezés gyűjthetünk aláírásokat, hogy összehívja a konzultáció az egész nép közül egy szervezet, vagy hozzon létre, vagy hív egy összeállítást, illetve a folyamat elindítását egy költségvetés növelése egy terület vagy övezet a szervezet. Az aláírások gyűjtésének folyamata során több ember hozzá tud járulni ehhez a kereslethez, és továbbadhatja a szervezetben.</p>\n"
+          title: Mi a kezdeményezés?
     initiatives:
       admin:
         committee_requests:
@@ -360,9 +366,10 @@ hu:
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
+        step: Lépés %{current} Az %{total}
+        title: Hozzon létre új kezdeményezést
       initiative_header:
         initiative_menu_item: Kezdeményezés
-        unfold: Kibont
       initiatives:
         initiative:
           check: Nézd meg

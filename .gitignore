@@ -21,3 +21,5 @@ schema.json
 .rspec-failures
 yarn-error.log
 .rbenv-vars
+# Sublime Text 3 indexing file: .tags
+.tags

@@ -21,12 +21,29 @@ module Decidim
       end
 
       # Handle the origin filter
-      # The 'official' proposals doesn't have an author id
       def search_origin
-        if origin == "official"
-          query.where.not(coauthorships_count: 0).joins(:coauthorships).where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-        elsif origin == "citizens"
-          query.where.not(coauthorships_count: 0).joins(:coauthorships).where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+        case origin
+        when "official"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+        when "citizens"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+        when "user_group"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+            .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
+        when "meeting"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
         else # Assume 'all'
           query
         end
@@ -63,6 +80,18 @@ module Decidim
         end
       end
 
+      # Handle the amendment type filter
+      def search_type
+        case type
+        when "proposals"
+          query.where.not(id: query.joins(:amendable).pluck(:id))
+        when "amendments"
+          query.where(id: query.joins(:amendable).pluck(:id))
+        else
+          query
+        end
+      end
+
       # Filters Proposals by the name of the classes they are linked to. By default,
       # returns all Proposals. When a `related_to` param is given, then it camelcases item
       # to find the real class name and checks the links for the Proposals.
@@ -84,6 +113,18 @@ module Decidim
              .where(decidim_resource_links: { from_type: related_to.camelcase })
 
         query.where(id: from).or(query.where(id: to))
+      end
+
+      # We overwrite the `results` method to ensure we only return unique
+      # results. We can't use `#uniq` because it returns an Array and we're
+      # adding scopes in the controller, and `#distinct` doesn't work here
+      # because in the later scopes we're ordering by `RANDOM()` in a DB level,
+      # and `SELECT DISTINCT` doesn't work with `RANDOM()` sorting, so we need
+      # to perform two queries.
+      #
+      # The correct behaviour is backed by tests.
+      def results
+        Proposal.where(id: super.pluck(:id))
       end
     end
   end

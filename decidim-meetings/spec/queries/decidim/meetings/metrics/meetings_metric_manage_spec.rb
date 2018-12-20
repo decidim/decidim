@@ -6,7 +6,7 @@ describe Decidim::Meetings::Metrics::MeetingsMetricManage do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:meeting_component, :published, participatory_space: participatory_space) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:meetings) { create_list(:meeting, 5, created_at: day, component: component) }
 
   context "when executing" do

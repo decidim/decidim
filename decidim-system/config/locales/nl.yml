@@ -64,6 +64,10 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
+        users_registration_mode:
+          disabled: Alleen toegang is mogelijk met externe accounts
+          enabled: Sta gebruikers toe zich te registreren en in te loggen
+          existing: Sta niet toe dat gebruikers zich registreren, maar staan ​​bestaande gebruikers toe om in te loggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.

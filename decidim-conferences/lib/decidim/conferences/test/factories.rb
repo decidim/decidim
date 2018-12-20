@@ -35,6 +35,13 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :diploma do
+      main_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+      signature { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+      sign_date { 5.days.from_now }
+      signature_name { "Signature name" }
+    end
   end
 
   factory :conference_user_role, class: "Decidim::ConferenceUserRole" do
@@ -104,9 +111,37 @@ FactoryBot.define do
     end
   end
 
+  factory :registration_type, class: "Decidim::Conferences::RegistrationType" do
+    conference
+
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    published_at { Time.current }
+    price { Faker::Number.between(1, 300) }
+    weight { Faker::Number.between(1, 10) }
+
+    trait :unpublished do
+      published_at { nil }
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+  end
+
   factory :conference_registration, class: "Decidim::Conferences::ConferenceRegistration" do
     conference
     user
+    registration_type
+    confirmed_at { Time.current }
+
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
+    trait :unconfirmed do
+      confirmed_at { nil }
+    end
   end
 
   factory :conference_invite, class: "Decidim::Conferences::ConferenceInvite" do
@@ -115,6 +150,7 @@ FactoryBot.define do
     sent_at { Time.current - 1.day }
     accepted_at { nil }
     rejected_at { nil }
+    registration_type
 
     trait :accepted do
       accepted_at { Time.current }

@@ -32,7 +32,7 @@ module Decidim
     end
 
     def search_klass
-      ActivitySearch
+      HomeActivitySearch
     end
 
     def context_params

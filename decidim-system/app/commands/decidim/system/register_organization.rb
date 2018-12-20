@@ -28,6 +28,7 @@ module Decidim
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
+          PopulateHelp.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
           return broadcast(:invalid) if invite_form.invalid?
@@ -51,8 +52,10 @@ module Decidim
           reference_prefix: form.reference_prefix,
           available_locales: form.available_locales,
           available_authorizations: form.clean_available_authorizations,
+          users_registration_mode: form.users_registration_mode,
           badges_enabled: true,
-          default_locale: form.default_locale
+          default_locale: form.default_locale,
+          send_welcome_notification: true
         )
       end
 

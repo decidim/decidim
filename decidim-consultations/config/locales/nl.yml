@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -39,9 +38,9 @@ nl:
           not_found: Reactie niet gevonden.
   activerecord:
     models:
-      decidim/consultations:
-        one: Burgerinspraak
-        other: Burgerinspraken
+      decidim/consultation:
+        one: Overleg
+        other: overleg
       decidim/consultations/question:
         one: Vraag
         other: vragen
@@ -50,7 +49,7 @@ nl:
         other: Antwoorden
       decidim/consultations/vote:
         one: Stemmen
-        other: stemmen
+        other: Stemmen
   decidim:
     admin:
       actions:
@@ -110,8 +109,8 @@ nl:
             published: Gepubliceerd
             title: Titel
           name:
-            one: Overleg
-            other: Overleg
+            one: Burgerinspraak
+            other: Burgerinspraken
         question:
           fields:
             created_at: Aangemaakt op
@@ -247,6 +246,12 @@ nl:
           view_results: Bekijk resultaten
           vote: Stemmen
         unspecified: Niet gespecificeerd
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Overleg is een ruimte die u toelaat om een ​​duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk te geven en het debat voor of tegen een reactie te bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: enkele voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
+          page: "<p>Overleg is een ruimte die u toelaat om een ​​duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk te geven en het debat voor of tegen een reactie te bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: enkele voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>in de organisatie.</p>\n"
+          title: Wat zijn consulten?
     menu:
       consultations: Burgerinspraak
     pages:

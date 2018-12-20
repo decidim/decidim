@@ -1,5 +1,5 @@
 /* global d3 */
-/* eslint-disable id-length, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
+/* eslint-disable id-length, no-undefined, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -33,9 +33,9 @@ const areachart = (opts = {}) => {
   let objectName = opts.objectName || ""
   let container = d3.select(opts.container)
   let showAxis = opts.axis || false
-  let ratio = opts.ratio || (4 / 3)
-  let showTooltip = opts.tip !== "false"
-  let cumulative = opts.cumulative || false
+  let ratio = (opts.ratio || "").split(":").reduce((a, b) => a / b) || (4 / 3)
+  let showTooltip = Object.is(opts.tip, undefined) ? true : opts.tip
+  let cumulative = opts.agg || false
 
   if (cumulative) {
     data = aggregate(data)
@@ -189,15 +189,57 @@ const areachart = (opts = {}) => {
       .attr("text-anchor", "start")
       .attr("transform", `translate(${titlePadding},${titlePadding})`)
 
-    g.append("text")
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("class", "title")
-      .text(title)
+    let titleLines = 0
+
+    if (title.length) {
+      g.append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("class", "title")
+        .text(title)
+        .call(function(fulltext, wrapwidth, start = 0) {
+          fulltext.each(function() {
+            let text = d3.select(this)
+            let word = ""
+            let words = text.text().split(/\s+/).reverse()
+            let line = []
+            let lineNumber = 0
+            let lineHeight = 1.1
+            let _x = text.attr("x")
+            let _y = text.attr("y")
+            let dy = 0
+            let tspan = text.text(null)
+              .append("tspan")
+              .attr("x", _x)
+              .attr("y", _y)
+              .attr("dy", `${dy}em`)
+
+            /* eslint-disable no-cond-assign, no-plusplus */
+            while (word = words.pop()) {
+              line.push(word);
+              tspan.text(line.join(" "));
+              if (tspan.node().getComputedTextLength() > wrapwidth) {
+                line.pop()
+                tspan.text(line.join(" "))
+                line = [word]
+                tspan = text.append("tspan")
+                  .attr("x", _x)
+                  .attr("y", _y)
+                  .attr("dy", `${(++lineNumber * lineHeight) + dy}em`)
+                  .text(word);
+              }
+            }
+
+            titleLines = lineNumber * lineHeight
+          });
+        }, width - (titlePadding * 2))
+    }
+
+    let fontSize = parseFloat(getComputedStyle(g.node()).fontSize);
 
     g.append("text")
       .attr("x", 0)
-      .attr("dy", titlePadding * 2)
+      .attr("dy", title.length ? (titlePadding * 2) + (titleLines * fontSize) : (titlePadding * 1.25))
       .attr("class", "sum")
       .text(data[data.length - 1].value.toLocaleString())
   }

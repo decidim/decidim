@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -171,6 +170,7 @@ gl:
             promoted: Destacado
             published: Publicado
             title: Título
+          name: Asemblea
         assembly_member:
           fields:
             ceased_date: Data de suspensión
@@ -319,6 +319,12 @@ gl:
         designated_on: Designado en
       index:
         title: Membros
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          page: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          title: Que son asembleas?
     log:
       value_types:
         assembly_presenter:
@@ -327,6 +333,7 @@ gl:
       assemblies: Asembleas
     metrics:
       assemblies:
+        description: Número de conxuntos creados
         object: asembleas
         title: Asembleas
   errors:
@@ -343,15 +350,14 @@ gl:
           reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
-            one: Asemblea %{count}
-            other: Asembleas %{count}
+            one: "%{count} asembleas"
+            other: "%{count} asembleas"
         promoted_assembly:
           more_info: Máis información
           take_part: Tomar parte en
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membros
         assembly_menu_item: A asemblea
-        unfold: Despregar
       assembly_widgets:
         show:
           take_part: Tomar parte en

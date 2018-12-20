@@ -82,14 +82,29 @@ en:
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
+        show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        weight: Weight
+      static_page_topic:
+        description: Description
+        show_in_footer: Show in the footer
+        title: Title
+        weight: Weight
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: The redirect URI must be a SSL URI
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Invalid image file
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
       decidim/static_page:
@@ -248,6 +263,11 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      help_sections:
+        error: There's been an error updating the help sections
+        form:
+          save: Save
+        success: Help sections updated successfully
       impersonatable_users:
         index:
           filter:
@@ -306,11 +326,12 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
         newsletters: Newsletters
         oauth_applications: OAuth applications
-        officializations: Officializations
+        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -579,6 +600,21 @@ en:
         update:
           error: There was an error when updating this scope.
           success: Scope updated successfully
+      static_page_topics:
+        create:
+          error: There was an error creating a new topic.
+          success: Topic created successfully.
+        destroy:
+          success: Topic successfully destroyed
+        edit:
+          title: Edit topic
+          update: Update topic
+        new:
+          create: Create topic
+          title: New topic
+        update:
+          error: There was an error when updating this topic.
+          success: Topic updated successfully
       static_pages:
         actions:
           view: View public page
@@ -591,11 +627,18 @@ en:
           changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
           title: Edit page
           update: Update
+        form:
+          none: None
         index:
           last_notable_change: Last notable change
         new:
-          create: Create
+          create: Create page
           title: New page
+        topic:
+          destroy: Remove topic
+          edit: Edit topic
+          empty: There's no page under this topic
+          without_topic: Pages without topic
         update:
           error: There was an error when updating this page.
           success: Page updated successfully
@@ -610,12 +653,16 @@ en:
         managed_users: Managed users
         navbar_links: Navbar links
         officializations: Officializations
+        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
         user_groups: User groups
         users: Users
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: There was an error when rejecting this user group.
           success: User group rejected successfully
@@ -635,6 +682,12 @@ en:
             pending: Pending
             rejected: Rejected
             verified: Verified
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: There was an error when inviting this user.

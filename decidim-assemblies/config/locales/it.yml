@@ -319,6 +319,12 @@ it:
         designated_on: Designato su
       index:
         title: Utenti
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          page: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          title: Cosa sono gli assiemi?
     log:
       value_types:
         assembly_presenter:
@@ -327,6 +333,7 @@ it:
       assemblies: assemblee
     metrics:
       assemblies:
+        description: Numero di assiemi creati
         object: assiemi
         title: assemblee
   errors:
@@ -343,15 +350,14 @@ it:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} montaggio"
-            other: "%{count} assemblies"
+            one: "%{count} assemblaggi"
+            other: "%{count} assemblaggi"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Utenti
         assembly_menu_item: L'assemblea
-        unfold: Espandi
       assembly_widgets:
         show:
           take_part: Partecipa

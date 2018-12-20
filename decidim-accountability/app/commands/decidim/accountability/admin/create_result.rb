@@ -91,7 +91,8 @@ module Decidim
               event: "decidim.events.accountability.proposal_linked",
               event_class: Decidim::Accountability::ProposalLinkedEvent,
               resource: result,
-              recipient_ids: proposal.followers.pluck(:id),
+              affected_users: proposal.notifiable_identities,
+              followers: proposal.followers - proposal.notifiable_identities,
               extra: {
                 proposal_id: proposal.id
               }

@@ -13,7 +13,7 @@ describe "Content pages", type: :system do
   end
 
   describe "Showing pages" do
-    let!(:decidim_pages) { create_list(:static_page, 5, organization: organization) }
+    let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization: organization) }
 
     before do
       visit decidim.pages_path
@@ -25,13 +25,115 @@ describe "Content pages", type: :system do
       decidim_pages.each do |decidim_page|
         expect(page).to have_css(
           "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-          text: decidim_page.title[I18n.locale.to_s].upcase
+          text: decidim_page.title[I18n.locale.to_s]
         )
       end
     end
   end
 
+  describe "Managing topics" do
+    context "when creating a topic" do
+      before do
+        login_as admin, scope: :user
+        visit decidim_admin.root_path
+        click_link "Pages"
+      end
+
+      it "can create topics" do
+        within ".secondary-nav" do
+          click_link "Create topic"
+        end
+
+        within ".new_static_page_topic" do
+          fill_in_i18n(
+            :static_page_topic_title,
+            "#static_page_topic-title-tabs",
+            en: "General",
+            es: "General",
+            ca: "General"
+          )
+
+          fill_in_i18n(
+            :static_page_topic_description,
+            "#static_page_topic-description-tabs",
+            en: "<p>Some HTML content</p>",
+            es: "<p>Contenido HTML</p>",
+            ca: "<p>Contingut HTML</p>"
+          )
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_css(".card h2", text: "GENERAL")
+      end
+    end
+
+    context "when editing a topic" do
+      let!(:topic) { create(:static_page_topic, organization: organization) }
+
+      before do
+        login_as admin, scope: :user
+        visit decidim_admin.root_path
+        click_link "Pages"
+      end
+
+      it "can create page groups" do
+        within find(".card-title", text: topic.title[I18n.locale.to_s].upcase) do
+          click_link "Edit"
+        end
+
+        within ".edit_static_page_topic" do
+          fill_in_i18n(
+            :static_page_topic_title,
+            "#static_page_topic-title-tabs",
+            en: "New title",
+            es: "Nuevo título",
+            ca: "Nou títol"
+          )
+
+          fill_in_i18n(
+            :static_page_topic_description,
+            "#static_page_topic-description-tabs",
+            en: "<p>Some HTML content</p>",
+            es: "<p>Contenido HTML</p>",
+            ca: "<p>Contingut HTML</p>"
+          )
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_css(".card h2", text: "NEW TITLE")
+      end
+    end
+
+    context "when deleting topics" do
+      let!(:topic) { create(:static_page_topic, organization: organization) }
+
+      before do
+        login_as admin, scope: :user
+        visit decidim_admin.root_path
+        click_link "Pages"
+      end
+
+      it "can delete them" do
+        within find(".card", text: translated(topic.title).upcase) do
+          accept_confirm { click_link "Remove topic" }
+        end
+
+        expect(page).to have_admin_callout("successfully")
+
+        within "table" do
+          expect(page).to have_no_content(translated(topic.title))
+        end
+      end
+    end
+  end
+
   describe "Managing pages" do
+    let!(:topic) { create(:static_page_topic, organization: organization) }
+
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
@@ -40,7 +142,7 @@ describe "Content pages", type: :system do
 
     it "can create new pages" do
       within ".secondary-nav" do
-        find(".new").click
+        click_link "Create page"
       end
 
       within ".new_static_page" do
@@ -62,18 +164,20 @@ describe "Content pages", type: :system do
           ca: "<p>Contingut HTML</p>"
         )
 
+        select topic.title[I18n.locale.to_s], from: "Topic"
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within "table" do
-        expect(page).to have_content("Welcome to Decidim")
+      within find(".card", text: topic.title[I18n.locale.to_s].upcase) do
+        expect(page).to have_css("tr", text: "Welcome to Decidim")
       end
     end
 
     context "with existing pages" do
-      let!(:decidim_page) { create(:static_page, organization: organization) }
+      let!(:decidim_page) { create(:static_page, :with_topic, organization: organization) }
+      let!(:topic) { create(:static_page_topic, organization: organization) }
 
       before do
         visit current_path
@@ -95,13 +199,14 @@ describe "Content pages", type: :system do
             "#static_page-content-tabs",
             en: "This is the new <strong>content</strong>"
           )
+          select topic.title[I18n.locale.to_s], from: "Topic"
           find("*[type=submit]").click
         end
 
         expect(page).to have_admin_callout("successfully")
 
-        within "table" do
-          expect(page).to have_content("Not welcomed anymore")
+        within find(".card", text: topic.title[I18n.locale.to_s].upcase) do
+          expect(page).to have_css("tr", text: "Not welcomed anymore")
         end
       end
 

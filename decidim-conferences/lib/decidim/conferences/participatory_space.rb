@@ -169,6 +169,17 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         )
       end
 
+      5.times do
+        Decidim::Conferences::RegistrationType.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          weight: Faker::Number.between(1, 10),
+          price: Faker::Number.between(1, 300),
+          published_at: 2.weeks.ago,
+          conference: conference
+        )
+      end
+
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(conference.reload)
       end

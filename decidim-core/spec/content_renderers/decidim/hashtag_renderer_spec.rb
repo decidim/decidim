@@ -4,16 +4,33 @@ require "spec_helper"
 
 module Decidim
   describe ContentRenderers::HashtagRenderer do
+    subject(:render) { renderer.render }
+
     let(:hashtag) { create(:hashtag) }
     let(:renderer) { described_class.new(content) }
-    let(:presenter) { Decidim::HashtagPresenter.new(hashtag) }
+    let(:presenter) { Decidim::HashtagPresenter.new(hashtag, cased_name: name) }
+    let(:name) { hashtag.name }
+    let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}/#{name}" }
+    let(:result) { %(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" href="/search?term=%23#{name}">##{name}</a>) }
 
-    context "when content has a valid Decidim::Hashtag Global ID" do
+    it { is_expected.to eq(result) }
+
+    context "when cased_name is not received" do
+      let(:presenter) { Decidim::HashtagPresenter.new(hashtag) }
+
+      it { is_expected.to eq(result) }
+    end
+
+    context "when parsed hashtag doesn't include the casing part" do
       let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}" }
 
-      it "renders the hashtagging" do
-        expect(renderer.render).to eq(%(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" href="/search?term=%23#{hashtag.name}">##{hashtag.name}</a>))
-      end
+      it { is_expected.to eq(result) }
+    end
+
+    context "when hashtag has upper case letters" do
+      let(:name) { hashtag.name.capitalize }
+
+      it { is_expected.to eq(result) }
     end
 
     context "when content has an unparsed hashtag" do
@@ -48,21 +65,33 @@ module Decidim
       end
     end
 
-    context "when render without link" do
-      context "when content is hash" do
-        let(:content) { "{'en'=>'This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}','ca'=>'Aquest text conté un Decidim::Hashtag Global ID valid: #{hashtag.to_global_id}'}" }
-
-        it "renders the hash with hashtags without_link" do
-          expect(renderer.render_without_link).to eq(%({'en'=>'This text contains a valid Decidim::Hashtag Global ID: ##{hashtag.name}','ca'=>'Aquest text conté un Decidim::Hashtag Global ID valid: ##{hashtag.name}'}))
-        end
+    context "when render without links" do
+      it "renders the hashtag without links" do
+        expect(renderer.render(links: false)).to eq(%(This text contains a valid Decidim::Hashtag Global ID: ##{hashtag.name}))
       end
+    end
 
-      context "when content is a string" do
-        let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}" }
+    context "when rendering extra tags" do
+      let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}/_#{name}" }
 
-        it "renders the hashtag without_link" do
-          expect(renderer.render_without_link).to eq(%(This text contains a valid Decidim::Hashtag Global ID: ##{hashtag.name}))
-        end
+      it { is_expected.to eq(result) }
+
+      it "renders the hashtag without the extra tag" do
+        expect(renderer.render(extras: false)).to eq("This text contains a valid Decidim::Hashtag Global ID: ")
+      end
+    end
+
+    describe "#extra_hashtags" do
+      subject { renderer.extra_hashtags }
+
+      before { render }
+
+      it { is_expected.to eq([]) }
+
+      context "when rendering extra tags" do
+        let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}/_#{name}" }
+
+        it { is_expected.to eq([hashtag]) }
       end
     end
   end

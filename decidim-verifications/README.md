@@ -76,9 +76,9 @@ Decidim implements two type of authorization methods:
   ```ruby
   # config/initializers/decidim.rb
 
-  Decidim::Verifications.register_workflow(:sms_verification) do |workflow|
-    workflow.engine = Decidim::Verifications::SmsVerification::Engine
-    workflow.admin_engine = Decidim::Verifications::SmsVerification::AdminEngine
+  Decidim::Verifications.register_workflow(:my_verification) do |workflow|
+    workflow.engine = Decidim::Verifications::MyVerification::Engine
+    workflow.admin_engine = Decidim::Verifications::MyVerification::AdminEngine
   end
   ```
 
@@ -96,6 +96,24 @@ Decidim implements two type of authorization methods:
 
   * `edit_authorization_path`: This is the entry point to resume an existing
     authorization process.
+
+### SMS verification
+
+Decidim comes with a verification workflow designed to verify users by sending
+an SMS to their mobile phone.
+
+Much like a Census verification you just need to implement a class that sends an
+SMS code using your preferred provider.
+
+In order to setup Decidim with SMS verification you need to:
+
+1. Create a class that accepts two parameters when initializing it (mobile phone and code) and a method named `deliver_code` that will send an SMS and return a truthy or falsey value if the delivery was OK or not.
+1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) at `config/initializers/decidim.rb`.
+
+Keep in mind that Decidim won't store a free text version of the mobile phone, only a hashed
+version so we can avoid duplicates and guarantee the users' privacy.
+
+You can find an example [here][example SMS gateway].
 
 ## Authorization options
 
@@ -163,16 +181,27 @@ its workflow manifest:
 ```ruby
 # config/initializers/decidim.rb
 
-Decidim::Verifications.register_workflow(:sms_verification) do |workflow|
-  workflow.engine = Decidim::Verifications::SmsVerification::Engine
-  workflow.admin_engine = Decidim::Verifications::SmsVerification::AdminEngine
-  workflow.action_authorizer = "Decidim::Verifications::SmsVerification::ActionAuthorizer"
+Decidim::Verifications.register_workflow(:my_verification) do |workflow|
+  workflow.engine = Decidim::Verifications::MyVerification::Engine
+  workflow.admin_engine = Decidim::Verifications::MyVerification::AdminEngine
+  workflow.action_authorizer = "Decidim::Verifications::MyVerification::ActionAuthorizer"
 end
 ```
 
 Check the [example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/dummy_authorization_handler.rb)
 and the [DefaultActionAuthorizer class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/default_action_authorizer.rb)
 for additional technical details.
+
+## How Handlers work
+
+For a workflow to be visible in the user's profile, the organization must have
+it in it's `available_authorizations` and the given handler must exist.
+The name of the handler must match the authorization name plus the "Hander"
+suffix. It also has to be in the `Decidim::Verifications` namespace.
+
+The handler is both the Form object that the user must fill in order to be
+verified, but also the validator of the filled information in order to grant the
+authorization.
 
 ## Installation
 
@@ -197,6 +226,7 @@ See [Decidim](https://github.com/decidim/decidim).
 See [Decidim](https://github.com/decidim/decidim).
 
 [authorization handler base class]: https://github.com/decidim/decidim/blob/master/decidim-core/app/services/decidim/authorization_handler.rb
+[example SMS gateway]: https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/sms/example_gateway.rb
 
 [Decidim Barcelona]: https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb
 [Decidim Terrassa]: https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb

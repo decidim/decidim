@@ -1,0 +1,14 @@
+<div class="row etherpad">
+  <div class="columns large-12">
+    <div class="section documents">
+      <h4 class="section-heading"><%= t("decidim.pad_iframe.pad") %></h4>
+      <p><%= t("decidim.pad_iframe.explanation") %></p>
+      <iframe
+        id="<%= iframe_id %>"
+        src="<%= iframe_url %>"
+        style="border: solid 4px #fff; border-radius: 4px; box-shadow: 0 0 0 1px #e8e8e8; width: 100%; height: 600px">
+      </iframe>
+      <p><%= t("decidim.pad_iframe.disclaimer", organization: current_organization.name) %></p>
+    </div>
+  </div>
+</div>

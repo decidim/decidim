@@ -94,6 +94,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
     metrics:
       comments:
+        description: Erabiltzaileek sortutako iruzkin kopurua
         object: iruzkinak
         title: Oharrak
   errors:

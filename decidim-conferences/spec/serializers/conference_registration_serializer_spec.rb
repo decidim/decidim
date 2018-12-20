@@ -20,6 +20,15 @@ module Decidim::Conferences
           include(email: conference_registration.user.email)
         )
       end
+
+      it "includes the registration type" do
+        expect(subject.serialize[:registration_type]).to(
+          include(title: conference_registration.registration_type.title)
+        )
+        expect(subject.serialize[:registration_type]).to(
+          include(price: conference_registration.registration_type.price)
+        )
+      end
     end
   end
 end

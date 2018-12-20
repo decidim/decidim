@@ -38,7 +38,7 @@ describe "Participatory Process Steps", type: :system do
     it "does not show a CTA button" do
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 
-      within ".process-phase" do
+      within ".process-header__phase" do
         expect(page).to have_no_css(".process-header__button")
       end
     end
@@ -51,7 +51,7 @@ describe "Participatory Process Steps", type: :system do
       it "shows a CTA button" do
         visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 
-        within ".process-phase" do
+        within ".process-header__phase" do
           expect(page).to have_link("Take action!")
         end
       end

@@ -18,6 +18,7 @@ module Decidim
       include_examples "has category"
       include_examples "has reference"
       include_examples "reportable"
+      include_examples "resourceable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
@@ -165,7 +166,7 @@ module Decidim
         end
 
         context "when user is not the author" do
-          let(:proposal) { build :proposal, component: component, updated_at: Time.current }
+          let(:proposal) { create :proposal, component: component, updated_at: Time.current }
 
           it { is_expected.not_to be_editable_by(author) }
         end

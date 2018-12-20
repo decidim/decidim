@@ -1,3 +1,11 @@
 <p><%= t(".confirmed_html", title: translated_attribute(@conference.title), url: @locator.url) %></p>
 
-<p><%= t(".details") %></p>
+<p><%= t(".details_1", registration_type: translated_attribute(@registration_type.title), price: number_to_currency((@registration_type.price || 0), locale: I18n.locale, unit: Decidim.currency_unit)) %></p>
+
+<ul>
+  <% @registration_type.conference_meetings.each do |conference_meeting| %>
+    <li><%= present(conference_meeting).title %> </li>
+  <% end %>
+</ul>
+
+<p><%= t(".details_2") %></p>

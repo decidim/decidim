@@ -24,6 +24,7 @@ eu:
         entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
+      decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
   activerecord:
     models:
       decidim/accountability/result:
@@ -202,8 +203,14 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{proposal_title}" jarraitzen ari zarenagatik. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{proposal_title} eguneratzea"
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> <a href="%{resource_path}">%{resource_title}</a> emaitza izan da.
+        result_progress_updated:
+          email_intro: '"%{resource_title}" emaitza, "%{proposal_title}" proposamena barne, orain% %{progress}osatuta dago. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpen hori jaso duzu "%{proposal_title}" jarraitzen duzulako eta proposamen hau "%{resource_title}" emaitza da. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{resource_title} aurrerapen eguneratzea'
+          notification_title: Emaitza <a href="%{resource_path}">%{resource_title}</a>, <a href="%{proposal_path}">%{proposal_title}</a>proposamena biltzen duena, orain% %{progress}osatu da.
     metrics:
       results:
+        description: Kontuak sortzeko emaitza kopurua
         object: emaitzak
         title: Emaitzak
     participatory_processes:
@@ -212,8 +219,7 @@ eu:
           results: Emaitzak
     participatory_spaces:
       highlighted_results:
-        results: Emaitzak
-        see_all_results: Ikusi emaitza guztiak
+        see_all: Ikusi dena (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak

@@ -82,8 +82,15 @@ pt-BR:
         changed_notably: Houve mudanças notáveis.
         content: Conteúdo
         organization: Organização
+        show_in_footer: Mostrar no rodapé
         slug: Texto curto de URL
         title: Título
+        weight: Peso
+      static_page_topic:
+        description: Descrição
+        show_in_footer: Mostrar no rodapé
+        title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:
@@ -248,6 +255,11 @@ pt-BR:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
+      help_sections:
+        error: Houve um erro ao atualizar as seções de ajuda
+        form:
+          save: Salve 
+        success: Seções de ajuda atualizadas com sucesso
       impersonatable_users:
         index:
           filter:
@@ -301,11 +313,12 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controle
+        help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
         newsletters: Newsletters
         oauth_applications: Aplicações OAuth
-        officializations: Oficializações
+        participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -545,6 +558,21 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este âmbito.
           success: Âmbito atualizado com sucesso
+      static_page_topics:
+        create:
+          error: Ocorreu um erro ao criar um novo tópico.
+          success: Tópico criado com sucesso.
+        destroy:
+          success: Tópico destruído com sucesso
+        edit:
+          title: Editar tópico
+          update: Atualizar tópico
+        new:
+          create: Criar tópico
+          title: Novo tópico
+        update:
+          error: Houve um erro ao atualizar este tópico.
+          success: Tópico atualizado com sucesso
       static_pages:
         actions:
           view: Ver página pública
@@ -557,11 +585,18 @@ pt-BR:
           changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar página
           update: Atualizar
+        form:
+          none: Nenhum
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar
+          create: Criar página
           title: Nova página
+        topic:
+          destroy: Remover tópico
+          edit: Editar tópico
+          empty: Não há página sob este tópico
+          without_topic: Páginas sem tópico
         update:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso
@@ -573,7 +608,7 @@ pt-BR:
         dashboard: painel de controle
         impersonatable_users: Usuários impersonáveis
         impersonations: Personagens
-        officializations: Oficializações
+        participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas

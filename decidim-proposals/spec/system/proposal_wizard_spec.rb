@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Proposal", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
+  let(:organization) { create :organization }
 
   let!(:category) { create :category, participatory_space: participatory_process }
   let!(:scope) { create :scope, organization: organization }

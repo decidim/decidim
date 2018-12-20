@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -23,6 +22,7 @@ pl:
         location_hints: Wskazówki co do miejsca
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
+        registration_form_enabled: Włączono formularz rejestracyjny
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
         start_time: Czas rozpoczęcia
@@ -54,19 +54,19 @@ pl:
   activerecord:
     models:
       decidim/meetings/meeting:
+        one: Spotkanie
         few: Spotkania
         many: Spotkania
-        one: Spotkanie
         other: Spotkania
       decidim/meetings/minutes:
+        one: Minuty
         few: Minuty
         many: Minuty
-        one: Minuty
         other: Minuty
       decidim/meetings/registration:
+        one: Rejestracja
         few: Rejestracje
         many: Rejestracje
-        one: Rejestracja
         other: Rejestracje
   decidim:
     admin:
@@ -88,6 +88,7 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             default_registration_terms: Domyślne warunki rejestracji
+            enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
           step:
             announcement: Ogłoszenie
@@ -115,9 +116,9 @@ pl:
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
         registration_code_validated:
-          email_intro: Twój kod rejestracyjny "%{registration_code}" został zatwierdzony.
+          email_intro: Twój kod rejestracyjny "%{registration_code}" dla spotkania "%{resource_title}" został zatwierdzony.
           email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny spotkania "%{resource_title}" został zatwierdzony.
-          email_subject: Twój kod rejestracyjny "%{registration_code}" został zatwierdzony
+          email_subject: Twój kod rejestracyjny "%{registration_code}" dla spotkania "%{resource_title}" został zatwierdzony
           notification_title: Twój kod rejestracyjny "%{registration_code}" dla spotkania <a href="%{resource_path}">%{resource_title}</a> został zatwierdzony.
         registrations_enabled:
           email_intro: 'Spotkanie "%{resource_title}" umożliwiło rejestrację. Możesz zarejestrować się na swojej stronie:'
@@ -133,7 +134,7 @@ pl:
       badges:
         attended_meetings:
           conditions:
-          - Zarejestruj się na spotkaniach, które chcesz wziąć udział
+            - Zarejestruj się na spotkaniach, które chcesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy bierzesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Brałeś udział w %{score} spotkaniach.
@@ -276,11 +277,12 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invites: Zaprasza
+            registration_form: Formularz rejestracyjny
             registrations_count:
-              few: Rejestrowano %{count}.
+              one: Nie było rejestracji %{count}.
+              few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
-              one: Została 1 rejestracja.
-              other: Rejestrowano %{count}.
+              other: Zarejestrowano %{count} rejestracji.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
           update:
@@ -306,6 +308,10 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      calendar_modal:
+        calendar_url: URL kalendarza
+        close_window: Zamknij okno
+        export_calendar: Eksportuj kalendarz
       conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_events:
@@ -364,10 +370,10 @@ pl:
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           remaining_slots:
-            few: Pozostało %{count}
-            many: Pozostało %{count} gniazd
-            one: Pozostało 1 gniazdo
-            other: Pozostało %{count}
+            one: "Pozostało %{count} szczelin"
+            few: "Pozostało %{count} gniazd"
+            many: "Pozostało %{count} gniazd"
+            other: "Pozostało %{count} gniazd"
           view: Widok
       meetings_map:
         view_meeting: Zobacz spotkanie
@@ -410,6 +416,7 @@ pl:
         transparent: Przezroczysty
     metrics:
       meetings:
+        description: Liczba utworzonych spotkań
         object: spotkania
         title: Spotkania
     participatory_processes:
@@ -420,7 +427,7 @@ pl:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Poprzednie spotkania
-        see_all_meetings: Zobacz wszystkie spotkania
+        see_all: Zobacz wszystko (%{count})
         upcoming_meetings: Nadchodzące spotkania
       upcoming_meeting_for_card:
         upcoming_meeting: Najbliższe spotkanie

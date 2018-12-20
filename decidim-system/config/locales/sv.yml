@@ -63,6 +63,10 @@ sv:
         update:
           error: Det uppstod ett fel vid uppdateringen av den här organisationen.
           success: Organisationen uppdaterades.
+        users_registration_mode:
+          disabled: Endast åtkomst kan göras med externa konton
+          enabled: Tillåt användare att registrera och logga in
+          existing: Låt inte användare registrera sig, men låta befintliga användare logga in
       shared:
         notices:
           no_organization_warning_html: Du måste skapa en organisation för att komma igång. Se till att du läser %{guide} innan du fortsätter.

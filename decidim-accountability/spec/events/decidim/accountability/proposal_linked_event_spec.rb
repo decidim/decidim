@@ -62,4 +62,10 @@ describe Decidim::Accountability::ProposalLinkedEvent do
       expect(subject.notification_title).to eq("The proposal <a href=\"#{proposal_path}\">#{proposal_title}</a> has been included in the <a href=\"#{resource_path}\">#{resource_title}</a> result.")
     end
   end
+
+  describe "resource_text" do
+    it "outputs the localized result description" do
+      expect(subject.resource_text).to eq translated(resource.description)
+    end
+  end
 end

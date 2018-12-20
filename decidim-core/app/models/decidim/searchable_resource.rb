@@ -32,6 +32,9 @@ module Decidim
 
     pg_search_scope :global_search,
                     against: { content_a: "A", content_b: "B", content_c: "C", content_d: "D" },
+                    using: {
+                      tsearch: { prefix: true }
+                    },
                     order_within_rank: "datetime DESC"
   end
 end

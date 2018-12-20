@@ -319,6 +319,12 @@ sv:
         designated_on: Betecknad den
       index:
         title: Medlemmar
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
+          page: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
+          title: Vad är sammansättningar?
     log:
       value_types:
         assembly_presenter:
@@ -327,6 +333,7 @@ sv:
       assemblies: Möten
     metrics:
       assemblies:
+        description: Antal monterade enheter
         object: aggregaten
         title: Assemblies
   errors:
@@ -343,15 +350,14 @@ sv:
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
-            one: "%{count} möte"
-            other: "%{count} möten"
+            one: "%{count} enheter"
+            other: "%{count} enheter"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
-      assembly_header:
-        assembly_member_menu_item: Medlemmar
+      assembly_navigation:
+        assembly_member_menu_item: medlemmar
         assembly_menu_item: Mötet
-        unfold: Veckla ut
       assembly_widgets:
         show:
           take_part: Delta

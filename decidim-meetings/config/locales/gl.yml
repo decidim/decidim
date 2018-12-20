@@ -23,6 +23,7 @@ gl:
         location_hints: Consellos de localización
         organizer_id: Organizador
         private_meeting: Encontro privado
+        registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
@@ -82,6 +83,7 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de rexistro por defecto
+            enable_pads_creation: Habilita a creación de pastillas
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
           step:
             announcement: Anuncio
@@ -109,9 +111,9 @@ gl:
           email_subject: Realizouse a reunión "%{resource_title}"
           notification_title: Reunirase a reunión <a href="%{resource_path}">%{resource_title}</a>.
         registration_code_validated:
-          email_intro: O seu código de rexistro "%{registration_code}" foi validado.
+          email_intro: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado.
           email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
-          email_subject: O seu código de rexistro "%{registration_code}" foi validado
+          email_subject: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado
           notification_title: O seu código de rexistro "%{registration_code}" para a xuntanza <a href="%{resource_path}">%{resource_title}</a> validouse.
         registrations_enabled:
           email_intro: 'A xuntanza "%{resource_title}" habilitou as inscricións. Pode rexistrarse na súa páxina:'
@@ -270,8 +272,9 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            registration_form: Formulario de inscrición
             registrations_count:
-              one: Houbo 1 rexistro.
+              one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
             reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
@@ -298,6 +301,10 @@ gl:
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendario
+        close_window: Pechar ventá
+        export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_events:
@@ -356,7 +363,7 @@ gl:
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           remaining_slots:
-            one: 1 slot restante
+            one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Ver
       meetings_map:
@@ -400,6 +407,7 @@ gl:
         transparent: Transparente
     metrics:
       meetings:
+        description: Número de reunións creadas
         object: reunións
         title: Reunións
     participatory_processes:
@@ -410,7 +418,7 @@ gl:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reunións pasadas
-        see_all_meetings: Ver todas as reunións
+        see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reunións
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunión

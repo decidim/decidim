@@ -20,9 +20,18 @@ describe "Conference registrations", type: :system do
       ca: "Un text legal"
     }
   end
+  let(:registration_types_count) { 5 }
+  let!(:registration_types) do
+    create_list(:registration_type, registration_types_count, conference: conference)
+  end
+  let(:registration_type) { registration_types.first }
 
   def visit_conference
     visit decidim_conferences.conference_path(conference)
+  end
+
+  def visit_conference_registration_types
+    visit decidim_conferences.conference_registration_types_path(conference)
   end
 
   before do
@@ -41,9 +50,8 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within ".extra.join-conference" do
-        expect(page).not_to have_button("JOIN CONFERENCE")
-        expect(page).not_to have_text("20 slots remaining")
+      within ".hero__container" do
+        expect(page).not_to have_button("REGISTER")
       end
     end
   end
@@ -53,15 +61,16 @@ describe "Conference registrations", type: :system do
       let(:available_slots) { 1 }
 
       before do
-        create(:conference_registration, conference: conference, user: user)
+        create(:conference_registration, conference: conference, user: user, registration_type: registration_type)
       end
 
       it "the registration button is disabled" do
-        visit_conference
+        visit_conference_registration_types
 
-        within ".extra.join-conference" do
-          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE")
-          expect(page).to have_text("0 slots remaining")
+        expect(page).to have_css(".conference-registration", count: registration_types_count)
+
+        within ".wrapper" do
+          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
         end
       end
     end
@@ -69,62 +78,61 @@ describe "Conference registrations", type: :system do
     context "and the conference has a slot available" do
       context "and the user is not logged in" do
         it "they have the option to sign in" do
-          visit_conference
+          visit_conference_registration_types
 
-          within ".extra.join-conference" do
-            click_button "Join Conference"
+          within ".wrapper" do
+            first(:button, "Registration").click
           end
 
           expect(page).to have_css("#loginModal", visible: true)
         end
       end
-
-      context "and the user is logged in" do
-        before do
-          login_as user, scope: :user
-        end
-
-        it "they can join the conference" do
-          visit_conference
-
-          within ".extra.join-conference" do
-            click_button "Join Conference"
-          end
-
-          within "#conference-registration-confirm-#{conference.id}" do
-            expect(page).to have_content "A legal text"
-            page.find(".button.expanded").click
-          end
-
-          expect(page).to have_content("successfully")
-
-          within ".extra.join-conference" do
-            expect(page).to have_css(".button", text: "GOING")
-            expect(page).to have_text("19 slots remaining")
-          end
-        end
-      end
     end
 
-    context "and the user is going to the conference" do
+    context "and the user is logged in" do
       before do
-        create(:conference_registration, conference: conference, user: user)
         login_as user, scope: :user
       end
 
-      it "they can leave the conference" do
-        visit_conference
+      it "they can join the conference" do
+        visit_conference_registration_types
 
-        within ".extra.join-conference" do
-          click_button "Going"
+        within "#registration-type-#{registration_type.id}" do
+          click_button "Registration"
+        end
+
+        within "#conference-registration-confirm-#{registration_type.id}" do
+          expect(page).to have_content "A legal text"
+          page.find(".button.expanded").click
         end
 
         expect(page).to have_content("successfully")
 
-        within ".extra.join-conference" do
-          expect(page).to have_css(".button", text: "JOIN CONFERENCE")
-          expect(page).to have_text("20 slots remaining")
+        within ".wrapper" do
+          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
         end
+      end
+    end
+  end
+
+  context "and the user is going to the conference" do
+    before do
+      create(:conference_registration, conference: conference, user: user, registration_type: registration_type)
+      login_as user, scope: :user
+    end
+
+    it "they can leave the conference" do
+      visit_conference_registration_types
+
+      within "#registration-type-#{registration_type.id}" do
+        click_button "Going"
+      end
+
+      expect(page).to have_content("successfully")
+
+      within ".wrapper" do
+        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
       end
     end
   end

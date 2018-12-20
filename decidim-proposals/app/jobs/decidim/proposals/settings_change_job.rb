@@ -23,26 +23,28 @@ module Decidim
           event: event,
           event_class: event_class,
           resource: component,
-          recipient_ids: component.participatory_space.followers.pluck(:id)
+          followers: component.participatory_space.followers
         )
       end
 
       private
 
+      # rubocop:disable Style/DoubleNegation
       def creation_enabled?(previous_settings, current_settings)
         current_settings[:creation_enabled] == true &&
-          previous_settings[:creation_enabled] == false
+          !!previous_settings[:creation_enabled] == false
       end
 
       def voting_enabled?(previous_settings, current_settings)
-        (current_settings[:votes_enabled] == true && current_settings[:votes_blocked] == false) &&
-          (previous_settings[:votes_enabled] == false || previous_settings[:votes_blocked] == true)
+        (current_settings[:votes_enabled] == true && !!current_settings[:votes_blocked] == false) &&
+          (!!previous_settings[:votes_enabled] == false || previous_settings[:votes_blocked] == true)
       end
 
       def endorsing_enabled?(previous_settings, current_settings)
-        (current_settings[:endorsements_enabled] == true && current_settings[:endorsements_blocked] == false) &&
-          (previous_settings[:endorsements_enabled] == false || previous_settings[:endorsements_blocked] == true)
+        (current_settings[:endorsements_enabled] == true && !!current_settings[:endorsements_blocked] == false) &&
+          (!!previous_settings[:endorsements_enabled] == false || previous_settings[:endorsements_blocked] == true)
       end
+      # rubocop:enable Style/DoubleNegation
     end
   end
 end

@@ -18,6 +18,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Hashtaggable
+      include Decidim::Forms::HasQuestionnaire
+      include Decidim::Paddable
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -144,6 +146,22 @@ module Decidim
 
       def resource_visible?
         !private_meeting? || transparent?
+      end
+
+      # Overwrites method from Paddable to add custom rules in order to know
+      # when to display a pad or not.
+      def pad_is_visible?
+        return false unless pad
+
+        (start_time - Time.current) <= 24.hours
+      end
+
+      # Overwrites method from Paddable to add custom rules in order to know
+      # when a pad is writable or not.
+      def pad_is_writable?
+        return false unless pad_is_visible?
+
+        (Time.current - end_time) < 72.hours
       end
     end
   end

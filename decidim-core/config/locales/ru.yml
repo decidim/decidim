@@ -9,7 +9,6 @@ ru:
         about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
-        nickname: Ваш короткий, уникальный псевдоним
         password: Пароль
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
@@ -28,11 +27,6 @@ ru:
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
     models:
-      decidim/user:
-        one: Участник
-        few: Участника
-        many: Участников
-        other: Участников
       decidim/user_group:
         one: Группа участников
         few: Группы участников
@@ -184,11 +178,6 @@ ru:
           ok: Хорошо
           title: Не подтвердили свою личность
     collapsible_list:
-      hidden_elements_count:
-        one: и еще 1
-        few: и еще %{count}
-        many: и еще %{count}
-        other: и еще %{count}
       see_less: "(читать меньше)"
       see_more: "(читать подробнее)"
     components:
@@ -384,7 +373,6 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -401,13 +389,9 @@ ru:
         create:
           error: Беседа не началась. Попробуйте позже
         index:
-          from: От
-          last_message_html: Последнее сообщение <strong>%{time} тому</strong>
           no_conversations: У вас еще нет бесед
-        show:
-          conversation_with_html: Беседа с <strong>%{name}</strong>
-          reply: Ответить
-          send: Отправить
+        reply:
+          title: Ответить
         start:
           send: Отправить
           title: Начать беседу
@@ -492,8 +476,6 @@ ru:
           votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
-      index:
-        title: Дополнительные сведения
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.
@@ -520,10 +502,8 @@ ru:
     profiles:
       default_officialization_text_for_users: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
-        conversations: Беседы
         followers: Читают
         following: Следит за
-        notifications: Уведомления
       user:
         edit_profile: Редактировать профиль
     reported_mailer:
@@ -550,14 +530,9 @@ ru:
       prompt: Выбрать охват
       scopes: Охваты
     search:
-      filter:
-        all: Все
-        component: Составляющие
       results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
-      filters:
-        search: Поиск
       filters_small_view:
         close_modal: Закрыть окошко
         filter: Отобрать

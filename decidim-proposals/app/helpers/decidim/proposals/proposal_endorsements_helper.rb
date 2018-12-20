@@ -109,10 +109,11 @@ module Decidim
       end
 
       # Renders the counter of endorsements that appears in card at show Propoal.
-      def render_endorsements_count_card_part(proposal, fully_endorsed)
+      def render_endorsements_count_card_part(proposal, fully_endorsed, html_class = nil)
         content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
         content += proposal.proposal_endorsements_count.to_s
-        tag_params = { id: "proposal-#{proposal.id}-endorsements-count", class: "button small compact light button--sc button--shadow #{fully_endorsed ? "success" : "secondary"}" }
+        html_class = "button small compact light button--sc button--shadow" if html_class.blank?
+        tag_params = { id: "proposal-#{proposal.id}-endorsements-count", class: "#{html_class} #{fully_endorsed ? "success" : "secondary"}" }
         if proposal.proposal_endorsements_count.positive?
           link_to "#list-of-endorsements", tag_params do
             content
@@ -124,18 +125,19 @@ module Decidim
         end
       end
 
-      def render_endorsements_button_card_part(proposal, fully_endorsed)
+      def render_endorsements_button_card_part(proposal, fully_endorsed, html_class = nil)
         endorse_translated = t("decidim.proposals.proposal_endorsements_helper.render_endorsements_button_card_part.endorse")
+        html_class = "card__button button" if html_class.blank?
         if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user)
-          content_tag :span, endorse_translated, class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
+          content_tag :span, endorse_translated, class: "#{html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
         elsif current_user && allowed_to?(:endorse, :proposal, proposal: proposal)
           render partial: "endorsement_identities_cabin", locals: { proposal: proposal, fully_endorsed: fully_endorsed }
         elsif current_user
           button_to(endorse_translated, proposal_path(proposal),
                     data: { open: "authorizationModal", "open-url": modal_path(:endorse, proposal) },
-                    class: "card__button button #{endorsement_button_classes(false)} secondary")
+                    class: "#{html_class} #{endorsement_button_classes(false)} secondary")
         else
-          action_authorized_button_to :endorse, endorse_translated, "", resource: proposal, class: "card__button button #{endorsement_button_classes(false)} secondary"
+          action_authorized_button_to :endorse, endorse_translated, "", resource: proposal, class: "#{html_class} #{endorsement_button_classes(false)} secondary"
         end
       end
     end

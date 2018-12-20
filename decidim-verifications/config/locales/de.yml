@@ -134,6 +134,20 @@ de:
           update:
             error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie den Brief, den wir Ihnen geschickt haben
             success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert
+      sms:
+        authorizations:
+          create:
+            error: Es gab ein Problem mit ihrer Anfrage
+            success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
+          edit:
+            send: Bestätigen
+            title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
+          new:
+            send: Senden Sie mir eine SMS
+            title: Fordern Sie Ihren Bestätigungscode an
+          update:
+            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
+            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert.
   errors:
     messages:
       uppercase_only_letters_numbers: muss groß geschrieben sein und darf nur Buchstaben und / oder Zahlen enthalten

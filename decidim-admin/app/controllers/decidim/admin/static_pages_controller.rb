@@ -8,9 +8,12 @@ module Decidim
       layout "decidim/admin/pages"
       before_action :tos_version_formatted, only: [:index, :edit]
 
+      helper_method :topics
+
       def index
         enforce_permission_to :read, :static_page
-        @pages = collection
+        @topics = Decidim::StaticPageTopic.where(organization: current_organization)
+        @orphan_pages = collection.where(topic: nil)
       end
 
       def new

@@ -103,7 +103,7 @@ module Decidim
         return safe_join [field_label, field_input]
       end
 
-      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs".underscore
       enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
       tabs_panels_data = enabled_tabs ? { tabs: true } : {}
 

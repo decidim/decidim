@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -60,9 +59,6 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
-        exports:
-          comments: commentaires
-          debates: débats
         models:
           debate:
             name: Débat
@@ -117,15 +113,19 @@ fr:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Bonjour, un nouveau débat a été créé sur l''espace participatif %{space_title}, consultez-le et contribuez :'
+            email_intro: |-
+              Salut,
+              Un nouveau débat «%{resource_title}» a été créée sur le %{space_title} espace participatif, vérifier et contribuer:
             email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
-            email_subject: Nouveau débat sur %{space_title}
+            email_subject: Nouveau débat "%{resource_title}" sur %{space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :'
+            email_intro: |-
+              Bonjour,
+              %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat "%{resource_title}". Découvrez-le et contribuez:
             email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
-            email_subject: Nouveau débat par %{author_nickname}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Nouveau débat "%{resource_title}" par %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> créé le débat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
@@ -140,7 +140,7 @@ fr:
       badges:
         commented_debates:
           conditions:
-          - Choisissez un débat ouvert pour participer à
+            - Choisissez un débat ouvert pour participer à
           description: Ce badge est attribué lorsque vous participez activement aux différents débats en laissant vos commentaires.
           description_another: Cet utilisateur a participé à %{score} débats.
           description_own: Vous avez participé à %{score} débats.
@@ -148,3 +148,8 @@ fr:
           next_level_in: Participez à %{score} autres débats pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore participé à aucun débat.
           unearned_own: Vous avez déjà participé à des débats.
+    metrics:
+      debates:
+        description: Nombre de débats créés
+        object: débats
+        title: Débats

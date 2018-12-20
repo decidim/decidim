@@ -53,6 +53,7 @@
             <th><%= t("models.conference_invite.fields.email", scope: "decidim.conferences") %></th>
             <th><%= t("models.conference_invite.fields.sent_at", scope: "decidim.conferences") %></th>
             <th><%= t("models.conference_invite.fields.status", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_invite.fields.registration_type", scope: "decidim.conferences") %></th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +73,9 @@
               </td>
               <td class="<%= presenter.status_html_class %>">
                 <%= presenter.status %>
+              </td>
+              <td>
+                <%= translated_attribute(invite.registration_type.title) %>
               </td>
             </tr>
           <% end %>

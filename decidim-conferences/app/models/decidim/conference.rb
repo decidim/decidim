@@ -48,12 +48,15 @@ module Decidim
     has_many :components, as: :participatory_space, dependent: :destroy
 
     has_many :media_links, class_name: "Decidim::Conferences::MediaLink", foreign_key: "decidim_conference_id", dependent: :destroy
+    has_many :registration_types, class_name: "Decidim::Conferences::RegistrationType", foreign_key: "decidim_conference_id", dependent: :destroy
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::HomepageImageUploader
+    mount_uploader :main_logo, Decidim::Conferences::DiplomaUploader
+    mount_uploader :signature, Decidim::Conferences::DiplomaUploader
 
     # Scope to return only the promoted conferences.
     #
@@ -78,6 +81,10 @@ module Decidim
       conference_registrations.where(user: user).any?
     end
 
+    def has_registration_for_user_and_registration_type?(user, registration_type)
+      conference_registrations.where(user: user, registration_type: registration_type).any?
+    end
+
     def has_available_slots?
       return true if available_slots.zero?
 
@@ -86,6 +93,11 @@ module Decidim
 
     def remaining_slots
       available_slots - conference_registrations.count
+    end
+
+    def diploma_sent?
+      return false if diploma_sent_at.nil?
+      true
     end
   end
 end

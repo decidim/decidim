@@ -118,17 +118,17 @@ en:
           space_followers:
             email_intro: |-
               Hi,
-              A new debate has been created on the %{space_title} participatory space, check it out and contribute:
+              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
             email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
-            email_subject: New debate on %{space_title}
+            email_subject: New debate "%{resource_title}" on %{space_title}
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hi,
-              %{author_name} %{author_nickname}, who you are following, has created a new debate, check it out and contribute:
+              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
             email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-            email_subject: New debate by %{author_nickname}
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: New debate "%{resource_title}" by %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
         creation_disabled:
           email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in opened debates from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -151,3 +151,8 @@ en:
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This user hasn't participated in any debate yet.
           unearned_own: You haven't participated in any debates yet.
+    metrics:
+      debates:
+        description: Number of debates created
+        object: debates
+        title: Debates

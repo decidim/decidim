@@ -32,15 +32,7 @@ module Decidim
 
       def add_calendar_attachment
         calendar = Icalendar::Calendar.new
-        calendar.event do |event|
-          event.dtstart = Icalendar::Values::DateTime.new(@meeting.start_time)
-          event.dtend = Icalendar::Values::DateTime.new(@meeting.end_time)
-          event.summary = present(@meeting).title
-          event.description = strip_tags(present(@meeting).description)
-          event.location = @meeting.address
-          event.geo = [@meeting.latitude, @meeting.longitude]
-          event.url = @locator.url
-        end
+        calendar.add_event(Calendar::MeetingToEvent.new(@meeting).event)
 
         attachments["meeting-calendar-info.ics"] = calendar.to_ical
       end

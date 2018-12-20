@@ -21,7 +21,7 @@ describe Decidim::MetricJob do
 
     it "executes manager actions" do
       expect(manager_class)
-        .to receive(:for)
+        .to receive(:new)
         .with(day, organization)
         .and_return(manager_object)
 

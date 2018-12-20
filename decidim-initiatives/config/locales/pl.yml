@@ -102,6 +102,12 @@ pl:
           next_level_in: Uzyskaj %{score} dodatkowych inicjatyw opublikowanych, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych inicjatyw.
           unearned_own: Nie opublikowano jeszcze żadnych inicjatyw.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Inicjatywa jest propozycją, którą może promować każdy z własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) poprzez zbieranie (cyfrowych) podpisów dla organizacji w celu przeprowadzenia konkretnego działania (modyfikacja rozporządzenia, zainicjowanie projektu , zmień nazwę wydziału lub ulicy itp.).</p> <p>Organizatorzy inicjatywy mogą określić swoje cele, zebrać wsparcie, debatę, upowszechnić i określić miejsca spotkań, w których można zbierać podpisy od uczestników lub debaty otwarte dla innych uczestników.</p> <p>Przykłady: Inicjatywa może zbierać podpisy, aby zwoływać konsultacje wśród wszystkich osób w organizacji, tworzyć lub zwoływać zgromadzenie lub inicjować proces zwiększania budżetu dla terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów więcej osób może zwiększyć to zapotrzebowanie i przenieść je do przodu w organizacji.</p>\n"
+          page: "<p>Inicjatywa jest propozycją, którą może promować każdy z własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) poprzez zbieranie (cyfrowych) podpisów dla organizacji w celu przeprowadzenia konkretnego działania (modyfikacja rozporządzenia, zainicjowanie projektu , zmień nazwę wydziału lub ulicy itp.).</p> <p>Organizatorzy inicjatywy mogą określić swoje cele, zebrać wsparcie, debatę, upowszechnić i określić miejsca spotkań, w których można zbierać podpisy od uczestników lub debaty otwarte dla innych uczestników.</p> <p>Przykłady: Inicjatywa może zbierać podpisy, aby zwoływać konsultacje wśród wszystkich osób w organizacji, tworzyć lub zwoływać zgromadzenie lub inicjować proces zwiększania budżetu dla terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów więcej osób może zwiększyć to zapotrzebowanie i przenieść je do przodu w organizacji.</p>\n"
+          title: Jakie są inicjatywy?
     initiatives:
       admin:
         committee_requests:
@@ -375,9 +381,10 @@ pl:
         promotal_committee: Komitet promotorski
         select_initiative_type: Wybierać
         show_similar_initiatives: Porównać
+        step: Krok %{current} z %{total}
+        title: Utwórz nową inicjatywę
       initiative_header:
         initiative_menu_item: Inicjatywa
-        unfold: Rozwijać się
       initiatives:
         initiative:
           check: Sprawdź to

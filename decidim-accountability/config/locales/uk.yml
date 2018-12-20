@@ -208,10 +208,6 @@ uk:
       participatory_process_groups:
         highlighted_results:
           results: Підсумки
-    participatory_spaces:
-      highlighted_results:
-        results: Підсумки
-        see_all_results: Переглянути всі підсумки
     resource_links:
       included_projects:
         result_project: Проекти, включені до цих підсумків

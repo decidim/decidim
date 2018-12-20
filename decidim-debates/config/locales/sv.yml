@@ -114,16 +114,18 @@ sv:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hej, En ny debatt har skapats på deltagandeplatsen %{space_title}, kolla in det och bidra:
+              Hej,
+              En ny debatt "%{resource_title}" har skapats på %{space_title} deltagande utrymmen, kolla in det och bidra:
             email_outro: Du har fått denna notis eftersom du följer deltagandeplatsen %{space_title}. Du kan sluta ta emot notiser på föregående länk.
-            email_subject: Ny debatt om %{space_title}
+            email_subject: Ny debatt "%{resource_title}" på %{space_title}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades på <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hej, %{author_name} %{author_nickname}, som du följer har skapat en ny debatt, kolla in den och bidra:
+              Hej,
+              %{author_name} %{author_nickname}, som du följer, har skapat en ny debatt "%{resource_title}". Kolla in det och bidra med:
             email_outro: Du har fått den här notisen eftersom du följer %{author_nickname}. Du kan sluta ta emot notiser vid föregående länk.
-            email_subject: Ny debatt av %{author_nickname}
-            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Ny debatt "%{resource_title}" med %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> skapade <a href="%{resource_path}">%{resource_title}</a> debatten.
         creation_disabled:
           email_intro: 'Debattskapandet är inte längre aktivt i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter på den här sidan:'
           email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
@@ -146,3 +148,8 @@ sv:
           next_level_in: Delta i %{score} fler debatter för att nå nästa nivå!
           unearned_another: Den här användaren har inte deltagit i någon debatt än.
           unearned_own: Du har inte deltagit i några debatter än.
+    metrics:
+      debates:
+        description: Antal debatter skapade
+        object: diskussioner
+        title: debatter

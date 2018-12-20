@@ -44,12 +44,20 @@ module Decidim
       end
 
       initializer "decidim_comments.register_metrics" do
-        Decidim.metrics_registry.register(
-          :comments,
-          "Decidim::Comments::Metrics::CommentsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
-          6
-        )
+        Decidim.metrics_registry.register(:comments) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Comments::Metrics::CommentsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
+            settings.attribute :weight, type: :integer, default: 6
+            settings.attribute :stat_block, type: :string, default: "small"
+          end
+        end
+
+        Decidim.metrics_operation.register(:participants, :comments) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Comments::Metrics::CommentParticipantsMetricMeasure"
+        end
       end
     end
   end

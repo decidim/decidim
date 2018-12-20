@@ -59,6 +59,7 @@ module Decidim
             {
               user: user,
               conference: conference,
+              registration_type: form.registration_type,
               sent_at: Time.current
             },
             log_info
@@ -74,11 +75,11 @@ module Decidim
             if user.invited_to_sign_up?
               invite_user_to_sign_up
             else
-              InviteJoinConferenceMailer.invite(user, conference, invited_by).deliver_later
+              InviteJoinConferenceMailer.invite(user, conference, form.registration_type, invited_by).deliver_later
             end
           else
             user.name = form.name
-            user.nickname = User.nicknamize(user.name, organization: user.organization)
+            user.nickname = UserBaseEntity.nicknamize(user.name, organization: user.organization)
             invite_user_to_sign_up
             create_invitation!
           end

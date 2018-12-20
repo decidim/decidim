@@ -44,7 +44,10 @@ module Decidim
                     decidim_admin.static_pages_path,
                     icon_name: "book",
                     position: 4,
-                    active: :inclusive,
+                    active: [%w(
+                      decidim/admin/static_pages
+                      decidim/admin/static_page_topics
+                    ), []],
                     if: allowed_to?(:read, :static_page)
 
           menu.item I18n.t("menu.users", scope: "decidim.admin"),

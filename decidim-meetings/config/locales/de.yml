@@ -23,6 +23,7 @@ de:
         location_hints: Standorthinweise
         organizer_id: Veranstalter
         private_meeting: Privates Treffen
+        registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         start_time: Startzeit
@@ -82,6 +83,7 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             default_registration_terms: Standard-Registrierungsbedingungen
+            enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
           step:
             announcement: Ankündigung
@@ -109,9 +111,9 @@ de:
           email_subject: Das "%{resource_title}" Meeting wurde aktualisiert
           notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Meeting wurde aktualisiert.
         registration_code_validated:
-          email_intro: Ihr Registrierungscode "%{registration_code}" wurde bestätigt.
+          email_intro: Ihr Registrierungscode "%{registration_code}" für das Meeting "%{resource_title}" wurde bestätigt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Registrierungscode für das Meeting "%{resource_title}" validiert wurde.
-          email_subject: Ihr Registrierungscode "%{registration_code}" wurde bestätigt
+          email_subject: Ihr Registrierungscode "%{registration_code}" für das Meeting "%{resource_title}" wurde bestätigt
           notification_title: Ihr Registrierungscode "%{registration_code}" für das <a href="%{resource_path}">%{resource_title}</a> Meeting wurde bestätigt.
         registrations_enabled:
           email_intro: 'Das "%{resource_title}" Meeting hat Registrierungen ermöglicht. Sie können sich auf seiner Seite registrieren:'
@@ -270,9 +272,10 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
+            registration_form: Anmeldeformular
             registrations_count:
-              one: Es gab 1 Registrierung.
-              other: Es gab %{count} Registrierungen.
+              one: Es wurde %{count} registriert.
+              other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
           update:
@@ -298,6 +301,10 @@ de:
         minutes:
           create: "%{user_name} erstellt das Protokoll des Treffens %{resource_name} auf dem %{space_name} Feld"
           update: "%{user_name} aktualisiert das Protokoll der Sitzung %{resource_name} auf den %{space_name} Feldern"
+      calendar_modal:
+        calendar_url: Kalender-URL
+        close_window: Fenster schließen
+        export_calendar: Kalender exportieren
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_events:
@@ -356,8 +363,8 @@ de:
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           remaining_slots:
-            one: 1 Steckplatz übrig
-            other: "%{count} freie Plätze"
+            one: "%{count} Slot bleibt übrig"
+            other: "Noch %{count} Slots"
           view: Aussicht
       meetings_map:
         view_meeting: Besprechung anzeigen
@@ -400,6 +407,7 @@ de:
         transparent: Transparent
     metrics:
       meetings:
+        description: Anzahl der erstellten Meetings
         object: Treffen
         title: Meetings
     participatory_processes:
@@ -410,7 +418,6 @@ de:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen
-        see_all_meetings: Alle Besprechungen anzeigen
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen

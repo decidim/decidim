@@ -16,6 +16,7 @@ module Decidim
       manage_self_user_action?
       authorization_action?
       follow_action?
+      amend_action?
       notification_action?
       conversation_action?
       user_group_action?
@@ -81,6 +82,17 @@ module Decidim
 
       follow = context.fetch(:follow, nil)
       toggle_allow(follow&.user == user)
+    end
+
+    def amend_action?
+      return unless permission_action.subject == :amendment
+      return allow! if permission_action.action == :create
+      return allow! if permission_action.action == :reject
+      return allow! if permission_action.action == :promote
+      return allow! if permission_action.action == :accept
+
+      amendment = context.fetch(:amendment, nil)
+      toggle_allow(amendment&.amender == user)
     end
 
     def notification_action?

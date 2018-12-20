@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe CreateCollaborativeDraft do
       let(:form_klass) { CollaborativeDraftForm }
-      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
+      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, :with_extra_hashtags, suggested_hashtags: suggested_hashtags.join(" ")) }
       let(:organization) { component.organization }
       let(:user) { create :user, :confirmed, organization: organization }
       let(:form) do
@@ -31,6 +31,7 @@ module Decidim
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
       let(:attachment_params) { nil }
+      let(:suggested_hashtags) { [] }
 
       describe "call" do
         let(:form_params) do
@@ -42,7 +43,8 @@ module Decidim
             latitude: latitude,
             longitude: longitude,
             attachment: attachment_params,
-            user_group_id: user_group.try(:id)
+            user_group_id: user_group.try(:id),
+            suggested_hashtags: suggested_hashtags
           }
         end
 
@@ -90,6 +92,17 @@ module Decidim
             end
           end
 
+          context "with extra hashtags" do
+            let(:suggested_hashtags) { %w(Hashtag1 Hashtag2) }
+
+            it "saves the extra hashtags" do
+              command.call
+              collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
+              expect(collaborative_draft.body).to include("_Hashtag1")
+              expect(collaborative_draft.body).to include("_Hashtag2")
+            end
+          end
+
           context "with a user group" do
             it "sets the user group" do
               command.call
@@ -104,8 +117,12 @@ module Decidim
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:create, Decidim::Proposals::CollaborativeDraft, kind_of(Decidim::User))
-              .and_call_original
+              .with(
+                :create,
+                Decidim::Proposals::CollaborativeDraft,
+                user,
+                visibility: "public-only"
+              ).and_call_original
 
             expect { command.call }.to change(Decidim::ActionLog, :count)
             action_log = Decidim::ActionLog.last

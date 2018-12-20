@@ -304,7 +304,6 @@ uk:
         impersonations: Виступи в ролі учасника
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
-        officializations: Надання службового статусу
         scope_types: Різновиди обсягу
         scopes: Обсяги
         settings: Налаштування
@@ -568,7 +567,6 @@ uk:
         dashboard: Приладна дошка
         impersonatable_users: Учасники, в ролі яких можна виступати
         impersonations: Виступи в ролі учасника
-        officializations: Надання службового статусу
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки

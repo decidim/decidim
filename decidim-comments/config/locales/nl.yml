@@ -94,6 +94,7 @@ nl:
           notification_title: Je bent getagd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Aantal opmerkingen gegenereerd door gebruikers
         object: opmerkingen
         title: Comments
   errors:

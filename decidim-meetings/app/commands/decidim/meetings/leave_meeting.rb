@@ -22,6 +22,7 @@ module Decidim
           return broadcast(:invalid) unless registration
 
           destroy_registration
+          destroy_questionnaire_answers
           decrement_score
         end
         broadcast(:ok)
@@ -35,6 +36,15 @@ module Decidim
 
       def destroy_registration
         registration.destroy!
+      end
+
+      def questionnaire_answers
+        questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
+        questionnaire.answers.where(user: @user)
+      end
+
+      def destroy_questionnaire_answers
+        questionnaire_answers.destroy_all
       end
 
       def decrement_score

@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
-  description: @collaborative_draft.body,
-  title: @collaborative_draft.title,
+  description: present(@collaborative_draft).body,
+  title: present(@collaborative_draft).title,
   url: collaborative_draft_url(@collaborative_draft.id)
 }) %>
 
@@ -19,10 +19,10 @@
   <% end %>
 
   <h2 class="heading2">
-    <%= @collaborative_draft.title %>
+    <%= present(@collaborative_draft).title(links: true) %>
   </h2>
 
-  <%= cell("decidim/coauthorships", @collaborative_draft, has_actions: true, size: 3) %>
+  <%= cell("decidim/coauthorships", @collaborative_draft, has_actions: true, size: 3, context: { current_user: current_user }) %>
 </div>
 
 <div class="row">
@@ -110,7 +110,7 @@
     <div class="section">
       <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
 
-      <%= simple_format @collaborative_draft.body %>
+      <%= simple_format present(@collaborative_draft).body(links: true) %>
 
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>

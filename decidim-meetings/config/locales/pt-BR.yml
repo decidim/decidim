@@ -22,6 +22,7 @@ pt-BR:
         location_hints: Dicas de localização
         organizer_id: Organizador
         private_meeting: Reunião privada
+        registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
         registrations_enabled: Registos habilitados
         start_time: Hora de início
@@ -81,6 +82,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
+            enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
           step:
             announcement: Anúncio
@@ -108,9 +110,9 @@ pt-BR:
           email_subject: A reunião "%{resource_title}" foi atualizada
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
         registration_code_validated:
-          email_intro: Seu código de registro "%{registration_code}" foi confirmado.
+          email_intro: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado.
           email_outro: Você recebeu esta notificação porque seu código de registro para a reunião "%{resource_title}" foi validado.
-          email_subject: Seu código de registro "%{registration_code}" foi confirmado
+          email_subject: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado
           notification_title: Seu código de registro "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
         registrations_enabled:
           email_intro: 'A reunião "%{resource_title}" permitiu registos. Você pode se registrar em sua página:'
@@ -269,9 +271,10 @@ pt-BR:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            registration_form: Formulário de registro
             registrations_count:
-              one: Houve 1 registro.
-              other: Houve %{count} registos.
+              one: Houve %{count} registro.
+              other: Houve %{count} inscrições.
             reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
           update:
@@ -297,6 +300,10 @@ pt-BR:
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendário
+        close_window: Janela fechada
+        export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_events:
@@ -355,7 +362,7 @@ pt-BR:
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
           remaining_slots:
-            one: 1 slot restante
+            one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Visualizar
       meetings_map:
@@ -399,6 +406,7 @@ pt-BR:
         transparent: Transparente
     metrics:
       meetings:
+        description: Número de reuniões criadas
         object: reuniões
         title: Reuniões
     participatory_processes:
@@ -409,7 +417,7 @@ pt-BR:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores
-        see_all_meetings: Veja todas as reuniões
+        see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reuniões
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunião

@@ -96,6 +96,12 @@ gl:
           next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non recibiu ningunha iniciativa publicada.
           unearned_own: Aínda non recibiu ningunha iniciativa publicada.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Unha iniciativa é unha proposta que pode ser promovida por calquera por propia iniciativa (independentemente doutras canles ou espazos de participación) a través da recollida de sinaturas (dixitais) para que a organización realice unha acción específica (modifique unha regulación, inicie un proxecto , cambie o nome dun departamento ou unha rúa, etc.).</p> <p>Os promotores dunha iniciativa poden definir os seus obxectivos, reunir apoio, debater, difundilos e definir puntos de encontro onde se recollan as sinaturas dos asistentes ou debates abertos a outros participantes.</p> <p>Exemplos: Unha iniciativa pode recoller firmas para convocar unha consulta entre todas as persoas dunha organización, ou crear ou convocar unha asemblea ou iniciar un proceso de aumento de orzamento para un territorio ou área da organización. Durante o proceso de recollida de sinaturas, máis persoas poden engadir a esta demanda e avanzar na organización.</p>\n"
+          page: "<p>Unha iniciativa é unha proposta que pode ser promovida por calquera por propia iniciativa (independentemente doutras canles ou espazos de participación) a través da recollida de sinaturas (dixitais) para que a organización realice unha acción específica (modifique unha regulación, inicie un proxecto , cambie o nome dun departamento ou unha rúa, etc.).</p> <p>Os promotores dunha iniciativa poden definir os seus obxectivos, reunir apoio, debater, difundilos e definir puntos de encontro onde se recollan as sinaturas dos asistentes ou debates abertos a outros participantes.</p> <p>Exemplos: Unha iniciativa pode recoller firmas para convocar unha consulta entre todas as persoas dunha organización, ou crear ou convocar unha asemblea ou iniciar un proceso de aumento de orzamento para un territorio ou área da organización. Durante o proceso de recollida de sinaturas, máis persoas poden engadir a esta demanda e avanzar na organización.</p>\n"
+          title: Cales son as iniciativas?
     initiatives:
       admin:
         committee_requests:
@@ -361,9 +367,10 @@ gl:
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
         show_similar_initiatives: Compare
+        step: Paso %{current} de %{total}
+        title: Crea unha nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Despregar
       initiatives:
         initiative:
           check: Bótalle unha ollada

@@ -14,16 +14,30 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :conferences, param: :slug, except: :show do
+        resources :conferences, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
           resources :speakers, controller: "conference_speakers"
           resources :partners, controller: "partners", except: [:show]
           resources :media_links, controller: "media_links"
+          resources :registration_types, controller: "registration_types" do
+            resource :publish, controller: "registration_type_publications", only: [:create, :destroy]
+            collection do
+              get :conference_meetings
+            end
+          end
           resources :conference_invites, only: [:index, :new, :create]
           resources :conference_registrations, only: :index do
+            member do
+              post :confirm
+            end
             collection do
               get :export
+            end
+          end
+          resource :diploma, only: [:edit, :update] do
+            member do
+              post :send, to: "diplomas#send_diplomas"
             end
           end
           resources :user_roles, controller: "conference_user_roles" do
@@ -75,7 +89,7 @@ module Decidim
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.conferences", scope: "decidim.admin"),
                     decidim_admin_conferences.conferences_path,
-                    icon_name: "dial",
+                    icon_name: "microphone",
                     position: 3.5,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :conferences)

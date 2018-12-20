@@ -1,10 +1,10 @@
-<%- if controller_name != "sessions" %>
+<%- if controller_name != "sessions" && resource_class != Decidim::UserGroup %>
   <p class="text-center">
     <%= link_to t("devise.shared.links.sign_in"), new_session_path(resource_name) %>
   </p>
 <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != "registrations" %>
+<%- if current_organization.sign_up_enabled? && devise_mapping.registerable? && controller_name != "registrations" %>
   <p class="text-center">
     <%= link_to t("devise.shared.links.sign_up"), new_registration_path(resource_name) %>
   </p>
@@ -16,7 +16,7 @@
   </p>
 <% end -%>
 
-<%- if devise_mapping.confirmable? && controller_name != "confirmations" %>
+<%- if current_organization.sign_up_enabled? && devise_mapping.confirmable? && controller_name != "confirmations" %>
   <p class="text-center">
     <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
   </p>

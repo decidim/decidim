@@ -83,8 +83,15 @@ es:
         changed_notably: Ha habido cambios notables.
         content: Contenido
         organization: Organización
+        show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        weight: Peso
+      static_page_topic:
+        description: Descripción
+        show_in_footer: Mostrar en el pie de página
+        title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:
@@ -249,6 +256,11 @@ es:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
+      help_sections:
+        error: Ha habido un error al actualizar las secciones de ayuda.
+        form:
+          save: Salvar
+        success: Secciones de ayuda actualizadas exitosamente
       impersonatable_users:
         index:
           filter:
@@ -307,11 +319,12 @@ es:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
-        officializations: Oficializaciones
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -580,6 +593,21 @@ es:
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
+      static_page_topics:
+        create:
+          error: Se ha producido un error al crear un nuevo tema.
+          success: Tema creado correctamente.
+        destroy:
+          success: Tema eliminado correctamente
+        edit:
+          title: Editar tema
+          update: Actualizar tema
+        new:
+          create: Crear tema
+          title: Nuevo tema
+        update:
+          error: Se ha producido un error al actualizar este tema.
+          success: Tema actualizado correctamente
       static_pages:
         actions:
           view: Ver la página pública
@@ -592,11 +620,18 @@ es:
           changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
           title: Editar página
           update: Actualizar
+        form:
+          none: Ninguna
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear
+          create: Crear página
           title: Nueva página
+        topic:
+          destroy: Eliminar tema
+          edit: Editar tema
+          empty: No hay ninguna página para este tema
+          without_topic: Páginas sin tema
         update:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
@@ -611,6 +646,7 @@ es:
         managed_users: Usuarios administrados
         navbar_links: Enlaces de Navbar
         officializations: Oficializaciones
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

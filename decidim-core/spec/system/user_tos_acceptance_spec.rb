@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "UserTosAcceptance", type: :system do
-  let!(:organization) { create(:organization, :with_tos) }
+  let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
   let(:btn_accept) { "I agree this terms" }
@@ -15,7 +15,7 @@ describe "UserTosAcceptance", type: :system do
 
   describe "When the Organization TOS version is updated" do
     before do
-      organization.update!(tos_version: Time.current)
+      organization.update!(tos_version: Faker::Date.forward(15))
       login_as user, scope: :user
       visit decidim.root_path
     end

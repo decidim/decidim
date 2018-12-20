@@ -7,8 +7,8 @@
   <%= partial "template_top" %>
 
 <main>
+  <%= partial "process_header" %>
   <div class="wrapper">
-    <%= partial "process_header" %>
     <div class="row">
       <div class="columns view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
         <div class="section">
@@ -125,7 +125,7 @@
                 <article class="card card--member">
                   <div class="card__content">
                     <div class="card__header collapse">
-                      <%= partial "author_data", { big: true, verified: false, nick: Faker::Boolean.boolean } %>
+                      <%= partial "author_data", { big: true, verified: false, nick: false } %>
                     </div>
                     <div class="card__text card--picture-offset">
                       <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>

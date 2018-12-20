@@ -39,7 +39,7 @@ edit_link(
         <div id="project-<%= project.id %>-budget-button">
           <%= render partial: "project_budget_button", locals: { project: project } %>
         </div>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: project } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false  } %>
       </div>
     </div>
     <%= resource_reference(project) %>

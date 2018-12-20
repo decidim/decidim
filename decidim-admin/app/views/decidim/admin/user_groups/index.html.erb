@@ -38,7 +38,10 @@
 
 <div class="card" id='user-groups'>
   <div class="card-divider">
-    <h2 class="card-title"><%= t "decidim.admin.titles.user_groups" %></h2>
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.user_groups" %>
+      <%= link_to t(".verify_via_csv"), new_user_groups_csv_verification_path, class: "button tiny button--title" %>
+    </h2>
   </div>
   <div class="card-section">
     <div class="table-scroll">

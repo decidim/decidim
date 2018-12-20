@@ -64,22 +64,6 @@ describe "Admin manages assemblies", type: :system do
     end
   end
 
-  shared_examples "deleting an assembly" do
-    before do
-      click_link translated(assembly.title)
-    end
-
-    it "deletes an assembly" do
-      accept_confirm { click_link "Delete" }
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).not_to have_content(translated(assembly.title))
-      end
-    end
-  end
-
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
 
@@ -91,7 +75,6 @@ describe "Admin manages assemblies", type: :system do
 
     it_behaves_like "manage assemblies"
     it_behaves_like "creating an assembly"
-    it_behaves_like "deleting an assembly"
   end
 
   context "when managing child assemblies" do
@@ -110,6 +93,5 @@ describe "Admin manages assemblies", type: :system do
 
     it_behaves_like "manage assemblies"
     it_behaves_like "creating an assembly"
-    it_behaves_like "deleting an assembly"
   end
 end

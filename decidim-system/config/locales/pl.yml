@@ -64,6 +64,10 @@ pl:
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została zaktualizowana.
+        users_registration_mode:
+          disabled: Dostęp można uzyskać tylko za pomocą kont zewnętrznych
+          enabled: Zezwalaj użytkownikom na rejestrację i logowanie
+          existing: Nie zezwalaj użytkownikom na rejestrację, ale zezwalaj istniejącym użytkownikom na logowanie
       shared:
         notices:
           no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj, czy przeczytasz %{guide}.

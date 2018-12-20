@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/forms/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
 
@@ -29,6 +30,8 @@ FactoryBot.define do
         { title: generate_localized_title, description: generate_localized_title }
       ]
     end
+    questionnaire { build(:questionnaire) }
+    registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
 
     organizer do

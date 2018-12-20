@@ -83,8 +83,15 @@ pl:
         changed_notably: Nastąpiły zauważalne zmiany.
         content: Zadowolony
         organization: Organizacja
+        show_in_footer: Pokaż w stopce
         slug: Ślimak URL
         title: Tytuł
+        weight: Waga
+      static_page_topic:
+        description: Opis
+        show_in_footer: Pokaż w stopce
+        title: Tytuł
+        weight: Waga
     errors:
       models:
         oauth_application:
@@ -249,6 +256,11 @@ pl:
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
+      help_sections:
+        error: Wystąpił błąd podczas aktualizowania sekcji pomocy
+        form:
+          save: Zapisać
+        success: Sekcje pomocy zostały pomyślnie zaktualizowane
       impersonatable_users:
         index:
           filter:
@@ -307,11 +319,12 @@ pl:
         areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
+        help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
-        officializations: Oficjalizacje
+        participants: Uczestnicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -580,6 +593,21 @@ pl:
         update:
           error: Podczas aktualizowania tego zakresu wystąpił błąd.
           success: Zakres został zaktualizowany
+      static_page_topics:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego tematu.
+          success: Temat został utworzony pomyślnie.
+        destroy:
+          success: Temat został pomyślnie zniszczony
+        edit:
+          title: Edytuj temat
+          update: Zaktualizuj temat
+        new:
+          create: Utwórz temat
+          title: Nowy temat
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego tematu.
+          success: Temat zaktualizowany pomyślnie
       static_pages:
         actions:
           view: Wyświetl stronę publiczną
@@ -592,11 +620,18 @@ pl:
           changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o zaakceptowaniu nowych warunków.
           title: Edytuj stronę
           update: Aktualizacja
+        form:
+          none: Żaden
         index:
           last_notable_change: Ostatnia godna uwagi zmiana
         new:
-          create: Stwórz
+          create: Stwórz stronę
           title: Nowa strona
+        topic:
+          destroy: Usuń temat
+          edit: Edytuj temat
+          empty: W tym temacie nie ma strony
+          without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
@@ -611,6 +646,7 @@ pl:
         managed_users: Managed users
         navbar_links: Navbar links
         officializations: Oficjalizacje
+        participants: Uczestnicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony

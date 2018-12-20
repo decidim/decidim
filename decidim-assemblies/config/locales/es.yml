@@ -320,6 +320,12 @@ es:
         designated_on: Designado en
       index:
         title: Miembros
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Una asamblea es un grupo de miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un área o alcance específico de la organización.</p> <p>asambleas celebran reuniones, algunas son privadas y otras están abiertas. Si están abiertos, es posible participar en ellos (por ejemplo: asistir si la capacidad lo permite, agregar puntos a la agenda o comentar sobre las propuestas y decisiones tomadas por este órgano).</p> <p>Ejemplos: una asamblea general (que se reúne una vez al año para definir las principales líneas de acción de la organización, así como sus órganos ejecutivos por voto), un consejo asesor de igualdad (que se reúne cada dos meses para hacer propuestas sobre cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para supervisar un proceso) o un organismo de garantía (que recopila incidentes, abusos o propuestas para mejorar los procedimientos de toma de decisiones) son ejemplos de asambleas.</p>\n"
+          page: "<p>Una asamblea es un grupo de miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un área o alcance específico de la organización.</p> <p>asambleas celebran reuniones, algunas son privadas y otras están abiertas. Si están abiertos, es posible participar en ellos (por ejemplo: asistir si la capacidad lo permite, agregar puntos a la agenda o comentar sobre las propuestas y decisiones tomadas por este órgano).</p> <p>Ejemplos: una asamblea general (que se reúne una vez al año para definir las principales líneas de acción de la organización, así como sus órganos ejecutivos por voto), un consejo asesor de igualdad (que se reúne cada dos meses para hacer propuestas sobre cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para supervisar un proceso) o un organismo de garantía (que recopila incidentes, abusos o propuestas para mejorar los procedimientos de toma de decisiones) son ejemplos de asambleas.</p>\n"
+          title: '¿Qué son las asambleas?'
     log:
       value_types:
         assembly_presenter:
@@ -328,6 +334,7 @@ es:
       assemblies: Asambleas
     metrics:
       assemblies:
+        description: Número de ensamblajes creados
         object: asambleas
         title: Asambleas
   errors:
@@ -344,15 +351,14 @@ es:
           reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
-            one: "%{count} asamblea"
+            one: "%{count} asambleas"
             other: "%{count} asambleas"
         promoted_assembly:
           more_info: Más información
           take_part: Participa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Miembros
         assembly_menu_item: La asamblea
-        unfold: Desplegar
       assembly_widgets:
         show:
           take_part: Participa

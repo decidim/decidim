@@ -9,6 +9,7 @@ module Decidim::Budgets
     let(:project) { create :project }
 
     include_examples "has reference"
+    include_examples "resourceable"
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }

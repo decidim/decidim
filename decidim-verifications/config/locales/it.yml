@@ -134,6 +134,20 @@ it:
           update:
             error: Il tuo codice di verifica non corrisponde al nostro. Per favore controlla la lettera che ti abbiamo inviato
             success: Felicitazioni. Sei stato verificato con successo
+      sms:
+        authorizations:
+          create:
+            error: c'è stato un problema con la tua richiesta
+            success: Grazie! Abbiamo inviato un SMS al tuo telefono.
+          edit:
+            send: Confermare
+            title: Inserisci il codice di verifica che hai ricevuto
+          new:
+            send: Mandami un sms
+            title: Richiedi il tuo codice di verifica
+          update:
+            error: Il tuo codice di verifica non corrisponde al nostro. Si prega di ricontrollare l'SMS che ti abbiamo inviato.
+            success: Congratulazioni. Sei stato verificato con successo.
   errors:
     messages:
       uppercase_only_letters_numbers: deve essere tutto in maiuscolo e contenere solo lettere e / o numeri

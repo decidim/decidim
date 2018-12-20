@@ -83,8 +83,15 @@ gl:
         changed_notably: Houbo cambios notables.
         content: Contido
         organization: Organización
+        show_in_footer: Amosar no pé de páxina
         slug: URL slug
         title: Título
+        weight: Peso
+      static_page_topic:
+        description: Descrición
+        show_in_footer: Amosar no pé de páxina
+        title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:
@@ -249,6 +256,11 @@ gl:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
+      help_sections:
+        error: Produciuse un erro ao actualizar as seccións de axuda
+        form:
+          save: Gardar
+        success: As seccións de axuda actualizáronse con éxito
       impersonatable_users:
         index:
           filter:
@@ -307,11 +319,12 @@ gl:
         areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
+        help_sections: Seccións de axuda
         homepage: Páxina de inicio
         impersonations: Impersonacións
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
-        officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -580,6 +593,21 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este alcance.
           success: Ámbito actualizado con éxito
+      static_page_topics:
+        create:
+          error: Produciuse un erro ao crear un tema novo.
+          success: O tema creouse con éxito.
+        destroy:
+          success: Tema destruído con éxito
+        edit:
+          title: Editar tema
+          update: Actualizar tema
+        new:
+          create: Crear tema
+          title: Novo tema
+        update:
+          error: Produciuse un erro ao actualizar este tema.
+          success: Tema actualizado correctamente
       static_pages:
         actions:
           view: Ver páxina pública
@@ -592,11 +620,18 @@ gl:
           changed_notably_help: Se está marcado, os usuarios serán notificados para aceptar os novos termos e condicións.
           title: Editar páxina
           update: Actualización
+        form:
+          none: Nada
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear
+          create: Crear páxina
           title: Nova páxina
+        topic:
+          destroy: Eliminar tema
+          edit: Editar tema
+          empty: Non hai ningunha páxina neste tema
+          without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
           success: Páxina actualizada con éxito
@@ -611,6 +646,7 @@ gl:
         managed_users: Managed users
         navbar_links: Navbar links
         officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas

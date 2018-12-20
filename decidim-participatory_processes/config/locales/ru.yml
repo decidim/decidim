@@ -379,9 +379,8 @@ ru:
           active_step: 'Текущий шаг:'
           more_info: Дополнительные сведения
           take_part: Принять участие
-      process_header:
-        process_menu_item: Движение
-        unfold: Развернуть
       process_header_steps:
         step: Шаг %{current} из %{total}
         view_steps: Просмотреть шаги
+      process_navigation:
+        process_menu_item: Движение

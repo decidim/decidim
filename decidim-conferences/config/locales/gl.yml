@@ -45,11 +45,13 @@ gl:
         other: Conferenciantes de conferencias
       decidim/conference_user_role:
         one: Rol de usuario da conferencia
-        other: Funcións do usuario da conferencia
+        other: Rol de usuario da conferencia
   decidim:
     admin:
       actions:
+        confirm: Confirmar
         new_conference: Nova conferencia
+        send_diplomas: Enviar diplomas
       conference_copies:
         new:
           copy: Copiar
@@ -62,6 +64,10 @@ gl:
         destroy:
           error: Produciuse un erro ao publicar esta conferencia.
           success: Conferencia inédita con éxito.
+      conference_registration:
+        confirm:
+          error: Produciuse un erro ao confirmar este rexistro da conferencia.
+          success: O rexistro da conferencia confirmouse con éxito.
       conference_speakers:
         create:
           error: Houbo un erro engadindo un altofalante para esta conferencia.
@@ -146,14 +152,17 @@ gl:
           attachments: Anexos
           categories: Categorías
           components: Compoñentes
-          conference_admins: Administradores de conferencias
-          conference_invites: Conferencia convida
-          conference_registrations: Rexistros de conferencias
-          conference_speakers: Conferenciantes de conferencias
+          conference_admins: Usuarios da conferencia
+          conference_invites: Invitacións
+          conference_speakers: Ponentes
+          diploma: Diploma
           info: Información
           media_links: Ligazóns multimedia
           moderations: Moderacións
           partners: Socios
+          registration_types: Tipos de Rexistro
+          registrations: Rexistros
+          user_registrations: Rexistros de usuarios
       models:
         conference:
           fields:
@@ -193,6 +202,14 @@ gl:
           types:
             collaborator: Colaborador
             main_promotor: Promotor principal
+        registration_type:
+          fields:
+            conference_meetings: Reunións de conferencias
+            price: Prezo
+            registrations_count: Contas de rexistro
+            title: Título
+            weight: Peso
+          name: Tipo de rexistro
       partners:
         create:
           error: Houbo un erro engadindo un compañeiro para esta conferencia.
@@ -208,14 +225,38 @@ gl:
         update:
           error: Houbo un erro actualizado por un compañeiro desta conferencia.
           success: O socio actualizouse con éxito para esta conferencia.
+      registration_type_publications:
+        create:
+          error: Produciuse un erro ao publicar este tipo de rexistro.
+          success: O tipo de rexistro publicouse con éxito.
+        destroy:
+          error: Produciuse un erro ao publicar este tipo de rexistro.
+          success: O tipo de rexistro non foi publicado con éxito.
+      registration_types:
+        create:
+          error: Produciuse un erro engadindo un tipo de rexistro para esta conferencia.
+          success: O tipo de rexistro engadiuse con éxito a esta conferencia.
+        destroy:
+          success: O tipo de rexistro eliminouse con éxito desta conferencia.
+        edit:
+          title: Actualizar o tipo de rexistro.
+          update: Actualización
+        new:
+          create: Crear
+          title: Novo tipo de rexistro
+        update:
+          error: Houbo un erro actualizado un tipo de rexistro para esta conferencia.
+          success: O tipo de rexistro actualizouse con éxito para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
       conference:
         create: "%{user_name} creou a %{resource_name} conferencia"
         publish: "%{user_name} publicou a %{resource_name} conferencia"
+        send_conference_diplomas: "%{user_name} envía diplomas aos %{resource_name} usuarios da conferencia"
         unpublish: "%{user_name} inédita a %{resource_name} conferencia"
         update: "%{user_name} actualizou a %{resource_name} conferencia"
+        update_diploma: "%{user_name} actualizou a conferencia de configuración do diploma %{resource_name}"
       conference_speaker:
         create: "%{user_name} creou o %{resource_name} altofalante na %{space_name} conferencia"
         delete: "%{user_name} eliminou o %{resource_name} altofalante da %{space_name} conferencia"
@@ -224,6 +265,22 @@ gl:
         create: "%{user_name} invitados %{resource_name} á %{space_name} conferencias"
         delete: "%{user_name} eliminou o usuario %{resource_name} da %{space_name} conferencia"
         update: "%{user_name} cambiou o papel de %{resource_name} na %{space_name} conferencia"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} confirmou a inscrición na conferencia en %{resource_name} conferencia"
+        partner:
+          create: "%{user_name} creou %{resource_name} á %{space_name} conferencia"
+          delete: "%{user_name} eliminou o usuario %{resource_name} da %{space_name} conferencia"
+          update: "%{user_name} actualizouse %{resource_name} na %{space_name} conferencia"
+        registration_type:
+          create: "%{user_name} creou o %{resource_name} tipo de rexistro na %{space_name} conferencia"
+          publish: "%{user_name} publicou o %{resource_name} tipo de rexistro na %{space_name} conferencia"
+          unpublish: "%{user_name} inédita o %{resource_name} tipo de rexistro na %{space_name} conferencia"
+          update: "%{user_name} actualizou o tipo de rexistro %{resource_name} na conferencia %{space_name}"
+      media_link:
+        create: "%{user_name} creou a ligazón de %{resource_name} medio na %{space_name} conferencia"
+        delete: "%{user_name} eliminou a ligazón de %{resource_name} medio da %{space_name} conferencia"
+        update: "%{user_name} actualizou a %{resource_name} ligazón de medios na %{space_name} conferencia"
     conference_program:
       index:
         title: Programa
@@ -277,25 +334,42 @@ gl:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        diplomas:
+          edit:
+            save: Gardar
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
-            join: Únete á conferencia '%{conference_title}'
+            registration: Rexistro para '%{conference_title}'
         partners:
           index:
             title: Socios
+        registration_types:
+          form:
+            select_conference_meetings: Seleccionar reunións de conferencias
+          index:
+            title: Tipos de rexistro
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Atopará o diploma da conferencia <a href="%{url}">%{title}</a> nos anexos.
+          diploma_user:
+            attendance_verified_by: Asistencia verificada por
+            certificate_of_attendance: Certificado de asistencia
+            certificate_of_attendance_description: Isto acredita que <strong>%{user}</strong> asistiu e participou no <strong>%{title}</strong> realizado no <strong>%{location}</strong> do <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Houbo un problema ao enviar os diplomas da conferencia.
+          success: Diplomas de conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
         show:
+          free: Gratis
           going: Indo
-          join: Únete á conferencia
           no_slots_available: Non hai slots dispoñibles
-          remaining_slots:
-            one: 1 slot restante
-            other: "%{count} slots restantes"
+          registration: Rexistro
       conference_program:
         program_meeting:
           content: Contido
@@ -308,7 +382,12 @@ gl:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Inscríbase o rexistro da conferencia <a href="%{url}">%{title}</a>.
-          details: Atoparás os detalles da conferencia no anexo.
+          details_1: 'Estás rexistrado na conferencia con %{registration_type} tipo. Ten un custo de %{price} e podes asistir aos seguintes eventos:'
+          details_2: Atoparás os detalles da conferencia no anexo.
+        pending_validation:
+          confirmation_pending: Recibirás a confirmación en breve
+          details: 'Rexistráronse en %{registration_type} tipo cun custo de %{price} e podes asistir aos seguintes eventos:'
+          pending_html: O teu rexistro para a conferencia <a href="%{url}">%{title}</a> está pendente de ser confirmado.
       conference_registrations:
         create:
           invalid: Houbo un problema ao participar nesta conferencia.
@@ -335,16 +414,12 @@ gl:
           speakers: Ponentes
       conferences:
         partners:
-          collaborators: Colaboradores
-          main_promotors: Principais promotores
+          collaborators: Socios
+          main_promotors: Organizadores
         show:
-          already_account: Xa tes unha conta en decidir?
           login_as: Estás conectado como %{name} <%{email}>
           make_conference_registration: 'Fai a túa inscrición na conferencia:'
-          new_user: Novo usuario?
           register: Rexistrarse
-          sign_in: Iniciar sesión para rexistrarse nesta conferencia
-          sign_up: Inscríbase de forma gratuita na decisión de rexistrarse
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -354,14 +429,20 @@ gl:
         conference_registration_mailer:
           confirmation:
             subject: O rexistro da túa conferencia foi confirmado
+          pending_validation:
+            subject: A inscrición da túa conferencia está pendente de confirmación
         invite_join_conference_mailer:
           invite:
             subject: Invitación para participar nunha conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Enviouse o diploma da súa conferencia
       models:
         conference_invite:
           fields:
             email: Correo electrónico
             name: Nome
+            registration_type: Tipo de rexistro
             sent_at: Enviado en
             status: Estado
           status:
@@ -372,6 +453,11 @@ gl:
           fields:
             email: Correo electrónico
             name: Nome
+            registration_type: Tipo de rexistro
+            state: Estado
+            states:
+              confirmed: Confirmado
+              pending: Pendente
       pages:
         home:
           highlighted_conferences:
@@ -384,6 +470,18 @@ gl:
       photos_list:
         show:
           related_photos: Fotos
+      registration_types:
+        index:
+          choose_an_option: 'Elixe a túa opción de rexistro:'
+          login_as: Estás conectado como %{name} <%{email}>
+          register: Rexistrarse
+          title: Tipos de rexistro
+      shared:
+        conference_user_login:
+          already_account: Xa tes unha conta en decidir?
+          new_user: Novo usuario?
+          sign_in: Iniciar sesión para rexistrarse na conferencia
+          sign_up: Crea unha conta na que decidimos rexistrarte para a conferencia
       show:
         details: Detalles
         introduction: Introdución
@@ -441,6 +539,8 @@ gl:
         subject: Invitación para participar nunha conferencia
   layouts:
     decidim:
+      conference_hero:
+        register: Rexistrarse
       conference_widgets:
         show:
           take_part: Tomar parte en
@@ -461,5 +561,4 @@ gl:
         conference_partners_menu_item: Socios
         conference_speaker_menu_item: Ponentes
         media: Medios de comunicación
-        unfold: Despregar
         venues: Lugares

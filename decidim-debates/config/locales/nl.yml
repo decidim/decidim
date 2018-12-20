@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -60,9 +59,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
-        exports:
-          comments: commentaren
-          debates: debatten
         models:
           debate:
             name: Debat
@@ -119,15 +115,17 @@ nl:
           space_followers:
             email_intro: |-
               Hallo,
-              Er is een nieuw debat gestart in de %{space_title} participatieve ruimte, bekijk het en neem deel:
+              Een nieuw debat "%{resource_title}" is opgezet op de %{space_title} participatieruimte, bekijk het en draag bij:
             email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de voorgaande link.
-            email_subject: Nieuw debat op %{space_title}
+            email_subject: Nieuw debat "%{resource_title}" op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Hallo, %{author_name} %{author_nickname}, iemand die je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:'
+            email_intro: |-
+              Hallo,
+              %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat "%{resource_title}" gemaakt. Bekijk het en draag bij:
             email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de voorgaande link.
-            email_subject: Nieuw debat door %{author_nickname}
-            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Nieuw debat "%{resource_title}" met %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creëerde het debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Het is niet langer mogelijk een debat aan te maken in %{participatory_space_title}. Je kan nog steeds deelnemen aan lopende debatten op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
@@ -142,7 +140,7 @@ nl:
       badges:
         commented_debates:
           conditions:
-          - Kies een open debat om deel te nemen
+            - Kies een open debat om deel te nemen
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.
@@ -150,3 +148,8 @@ nl:
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
           unearned_own: Je hebt nog deelgenomen aan debatten.
+    metrics:
+      debates:
+        description: Aantal debatten gemaakt
+        object: debatten
+        title: debatten

@@ -9,7 +9,7 @@ sv:
         about: Om
         email: Din e-post
         name: Ditt namn
-        nickname: Din korta, unika identifierare
+        nickname: smeknamn
         password: Lösenord
         password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
@@ -36,7 +36,7 @@ sv:
         remember_me: Kom ihåg mig
     models:
       decidim/user:
-        one: Användare
+        one: Inga användare
         other: användare
       decidim/user_group:
         one: Användargrupp
@@ -163,6 +163,9 @@ sv:
           foo: foo
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
+      sms:
+        explanation: Skicka ditt mobilnummer så att vi kan kontrollera din identitet.
+        name: Kod via SMS
       started_at: Börjat vid %{timestamp}
     authorization_modals:
       show:
@@ -196,7 +199,7 @@ sv:
           title: Bekräfta din e-postadress
     collapsible_list:
       hidden_elements_count:
-        one: och 1 mer
+        one: och %{count} mer
         other: och %{count} mer
       see_less: "(se mindre)"
       see_more: "(se mer)"
@@ -211,6 +214,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
+            enable_pads_creation: Aktivera skapandet av pads
             resources_permissions_enabled: Resursbehörigheter aktiverade
           step:
             comments_blocked: Kommentarer blockerade
@@ -280,6 +284,8 @@ sv:
         new:
           are_you_new?: Ny på plattformen?
           register: Skapa ett konto
+          sign_in_disabled: Du kan få tillgång till ett externt konto
+          sign_up_disabled: Anmälan är inaktiverad, du kan använda en befintlig användare för att komma åt
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +538,13 @@ sv:
       edit:
         edit_user_group: Redigera grupp
         update_user_group: Uppdatera grupp
+      form:
+        document_number_help: Använd inte bindestreck eller mellanslag
+        email_help: E-post till din organisation, förening, kollektiv, grupp, etc.
+        fill_in_for_verification: 'Fyll i dessa fält om du vill att din grupp ska verifieras:'
+        name_help: Namn på din organisation, förening, kollektiv, grupp, etc.
+        nickname_help: Användarnamn till din organisation, förening, kollektiva, grupp etc. Använd inte mellanslag eller accenter.
+        phone_help: Använd inte bindestreck eller mellanslag
       join:
         error: Det har uppstått ett problem med att gå med i gruppen
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
@@ -545,6 +558,7 @@ sv:
       new:
         create_user_group: Skapa grupp
         new_user_group: Ny grupp
+        subtitle: Skapa en grupp och bjud in andra användare att gå med för att delta i en kollektiv nivå.
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
@@ -553,6 +567,13 @@ sv:
       update:
         error: Det har förekommit ett problem med att uppdatera gruppen
         success: Gruppen uppdaterades
+    help:
+      main_topic:
+        default_page:
+          content: "<p>I %{organization} du delta och bestämma olika ämnen genom de utrymmen du ser på toppmenyn: Processer, Sammansättningar, Initiativ, Konsultationer.</p> <p>Inom varje man hittar du olika alternativ att delta: Gör förslag - enskilt eller med andra människor - delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
+          title: Vad kan jag göra i %{organization}?
+        description: Läs mer om %{organization}
+        title: Generell hjälp
     last_activities:
       activities:
         no_activities_warning: Ingen aktivitet
@@ -584,8 +605,8 @@ sv:
     members:
       no_members: Denna användargrupp har inga medlemmar.
     menu:
+      help: Hjälp
       home: Hem
-      more_information: Mer information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -602,20 +623,29 @@ sv:
         create:
           error: Samtalet startade inte. Försök igen senare
         index:
-          from: Från
-          last_message_html: Senast meddelande <strong>%{time} sedan</strong>
           no_conversations: Du har inga konversationer än
-        show:
-          conversation_with_html: Samtal med <strong>%{name}</strong>
-          reply: Svara
+          title: samtal
+        reply:
           send: Skicka
+          title: Svara
+        show:
+          title: Samtal med %{usernames}
         start:
           send: Skicka
           title: Starta en konversation
         update:
           error: Meddelandet har inte skickats. Försök igen senare
     metrics:
+      followers:
+        description: Antal användare som följer i organisationen
+        object: följare
+        title: anhängare
+      participants:
+        description: Antal aktiva användare i organisationen
+        object: deltagarna
+        title: Deltagarna
       users:
+        description: Antal användare i organisationen
         object: användare
         title: Användare
     newsletter_mailer:
@@ -659,6 +689,10 @@ sv:
         pending: Pågående
         rejected: Avvisad
         verified: Verifierad
+    pad_iframe:
+      disclaimer: Innehållet i denna kudde är skrivet av registrerade användare och uttryckt sina åsikter. %{organization} kan inte hållas ansvarig för innehållet.
+      explanation: Använd denna kudde för att samarbeta anteckningar under mötet så det är lättare att skriva ner minuten efteråt.
+      pad: Vaddera
     pages:
       home:
         extended:
@@ -701,7 +735,15 @@ sv:
         sub_hero:
           register: Registrera dig
       index:
-        title: Mer information
+        read_more: Läs mer
+        standalone_pages: sidor
+        subheading: Navigera genom hjälpsidorna till %{name}
+        title: Hjälp
+        topics: ämnen
+      participatory_space:
+        metrics:
+          headline: Deltagande i siffror
+          link: Visa all statistik
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
@@ -729,13 +771,14 @@ sv:
       default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
+        activity: Aktivitet
         badges: Emblem
-        conversations: Konversationer
         followers: Anhängare
         following: Följer
         groups: Grupper
         members: Medlemmar
-        notifications: Notiser
+        timeline: tidslinje
+        view_full_profile: Visa hela profilen
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
@@ -773,24 +816,35 @@ sv:
       prompt: Välj en omfattning
       scopes: Omfattningar
     search:
-      filter:
-        all: Alla
-        component: Komponent
       results_found_for_term: '%{count} Resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
-        search: Sök
+        back: Tillbaka till resultat
+        jump_to: 'Hoppa till:'
+        state:
+          active: Aktiva
+          all: Allt
+          future: Framtida
+          past: Dåtid
       filters_small_view:
         close_modal: Stäng modal
         filter: Filtrera
         filter_by: Filtrera efter
         unfold: Veckla ut
+      results:
+        results:
+          one: "%{count} resultat"
+          other: "%{count} resultat"
+        view_all: Visa alla (%{count})
     shared:
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
         embed_link: Bädda in
+      extended_navigation_bar:
+        more: Mer
+        unfold: Veckla ut
       flag_modal:
         already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
         close: Stäng
@@ -800,6 +854,8 @@ sv:
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
         title: Rapportera ett problem
+      floating_help:
+        help: Hjälp
       follow_button:
         sign_in_before_follow: Vänligen logga in innan du utför den här åtgärden
       login_modal:
@@ -815,6 +871,12 @@ sv:
         share_link: Dela länk
       version_author:
         deleted: Raderad användare
+    user_activity:
+      index:
+        no_activities_warning: Den här användaren har inte någon aktivitet än.
+    welcome_notification:
+      default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
+      default_subject: Tack för att du gick med {{organization}}!
   devise:
     confirmations:
       confirmed: Din e-postadress har bekräftats.
@@ -1023,11 +1085,6 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för lik din e-post

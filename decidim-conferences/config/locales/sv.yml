@@ -44,11 +44,13 @@ sv:
         other: Konferenshögtalare
       decidim/conference_user_role:
         one: Konferens användarroll
-        other: Konference användarroller
+        other: Konferens användarroll
   decidim:
     admin:
       actions:
+        confirm: Bekräfta
         new_conference: Ny konferens
+        send_diplomas: Skicka diplom
       conference_copies:
         new:
           copy: Kopiera
@@ -61,6 +63,10 @@ sv:
         destroy:
           error: Ett fel uppstod vid publicering av denna konferens.
           success: Konferensen publicerades framgångsrikt.
+      conference_registration:
+        confirm:
+          error: Ett fel uppstod vid bekräftelse av denna konferensregistrering.
+          success: Konferensregistrering bekräftades med framgång.
       conference_speakers:
         create:
           error: Det gick inte att lägga till en högtalare för den här konferensen.
@@ -145,14 +151,17 @@ sv:
           attachments: bilagor
           categories: kategorier
           components: Komponenter
-          conference_admins: Konferensadministratörer
-          conference_invites: Konferensinbjudningar
-          conference_registrations: Konferensregistreringar
-          conference_speakers: Konferenshögtalare
+          conference_admins: Konferensanvändare
+          conference_invites: Inbjudningskort
+          conference_speakers: högtalare
+          diploma: Diplom
           info: Info
           media_links: Media Länkar
           moderations: modere
           partners: partners
+          registration_types: Registreringstyper
+          registrations: registreringar
+          user_registrations: Användarregistreringar
       models:
         conference:
           fields:
@@ -192,6 +201,14 @@ sv:
           types:
             collaborator: Medarbetare
             main_promotor: Huvudpromotor
+        registration_type:
+          fields:
+            conference_meetings: Konferensmöten
+            price: Pris
+            registrations_count: Registreringar räknas
+            title: Titel
+            weight: Vikt
+          name: Registreringstyp
       partners:
         create:
           error: Det gick inte att lägga till en partner för den här konferensen.
@@ -207,14 +224,38 @@ sv:
         update:
           error: Det uppstod ett fel som uppdaterade en partner för den här konferensen.
           success: Partner uppdaterad framgångsrikt för denna konferens.
+      registration_type_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av denna registreringstyp.
+          success: Registreringstypen publicerades framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av denna registreringstyp.
+          success: Registreringstypen publicerades inte framgångsrikt.
+      registration_types:
+        create:
+          error: Det gick inte att lägga till en registreringstyp för den här konferensen.
+          success: Registreringstypen har lagts till framgång på denna konferens.
+        destroy:
+          success: Registreringstypen har tagits bort framgångsrikt från denna konferens.
+        edit:
+          title: Uppdatera registreringstypen.
+          update: Uppdatering
+        new:
+          create: Skapa
+          title: Ny registreringstyp
+        update:
+          error: Det uppstod ett fel som uppdaterade en registreringstyp för den här konferensen.
+          success: Registreringstypen uppdaterades framgångsrikt för denna konferens.
       titles:
         conferences: konferenser
     admin_log:
       conference:
         create: "%{user_name} skapade %{resource_name} konferens"
         publish: "%{user_name} publicerade %{resource_name} konferens"
+        send_conference_diplomas: "%{user_name} skicka examensbevis till de %{resource_name} konferensanvändarna"
         unpublish: "%{user_name} opublicerade %{resource_name} konferens"
         update: "%{user_name} uppdaterade %{resource_name} konferens"
+        update_diploma: "%{user_name} uppdaterade diplomkonfiguration %{resource_name} konferens"
       conference_speaker:
         create: "%{user_name} skapade %{resource_name} högtalare på %{space_name} konferensen"
         delete: "%{user_name} bort %{resource_name} högtalaren från %{space_name} konferens"
@@ -223,6 +264,22 @@ sv:
         create: "%{user_name} inbjudna %{resource_name} till %{space_name} konferens"
         delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
         update: "%{user_name} ändrade rollen som %{resource_name} i %{space_name} konferensen"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} bekräftade en konferensregistrering på %{resource_name} konferens"
+        partner:
+          create: "%{user_name} skapade %{resource_name} till %{space_name} konferensen"
+          delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
+          update: "%{user_name} uppdaterad %{resource_name} på %{space_name} konferensen"
+        registration_type:
+          create: "%{user_name} skapade %{resource_name} registreringstyp i %{space_name} konferensen"
+          publish: "%{user_name} publicerade %{resource_name} registreringstyp i %{space_name} konferensen"
+          unpublish: "%{user_name} opublicerade %{resource_name} registreringstyp i %{space_name} konferensen"
+          update: "%{user_name} uppdaterade %{resource_name} registreringstyp i %{space_name} konferensen"
+      media_link:
+        create: "%{user_name} skapade %{resource_name} media länk i %{space_name} konferensen"
+        delete: "%{user_name} bort %{resource_name} media länk från %{space_name} konferensen"
+        update: "%{user_name} uppdaterade %{resource_name} media länk på %{space_name} konferensen"
     conference_program:
       index:
         title: Program
@@ -276,25 +333,42 @@ sv:
               one: Det har gjorts 1 registrering.
               other: Det har gjorts %{count} registreringar.
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på denna konferens. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+        diplomas:
+          edit:
+            save: Spara
+            title: Diplom
         invite_join_conference_mailer:
           invite:
             decline: Avvisa inbjudan '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller acceptera det genom länkarna nedan."
-            join: Gå med i konferens '%{conference_title}'
+            registration: Registrering för '%{conference_title}'
         partners:
           index:
             title: partners
+        registration_types:
+          form:
+            select_conference_meetings: Välj konferensmöten
+          index:
+            title: Registreringstyper
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Du kommer att hitta diplom för konferensen <a href="%{url}">%{title}</a> i bilagorna.
+          diploma_user:
+            attendance_verified_by: Närvaro verifierad av
+            certificate_of_attendance: Närvarointyg
+            certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och deltagit i <strong>%{title}</strong> hölls på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Det har varit ett problem när du skickade konferensdiplom.
+          success: Konferens Diplom skickas korrekt
       conference:
         registration_confirm:
           cancel: Annullera
           confirm: Bekräfta
         show:
+          free: Fri
           going: Gående
-          join: Gå med i konferens
           no_slots_available: Inga slots tillgängliga
-          remaining_slots:
-            one: 1 slits kvar
-            other: "%{count} slits kvar"
+          registration: Registrering
       conference_program:
         program_meeting:
           content: Innehåll
@@ -307,7 +381,12 @@ sv:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
-          details: Du hittar konferensens detaljer i bilagan.
+          details_1: 'Du är registrerad på konferensen med %{registration_type} typ. Det kostar %{price} och du kan delta i följande evenemang:'
+          details_2: Du hittar konferensens detaljer i bilagan.
+        pending_validation:
+          confirmation_pending: Du kommer snart att få bekräftelsen
+          details: 'Du har registrerat dig till %{registration_type} typ med en kostnad av %{price} och du kan delta i följande händelser:'
+          pending_html: Din registrering för konferensen <a href="%{url}">%{title}</a> väntar på att bekräftas.
       conference_registrations:
         create:
           invalid: Det har varit ett problem att gå med i denna konferens.
@@ -334,16 +413,12 @@ sv:
           speakers: högtalare
       conferences:
         partners:
-          collaborators: medarbetare
-          main_promotors: Huvudpromotorer
+          collaborators: partners
+          main_promotors: arrangörer
         show:
-          already_account: Har du redan ett konto i decidim?
           login_as: Du är inloggad som %{name} <%{email}>
           make_conference_registration: 'Gör din registrering på konferensen:'
-          new_user: Ny användare?
           register: Registrera
-          sign_in: Logga in för att registrera dig på denna konferens
-          sign_up: Registrera dig gratis i decidim för att registrera dig
       content_blocks:
         highlighted_conferences:
           name: Upplysta konferenser
@@ -353,14 +428,20 @@ sv:
         conference_registration_mailer:
           confirmation:
             subject: Din konferenss registrering har bekräftats
+          pending_validation:
+            subject: Din konferensens registrering väntar på att bekräftas
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Din konferens diplom har skickats
       models:
         conference_invite:
           fields:
             email: E-post
             name: namn
+            registration_type: Registreringstyp
             sent_at: Skickat på
             status: Status
           status:
@@ -371,6 +452,11 @@ sv:
           fields:
             email: E-post
             name: namn
+            registration_type: Registreringstyp
+            state: stat
+            states:
+              confirmed: bekräftat
+              pending: Avvaktan
       pages:
         home:
           highlighted_conferences:
@@ -383,6 +469,18 @@ sv:
       photos_list:
         show:
           related_photos: foton
+      registration_types:
+        index:
+          choose_an_option: 'Välj ditt registreringsalternativ:'
+          login_as: Du är inloggad som %{name} <%{email}>
+          register: Registrera
+          title: Registreringstyper
+      shared:
+        conference_user_login:
+          already_account: Har du redan ett konto i decidim?
+          new_user: Ny användare?
+          sign_in: Logga in för att registrera dig för konferensen
+          sign_up: Skapa ett konto i decidim för att registrera dig för konferensen
       show:
         details: detaljer
         introduction: Introduktion
@@ -440,6 +538,8 @@ sv:
         subject: Inbjudan att delta i en konferens
   layouts:
     decidim:
+      conference_hero:
+        register: Registrera
       conference_widgets:
         show:
           take_part: Ta del
@@ -460,5 +560,4 @@ sv:
         conference_partners_menu_item: partners
         conference_speaker_menu_item: högtalare
         media: Media
-        unfold: Veckla ut
         venues: venues

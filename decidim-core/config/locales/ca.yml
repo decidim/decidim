@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ ca:
         about: Quant a
         email: El teu email
         name: El teu nom
-        nickname: El teu identificador curt i únic
+        nickname: Sobrenom
         password: Contrasenya
         password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
@@ -37,14 +36,14 @@ ca:
         remember_me: Recorda'm
     models:
       decidim/user:
-        one: Usuari
+        one: Sense usuaris
         other: Usuaris
       decidim/user_group:
         one: Grup d'usuaris
         other: Grups d'usuaris
   booleans:
     'false': 'No'
-    'true': Sí
+    'true': 'Sí'
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
@@ -164,6 +163,9 @@ ca:
           foo: Foo
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
+      sms:
+        explanation: Envia el número de telèfon mòbil per poder comprovar la teva identitat.
+        name: Codi per SMS
       started_at: Iniciat el %{timestamp}
     authorization_modals:
       show:
@@ -187,7 +189,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: El valor %{field} %{value} no és vàlid.
+          invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
@@ -197,7 +199,7 @@ ca:
           title: Confirma el teu correu electrònic
     collapsible_list:
       hidden_elements_count:
-        one: i 1 més
+        one: i %{count} més
         other: i %{count} més
       see_less: "(veure menys)"
       see_more: "(veure més)"
@@ -212,6 +214,7 @@ ca:
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
+            enable_pads_creation: Activa la creació de pastissos
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
             comments_blocked: Comentaris bloquejats
@@ -281,6 +284,8 @@ ca:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
+          sign_in_disabled: Podeu accedir amb un compte extern
+          sign_up_disabled: La inscripció està deshabilitada, podeu accedir a un usuari existent
       shared:
         newsletter_modal:
           buttons:
@@ -387,19 +392,11 @@ ca:
           notification_title: T'han eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Email subject
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Notification title
-        url: Url
       users:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
           email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: En/na %{nickname} ha actualitzat el seu perfil
+          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
@@ -448,7 +445,7 @@ ca:
       badges:
         continuity:
           conditions:
-          - Vine aquí sovint
+            - Vine aquí sovint
           description: Aquest distintiu es concedeix al visitar la plataforma de forma regular. Ens agrada tenir-te per aquí!
           description_another: Aquesta usuària s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
@@ -458,7 +455,7 @@ ca:
           unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
-          - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
+            - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquesta usuària té %{score} seguidors.
           description_own: "%{score} usuàries et segueixen."
@@ -473,9 +470,9 @@ ca:
           title: Distintius
         invitations:
           conditions:
-          - Utilitza l'enllaç "convidar amics/gues" a la teva pàgina d'usuari per convidar a les teves amistats.
-          - Personalitza, si vols, el missatge que envies
-          - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
+            - Utilitza l'enllaç "convidar amics/gues" a la teva pàgina d'usuari per convidar a les teves amistats.
+            - Personalitza, si vols, el missatge que envies
+            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
           description: Aquest distintiu es concedeix quan has convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i es converteixen en participants. Gràcies per donar a conèixer %{organization_name} als altres i ajudar a ampliar la comunitat!
           description_another: Aquest usuari ha convidat a %{score} usuaris.
           description_own: Has convidat %{score} usuaris.
@@ -541,6 +538,13 @@ ca:
       edit:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
+      form:
+        document_number_help: No utilitzeu taques ni espais
+        email_help: Correu electrònic de la vostra organització, associació, col·lectiu, grup, etc.
+        fill_in_for_verification: 'Ompliu aquests camps si voleu verificar el vostre grup:'
+        name_help: Nom de la vostra organització, associació, col·lectiu, grup, etc.
+        nickname_help: Nom d'usuari de la vostra organització, associació, col·lectiu, grup, etc. No utilitzeu espais ni accents.
+        phone_help: No utilitzeu taques ni espais
       join:
         error: Hi ha hagut un problema en unir-se al grup
         success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
@@ -554,6 +558,7 @@ ca:
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
+        subtitle: Creeu un grup i convideu a altres usuaris a unir-se per participar a nivell col·lectiu.
       no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administrador
@@ -562,6 +567,13 @@ ca:
       update:
         error: S'ha produït un problema en actualitzar el grup
         success: S'ha actualitzat el grup amb èxit
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>A cadascuna d'elles trobareu diferents opcions per participar: fer propostes -de forma individual o amb altres persones-, participar en debats, prioritzar projectes per implementar, assistir a reunions presencials i altres accions.</p>\n"
+          title: Què puc fer en %{organization}?
+        description: Llegiu més sobre %{organization}
+        title: Ajuda general
     last_activities:
       activities:
         no_activities_warning: Sense activitat
@@ -593,8 +605,8 @@ ca:
     members:
       no_members: Aquest grup d'usuaris encara no té cap membre.
     menu:
+      help: Ajuda
       home: Inici
-      more_information: Més informació
     messaging:
       conversation_mailer:
         new_conversation:
@@ -611,20 +623,29 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
-          from: Des de
-          last_message_html: Últim missatge <strong>fa %{time}</strong>
           no_conversations: Encara no tens converses
-        show:
-          conversation_with_html: Conversa amb <strong>%{name}</strong>
-          reply: Respon
+          title: Converses
+        reply:
           send: Enviar
+          title: Respon
+        show:
+          title: Conversa amb %{usernames}
         start:
           send: Enviar
           title: Comença una conversa
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
     metrics:
+      followers:
+        description: Nombre d'usuari que segueix a l'organització
+        object: seguidors
+        title: Seguidors
+      participants:
+        description: Nombre d'usuaris actius de l'organització
+        object: participants
+        title: Participants
       users:
+        description: Nombre d'usuaris de l'organització
         object: usuaris
         title: Usuaris
     newsletter_mailer:
@@ -668,6 +689,10 @@ ca:
         pending: Pendents
         rejected: Rebutjades
         verified: Verificada
+    pad_iframe:
+      disclaimer: Els continguts d'aquest pad són escrits per usuaris registrats i expressen les seves opinions. %{organization} no es fa responsable dels seus continguts.
+      explanation: Utilitzeu aquest coixí per prendre notes durant la reunió de manera col·laborativa, per la qual cosa és més fàcil escriure un minut després.
+      pad: Coixinet
     pages:
       home:
         extended:
@@ -710,7 +735,15 @@ ca:
         sub_hero:
           register: Registra't
       index:
-        title: Més informació
+        read_more: Llegir més
+        standalone_pages: Pàgines
+        subheading: Navega per les pàgines d'ajuda de %{name}
+        title: Ajuda
+        topics: Temes
+      participatory_space:
+        metrics:
+          headline: Participació en xifres
+          link: Mostra totes les estadístiques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
@@ -735,17 +768,17 @@ ca:
       deleted: Usuari eliminat
       view: Veure
     profiles:
-      default_officialization_text: Default officialization text
       default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el teu nom s'ha verificat per correspondre amb el teu nom real
       default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        activity: Activitat
         badges: Insígnies
-        conversations: Converses
         followers: Seguidors
         following: Segueix
         groups: Grups
         members: Membres
-        notifications: Notificacions
+        timeline: Cronologia
+        view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
@@ -783,24 +816,35 @@ ca:
       prompt: Seleccioneu un àmbit
       scopes: Àmbits
     search:
-      filter:
-        all: Tots
-        component: Component
       results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
       term_input_placeholder: Cerca
     searches:
       filters:
-        search: Cerca
+        back: Torna als resultats
+        jump_to: 'Salta a:'
+        state:
+          active: Actiu
+          all: Tots
+          future: Futur
+          past: Passat
       filters_small_view:
         close_modal: Tanca el modal
         filter: Filtre
         filter_by: Filtra per
         unfold: Desplegar
+      results:
+        results:
+          one: "%{count} resultat"
+          other: "%{count} resultats"
+        view_all: Mostra-ho tot (%{count})
     shared:
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
         embed_link: Incrustar
+      extended_navigation_bar:
+        more: Més
+        unfold: Desplegar
       flag_modal:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
         close: Tancar
@@ -810,6 +854,8 @@ ca:
         report: Denuncia
         spam: Conté "clickbait", publicitat o estafes.
         title: Denuncia un problema
+      floating_help:
+        help: Ajuda
       follow_button:
         sign_in_before_follow: Inicia sessió abans de realitzar aquesta acció
       login_modal:
@@ -825,6 +871,12 @@ ca:
         share_link: Comparteix l'enllaç
       version_author:
         deleted: Usuari eliminat
+    user_activity:
+      index:
+        no_activities_warning: Aquest usuari encara no ha tingut cap activitat.
+    welcome_notification:
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut!</p><ul><li>Si voleu tenir una idea ràpida del que podeu fer aquí, consulteu la secció de <a href="{{help_url}}">Ajuda</a> .</li><li>Una vegada que l'heu llegit, obtindreu la vostra primera distinció. Aquí teniu una llista de <a href="{{badges_url}}">de totes les xapes</a> que podeu obtenir a mesura que participa en {{organization}}</li><li>Finalment, però no menys important, uniu-vos a altres persones, compartiu amb ells l'experiència de participar i participar en {{organization}}. Feu propostes, comentaris, debat, pensi en com contribuir al bé comú, proporcioneu arguments per convèncer, escoltar i llegir per estar convençuts, expressar les vostres idees de manera concreta i directa, respondre amb paciència i decisió, defensar les vostres idees i mantenir-les una ment oberta per col·laborar i unir-se a les idees d'altres persones.</li></ul>
+      default_subject: Gràcies per unir-te a {{organization}}!
   devise:
     confirmations:
       confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
@@ -996,14 +1048,13 @@ ca:
   layouts:
     decidim:
       cookie_warning:
-        description_html: |-
-          Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.
-          En continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}.
+        description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
         link_label: aquí
         ok: Hi estic d'acord
       edit_link:
         edit: Edita
       footer:
+        download_open_data: Descarregar dades Open Data
         made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
@@ -1035,11 +1086,6 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: és massa semblant a aquest nom de domini
     email_included_in_password: és massa similar al teu correu electrònic

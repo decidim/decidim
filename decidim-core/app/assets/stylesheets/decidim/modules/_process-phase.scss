@@ -1,14 +1,33 @@
+.process-header__phase{
+  background: $white;
+  padding: $global-padding;
+  margin: $global-margin 0;
+  border-radius: $global-radius;
+
+  .button{
+    margin-top: $global-margin * .75;
+    margin-bottom: 0;
+    font-weight: $global-weight-normal;
+  }
+}
+
+.process-header__phase--simple{
+  padding: .5rem 1rem;
+
+  @include breakpoint (medium){
+    padding: 2rem 1rem;
+  }
+}
+
 .phase-title{
   display: block;
-  font-weight: 600;
+  font-weight: $global-weight-bold;
   font-size: 1rem;
+  line-height: 1;
 
   @include breakpoint(medium){
-    font-size: 1.1rem;
+    font-size: rem-calc(20);
   }
-
-  line-height: 1;
-  text-transform: uppercase;
 
   .is-inactive &{
     color: $muted;
@@ -22,55 +41,48 @@
 }
 
 .process-header__progress{
-  margin-bottom: 1rem;
+  margin-bottom: $global-margin / 2;
 
   ol{
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   li{
     margin: 0;
     padding: 0;
     position: relative;
-    width: 100%;
+    width: 1rem;
     text-align: center;
 
+    &:first-child{
+      width: auto;
+    }
+
     &::after{
+      $line-thickness: 2px;
+
       content: "";
       display: block;
-      height: 2px;
+      height: $line-thickness;
       width: 100%;
-      background-color: $muted;
+      background-color: $medium-gray;
       position: absolute;
-      top: 4px;
+      top: calc(50% - (#{$line-thickness} / 2));
       z-index: 0;
     }
 
     span{
       display: block;
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background-color: $muted;
-      margin: auto;
+      background-color: $medium-gray;
       z-index: 1;
-    }
-  }
-  //Between 11 and 20 elements
-  li:nth-last-child(n+11):nth-last-child(-n+20):first-child,
-  li:nth-last-child(n+11):nth-last-child(-n+20):first-child ~ li{
-    span{
-      width: 5px;
-      height: 5px;
-    }
-
-    &::after{
-      height: 1px;
-      top: 2px;
+      margin-left: auto;
     }
   }
 
@@ -84,11 +96,32 @@
       opacity: 1;
     }
   }
+
+  // arrow
+  .phase-item--current{
+    span::before{
+      content: ' ';
+      height: 0;
+      position: absolute;
+      width: 0;
+      border: 4px solid transparent;
+      border-top-color: $primary;
+      top: -8px;
+      left: calc(50% - 1px);
+      z-index: 2;
+    }
+
+    &:first-child span::before{
+      left: 0;
+    }
+  }
 }
 
 .phase-current{
-  font-weight: 600;
-  font-size: 90%;
+  font-weight: $global-weight-normal;
+  font-size: rem-calc(12);
+  text-transform: uppercase;
+  color: $muted;
 }
 
 .process-phase{

@@ -18,6 +18,7 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     resources :static_pages
+    resources :static_page_topics, except: [:index]
     resources :scope_types, except: [:show]
     resources :scopes, except: [:show] do
       resources :scopes, except: [:show]
@@ -65,7 +66,12 @@ Decidim::Admin::Engine.routes.draw do
         put :verify
         put :reject
       end
+      collection do
+        resource :user_groups_csv_verification, only: [:new, :create], path: "csv_verification"
+      end
     end
+
+    resource :help_sections, only: [:show, :update]
 
     resources :oauth_applications
 

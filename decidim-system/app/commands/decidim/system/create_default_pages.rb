@@ -21,6 +21,7 @@ module Decidim
           Decidim::StaticPage.find_or_create_by!(organization: organization, slug: slug) do |page|
             page.title = localized_attribute(slug, :title)
             page.content = localized_attribute(slug, :content)
+            page.show_in_footer = true
           end
         end
       end

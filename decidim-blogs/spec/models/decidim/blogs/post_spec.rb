@@ -13,6 +13,7 @@ module Decidim::Blogs
     let(:post) { create(:post, component: current_component, author: current_user) }
 
     include_examples "has component"
+    include_examples "resourceable"
 
     it { is_expected.to be_valid }
 

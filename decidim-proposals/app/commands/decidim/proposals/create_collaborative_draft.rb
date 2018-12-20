@@ -5,6 +5,8 @@ module Decidim
     # A command with all the business logic when a user creates a new collaborative draft.
     class CreateCollaborativeDraft < Rectify::Command
       include AttachmentMethods
+      include HashtagsMethods
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -45,11 +47,12 @@ module Decidim
         @collaborative_draft = Decidim.traceability.perform_action!(
           :create,
           CollaborativeDraft,
-          @form.current_user
+          @form.current_user,
+          visibility: "public-only"
         ) do
           draft = CollaborativeDraft.new(
-            title: form.title,
-            body: form.body,
+            title: title_with_hashtags,
+            body: body_with_hashtags,
             category: form.category,
             scope: form.scope,
             component: form.component,

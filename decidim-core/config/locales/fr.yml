@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Votre pseudonyme
+        nickname: Surnom
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -37,14 +36,14 @@ fr:
         remember_me: Retenir le mot de passe
     models:
       decidim/user:
-        one: Utilisateur
+        one: Aucun utilisateur
         other: Utilisateurs
       decidim/user_group:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': Non
-    'true': Oui
+    'false': 'Non'
+    'true': 'Oui'
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -164,6 +163,9 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      sms:
+        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
+        name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       show:
@@ -197,8 +199,8 @@ fr:
           title: confirmez votre email
     collapsible_list:
       hidden_elements_count:
-        one: et 1 de plus
-        other: et %{count} de plus
+        one: et %{count} plus
+        other: et %{count} plus
       see_less: "(voir moins)"
       see_more: "(voir plus)"
     components:
@@ -212,6 +214,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
+            enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -281,6 +284,8 @@ fr:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
+          sign_in_disabled: Vous pouvez accéder avec un compte externe
+          sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
       shared:
         newsletter_modal:
           buttons:
@@ -335,7 +340,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -387,14 +392,6 @@ fr:
           notification_title: Vous avez été supprimé du groupe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Sujet de l'e-mail
-        moderation:
-          email_intro: Introduction par courriel
-          email_subject: Sujet de l'e-mail
-          moderation_url: Url de modération
-        notification_title: Titre de la notification
-        url: Url
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -448,7 +445,7 @@ fr:
       badges:
         continuity:
           conditions:
-          - Viens ici souvent
+            - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -458,7 +455,7 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -473,9 +470,9 @@ fr:
           title: Insignes
         invitations:
           conditions:
-          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-          - Personnalisez, si vous le souhaitez, le message que vous envoyez
-          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+            - Personnalisez, si vous le souhaitez, le message que vous envoyez
+            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -541,6 +538,13 @@ fr:
       edit:
         edit_user_group: Editer le groupe
         update_user_group: Groupe de mise à jour
+      form:
+        document_number_help: Ne pas utiliser de tirets ni d'espaces
+        email_help: Email de votre organisation, association, collectif, groupe, etc.
+        fill_in_for_verification: 'Remplissez ces champs si vous souhaitez que votre groupe soit vérifié:'
+        name_help: Nom de votre organisation, association, collectif, groupe, etc.
+        nickname_help: Nom d'utilisateur de votre organisation, association, collectif, groupe, etc. N'utilisez pas d'espaces ni d'accents.
+        phone_help: Ne pas utiliser de tirets ni d'espaces
       join:
         error: Il y a eu un problème pour rejoindre le groupe
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
@@ -554,6 +558,7 @@ fr:
       new:
         create_user_group: Créer un groupe
         new_user_group: Nouveau groupe
+        subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
       no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
@@ -562,6 +567,13 @@ fr:
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
         success: Groupe mis à jour avec succès
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
+          title: Que puis-je faire en %{organization}?
+        description: En savoir plus sur %{organization}
+        title: Aide générale
     last_activities:
       activities:
         no_activities_warning: Aucune activité
@@ -593,8 +605,8 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
+      help: Aidez-moi
       home: Accueil
-      more_information: Plus d'information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -611,20 +623,29 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
-          from: De
-          last_message_html: Dernier message <strong>il y a %{time}</strong>
           no_conversations: Vous n'avez encore aucune conversation
-        show:
-          conversation_with_html: Conversation avec <strong>%{name}</strong>
-          reply: Répondre
+          title: Les conversations
+        reply:
           send: Envoyer
+          title: Répondre
+        show:
+          title: Conversation avec %{usernames}
         start:
           send: Envoyer
           title: Commencer une conversation
         update:
           error: Message non envoyé. Réessayez plus tard
     metrics:
+      followers:
+        description: Nombre d'utilisateurs qui suivent dans l'organisation
+        object: suiveurs
+        title: Suiveurs
+      participants:
+        description: Nombre d'utilisateurs actifs dans l'organisation
+        object: les participants
+        title: Participants
       users:
+        description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
         title: Utilisateurs
     newsletter_mailer:
@@ -668,6 +689,10 @@ fr:
         pending: En attente
         rejected: Non retenue
         verified: Vérifié
+    pad_iframe:
+      disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
+      explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
+      pad: Tampon
     pages:
       home:
         extended:
@@ -710,7 +735,15 @@ fr:
         sub_hero:
           register: S'inscrire
       index:
-        title: Plus d'informations
+        read_more: Lire la suite
+        standalone_pages: Des pages
+        subheading: Naviguer à travers les pages d'aide de %{name}
+        title: Aidez-moi
+        topics: Les sujets
+      participatory_space:
+        metrics:
+          headline: Participation en chiffres
+          link: Afficher toutes les statistiques
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -735,17 +768,17 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
-      default_officialization_text: Texte d'officialisation par défaut
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
+        activity: Activité
         badges: Badges
-        conversations: Conversations
         followers: Abonnés
         following: Est abonné à
         groups: Groupes
         members: Membres
-        notifications: Notifications
+        timeline: Chronologie
+        view_full_profile: Voir le profil complet
       sidebar:
         badges:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
@@ -783,24 +816,35 @@ fr:
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètre d'application
     search:
-      filter:
-        all: Tout
-        component: Fonctionnalité
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
       filters:
-        search: Rechercher
+        back: Retour aux résultats
+        jump_to: 'Sauter à:'
+        state:
+          active: actif
+          all: Tout
+          future: Futur
+          past: Passé
       filters_small_view:
         close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
         filter_by: Filtrer par
         unfold: Voir plus
+      results:
+        results:
+          one: "%{count} résultat"
+          other: "%{count} résultats"
+        view_all: Tout voir (%{count})
     shared:
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
         embed_link: Intégrer
+      extended_navigation_bar:
+        more: Plus
+        unfold: Se dérouler
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -810,6 +854,8 @@ fr:
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
+      floating_help:
+        help: Aidez-moi
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
@@ -825,6 +871,12 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    user_activity:
+      index:
+        no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
+    welcome_notification:
+      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -835,11 +887,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: "%{authentication_keys} ou mot de passe invalide."
+      invalid: '%{authentication_keys} ou mot de passe invalide.'
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
+      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
@@ -1033,11 +1085,6 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email

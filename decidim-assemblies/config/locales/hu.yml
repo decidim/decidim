@@ -319,6 +319,12 @@ hu:
         designated_on: Kijelölt
       index:
         title: Tagok
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>A gyülekezet olyan szervezet tagjai csoportja, akik rendszeresen találkoznak, hogy döntést hozzanak egy adott területről vagy a szervezet hatóköréről.</p> <p>gyűlések tartanak üléseket, egyesek privátok és néhányan nyitottak. Ha nyitva vannak, akkor részt vehet nekik (például: ha részt vehet a kapacitással, hozzáfűzi a napirendet, vagy megjegyzi az e szerv által benyújtott javaslatokat és döntéseket).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányai és végrehajtó testületei szavazással), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezésben) egy értékelő bizottság (amely minden hónapban találkozik a folyamat nyomon követése) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik összefogás példája.</p>\n"
+          page: "<p>A gyülekezet olyan szervezet tagjai csoportja, akik rendszeresen találkoznak, hogy döntést hozzanak egy adott területről vagy a szervezet hatóköréről.</p> <p>gyűlések tartanak üléseket, egyesek privátok és néhányan nyitottak. Ha nyitva vannak, akkor részt vehet nekik (például: ha részt vehet a kapacitással, hozzáfűzi a napirendet, vagy megjegyzi az e szerv által benyújtott javaslatokat és döntéseket).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányai és végrehajtó testületei szavazással), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezésben) egy értékelő bizottság (amely minden hónapban találkozik a folyamat nyomon követése) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik összefogás példája.</p>\n"
+          title: Mi az összeállítások?
     log:
       value_types:
         assembly_presenter:
@@ -327,6 +333,7 @@ hu:
       assemblies: Gyűlések
     metrics:
       assemblies:
+        description: A létrehozott összeszerelések száma
         object: szerelvények
         title: szerelvények
   errors:
@@ -343,15 +350,14 @@ hu:
           reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
-            one: "%{count} gyűlés"
-            other: "%{count} gyűlés"
+            one: "%{count} szerelvényeket"
+            other: "%{count} szerelvényeket"
         promoted_assembly:
           more_info: További információ
           take_part: Vegyél részt
-      assembly_header:
-        assembly_member_menu_item: Tagok
+      assembly_navigation:
+        assembly_member_menu_item: Belépés
         assembly_menu_item: A gyűlés
-        unfold: Kibont
       assembly_widgets:
         show:
           take_part: Vegyél részt

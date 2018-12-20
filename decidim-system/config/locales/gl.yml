@@ -64,6 +64,10 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
+        users_registration_mode:
+          disabled: O acceso só se pode facer con contas externas
+          enabled: Permitir aos usuarios rexistrarse e iniciar sesión
+          existing: Non permita que os usuarios se rexistren, pero permiten que os usuarios xa teñan acceso
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.

@@ -320,6 +320,12 @@ de:
         designated_on: Bezeichnet am
       index:
         title: Mitglieder
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
+          page: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
+          title: Was sind Baugruppen?
     log:
       value_types:
         assembly_presenter:
@@ -328,6 +334,7 @@ de:
       assemblies: Baugruppen
     metrics:
       assemblies:
+        description: Anzahl der erstellten Baugruppen
         object: Baugruppen
         title: Baugruppen
   errors:
@@ -344,15 +351,14 @@ de:
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Versammlung"
+            one: "%{count} Baugruppen"
             other: "%{count} Baugruppen"
         promoted_assembly:
           more_info: Mehr Info
           take_part: Teilnehmen
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Mitglieder
         assembly_menu_item: Die Versammlung
-        unfold: Entfalten
       assembly_widgets:
         show:
           take_part: Teilnehmen

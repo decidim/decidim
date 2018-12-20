@@ -63,14 +63,32 @@
           <%= aria_selected_link_to t("conference_speakers", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_speakers_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if allowed_to? :read, :conference_invite, conference: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_conferences.conference_conference_invites_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("conference_invites", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_conference_invites_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :conference_registration, conference: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("conference_registrations", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space) %>
+
+      <% if allowed_to?(:read, :conference_invite, conference: current_participatory_space) || allowed_to?(:read, :registration_type, conference: current_participatory_space) || allowed_to?(:read, :conference_registration, conference: current_participatory_space) %>
+        <li>
+          <span class="secondary-nav__subtitle"><%= t("registrations", scope: "decidim.admin.menu.conferences_submenu") %></span>
+          <ul>
+            <% if allowed_to? :read, :registration_type, conference: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_conferences.conference_registration_types_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("registration_types", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_registration_types_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if allowed_to? :read, :conference_registration, conference: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("user_registrations", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if allowed_to? :read, :conference_invite, conference: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_conferences.conference_conference_invites_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("conference_invites", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_conference_invites_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if allowed_to? :update, :conference, conference: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_conferences.edit_conference_diploma_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("diploma", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.edit_conference_diploma_path(current_participatory_space) %>
+              </li>
+            <% end %>
+          </ul>
         </li>
       <% end %>
       <% if allowed_to? :read, :conference_user_role, conference: current_participatory_space %>

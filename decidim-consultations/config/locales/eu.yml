@@ -39,7 +39,7 @@ eu:
           not_found: Erantzuna ez da aurkitu.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: kontsultak
       decidim/consultations/question:
@@ -50,7 +50,7 @@ eu:
         other: Erantzunak
       decidim/consultations/vote:
         one: Bozkatu
-        other: Botoak
+        other: Bozkatu
   decidim:
     admin:
       actions:
@@ -244,6 +244,12 @@ eu:
           view_results: Ikusi emaitzak
           vote: Bozkatu
         unspecified: Zehaztu gabea
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Kontsultak aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, kontsulta egiteko parte hartzeko, txinparta egiteko eta erantzuna emateko edo aurka egiteko. Kontsulta datak iristen direnean, botoen emaitzak bozkatu eta argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakundeari eragiten dion alderdi ia guztiak izan ditzake: adibide batzuk erakundearen izena edo logotipoa aldatzen ari dira, aukera ugari eskainiz, Bai edo Ez izaera handiago baten parte hartzea erabakitzeko, baliogabetzeko edo baztertzeko estrategia berri bat plan edo talde lan baten emaitza, edo posizioak 1, 2 edo 3 mandatu gehienez egon behar duten ala ez zehazteko.</p>\n"
+          page: "<p>Kontsultak aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, kontsulta egiteko parte hartzeko, txinparta egiteko eta erantzuna emateko edo aurka egiteko. Kontsulta datak iristen direnean, botoen emaitzak bozkatu eta argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakundeari eragiten dion alderdi ia guztiak izan ditzake: adibide batzuk erakundearen izena edo logotipoa aldatzen ari dira, aukera ugari eskainiz, Bai edo Ez izaera handiago baten parte hartzea erabakitzeko, baliogabetzeko edo baztertzeko estrategia berri bat plan edo talde lan baten emaitza, edo posizioak 1, 2 edo 3 mandatu gehienez egon behar duten ala ez zehazteko.</p>erakundeko ard.</p>\n"
+          title: Zer dira kontsultak?
     menu:
       consultations: kontsultak
     pages:

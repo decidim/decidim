@@ -9,7 +9,7 @@ it:
         about: Di
         email: La tua email
         name: Il tuo nome
-        nickname: Il tuo identificatore breve e univoco
+        nickname: soprannome
         password: Parola d'ordine
         password_confirmation: Conferma la tua password
         personal_url: URL personale
@@ -36,7 +36,7 @@ it:
         remember_me: Ricordare password
     models:
       decidim/user:
-        one: Utente
+        one: Nessun utente
         other: utenti
       decidim/user_group:
         one: Gruppo di utenti
@@ -163,6 +163,9 @@ it:
           foo: foo
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
+      sms:
+        explanation: Invia il tuo numero di cellulare in modo che possiamo controllare la tua identità.
+        name: Codice via SMS
       started_at: Iniziato a %{timestamp}
     authorization_modals:
       show:
@@ -196,7 +199,7 @@ it:
           title: conferma la tua email
     collapsible_list:
       hidden_elements_count:
-        one: e 1 altro
+        one: e altri %{count}
         other: e altri %{count}
       see_less: "(vedi meno)"
       see_more: "(Vedi altro)"
@@ -211,6 +214,7 @@ it:
             comments_enabled: Commenti abilitati
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
+            enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
           step:
             comments_blocked: Commenti bloccati
@@ -280,6 +284,8 @@ it:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
+          sign_in_disabled: È possibile accedere con un account esterno
+          sign_up_disabled: La registrazione è disabilitata, puoi accedere a un utente esistente
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +538,13 @@ it:
       edit:
         edit_user_group: Modifica gruppo
         update_user_group: Gruppo di aggiornamento
+      form:
+        document_number_help: Non utilizzare trattini o spazi
+        email_help: Email della tua organizzazione, associazione, collettivo, gruppo, ecc.
+        fill_in_for_verification: 'Compila questi campi se vuoi che il tuo gruppo sia verificato:'
+        name_help: Nome della tua organizzazione, associazione, collettivo, gruppo, ecc.
+        nickname_help: Nome utente della propria organizzazione, associazione, collettivo, gruppo, ecc. Non utilizzare spazi né accenti.
+        phone_help: Non utilizzare trattini o spazi
       join:
         error: C'è stato un problema ad entrare nel gruppo
         success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti nel gruppo.
@@ -545,6 +558,7 @@ it:
       new:
         create_user_group: Creare un gruppo
         new_user_group: Nuovo gruppo
+        subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
       no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
@@ -553,6 +567,13 @@ it:
       update:
         error: Si è verificato un problema durante l'aggiornamento del gruppo
         success: Gruppo aggiornato con successo
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} puoi partecipare e decidere su diversi argomenti, attraverso gli spazi che vedi nel menu in alto: Processi, Assemblee, Iniziative, Consultazioni.</p> <p>All'interno di ognuna troverai diverse opzioni per partecipare: fare proposte - individualmente o con altre persone-, prendere parte ai dibattiti, dare la priorità ai progetti da attuare, partecipare alle riunioni faccia a faccia e altre azioni.</p>\n"
+          title: Cosa posso fare in %{organization}?
+        description: Maggiori informazioni su %{organization}
+        title: Aiuto generale
     last_activities:
       activities:
         no_activities_warning: Nessuna attività
@@ -584,8 +605,8 @@ it:
     members:
       no_members: Questo gruppo di utenti non ha ancora nessun membro.
     menu:
+      help: Aiuto
       home: Home
-      more_information: Ulteriori informazioni
     messaging:
       conversation_mailer:
         new_conversation:
@@ -602,20 +623,29 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
-          from: A partire dal
-          last_message_html: Ultimo messaggio <strong>%{time} fa</strong>
           no_conversations: Non hai ancora conversazioni
+          title: conversazioni
+        reply:
+          send: Inviare
+          title: Rispondi
         show:
-          conversation_with_html: Conversazione con <strong>%{name}</strong>
-          reply: Rispondi
-          send: Invia
+          title: Conversazione con %{usernames}
         start:
           send: Invia
           title: Inizia una conversazione
         update:
           error: Messaggio non inviato. Riprova più tardi
     metrics:
+      followers:
+        description: Numero di utenti che segue nell'organizzazione
+        object: seguaci
+        title: Seguaci
+      participants:
+        description: Numero di utenti attivi nell'organizzazione
+        object: partecipanti
+        title: I partecipanti
       users:
+        description: Numero di utenti nell'organizzazione
         object: utenti
         title: utenti
     newsletter_mailer:
@@ -659,6 +689,10 @@ it:
         pending: In sospeso
         rejected: Respinta
         verified: Verificato
+    pad_iframe:
+      disclaimer: I contenuti di questo riquadro sono scritti da utenti registrati ed esprimono le loro opinioni. %{organization} non può essere ritenuto responsabile per il suo contenuto.
+      explanation: Usa questo pad per prendere appunti in modo collaborativo durante la riunione, quindi è più facile scrivere il minuto dopo.
+      pad: tampone
     pages:
       home:
         extended:
@@ -701,7 +735,15 @@ it:
         sub_hero:
           register: Registrati
       index:
-        title: Informazione
+        read_more: Leggi di più
+        standalone_pages: pagine
+        subheading: Navigare attraverso le pagine di aiuto di %{name}
+        title: Aiuto
+        topics: Temi
+      participatory_space:
+        metrics:
+          headline: Partecipazione in cifre
+          link: Mostra tutte le statistiche
       terms_and_conditions:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
@@ -729,13 +771,14 @@ it:
       default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
       default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
+        activity: Attività
         badges: badge
-        conversations: conversazioni
         followers: Seguaci
         following: segue
         groups: gruppi
         members: Utenti
-        notifications: Notifiche
+        timeline: Sequenza temporale
+        view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
@@ -773,24 +816,35 @@ it:
       prompt: Seleziona un ambito
       scopes: Scopes
     search:
-      filter:
-        all: Tutto
-        component: Componente
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
       filters:
-        search: Ricerca
+        back: Torna ai risultati
+        jump_to: 'Salta a:'
+        state:
+          active: Attivo
+          all: Tutti
+          future: Futuro
+          past: Passato
       filters_small_view:
         close_modal: Chiudi modale
         filter: Filtro
         filter_by: Filtra per
         unfold: spiegare
+      results:
+        results:
+          one: "%{count} risultato"
+          other: "%{count} risultati"
+        view_all: Visualizza tutto (%{count})
     shared:
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina
         embed_link: Incorpora
+      extended_navigation_bar:
+        more: Di Più
+        unfold: spiegare
       flag_modal:
         already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi
@@ -800,6 +854,8 @@ it:
         report: Rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
+      floating_help:
+        help: Aiuto
       follow_button:
         sign_in_before_follow: Accede prima di eseguire questa azione
       login_modal:
@@ -815,6 +871,12 @@ it:
         share_link: Condividi link
       version_author:
         deleted: Utente eliminato
+    user_activity:
+      index:
+        no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
+    welcome_notification:
+      default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
+      default_subject: Grazie per esserti iscritto a {{organization}}!
   devise:
     confirmations:
       confirmed: Il tuo indirizzo email è stato confermato con successo.
@@ -1023,11 +1085,6 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email

@@ -142,6 +142,7 @@ module Decidim
     #
     # Returns nothing.
     def exports(name, &block)
+      return unless name
       @exports ||= []
       @exports << [name, block]
       @export_manifests = nil
@@ -152,8 +153,8 @@ module Decidim
     #
     # Returns an Array<Decidim::Components::ExportManifest>.
     def export_manifests
-      @export_manifests ||= @exports.map do |(name, block)|
-        Decidim::Components::ExportManifest.new(name).tap do |manifest|
+      @export_manifests ||= Array(@exports).map do |(name, block)|
+        Decidim::Components::ExportManifest.new(name, self).tap do |manifest|
           block.call(manifest)
         end
       end

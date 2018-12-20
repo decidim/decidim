@@ -9,7 +9,7 @@ eu:
         about: About
         email: Zure helbide elektronikoa
         name: Zure izena
-        nickname: Zure identifikatzaile labur eta berezia
+        nickname: ezizena
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
@@ -36,7 +36,7 @@ eu:
         remember_me: Gogoratu
     models:
       decidim/user:
-        one: Erabiltzaileak
+        one: Ez dago erabiltzailerik
         other: erabiltzaileak
       decidim/user_group:
         one: Erabiltzaile taldea
@@ -163,6 +163,9 @@ eu:
           foo: foo
         name: foo baimena
       granted_at: Onartua %{timestamp}
+      sms:
+        explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
+        name: Kodea SMS bidez
       started_at: Hasi zen %{timestamp}
     authorization_modals:
       show:
@@ -196,7 +199,7 @@ eu:
           title: Berretsi zure posta elektronikoa
     collapsible_list:
       hidden_elements_count:
-        one: eta beste bat
+        one: eta %{count} gehiago
         other: eta %{count} gehiago
       see_less: "(ikusi gutxiago)"
       see_more: "(gehiago ikusi)"
@@ -211,6 +214,7 @@ eu:
             comments_enabled: Iruzkinak gaituta
             dummy_global_attribute_1: Dummy Atributua 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Gaitu pads sortzea
             resources_permissions_enabled: Baliabideen baimenak gaituta
           step:
             comments_blocked: Iruzkinak blokeatuta
@@ -280,6 +284,8 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
+          sign_in_disabled: Kanpoko kontu batekin sar zaitezke
+          sign_up_disabled: Erregistratu ezgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +538,13 @@ eu:
       edit:
         edit_user_group: Editatu taldea
         update_user_group: Eguneratu taldea
+      form:
+        document_number_help: Ez erabili marratuak eta ez espazioak
+        email_help: Zure erakundearen, elkarte, talde, taldeen eta abarren posta elektronikoa.
+        fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
+        name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
+        nickname_help: Zure erakundearen izena, elkartea, taldea, taldea ... Ez erabili espazioak eta azentuak.
+        phone_help: Ez erabili marratuak eta ez espazioak
       join:
         error: Taldean sartzeko arazorik izan da
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
@@ -545,6 +558,7 @@ eu:
       new:
         create_user_group: Sortu taldea
         new_user_group: Talde berria
+        subtitle: Sortu talde bat eta gonbidatu beste erabiltzaileei talde kolektiboan parte hartzeko.
       no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administrator
@@ -553,6 +567,13 @@ eu:
       update:
         error: Arazo bat izan da taldea eguneratzean
         success: Taldeak behar bezala eguneratu du
+    help:
+      main_topic:
+        default_page:
+          content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
+          title: Zer egin dezaket %{organization}?
+        description: Irakurri buruz gehiago %{organization}
+        title: Laguntza orokorra
     last_activities:
       activities:
         no_activities_warning: Jarduera ez
@@ -584,8 +605,8 @@ eu:
     members:
       no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
+      help: Laguntza
       home: Hasiera
-      more_information: Argibide gehiago
     messaging:
       conversation_mailer:
         new_conversation:
@@ -602,20 +623,29 @@ eu:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
-          from: aurrera
-          last_message_html: Azken mezua <strong>%{time} ago</strong>
           no_conversations: Oraindik ez duzu elkarrizketarik
-        show:
-          conversation_with_html: Elkarrizketa <strong>%{name}</strong>
-          reply: Erantzun
+          title: Elkarrizketak
+        reply:
           send: Bidali
+          title: Erantzun
+        show:
+          title: Solasean %{usernames}
         start:
           send: Bidali
           title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
     metrics:
+      followers:
+        description: Antolakuntzan jarraitzen duen erabiltzaile kopurua
+        object: jarraitzaile
+        title: Jarraitzaileak
+      participants:
+        description: Erakundeko erabiltzaile aktiboen kopurua
+        object: Parte-hartzaile
+        title: Parte-hartzaileak
       users:
+        description: Erakundeko erabiltzaile kopurua
         object: erabiltzaile
         title: erabiltzaileak
     newsletter_mailer:
@@ -659,6 +689,10 @@ eu:
         pending: Zain
         rejected: Ukatua
         verified: Egiaztatuta
+    pad_iframe:
+      disclaimer: Kutxa honetako edukiak erregistratutako erabiltzaileek idatzita daude eta euren iritziak adierazi. %{organization} ezin da bere edukien erantzule izan.
+      explanation: Erabili pad hau bilera batean biltzen laguntzeko, minutu gutxiren buruan errazago idazteko.
+      pad: pad
     pages:
       home:
         extended:
@@ -701,7 +735,15 @@ eu:
         sub_hero:
           register: Erregistroa
       index:
-        title: Argibide gehiago
+        read_more: Irakurri gehiago
+        standalone_pages: orrialdeak
+        subheading: Laguntza orrietan nabigatzeko %{name}
+        title: Laguntza
+        topics: Gaiak
+      participatory_space:
+        metrics:
+          headline: Zifretan parte hartzea
+          link: Erakutsi estatistiken guztiak
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
@@ -729,13 +771,14 @@ eu:
       default_officialization_text_for_user_groups: Erabiltzaile talde hau publikoki egiaztatua dago, bere izena benetako izenarekin lotzeko egiaztatu da
       default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
+        activity: Jarduera
         badges: Badges
-        conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
         groups: Taldeak
         members: Bazkideek
-        notifications: jakinarazpenak
+        timeline: Timeline
+        view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
@@ -773,24 +816,35 @@ eu:
       prompt: Aukeratu esparrua
       scopes: esparru
     search:
-      filter:
-        all: Guztiak
-        component: Osagai
       results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
-        search: Search
+        back: Itzuli emaitzara
+        jump_to: 'Salto egin:'
+        state:
+          active: Aktiboak
+          all: guztiak
+          future: Etorkizuna
+          past: Iragana
       filters_small_view:
         close_modal: Itxi modal
         filter: Filter
         filter_by: Iragazi arabera
         unfold: Zabaldu
+      results:
+        results:
+          one: "%{count} emaitza"
+          other: "%{count} emaitzak"
+        view_all: Ikusi dena (%{count})
     shared:
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
         embed_link: Kapsulatu
+      extended_navigation_bar:
+        more: gehiago
+        unfold: Zabaldu
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -800,6 +854,8 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
+      floating_help:
+        help: Laguntza
       follow_button:
         sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
@@ -815,6 +871,12 @@ eu:
         share_link: Partekatu esteka
       version_author:
         deleted: Erabiltzailea ezabatua
+    user_activity:
+      index:
+        no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
+    welcome_notification:
+      default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
+      default_subject: Eskerrik asko sartzeko {{organization}}!
   devise:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
@@ -1023,11 +1085,6 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da

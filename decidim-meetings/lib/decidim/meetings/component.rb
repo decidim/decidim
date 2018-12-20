@@ -20,6 +20,7 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.actions = %w(join)
+    resource.searchable = true
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
@@ -29,6 +30,19 @@ Decidim.register_component(:meetings) do |component|
     meetings.count
   end
 
+  component.exports :meetings do |exports|
+    exports.collection do |component_instance|
+      Decidim::Meetings::Meeting
+        .visible
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Meetings::MeetingSerializer
+  end
+
   component.actions = %w(join)
 
   component.settings(:global) do |settings|
@@ -36,6 +50,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
+    settings.attribute :enable_pads_creation, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -105,6 +120,17 @@ Decidim.register_component(:meetings) do |component|
         admin_user,
         params,
         visibility: "all"
+      )
+
+      Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        questionnaire_for: meeting
       )
 
       2.times do |n|

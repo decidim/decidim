@@ -40,11 +40,14 @@ module Decidim
       # event_name - a String with the name of the event.
       # resource - the resource that received the event
       # user - the User that receives the event
+      # user_role - the role the user takes for this event (either `:follower` or
+      #   `:affected_user`)
       # extra - a Hash with extra information of the event.
-      def initialize(resource:, event_name:, user:, extra:)
+      def initialize(resource:, event_name:, user:, user_role: nil, extra: {})
         @event_name = event_name
         @resource = resource
         @user = user
+        @user_role = user_role
         @extra = extra.with_indifferent_access
       end
 
@@ -80,9 +83,21 @@ module Decidim
         true
       end
 
+      def resource_text; end
+
+      def resource_title
+        return unless resource
+
+        if resource.respond_to?(:title)
+          translated_attribute(resource.title)
+        elsif resource.respond_to?(:name)
+          translated_attribute(resource.name)
+        end
+      end
+
       private
 
-      attr_reader :event_name, :resource, :user, :extra
+      attr_reader :event_name, :resource, :user, :user_role, :extra
 
       def component
         return resource.component if resource.is_a?(Decidim::HasComponent)
@@ -93,16 +108,6 @@ module Decidim
         return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
 
         component&.participatory_space
-      end
-
-      def resource_title
-        return unless resource
-
-        if resource.respond_to?(:title)
-          translated_attribute(resource.title)
-        elsif resource.respond_to?(:name)
-          translated_attribute(resource.name)
-        end
       end
     end
   end

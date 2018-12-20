@@ -9,7 +9,7 @@
       <%= cell "decidim/profile_sidebar", user_group %>
     </div>
     <div class="columns medium-9">
-      <%= cell "decidim/user_group_pending_requests_list", user_group, context: { current_user: current_user } %>
+      <%= cell "decidim/user_group_pending_requests_list", user_group %>
       <section class="section">
         <p><%= t(".current_members_without_admins") %></p>
         <%= cell "decidim/members", user_group, role: "member", from_admin: true %>

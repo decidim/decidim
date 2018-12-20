@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Conferences", type: :system do
   let(:organization) { create(:organization) }
@@ -71,6 +72,11 @@ describe "Conferences", type: :system do
 
     before do
       visit decidim_conferences.conferences_path
+    end
+
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_conferences.conferences_path }
+      let(:manifest_name) { :conferences }
     end
 
     context "and accessing from the homepage" do

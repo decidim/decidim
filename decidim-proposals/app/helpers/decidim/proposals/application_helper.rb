@@ -12,6 +12,7 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
+      include ControlVersionHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
 
@@ -36,9 +37,11 @@ module Decidim
         when "rejected"
           "text-alert"
         when "evaluating"
-          "text-info"
-        else
           "text-warning"
+        when "withdrawn"
+          "text-alert"
+        else
+          "text-info"
         end
       end
 
@@ -92,16 +95,16 @@ module Decidim
         Proposal.where(component: current_component, author: current_user)
       end
 
-      def follow_button_for(model)
-        if current_user
-          render partial: "decidim/shared/follow_button.html", locals: { followable: model }
-        else
-          content_tag(:p, class: "mt-s mb-none") do
-            t("decidim.proposals.proposals.show.sign_in_or_up",
-              in: link_to(t("decidim.proposals.proposals.show.sign_in"), decidim.new_user_session_path),
-              up: link_to(t("decidim.proposals.proposals.show.sign_up"), decidim.new_user_registration_path)).html_safe
-          end
-        end
+      def follow_button_for(model, large = nil)
+        render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
+      end
+
+      def votes_count_for(model, from_proposals_list)
+        render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count.html", locals: { proposal: model, from_proposals_list: from_proposals_list }
+      end
+
+      def vote_button_for(model, from_proposals_list)
+        render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: from_proposals_list }
       end
 
       def endorsers_for(proposal)
@@ -124,6 +127,42 @@ module Decidim
         return true if proposal_limit_enabled?
         return true if can_accumulate_supports_beyond_threshold?
         return true if minimum_votes_per_user_enabled?
+      end
+
+      def filter_origin_values
+        base = if component_settings.official_proposals_enabled
+                 [
+                   ["all", t("decidim.proposals.application_helper.filter_origin_values.all")],
+                   ["official", t("decidim.proposals.application_helper.filter_origin_values.official")]
+                 ]
+               else
+                 [["all", t("decidim.proposals.application_helper.filter_origin_values.all")]]
+               end
+
+        base + [
+          ["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")],
+          ["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")],
+          ["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]
+        ]
+      end
+
+      def filter_state_values
+        [
+          ["except_rejected", t("decidim.proposals.application_helper.filter_state_values.except_rejected")],
+          ["accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")],
+          ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
+          ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")],
+          ["all", t("decidim.proposals.application_helper.filter_state_values.all")]
+        ]
+      end
+
+      def filter_type_values
+        [
+          ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
+          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
+          ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
+
+        ]
       end
     end
   end

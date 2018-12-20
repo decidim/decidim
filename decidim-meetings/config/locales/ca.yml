@@ -22,6 +22,7 @@ ca:
         location_hints: Detalls d'ubicació
         organizer_id: Organitzador
         private_meeting: Trobada privada
+        registration_form_enabled: S'han habilitat les inscripcions
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
@@ -81,6 +82,7 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             default_registration_terms: Termes de registre per defecte
+            enable_pads_creation: Activa la creació de pastissos
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
           step:
             announcement: Anunci
@@ -108,9 +110,9 @@ ca:
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
         registration_code_validated:
-          email_intro: S'ha validat el teu codi de registre "%{registration_code}".
+          email_intro: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
-          email_subject: S'ha validat el teu codi de registre "%{registration_code}"
+          email_subject: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió "%{resource_title}"
           notification_title: S'ha validat el teu codi de registre "%{registration_code}" per a la trobada <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
@@ -269,9 +271,10 @@ ca:
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
             invites: Invitacions
+            registration_form: Formulari d'inscripció
             registrations_count:
-              one: Hi ha hagut 1 inscripció.
-              other: Hi ha hagut %{count} inscripcions.
+              one: S'ha registrat %{count}.
+              other: S'han registrat %{count} registres.
             reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
@@ -297,6 +300,10 @@ ca:
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendari
+        close_window: Tanca la finestra
+        export_calendar: Exportar el calendari
       conference_venues: Seus de les jornades
       content_blocks:
         upcoming_events:
@@ -338,7 +345,7 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         meeting_minutes:
-          meeting_minutes: Acta de la trobada
+          meeting_minutes: Minuts de trobada
           related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
@@ -355,8 +362,8 @@ ca:
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
           remaining_slots:
-            one: 1 espai reservat restant
-            other: "%{count} inscripcions restants"
+            one: "%{count} espai restant"
+            other: "%{count} places restants restants"
           view: Veure
       meetings_map:
         view_meeting: Veure trobada
@@ -399,6 +406,7 @@ ca:
         transparent: Transparent
     metrics:
       meetings:
+        description: Nombre de reunions creades
         object: trobades
         title: Trobades
     participatory_processes:
@@ -409,7 +417,7 @@ ca:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
-        see_all_meetings: Veure totes les trobades
+        see_all: Veure tots (%{count})
         upcoming_meetings: Properes trobades
       upcoming_meeting_for_card:
         upcoming_meeting: Propera reunió

@@ -64,6 +64,10 @@ de:
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich aktualisiert.
+        users_registration_mode:
+          disabled: Der Zugriff kann nur mit externen Konten erfolgen
+          enabled: Benutzern erlauben, sich zu registrieren und sich anzumelden
+          existing: Erlauben Sie Benutzern keine Registrierung, sondern erlauben Sie bestehenden Benutzern, sich anzumelden
       shared:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.

@@ -14,7 +14,7 @@ describe "Conference partners", type: :system do
   context "when there are no partners" do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
-      expect(page).to have_no_selector(".process-nav")
+      expect(page).to have_no_content("PARTNERS")
     end
   end
 
@@ -36,8 +36,8 @@ describe "Conference partners", type: :system do
       visit decidim_conferences.conference_path(conference)
 
       within "#conference-partners" do
-        expect(page).to have_content("MAIN PROMOTORS")
-        expect(page).to have_content("COLLABORATORS")
+        expect(page).to have_content("ORGANIZERS")
+        expect(page).to have_content("PARTNERS")
         expect(page).to have_selector("#conference-partners .partner-box", count: 4)
 
         partners.each do |partner|

@@ -22,6 +22,7 @@ it:
         location_hints: Informazione sul luogo
         organizer_id: Organizzatore
         private_meeting: Incontro privato
+        registration_form_enabled: Modulo di registrazione abilitato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
@@ -81,6 +82,7 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             default_registration_terms: Termini di registrazione predefiniti
+            enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
           step:
             announcement: Annuncio
@@ -108,9 +110,9 @@ it:
           email_subject: La riunione "%{resource_title}" è stata aggiornata
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
         registration_code_validated:
-          email_intro: Il tuo codice di registrazione "%{registration_code}" è stato convalidato.
+          email_intro: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato.
           email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
-          email_subject: Il tuo codice di registrazione "%{registration_code}" è stato convalidato
+          email_subject: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato
           notification_title: Il tuo codice di registrazione "%{registration_code}" per la riunione <a href="%{resource_path}">%{resource_title}</a> è stato convalidato.
         registrations_enabled:
           email_intro: 'La riunione "%{resource_title}" ha abilitato le registrazioni. Puoi registrarti sulla sua pagina:'
@@ -269,9 +271,10 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
+            registration_form: Formulario di registrazione
             registrations_count:
-              one: Si è registrato un'iscrizione.
-              other: Si sono registrate %{count} iscrizione.
+              one: C'è stata %{count} registrazione.
+              other: Ci sono state %{count} registrazioni.
             reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
           update:
@@ -297,6 +300,10 @@ it:
         minutes:
           create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Chiudi la finestra
+        export_calendar: Esporta il calendario
       conference_venues: Sale per conferenze
       content_blocks:
         upcoming_events:
@@ -355,7 +362,7 @@ it:
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           remaining_slots:
-            one: 1 slot restanti
+            one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
           view: vista
       meetings_map:
@@ -399,6 +406,7 @@ it:
         transparent: Trasparente
     metrics:
       meetings:
+        description: Numero di riunioni create
         object: incontri
         title: incontri
     participatory_processes:
@@ -409,7 +417,7 @@ it:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Incontri passati
-        see_all_meetings: Vedi tutte le riunioni
+        see_all: Vedi tutto (%{count})
         upcoming_meetings: Prossimi incontri
       upcoming_meeting_for_card:
         upcoming_meeting: Prossimo incontro

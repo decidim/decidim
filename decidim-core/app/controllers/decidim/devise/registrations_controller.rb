@@ -9,6 +9,7 @@ module Decidim
       include Decidim::DeviseControllers
       include NeedsTosAccepted
 
+      before_action :check_sign_up_enabled
       before_action :configure_permitted_parameters
 
       invisible_captcha
@@ -46,6 +47,10 @@ module Decidim
       end
 
       protected
+
+      def check_sign_up_enabled
+        redirect_to new_user_session_path unless current_organization.sign_up_enabled?
+      end
 
       def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :tos_agreement])

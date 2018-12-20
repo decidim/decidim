@@ -64,6 +64,10 @@ it:
         update:
           error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
           success: OK, l'Organizzazione è stata aggiornata.
+        users_registration_mode:
+          disabled: L'accesso può essere fatto solo con account esterni
+          enabled: Permetti agli utenti di registrarsi e accedere
+          existing: Non consentire agli utenti di registrarsi, ma consentire agli utenti esistenti di accedere
       shared:
         notices:
           no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.

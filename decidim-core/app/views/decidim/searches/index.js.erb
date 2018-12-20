@@ -1,5 +1,7 @@
 var $results = $('#results');
-var $resultsCount = $('#results-count');
+var $filters = $('.search-filters');
+var $count = $('#search-count');
 
-$results.html('<%= j(render partial: "results").strip.html_safe %>');
-$resultsCount.html('<%= j(render partial: "count").strip.html_safe %>');
+$results.html('<%= j(cell("decidim/search_results", @sections, params: params).show).strip.html_safe %>');
+$filters.html('<%= j(render partial: "filters").strip.html_safe %>');
+$count.html('<%= j(render partial: "count").strip.html_safe %>');

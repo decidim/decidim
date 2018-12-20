@@ -21,7 +21,7 @@ shared_examples "searchable results" do
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(/results for the search: "#{term}"/i)
       expect(page).to have_selector(".filters__section")
-      expect(page.find("#results-count").text.to_i).to be_positive
+      expect(page.find("#search-count .section-heading").text.to_i).to be_positive
     end
   end
 end

@@ -134,6 +134,20 @@ pt-BR:
           update:
             error: O seu código de verificação não corresponde ao nosso. Verifique a carta que lhe enviamos
             success: Parabéns. Você foi verificado com sucesso
+      sms:
+        authorizations:
+          create:
+            error: Houve um problema com o seu pedido
+            success: Obrigado! Enviamos um SMS para o seu telefone.
+          edit:
+            send: confirme
+            title: Introduza o código de verificação recebido
+          new:
+            send: Envie-me um SMS
+            title: Solicite seu código de verificação
+          update:
+            error: Seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviamos.
+            success: Parabéns. Você foi confirmado com sucesso.
   errors:
     messages:
       uppercase_only_letters_numbers: devem ser todas maiúsculas e conter apenas letras e / ou números

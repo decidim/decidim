@@ -3,6 +3,7 @@
 require "rails"
 require "active_support/all"
 require "decidim/core"
+require "wicked_pdf"
 
 module Decidim
   module Conferences
@@ -22,13 +23,16 @@ module Decidim
         }, constraints: { conference_id: /[0-9]+/ }
 
         resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
+          get :user, to: "conferences#user_diploma"
           resources :conference_speakers, only: :index, path: "speakers"
           resources :conference_program, only: :show, path: "program"
           resource :conference_widget, only: :show, path: "embed"
-          resource :conference_registration, only: [:create, :destroy] do
-            collection do
-              get :create
-              get :decline_invitation
+          resources :registration_types, only: :index, path: "registration" do
+            resource :conference_registration, only: [:create, :destroy] do
+              collection do
+                get :create
+                get :decline_invitation
+              end
             end
           end
           resources :media, only: :index

@@ -30,15 +30,11 @@ module Decidim
     end
 
     def title
-      return if model.respond_to? :title
-
-      model.name
+      model.try(:title) || model.try(:name) || ""
     end
 
     def body
-      return if model.respond_to? :body
-
-      model.about
+      model.try(:body) || model.try(:about) || ""
     end
   end
 end

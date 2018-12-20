@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -38,24 +37,26 @@ pl:
   activerecord:
     models:
       decidim/conference:
+        one: Konferencja
         few: Konferencje
         many: Konferencje
-        one: Konferencja
         other: Konferencje
       decidim/conference_speaker:
+        one: Głośnik konferencyjny
         few: Głośniki konferencyjne
         many: Głośniki konferencyjne
-        one: Głośnik konferencyjny
         other: Głośniki konferencyjne
       decidim/conference_user_role:
-        few: Role użytkowników konferencji
-        many: Role użytkowników konferencji
         one: Rola użytkownika konferencyjnego
-        other: Role użytkowników konferencji
+        few: Rola użytkownika konferencyjnego
+        many: Rola użytkownika konferencyjnego
+        other: Rola użytkownika konferencyjnego
   decidim:
     admin:
       actions:
+        confirm: Potwierdzać
         new_conference: Nowa konferencja
+        send_diplomas: Wyślij dyplomy
       conference_copies:
         new:
           copy: Kopiuj
@@ -68,6 +69,10 @@ pl:
         destroy:
           error: Wystąpił błąd podczas anulowania tej konferencji.
           success: Konferencja nie została pomyślnie opublikowana.
+      conference_registration:
+        confirm:
+          error: Wystąpił błąd podczas potwierdzania rejestracji konferencji.
+          success: Rejestracja konferencji została pomyślnie potwierdzona.
       conference_speakers:
         create:
           error: Wystąpił błąd podczas dodawania głośnika do tej konferencji.
@@ -152,14 +157,17 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: składniki
-          conference_admins: Administratorzy konferencji
-          conference_invites: Zaproszenia konferencyjne
-          conference_registrations: Rejestracja konferencji
-          conference_speakers: Głośniki konferencyjne
+          conference_admins: Użytkownicy konferencji
+          conference_invites: Zaprasza
+          conference_speakers: Głośniki
+          diploma: Dyplom
           info: Informacje
           media_links: Media Links
           moderations: Moderacje
           partners: Wzmacniacz
+          registration_types: Rodzaje rejestracji
+          registrations: Rejestracje
+          user_registrations: Rejestracja użytkowników
       models:
         conference:
           fields:
@@ -199,6 +207,14 @@ pl:
           types:
             collaborator: Współpracownik
             main_promotor: Główny promotor
+        registration_type:
+          fields:
+            conference_meetings: Spotkania konferencyjne
+            price: Cena £
+            registrations_count: Rejestracje się liczą
+            title: Tytuł
+            weight: Waga
+          name: Typ rejestracji
       partners:
         create:
           error: Wystąpił błąd podczas dodawania partnera do tej konferencji.
@@ -214,14 +230,38 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizacji partnera konferencji.
           success: Partner został pomyślnie zaktualizowany na tę konferencję.
+      registration_type_publications:
+        create:
+          error: Wystąpił błąd podczas publikowania tego typu rejestracji.
+          success: Typ rejestracji został pomyślnie opublikowany.
+        destroy:
+          error: Wystąpił błąd powodujący cofnięcie publikacji tego typu rejestracji.
+          success: Typ rejestracji nie został pomyślnie opublikowany.
+      registration_types:
+        create:
+          error: Wystąpił błąd podczas dodawania typu rejestracji dla tej konferencji.
+          success: Typ rejestracji został pomyślnie dodany do tej konferencji.
+        destroy:
+          success: Typ rejestracji został pomyślnie usunięty z tej konferencji.
+        edit:
+          title: Zaktualizuj typ rejestracji.
+          update: Aktualizacja
+        new:
+          create: Stwórz
+          title: Nowy typ rejestracji
+        update:
+          error: Wystąpił błąd aktualizacji typu rejestracji dla tej konferencji.
+          success: Typ rejestracji został pomyślnie zaktualizowany na potrzeby tej konferencji.
       titles:
         conferences: Konferencje
     admin_log:
       conference:
         create: "%{user_name} utworzyło %{resource_name} konferencję"
         publish: "%{user_name} opublikowało %{resource_name} konferencję"
+        send_conference_diplomas: "%{user_name} wysyłaj dyplomy do użytkowników %{resource_name} konferencji"
         unpublish: "%{user_name} nie opublikowano %{resource_name} konferencji"
         update: "%{user_name} zaktualizowano %{resource_name} konferencję"
+        update_diploma: "%{user_name} zaktualizował konferencję konfiguracji dyplomu %{resource_name}"
       conference_speaker:
         create: "%{user_name} utworzyło %{resource_name} głośnik w %{space_name} konferencjach"
         delete: "%{user_name} usunął %{resource_name} głośnik z %{space_name} konferencji"
@@ -230,6 +270,22 @@ pl:
         create: "%{user_name} zaproszonych %{resource_name} na %{space_name} konferencje"
         delete: "%{user_name} usunął użytkownika %{resource_name} z %{space_name} konferencji"
         update: "%{user_name} zmieniło rolę %{resource_name} w %{space_name} konferencjach"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} potwierdziło rejestrację konferencji na %{resource_name} konferencji"
+        partner:
+          create: "%{user_name} utworzono %{resource_name} do %{space_name} konferencji"
+          delete: "%{user_name} usunął użytkownika %{resource_name} z %{space_name} konferencji"
+          update: "%{user_name} zaktualizowano %{resource_name} w %{space_name} konferencjach"
+        registration_type:
+          create: "%{user_name} utworzyło %{resource_name} typ rejestracji w %{space_name} konferencjach"
+          publish: "%{user_name} opublikowało %{resource_name} typ rejestracji w %{space_name} konferencjach"
+          unpublish: "%{user_name} nie opublikował %{resource_name} rodzaju rejestracji w %{space_name} konferencjach"
+          update: "%{user_name} zaktualizował %{resource_name} typ rejestracji w %{space_name} konferencjach"
+      media_link:
+        create: "%{user_name} utworzyło %{resource_name} link medialny w %{space_name} konferencjach"
+        delete: "%{user_name} usunęło %{resource_name} link medialny z %{space_name} konferencji"
+        update: "%{user_name} zaktualizował %{resource_name} link do mediów w %{space_name} konferencjach"
     conference_program:
       index:
         title: Program
@@ -280,32 +336,47 @@ pl:
           form:
             available_slots_help: Pozostaw to 0, jeśli masz dostęp do nieograniczonej liczby miejsc.
             registrations_count:
+              one: Nie było rejestracji 1.
               few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
-              one: Nie było rejestracji 1.
               other: Zarejestrowano %{count} rejestracji.
             slug_help: 'Strumienie adresów URL służą do generowania adresów URL wskazujących na tę konferencję. Akceptuje tylko litery, cyfry i łączniki i musi zaczynać się od litery. Przykład: %{url}'
+        diplomas:
+          edit:
+            save: Zapisać
+            title: Dyplom
         invite_join_conference_mailer:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} zaprosiło Cię do przyłączenia się do konferencji o %{application}. Możesz go odrzucić lub zaakceptować, korzystając z poniższych linków."
-            join: Dołącz do konferencji "%{conference_title}"
+            registration: Rejestracja dla "%{conference_title}"
         partners:
           index:
             title: Wzmacniacz
+        registration_types:
+          form:
+            select_conference_meetings: Wybierz spotkania konferencyjne
+          index:
+            title: Rodzaje rejestracji
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: W załącznikach znajdziesz dyplom z konferencji <a href="%{url}">%{title}</a>.
+          diploma_user:
+            attendance_verified_by: Frekwencja zweryfikowana przez
+            certificate_of_attendance: Certyfikat uczestnictwa
+            certificate_of_attendance_description: Zaświadcza się, że <strong>%{user}</strong> wzięło udział i uczestniczyło w <strong>%{title}</strong> które odbyło się w <strong>%{location}</strong> na <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Wystąpił problem podczas wysyłania dyplomów konferencji.
+          success: Dyplomy konferencji przesłane poprawnie
       conference:
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdzać
         show:
+          free: Darmowy
           going: Chodzenie
-          join: Dołącz do konferencji
           no_slots_available: Brak dostępnych miejsc
-          remaining_slots:
-            few: Pozostało %{count} gniazd
-            many: Pozostało %{count} gniazd
-            one: Pozostało 1 miejsce
-            other: Pozostało %{count} gniazd
+          registration: Rejestracja
       conference_program:
         program_meeting:
           content: Zawartość
@@ -318,7 +389,12 @@ pl:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> została potwierdzona.
-          details: Szczegóły konferencji znajdują się w załączniku.
+          details_1: 'Jesteś zarejestrowany na konferencji z typem %{registration_type} . Koszt %{price} i możesz wziąć udział w następujących wydarzeniach:'
+          details_2: Szczegóły konferencji znajdują się w załączniku.
+        pending_validation:
+          confirmation_pending: Wkrótce otrzymasz potwierdzenie
+          details: 'Zarejestrowałeś się na typ %{registration_type} z kosztem %{price} i możesz wziąć udział w następujących wydarzeniach:'
+          pending_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> oczekuje na potwierdzenie.
       conference_registrations:
         create:
           invalid: Podczas dołączania do tej konferencji wystąpił problem.
@@ -345,16 +421,12 @@ pl:
           speakers: Głośniki
       conferences:
         partners:
-          collaborators: Współpracownicy
-          main_promotors: Główni promotorzy
+          collaborators: Wzmacniacz
+          main_promotors: Organizatorzy
         show:
-          already_account: Czy masz już konto w Decidim?
           login_as: Jesteś zalogowany jako %{name} <%{email}>
           make_conference_registration: 'Dokonaj rejestracji na konferencji:'
-          new_user: Nowy użytkownik?
           register: Zarejestrować
-          sign_in: Zaloguj się, aby zarejestrować się na tej konferencji
-          sign_up: Zarejestruj się za darmo w decidimie, aby się zarejestrować
       content_blocks:
         highlighted_conferences:
           name: Wyróżnione konferencje
@@ -364,14 +436,20 @@ pl:
         conference_registration_mailer:
           confirmation:
             subject: Rejestracja Twojej konferencji została potwierdzona
+          pending_validation:
+            subject: Rejestracja Twojej konferencji oczekuje na potwierdzenie
         invite_join_conference_mailer:
           invite:
             subject: Zaproszenie do przyłączenia się do konferencji
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Twój dyplom konferencji został wysłany
       models:
         conference_invite:
           fields:
             email: E-mail
             name: Nazwa
+            registration_type: Typ rejestracji
             sent_at: Wysłane pod adresem
             status: Status
           status:
@@ -382,6 +460,11 @@ pl:
           fields:
             email: E-mail
             name: Nazwa
+            registration_type: Typ rejestracji
+            state: Stan
+            states:
+              confirmed: Zatwardziały
+              pending: W oczekiwaniu
       pages:
         home:
           highlighted_conferences:
@@ -394,6 +477,18 @@ pl:
       photos_list:
         show:
           related_photos: Zdjęcia
+      registration_types:
+        index:
+          choose_an_option: 'Wybierz opcję rejestracji:'
+          login_as: Jesteś zalogowany jako %{name} <%{email}>
+          register: Zarejestrować
+          title: Rodzaje rejestracji
+      shared:
+        conference_user_login:
+          already_account: Czy masz już konto w Decidim?
+          new_user: Nowy użytkownik?
+          sign_in: Zaloguj się, aby zarejestrować się na konferencję
+          sign_up: Utwórz konto w decidimie, aby zarejestrować się na konferencję
       show:
         details: Detale
         introduction: Wprowadzenie
@@ -451,6 +546,8 @@ pl:
         subject: Zaproszenie do przyłączenia się do konferencji
   layouts:
     decidim:
+      conference_hero:
+        register: Zarejestrować
       conference_widgets:
         show:
           take_part: Wziąć udział
@@ -461,9 +558,9 @@ pl:
           promoted_conferences: Promowane konferencje
         order_by_conferences:
           conferences:
+            one: "%{count} konferencji"
             few: "%{count} konferencji"
             many: "%{count} konferencji"
-            one: "%{count} konferencji"
             other: "%{count} konferencji"
         promoted_conference:
           more_info: Więcej informacji
@@ -473,5 +570,4 @@ pl:
         conference_partners_menu_item: Wzmacniacz
         conference_speaker_menu_item: Głośniki
         media: Głoska bezdźwięczna
-        unfold: Rozwijać się
         venues: Miejsca spotkań

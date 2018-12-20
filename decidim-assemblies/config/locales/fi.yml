@@ -319,6 +319,12 @@ fi:
         designated_on: Nimetty
       index:
         title: Jäsenet
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>\n"
+          page: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>"
+          title: Mitä ovat ryhmät?
     log:
       value_types:
         assembly_presenter:
@@ -327,6 +333,7 @@ fi:
       assemblies: Ryhmät
     metrics:
       assemblies:
+        description: Ryhmien määrä
         object: ryhmät
         title: Ryhmät
   errors:
@@ -348,10 +355,9 @@ fi:
         promoted_assembly:
           more_info: Lisätiedot
           take_part: Osallistu
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Jäsenet
         assembly_menu_item: Ryhmä
-        unfold: Avaa
       assembly_widgets:
         show:
           take_part: Osallistu

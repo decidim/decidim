@@ -19,6 +19,7 @@ module Decidim
           public_list_speakers_action?
           public_list_program_action?
           public_list_media_links_action?
+          public_list_registration_types_action?
           public_report_content_action?
 
           can_join_conference?
@@ -40,8 +41,8 @@ module Decidim
         user_can_read_current_conference?
         user_can_read_conference_registrations?
         user_can_export_conference_registrations?
+        user_can_confirm_conference_registration?
         user_can_create_conference?
-        user_can_destroy_conference?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -150,6 +151,13 @@ module Decidim
         allow!
       end
 
+      def public_list_registration_types_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :registration_types
+
+        allow!
+      end
+
       def public_report_content_action?
         return unless permission_action.action == :create &&
                       permission_action.subject == :moderation
@@ -192,14 +200,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      # Only organization admins can destroy a conference
-      def user_can_destroy_conference?
-        return unless permission_action.action == :destroy &&
-                      permission_action.subject == :conference
-
-        toggle_allow(user.admin?)
-      end
-
       # Only organization admins can read a conference registrations
       def user_can_read_conference_registrations?
         return unless permission_action.action == :read_conference_registrations &&
@@ -212,6 +212,13 @@ module Decidim
       def user_can_export_conference_registrations?
         return unless permission_action.action == :export_conference_registrations &&
                       permission_action.subject == :conference
+
+        toggle_allow(user.admin?)
+      end
+
+      def user_can_confirm_conference_registration?
+        return unless permission_action.action == :confirm &&
+                      permission_action.subject == :conference_registration
 
         toggle_allow(user.admin?)
       end
@@ -247,13 +254,11 @@ module Decidim
 
       # Process admins can eprform everything *inside* that conference. They cannot
       # create a conference or perform actions on conference groups or other
-      # conferences. They cannot destroy their conference either.
+      # conferences.
       def conference_admin_action?
         return unless can_manage_conference?(role: :admin)
         return if user.admin?
         return disallow! if permission_action.action == :create &&
-                            permission_action.subject == :conference
-        return disallow! if permission_action.action == :destroy &&
                             permission_action.subject == :conference
 
         is_allowed = [
@@ -268,6 +273,7 @@ module Decidim
           :conference_speaker,
           :partner,
           :media_link,
+          :registration_type,
           :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -289,6 +295,7 @@ module Decidim
           :media_link,
           :conference_invite,
           :partner,
+          :registration_type,
           :read_conference_registrations,
           :export_conference_registrations
         ].include?(permission_action.subject)

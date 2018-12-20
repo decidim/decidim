@@ -114,9 +114,7 @@ uk:
           email_subject: Зустріч "%{resource_title}" було оновлено
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
         registration_code_validated:
-          email_intro: Ваш реєстраційний код "%{registration_code}" підтверджено.
           email_outro: Ви отримали це повідомлення, оскільки ваш реєстраційний код для зустрічі "%{resource_title}" підтверджено.
-          email_subject: Ваш реєстраційний код "%{registration_code}" підтверджено
           notification_title: Ваш реєстраційний код "%{registration_code}" для зустрічі <a href="%{resource_path}">%{resource_title}</a> підтверджено.
         registrations_enabled:
           email_intro: 'Розпочалася реєстрація на зустріч "%{resource_title}". Ви можете зареєструватися на сторінці:'
@@ -263,11 +261,6 @@ uk:
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invites: Запрошення
-            registrations_count:
-              one: Зареєструвалась 1 людина.
-              few: Зареєструвалось %{count} людей.
-              many: Зареєструвалось %{count} людей.
-              other: Зареєструвалось %{count} людей.
             reserved_slots_help: Залиште його 0, якщо у вас немає заброньованих місць
             reserved_slots_less_than: Має бути меншим або рівним %{count}
           update:
@@ -332,11 +325,6 @@ uk:
           meeting_report: Звіт про зустріч
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          remaining_slots:
-            one: Залишилось 1 місце
-            few: "Залишилось %{count} місця"
-            many: "Залишилось %{count} місць"
-            other: "Залишилось %{count} місць"
           view: Переглянути
       models:
         invite:
@@ -383,7 +371,6 @@ uk:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минулі зустрічі
-        see_all_meetings: Переглянути всі зустрічі
         upcoming_meetings: Прийдешні зустрічі
       upcoming_meeting_for_card:
         upcoming_meeting: Прийдешня зустріч

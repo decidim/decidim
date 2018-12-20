@@ -25,7 +25,7 @@
         <!-- To make it work an invisible tab, do not display here, but in content section -->
         <li class="tabs-title" style="display:none"><a href="#conversation"></a></li>
         <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
-        <li class="tabs-title"><a href="#followers" title="Followers">Followers</a></li>
+        <li class="tabs-title"><a href="#follower" title="Followers">Followers</a></li>
         <li class="tabs-title"><a href="#badges" title="Badges">Badges</a></li>
       </ul>
     </div>
@@ -51,7 +51,7 @@
         <div class="tabs-panel" id="following">
           <%= render partial: page_path("profile") + "/following" %>
         </div>
-        <div class="tabs-panel" id="followers">
+        <div class="tabs-panel" id="follower">
           <%= render partial: page_path("profile") + "/followers" %>
         </div>
         <div class="tabs-panel" id="badges">

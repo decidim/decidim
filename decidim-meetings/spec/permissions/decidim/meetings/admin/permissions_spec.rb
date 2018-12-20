@@ -12,13 +12,15 @@ describe Decidim::Meetings::Admin::Permissions do
       current_component: meeting_component,
       meeting: meeting,
       agenda: agenda,
-      minutes: minutes
+      minutes: minutes,
+      questionnaire: questionnaire
     }
   end
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
   let(:agenda) { create :agenda }
   let(:minutes) { create :minutes }
+  let(:questionnaire) { create :questionnaire }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
   let(:registrations_enabled) { true }
   let(:action) do
@@ -58,6 +60,18 @@ describe Decidim::Meetings::Admin::Permissions do
 
     context "when minutes is missing" do
       let(:minutes) { nil }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  shared_examples "action requiring a questionnaire" do
+    context "when registration form is present" do
+      it { is_expected.to eq true }
+    end
+
+    context "when registration form is missing" do
+      let(:questionnaire) { nil }
 
       it { is_expected.to eq false }
     end
@@ -177,6 +191,16 @@ describe Decidim::Meetings::Admin::Permissions do
 
       it_behaves_like "action requiring a meeting"
       it_behaves_like "action requiring a minutes"
+    end
+  end
+
+  context "when subject is a questionnaire" do
+    let(:action_subject) { :questionnaire }
+
+    context "when updating a questionnaire" do
+      let(:action_name) { :update }
+
+      it_behaves_like "action requiring a questionnaire"
     end
   end
 end

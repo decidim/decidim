@@ -12,6 +12,13 @@ module Decidim
       @resource.url
     end
 
+    def resource_text
+      translated_attribute(
+        resource.try(:description) ||
+          resource.try(:body)
+      )
+    end
+
     private
 
     def attached_to_url

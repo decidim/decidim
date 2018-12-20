@@ -255,10 +255,17 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>deltagande process</strong> är en följd av deltagande aktiviteter (t ex först fyller i en undersökning, lägger fram förslag, diskuterar dem i ansikte mot virtuella möten och slutligen prioriterar dem) i syfte att definiera och fatta beslut på ett specifikt ämne.</p> <p>Exempel på deltagande processer är: en process för val av kommittémedlemmar (där kandidaterna presenteras, debatteras och slutligen en kandidatur väljs), deltagande budgetar (där förslag görs, värderas ekonomiskt och röstat med tillgängliga medel) en strategisk planeringsprocess, samverkan av en förordning eller norm, utformning av ett urbana utrymme eller framställning av en offentlig plan.</p>\n"
+          page: "<p>A <strong>deltagande process</strong> är en följd av deltagande aktiviteter (t ex först fyller i en undersökning, lägger fram förslag, diskuterar dem i ansikte mot virtuella möten och slutligen prioriterar dem) i syfte att definiera och fatta beslut på ett specifikt ämne.</p> <p>Exempel på deltagande processer är: en process för val av kommittémedlemmar (där kandidaterna presenteras, debatteras och slutligen en kandidatur väljs), deltagande budgetar (där förslag görs, värderas ekonomiskt och röstat med tillgängliga medel) en strategisk planeringsprocess, samverkan av en förordning eller norm, utformning av ett urbana utrymme eller framställning av en offentlig plan.</p>\n"
+          title: Vad är en deltagande process?
     menu:
       processes: Processer
     metrics:
       participatory_processes:
+        description: Antal deltagande processer i denna organisation
         object: deltagande processer
         title: Deltagande processer
     participatory_process_groups:
@@ -378,9 +385,8 @@ sv:
           active_step: 'Nuvarande steg:'
           more_info: Mer information
           take_part: Delta
-      process_header:
-        process_menu_item: Processen
-        unfold: Veckla ut
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg
+      process_navigation:
+        process_menu_item: Processen

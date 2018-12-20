@@ -9,7 +9,7 @@ pt:
         about: Sobre
         email: O seu email
         name: O seu nome
-        nickname: Seu identificador curto e exclusivo
+        nickname: Apelido
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
@@ -36,7 +36,7 @@ pt:
         remember_me: Recorde-me
     models:
       decidim/user:
-        one: Do utilizador
+        one: Nenhum usuário
         other: Comercial
       decidim/user_group:
         one: Grupo de usuários
@@ -163,6 +163,9 @@ pt:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
+      sms:
+        explanation: Envie seu número de celular para que possamos verificar sua identidade.
+        name: Código por SMS
       started_at: Iniciado em %{timestamp}
     authorization_modals:
       show:
@@ -196,7 +199,7 @@ pt:
           title: confirme seu email
     collapsible_list:
       hidden_elements_count:
-        one: e mais 1
+        one: e mais %{count}
         other: e mais %{count}
       see_less: "(veja menos)"
       see_more: "(ver mais)"
@@ -211,6 +214,7 @@ pt:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
           step:
             comments_blocked: Comentários bloqueados
@@ -280,6 +284,8 @@ pt:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
+          sign_in_disabled: Você pode acessar com uma conta externa
+          sign_up_disabled: Inscrever-se está desabilitado, você pode usar um usuário existente para acessar
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +538,13 @@ pt:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
+      form:
+        document_number_help: Não use traços nem espaços
+        email_help: E-mail da sua organização, associação, coletivo, grupo etc.
+        fill_in_for_verification: 'Preencha estes campos se quiser que seu grupo seja verificado:'
+        name_help: Nome da sua organização, associação, coletivo, grupo etc.
+        nickname_help: Nome de usuário da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        phone_help: Não use traços nem espaços
       join:
         error: Houve um problema ao ingressar no grupo
         success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para o grupo.
@@ -545,6 +558,7 @@ pt:
       new:
         create_user_group: Criar grupo
         new_user_group: Novo grupo
+        subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
@@ -553,6 +567,13 @@ pt:
       update:
         error: Houve um problema ao atualizar o grupo
         success: Grupo atualizado com sucesso
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
+          title: O que posso fazer em %{organization}?
+        description: Leia mais sobre %{organization}
+        title: Ajuda Geral
     last_activities:
       activities:
         no_activities_warning: Nenhuma atividade
@@ -584,8 +605,8 @@ pt:
     members:
       no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
+      help: Socorro
       home: Inicio
-      more_information: Mais informação
     messaging:
       conversation_mailer:
         new_conversation:
@@ -602,20 +623,29 @@ pt:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
-          from: A partir de
-          last_message_html: Última mensagem <strong>%{time} atrás</strong>
           no_conversations: Ainda não há conversas
+          title: Conversas
+        reply:
+          send: Mandar
+          title: Resposta
         show:
-          conversation_with_html: Conversa com <strong>%{name}</strong>
-          reply: Resposta
-          send: Enviar
+          title: Conversa com %{usernames}
         start:
           send: Enviar
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
     metrics:
+      followers:
+        description: Número de usuário que segue em organização
+        object: seguidores
+        title: Seguidores
+      participants:
+        description: Número de usuários ativos na organização
+        object: participantes
+        title: Participantes
       users:
+        description: Número de usuários na organização
         object: Comercial
         title: Comercial
     newsletter_mailer:
@@ -659,6 +689,10 @@ pt:
         pending: Pendente
         rejected: Rejeitadas
         verified: Verificado
+    pad_iframe:
+      disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
+      explanation: Use esse bloco para fazer anotações de forma colaborativa durante a reunião, para que seja mais fácil escrever o minuto depois.
+      pad: Almofada
     pages:
       home:
         extended:
@@ -701,7 +735,15 @@ pt:
         sub_hero:
           register: registo
       index:
-        title: Mais informação
+        read_more: Consulte Mais informação
+        standalone_pages: Páginas
+        subheading: Navegue pelas páginas de ajuda de %{name}
+        title: Socorro
+        topics: Tópicos
+      participatory_space:
+        metrics:
+          headline: Participação em números
+          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Houve um erro ao aceitar os termos e condições.
@@ -729,13 +771,14 @@ pt:
       default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
       default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
+        activity: Atividade
         badges: Distintivos
-        conversations: Conversas
         followers: Seguidores
         following: Segue
         groups: Grupos
         members: Membros
-        notifications: Notificações
+        timeline: Timeline
+        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
@@ -773,24 +816,35 @@ pt:
       prompt: Selecione um escopo
       scopes: Escopos
     search:
-      filter:
-        all: Todos
-        component: Componente
       results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisa
     searches:
       filters:
-        search: Pesquisa
+        back: Voltar aos resultados
+        jump_to: 'Pule para:'
+        state:
+          active: Ativo
+          all: Todos
+          future: Futuro
+          past: Passado
       filters_small_view:
         close_modal: Fechar modal
         filter: Filtro
         filter_by: Filtrar por
         unfold: Desdobrar
+      results:
+        results:
+          one: "%{count} resultado"
+          other: "%{count} resultados"
+        view_all: Ver todos (%{count})
     shared:
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
         embed_link: Embutir
+      extended_navigation_bar:
+        more: Mais
+        unfold: Desdobrar
       flag_modal:
         already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
@@ -800,6 +854,8 @@ pt:
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou script bots.
         title: Reportar um problema
+      floating_help:
+        help: Socorro
       follow_button:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:
@@ -815,6 +871,12 @@ pt:
         share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
+    user_activity:
+      index:
+        no_activities_warning: Este usuário ainda não possui nenhuma atividade.
+    welcome_notification:
+      default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
+      default_subject: Obrigado por se juntar a {{organization}}!
   devise:
     confirmations:
       confirmed: Seu endereço de e-mail foi confirmado com sucesso.
@@ -1023,11 +1085,6 @@ pt:
         see_more: Ver mais
   locale:
     name: Português
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email

@@ -29,7 +29,7 @@ module Decidim
       # Overwrite default reload method to unset the instance variables so reloading works as expected.
       def reload(options = nil)
         remove_instance_variable(:@authors) if defined?(@authors)
-        remove_instance_variable(:@notifiable_authors) if defined?(@notifiable_authors)
+        remove_instance_variable(:@notifiable_identities) if defined?(@notifiable_identities)
         super(options)
       end
 
@@ -50,12 +50,14 @@ module Decidim
         end.compact.uniq
       end
 
-      # Returns the authors that should be notified for a coauthorable.
+      # Returns the identities that should be notified for a coauthorable.
       #
-      def notifiable_authors
-        @notifiable_authors ||= authors.flat_map do |author|
-          if author.is_a?(Decidim::User)
-            author
+      def notifiable_identities
+        @notifiable_identities ||= identities.flat_map do |identity|
+          if identity.is_a?(Decidim::User)
+            identity
+          elsif identity.is_a?(Decidim::UserGroup)
+            identity.managers
           elsif respond_to?(:component)
             component.participatory_space.admins
           end
@@ -82,6 +84,13 @@ module Decidim
         coauthorships.order(:created_at).first
       end
 
+      # Checks whether the user is the creator of the given proposal
+      #
+      # author - the author to check for authorship
+      def created_by?(author)
+        author == creator_author
+      end
+
       # Syntactic sugar to access first coauthor Author
       def creator_author
         creator.try(:author)
@@ -95,7 +104,7 @@ module Decidim
 
       # Adds a new coauthor to the list of coauthors. The coauthorship is created with
       # current object as coauthorable and `user` param as author. To set the user group
-      # use `extra_attributes` either with `user_group` or `decidim_user_group_id` keys.
+      # use `extra_attributes` with the `user_group` key.
       #
       # @param author: The new coauthor.
       # @extra_attrs: Extra

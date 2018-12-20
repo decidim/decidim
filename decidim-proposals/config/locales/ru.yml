@@ -113,7 +113,6 @@ ru:
           email_subject: Предложение, за которым вы следите, было принято
           notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, за которым вы следите, только что поддержал предложение, которое может быть вам интересно. Прочитайте его и внесите свой вклад:"
           email_outro: Вы получили это уведомление, потому что вы следите за «%{endorser_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: "%{endorser_nickname} поддержал новое предложение"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> поддержал предложение <a href="%{resource_path}">%{resource_title}</a>.
@@ -127,14 +126,11 @@ ru:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, за которым вы следите, обнародовал новое предложение. Прочитайте его и внесите свой вклад:"
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: Новое предложение от %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> обнародовал предложение <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-          email_subject: В %{participatory_space_title} добавлено новое предложение
           notification_title: В %{participatory_space_title} было добавлено предложение <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           email_intro: 'Предложение "%{resource_title}" было отклонено. Вы можете прочитать ответ на странице:'
@@ -155,10 +151,6 @@ ru:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Предложения
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Предложения
-        see_all_proposals: Просмотреть все предложения
     proposals:
       actions:
         answer: Ответить
@@ -243,6 +235,12 @@ ru:
         not_answered: Без ответов
         rejected: Отклонено
         withdrawn: Отозван
+      application_helper:
+        filter_origin_values:
+          citizens: Граждане
+          official: Служебные
+        filter_state_values:
+          except_rejected: Все, кроме отклоненных
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -288,12 +286,6 @@ ru:
         complete:
           send: Отправить
           title: Завершите свое предложение
-        count:
-          proposals_count:
-            one: 1 предложение
-            few: "%{count} предложения"
-            many: "%{count} предложений"
-            other: "%{count} предложений"
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
@@ -310,16 +302,10 @@ ru:
         endorsements_card_row:
           comments: Комментарии
         filters:
-          accepted: Принято
           activity: Деятельность
           category: Категория
           category_prompt: Выберите категорию
-          citizens: Граждане
-          evaluating: Рассматривается
-          except_rejected: Все, кроме отклоненных
-          official: Служебные
           origin: Источник
-          rejected: Отклонено
           related_to: Связано с
           search: Поиск
           state: Cостояние
@@ -362,11 +348,6 @@ ru:
         show:
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
-          hidden_endorsers_count:
-            one: и еще 1 человек
-            few: и еще %{count} человека
-            many: и еще %{count} человек
-            other: и еще %{count} человек
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'

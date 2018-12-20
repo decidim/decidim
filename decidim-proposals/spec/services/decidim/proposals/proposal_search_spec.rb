@@ -79,14 +79,44 @@ module Decidim
 
           context "when filtering citizen proposals" do
             let(:origin) { "citizens" }
+            let(:another_user) { create(:user, organization: component.organization) }
 
             it "returns only citizen proposals" do
               create_list(:proposal, 3, :official, component: component)
               citizen_proposals = create_list(:proposal, 2, component: component)
+              proposal.add_coauthor(another_user)
               citizen_proposals << proposal
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(citizen_proposals)
+            end
+          end
+
+          context "when filtering user groups proposals" do
+            let(:origin) { "user_group" }
+            let(:user_group) { create :user_group, :verified, users: [user], organization: user.organization }
+
+            it "returns only user groups proposals" do
+              create(:proposal, :official, component: component)
+              user_group_proposal = create(:proposal, component: component)
+              user_group_proposal.coauthorships.clear
+              user_group_proposal.add_coauthor(user, user_group: user_group)
+
+              expect(subject.size).to eq(1)
+              expect(subject).to eq([user_group_proposal])
+            end
+          end
+
+          context "when filtering meetings proposals" do
+            let(:origin) { "meeting" }
+            let(:meeting) { create :meeting }
+
+            it "returns only meeting proposals" do
+              create(:proposal, :official, component: component)
+              meeting_proposal = create(:proposal, :official_meeting, component: component)
+
+              expect(subject.size).to eq(1)
+              expect(subject).to eq([meeting_proposal])
             end
           end
         end

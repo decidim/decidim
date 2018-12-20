@@ -75,10 +75,6 @@ describe "Homepage", type: :system do
         let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
         let(:organization) { create(:organization, cta_button_text: cta_button_text) }
 
-        before do
-          create :static_page, slug: "terms-and-conditions", organization: organization
-        end
-
         it "uses the custom values for the CTA button text" do
           within ".hero" do
             expect(page).to have_selector("a.hero-cta", text: "SIGN UP")
@@ -143,7 +139,9 @@ describe "Homepage", type: :system do
     end
 
     context "when there are static pages" do
-      let!(:static_pages) { create_list(:static_page, 3, organization: organization) }
+      let!(:static_page_1) { create(:static_page, organization: organization, show_in_footer: true) }
+      let!(:static_page_2) { create(:static_page, organization: organization, show_in_footer: true) }
+      let!(:static_page_3) { create(:static_page, organization: organization, show_in_footer: false) }
 
       before do
         visit current_path
@@ -151,17 +149,17 @@ describe "Homepage", type: :system do
 
       it "includes links to them" do
         within ".main-footer" do
-          expect(page).to have_css("ul.footer-nav li a", count: 3)
-          static_pages.each do |static_page|
+          [static_page_1, static_page_2].each do |static_page|
             expect(page).to have_content(static_page.title["en"])
           end
+
+          expect(page).to have_no_content(static_page_3.title["en"])
         end
 
-        static_page = static_pages.first
-        click_link static_page.title["en"]
-        expect(page).to have_i18n_content(static_page.title)
+        click_link static_page_1.title["en"]
+        expect(page).to have_i18n_content(static_page_1.title)
 
-        expect(page).to have_i18n_content(static_page.content)
+        expect(page).to have_i18n_content(static_page_1.content)
       end
 
       it "includes the footer sub_hero with the current organization name" do
@@ -247,11 +245,11 @@ describe "Homepage", type: :system do
           it "shows the metrics block" do
             within "#metrics" do
               expect(page).to have_content("Participation in figures")
-              Decidim.metrics_registry.highlighted.each do |metric_registry|
-                expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+              Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
+                expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
               end
-              Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+              Decidim.metrics_registry.filtered(highlight: false, scope: "home").each do |metric_registry|
+                expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
               end
             end
           end
@@ -329,6 +327,24 @@ describe "Homepage", type: :system do
 
       it "shows the banner's action subtitle" do
         expect(page).to have_i18n_content(organization.highlighted_content_banner_action_subtitle)
+      end
+    end
+
+    context "when downloading open data", download: true do
+      before do
+        Decidim::OpenDataJob.perform_now(organization)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+      end
+
+      it "lets the users download open data files" do
+        click_link "Download Open Data files"
+        expect(File.basename(download_path)).to include("open-data.zip")
+        Zip::File.open(download_path) do |zipfile|
+          expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
+          expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
+          expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
+        end
       end
     end
   end

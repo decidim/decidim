@@ -321,7 +321,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     }
   }
 
-  a:first-of-type::after{
+  a::before{
     content: "";
     margin-left: .5rem;
     margin-right: .5rem;
@@ -330,6 +330,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     height: 2px;
     border-left: $border;
     vertical-align: middle;
+  }
+
+  a:first-of-type::before{
+    display: none;
   }
 }
 

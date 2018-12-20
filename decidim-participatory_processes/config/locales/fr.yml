@@ -256,10 +256,17 @@ fr:
           email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
+          page: "<p>A <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
+          title: Qu'est-ce qu'un processus participatif?
     menu:
       processes: Concertations
     metrics:
       participatory_processes:
+        description: Nombre de processus participatifs dans cette organisation
         object: processus participatifs
         title: Processus participatifs
     participatory_process_groups:
@@ -379,9 +386,8 @@ fr:
           active_step: 'Étape actuelle :'
           more_info: Plus d'informations
           take_part: Participer
-      process_header:
-        process_menu_item: Présentation
-        unfold: Voir la suite
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes
+      process_navigation:
+        process_menu_item: Présentation

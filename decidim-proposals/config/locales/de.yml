@@ -150,7 +150,7 @@ de:
           email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade einen Vorschlag gebilligt, der für Sie interessant sein könnte, prüfen Sie ihn und tragen Sie dazu bei:"
+          email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade den Vorschlag "%{resource_title}" befürwortet, und wir denken, er könnte für Sie interessant sein. Überprüfen Sie es und tragen Sie bei:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: "%{endorser_nickname} hat einen neuen Vorschlag befürwortet"
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>gebilligt.
@@ -164,14 +164,14 @@ de:
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
           notification_title: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat einen neuen Vorschlag veröffentlicht, überprüfe ihn und trage dazu bei:"
+          email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Überprüfen Sie es und tragen Sie bei:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Neuer Vorschlag von %{author_nickname}
+          email_subject: Neuer Vorschlag "%{resource_title}" um %{author_nickname}
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
-          email_subject: Neuer Vorschlag wurde zu %{participatory_space_title}hinzugefügt
+          email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title}hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         proposal_rejected:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
@@ -225,22 +225,25 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erstellt.
     metrics:
       accepted_proposals:
+        description: Anzahl der von den Benutzern akzeptierten Vorschläge
         object: Vorschläge
         title: Akzeptierte Vorschläge
+      endorsements:
+        description: Anzahl der in Vorschlägen generierten Vermerke
+        object: Vermerke
+        title: Vermerke
       proposals:
+        description: Anzahl der generierten Vorschläge
         object: Vorschläge
         title: Vorschläge
       votes:
+        description: Anzahl der in den Vorschlägen der Nutzer erzeugten Stimmen
         object: Stimmen
         title: Stimmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Vorschläge
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Vorschläge
-        see_all_proposals: Sehen Sie sich alle Vorschläge an
     proposals:
       actions:
         answer: Antworten
@@ -309,7 +312,9 @@ de:
             update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+            created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             select_a_category: Wählen Sie eine Kategorie
+            select_a_meeting: Wählen Sie eine Besprechung aus
           index:
             actions: Aktionen
             cancel: Stornieren
@@ -366,6 +371,19 @@ de:
         not_answered: Nicht beantwortet
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
+      application_helper:
+        filter_origin_values:
+          all: Alles
+          citizens: Bürger
+          meetings: Meetings
+          official: Offiziell
+          user_groups: Benutzergruppen
+        filter_state_values:
+          accepted: Akzeptiert
+          all: Alles
+          evaluating: Auswerten
+          except_rejected: Alle außer abgelehnt
+          rejected: Abgelehnt
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -396,8 +414,8 @@ de:
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
-            one: 1 gemeinsamer Entwurf
-            other: "%{count} kollaborative Entwürfe"
+            one: "%{count} kollaborativer Entwurf"
+            other: "%{count} kollaborativer Entwurf"
         create:
           error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
           success: Collaborative Draft wurde erfolgreich erstellt.
@@ -451,8 +469,8 @@ de:
           final_proposal: endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
-            one: und 1 weitere Person
-            other: und %{count} weitere Leute
+            one: und %{count} weitere Person
+            other: und %{count} weitere Personen
           info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Dies bedeutet, dass Sie ihren Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie den Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
           of_versions: "(von %{number})"
           publish: Veröffentlichen
@@ -509,6 +527,12 @@ de:
             votes: Stimmen
       new:
         limit_reached: Sie können keine neuen Angebote erstellen, da Sie das Limit überschritten haben.
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+          comments: Bemerkungen
+          endorse: Befürworten
+          endorsements: Vermerke
       proposal_endorsements:
         create:
           error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
@@ -534,7 +558,7 @@ de:
           title: Vervollständigen Sie Ihren Vorschlag
         count:
           proposals_count:
-            one: 1 Vorschlag
+            one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
@@ -552,17 +576,10 @@ de:
         endorsements_card_row:
           comments: Bemerkungen
         filters:
-          accepted: Akzeptiert
           activity: Aktivität
-          all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Bürger
-          evaluating: Bewertung
-          except_rejected: Alle außer abgelehnt
-          official: Offiziell
           origin: Ursprung
-          rejected: Abgelehnt
           related_to: Bezüglich
           search: Suche
           state: Zustand
@@ -589,6 +606,11 @@ de:
           most_voted: Die meisten haben gewählt
           random: Zufällig
           recent: Kürzlich
+        participatory_texts:
+          index:
+            document_index: Dokumentenindex
+          view_index:
+            see_index: Siehe Index
         preview:
           modify: Ändern Sie den Vorschlag
           proposal_edit_before_minutes:
@@ -600,11 +622,12 @@ de:
           creation_date: 'Erstellung: %{date}'
           view_proposal: Angebot anzeigen
         show:
+          back_to: Zurück zu
           edit_proposal: Angebot bearbeiten
           endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
-            one: und 1 weitere Person
-            other: und %{count} weitere Leute
+            one: und %{count} weitere Person
+            other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Siehe den gemeinsamen Entwurf
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
@@ -613,6 +636,7 @@ de:
           report: Bericht
           sign_in: Anmelden
           sign_in_or_up: "%{in} oder %{up} um teilzunehmen"
+          sign_in_to_participate: "%{in} um teilzunehmen"
           sign_up: Anmelden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?

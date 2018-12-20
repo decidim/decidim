@@ -8,9 +8,11 @@ module Decidim
       #
       # meeting - The current instance of the meeting to be joined.
       # user - The user joining the meeting.
-      def initialize(meeting, user)
+      # registration_form - The questionnaire filled by the attendee
+      def initialize(meeting, user, registration_form = nil)
         @meeting = meeting
         @user = user
+        @registration_form = registration_form
       end
 
       # Creates a meeting registration if the meeting has registrations enabled
@@ -21,10 +23,16 @@ module Decidim
         meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
 
+          if registration_form
+            return broadcast(:invalid_form) unless registration_form.valid?
+            save_registration_form
+          end
+
           create_registration
           accept_invitation
           send_email_confirmation
-          send_notification
+          send_notification_confirmation
+          notify_admin_over_percentage
           increment_score
         end
         broadcast(:ok)
@@ -32,10 +40,14 @@ module Decidim
 
       private
 
-      attr_reader :meeting, :user, :registration
+      attr_reader :meeting, :user, :registration, :registration_form
 
       def accept_invitation
         meeting.invites.find_by(user: user)&.accept!
+      end
+
+      def save_registration_form
+        Decidim::Forms::AnswerQuestionnaire.call(registration_form, user, meeting.questionnaire)
       end
 
       def create_registration
@@ -47,17 +59,32 @@ module Decidim
       end
 
       def send_email_confirmation
-        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
+        Decidim::Meetings::RegistrationMailer.confirmation(
+          @user,
+          @meeting,
+          @registration
+        ).deliver_now
+      end
+
+      def send_notification_confirmation
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_registration_confirmed",
+          event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
+          resource: @meeting,
+          affected_users: [@user],
+          extra: {
+            registration_code: @registration.code
+          }
+        )
       end
 
       def participatory_space_admins
         @meeting.component.participatory_space.admins
       end
 
-      def send_notification
+      def notify_admin_over_percentage
         return send_notification_over(0.5) if occupied_slots_over?(0.5)
         return send_notification_over(0.8) if occupied_slots_over?(0.8)
-
         send_notification_over(1.0) if occupied_slots_over?(1.0)
       end
 
@@ -66,7 +93,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registrations_over_percentage",
           event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
           resource: @meeting,
-          recipient_ids: participatory_space_admins.pluck(:id),
+          affected_users: participatory_space_admins,
           extra: {
             percentage: percentage
           }

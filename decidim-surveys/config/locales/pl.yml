@@ -1,20 +1,6 @@
 ---
 pl:
   activemodel:
-    attributes:
-      survey_answer:
-        body: Odpowiedź
-      survey_question:
-        mandatory: Obowiązkowy
-        max_choices: Maksymalna liczba opcji
-        question_type: Rodzaj
-    errors:
-      models:
-        survey_answer:
-          attributes:
-            choices:
-              missing: nie są kompletne
-              too_many: jest zbyt wiele
     models:
       decidim/surveys/closed_survey_event: Ankieta zakończyła się
       decidim/surveys/opened_survey_event: Rozpoczęto ankietę
@@ -54,69 +40,22 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowa ankieta w %{participatory_space_title}
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
-    forms:
-      errors:
-        survey_answer:
-          body: Treść nie może być pusta
+    metrics:
+      survey_answers:
+        description: Liczba ankiet odebranych przez użytkowników
+        object: odpowiedzi na ankiety
+        title: Odpowiedzi na ankiety
     surveys:
       admin:
         exports:
           survey_user_answers: Odpowiedzi na pytania użytkowników
-        models:
-          components:
-            description: Opis
-            tos: Warunki usługi
         surveys:
-          answer_option:
-            answer_option: Odpowiedź
-            free_text: Dowolny tekst
-            remove: Usunąć
-            statement: Komunikat
-          edit:
-            save: Zapisać
-            title: Tytuł
-          form:
-            add_question: Dodaj pytanie
-            already_answered_warning: Ankieta jest już udzielana przez niektórych użytkowników, więc nie można modyfikować jej pytań.
-          question:
-            add_answer_option: Dodaj odpowiedź
-            any: Każdy
-            description: Opis
-            down: Na dół
-            question: Pytanie
-            remove: Usunąć
-            statement: Komunikat
-            up: W górę
           update:
             invalid: Podczas zapisywania ankiety wystąpiły błędy.
             success: Ankieta została zapisana pomyślnie.
       last_activity:
         new_survey_at_html: "<span>Nowa ankieta na %{link}</span>"
-      question_types:
-        long_answer: Długa odpowiedź
-        multiple_option: Wiele opcji
-        short_answer: Krótka odpowiedź
-        single_option: Pojedyncza opcja
-        sorting: Sortowanie
       surveys:
         answer:
           invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
           success: Ankieta odpowiedziała skutecznie.
-        question:
-          max_choices: 'Maksymalne opcje: %{n}'
-        show:
-          answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a>, aby odpowiedzieć na ankietę.
-            title: Odbierz ankietę
-          are_you_sure: Ta czynność nie może zostać cofnięta i nie będzie można edytować odpowiedzi. Jesteś pewny?
-          submit: Zatwierdź
-          survey_answered:
-            body: Odpowiedziałeś już na to pytanie.
-            title: Ankieta odpowiedziała
-          survey_closed:
-            body: Ankieta jest zamknięta i nie można jej odpowiedzieć.
-            title: Ankieta zamknięta
-          survey_for_private_users:
-            body: Ankieta jest dostępna tylko dla użytkowników prywatnych
-            title: Ankieta została zamknięta
-          tos_agreement: Uczestnicząc w tym ankiecie akceptujesz Warunki korzystania z usługi

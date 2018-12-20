@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: :show
+      participatory_space_layout only: [:show, :statistics]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
@@ -16,7 +16,7 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter
       helper_method :process_count_by_filter
 
       def index
@@ -27,7 +27,11 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :process, process: current_participatory_space
+      end
+
+      def statistics
+        enforce_permission_to :read, :process, process: current_participatory_space
       end
 
       private
@@ -57,11 +61,11 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_participatory_processes(filter)
+        @participatory_processes ||= filtered_participatory_processes(filter).query.where(decidim_participatory_process_group_id: nil)
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes("all") | PromotedParticipatoryProcesses.new
       end
 
       def filtered_participatory_process_groups(filter_name = filter)
@@ -74,6 +78,10 @@ module Decidim
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
+      end
+
+      def metrics
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
       end
 
       def filter
@@ -92,7 +100,7 @@ module Decidim
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          processes = filtered_participatory_processes(filter_name)
+          processes = filtered_participatory_processes(filter_name).query.where(decidim_participatory_process_group_id: nil)
           groups = filtered_participatory_process_groups(filter_name)
           collection_by_filter.merge(filter_name.to_s => processes.count + groups.count)
         end

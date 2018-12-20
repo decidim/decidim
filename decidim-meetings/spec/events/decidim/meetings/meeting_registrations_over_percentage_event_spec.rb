@@ -10,4 +10,10 @@ describe Decidim::Meetings::MeetingRegistrationsOverPercentageEvent do
   let(:extra) { { percentage: 1.1 } }
 
   it_behaves_like "a simple event"
+
+  describe "resource_text" do
+    it "returns the meeting description" do
+      expect(subject.resource_text).to eq translated(resource.description)
+    end
+  end
 end

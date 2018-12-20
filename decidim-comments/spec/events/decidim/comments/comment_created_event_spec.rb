@@ -41,4 +41,10 @@ describe Decidim::Comments::CommentCreatedEvent do
         .to include(" in <a href=\"#{resource_path}#comment_#{comment.id}\">#{resource.title}</a>")
     end
   end
+
+  describe "resource_text" do
+    it "outputs the comment body" do
+      expect(subject.resource_text).to eq comment.body
+    end
+  end
 end

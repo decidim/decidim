@@ -114,16 +114,18 @@ eu:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Kaixo, %{space_title} partaidetzako espazioan eztabaida berria sortu da, egiaztatu eta lagundu:
+              Kaixo,
+              "%{resource_title}" eztabaida berri bat sortu da %{space_title} partehartze espazioan, begiratu eta lagundu:
             email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Eztabaida berria %{space_title}
+            email_subject: Eztabaida berriak "%{resource_title}" on %{space_title}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenak, eztabaida berri bat sortu du, egiaztatu eta lagundu:
+              Kaixo,
+              %{author_name} %{author_nickname}, jarraitzen ari zarenak, "%{resource_title}" eztabaida berri bat sortu du. Begiratu eta lagundu:
             email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Eztabaida berria %{author_nickname}-ri
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: '"%{resource_title}" eztabaida berria %{author_nickname}'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortutako <a href="%{resource_path}">%{resource_title}</a> eztabaida.
         creation_disabled:
           email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}. Oraindik eztabaidak ireki ditzakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -146,3 +148,8 @@ eu:
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik eztabaidetan parte hartu duzu.
+    metrics:
+      debates:
+        description: Sortutako eztabaida kopurua
+        object: eztabaidak
+        title: eztabaidak

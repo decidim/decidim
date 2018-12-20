@@ -16,11 +16,12 @@ module Decidim
           event_class = Decidim::Surveys::ClosedSurveyEvent
         end
 
+        return unless event && event_class
         Decidim::EventsManager.publish(
           event: event,
           event_class: event_class,
           resource: component,
-          recipient_ids: component.participatory_space.followers.pluck(:id)
+          followers: component.participatory_space.followers
         )
       end
 
@@ -30,15 +31,17 @@ module Decidim
         current_settings[:allow_answers] == previous_settings[:allow_answers]
       end
 
+      # rubocop:disable Style/DoubleNegation
       def survey_opened?(previous_settings, current_settings)
         current_settings[:allow_answers] == true &&
-          previous_settings[:allow_answers] == false
+          !!previous_settings[:allow_answers] == false
       end
 
       def survey_closed?(previous_settings, current_settings)
-        current_settings[:allow_answers] == false &&
+        !!current_settings[:allow_answers] == false &&
           previous_settings[:allow_answers] == true
       end
+      # rubocop:enable Style/DoubleNegation
     end
   end
 end

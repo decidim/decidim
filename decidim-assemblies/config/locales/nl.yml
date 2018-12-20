@@ -320,6 +320,12 @@ nl:
         designated_on: Aangewezen op
       index:
         title: leden
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          title: Wat zijn vergaderingen?
     log:
       value_types:
         assembly_presenter:
@@ -328,6 +334,7 @@ nl:
       assemblies: Events
     metrics:
       assemblies:
+        description: Aantal aangemaakte vergaderingen
         object: assemblages
         title: Assemblies
   errors:
@@ -344,15 +351,14 @@ nl:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} bijeenkomst"
-            other: "%{count} bijeenkomsten"
+            one: "%{count} vergaderingen"
+            other: "%{count} vergaderingen"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: leden
         assembly_menu_item: De bijeenkomst
-        unfold: Uitvouwen
       assembly_widgets:
         show:
           take_part: Deelnemen

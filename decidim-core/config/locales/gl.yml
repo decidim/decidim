@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ gl:
         about: Acerca de
         email: O teu correo electrónico
         name: O teu nome
-        nickname: O teu identificador breve e único
+        nickname: Alcume
         password: Contrasinal
         password_confirmation: Confirma o teu contrasinal
         personal_url: URL persoal
@@ -37,14 +36,14 @@ gl:
         remember_me: Lémbrame
     models:
       decidim/user:
-        one: Usuario
+        one: Non hai usuarios
         other: Usuarios
       decidim/user_group:
         one: Grupo de usuarios
         other: Grupos de usuarios
   booleans:
-    'false': Non
-    'true': Si
+    'false': 'Non'
+    'true': 'Si'
   carrierwave:
     errors:
       image_too_big: A imaxe é demasiado grande
@@ -108,7 +107,7 @@ gl:
         create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
         delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
-        create: O %{user_name} creou o alcance %{resource_name}
+        create: "O %{user_name} creou o alcance %{resource_name}"
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
         delete: "%{user_name} eliminou o alcance %{resource_name}"
         delete_with_parent: "%{user_name} eliminou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -164,6 +163,9 @@ gl:
           foo: Foo
         name: Autorización de Foo
       granted_at: Concedido en %{timestamp}
+      sms:
+        explanation: Envía o teu número de teléfono móbil para que poidamos consultar a túa identidade.
+        name: Código por SMS
       started_at: Comezou en %{timestamp}
     authorization_modals:
       show:
@@ -187,7 +189,7 @@ gl:
           title: A autorización aínda está en progreso
         unauthorized:
           explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: O %{field} valor %{value} non é válido.
+          invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
         unconfirmed:
@@ -197,7 +199,7 @@ gl:
           title: Confirma o teu correo electrónico
     collapsible_list:
       hidden_elements_count:
-        one: e 1 máis
+        one: e %{count} máis
         other: e %{count} máis
       see_less: "(ver menos)"
       see_more: "(Ver máis)"
@@ -212,6 +214,7 @@ gl:
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Atributo maniquí 1
             dummy_global_attribute_2: Atributo maniquí 2
+            enable_pads_creation: Habilita a creación de pastillas
             resources_permissions_enabled: Permisos de recursos habilitados
           step:
             comments_blocked: Comentarios bloqueados
@@ -281,6 +284,8 @@ gl:
         new:
           are_you_new?: Novo para a plataforma?
           register: Crear unha conta
+          sign_in_disabled: Pode acceder cunha conta externa
+          sign_up_disabled: A inscrición está desactivada, pode utilizar un usuario existente para acceder
       shared:
         newsletter_modal:
           buttons:
@@ -440,7 +445,7 @@ gl:
       badges:
         continuity:
           conditions:
-          - Veña aquí a miúdo
+            - Veña aquí a miúdo
           description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
           description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
           description_own: Conectado por %{score} días consecutivos nalgún momento.
@@ -450,7 +455,7 @@ gl:
           unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
           conditions:
-          - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
+            - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
           description: Este distintivo é concedido cando chega a un certo número de seguidores. %{organization_name} é unha rede social e política, tece a súa web para comunicarse con outras persoas na plataforma.
           description_another: Este usuario ten %{score} seguidores.
           description_own: "%{score} seguidores están seguindo."
@@ -465,9 +470,9 @@ gl:
           title: Insignias
         invitations:
           conditions:
-          - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
-          - Personaliza, se queres, a mensaxe que estás enviando
-          - Subirás ao enviar invitacións e obtelos rexistrados.
+            - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
+            - Personaliza, se queres, a mensaxe que estás enviando
+            - Subirás ao enviar invitacións e obtelos rexistrados.
           description: Este distintivo concedeuse cando convidou a algunhas persoas e pasaron un pouco de tempo para inscribirse en %{organization_name} e converterse en participantes. Grazas por facer %{organization_name} a coñecer aos outros e axudando a ampliar a comunidade!
           description_another: Este usuario invitou a %{score} usuarios.
           description_own: Invitaches %{score} usuarios.
@@ -533,6 +538,13 @@ gl:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Grupo de actualización
+      form:
+        document_number_help: Non empregue guións nin espazos
+        email_help: Correo electrónico da súa organización, asociación, colectivo, grupo, etc.
+        fill_in_for_verification: 'Encha estes campos se quere verificar o teu grupo:'
+        name_help: Nome da súa organización, asociación, colectivo, grupo, etc.
+        nickname_help: Nome de usuario da túa organización, asociación, colectivo, grupo, etc. Non uses espazos nin acentos.
+        phone_help: Non empregue guións nin espazos
       join:
         error: Produciuse un problema ao unirse ao grupo
         success: A solicitude de unirse creouse con éxito. Un administrador revisará a túa solicitude antes de aceptarche no grupo.
@@ -546,6 +558,7 @@ gl:
       new:
         create_user_group: Crear grupo
         new_user_group: Novo grupo
+        subtitle: Crea un grupo e invita a outros usuarios a participar para participar a nivel colectivo.
       no_user_groups: Aínda non pertence a ningún grupo.
       roles:
         admin: Administrador
@@ -554,6 +567,13 @@ gl:
       update:
         error: Produciuse un problema ao actualizar o grupo
         success: Grupo actualizado con éxito
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} podes participar e decidir sobre diferentes temas, a través dos espazos que ves no menú superior: Procesos, Asembleas, Iniciativas, Consultas.</p> <p>Dentro de cada unha, atoparás diferentes opcións para participar: facer propostas, individualmente ou con outras persoas, participar nos debates, priorizar os proxectos a implementar, asistir a reunións cara a cara e outras accións.</p>\n"
+          title: Que podo facer en %{organization}?
+        description: Ler máis sobre %{organization}
+        title: Axuda xeral
     last_activities:
       activities:
         no_activities_warning: Non hai actividade
@@ -585,8 +605,8 @@ gl:
     members:
       no_members: Este grupo de usuarios aínda non ten ningún membro.
     menu:
+      help: Axuda
       home: Inicio
-      more_information: Máis información
     messaging:
       conversation_mailer:
         new_conversation:
@@ -603,20 +623,29 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          from: Desde
-          last_message_html: Última mensaxe <strong>%{time} ago</strong>
           no_conversations: Aínda non tes conversas
-        show:
-          conversation_with_html: Conversa con <strong>%{name}</strong>
-          reply: Responder
+          title: Conversas
+        reply:
           send: Enviar
+          title: Responder
+        show:
+          title: Conversa con %{usernames}
         start:
           send: Enviar
           title: Comezar unha conversa
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
     metrics:
+      followers:
+        description: Número de usuarios que seguen na organización
+        object: seguidores
+        title: Seguidores
+      participants:
+        description: Número de usuarios activos na organización
+        object: participantes
+        title: Participantes
       users:
+        description: Número de usuarios da organización
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -660,12 +689,16 @@ gl:
         pending: Pendente
         rejected: Rexeitado
         verified: Verificado
+    pad_iframe:
+      disclaimer: Os contidos deste pad son escritos por usuarios rexistrados e expresan as súas opinións. %{organization} non se responsabiliza dos seus contidos.
+      explanation: Use esta almofada para tomar notas de xeito colaborativo durante a reunión, polo que é máis fácil escribir un minuto despois.
+      pad: Pad
     pages:
       home:
         extended:
           debates: Debates
           debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-          how_to_participate: "¿Como participo nun proceso?"
+          how_to_participate: '¿Como participo nun proceso?'
           meetings: Reunións
           meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
           more_info: Máis información
@@ -702,7 +735,15 @@ gl:
         sub_hero:
           register: Rexistrarse
       index:
-        title: Máis información
+        read_more: Le máis
+        standalone_pages: Páxinas
+        subheading: Navega polas páxinas de axuda de %{name}
+        title: Axuda
+        topics: Temas
+      participatory_space:
+        metrics:
+          headline: Participación en números
+          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Produciuse un erro ao aceptar os termos e condicións.
@@ -716,7 +757,7 @@ gl:
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos
           modal_close: Pechar modal
-          modal_title: "¿Realmente rexeita os Termos e condicións actualizados?"
+          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
@@ -730,13 +771,14 @@ gl:
       default_officialization_text_for_user_groups: Este grupo de usuarios está verificado públicamente, o seu nome verificouse para corresponder co seu nome real
       default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
+        activity: Actividade
         badges: Insignias
-        conversations: Conversas
         followers: Seguidores
         following: Segue
         groups: Grupos
         members: Membros
-        notifications: Notificacións
+        timeline: Cronoloxía
+        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
@@ -774,24 +816,35 @@ gl:
       prompt: Seleccione un alcance
       scopes: Ámbitos
     search:
-      filter:
-        all: Todo
-        component: Compoñente
       results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
     searches:
       filters:
-        search: Busca
+        back: Voltar aos resultados
+        jump_to: 'Ir a:'
+        state:
+          active: Activo
+          all: Todo
+          future: Futuro
+          past: Pasado
       filters_small_view:
         close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
         unfold: Despregar
+      results:
+        results:
+          one: "%{count} resultado"
+          other: "%{count} resultados"
+        view_all: Ver todos (%{count})
     shared:
       embed_modal:
         close_window: Pechar ventá
         embed: Pega este código na túa páxina
         embed_link: Inserir
+      extended_navigation_bar:
+        more: Máis
+        unfold: Despregar
       flag_modal:
         already_reported: Este contido xa se informou e será revisado por un administrador.
         close: Pechar
@@ -801,6 +854,8 @@ gl:
         report: Informe
         spam: Contén clic, publicidade, fraudes ou bots de script.
         title: Informar dun problema
+      floating_help:
+        help: Axuda
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
@@ -816,6 +871,12 @@ gl:
         share_link: Compartir a ligazón
       version_author:
         deleted: Usuario eliminado
+    user_activity:
+      index:
+        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
+    welcome_notification:
+      default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
+      default_subject: Grazas por unirte a {{organization}}!
   devise:
     confirmations:
       confirmed: O seu enderezo de correo electrónico confirmouse con éxito.
@@ -1024,11 +1085,6 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: é moi similar a este nome de dominio
     email_included_in_password: é demasiado semellante ao teu correo electrónico
@@ -1065,7 +1121,7 @@ gl:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: 123_2_0_321 %B 123_2_2_321 |
+      decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
       decidim_short: "%d/%m/%Y %H:%M"
       devise:
         mailer:

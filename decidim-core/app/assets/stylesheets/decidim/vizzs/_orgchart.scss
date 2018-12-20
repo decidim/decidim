@@ -1,0 +1,54 @@
+.orgchart{
+  // Colors
+  $bg-color: $light-gray-dark;
+
+  // Other vars
+  $stroke-width: 3px;
+  $stroke-color: $medium-gray;
+
+  .as-card{
+    fill: $bg-color;
+    stroke: $stroke-color;
+    stroke-width: $stroke-width;
+  }
+
+  .as-text{
+    font-weight: 600;
+    fill: $secondary;
+    text-anchor: middle;
+  }
+
+  .as-circle{
+    stroke: $stroke-color;
+    stroke-width: $stroke-width;
+    fill: $bg-color;
+  }
+
+  .link{
+    stroke: $stroke-color;
+    stroke-width: $stroke-width;
+  }
+
+  .node{
+    cursor: pointer;
+  }
+
+  .button{
+    $height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) - rem-calc(1);
+
+    min-height: $height;
+    color: $body-font-color;
+    outline: none;
+    border: $border;
+    background-color: $input-background;
+    box-shadow: $input-shadow;
+
+    @if has-value($button-transition){
+      transition: $button-transition;
+    }
+
+    &:hover{
+      background-color: $input-background;
+    }
+  }
+}
