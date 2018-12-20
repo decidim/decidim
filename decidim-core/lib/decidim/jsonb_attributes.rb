@@ -12,7 +12,7 @@ module Decidim
     class_methods do
       # Public: Mirrors Virtus `attribute` interface to define attributes in
       # custom jsonb objects.
-      # 
+      #
       # name - Attribute's name
       # fields - The attribute's child fields
       #
