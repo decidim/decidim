@@ -584,6 +584,7 @@ id:
       no_members: Kelompok pengguna ini belum memiliki anggota.
     menu:
       home: Rumah
+      more_information: Informasi lebih lanjut
     messaging:
       conversation_mailer:
         new_conversation:
@@ -600,8 +601,12 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
+          from: Dari
+          last_message_html: Pesan terakhir <strong>%{time} lalu</strong>
           no_conversations: Anda belum memiliki percakapan
         show:
+          conversation_with_html: Percakapan dengan <strong>%{name}</strong>
+          reply: Balasan
           send: Kirim
         start:
           send: Kirim
@@ -694,6 +699,8 @@ id:
           votes_count: Suara
         sub_hero:
           register: Daftar
+      index:
+        title: Informasi lebih lanjut
       terms_and_conditions:
         accept:
           error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
@@ -767,6 +774,7 @@ id:
     search:
       filter:
         all: Semua
+        component: Komponen
       results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
     searches:
