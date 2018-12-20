@@ -305,6 +305,7 @@ tr:
         impersonations: impersonations
         newsletters: Haber bültenleri
         oauth_applications: OAuth uygulamaları
+        officializations: Officializations
         scope_types: Kapsam türleri
         scopes: kapsamları
         settings: Ayarlar
@@ -572,6 +573,7 @@ tr:
         dashboard: gösterge paneli
         impersonatable_users: Impersonatable kullanıcılar
         impersonations: impersonations
+        officializations: Officializations
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar
