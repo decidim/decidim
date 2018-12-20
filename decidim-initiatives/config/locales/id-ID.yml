@@ -1,1 +1,379 @@
 id:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Penulis
+        description: Deskripsi
+        offline_votes: Dukungan tatap muka
+        scope_id: Cakupan
+        signature_end_date: Akhir periode pengumpulan tanda tangan
+        signature_start_date: Mulai dari periode pengumpulan tanda tangan
+        signature_type: Jenis koleksi tanda tangan
+        signature_type_values:
+          any: Campur aduk
+          offline: Tatap muka
+          online: On line
+        title: Judul
+      initiative_author:
+        address: Alamat
+        city: Kota
+        id_document: DNI / NIE
+        name: Nama dan nama keluarga
+        phone_number: Nomor telepon
+        post_code: Kode Pos
+        province: Propinsi
+      initiatives_committee_member:
+        user: anggota Komite
+      initiatives_type:
+        banner_image: Gambar spanduk
+        description: Deskripsi
+        title: Judul
+      organization_data:
+        address: Alamat
+        id_document: Dokumen ID
+        name: Nama lengkap
+  activerecord:
+    models:
+      decidim/initiative:
+        other: Initatives
+      decidim/initiative_comittee:
+        other: Komite-komite
+      decidim/initiative_vote:
+        other: Tanda tangan
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Jenis inisiatif baru
+      menu:
+        initiatives: Inisiatif
+        initiatives_types: Jenis inisiatif
+      models:
+        initiatives:
+          fields:
+            created_at: Dibuat di
+            id: ID
+            state: Negara
+            supports_count: Mendukung
+            title: Inisiatif
+        initiatives_type_scope:
+          fields:
+            scope: Cakupan
+            supports_required: Mendukung diperlukan
+          name: Ruang lingkup tipe Inisiatif
+        initiatives_types:
+          fields:
+            created_at: Dibuat di
+            title: Jenis inisiatif
+          name: Jenis inisiatif
+      titles:
+        initiatives: Inisiatif
+        initiatives_types: Jenis inisiatif
+    events:
+      initiatives:
+        initiative_extended:
+          email_intro: Tanggal akhir tanda tangan untuk inisiatif %{resource_title} telah diperpanjang!
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{resource_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Tanggal akhir tanda tangan inisiatif diperpanjang!
+          notification_title: Tanggal akhir tanda tangan untuk inisiatif <a href="%{resource_path}">%{resource_title}</a> telah diperpanjang.
+        milestone_completed:
+          affected_user:
+            email_intro: Inisiatif Anda %{resource_title} telah mencapai %{percentage}% tanda tangan!
+            email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pembuat inisiatif %{resource_title}.
+            email_subject: Tonggak baru selesai!
+            notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> telah mencapai %{percentage}% tanda tangan.
+          follower:
+            email_intro: Inisiatif %{resource_title} telah mencapai %{percentage}% tanda tangan!
+            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{resource_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+            email_subject: Tonggak baru selesai!
+            notification_title: Inisiatif <a href="%{resource_path}">%{resource_title}</a> telah mencapai %{percentage}% tanda tangan.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Pergi ke ruang partisipasi dari Intiatives
+            - Ikuti langkah-langkah untuk membuat inisiatif baru
+          description: Lencana ini diberikan ketika Anda meluncurkan inisiatif baru, bermitra dengan orang lain untuk melaksanakannya.
+          description_another: Pengguna ini telah mendapatkan %{score} inisiatif yang dipublikasikan.
+          description_own: Anda punya %{score} inisiatif yang dipublikasikan.
+          name: Inisiatif yang diterbitkan
+          next_level_in: Dapatkan %{score} lebih banyak inisiatif yang diterbitkan untuk mencapai level berikutnya!
+          unearned_another: Pengguna ini belum mendapatkan inisiatif apa pun yang dipublikasikan.
+          unearned_own: Anda belum ada inisiatif yang dipublikasikan.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Inisiatif adalah proposal yang dapat dipromosikan oleh siapa pun atas inisiatif mereka sendiri (terlepas dari saluran lain atau ruang partisipasi) melalui pengumpulan tanda tangan (digital) untuk organisasi untuk melakukan tindakan tertentu (memodifikasi peraturan, memulai proyek , ubah nama departemen atau jalan, dll.).</p> <p>Promotor suatu inisiatif dapat menentukan tujuannya, mengumpulkan dukungan, berdebat, menyebarluaskannya dan menentukan titik-titik pertemuan di mana tanda tangan dapat dikumpulkan dari peserta atau debat terbuka untuk peserta lain.</p> <p>Contoh: Suatu inisiatif dapat mengumpulkan tanda tangan untuk mengadakan konsultasi di antara semua orang dari suatu organisasi, atau untuk membuat atau mengadakan pertemuan, atau untuk memulai proses peningkatan anggaran untuk suatu wilayah atau wilayah organisasi. Selama proses pengumpulan tanda tangan, lebih banyak orang dapat menambah permintaan ini dan membawanya ke depan dalam organisasi.</p>\n"
+          page: "<p>Inisiatif adalah proposal yang dapat dipromosikan oleh siapa pun atas inisiatif mereka sendiri (terlepas dari saluran lain atau ruang partisipasi) melalui pengumpulan tanda tangan (digital) untuk organisasi untuk melakukan tindakan tertentu (memodifikasi peraturan, memulai proyek , ubah nama departemen atau jalan, dll.).</p> <p>Promotor suatu inisiatif dapat menentukan tujuannya, mengumpulkan dukungan, berdebat, menyebarluaskannya dan menentukan titik-titik pertemuan di mana tanda tangan dapat dikumpulkan dari peserta atau debat terbuka untuk peserta lain.</p> <p>Contoh: Suatu inisiatif dapat mengumpulkan tanda tangan untuk mengadakan konsultasi di antara semua orang dari suatu organisasi, atau untuk membuat atau mengadakan pertemuan, atau untuk memulai proses peningkatan anggaran untuk suatu wilayah atau wilayah organisasi. Selama proses pengumpulan tanda tangan, lebih banyak orang dapat menambah permintaan ini dan membawanya ke depan dalam organisasi.</p>\n"
+          title: Apa inisiatifnya?
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            approve: Menyetujui
+            confirm_revoke: Apakah kamu yakin?
+            invite_to_committee_help: Bagikan tautan ini untuk mengundang pengguna lain ke komite promosi
+            no_members_yet: Tidak ada anggota di komite promotor
+            revoke: Mencabut
+            title: anggota Komite
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Jumlah maksimum elemen untuk ditampilkan
+        initiatives:
+          edit:
+            accept: Terima inisiatif
+            confirm: Apakah kamu yakin?
+            discard: Buang inisiatif
+            export_votes: Mendukung ekspor
+            reject: Tolak inisiatif
+            send_to_technical_validation: Kirim ke validasi teknis
+            success: Inisiatif telah dikirim ke validasi teknis
+            update: Memperbarui
+          form:
+            title: Informasi Umum
+          index:
+            actions_title: Tindakan
+            filter:
+              accepted: Diterima
+              all: Semua
+              created: Dibuat
+              discarded: Dibuang
+              published: Diterbitkan
+              rejected: Ditolak
+              validating: Validasi teknis
+            filter_by: Filter berdasarkan
+            preview: Preview
+            print: Mencetak
+            search: Pencarian
+          show:
+            print: Mencetak
+          update:
+            error: Sebuah kesalahan telah terjadi
+            success: Inisiatif warga telah berhasil diperbarui
+        initiatives_type_scopes:
+          create:
+            error: Sebuah kesalahan telah terjadi
+            success: Ruang lingkup baru untuk jenis inisiatif yang diberikan telah dibuat
+          destroy:
+            success: Ruang lingkup telah berhasil dihapus
+          edit:
+            back: Kembali
+            confirm_destroy: Apakah kamu yakin?
+            destroy: Menghapus
+            title: Edit ruang lingkup jenis inisiatif
+            update: Memperbarui
+          new:
+            back: Kembali
+            create: Membuat
+            title: Buat ruang lingkup jenis inisiatif
+          update:
+            error: Sebuah kesalahan telah terjadi
+            success: Ruang lingkup telah berhasil diperbarui
+        initiatives_types:
+          create:
+            error: Sebuah kesalahan telah terjadi
+            success: Jenis inisiatif baru telah berhasil dibuat
+          destroy:
+            success: Jenis inisiatif telah berhasil dihapus
+          edit:
+            confirm_destroy: Apakah kamu yakin?
+            destroy: Menghapus
+            update: Memperbarui
+          form:
+            title: Informasi Umum
+          initiative_type_scopes:
+            title: Cakupan untuk jenis inisiatif
+          new:
+            create: Membuat
+            title: Jenis inisiatif baru
+          update:
+            error: Sebuah kesalahan telah terjadi
+            success: Jenis inisiatif telah berhasil diperbarui
+      admin_log:
+        initiative:
+          publish: "%{user_name} menerbitkan %{resource_name} inisiatif"
+          send_to_technical_validation: "%{user_name} mengirim inisiatif %{resource_name} untuk validasi teknis"
+          unpublish: "%{user_name} membuang %{resource_name} inisiatif"
+          update: "%{user_name} memperbarui %{resource_name} inisiatif"
+      admin_states:
+        accepted: Diterima
+        created: Dibuat
+        discarded: Dibuang
+        published: Diterbitkan
+        rejected: Ditolak
+        validating: Validasi teknis
+      committee_requests:
+        new:
+          continue: Terus
+          help_text: Anda akan meminta menjadi anggota komite promotor inisiatif ini
+        spawn:
+          success: Permintaan Anda telah dikirim ke penulis inisiatif.
+      content_blocks:
+        highlighted_initiatives:
+          name: Inisiatif yang disorot
+      create_initiative:
+        fill_data:
+          back: Kembali
+          continue: Terus
+          fill_data_help: "<ul> <li>Merevisi isi inisiatif Anda. Apakah judul Anda mudah dimengerti? Apakah tujuan dari inisiatif Anda jelas?</li> <li>Anda harus memilih jenis tanda tangan. In-person, online atau kombinasi keduanya</li> <li>Manakah ruang lingkup geografis dari inisiatif ini? Distrik kota?</li> </ul>"
+          initiative_type: Jenis inisiatif
+          more_information: "(Informasi lebih lanjut)"
+          select_scope: Pilih cakupan
+        finish:
+          back: Kembali
+          back_to_initiatives: Kembali ke inisiatif
+          callout_text: Selamat! Inisiatif warga Anda telah berhasil dibuat.
+          go_to_my_initiatives: Pergi ke inisiatif saya
+          more_information: "(Informasi lebih lanjut)"
+        finish_help:
+          access_reminder: Ingat bahwa Anda akan selalu dapat mengakses inisiatif Anda melalui menu pengguna.
+          help_for_organizations: Jika Anda adalah asosiasi Anda harus mengunggah menit dari dewan manajemen dari semua organisasi yang membentuk Komisi Promosi
+          help_in_person_signatures: Jika Anda telah memilih untuk mengumpulkan tanda tangan secara langsung atau dikombinasikan dengan online, Anda harus mengunggah informasi yang diperlukan.
+          help_text: Ingat bahwa untuk memproses inisiatif dengan baik, Anda harus mengakses panel administrasi tempat Anda akan menemukan menu pengguna, mengunggah informasi yang diperlukan dan mengirimkannya untuk diproses.
+          initiatives_page_link: Anda dapat mencari semua informasi ini di %{link} didedikasikan untuk menginformasikan tentang inisiatif.
+          page: halaman
+        previous_form:
+          back: Kembali
+          continue: Terus
+          help: Apa inisiatif terdiri dari? Tuliskan judul dan deskripsi. Kami merekomendasikan judul singkat dan ringkas dan deskripsi yang difokuskan pada solusi yang diusulkan.
+          more_information: "(Informasi lebih lanjut)"
+        promotal_committee:
+          back: Kembali
+          individual_help_text: Inisiatif warga membutuhkan Komisi Promosi yang terdiri dari setidaknya tiga orang (pengawas). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini mereka harus mengikuti langkah-langkah yang ditunjukkan.
+          more_information: "(Informasi lebih lanjut)"
+        select_initiative_type:
+          back: Kembali
+          more_information: "(Informasi lebih lanjut)"
+          select: Memilih
+          select_initiative_type_help: Inisiatif warga adalah cara yang dapat dilakukan oleh kewarganegaraan sehingga Dewan Kota dapat melakukan tindakan untuk membela kepentingan umum yang berada di dalam wilayah yurisdiksi kota. Inisiatif apa yang ingin Anda luncurkan?
+        share_committee_link:
+          continue: Terus
+          invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
+        show_similar_initiatives:
+          back: Kembali
+          compare_help: Jika salah satu inisiatif berikut serupa dengan inisiatif Anda, kami mendorong Anda untuk mendukungnya. Proposal Anda akan memiliki lebih banyak kemungkinan untuk diselesaikan.
+          continue: Inisiatif saya berbeda
+          more_information: "(Informasi lebih lanjut)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah membuat inisiatif baru, lihat dan sumbangkan:"
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Inisiatif baru dengan %{author_nickname}
+          notification_title: Inisiatif <a href="%{resource_path}">%{resource_title}</a> dibuat oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah mendukung inisiatif berikut, mungkin Anda ingin berkontribusi dalam percakapan:"
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Inisiatif yang didukung oleh %{author_nickname}
+          notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Inisiatif
+      initiative_votes:
+        create:
+          error: Sudah ada kesalahan saat menandatangani inisiatif.
+      initiatives:
+        author:
+          deleted: Dihapus
+        author_list:
+          hidden_authors_count:
+            other: dan %{count} lebih banyak orang
+        count:
+          title:
+            other: "%{count} inisiatif"
+        filters:
+          any: Apa saja
+          author: Penulis
+          closed: Tutup
+          myself: Inisiatif saya
+          open: Buka
+          search: Pencarian
+          state: Negara
+          type: Mengetik
+          type_prompt: Pilih jenis
+        filters_small_view:
+          close_modal: Tutup jendela
+          filter: Filter
+          filter_by: Filter berdasarkan
+          unfold: Membuka
+        index_header:
+          new_initiative: Inisiatif baru
+        orders:
+          label: 'Urutkan inisiatif dengan:'
+          most_commented: Sebagian besar berkomentar
+          most_voted: Paling banyak ditandatangani
+          random: Acak
+          recent: Terbaru
+        result:
+          initiative_accepted_reason: Inisiatif ini telah diterima karena
+          initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
+        show:
+          any_vote_method: Inisiatif warga ini mengumpulkan dukungan online serta tatap muka.
+          offline_method: Inisiatif warga ini hanya mengumpulkan dukungan tatap muka.
+        signature_identities:
+          select_identity: Pilih pengenal pengguna
+        signatures_count:
+          other: " tanda tangan"
+        statistics:
+          assistants_count_title: Asisten
+          comments_count_title: Komentar
+          meetings_count_title: Rapat
+          supports_count_title: Tanda tangan
+        supports:
+          title: Daftar tanda tangan
+        vote_cabin:
+          already_voted: Sudah ditandatangani
+          supports_required: "%{total_supports} tanda tangan diperlukan"
+          vote: Tanda
+          votes_blocked: Penandatanganan dinonaktifkan
+        votes_count:
+          count:
+            other: TANDATANGAN
+      initiatives_mailer:
+        creation_subject: Inisiatif warga Anda '%{title}' telah dibuat
+        initiative_link:
+          check_initiative_details: Anda dapat melihat detail inisiatif
+          here: sini
+        more_information: Di sini Anda memiliki informasi lebih lanjut tentang proses pembuatan inisiatif.
+        progress_report_body_for: Inisiatif %{title} telah mencapai %{percentage}% dari dukungan yang diperlukan.
+        progress_report_for: 'Lanjutkan tentang inisiatif: %{title}'
+        promotal_committee_help: Ingat bahwa Anda harus mengundang setidaknya %{member_count} orang ke komite promotor. Teruskan tautan berikut untuk mengundang orang ke komite promotor
+        status_change_body_for: 'Inisiatif %{title} telah mengubah negaranya menjadi: %{state}'
+        status_change_for: Inisiatif %{title} telah mengubah keadaannya
+        technical_validation_body_for: Inisiatif %{title} telah meminta validasi teknisnya.
+        technical_validation_for: Inisiatif %{title} telah meminta validasi teknisnya.
+      last_activity:
+        new_initiative: Inisiatif baru
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Inisiatif aktif
+            see_all_initiatives: Lihat semua inisiatif
+      states:
+        accepted: Diterima
+        expired: Kadaluarsa
+      unavailable_scope: Ruang lingkup tidak tersedia
+    menu:
+      initiatives: Inisiatif
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Lampiran
+          committee_members: anggota Komite
+          components: Komponen
+          information: Informasi
+      initiative_creation_header:
+        fill_data: Membuat
+        finish: Selesai
+        previous_form: Mulai
+        promotal_committee: Komite promotor
+        select_initiative_type: Memilih
+        show_similar_initiatives: Membandingkan
+        step: Langkah %{current} dari %{total}
+        title: Buat inisiatif baru
+      initiative_header:
+        initiative_menu_item: Prakarsa
+      initiatives:
+        initiative:
+          check: Coba lihat
+          check_and_support: Lihat dan tandatangani
+        no_initiatives_yet:
+          no_initiatives_yet: Belum ada inisiatif!
