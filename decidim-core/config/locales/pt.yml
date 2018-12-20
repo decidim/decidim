@@ -250,7 +250,6 @@ pt:
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
-            user: Individual
             user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
