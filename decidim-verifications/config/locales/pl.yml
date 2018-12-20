@@ -1,6 +1,11 @@
 pl:
   activemodel:
     attributes:
+      config:
+        available_methods: Dostępne metody
+        offline: Offline
+        offline_explanation: Instrukcje do weryfikacji offline
+        online: online
       id_document_information:
         document_number: Numer dokumentu (z literą)
         document_type: Typ dokumentu
@@ -9,6 +14,8 @@ pl:
         document_type: Typ twojego dokumentu
         user: Użytkownik
         verification_attachment: Zeskanowana kopia twojego dokumentu
+      offline_confirmation:
+        email: Adres e-mail użytkownika
       postal_letter_address:
         full_address: Pełny adres
       postal_letter_confirmation:
