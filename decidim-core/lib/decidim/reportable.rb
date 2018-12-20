@@ -40,7 +40,7 @@ module Decidim
       #
       # Returns String
       def reported_content_url
-        ResourceLocatorPresenter.new(moderation.reportable).url
+        raise NotImplementedError
       end
     end
   end
