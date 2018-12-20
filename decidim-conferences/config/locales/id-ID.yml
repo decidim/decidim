@@ -40,6 +40,8 @@ id:
         other: Konferensi
       decidim/conference_speaker:
         other: Pembicara konferensi
+      decidim/conference_user_role:
+        other: Peran pengguna konferensi
   decidim:
     admin:
       actions:
@@ -94,6 +96,8 @@ id:
         create:
           error: Terjadi kesalahan saat membuat konferensi baru.
           success: Konferensi berhasil dibuat.
+        destroy:
+          success: Konferensi berhasil dihapus.
         edit:
           update: Memperbarui
         exports:
@@ -138,6 +142,9 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
+          conference_admins: Admin konferensi
+          conference_invites: Undangan Konferensi
+          conference_registrations: Pendaftaran Konferensi
           conference_speakers: Pembicara konferensi
           info: Info
           media_links: Tautan Media
@@ -269,6 +276,7 @@ id:
           invite:
             decline: Tolak undangan '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} telah mengundang Anda untuk bergabung dalam konferensi di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
+            join: Bergabunglah dengan konferensi '%{conference_title}'
         partners:
           index:
             title: Mitra
@@ -278,7 +286,10 @@ id:
           confirm: Memastikan
         show:
           going: Pergi
+          join: Bergabunglah dalam Konferensi
           no_slots_available: Tidak ada slot yang tersedia
+          remaining_slots:
+            other: "%{count} slot tersisa"
       conference_program:
         program_meeting:
           content: Konten
@@ -291,6 +302,7 @@ id:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Pendaftaran Anda untuk konferensi <a href="%{url}">%{title}</a> telah dikonfirmasi.
+          details: Anda akan menemukan rincian konferensi dalam lampiran.
       conference_registrations:
         create:
           invalid: Ada masalah saat bergabung dengan konferensi ini.
@@ -316,9 +328,17 @@ id:
         index:
           speakers: Pembicara
       conferences:
+        partners:
+          collaborators: Kolaborator
+          main_promotors: Promotor utama
         show:
+          already_account: Apakah Anda sudah memiliki akun di desidim?
+          login_as: Anda masuk sebagai %{name} <%{email}>
           make_conference_registration: 'Buat pendaftaran Anda di konferensi:'
+          new_user: Pengguna baru?
           register: Daftar
+          sign_in: Login untuk mendaftar di konferensi ini
+          sign_up: Daftarkan secara gratis di desidim untuk mendaftar
       content_blocks:
         highlighted_conferences:
           name: Konferensi yang disorot
@@ -434,4 +454,5 @@ id:
         conference_partners_menu_item: Mitra
         conference_speaker_menu_item: Pembicara
         media: Media
+        unfold: Membuka
         venues: Venues
