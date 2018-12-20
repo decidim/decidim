@@ -409,6 +409,7 @@ pl:
         success: Wysłaliśmy zaproszenia do Twoich znajomych!
       index:
         customize_message: Dostosuj wiadomość z zaproszeniem
+        friend_email: 'Friend #%{index} email'
         invitations_subtitle: Powiadom znajomych o tej stronie
         invitations_title: Czy uważasz, że więcej głosów powinno być słyszanych w %{organization_name}?
         invite: Zapraszam
