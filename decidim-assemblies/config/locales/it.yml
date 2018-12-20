@@ -344,7 +344,7 @@ it:
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"
-            other: "%{count} assemblies"
+            other: "%{count} assemblaggi"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa
