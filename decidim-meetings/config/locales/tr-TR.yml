@@ -88,7 +88,10 @@ tr:
     events:
       meetings:
         meeting_closed:
+          email_intro: '"%{resource_title}" toplantısı kapatıldı. Sonuçları kendi sayfasından okuyabilirsiniz:'
           email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
+          email_subject: '"%{resource_title}" toplantısı kapatıldı'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı kapatıldı.
         meeting_created:
           email_intro: '"%{resource_title}" toplantısı, takip ettiğiniz "%{participatory_space_title}" e eklenmiştir.'
           email_outro: Bu bildirimi "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
@@ -105,7 +108,9 @@ tr:
           email_subject: '"%{resource_title}" toplantısı güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı güncellendi.
         registration_code_validated:
+          email_intro: '"%{registration_code}" kayıt kodunuz onaylandı.'
           email_outro: '"%{resource_title}" toplantısı için kayıt kodunuz onaylandığından bu bildirimi aldınız.'
+          email_subject: '"%{registration_code}" kayıt kodunuz onaylandı'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı için "%{registration_code}" kayıt kodunuz onaylandı.
         registrations_enabled:
           email_intro: '"%{resource_title}" toplantısı kayıtları etkinleştirdi. Kendini kendi sayfasına kaydedebilirsin:'
@@ -264,6 +269,9 @@ tr:
           form:
             available_slots_help: Mevcut sınırsız yuvaya sahipseniz 0'a bırakın.
             invites: Davetler
+            registrations_count:
+              one: '%{count} kayıt var.'
+              other: '%{count} kayıt var.'
             reserved_slots_help: Ayrılmış yuvalarınız yoksa 0'a bırakın
             reserved_slots_less_than: Daha az ya da buna eşit olmalıdır %{count}
           update:
@@ -401,6 +409,7 @@ tr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Geçmiş toplantılar
+        see_all_meetings: Tüm toplantıları gör
         upcoming_meetings: Yaklaşan toplantılar
       upcoming_meeting_for_card:
         upcoming_meeting: Yaklaşan toplantı
