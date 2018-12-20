@@ -78,7 +78,10 @@ tr:
           email_subject: Girişim imzaları bitiş tarihi uzatıldı!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> girişiminin imza bitiş tarihi uzatıldı.
         milestone_completed:
+          email_intro: İnisiyatif %{resource_title} elde etti %{percentage}imzaların%!
           email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: Yeni kilometre taşı tamamlandı!
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi elde etti %{percentage}imzaların%.
     gamification:
       badges:
         initiatives:
