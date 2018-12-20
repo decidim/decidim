@@ -103,7 +103,7 @@ sv:
         organization_name: Organisations namn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
-        site: Hemsida
+        site: Webbplats
   decidim:
     admin:
       actions:
@@ -251,14 +251,14 @@ sv:
       impersonatable_users:
         index:
           filter:
-            all: Allt
+            all: Alla
             managed: Managed
             not_managed: Inte hanterad
           filter_by: Filtrera efter
           impersonate: Uppträd som
           impersonate_new_managed_user: Impersonera ny hanterad användare
           managed: Managed
-          name: namn
+          name: Namn
           needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
           not_managed: Inte hanterad
           promote: Främja
@@ -274,7 +274,7 @@ sv:
           success: Den hanterade användaren har skapats.
         form:
           authorization_method: Auktoriseringsmetod
-          name: namn
+          name: Namn
           reason: Anledning
         new:
           impersonate: Uppträd som
@@ -350,7 +350,7 @@ sv:
         oauth_application:
           fields:
             created_at: Skapad vid
-            name: namn
+            name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagande utrymme privat användare
@@ -501,7 +501,7 @@ sv:
           inactive_content_blocks: Inaktiva innehållsblock
       organization_homepage_content_blocks:
         edit:
-          update: Uppdatering
+          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
@@ -596,7 +596,7 @@ sv:
           filter_by: Filtrera efter
           search: Sök
           state:
-            pending: Avvaktan
+            pending: Väntande
             rejected: avvisade
             verified: Verifierad
       users:
