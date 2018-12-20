@@ -105,8 +105,6 @@ fi:
         create:
           error: Uuden konferenssin luomisessa tapahtui virhe.
           success: Konferenssi luotu onnistuneesti.
-        destroy:
-          success: Kokous poistettu onnistuneesti.
         edit:
           update: Päivitä
         exports:
@@ -507,6 +505,10 @@ fi:
         votes_count: Ääniä
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Ilmoittautumislomake <a href="%{resource_url}">%{resource_title}</a> on odottava vahvistettavaksi.
+        conference_registration_confirmed:
+          notification_title: Ilmoittautumislomake <a href="%{resource_url}">%{resource_title}</a> on vahvistettu.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.
@@ -522,6 +524,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" -konferenssia. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
+        upcoming_conference:
+          email_intro: '"%{resource_title}" -konferenssi järjestetään 2 päivässä. Voit lukea kuvauksen sivulta:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" -konferenssia. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" -konferenssi on tulossa!'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssi on tulossa 2 päivässä.
     log:
       value_types:
         conference_presenter:
