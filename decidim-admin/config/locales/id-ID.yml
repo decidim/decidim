@@ -305,6 +305,7 @@ id:
         impersonations: Peniruan identitas
         newsletters: Nawala
         oauth_applications: Aplikasi OAuth
+        officializations: Officialisasi
         scope_types: Tipe lingkup
         scopes: Scopes
         settings: Pengaturan
@@ -572,6 +573,7 @@ id:
         dashboard: Dasbor
         impersonatable_users: Pengguna yang tidak dapat disalahgunakan
         impersonations: Peniruan identitas
+        officializations: Officialisasi
         scope_types: Tipe lingkup
         scopes: Scopes
         static_pages: Halaman
