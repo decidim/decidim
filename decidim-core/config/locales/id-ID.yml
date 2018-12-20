@@ -1,0 +1,735 @@
+id:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Alasan untuk menghapus akun Anda
+      report:
+        details: Komentar tambahan
+      user:
+        about: Tentang
+        email: Email mu
+        name: Namamu
+        password: Kata sandi
+        password_confirmation: Konfirmasi password Anda
+        personal_url: URL pribadi
+        remove_avatar: Hapus avatar
+    models:
+      decidim/attachment_created_event: Lampiran
+      decidim/component_published_event: Komponen aktif
+      decidim/gamification/badge_earned_event: Lencana diperoleh
+      decidim/gamification/level_up_event: Anda sudah naik level
+      decidim/profile_updated_event: Profil diperbarui
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Kata sandi saat ini
+        email: E-mail
+        name: Nama pengguna
+        password: Kata sandi
+        password_confirmation: konfirmasi kata kunci
+        remember_me: Ingat saya
+    models:
+      decidim/user_group:
+        other: Grup Pengguna
+  booleans:
+    'false': 'Tidak'
+    'true': 'iya nih'
+  carrierwave:
+    errors:
+      image_too_big: Gambarnya terlalu besar
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: File tidak ada
+        invalid_token: Token yang diberikan tidak valid.
+        no_token: Tidak ada token yang disediakan
+        notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
+      delete:
+        alert: Tindakan ini tidak bisa dibatalkan. Jika Anda menghapus akun Anda, Anda tidak akan dapat masuk.
+        confirm:
+          close: Tutup jendela
+          ok: Ya, saya ingin menghapus akun saya
+          question: Anda yakin ingin menghapus akun Anda?
+          title: Hapus akun Saya
+        explanation: Silakan, isi alasan Anda ingin menghapus akun Anda (opsional).
+      destroy:
+        error: Terjadi kesalahan saat menghapus akun Anda.
+        success: Akun Anda berhasil dihapus.
+      show:
+        change_password: Ganti kata sandi
+        update_account: Perbaharui akun
+      update:
+        error: Terjadi kesalahan saat memperbarui akun Anda.
+        success: Akun Anda telah berhasil diperbarui.
+        success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
+    admin_log:
+      area:
+        create: "%{user_name} menciptakan %{resource_name} area"
+        delete: "%{user_name} menghapus %{resource_name} area"
+        update: "%{user_name} memperbarui %{resource_name} area"
+      component:
+        create: "%{user_name} menambahkan %{resource_name} komponen ke %{space_name} ruang"
+        delete: "%{user_name} menghapus %{resource_name} komponen dari %{space_name} ruang"
+        publish: "%{user_name} menerbitkan %{resource_name} komponen dalam %{space_name} ruang"
+        unpublish: "%{user_name} tidak mempublikasikan %{resource_name} komponen dari %{space_name} ruang"
+      moderation:
+        hide: "%{user_name} menyembunyikan sumber daya tipe %{resource_type} di %{space_name} ruang"
+        unreport: "%{user_name} tidak dilaporkan sumber daya tipe %{resource_type} di %{space_name} ruang"
+      newsletter:
+        create: "%{user_name} membuat %{resource_name} buletin"
+        delete: "%{user_name} menghapus %{resource_name} buletin"
+        deliver: "%{user_name} mengirimkan %{resource_name} buletin"
+        update: "%{user_name} memperbarui %{resource_name} buletin"
+      oauth_application:
+        create: "%{user_name} membuat aplikasi %{resource_name} OAuth"
+        delete: "%{user_name} menghapus aplikasi %{resource_name} OAuth"
+        update: "%{user_name} memperbarui aplikasi %{resource_name} OAuth"
+      organization:
+        update: "%{user_name} memperbarui pengaturan organisasi"
+      scope:
+        create: "%{user_name} menciptakan %{resource_name} ruang lingkup"
+        create_with_parent: "%{user_name} menciptakan %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
+        delete: "%{user_name} menghapus %{resource_name} ruang lingkup"
+        delete_with_parent: "%{user_name} menghapus %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
+        update: "%{user_name} memperbarui %{resource_name} ruang lingkup"
+        update_with_parent: "%{user_name} memperbarui %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
+      static_page:
+        create: "%{user_name} menciptakan halaman %{resource_name} statis"
+        delete: "%{user_name} menghapus halaman %{resource_name} statis"
+        update: "%{user_name} memperbarui %{resource_name} halaman statis"
+      user:
+        invite: "%{user_name} mengundang pengguna %{resource_name} dengan peran: %{role}"
+        officialize: "%{user_name} resmi pengguna %{resource_name}"
+        remove_from_admin: "%{user_name} menghapus pengguna %{resource_name} dengan peran: %{role}"
+        unofficialize: "%{user_name} tidak resmi pengguna %{resource_name}"
+      user_group:
+        reject: "%{user_name} menolak %{resource_name} verifikasi grup pengguna"
+        verify: "%{user_name} memverifikasi %{resource_name} grup pengguna"
+    anonymous_user: Anonim
+    application:
+      collection:
+        documents:
+          other: Dokumen
+      documents:
+        related_documents: Dokumen yang berkaitan
+      photos:
+        related_photos: Foto-foto terkait
+    author:
+      comments:
+        other: komentar
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Dapatkan verifikasi dengan memperkenalkan nomor paspor dimulai dengan "A"
+        fields:
+          passport_number: Nomor paspor
+        name: Contoh otorisasi lain
+      dummy_authorization_handler:
+        explanation: Dapatkan verifikasi dengan memperkenalkan nomor dokumen yang diakhiri dengan "X"
+        fields:
+          document_number: Nomor dokumen
+          postal_code: Kode Pos
+        name: Contoh otorisasi
+      dummy_authorization_workflow:
+        name: Alur kerja otorisasi dummy
+      errors:
+        duplicate_authorization: Pengguna sudah diotorisasi dengan data yang sama.
+      expired_at: Kedaluwarsa pada %{timestamp}
+      expires_at: Kedaluwarsa pada %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Otorisasi Foo
+      granted_at: Diberikan pada %{timestamp}
+      started_at: Dimulai pada %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Otorisasi ulang dengan "%{authorization}"
+          explanation: Otorisasi Anda telah kedaluwarsa. Untuk melakukan tindakan ini, Anda harus diberi otorisasi ulang dengan "%{authorization}".
+          title: Otorisasi telah kedaluwarsa
+        incomplete:
+          cancel: Membatalkan
+          explanation: 'Meskipun saat ini Anda diotorisasi dengan "%{authorization}", kami meminta Anda untuk mengotorisasi ulang karena kami tidak memiliki data berikut:'
+          invalid_field: "%{field}"
+          reauthorize: Otorisasi ulang
+          title: Harap beri otorisasi ulang
+        missing:
+          authorize: Otorisasi dengan "%{authorization}"
+          explanation: Untuk melakukan tindakan ini, Anda harus diotorisasi dengan "%{authorization}".
+          title: Dibutuhkan otorisasi
+        pending:
+          explanation: Untuk melakukan tindakan ini, Anda harus diotorisasi dengan "%{authorization}", tetapi otorisasi Anda masih dalam proses
+          resume: Periksa kemajuan otorisasi "%{authorization}" Anda
+          title: Otorisasi masih berlangsung
+        unauthorized:
+          explanation: Maaf, Anda tidak dapat melakukan tindakan ini karena sebagian data otorisasi Anda tidak cocok.
+          invalid_field: "%{field} nilai %{value} tidak valid."
+          ok: Baik
+          title: Tidak diizinkan
+    collapsible_list:
+      see_less: "(lihat lebih sedikit)"
+      see_more: "(lihat lebih lanjut)"
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Komponen Dummy
+        settings:
+          global:
+            comments_enabled: Komentar diaktifkan
+            dummy_global_attribute_1: Atribut Dummy 1
+            dummy_global_attribute_2: Atribut Dummy 2
+            resources_permissions_enabled: Izin sumber daya diaktifkan
+          step:
+            comments_blocked: Komentar diblokir
+            dummy_step_attribute_1: Atribut Langkah Dummy 1
+            dummy_step_attribute_2: Atribut Langkah Dummy 2
+    contact: Kontak
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Citra pahlawan
+      highlighted_content_banner:
+        name: Spanduk konten yang disorot
+      how_to_participate:
+        name: Bagaimana cara berpartisipasi
+      stats:
+        name: Statistik organisasi
+      sub_hero:
+        name: Spanduk sub hero
+    core:
+      actions:
+        unauthorized: Anda tidak berwenang untuk melakukan tindakan ini
+    data_portability:
+      export:
+        ready: Siap
+      show:
+        download_data: Unduh datanya
+        download_data_description: File dengan semua informasi yang terkait dengan akun akan dikirim ke <strong>%{user_email}</strong>
+        request_data: Meminta data
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Akun lain menggunakan alamat email yang sama
+        new:
+          complete_profile: Profil lengkap
+          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
+          sign_up: Silakan lengkapi profil Anda
+          subtitle: Silakan isi formulir berikut untuk menyelesaikan pendaftaran
+          username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
+      registrations:
+        new:
+          already_have_an_account?: Sudah memiliki akun?
+          newsletter: Terima sesekali newsletter dengan informasi yang relevan
+          newsletter_title: Izin kontak
+          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
+          sign_in: Masuk
+          sign_up: Daftar
+          sign_up_as:
+            legend: Mendaftar sebagai
+          subtitle: Mendaftarlah untuk berpartisipasi dalam diskusi dan dukung proposal.
+          terms: syarat dan ketentuan penggunaan
+          tos_agreement: Dengan mendaftar Anda menyetujui %{link}.
+          tos_title: Ketentuan Layanan
+          username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
+      sessions:
+        new:
+          are_you_new?: Baru ke platform?
+          register: Buat sebuah akun
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Periksa dan lanjutkan
+            close_modal: Tutup modal
+            uncheck: Terus hapus centang
+          notice: |-
+            <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
+            Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
+            Sangat penting bagi kami bahwa Anda dapat menerima email sesekali
+            untuk membuat pengumuman penting, Anda selalu dapat mengubah ini di
+            halaman pengaturan pemberitahuan Anda.</p>
+            <p>Jika Anda tidak mencentang kotak Anda mungkin kehilangan informasi yang relevan
+            tentang peluang partisipatif baru dalam platform.<br>
+            Jika Anda masih ingin menghindari menerima buletin, kami dengan sempurna
+            memahami keputusan Anda.</p>
+            <p>Terima kasih telah membaca ini!</p>
+          title: Notifikasi buletin
+        omniauth_buttons:
+          or: Atau
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Otorisasi aplikasi
+          by_organization_link_html: <small class="heading-small">per %{link}</small>
+          cancel: Membatalkan
+          connect_your_account_html: Hubungkan akun Anda dengan masuk ke <strong>%{organization}</strong>
+          publish_content: Publikasikan konten untuk Anda
+          see_email: Lihat email Anda
+          see_name: Lihat namamu
+          see_username: Lihat nama pengguna Anda
+          this_application_will_be_able_to: 'Aplikasi ini akan dapat:'
+          this_application_will_not_be_able_to: 'Aplikasi ini tidak akan dapat:'
+          update_profile: Perbarui profil Anda
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> ingin menggunakan akun Anda"
+    errors:
+      internal_server_error:
+        title: Ada masalah dengan server kami
+        try_later: Silakan coba lagi nanti.
+      not_found:
+        back_home: Kembali ke rumah
+        content_doesnt_exist: Alamat ini salah atau telah dihapus.
+        title: Halaman yang Anda cari tidak dapat ditemukan
+    events:
+      attachments:
+        attachment_created:
+          email_intro: 'Dokumen baru telah ditambahkan ke %{resource_title}. Anda dapat melihatnya dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{resource_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Pembaruan ke %{resource_title}
+          notification_title: A <a href="%{resource_path}">dokumen baru</a> telah ditambahkan ke <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Komponen %{resource_title} sekarang aktif untuk %{participatory_space_title}. Anda dapat melihatnya dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Pembaruan ke %{participatory_space_title}
+          notification_title: Komponen %{resource_title} sekarang aktif untuk <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: Halo %{user_name},
+        email_intro: 'Telah ada pembaruan ke "%{resource_title}". Anda dapat melihatnya dari halaman ini:'
+        email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+        email_subject: Pembaruan ke %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Kerja bagus! Anda memperoleh lencana <a href="%{resource_url}">%{badge_name}</a> (tingkat %{current_level}).
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
+          email_subject: 'Anda telah memperoleh lencana baru: %{badge_name}!'
+          notification_title: Kerja bagus! Anda memperoleh lencana <a href="%{resource_path}">%{badge_name}</a> (tingkat %{current_level}).
+        level_up:
+          email_intro: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_url}">%{badge_name}</a>!
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
+          email_subject: Anda telah mencapai level %{current_level} pada %{badge_name} lencana!
+          notification_title: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_path}">%{badge_name}</a>!
+      notification_event:
+        notification_title: Peristiwa terjadi pada <a href="%{resource_path}">%{resource_title}</a>.
+      users:
+        profile_updated:
+          email_intro: Halaman <a href="%{resource_url}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: "%{nickname} memperbarui profil mereka"
+          notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
+    export_mailer:
+      data_portability_export:
+        click_button: Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.
+        download: Unduh
+      export:
+        ready: Silakan temukan terlampir versi zip dari ekspor Anda.
+      subject: Ekspor Anda "%{name}" sudah siap
+    filters:
+      linked_classes:
+        all: Semua
+        collaborative_draft: Draf kolaboratif
+        dummy_resource: Sumber daya boneka
+        meeting: Rapat
+        project: Proyek
+        proposal: Proposal
+        result: Hasil
+    fingerprint:
+      check: Periksa sidik jari
+      explanation: Bagian teks di bawah ini adalah representasi singkat, berciri dari konten ini. Ini berguna untuk memastikan konten belum dirusak, karena satu modifikasi akan menghasilkan nilai yang sangat berbeda.
+      online_calculator_name: Kalkulator MD5 online
+      replicate_help: Sidik jari ini dihitung menggunakan algoritma hashing SHA256. Untuk mereplikasi sendiri, Anda dapat menggunakan %{online_calculator_link} dan copy-paste data sumber.
+      source: Sumber
+      title: Sidik jari
+      value: Nilai
+    followers:
+      no_followers: Belum ada pengikut.
+    following:
+      no_followings: Tidak mengikuti siapa pun atau apa pun.
+    follows:
+      create:
+        button: Mengikuti
+        error: Ada kesalahan mengikuti sumber ini.
+      destroy:
+        button: Berhenti mengikuti
+        error: Terjadi kesalahan saat berhenti mengikuti sumber daya ini.
+    forms:
+      current_file: File saat ini
+      current_image: Gambar saat ini
+      default_image: Gambar default
+      errors:
+        error: Ada kesalahan di bidang ini.
+      remove_this_file: Hapus file ini
+    gamification:
+      badges:
+        invitations:
+          description_another: Pengguna ini telah mengundang %{score} pengguna.
+          description_own: Anda telah mengundang %{score} pengguna.
+          name: Undangan
+          next_level_in: Undang %{score} lebih banyak pengguna untuk mencapai level berikutnya!
+          unearned_another: Pengguna ini belum mengundang pengguna apa pun.
+          unearned_own: Anda belum mengundang pengguna.
+      description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
+      level: Level %{level}
+      reached_top: Anda telah mencapai level teratas untuk lencana ini.
+    log:
+      base_presenter:
+        create: "%{user_name} dibuat %{resource_name}"
+        create_with_space: "%{user_name} dibuat %{resource_name} dalam %{space_name}"
+        delete: "%{user_name} dihapus %{resource_name}"
+        delete_with_space: "%{user_name} dihapus %{resource_name} dalam %{space_name}"
+        unknown_action: "%{user_name} melakukan beberapa tindakan pada %{resource_name}"
+        unknown_action_with_space: "%{user_name} melakukan beberapa tindakan pada %{resource_name} di %{space_name}"
+        update: "%{user_name} diperbarui %{resource_name}"
+        update_with_space: "%{user_name} diperbarui %{resource_name} dalam %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Daerah itu tidak ditemukan di database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Tipe area tidak ditemukan di database (ID: %{id})'
+        scope_presenter:
+          not_found: 'Ruang lingkup tidak ditemukan di database (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Jenis ruang lingkup tidak ditemukan di database (ID: %{id})'
+    managed_users:
+      expired_session: Sesi peniruan saat ini telah kedaluwarsa.
+    menu:
+      home: Rumah
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hai, %{recipient}!
+          intro: "%{sender} telah memulai percakapan baru dengan Anda. Klik di sini untuk melihatnya:"
+          outro: Selamat menikmati decidim!
+          subject: "%{sender} telah memulai percakapan dengan Anda"
+        new_message:
+          greeting: Hai, %{recipient}!
+          intro: "%{sender} telah memposting pesan baru di percakapan Anda. Klik di sini untuk melihatnya:"
+          outro: Selamat menikmati decidim!
+          subject: Anda memiliki pesan baru dari %{sender}
+      conversations:
+        create:
+          error: Percakapan tidak dimulai. Coba lagi nanti
+        index:
+          no_conversations: Anda belum memiliki percakapan
+        show:
+          send: Kirim
+        start:
+          send: Kirim
+          title: Mulai percakapan
+        update:
+          error: Pesan tidak terkirim. Coba lagi nanti
+    newsletter_mailer:
+      newsletter:
+        note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
+        see_on_website: Tidak bisa melihat email ini dengan benar? Lihat di situs web <a href="%{link}" target="_blank"></a>.
+        unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Jika Anda ingin mengubah preferensi Anda, Anda dapat melakukannya di <a href="%{link}" target="_blank">halaman konfigurasi</a>
+        error: Terjadi kesalahan saat berhenti berlangganan
+        success: Anda berhasil berhenti berlangganan.
+        token_error: Tautan telah kedaluwarsa.
+        unsubscribe: Berhenti berlangganan
+    newsletters_opt_in:
+      unathorized: Maaf, tautan ini tidak lagi tersedia
+      update:
+        error: Terjadi kesalahan
+        success: Pengaturan buletin berhasil diperbarui
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
+        body_2: 'Bagaimana Anda bisa memberi kami persetujuan Anda? Cukup klik tombol berikut:'
+        body_3: Dengan persetujuan ini Anda akan dapat terus menerima informasi tentang layanan platform. Jika, sebaliknya, kami tidak menerima konfirmasi positif dari pihak Anda, kami akan berhenti mengirimi Anda pesan kami. Jika Anda mengonfirmasi bahwa Anda ingin terus mendapat informasi, Anda akan selalu memiliki opsi untuk membatalkan kapan saja.
+        button: Ya, saya ingin terus menerima informasi yang relevan
+        greetings: Salam,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Halo,
+        subject: Apakah Anda ingin tetap menerima informasi yang relevan tentang %{organization_name}?
+    notifications:
+      no_notifications: Belum ada pemberitahuan.
+    notifications_settings:
+      show:
+        email_on_notification: Saya ingin menerima email setiap kali saya menerima pemberitahuan.
+        newsletter_notifications: Saya ingin menerima buletin
+        update_notifications_settings: Simpan perubahan
+      update:
+        error: Terjadi kesalahan saat memperbarui pengaturan notifikasi Anda.
+        success: Pengaturan pemberitahuan Anda telah berhasil diperbarui.
+    own_user_groups:
+      index:
+        pending: Menunggu keputusan
+        rejected: Ditolak
+        verified: Diverifikasi
+    pages:
+      home:
+        extended:
+          debates: Perdebatan
+          debates_explanation: Perdebatkan dan diskusikan, bagikan pandangan Anda, dan perkaya topik yang relevan.
+          how_to_participate: Bagaimana saya ikut serta dalam suatu proses?
+          meetings: Rapat
+          meetings_explanation: Cari tahu di mana dan kapan Anda dapat berpartisipasi dalam pertemuan publik.
+          more_info: Info lebih lanjut
+          proposals: Proposal
+          proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
+        footer_sub_hero:
+          footer_sub_hero_body: Mari membangun masyarakat yang lebih terbuka, transparan, dan kolaboratif.<br /> Gabung, berpartisipasi, dan putuskan.
+          footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
+          register: Daftar
+        hero:
+          participate: Ikut
+          welcome: Selamat datang di %{organization}!
+        statistics:
+          answers_count: Survei yang Selesai
+          assemblies_count: Assemblies
+          comments_count: Komentar
+          debates_count: Perdebatan
+          endorsements_count: Endorsemen
+          headline: Keadaan saat ini %{organization}
+          meetings_count: Rapat
+          orders_count: Suara
+          pages_count: Halaman
+          processes_count: Proses
+          projects_count: Proyek
+          proposals_accepted: Proposal yang Diterima
+          proposals_count: Proposal
+          results_count: Hasil
+          surveys_count: Survei
+          users_count: Peserta
+          votes_count: Suara
+        sub_hero:
+          register: Daftar
+      terms_and_conditions:
+        accept:
+          error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
+          success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
+        form:
+          agreement: Saya setuju dengan ketentuan ini
+          legend: Setujui persyaratan dan ketentuan penggunaan
+        refuse:
+          modal_body: Jika Anda menolak, Anda tidak akan dapat menggunakan platform, Anda dapat <a href="%{data_portability_path}">mengunduh data Anda</a> dan / atau <a href="%{delete_path}">menghapus akun Anda</a>.
+          modal_btn_continue: Terima persyaratan dan lanjutkan
+          modal_btn_exit: Saya akan memeriksanya nanti
+          modal_button: Menolak persyaratan
+          modal_close: Tutup modal
+          modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
+        required_review:
+          alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
+          body: Harap luangkan waktu untuk meninjau pembaruan pada Ketentuan Layanan kami. Jika tidak, Anda tidak akan dapat menggunakan platform.
+          title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
+    participatory_space_private_users:
+      not_allowed: Anda tidak diizinkan untuk melihat konten ini
+    profile:
+      deleted: Pengguna yang dihapus
+      view: Melihat
+    profiles:
+      show:
+        badges: Lencana
+        conversations: Percakapan
+        followers: Pengikut
+        following: Mengikuti
+        notifications: Notifikasi
+      user:
+        edit_profile: Edit profil
+    reported_mailer:
+      hide:
+        hello: Halo %{name},
+        manage_moderations: Kelola moderasi
+        report_html: <p>berikut <a href="%{url}">konten</a> telah disembunyikan secara otomatis.</p>
+        subject: Sumber daya telah disembunyikan secara otomatis
+      report:
+        hello: Halo %{name},
+        manage_moderations: Kelola moderasi
+        report_html: <p> <a href="%{url}">konten</a> berikut telah dilaporkan.</p>
+        subject: Sumber daya telah dilaporkan
+    reports:
+      create:
+        error: Terjadi kesalahan saat membuat laporan. Tolong, coba lagi.
+        success: Laporan telah berhasil dibuat dan akan ditinjau oleh admin.
+    scopes:
+      global: Ruang lingkup global
+      picker:
+        cancel: Membatalkan
+        choose: Memilih
+        title: Pilih %{field}
+      prompt: Pilih cakupan
+      scopes: Scopes
+    search:
+      filter:
+        all: Semua
+      results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
+      term_input_placeholder: Pencarian
+    searches:
+      filters:
+        search: Pencarian
+      filters_small_view:
+        close_modal: Tutup modal
+        filter: Filter
+        filter_by: Filter berdasarkan
+        unfold: Membuka
+    shared:
+      embed_modal:
+        close_window: Tutup jendela
+        embed: Silakan tempel kode ini di halaman Anda
+        embed_link: Menanamkan
+      flag_modal:
+        already_reported: Konten ini sudah dilaporkan dan akan ditinjau oleh admin.
+        close: Dekat
+        description: Apakah konten ini tidak pantas?
+        does_not_belong: Berisi aktivitas ilegal, ancaman bunuh diri, informasi pribadi, atau hal lain yang menurut Anda bukan milik %{organization_name}.
+        offensive: Berisi rasisme, seksisme, penghinaan, serangan pribadi, ancaman pembunuhan, permintaan bunuh diri atau segala bentuk pidato kebencian.
+        report: Melaporkan
+        spam: Berisi clickbait, iklan, penipuan, atau bot skrip.
+        title: Laporkan masalah
+      follow_button:
+        sign_in_before_follow: Harap masuk sebelum melakukan tindakan ini
+      login_modal:
+        please_sign_in: Silakan masuk
+        sign_up: Daftar
+      reference:
+        reference: 'Referensi: %{reference}'
+      results_per_page:
+        label: 'Hasil per halaman:'
+      share_modal:
+        close_window: Tutup jendela
+        share: Bagikan
+        share_link: Membagikan tautan
+      version_author:
+        deleted: Pengguna yang dihapus
+  devise:
+    invitations:
+      edit:
+        header: Selesaikan membuat akun Anda
+        nickname_help: Pengenal unik Anda dalam %{organization}.
+        submit_button: Menyimpan
+        subtitle: Jika Anda menerima undangan, atur nama panggilan dan kata sandi Anda.
+    mailer:
+      invitation_instructions:
+        accept: Menerima undangan
+        accept_until: Undangan ini akan jatuh tempo dalam %{due_date}.
+        decline: Tolak undangan
+        hello: Halo %{email},
+        ignore: |-
+          Jika Anda tidak ingin menerima undangan, silakan abaikan email ini.<br />
+          Akun Anda tidak akan dibuat sampai Anda mengakses tautan di atas dan mengatur nama panggilan dan kata sandi Anda.
+        invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
+        invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
+        someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
+        someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
+        someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
+      invite_admin:
+        subject: Anda telah diundang untuk mengelola %{organization}
+      invite_collaborator:
+        subject: Anda telah diundang untuk berkolaborasi pada %{organization}
+      invite_private_user:
+        subject: Anda telah diundang ke proses partisipasi pribadi di %{organization}
+      organization_admin_invitation_instructions:
+        subject: Anda telah diundang untuk mengelola %{organization}
+      password_change:
+        greeting: Halo %{recipient}!
+        message: Kami menghubungi Anda untuk memberi tahu Anda bahwa kata sandi Anda telah diubah.
+        subject: Kata sandi diubah
+  doorkeeper:
+    scopes:
+      public: Informasi publik Anda.
+  errors:
+    messages:
+      content_type_whitelist_error: jenis file tidak valid
+      cycle_detected: orang tua ruang lingkup tidak bisa menjadi salah satu keturunannya
+      file_size_is_less_than_or_equal_to: ukuran file harus kurang dari atau sama dengan %{count}
+      nesting_too_deep: tidak dapat berada di dalam suatu subkategori
+      too_short: terlalu pendek
+  forms:
+    required: Wajib
+  invisible_captcha:
+    sentence_for_humans: Jika Anda manusia, abaikan bidang ini
+    timestamp_error_message: Maaf, itu terlalu cepat! Silakan kirim ulang.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Situs ini menggunakan cookie. Dengan melanjutkan menelusuri situs, Anda menyetujui penggunaan cookie kami. Cari tahu lebih banyak tentang itu %{link}.
+        link_label: sini
+        ok: saya setuju
+      edit_link:
+        edit: Edit
+      footer:
+        made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
+      header:
+        close_menu: Tutup menu
+        navigation: Navigasi
+        sign_in: Masuk
+        sign_up: Daftar
+      impersonation_warning:
+        close_session: Tutup sesi
+        description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
+        expire_time_html: Sesi Anda akan berakhir dalam <b><span class="minutes">%{minutes}</span> menit</b>.
+      notifications_dashboard:
+        mark_all_as_read: tandai semua telah dibaca
+      user_menu:
+        admin_dashboard: Dasbor admin
+        conversations: Percakapan
+        notifications: Notifikasi
+        profile: Akun saya
+        public_profile: Profil publik saya
+        sign_out: Keluar
+      user_profile:
+        account: Rekening
+        authorizations: Otorisasi
+        delete_my_account: Hapus akun Saya
+        my_data: Data saya
+        notifications_settings: Pengaturan Notifikasi
+        title: Pengaturan pengguna
+      widget:
+        see_more: Lihat lebih banyak
+  locale:
+    name: Inggris
+  password_validator:
+    domain_included_in_password: terlalu mirip dengan nama domain ini
+    email_included_in_password: terlalu mirip dengan email Anda
+    fallback: tidak valid
+    name_included_in_password: terlalu mirip dengan nama Anda
+    not_enough_unique_characters: tidak memiliki karakter unik yang cukup
+    password_not_allowed: tidak diizinkan
+    password_too_common: terlalu umum
+    password_too_long: terlalu panjang
+    password_too_short: terlalu pendek
+  social_share_button:
+    delicious: Lezat
+    douban: Douban
+    email: E-mail
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Berita Hacker
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Bagikan ke %{name}
+    tumblr: Tumblr
+    twitter: Kericau
+    vkontakte: Vkontakte
+    wechat: Wechat
+    wechat_footer: Buka WeChat Anda, klik tombol "Temukan" lalu klik menu "Pindai Kode QR".
+    weibo: Sina Weibo
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; Pertama"
+      last: '&raquo;Terakhir'
+      next: Berikutnya &rsaquo;
+      previous: "&lsaquo; Sebelumnya"
+      truncate: "&hellip;"
