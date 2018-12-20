@@ -49,7 +49,7 @@ it:
         other: risposte
       decidim/consultations/vote:
         one: Votazione
-        other: voti
+        other: Votazione
   decidim:
     admin:
       actions:
