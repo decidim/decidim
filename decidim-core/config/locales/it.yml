@@ -450,7 +450,7 @@ it:
         show:
           conversation_with_html: Conversazione con <strong>%{name}</strong>
           reply: Rispondi
-          send: Inviare
+          send: Invia
         start:
           send: Invia
           title: Inizia una conversazione
@@ -567,7 +567,7 @@ it:
         conversations: conversazioni
         followers: Seguaci
         following: segue
-        notifications: notifiche
+        notifications: Notifiche
       user:
         edit_profile: Modifica Profilo
     reported_mailer:
@@ -595,7 +595,7 @@ it:
       scopes: Scopes
     search:
       filter:
-        all: Tutti
+        all: Tutto
         component: Componente
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
