@@ -82,6 +82,8 @@ tr:
         create:
           error: Yeni bir derleme oluştururken bir hata oluştu.
           success: Montaj başarıyla oluşturuldu.
+        destroy:
+          success: Montaj başarıyla silindi.
         edit:
           update: Güncelleştirme
         form:
@@ -333,6 +335,8 @@ tr:
           take_part: Yer almak
       assembly_header:
         assembly_member_menu_item: Üyeler
+        assembly_menu_item: Meclis
+        unfold: açılmak
       assembly_widgets:
         show:
           take_part: Yer almak
