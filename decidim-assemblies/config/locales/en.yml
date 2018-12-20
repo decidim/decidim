@@ -257,17 +257,6 @@ en:
         city_council: City Council
         others: Others
         public: Public
-      filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
       index:
         title: Assemblies
       last_activity:
@@ -359,7 +348,7 @@ en:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assembly"
+            one: "%{count} assemblies"
             other: "%{count} assemblies"
         promoted_assembly:
           more_info: More info
