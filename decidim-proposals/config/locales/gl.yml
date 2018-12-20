@@ -394,8 +394,8 @@ gl:
           title: Completa o teu borrador colaborativo
         count:
           drafts_count:
-            one: 1 borrador colaborativo
-            other: "%{count} borradores colaborativos"
+            one: '%{count} borrador colaborativo'
+            other: "%{count} borrador colaborativo"
         create:
           error: Produciuse un problema creando estes borradores colaborativos
           success: Creouse un borrador colaborativo.
@@ -449,7 +449,7 @@ gl:
           final_proposal: proposta final
           final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
           hidden_authors_count:
-            one: e 1 persoa máis
+            one: e %{count} persoas máis
             other: e %{count} persoas máis
           info-message: Este é un <strong>proxecto colaborativo</strong> a proposta. Isto significa que pode axudar aos seus autores a configurar a proposta usando a sección de comentarios a continuación ou mellorala directamente solicitando o acceso para editala. Unha vez que os autores te outorgan acceso, podes realizar cambios neste borrador.
           of_versions: "(de %{number})"
@@ -532,7 +532,7 @@ gl:
           title: Completa a túa proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Engada un anexo"
