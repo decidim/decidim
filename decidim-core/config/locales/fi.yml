@@ -35,6 +35,9 @@ fi:
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
     models:
+      decidim/amendment:
+        one: muutos
+        other: Muutokset
       decidim/user:
         one: Ei käyttäjiä
         other: Käyttäjää
@@ -125,6 +128,59 @@ fi:
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
+        verify_via_csv: "%{user_name} varmisti %{resource_name} käyttäjäryhmän CSV-tiedoston kautta"
+    amendments:
+      accepted:
+        error: Hyväksytään muutoksen hyväksyminen, yritä myöhemmin uudelleen.
+        success: Tämä muutos on hyväksytty onnistuneesti.
+      amendable:
+        amended_by: 'Muuttanut:'
+        button: Muuta %{model_name}
+        promote_button: Mainosta %{model_name}
+        error: Tämän resurssin muuttamisessa tapahtui virhe.
+        help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
+        promote_help_text: Voit edistää tätä tarkistusta ja julkaista sen itsenäisenä %{model_name}
+        no_amenders: Ei muutoksia tehneitä
+        no_amendments: Ei muutoksia
+        section_heading: Muutokset (%{count})
+      created:
+        error: Virhe luotaessa muutosta, yritä myöhemmin uudelleen
+        success: Muutos luotu onnistuneesti
+      emendation:
+        actions:
+          button_accept: Hyväksy
+          button_reject: Hylkää
+          help_text: Tarkastele muutoksia ja hyväksy tai hylkää tämä muutos. Laatijoille lähetetään ilmoitus.
+        announcement:
+          accepted: |-
+            Tämä muutos kohteelle %{amendable_type} %{amendable_link} on
+            hyväksytty <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Tämä on muutos kohteelle %{amendable_type} %{amendable_link}
+            arvioimiselle.
+          rejected: |-
+            Tämä tarkistus %{amendable_type} %{amendable_link}
+            hylättiin <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Tämä muutos kohteelle %{amendable_type} %{amendable_link}
+            on peruutettu sen laatijan toimesta.
+      new:
+        amendment_author: Muutoksen laatija
+        back: Takaisin
+        heading: Luo muutos
+        help_text: Olet muuttamassa kohdetta %{model_name}
+        send: Lähetä muutos
+      rejected:
+        error: Virhe erehdyksessä hylätessään tämän muutoksen, yritä myöhemmin uudelleen
+        success: Muutos on hylätty onnistuneesti
+      promoted:
+        success: Muutos edistettiin menestyksekkäästi
+        error: Emendation edistämisessä on ollut virheitä
+      review:
+        back: Takaisin
+        heading: Tarkastele muutosta
+        help_text: Olet muuttamassa kohdetta %{model_name}
+        send: Hyväksy muutos
     anonymous_user: Anonyymi
     application:
       collection:
@@ -211,6 +267,7 @@ fi:
         name: Esimerkkikomponentti
         settings:
           global:
+            amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
             dummy_global_attribute_1: Esimerkkitietue 1
             dummy_global_attribute_2: Esimerkkitietue 2
@@ -326,6 +383,51 @@ fi:
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
         title: Etsimääsi sivua ei löydy
     events:
+      amendments:
+        amendment_created:
+          affected_user:
+            email_intro: 'Uusi muutos on luotu %{amendable_title}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
+            email_subject: Uusi tarkistus %{amendable_title} sta %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uutta tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Uusi muutos on luotu %{amendable_title}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: Uusi tarkistus %{amendable_title} sta %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uutta tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Muutos on hylätty %{amendable_title}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
+            email_subject: Tarkistus hylätään %{amendable_title} stä %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Muutos on hylätty %{amendable_title}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: Tarkistus hylätään %{amendable_title} stä %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: '%{amendable_title} hylätty muutos on edistetty riippumattomaksi %{amendable_type}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
+            email_subject: '%{emendation_author_nickname} muutosta on edistetty'
+            notification_title: A <a href="%{emendation_path}">hylättyä tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on edistetty <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: '%{amendable_title} hylätty muutos on edistetty riippumattomaksi %{amendable_type}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: '%{emendation_author_nickname} muutosta on edistetty'
+            notification_title: A <a href="%{emendation_path}">hylättyä tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on edistetty <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Hyväksyntä on hyväksytty %{amendable_title}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
+            email_subject: 'Hyväksytään tarkistus %{amendable_title} : ksi %{emendation_author_nickname}'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Hyväksyntä on hyväksytty %{amendable_title}. Voit nähdä sen tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: 'Hyväksytään tarkistus %{amendable_title} : ksi %{emendation_author_nickname}'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
@@ -636,6 +738,8 @@ fi:
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     metrics:
+      download:
+        csv: Lataa tiedot (csv)
       followers:
         description: Organisaatiota seuraavien käyttäjien määrä
         object: seuraajat
@@ -679,11 +783,18 @@ fi:
     notifications_settings:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
+        everything_followed: Kaikki mitä seuraan
+        newsletters: uutiskirjeet
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
+        own_activity: Oma toiminta, kuten kun joku kommentoi ehdotuksessani tai mainitsee minut
+        receive_notifications_about: Haluan saada ilmoituksia
+        send_notifications_by_email: Lähetä ilmoitukset sähköpostitse
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
+    open_data:
+      not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
     own_user_groups:
       index:
         pending: Odottaa
@@ -784,14 +895,17 @@ fi:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
           title: Kunniamerkit
       user:
+        confirmation_instructions_sent: Lähetetyt sähköpostin vahvistusohjeet
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa ryhmän profiilia
+        fill_in_email_to_confirm_it: Täytä ryhmänne sähköpostiosoite vahvistaaksesi sen
         invite_user: Kutsu käyttäjä
         join_user_group: Lähetä liittymispyyntö ryhmään
         leave_user_group: Poistu ryhmästä
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
+        resend_email_confirmation_instructions: Lähetä uudelleen sähköpostin vahvistusohjeet
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -874,6 +988,15 @@ fi:
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
+    user_interests:
+      show:
+        no_scopes: Tällä organisaatiolla ei ole vielä mahdollisuutta!
+        my_interests: Kiinnostuksen kohteeni
+        select_your_interests: Valitse aiheet, joista olet kiinnostunut vastaanottamaan niihin liittyviä tapahtumia profiilissasi Aikajana-välilehti.
+        update_my_interests: Päivitä kiinnostukseni
+      update:
+        error: Oireiden päivittämisessä tapahtui virhe.
+        success: Etusi on päivitetty onnistuneesti.
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
@@ -1054,6 +1177,7 @@ fi:
       edit_link:
         edit: Muokkaa
       footer:
+        download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
@@ -1078,6 +1202,7 @@ fi:
         authorizations: Varmennukset
         delete_my_account: Poista tilini
         my_data: Omat tiedot
+        my_interests: Kiinnostuksen kohteeni
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
         user_groups: Ryhmät
