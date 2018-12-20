@@ -326,8 +326,8 @@ ca:
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
-          select_a_category: Selecciona una categoria
+          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Completa el teu esborrany col·laboratiu
         count:
