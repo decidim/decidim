@@ -250,6 +250,7 @@ gl:
           sign_up: Rexistrarse
           sign_up_as:
             legend: Rexístrate como
+            user: Individual
             user_group: Organización / colectiva
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           terms: os termos e condicións de uso
