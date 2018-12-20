@@ -91,12 +91,20 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Gewicht
+      user_group_csv_verification:
+        file: Datei
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ungültige Bilddatei
+            official_img_footer:
+              allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
       decidim/static_page:
@@ -481,6 +489,7 @@ de:
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
+          title: Benutzer "%{name}" offiziellisieren
       organization:
         edit:
           title: Organisation bearbeiten
@@ -614,6 +623,9 @@ de:
         user_groups: Benutzergruppen
         users: Benutzer
       user_group:
+        csv_verify:
+          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
           success: Benutzergruppe wurde erfolgreich abgelehnt
@@ -633,6 +645,12 @@ de:
             pending: steht aus
             rejected: Abgelehnt
             verified: Überprüft
+          verify_via_csv: Überprüfen Sie über CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          title: Laden Sie Ihre CSV-Datei hoch
+          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
