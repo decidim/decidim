@@ -10,7 +10,7 @@ sv:
         copy_features: Kopiera funktioner
         decidim_scope_id: Omfattning
         description: Beskrivning
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         participatory_processes_ids: Relaterade deltagande processer
         promoted: främjas
@@ -26,7 +26,7 @@ sv:
         full_name: Fullständiga namn
       conference_user_role:
         email: E-post
-        name: namn
+        name: Namn
         role: Roll
     errors:
       models:
@@ -69,7 +69,7 @@ sv:
           success: Högtalaren raderades framgångsrikt för denna konferens.
         edit:
           title: Uppdatera konferenshögtalare.
-          update: Uppdatering
+          update: Uppdatera
         index:
           conference_speakers_title: Konferenshögtalare
         new:
@@ -86,7 +86,7 @@ sv:
           success: Användaren avlägsnades framgångsrikt från denna konferens.
         edit:
           title: Uppdatera konferensanvändare.
-          update: Uppdatering
+          update: Uppdatera
         index:
           conference_admins_title: konferensanvändare
         new:
@@ -102,7 +102,7 @@ sv:
         destroy:
           success: Konferensen togs bort framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         exports:
           registrations: registreringar
         form:
@@ -128,7 +128,7 @@ sv:
           success: Media Link raderas framgångsrikt.
         edit:
           title: Uppdatera media länk.
-          update: Uppdatering
+          update: Uppdatera
         index:
           media_links_title: Media Länkar
         new:
@@ -140,8 +140,8 @@ sv:
       menu:
         conferences: konferenser
         conferences_submenu:
-          attachment_collections: mappar
-          attachment_files: filer
+          attachment_collections: Mappar
+          attachment_files: Filer
           attachments: bilagor
           categories: kategorier
           components: Komponenter
@@ -152,7 +152,7 @@ sv:
           info: Info
           media_links: Media Länkar
           moderations: modere
-          partners: partners
+          partners: Partners
       models:
         conference:
           fields:
@@ -164,12 +164,12 @@ sv:
           fields:
             affiliation: Anslutning
             full_name: Fullständiga namn
-            position: Placera
+            position: Position
           name: Konferens högtalare
         conference_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Konferensanvändare
           roles:
@@ -186,7 +186,7 @@ sv:
           fields:
             link: Länk
             logo: Logotyp
-            name: namn
+            name: Namn
             partner_type: Typ
           name: Partner
           types:
@@ -200,7 +200,7 @@ sv:
           success: Partner har tagits bort framgångsrikt från denna konferens.
         edit:
           title: Uppdatera partner.
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa
           title: Ny partner
@@ -228,7 +228,7 @@ sv:
         title: Program
     conference_speakers:
       index:
-        title: högtalare
+        title: Talare
     conferences:
       admin:
         conference_copies:
@@ -247,16 +247,16 @@ sv:
           index:
             filter:
               accepted: Accepterad
-              all: Allt
-              rejected: avvisade
-              sent: sände
+              all: Alla
+              rejected: Avvisad
+              sent: Skickad
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningskort
             search: Sök
           new:
             explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Inbjudan
+            invite: Bjuda in
             new_invite: Bjud in användare
         conference_registrations:
           index:
@@ -283,18 +283,18 @@ sv:
             join: Gå med i konferens '%{conference_title}'
         partners:
           index:
-            title: partners
+            title: Partners
       conference:
         registration_confirm:
-          cancel: Annullera
+          cancel: Avbryta
           confirm: Bekräfta
         show:
           going: Gående
           join: Gå med i konferens
           no_slots_available: Inga slots tillgängliga
           remaining_slots:
-            one: 1 slits kvar
-            other: "%{count} slits kvar"
+            one: 1 plats kvar
+            other: "%{count} platser kvar"
       conference_program:
         program_meeting:
           content: Innehåll
@@ -331,10 +331,10 @@ sv:
           go_to_twitter: Gå till Twitter
       conference_speakers:
         index:
-          speakers: högtalare
+          speakers: Talare
       conferences:
         partners:
-          collaborators: medarbetare
+          collaborators: Medarbetare
           main_promotors: Huvudpromotorer
         show:
           already_account: Har du redan ett konto i decidim?
@@ -360,17 +360,17 @@ sv:
         conference_invite:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             sent_at: Skickat på
             status: Status
           status:
             accepted: Accepterad (%{at})
             rejected: Avvisad (%{at})
-            sent: sände
+            sent: Skickad
         conference_registration:
           fields:
             email: E-post
-            name: namn
+            name: Namn
       pages:
         home:
           highlighted_conferences:
@@ -379,34 +379,34 @@ sv:
       photo:
         show:
           close_modal: Stäng modal
-          photo: Foto
+          photo: Bild
       photos_list:
         show:
-          related_photos: foton
+          related_photos: Bilder
       show:
-        details: detaljer
+        details: Detaljer
         introduction: Introduktion
         objectives: mål
         related_assemblies: Relaterade församlingar
         related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade deltagande processer
       statistics:
-        answers_count: svar
-        comments_count: kommentarer
+        answers_count: Svar
+        comments_count: Kommentarer
         conference_count: konferenser
-        debates_count: debatter
+        debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
+        meetings_count: Möten
+        orders_count: Röster
+        pages_count: Sidor
         posts_count: inlägg
-        projects_count: projekt
+        projects_count: Projekt
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
     events:
       conferences:
         conference_registrations_over_percentage:
@@ -457,8 +457,8 @@ sv:
           take_part: Ta del
       conferences_nav:
         conference_menu_item: Information
-        conference_partners_menu_item: partners
-        conference_speaker_menu_item: högtalare
+        conference_partners_menu_item: Partners
+        conference_speaker_menu_item: Talare
         media: Media
         unfold: Veckla ut
-        venues: venues
+        venues: Ställen
