@@ -1,1 +1,7 @@
 id:
+  decidim:
+    sortitions:
+      sortitions:
+        show:
+          candidate_proposals_info: 'Pemilahan dilakukan di antara proposal berikut (%{category_label}), dengan ID berikut (dalam cetak tebal proposal yang dipilih) '
+          introduction: 'Halaman ini berisi hasil penyortiran %{reference}. Dengan cara penyortiran ini, %{target_items} jumlah hasil telah dipilih secara acak dan dengan distribusi probabilitas yang sama dari kumpulan proposal yang ditampilkan di bawah ini. Bersama dengan hasilnya, informasi yang ditampilkan di halaman ini menyediakan semua informasi yang diperlukan untuk memaksimalkan jaminan dan untuk mereproduksi hasil. Kunci untuk kualitas penyortiran ini adalah keacakan ganda yang disediakan oleh rolling dadu (diverifikasi oleh saksi) dan waktu yang tepat dari penyortiran yang memberikan masukan untuk algoritma yang menghasilkan seleksi acak. Benih waktu untuk penyortiran sangat akurat (detik) sehingga tidak mungkin dikendalikan oleh manusia sehingga memberikan masukan ganda "tidak terkendali" untuk menjamin hasil yang adil. '
