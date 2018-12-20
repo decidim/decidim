@@ -1,1 +1,71 @@
 id:
+  activemodel:
+    attributes:
+      survey_question:
+        mandatory: Wajib
+        max_choices: Jumlah pilihan maksimum
+        question_type: Mengetik
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: tidak lengkap
+              too_many: terlalu banyak
+  decidim:
+    forms:
+      errors:
+        survey_answer:
+          body: Tubuh tidak boleh kosong
+    surveys:
+      admin:
+        models:
+          components:
+            description: Deskripsi
+            tos: Ketentuan layanan
+        surveys:
+          answer_option:
+            answer_option: Opsi jawaban
+            free_text: Teks gratis
+            remove: Menghapus
+            statement: Pernyataan
+          edit:
+            save: Menyimpan
+            title: Judul
+          form:
+            add_question: Tambahkan pertanyaan
+            already_answered_warning: Survei ini telah dijawab oleh beberapa pengguna sehingga Anda tidak dapat mengubah pertanyaannya.
+          question:
+            add_answer_option: Tambahkan opsi jawaban
+            any: Apa saja
+            description: Deskripsi
+            down: Turun
+            question: Pertanyaan
+            remove: Menghapus
+            statement: Pernyataan
+            up: Naik
+      question_types:
+        long_answer: Jawaban panjang
+        multiple_option: Pilihan ganda
+        short_answer: Jawaban singkat
+        single_option: Opsi tunggal
+        sorting: Penyortiran
+      surveys:
+        question:
+          max_choices: 'Pilihan maksimal: %{n}'
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_link}">mendaftar</a> untuk menjawab survei.
+            title: Jawab survei
+          are_you_sure: Tindakan ini tidak dapat diurungkan dan Anda tidak akan dapat mengedit jawaban Anda. Apakah kamu yakin?
+          submit: Menyerahkan
+          survey_answered:
+            body: Anda telah menjawab survei ini.
+            title: Survey menjawab
+          survey_closed:
+            body: Survei ditutup dan tidak dapat dijawab.
+            title: Survey ditutup
+          survey_for_private_users:
+            body: Survei hanya tersedia untuk pengguna pribadi
+            title: Survey ditutup
+          tos_agreement: Dengan berpartisipasi dalam survei ini, Anda menerima Ketentuan Layanan
