@@ -388,14 +388,14 @@ pt:
           no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
           title: Rascunhos colaborativos semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
+          attachment_legend: "(Opcional) Adicionar um anexo"
+          select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete seu rascunho colaborativo
         count:
           drafts_count:
-            one: 1 rascunho colaborativo
-            other: "%{count} rascunhos colaborativos"
+            one: '%{count} rascunho colaborativo'
+            other: "%{count} rascunho colaborativo"
         create:
           error: Houve um problema ao criar esses rascunhos colaborativos
           success: Rascunho colaborativo criado com sucesso.
@@ -449,7 +449,7 @@ pt:
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
           hidden_authors_count:
-            one: e mais 1 pessoa
+            one: e mais %{count} pessoa
             other: e mais %{count} pessoas
           info-message: Este é um <strong>projecto colaborativo</strong> para uma proposta. Isso significa que você pode ajudar seus autores a moldar a proposta usando a seção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois que os autores lhe concederem acesso, você poderá fazer alterações neste rascunho.
           of_versions: "(de %{number})"
@@ -532,7 +532,7 @@ pt:
           title: Complete sua proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
