@@ -85,7 +85,10 @@ id:
     events:
       meetings:
         meeting_closed:
+          email_intro: 'Rapat "%{resource_title}" ditutup. Anda dapat membaca kesimpulan dari halamannya:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Rapat "%{resource_title}" ditutup
+          notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> ditutup.
         meeting_created:
           email_intro: Pertemuan "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
@@ -102,7 +105,9 @@ id:
           email_subject: Rapat "%{resource_title}" telah diperbarui
           notification_title: Rapat <a href="%{resource_path}">%{resource_title}</a> telah diperbarui.
         registration_code_validated:
+          email_intro: Kode registrasi Anda "%{registration_code}" telah divalidasi.
           email_outro: Anda telah menerima pemberitahuan ini karena kode pendaftaran Anda untuk rapat "%{resource_title}" telah divalidasi.
+          email_subject: Kode registrasi Anda "%{registration_code}" telah divalidasi
           notification_title: Kode registrasi Anda "%{registration_code}" untuk pertemuan <a href="%{resource_path}">%{resource_title}</a> telah divalidasi.
         registrations_enabled:
           email_intro: 'Rapat "%{resource_title}" telah memungkinkan pendaftaran. Anda dapat mendaftarkan diri Anda di halamannya:'
@@ -261,6 +266,8 @@ id:
           form:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             invites: Undangan
+            registrations_count:
+              other: Ada %{count} pendaftaran.
             reserved_slots_help: Biarkan hingga 0 jika Anda tidak memiliki slot yang dipesan
             reserved_slots_less_than: Harus kurang dari atau sama dengan %{count}
           update:
@@ -397,6 +404,7 @@ id:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Pertemuan sebelumnya
+        see_all_meetings: Lihat semua rapat
         upcoming_meetings: Pertemuan yang akan datang
       upcoming_meeting_for_card:
         upcoming_meeting: Pertemuan yang akan datang
