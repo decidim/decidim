@@ -16,7 +16,6 @@ module Decidim
       attribute :default_locale, String
       attribute :reference_prefix
       attribute :users_registration_mode, String
-      jsonb_attribute :smtp_settings, [:mail_from, :username, :password, :hostname, :port]
 
       validates :organization_admin_email, :organization_admin_name, :name, :host, :reference_prefix, :users_registration_mode, presence: true
       validates :available_locales, presence: true

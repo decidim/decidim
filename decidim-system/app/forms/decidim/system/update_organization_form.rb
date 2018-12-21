@@ -17,7 +17,7 @@ module Decidim
       attribute :secondary_hosts, String
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
-      jsonb_attribute :smtp_settings, [:mail_from, :username, :password, :hostname, :port]
+      jsonb_attribute :smtp_settings, [:from, :user_name, :password, :address, :port]
 
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
@@ -35,6 +35,10 @@ module Decidim
       def clean_available_authorizations
         return unless available_authorizations
         available_authorizations.select(&:present?)
+      end
+
+      def encrypted_smtp_settings
+        smtp_settings.merge(password: Decidim::AttributeEncryptor.encrypt(password))
       end
 
       private
