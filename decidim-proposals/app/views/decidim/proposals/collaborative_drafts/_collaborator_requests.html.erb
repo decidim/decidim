@@ -1,4 +1,4 @@
-<% if @collaborative_draft.requesters.presence && allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+<% if @collaborative_draft.requesters.presence && allowed_to?(:react_to_request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
   <div class="card extra">
     <div class="definition-data__item">
       <span class="definition-data__title">

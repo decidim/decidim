@@ -122,7 +122,7 @@ module Decidim
           can_publish_collaborative_draft?
         when :request_access
           can_request_access_collaborative_draft?
-        when :can_react_to_request_access
+        when :react_to_request_access
           can_react_to_request_access_collaborative_draft?
         end
       end

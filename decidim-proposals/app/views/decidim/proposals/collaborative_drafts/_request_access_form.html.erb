@@ -1,4 +1,4 @@
-<% if allowed_to?(:can_react_to_request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+<% if allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
   <%= decidim_form_for(@request_access_form, url: request_access_collaborative_draft_path(@collaborative_draft)) do |form| %>
     <%= form.hidden_field :id, value: @collaborative_draft.id %>
     <%= form.hidden_field :state, value: @collaborative_draft.state %>
