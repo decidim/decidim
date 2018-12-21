@@ -23,7 +23,6 @@ module Decidim
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
-      validates :smtp_settings, presence: true
     end
   end
 end
