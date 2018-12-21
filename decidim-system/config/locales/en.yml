@@ -47,6 +47,7 @@ en:
           fields:
             created_at: Created at
             name: Name
+            smtp_settings: SMTP settings
           name: Organization
       organizations:
         create:
@@ -54,14 +55,12 @@ en:
           success: Organization created successfully.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
-          smtp_settings: SMTP settings
         index:
           title: Organizations
         new:
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organizations
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
-          smtp_settings: SMTP settings
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
