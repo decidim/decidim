@@ -81,12 +81,12 @@ fi:
         milestone_completed:
           affected_user:
             email_intro: Aloitteesi %{resource_title} on saavuttanut %{percentage}% allekirjoituksista!
-            email_outro: Olet saanut tämän ilmoituksen, koska olet aloitteen aloittelija %{resource_title}.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}.
             email_subject: Uusi virstanpylväs saavutettu!
-            notification_title: Sinun <a href="%{resource_path}">%{resource_title}</a> -aloitteesi on saavuttanut %{percentage}% allekirjoituksista.
+            notification_title: Aloitteesi <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% allekirjoituksista.
           follower:
             email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
     gamification:
@@ -356,7 +356,7 @@ fi:
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet
-      unavailable_scope: Ei saatavilla
+      unavailable_scope: Teema ei ole saatavilla
     menu:
       initiatives: Aloitteet
   layouts:
