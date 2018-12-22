@@ -31,17 +31,9 @@ module Decidim
 
       def address_has_changed?
         return true if id.nil?
+
         address != Proposal.find(id).address unless id.nil?
       end
-
-      def map_model(model)
-        self.user_group_id = model.decidim_user_group_id
-        return unless model.categorization
-
-        self.category_id = model.categorization.decidim_category_id
-      end
-
-      # alias component current_component
 
       # Finds the Category from the category_id.
       #

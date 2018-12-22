@@ -12,11 +12,7 @@ fr:
   activerecord:
     errors:
       messages:
-        equal_to: must be equal to %{count}
-      models:
-        decidim/budgets/project:
-          one: Project
-          other: Projects
+        equal_to: doit être égal à %{count}
     models:
       decidim/budgets/project:
         one: Projet
