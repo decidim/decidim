@@ -262,10 +262,10 @@ fi:
         commission: Komitea
         consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
-        government: Hallitus
-        label: 'Show:'
-        others: toiset
-        participatory: osallistava
+        government: Hallinto
+        label: 'Näytä:'
+        others: Muut
+        participatory: Osallistava
         placeholder: Suodata tyypin mukaan
         working_group: Työryhmä
       index:
