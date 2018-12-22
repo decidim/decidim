@@ -136,10 +136,10 @@ fi:
       amendable:
         amended_by: 'Muuttanut:'
         button: Muuta %{model_name}
-        promote_button: Mainosta %{model_name}
+        promote_button: Edistä kohteena %{model_name}
         error: Tämän resurssin muuttamisessa tapahtui virhe.
         help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
-        promote_help_text: Voit edistää tätä tarkistusta ja julkaista sen itsenäisenä %{model_name}
+        promote_help_text: Voit edistää tätä muutosta ja julkaista sen uutena %{model_name} -kohteena
         no_amenders: Ei muutoksia tehneitä
         no_amendments: Ei muutoksia
         section_heading: Muutokset (%{count})
