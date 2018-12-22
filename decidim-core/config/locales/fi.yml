@@ -128,10 +128,10 @@ fi:
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
-        verify_via_csv: "%{user_name} varmisti %{resource_name} käyttäjäryhmän CSV-tiedoston kautta"
+        verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
     amendments:
       accepted:
-        error: Hyväksytään muutoksen hyväksyminen, yritä myöhemmin uudelleen.
+        error: Muutosten hyväksymisessä tapahtui virhe, yritä myöhemmin uudelleen.
         success: Tämä muutos on hyväksytty onnistuneesti.
       amendable:
         amended_by: 'Muuttanut:'
@@ -784,9 +784,9 @@ fi:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
-        newsletters: uutiskirjeet
+        newsletters: Uutiskirjeet
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
-        own_activity: Oma toiminta, kuten kun joku kommentoi ehdotuksessani tai mainitsee minut
+        own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
         receive_notifications_about: Haluan saada ilmoituksia
         send_notifications_by_email: Lähetä ilmoitukset sähköpostitse
         update_notifications_settings: Tallenna muutokset
@@ -895,17 +895,17 @@ fi:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
           title: Kunniamerkit
       user:
-        confirmation_instructions_sent: Lähetetyt sähköpostin vahvistusohjeet
+        confirmation_instructions_sent: Sähköpostin vahvistusohjeet lähetetty
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa ryhmän profiilia
-        fill_in_email_to_confirm_it: Täytä ryhmänne sähköpostiosoite vahvistaaksesi sen
+        fill_in_email_to_confirm_it: Lisää ryhmän sähköpostiosoite vahvistaaksesi sen
         invite_user: Kutsu käyttäjä
         join_user_group: Lähetä liittymispyyntö ryhmään
         leave_user_group: Poistu ryhmästä
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
-        resend_email_confirmation_instructions: Lähetä uudelleen sähköpostin vahvistusohjeet
+        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -990,13 +990,13 @@ fi:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
     user_interests:
       show:
-        no_scopes: Tällä organisaatiolla ei ole vielä mahdollisuutta!
-        my_interests: Kiinnostuksen kohteeni
-        select_your_interests: Valitse aiheet, joista olet kiinnostunut vastaanottamaan niihin liittyviä tapahtumia profiilissasi Aikajana-välilehti.
-        update_my_interests: Päivitä kiinnostukseni
+        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
+        my_interests: Omat kiinnostuksen kohteet
+        select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tapahtumia profiilisi aikajana-välilehdellä.
+        update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
-        error: Oireiden päivittämisessä tapahtui virhe.
-        success: Etusi on päivitetty onnistuneesti.
+        error: Kiinnostuksen kohteiden päivittämisessä tapahtui virhe.
+        success: Kiinnostuksen kohteet on päivitetty onnistuneesti.
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
