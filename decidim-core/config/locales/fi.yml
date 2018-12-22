@@ -159,8 +159,8 @@ fi:
             Tämä on muutos kohteelle %{amendable_type} %{amendable_link}
             arvioimiselle.
           rejected: |-
-            Tämä tarkistus %{amendable_type} %{amendable_link}
-            hylättiin <strong>%{announcement_date}</strong>.
+            Tämä muutos kohteelle %{amendable_type} %{amendable_link}
+            hylättiin ajankohtana <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
             on peruutettu sen laatijan toimesta.
@@ -171,11 +171,11 @@ fi:
         help_text: Olet muuttamassa kohdetta %{model_name}
         send: Lähetä muutos
       rejected:
-        error: Virhe erehdyksessä hylätessään tämän muutoksen, yritä myöhemmin uudelleen
+        error: Tämän muutoksen, hylkäämisessä tapahtui virhe yritä myöhemmin uudelleen
         success: Muutos on hylätty onnistuneesti
       promoted:
-        success: Muutos edistettiin menestyksekkäästi
-        error: Emendation edistämisessä on ollut virheitä
+        success: Muutosta edistetty onnistuneesti
+        error: Muutoksen edistämisessä tapahtui virheitä
       review:
         back: Takaisin
         heading: Tarkastele muutosta
@@ -386,13 +386,13 @@ fi:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'Uusi muutos on luotu %{amendable_title}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
-            email_subject: Uusi tarkistus %{amendable_title} sta %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uutta tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_subject: Uusi muutos kohteelle %{amendable_title} käyttäjältä %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uuden muutoksen</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Uusi muutos on luotu %{amendable_title}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi tarkistus %{amendable_title} sta %{emendation_author_nickname}
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uutta tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
@@ -403,31 +403,31 @@ fi:
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Muutos on hylätty %{amendable_title}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Tarkistus hylätään %{amendable_title} stä %{emendation_author_nickname}
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
             email_intro: '%{amendable_title} hylätty muutos on edistetty riippumattomaksi %{amendable_type}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
-            email_subject: '%{emendation_author_nickname} muutosta on edistetty'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_subject: Käyttäjän %{emendation_author_nickname} tekemä muutos on korostettu
             notification_title: A <a href="%{emendation_path}">hylättyä tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on edistetty <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} hylätty muutos on edistetty riippumattomaksi %{amendable_type}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-            email_subject: '%{emendation_author_nickname} muutosta on edistetty'
-            notification_title: A <a href="%{emendation_path}">hylättyä tarkistusta</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on edistetty <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Käyttäjän %{emendation_author_nickname} luoma muutos on korostettu
+            notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on korostettu käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
         amendment_accepted:
           affected_user:
-            email_intro: 'Hyväksyntä on hyväksytty %{amendable_title}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
-            email_subject: 'Hyväksytään tarkistus %{amendable_title} : ksi %{emendation_author_nickname}'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
+            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Hyväksyntä on hyväksytty %{amendable_title}. Voit nähdä sen tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-            email_subject: 'Hyväksytään tarkistus %{amendable_title} : ksi %{emendation_author_nickname}'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
+            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
