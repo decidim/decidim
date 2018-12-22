@@ -14,6 +14,7 @@ it:
         description: Descrizione
         file: File
         title: Titolo
+        weight: Rang d'affichage
       attachment_collection:
         description: Descrizione
         name: Nome
@@ -351,7 +352,6 @@ it:
           fields:
             created_at: Creato a
             name: Nome
-          name: Applicazione OAuth
         participatory_space_private_user:
           name: Utente privato dello spazio partecipativo
         scope:
@@ -376,7 +376,6 @@ it:
             roles:
               admin: Amministratore
               user_manager: Gestore utente
-          name: Utente
         user_group:
           fields:
             actions: Azioni
@@ -423,6 +422,8 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Si è verificato un errore durante la creazione di questa applicazione.
@@ -579,6 +580,8 @@ it:
         static_pages: Pagine
         user_groups: Gruppi di utenti
         users: Utenti
+      user:
+        new: New
       user_group:
         reject:
           invalid: Si è verificato un errore quando rifiuta questo gruppo di utenti.

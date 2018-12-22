@@ -15,6 +15,7 @@ ca:
         description: Descripció
         file: Arxiu
         title: Títol
+        weight: Rang d'affichage
       attachment_collection:
         description: Descripció
         name: Nom
@@ -364,7 +365,6 @@ ca:
           fields:
             created_at: Creat el
             name: Nom
-          name: Aplicació OAuth
         participatory_space_private_user:
           name: Usuari privat de l'espai de participació
         scope:
@@ -389,7 +389,6 @@ ca:
             roles:
               admin: Administrador
               user_manager: Administrador d'usuaris
-          name: Usuari
         user_group:
           fields:
             actions: Accions
@@ -458,6 +457,8 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: S'ha produït un error en crear aquesta aplicació.
@@ -616,6 +617,8 @@ ca:
         static_pages: Pàgines
         user_groups: Grups d'usuaris
         users: Usuaris
+      user:
+        new: New
       user_group:
         reject:
           invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.

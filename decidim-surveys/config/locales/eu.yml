@@ -4,6 +4,8 @@ eu:
     attributes:
       survey_answer:
         body: Erantzuna
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Derrigorrezkoa
         max_choices: Gehienezko aukera kopurua
@@ -61,6 +63,7 @@ eu:
         models:
           components:
             description: Deskribapena
+            title: Title
             tos: Zerbitzu-baldintzak
         surveys:
           answer_option:
@@ -116,3 +119,6 @@ eu:
             body: Iragarkia erabiltzaile pribatuentzako soilik dago erabilgarri
             title: Inkesta itxia
           tos_agreement: Inkestan parte hartuz, Zerbitzu-baldintzak onartzen dituzu
+  errors:
+    messages:
+      blank: est obligatoire

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ sv:
           update:
             invalid: Det har blivit ett problem under uppdateringen av denna debatt.
             success: Debatten uppdaterades.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debatt
@@ -113,14 +117,12 @@ sv:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Hej, En ny debatt har skapats på deltagandeplatsen %{space_title}, kolla in det och bidra:
+            email_intro: 'Hej, En ny debatt har skapats på deltagandeplatsen %{space_title}, kolla in det och bidra:'
             email_outro: Du har fått denna notis eftersom du följer deltagandeplatsen %{space_title}. Du kan sluta ta emot notiser på föregående länk.
             email_subject: Ny debatt om %{space_title}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades på <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Hej, %{author_name} %{author_nickname}, som du följer har skapat en ny debatt, kolla in den och bidra:
+            email_intro: 'Hej, %{author_name} %{author_nickname}, som du följer har skapat en ny debatt, kolla in den och bidra:'
             email_outro: Du har fått den här notisen eftersom du följer %{author_nickname}. Du kan sluta ta emot notiser vid föregående länk.
             email_subject: Ny debatt av %{author_nickname}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.

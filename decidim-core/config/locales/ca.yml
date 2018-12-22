@@ -387,14 +387,6 @@ ca:
           notification_title: T'han eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Email subject
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Notification title
-        url: Url
       users:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -775,7 +767,6 @@ ca:
         error: S'ha produït un error en denunciar. Torna-ho a intentar.
         success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
     scopes:
-      global: Àmbit global
       picker:
         cancel: Cancel·lar
         choose: Selecciona

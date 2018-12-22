@@ -2,8 +2,10 @@
 
 require "spec_helper"
 
-describe "Orders", type: :system do
+describe "orders", type: :system do
   include_context "with a component"
+  # it_behaves_like "orders", :total_budget
+  # it_behaves_like "orders", :total_projects
   let(:manifest_name) { "budgets" }
 
   let!(:user) { create :user, :confirmed, organization: organization }

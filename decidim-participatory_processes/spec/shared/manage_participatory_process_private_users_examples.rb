@@ -78,4 +78,16 @@ shared_examples "manage participatory process private users examples" do
       end
     end
   end
+
+  describe "when managing more than 15 users" do
+    let(:participatory_space_private_user) { create_list(:participatory_space_private_user, 16, user: user, privatable_to: participatory_process) }
+
+    before do
+      visit current_path
+    end
+
+    it "render pagination" do
+      expect(page).to have_css(".pagination")
+    end
+  end
 end

@@ -14,6 +14,7 @@ uk:
         description: Опис
         file: Файл
         title: Назва
+        weight: Rang d'affichage
       attachment_collection:
         description: Опис
         name: Назва
@@ -350,7 +351,6 @@ uk:
           fields:
             created_at: 'Створено:'
             name: Ім'я
-          name: Додаток OAuth
         participatory_space_private_user:
           name: Приватний учасник простору співучасті
         scope:
@@ -375,7 +375,6 @@ uk:
             roles:
               admin: Адміністратор
               user_manager: Розпорядник учасників
-          name: учасника
         user_group:
           fields:
             actions: Дії
@@ -422,6 +421,8 @@ uk:
         update:
           error: При спробі оновити це розсилання новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: При спробі створити цей додаток сталася помилка.
@@ -574,6 +575,8 @@ uk:
         static_pages: Сторінки
         user_groups: Гурти учасників
         users: Учасники
+      user:
+        new: New
       user_group:
         reject:
           invalid: При відхиленні цього гурту учасників сталася помилка.

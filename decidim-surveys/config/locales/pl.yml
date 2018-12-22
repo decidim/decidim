@@ -4,6 +4,8 @@ pl:
     attributes:
       survey_answer:
         body: Odpowiedź
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Obowiązkowy
         max_choices: Maksymalna liczba opcji
@@ -65,6 +67,7 @@ pl:
         models:
           components:
             description: Opis
+            title: Title
             tos: Warunki usługi
         surveys:
           answer_option:
@@ -120,3 +123,6 @@ pl:
             body: Ankieta jest dostępna tylko dla użytkowników prywatnych
             title: Ankieta została zamknięta
           tos_agreement: Uczestnicząc w tym ankiecie akceptujesz Warunki korzystania z usługi
+  errors:
+    messages:
+      blank: est obligatoire

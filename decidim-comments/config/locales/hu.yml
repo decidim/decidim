@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     models:
@@ -67,15 +68,17 @@ hu:
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         loading: Hozzászólások betöltése ...
         title: "%{count} megjegyzés"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:"
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
-          email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
+          email_subject: "%{author_name} új megjegyzése itt: %{resource_title}"
           notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
-          email_intro: "A \"%{resource_title}\" témához megjegyzést fűzött valaki. Itt tudod elolvasni:"
+          email_intro: 'A "%{resource_title}" témához megjegyzést fűzött valaki. Itt tudod elolvasni:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'
           email_subject: 'Új megjegyzés érkezett ehhez: %{resource_title}, tőle: %{author_name}'
           notification_title: 'Új megjegyzés tőle: <a href="%{author_path}">%{author_name} %{author_nickname}</a>, ehhez: <a href="%{resource_path}">%{resource_title}</a>'

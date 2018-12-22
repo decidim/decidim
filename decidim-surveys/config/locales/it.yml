@@ -4,6 +4,8 @@ it:
     attributes:
       survey_answer:
         body: Risposta
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Obbligatorio
         max_choices: Numero massimo di scelte
@@ -61,6 +63,7 @@ it:
         models:
           components:
             description: Descrizione
+            title: Title
             tos: Termini del servizio
         surveys:
           answer_option:
@@ -116,3 +119,6 @@ it:
             body: Il sondaggio è disponibile solo per gli utenti privati
             title: Sondaggio chiuso
           tos_agreement: Partecipando a questo sondaggio, accetti le sue condizioni di servizio
+  errors:
+    messages:
+      blank: est obligatoire

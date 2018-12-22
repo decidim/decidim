@@ -14,6 +14,7 @@ eu:
         description: Descripción
         file: Fitxategia
         title: Titulua
+        weight: Rang d'affichage
       attachment_collection:
         description: deskribapena
         name: izena
@@ -351,7 +352,6 @@ eu:
           fields:
             created_at: Sortutako at
             name: izena
-          name: OAuth aplikazioa
         participatory_space_private_user:
           name: Partaidetza espazioa erabiltzaile pribatua
         scope:
@@ -376,7 +376,6 @@ eu:
             roles:
               admin: Administratzailea
               user_manager: Erabiltzailearen kudeatzailea
-          name: Erabiltzailea
         user_group:
           fields:
             actions: Ekintzak
@@ -423,6 +422,8 @@ eu:
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Errore bat gertatu da aplikazio hau sortzean.
@@ -579,6 +580,8 @@ eu:
         static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user:
+        new: New
       user_group:
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.

@@ -14,6 +14,7 @@ sv:
         description: Beskrivning
         file: Fil
         title: Titel
+        weight: Rang d'affichage
       attachment_collection:
         description: Beskrivning
         name: Namn
@@ -351,7 +352,6 @@ sv:
           fields:
             created_at: Skapad vid
             name: namn
-          name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagande utrymme privat användare
         scope:
@@ -376,7 +376,6 @@ sv:
             roles:
               admin: Admin
               user_manager: Användarhanteraren
-          name: Användare
         user_group:
           fields:
             actions: Handlingar
@@ -423,6 +422,8 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Det har uppstått ett fel vid skapandet av den här applikationen.
@@ -579,6 +580,8 @@ sv:
         static_pages: Sidor
         user_groups: Användargrupper
         users: Användare
+      user:
+        new: New
       user_group:
         reject:
           invalid: Det uppstod ett fel när du avvisade den här användargruppen.

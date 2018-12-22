@@ -776,7 +776,6 @@ pl:
         error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
         success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
     scopes:
-      global: Zakres globalny
       picker:
         cancel: Anuluj
         choose: Wybierz

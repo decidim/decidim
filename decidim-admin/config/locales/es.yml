@@ -15,6 +15,7 @@ es:
         description: Descripción
         file: Archivo
         title: Título
+        weight: Rang d'affichage
       attachment_collection:
         description: Descripción
         name: Nombre
@@ -364,7 +365,6 @@ es:
           fields:
             created_at: Creado en
             name: Nombre
-          name: Aplicación OAuth
         participatory_space_private_user:
           name: Usuario privado de espacio participativo
         scope:
@@ -389,7 +389,6 @@ es:
             roles:
               admin: Administrador
               user_manager: Administrador de usuarios
-          name: Usuario
         user_group:
           fields:
             actions: Acciones
@@ -458,6 +457,8 @@ es:
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.
@@ -616,6 +617,8 @@ es:
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
+      user:
+        new: New
       user_group:
         reject:
           invalid: Se ha producido un error al rechazar este grupo de usuarios.

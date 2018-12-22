@@ -765,7 +765,6 @@ it:
         error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
     scopes:
-      global: Ambito globale
       picker:
         cancel: Annulla
         choose: Selezionare

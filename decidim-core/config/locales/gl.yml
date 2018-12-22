@@ -766,7 +766,6 @@ gl:
         error: Produciuse un erro ao crear o informe. Por favor, proba de novo.
         success: O informe foi creado con éxito e será revisado por un administrador.
     scopes:
-      global: Alcance global
       picker:
         cancel: Cancelar
         choose: Seleccionar

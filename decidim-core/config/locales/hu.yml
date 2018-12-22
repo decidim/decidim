@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ hu:
         one: Felhasználói csoport
         other: Felhasználói csoportok
   booleans:
-    'false': 'Nem'
-    'true': 'Igen'
+    'false': Nem
+    'true': Igen
   carrierwave:
     errors:
       image_too_big: A kép mérete túl nagy
@@ -768,7 +769,7 @@ hu:
       picker:
         cancel: Mégse
         choose: Kijelölés
-        title: '%{field} kijelölése'
+        title: "%{field} kijelölése"
       prompt: Válassz hatáskört
       scopes: Hatáskörök
     search:
@@ -786,6 +787,30 @@ hu:
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
     shared:
+      action_authorization_modal:
+        expired:
+          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
+          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
+          title: Az engedélyed lejárt
+        incomplete:
+          cancel: Mégse
+          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
+          invalid_field: "%{field}"
+          reauthorize: Újraengedélyezés
+          title: Kérjük, engedélyezd újra
+        missing:
+          authorize: 'Engedélyezés ezzel: "%{authorization}"'
+          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
+          title: Engedély szükséges
+        pending:
+          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
+          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
+          title: Engedélyezés folyamatban
+        unauthorized:
+          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: A(z) %{field} %{value} érték nem érvényes.
+          ok: Ok
+          title: Nem engedélyezett
       embed_modal:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
@@ -999,7 +1024,7 @@ hu:
         sign_up: Regisztráció
       impersonation_warning:
         close_session: Munkamenet bezárása
-        description_html: <b>%{user_name}</b> megszemélyesítése.
+        description_html: "<b>%{user_name}</b> megszemélyesítése."
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként

@@ -19,6 +19,7 @@ module Decidim::ParticipatoryProcesses
         description: { en: "new description" },
         start_date: start_date,
         end_date: end_date,
+        action_btn_text: { en: "SEE" },
         invalid?: invalid
       )
     end
@@ -44,6 +45,7 @@ module Decidim::ParticipatoryProcesses
 
         expect(step.title["en"]).to eq("new title")
         expect(step.description["en"]).to eq("new description")
+        expect(step.action_btn_text["en"]).to eq("SEE")
       end
 
       it "broadcasts ok" do
@@ -59,7 +61,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date))
+          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :action_btn_text))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

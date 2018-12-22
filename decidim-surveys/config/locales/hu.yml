@@ -1,8 +1,11 @@
+---
 hu:
   activemodel:
     attributes:
       survey_answer:
         body: Válasz
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Kötelező
         max_choices: Maximális választási lehetőség
@@ -60,6 +63,7 @@ hu:
         models:
           components:
             description: Leírás
+            title: Title
             tos: Szolgáltatási feltételek
         surveys:
           answer_option:
@@ -115,3 +119,6 @@ hu:
             body: A felmérés csak privát felhasználók számára elérhető
             title: Felmérés lezárva
           tos_agreement: A felmérésben való részvétellel elfogadod az ÁSZF feltételeit
+  errors:
+    messages:
+      blank: est obligatoire

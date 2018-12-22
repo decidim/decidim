@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ hu:
       admin:
         id_documents:
           help:
-            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
-            - Töltsd ki a feltöltött képen található információkkal.
-            - Az információknak meg kell egyeznie a kitöltött adatokkal.
-            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
+          - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+          - Töltsd ki a feltöltött képen található információkkal.
+          - Az információknak meg kell egyeznie a kitöltött adatokkal.
+          - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
-            - A kódot tartalmazó levelet a lakcímükre küldöd el.
-            - Levél elküldöttként megjelölve.
-            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+          - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+          - A kódot tartalmazó levelet a lakcímükre küldöd el.
+          - Levél elküldöttként megjelölve.
+          - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       direct: Közvetlen
       help: Segítség
       id_documents:
@@ -67,7 +68,7 @@ hu:
       dummy_authorization:
         extra_explanation:
           one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
-          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
+          other: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
       id_documents:
         admin:
           confirmations:

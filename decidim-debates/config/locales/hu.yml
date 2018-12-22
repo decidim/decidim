@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ hu:
           update:
             invalid: Probléma merült fel a vita frissítése során.
             success: A vita sikeresen frissült.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Vita
@@ -113,8 +117,7 @@ hu:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Szia, új vita található itt: %{space_title}, nézd rá és tegyél hozzá te is valamit:
+            email_intro: 'Szia, új vita található itt: %{space_title}, nézd rá és tegyél hozzá te is valamit:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
             email_subject: 'Új vita itt: %{space_title}'
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
@@ -123,7 +126,7 @@ hu:
               Szia,
               %{author_name} %{author_nickname} (akit követsz) új vitát hozott létre, nézd meg és tegyél hozzá te is valamit:
             email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: '%{author_nickname} új vitát indított'
+            email_subject: "%{author_nickname} új vitát indított"
             notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         creation_disabled:
           email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'

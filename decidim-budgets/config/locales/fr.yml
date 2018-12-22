@@ -10,6 +10,13 @@ fr:
         proposal_ids: Propositions liées
         title: Titre
   activerecord:
+    errors:
+      messages:
+        equal_to: must be equal to %{count}
+      models:
+        decidim/budgets/project:
+          one: Project
+          other: Projects
     models:
       decidim/budgets/project:
         one: Projet
@@ -39,6 +46,9 @@ fr:
           edit:
             title: Éditer un projet
             update: Mettre à jour
+          form:
+            fields:
+              address: Adresse
           index:
             finished_orders: Votes terminés
             pending_orders: Votes en cours
@@ -65,6 +75,7 @@ fr:
       models:
         project:
           fields:
+            map: Carte
             title: Titre
       projects:
         budget_confirm:
@@ -74,18 +85,19 @@ fr:
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
         budget_excess:
-          close: Fermer
-          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
-          ok: D'accord
-          title: Budget maximum dépassé
+          close: Закрити
+          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
+          ok: Гаразд
+          title: Перевищено граничний бюджет
         budget_summary:
-          are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          assigned: 'Affecté à :'
+          are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
+          assigned: 'Affecté à :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
-          description: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+          description_per_budget: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
           title: Vous décidez du budget
         count:
           projects_count:
@@ -100,14 +112,34 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
+        index:
+          view_project: Voir le projet
+        limit_excess:
+          close: Fermer
+          description_per_budget: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
+          description_per_project: Vous avez atteint le nombre maximum de projets autorisés pour ce budget. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné.
+          ok: D'accord
+          title_per_budget: Budget maximum dépassé
+          title_per_project: Nombre de projets maximum atteints
         order_progress:
-          vote: Voter
+          vote: Confirmer votre vote
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: projet sélectionné sur un total de
+            other: projets sélectionné sur un total de
+          remaining_projects:
+            one: 1 projet pour valider votre vote.
+            other: "%{count} projets pour valider votre vote."
           remove: Supprimer
           selected_projects:
             one: projet sélectionné
             other: projets sélectionnés
+          total_projects:
+            one: projet
+            other: projets
           view: Voir
+          vote: Voter
         project:
           add: Ajouter
           count:
@@ -130,13 +162,17 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            geocoding_enabled: Géocodage activé
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             total_budget: Budget total
+            total_projects: Nombre de projets total
+            vote_per_budget: Activer le vote selon un budget (par défaut)
+            vote_per_project: Activer le vote par nombre de projets
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
-            announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            announcement: Message d'annonce
+            comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
             votes_enabled: Votes activés
     orders:

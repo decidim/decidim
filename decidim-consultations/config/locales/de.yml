@@ -109,9 +109,6 @@ de:
             created_at: Hergestellt in
             published: Veröffentlicht
             title: Titel
-          name:
-            one: Beratung
-            other: Konsultationen
         question:
           fields:
             created_at: Hergestellt in

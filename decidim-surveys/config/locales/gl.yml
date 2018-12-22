@@ -4,6 +4,8 @@ gl:
     attributes:
       survey_answer:
         body: Resposta
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Obrigatorio
         max_choices: Número máximo de opcións
@@ -61,6 +63,7 @@ gl:
         models:
           components:
             description: Descrición
+            title: Title
             tos: Condicións de servicio
         surveys:
           answer_option:
@@ -116,3 +119,6 @@ gl:
             body: A enquisa só está dispoñible para usuarios privados
             title: Enquisa pechada
           tos_agreement: Ao participar nesta enquisa aceptas as Condicións de servizo
+  errors:
+    messages:
+      blank: est obligatoire

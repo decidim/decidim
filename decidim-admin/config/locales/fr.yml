@@ -364,7 +364,6 @@ fr:
           fields:
             created_at: Créée le
             name: Titre
-          name: Application OAuth
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
@@ -389,7 +388,6 @@ fr:
             roles:
               admin: Administrateur
               user_manager: Représentant de l'utilisateur
-          name: Utilisateur
         user_group:
           fields:
             actions: Actions
@@ -458,6 +456,8 @@ fr:
         update:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Une erreur s'est produite lors de la création de cette application.
@@ -616,6 +616,8 @@ fr:
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
+      user:
+        new: Nouvel utilisateur
       user_group:
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.

@@ -26,6 +26,20 @@ FactoryBot.define do
       end
     end
 
+    trait :with_vote_per_project do
+      transient do
+        total_projects 5
+        vote_per_project true
+      end
+
+      settings do
+        {
+          total_projects: total_projects,
+          vote_per_project: vote_per_project
+        }
+      end
+    end
+
     trait :with_votes_disabled do
       step_settings do
         {
