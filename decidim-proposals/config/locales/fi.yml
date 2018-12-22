@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -109,7 +110,7 @@ fi:
           email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: 'Käyttäjän %{requester_name} osallistuminen kohteeseen <a href="%{resource_path}">%{resource_title} </a>on estetty.'
+          email_intro: Käyttäjän %{requester_name} osallistuminen kohteeseen <a href="%{resource_path}">%{resource_title} </a>on estetty.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistuja kohteessa <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>avustajaoikeudet on hylätty</strong> yhteistyöluonnoksesta <a href="%{resource_path}">%{resource_title}</a>.
@@ -191,8 +192,8 @@ fi:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
-            - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
+          - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+          - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
           description_own: Olet saanut %{score} ehdotusta hyväksyksi.
@@ -202,8 +203,8 @@ fi:
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           conditions:
-            - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
-            - Tue ehdotuksia, joita pidät tai jotka kiinnostavat sinua
+          - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
+          - Tue ehdotuksia, joita pidät tai jotka kiinnostavat sinua
           description: Tämä kunniamerkki myönnetään, kun tuet muiden ihmisten ehdotuksia.
           description_another: Tämä käyttäjä on kannattanut %{score} ehdotusta.
           description_own: Olet kannattanut %{score} ehdotusta.
@@ -213,8 +214,8 @@ fi:
           unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
-            - Luo uusi ehdotus
+          - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+          - Luo uusi ehdotus
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.

@@ -1023,11 +1023,6 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: é moi similar a este nome de dominio
     email_included_in_password: é demasiado semellante ao teu correo electrónico

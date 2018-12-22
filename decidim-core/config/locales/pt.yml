@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ pt:
         one: Grupo de usuários
         other: Grupos de usuários
   booleans:
-    'false': 'Não'
-    'true': 'Sim'
+    'false': Não
+    'true': Sim
   carrierwave:
     errors:
       image_too_big: A imagem é demasiado grande
@@ -439,7 +440,7 @@ pt:
       badges:
         continuity:
           conditions:
-            - Vem aqui com frequência
+          - Vem aqui com frequência
           description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
           description_another: Este usuário conectou por %{score} dias consecutivos em algum momento.
           description_own: Você se conectou por %{score} dias consecutivos em algum momento.
@@ -449,7 +450,7 @@ pt:
           unearned_own: Você não se conectou por mais de um dia consecutivo.
         followers:
           conditions:
-            - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
+          - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
           description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, tecer sua web para se comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} usuários estão seguindo você."
@@ -464,9 +465,9 @@ pt:
           title: Distintivos
         invitations:
           conditions:
-            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
-            - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e registrando-os.
+          - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
+          - Personalize, se quiser, a mensagem que você está enviando
+          - Você vai subir de nível enviando convites e registrando-os.
           description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
@@ -825,11 +826,11 @@ pt:
     failure:
       already_authenticated: Você já está inscrito.
       inactive: Sua conta Ainda não esta ativada.
-      invalid: '%{authentication_keys} inválido ou senha.'
+      invalid: "%{authentication_keys} inválido ou senha."
       invited: Você tem um convite pendente, aceite-o para concluir a criação da sua conta.
       last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
       locked: Sua conta está bloqueada.
-      not_found_in_database: '%{authentication_keys} inválido ou senha.'
+      not_found_in_database: "%{authentication_keys} inválido ou senha."
       timeout: Sua sessão expirou. Por favor, entre novamente para continuar.
       unauthenticated: Você precisa fazer login ou se inscrever antes de continuar.
     invitations:
@@ -1023,11 +1024,6 @@ pt:
         see_more: Ver mais
   locale:
     name: Português
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email

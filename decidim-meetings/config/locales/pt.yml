@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -126,7 +127,7 @@ pt:
       badges:
         attended_meetings:
           conditions:
-            - Registre-se nas reuniões que deseja participar
+          - Registre-se nas reuniões que deseja participar
           description: Este crachá é concedido quando você participa de várias reuniões presenciais.
           description_another: Este usuário assistiu a %{score} reuniões.
           description_own: Você participou de %{score} reuniões.

@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -113,14 +114,12 @@ pt:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Oi, um novo debate foi criado no espaço participativo %{space_title}, confira e contribui:
+            email_intro: 'Oi, um novo debate foi criado no espaço participativo %{space_title}, confira e contribui:'
             email_outro: Você recebeu esta notificação porque está seguindo o espaço participativo %{space_title}. Você pode parar de receber notificações após o link anterior.
             email_subject: Novo debate sobre %{space_title}
             notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado em <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou um novo debate, confira e contribui:
+            email_intro: 'Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou um novo debate, confira e contribui:'
             email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
             email_subject: Novo debate por %{author_nickname}
             notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -138,7 +137,7 @@ pt:
       badges:
         commented_debates:
           conditions:
-            - Escolha um debate aberto para participar
+          - Escolha um debate aberto para participar
           description: Este crachá é concedido quando você participa ativamente dos diferentes debates deixando seus comentários.
           description_another: Este usuário participou em %{score} debates.
           description_own: Você participou de %{score} debates.

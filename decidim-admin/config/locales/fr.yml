@@ -25,7 +25,7 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang d'affichage
+        weight: "Rang d'affichage"
       id: ID
       newsletter:
         body: Corps de texte

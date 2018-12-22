@@ -15,7 +15,6 @@ de:
         description: Beschreibung
         file: Datei
         title: Titel
-        weight: Rang d'affichage
       attachment_collection:
         description: Beschreibung
         name: Name
@@ -310,7 +309,6 @@ de:
         dashboard: Instrumententafel
         homepage: Startseite
         impersonations: Identitätswechsel
-        navbar_links: Navbar links
         newsletters: Newsletter
         oauth_applications: OAuth-Anwendungen
         officializations: Ausschreibungen

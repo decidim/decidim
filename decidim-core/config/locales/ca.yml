@@ -1026,11 +1026,6 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: és massa semblant a aquest nom de domini
     email_included_in_password: és massa similar al teu correu electrònic

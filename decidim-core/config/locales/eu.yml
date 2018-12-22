@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ eu:
         one: Erabiltzaile taldea
         other: Erabiltzaile taldeak
   booleans:
-    'false': 'Ez'
-    'true': 'Bai'
+    'false': Ez
+    'true': Bai
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
@@ -155,8 +156,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
-      expired_at: '%{timestamp} iraungita dago'
-      expires_at: '%{timestamp} iraungitzen da'
+      expired_at: "%{timestamp} iraungita dago"
+      expires_at: "%{timestamp} iraungitzen da"
       foo_authorization:
         fields:
           bar: Bar
@@ -324,19 +325,19 @@ eu:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{resource_title} eguneratzea'
+          email_subject: "%{resource_title} eguneratzea"
           notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-        email_subject: '%{resource_title} eguneratzea'
+        email_subject: "%{resource_title} eguneratzea"
       gamification:
         badge_earned:
           email_intro: Lan handia! <a href="%{resource_path}">%{badge_name} txapela irabazi duzu</a> ( %{current_level}maila).
@@ -357,12 +358,12 @@ eu:
         invited_to_group:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak gonbidatu zaitu.
           email_outro: Jakinarazpen hau jaso duzu talde honetara gonbidatuta zaudelako. Egiaztatu Taldeak fitxan zure profilean onartzeko.
-          email_subject: '%{user_group_name} taldean sartzeko gonbidatu zaituzte!'
+          email_subject: "%{user_group_name} taldean sartzeko gonbidatu zaituzte!"
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Taldeak orrialdeko</a> zure profilean onartzeko!
         join_request_accepted:
           email_intro: Zorionak! <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak zure eskaera onartu du.
           email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
-          email_subject: '%{user_group_name} taldean onartu duzu!'
+          email_subject: "%{user_group_name} taldean onartu duzu!"
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean onartu zaituzte.
         join_request_created:
           email_intro: Norbaitek %{user_group_name} taldean parte hartzeko eskatu du. <a href="%{resource_url}">taldeko kideen</a>orrialdea onartu edo ukatu dezakezu.
@@ -372,7 +373,7 @@ eu:
         join_request_rejected:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure eskaera ukatu egin du.
           email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
-          email_subject: '%{user_group_name} taldera sartzeko eskaera baztertu egin da!'
+          email_subject: "%{user_group_name} taldera sartzeko eskaera baztertu egin da!"
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldera sartzeko eskaera baztertu egin da.
         promoted_to_admin:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak talde horren administrazio-eskubideak eman dizkizu.
@@ -382,7 +383,7 @@ eu:
         removed_from_group:
           email_intro: Taldeak <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak kendu egin zaitu.
           email_outro: Jakinarazpen hori jaso duzu talde horretako kide zarelako.
-          email_subject: '%{user_group_name} taldetik kendu duzu!'
+          email_subject: "%{user_group_name} taldetik kendu duzu!"
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -439,7 +440,7 @@ eu:
       badges:
         continuity:
           conditions:
-            - Zatoz hemen sarritan
+          - Zatoz hemen sarritan
           description: Txartela hau modu erregularrean bisitatzen duzunean ematen da. Gustatzen zait hemen!
           description_another: Erabiltzaile honek une batez %{score} egunez konektatua dago.
           description_own: Zenbait puntutan eguneko %{score} egunetarako konektatuta zaude.
@@ -449,7 +450,7 @@ eu:
           unearned_own: Ez duzu egun bat baino gehiagoz konektaturik.
         followers:
           conditions:
-            - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
+          - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Idazmahaia jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare sozial eta politikoa da, zure weba plataforman beste pertsona batzuekin komunikatzeko ehundu.
           description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} erabiltzaile jarraitzen zaituzte."
@@ -464,18 +465,18 @@ eu:
           title: Badges
         invitations:
           conditions:
-            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
-            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
-            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
+          - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
+          - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
+          - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
           description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
           description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
-          description_own: '%{score} erabiltzaile gonbidatu dituzu.'
+          description_own: "%{score} erabiltzaile gonbidatu dituzu."
           name: Gonbidapenak
           next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
           unearned_own: Erabiltzaile ez da gonbidatu oraindik.
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
-      level: '%{level}maila'
+      level: "%{level}maila"
       reached_top: Idatzi honen goialdean iritsi zara.
     group_admins:
       actions:
@@ -597,7 +598,7 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
-          subject: '%{sender}-tik mezu berriak dituzu'
+          subject: "%{sender}-tik mezu berriak dituzu"
       conversations:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
@@ -643,7 +644,7 @@ eu:
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
-        subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
+        subject: "%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?"
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
@@ -686,7 +687,7 @@ eu:
           conferences_count: Jardunaldiak
           debates_count: Eztabaidak
           endorsements_count: Oniritziak
-          headline: '%{organization} erakundearen egungo egoera'
+          headline: "%{organization} erakundearen egungo egoera"
           meetings_count: Bilerak
           orders_count: Euskarriak
           pages_count: Orriak
@@ -824,11 +825,11 @@ eu:
     failure:
       already_authenticated: Saioa hasi zara.
       inactive: Zure kontua ez dago oraindik aktibatuta.
-      invalid: '%{authentication_keys} edo pasahitza baliogabea.'
+      invalid: "%{authentication_keys} edo pasahitza baliogabea."
       invited: Gonbidapen bat dago zain, onartu zure kontua sortzerakoan.
       last_attempt: Zure kontua blokeatuta dago aurretik zure saiakera gehiago duzu.
       locked: Zure kontua blokeatuta dago.
-      not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
+      not_found_in_database: "%{authentication_keys} edo pasahitza baliogabea."
       timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
       unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
     invitations:
@@ -897,7 +898,7 @@ eu:
         subject: Desblokeatu argibideak
     omniauth_callbacks:
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
-      success: '%{kind} kontutik behar bezala egiaztatua.'
+      success: "%{kind} kontutik behar bezala egiaztatua."
     passwords:
       edit:
         change_my_password: Aldatu nire pasahitza
@@ -961,7 +962,7 @@ eu:
   errors:
     messages:
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
-      confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
+      confirmation_period_expired: "%{period}barruan baieztatu behar da, eskatu beste bat"
       content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
@@ -1022,11 +1023,6 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da

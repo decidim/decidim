@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -134,12 +135,12 @@ es-PY:
           email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -183,7 +184,7 @@ es-PY:
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -191,35 +192,35 @@ es-PY:
       badges:
         accepted_proposals:
           conditions:
-            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
+          - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+          - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
           description: Este distintivo se otorga cuando usted participa activamente con nuevas propuestas y se aceptan.
-          description_another: '%{score} propuestas de este usuario han sido aceptadas.'
-          description_own: '%{score} de tus propuestas han sido aceptadas.'
+          description_another: "%{score} propuestas de este usuario han sido aceptadas."
+          description_own: "%{score} de tus propuestas han sido aceptadas."
           name: Propuestas aceptadas
-          next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-            - Navega y pasa un tiempo leyendo las propuestas de otras personas.
-            - Da soporte a las propuestas que te gusten o encuentres interesantes.
+          - Navega y pasa un tiempo leyendo las propuestas de otras personas.
+          - Da soporte a las propuestas que te gusten o encuentres interesantes.
           description: Este distintivo se otorga cuando apoyas las propuestas de otras personas.
           description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
-          next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
-            - Crear una nueva propuesta
+          - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+          - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
-          next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Crea %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
@@ -386,7 +387,7 @@ es-PY:
             success: Borrador colaborativo retirado con éxito.
         compare:
           mine_is_different: Mi borrador colaborativo es diferente
-          no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
+          no_similars_found: "¡Enhorabuena! No se encontraron borradores colaborativos similares"
           title: Borradores colaborativos similares
         complete:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
@@ -526,7 +527,7 @@ es-PY:
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
+          no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
           title: Propuestas similares
         complete:
           send: Enviar
@@ -543,7 +544,7 @@ es-PY:
           title: Editar propuesta
         edit_draft:
           discard: Descartar este borrador
-          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
+          discard_confirmation: "¿Estás seguro que quieres descartar este borrador de propuesta?"
           send: Previsualizar
           title: Editar borrador de propuesta
         endorsement_identities_cabin:
@@ -614,7 +615,7 @@ es-PY:
           sign_in_or_up: "%{in} o %{up} para participar"
           sign_up: Regístrate
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
+          withdraw_confirmation: "¿Seguro que quieres retirar esta propuesta?"
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"

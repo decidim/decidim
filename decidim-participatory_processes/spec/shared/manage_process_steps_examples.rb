@@ -70,8 +70,8 @@ shared_examples "manage process steps examples" do
       )
 
       fill_in_i18n(
-        :participatory_process_step_action_btn_text,
-        "#participatory_process_step-action_btn_text-tabs",
+        :participatory_process_step_cta_text,
+        "#participatory_process_step-cta_text-tabs",
         en: "My new button",
         es: "Mi nuevo impulso",
         ca: "El meu nou botó"

@@ -15,7 +15,6 @@ hu:
         description: Leírás
         file: Fájl
         title: Cím
-        weight: Rang d'affichage
       attachment_collection:
         description: Leírás
         name: Név
@@ -310,7 +309,6 @@ hu:
         dashboard: Vezérlőpult
         homepage: Homepage
         impersonations: Felhatalmazások
-        navbar_links: Navbar links
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
         officializations: Officializations

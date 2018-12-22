@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -39,7 +40,7 @@ eu:
         confirm_destroy: Ziur zaude?
         destroy: ezabatu
         edit: Editatu
-        new: '%{name} berria'
+        new: "%{name} berria"
         title: Ekintzak
       admin:
         debates:
@@ -113,14 +114,12 @@ eu:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Kaixo, %{space_title} partaidetzako espazioan eztabaida berria sortu da, egiaztatu eta lagundu:
+            email_intro: 'Kaixo, %{space_title} partaidetzako espazioan eztabaida berria sortu da, egiaztatu eta lagundu:'
             email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Eztabaida berria %{space_title}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenak, eztabaida berri bat sortu du, egiaztatu eta lagundu:
+            email_intro: 'Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenak, eztabaida berri bat sortu du, egiaztatu eta lagundu:'
             email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Eztabaida berria %{author_nickname}-ri
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -138,10 +137,10 @@ eu:
       badges:
         commented_debates:
           conditions:
-            - Aukeratu eztabaida irekia parte hartzeko
+          - Aukeratu eztabaida irekia parte hartzeko
           description: Txartel hau debekuei parte hartzeko modu aktiboan parte hartuz ematen da, zure iruzkinak utziz.
           description_another: Erabiltzaile honek %{score} eztabaidatan parte hartu du.
-          description_own: '%{score} eztabaidetan parte hartu duzu.'
+          description_own: "%{score} eztabaidetan parte hartu duzu."
           name: eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.

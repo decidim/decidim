@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ sv:
         one: Användargrupp
         other: Användargrupper
   booleans:
-    'false': 'Nej'
-    'true': 'Ja'
+    'false': Nej
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: Bilden är för stor
@@ -439,7 +440,7 @@ sv:
       badges:
         continuity:
           conditions:
-            - Kommer hit ofta
+          - Kommer hit ofta
           description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
           description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
           description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
@@ -449,7 +450,7 @@ sv:
           unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
           conditions:
-            - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
+          - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
           description: Detta märke beviljas när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, väv ditt nät för att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
@@ -464,9 +465,9 @@ sv:
           title: Märken
         invitations:
           conditions:
-            - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
-            - Anpassa, om du vill, meddelandet du håller på att skicka
-            - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
+          - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
+          - Anpassa, om du vill, meddelandet du håller på att skicka
+          - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
           description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
@@ -1023,11 +1024,6 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för lik din e-post

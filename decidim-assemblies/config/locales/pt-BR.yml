@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -343,8 +344,8 @@ pt-BR:
           reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
-            one: "Assembly %{count}"
-            other: "Conjuntos %{count}"
+            one: Assembly %{count}
+            other: Conjuntos %{count}
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar

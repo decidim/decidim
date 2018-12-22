@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -14,7 +15,6 @@ uk:
         description: Опис
         file: Файл
         title: Назва
-        weight: Rang d'affichage
       attachment_collection:
         description: Опис
         name: Назва

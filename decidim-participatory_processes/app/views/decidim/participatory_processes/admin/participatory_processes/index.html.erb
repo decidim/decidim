@@ -10,7 +10,6 @@
         <thead>
           <tr>
             <th><%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %></th>
-            <th><%= sort_link(query, :promoted, t("models.participatory_process.fields.promoted", scope: "decidim.admin")) %></th>
             <th><%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin")) %></th>
             <th><%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %></th>
             <th class="table-list__actions"><%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %></th>
@@ -35,9 +34,6 @@
                 <% else %>
                   <%= translated_attribute(process.title) %>
                 <% end %>
-              </td>
-              <td>
-                <%= process.promoted? ? t("participatory_processes.index.promoted.true", scope: "decidim.admin") : t("participatory_processes.index.promoted.false", scope: "decidim.admin") %>
               </td>
               <td>
                 <%= l process.created_at, format: :short %>

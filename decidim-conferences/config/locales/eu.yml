@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -338,7 +339,7 @@ eu:
           main_promotors: Garapen nagusiak
         show:
           already_account: Dagoeneko kontu bat duzu erabakitzeko?
-          login_as: '%{name} <%{email}> saioan zaude'
+          login_as: "%{name} <%{email}> saioan zaude"
           make_conference_registration: 'Egin zure izen ematea hitzaldian:'
           new_user: Erabiltzaile berria?
           register: Eman izena

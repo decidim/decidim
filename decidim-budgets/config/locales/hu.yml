@@ -85,7 +85,6 @@ hu:
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
-          description: Milyen projektek finanszírozására használjuk a költségvetést? Rendelj hozzá legalább %{minimum_budget} a projektekhez és szavazz preferenciád szerint a költségvetésükről.
           title: Dönts a költségvetéstről
         count:
           projects_count:

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -14,7 +15,6 @@ it:
         description: Descrizione
         file: File
         title: Titolo
-        weight: Rang d'affichage
       attachment_collection:
         description: Descrizione
         name: Nome

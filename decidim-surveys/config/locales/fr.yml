@@ -4,7 +4,6 @@ fr:
     attributes:
       survey_answer:
         body: Réponse
-        selected_choices: La réponse à la question
         choices: Les choix
         selected_choices: La selection
       survey_question:
@@ -63,7 +62,6 @@ fr:
           survey_user_answers: Réponses des participants à l'enquête
         models:
           components:
-            title: Titre
             description: Description
             title: Titre
             tos: Conditions d'utilisation

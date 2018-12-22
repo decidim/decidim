@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -36,7 +37,7 @@ es-PY:
             creation_enabled: Habilitar la creación de debates por los usuarios
     debates:
       actions:
-        confirm_destroy: '¿Seguro que quieres borrar el debate?'
+        confirm_destroy: "¿Seguro que quieres borrar el debate?"
         destroy: Borrar
         edit: Editar
         new: Nuevo %{name}
@@ -113,14 +114,12 @@ es-PY:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Se ha creado un nuevo debate en el espacio participativo %{space_title}, compruébalo y contribuye:
+            email_intro: 'Se ha creado un nuevo debate en el espacio participativo %{space_title}, compruébalo y contribuye:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Nuevo debate en %{space_title}
             notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado el <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              %{author_name} %{author_nickname}, a quién sigues, ha creado un nuevo debate, compruébalo y contribuye:
+            email_intro: "%{author_name} %{author_nickname}, a quién sigues, ha creado un nuevo debate, compruébalo y contribuye:"
             email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Nuevo debate de %{author_nickname}
             notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -130,7 +129,7 @@ es-PY:
           email_subject: Ya no se pueden crear debates en %{participatory_space_title}
           notification_title: La creación de debates ahora está deshabilitada en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: '¡Ahora puedes crear nuevos debates en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Ahora puedes crear nuevos debates en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Debates ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes crear <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -138,11 +137,11 @@ es-PY:
       badges:
         commented_debates:
           conditions:
-            - Elige un debate abierto para participar.
+          - Elige un debate abierto para participar.
           description: Este distintivo se otorga cuando usted participa activamente en los diferentes debates dejando sus comentarios.
           description_another: Este usuario ha participado en %{score} debates.
           description_own: Usted ha participado en %{score} debates.
           name: Debates
-          next_level_in: '¡Participe en %{score} debates más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Participe en %{score} debates más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario aún no ha participado en ningún debate.
           unearned_own: Has participado en cualquier debate aún.

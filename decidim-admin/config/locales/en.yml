@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -14,7 +15,6 @@ en:
         description: Description
         file: File
         title: Title
-        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Name

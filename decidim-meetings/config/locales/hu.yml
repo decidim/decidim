@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -126,10 +127,10 @@ hu:
       badges:
         attended_meetings:
           conditions:
-            - Regisztráljon a résztvevő találkozókon
+          - Regisztráljon a résztvevő találkozókon
           description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
           description_another: Ez a felhasználó %{score} találkozón vett részt.
-          description_own: '%{score} találkozóra vett részt.'
+          description_own: "%{score} találkozóra vett részt."
           name: Részt vett az üléseken
           next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
           unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
@@ -271,7 +272,7 @@ hu:
             invites: Meghívottak
             registrations_count:
               one: 1 regisztráció.
-              other: '%{count} regisztráció.'
+              other: "%{count} regisztráció."
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:

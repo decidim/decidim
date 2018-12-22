@@ -1,8 +1,9 @@
+---
 es-PY:
   decidim:
     system:
       actions:
-        confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_destroy: "¿Seguro que lo quieres eliminar?"
         destroy: Borrar
         edit: Editar
         new: Nuevo

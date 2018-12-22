@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -14,7 +15,6 @@ eu:
         description: Descripción
         file: Fitxategia
         title: Titulua
-        weight: Rang d'affichage
       attachment_collection:
         description: deskribapena
         name: izena
@@ -112,7 +112,7 @@ eu:
         browse: Arakatu
         export: Esportatu
         manage: Kudeatu
-        new: '%{name}berria'
+        new: "%{name}berria"
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
@@ -344,8 +344,8 @@ eu:
         newsletter:
           fields:
             created_at: Sortze-data
-            progress: ' Aurrerapena '
-            sent_at: ' Bidalketa-data: '
+            progress: " Aurrerapena "
+            sent_at: " Bidalketa-data: "
             subject: Gaia
           name: Buletina
         oauth_application:
@@ -387,7 +387,7 @@ eu:
             users_count: Erabiltzaile kopurua
       moderations:
         index:
-          title: ' Salaketak'
+          title: " Salaketak"
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -395,7 +395,7 @@ eu:
             spam: Spam
       newsletters:
         create:
-          error: ' Errorea gertatu da buletin hau sortzean.'
+          error: " Errorea gertatu da buletin hau sortzean."
           success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
@@ -623,7 +623,7 @@ eu:
           reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
     moderations:
       actions:
-        hidden: ' Ezkutatuta'
+        hidden: " Ezkutatuta"
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak

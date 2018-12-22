@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -43,7 +44,7 @@ it:
         other: Gruppi di utenti
   booleans:
     'false': 'No'
-    'true': 'Si'
+    'true': Si
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
@@ -439,7 +440,7 @@ it:
       badges:
         continuity:
           conditions:
-            - Vieni qui spesso
+          - Vieni qui spesso
           description: Questo badge è concesso quando visiti la piattaforma in modo regolare. Ci piace averti qui intorno!
           description_another: Questo utente si è connesso per %{score} giorni consecutivi ad un certo punto.
           description_own: Hai collegato per %{score} giorni consecutivi ad un certo punto.
@@ -449,7 +450,7 @@ it:
           unearned_own: Non ti sei connesso per più di un giorno consecutivo.
         followers:
           conditions:
-            - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
+          - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
           description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
@@ -464,9 +465,9 @@ it:
           title: badge
         invitations:
           conditions:
-            - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
-            - Personalizza, se vuoi, il messaggio che stai inviando
-            - Aumenterai di livello inviando inviti e registrandoli.
+          - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
+          - Personalizza, se vuoi, il messaggio che stai inviando
+          - Aumenterai di livello inviando inviti e registrandoli.
           description: Questo badge è concesso quando hai invitato alcune persone e hanno trascorso un po 'di tempo per registrarsi in %{organization_name} e diventare partecipanti. Grazie per aver reso %{organization_name} conoscere agli altri e contribuendo ad ampliare la comunità!
           description_another: Questo utente ha invitato %{score} utenti.
           description_own: Hai invitato %{score} utenti.
@@ -824,11 +825,11 @@ it:
     failure:
       already_authenticated: Sei già iscritto.
       inactive: Il tuo account non è ancora attivato.
-      invalid: '%{authentication_keys} o password non validi.'
+      invalid: "%{authentication_keys} o password non validi."
       invited: Hai un invito in sospeso, accettalo per completare la creazione del tuo account.
       last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
       locked: Il tuo account è bloccato.
-      not_found_in_database: '%{authentication_keys} o password non validi.'
+      not_found_in_database: "%{authentication_keys} o password non validi."
       timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
       unauthenticated: È necessario accedere o registrarsi prima di continuare.
     invitations:
@@ -1022,11 +1023,6 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email

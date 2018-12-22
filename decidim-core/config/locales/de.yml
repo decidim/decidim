@@ -387,14 +387,6 @@ de:
           notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Betreff der E-Mail
-        moderation:
-          email_intro: E-Mail-Einführung
-          email_subject: Betreff der E-Mail
-          moderation_url: Moderations-URL
-        notification_title: Titel der Benachrichtigung
-        url: Url
       users:
         profile_updated:
           email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.

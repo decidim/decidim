@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -382,5 +383,5 @@ hu:
         process_menu_item: A folyamat
         unfold: Kibont
       process_header_steps:
-        step: '%{current}. lépés ennyiből: %{total}'
+        step: "%{current}. lépés ennyiből: %{total}"
         view_steps: Lépések megtekintése

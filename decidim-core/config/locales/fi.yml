@@ -187,7 +187,7 @@ fi:
           title: Varmennus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
+          invalid_field: Kentän %{field} arvo %{value} ei kelpaa.
           ok: Ok
           title: Ei varmennettu
         unconfirmed:
@@ -329,7 +329,7 @@ fi:
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Komponentti %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -440,7 +440,7 @@ fi:
       badges:
         continuity:
           conditions:
-            - Käy täällä usein
+          - Käy täällä usein
           description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
           description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
           description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
@@ -450,7 +450,7 @@ fi:
           unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
-            - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
+          - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
           description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
@@ -465,9 +465,9 @@ fi:
           title: Kunniamerkit
         invitations:
           conditions:
-            - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
-            - Muokkaa lähetettävää viestiä halutessasi
-            - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
+          - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
+          - Muokkaa lähetettävää viestiä halutessasi
+          - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
           description: Tämä kunniamerkki myönnetään, kun olet kutsunut ihmisiä %{organization_name} -palveluun ja nämä ihmiset rekisteröityvät palvelun käyttäjiksi. Kiitos, että autat tekemään %{organization_name} -palvelusta tunnetumpaa ja laajentamaan yhteisöä!
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
@@ -687,7 +687,7 @@ fi:
           conferences_count: Konferenssit
           debates_count: Keskustelua
           endorsements_count: Suosituksia
-          headline: '%{organization} numeroina'
+          headline: "%{organization} numeroina"
           meetings_count: Tapahtumat
           orders_count: Ääntä
           pages_count: Sivua
@@ -852,7 +852,7 @@ fi:
       confirmation_instructions:
         action: Vahvista käyttäjätilini
         greeting: Tervetuloa %{recipient}!
-        instruction: 'Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.'
+        instruction: Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.
         subject: Vahvistusohjeet
       email_changed:
         greeting: Hei %{recipient}!
@@ -1024,11 +1024,6 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   password_validator:
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa

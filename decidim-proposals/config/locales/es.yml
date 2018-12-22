@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -10,6 +11,7 @@ es:
         title: Título
         user_group_id: Crear borrador colaborativo como
       proposal:
+        address: Dirección
         answer: Respuesta
         answered_at: Respondido en
         body: Cuerpo
@@ -69,7 +71,9 @@ es:
         name: Propuestas
         settings:
           global:
-            announcement: "Aviso\n"
+            announcement: 'Aviso
+
+'
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Habilitar borradores colaborativos
@@ -100,6 +104,7 @@ es:
             votes_blocked: Votación deshabilitada
             votes_enabled: Votación habilitada
             votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
+            votes_weight_enabled: Up / Down / Neutral votos habilitados
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -133,12 +138,12 @@ es:
           email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: "¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Empieza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: "¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -182,7 +187,7 @@ es:
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: "¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -190,35 +195,35 @@ es:
       badges:
         accepted_proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
+          - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
+          - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y estas sean aceptadas.
-          description_another: '%{score} propuestas de este usuario han sido aceptadas.'
-          description_own: '%{score} de tus propuestas han sido aceptadas.'
+          description_another: "%{score} propuestas de este usuario han sido aceptadas."
+          description_own: "%{score} de tus propuestas han sido aceptadas."
           name: Propuestas aceptadas
-          next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-            - Navega y dedica un tiempo leyendo las propuestas de otras personas
-            - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
+          - Navega y dedica un tiempo leyendo las propuestas de otras personas
+          - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
           description: Este distintivo se otorga cuando apoyas propuestas de otras personas.
           description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
-          next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
-            - Crear una nueva propuesta
+          - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
+          - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
-          next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Crea %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
@@ -261,7 +266,7 @@ es:
           bulk-actions:
             import_doc: Importar documento
           import:
-            invalid: '¡El formulario no es válido!'
+            invalid: "¡El formulario no es válido!"
             success: Enhorabuena, los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
           index:
             info_1: Los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
@@ -385,7 +390,7 @@ es:
             success: Borrador colaborativo retirado con éxito.
         compare:
           mine_is_different: Mi borrador colaborativo es diferente
-          no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
+          no_similars_found: "¡Enhorabuena! No se encontraron borradores colaborativos similares"
           title: Borradores colaborativos similares
         complete:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
@@ -525,7 +530,7 @@ es:
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
+          no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
           title: Propuestas similares
         complete:
           send: Enviar
@@ -534,15 +539,20 @@ es:
           proposals_count:
             one: 1 propuesta
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          primary: Puede mover el punto en el mapa.
+          secondary: No olvide hacer clic en el botón "Actualizar Posición" antes de publicar su propuesta.
         edit:
+          address: Dirección (no olvide especificar la ciudad)
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Atrás
+          not_geocoded: Sin geocodificar
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta
         edit_draft:
           discard: Descartar este borrador
-          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
+          discard_confirmation: "¿Estás seguro que quieres descartar este borrador de propuesta?"
           send: Previsualizar
           title: Editar el borrador de la propuesta
         endorsement_identities_cabin:
@@ -587,13 +597,18 @@ es:
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
+        placeholder:
+          address: 32 rue des cascades 75020 París
         preview:
+          address: Dirección %{dirección}
           modify: Modificar la propuesta
+          not_geocoded: Su dirección no ha sido geocodificada, la vista previa no está disponible.
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
+          update_pos: Actualizar la posición
         proposal:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
@@ -613,7 +628,7 @@ es:
           sign_in_or_up: "%{in} o %{up} para participar"
           sign_up: regístrarse
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
+          withdraw_confirmation: "¿Estás seguro de retirar esta propuesta?"
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
@@ -625,12 +640,18 @@ es:
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
           votes_blocked: Apoyos desactivados
+        vote_weight:
+          maximum_votes_reached: Máximo de votos alcanzados
+          no_votes_remaining: No hay votos restantes
+          votes_blocked: Votos bloqueados
         votes_count:
           count:
             one: APOYO
             other: APOYOS
           most_popular_proposal: Propuestas más populares
           need_more_votes: Necesita más apoyos
+        votes_weight:
+          count: Conde
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos

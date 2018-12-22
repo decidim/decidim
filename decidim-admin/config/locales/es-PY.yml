@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -14,7 +15,6 @@ es-PY:
         description: Descripción
         file: Archivo
         title: Título
-        weight: Rang d'affichage
       attachment_collection:
         description: Descripción
         name: Nombre
@@ -409,13 +409,13 @@ es-PY:
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
         show:
-          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: "¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer."
           deliver: Enviar boletín
           preview: Previsualizar
           subject: Asunto
@@ -435,7 +435,7 @@ es-PY:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
+          confirm_delete: "¿Estás seguro que quieres eliminar esta aplicación?"
           title: Aplicaciones OAuth
         new:
           save: Guardar

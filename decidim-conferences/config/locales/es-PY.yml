@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -337,10 +338,10 @@ es-PY:
           collaborators: Colaboradores
           main_promotors: Promotores principales
         show:
-          already_account: '¿Ya tienes una cuenta en decidim?'
+          already_account: "¿Ya tienes una cuenta en decidim?"
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Haga su inscripción en la conferencia:'
-          new_user: '¿Nuevo usuario?'
+          new_user: "¿Nuevo usuario?"
           register: Registro
           sign_in: Inicie sesión para registrarse en esta conferencia
           sign_up: Regístrese gratis en decidim para registrarse

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -50,19 +51,19 @@ uk:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Рух співучасті
         few: Рухи співучасті
         many: Рухів співучасті
+        one: Рух співучасті
         other: Рухів співучасті
       decidim/participatory_process_group:
-        one: Гурт руху співучасті
         few: Гурти руху співучасті
         many: Гуртів руху співучасті
+        one: Гурт руху співучасті
         other: Гуртів руху співучасті
       decidim/participatory_process_step:
-        one: Крок
         few: Кроки
         many: Кроків
+        one: Крок
         other: Кроків
   decidim:
     admin:
@@ -264,9 +265,9 @@ uk:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 рух у %{group}
           few: "%{count} рухи у %{group}"
           many: "%{count} рухів у %{group}"
+          one: 1 рух у %{group}
           other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
     participatory_process_steps:
@@ -301,24 +302,24 @@ uk:
         filters:
           counters:
             active:
-              one: 1 діючий рух
               few: "%{count} діючих рухи"
               many: "%{count} діючих рухів"
+              one: 1 діючий рух
               other: "%{count} діючих рухів"
             all:
-              one: 1 рух
               few: "%{count} рухи"
               many: "%{count} рухів"
+              one: 1 рух
               other: "%{count} рухів"
             past:
-              one: 1 минулий рух
               few: "%{count} минулі рухи"
               many: "%{count} минулих рухів"
+              one: 1 минулий рух
               other: "%{count} минулих рухів"
             upcoming:
-              one: 1 прийдешній рух
               few: "%{count} прийдешні рухи"
               many: "%{count} прийдешніх рухів"
+              one: 1 прийдешній рух
               other: "%{count} прийдешніх рухів"
           explanations:
             no_active: Нема діючих рухів
@@ -383,5 +384,5 @@ uk:
         process_menu_item: Рух
         unfold: Розгорнути
       process_header_steps:
-        step: '%{current}-й крок з %{total} кроків'
+        step: "%{current}-й крок з %{total} кроків"
         view_steps: Переглянути кроки

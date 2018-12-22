@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -39,24 +40,24 @@ ru:
   activerecord:
     models:
       decidim/consultations:
-        one: Консультация
         few: Консультации
         many: Консультаций
+        one: Консультация
         other: Консультаций
       decidim/consultations/question:
-        one: Вопрос
         few: Вопроса
         many: Вопросов
+        one: Вопрос
         other: Вопросов
       decidim/consultations/response:
-        one: Ответ
         few: Ответа
         many: Ответов
+        one: Ответ
         other: Ответов
       decidim/consultations/vote:
-        one: Голос
         few: Голоса
         many: Голосов
+        one: Голос
         other: Голосов
   decidim:
     admin:
@@ -117,9 +118,9 @@ ru:
             published: Обнародовано
             title: Заголовок
           name:
-            one: Консультация
             few: Консультации
             many: Консультаций
+            one: Консультация
             other: Консультаций
         question:
           fields:
@@ -127,18 +128,18 @@ ru:
             published: Обнародовано
             title: Название
           name:
-            one: Вопрос
             few: Вопроса
             many: Вопросов
+            one: Вопрос
             other: Вопросов
         response:
           fields:
             created_at: 'Создано:'
             title: Название
           name:
-            one: Ответ
             few: Ответа
             many: Ответов
+            one: Ответ
             other: Ответов
       question_publications:
         create:
@@ -200,9 +201,9 @@ ru:
           recent: Самые последние
       count:
         title:
-          one: "%{count} консультация"
           few: "%{count} консультации"
           many: "%{count} консультаций"
+          one: "%{count} консультация"
           other: "%{count} консультаций"
       filters:
         active: Действующие
@@ -228,9 +229,9 @@ ru:
         take_part: Принять участие
         view_results: Посмотреть итоги
         votes_out_of:
-          one: голос из
           few: голоса из
           many: голосов из
+          one: голос из
           other: голосов из
       question_votes:
         create:

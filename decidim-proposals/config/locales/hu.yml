@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -165,7 +166,7 @@ hu:
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, aki követ téged, új javaslatot tett közzé. Nézd meg és tegyél hozzá te is valamit:"
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: '%{author_nickname} új javaslata'
+          email_subject: "%{author_nickname} új javaslata"
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         proposal_published_for_space:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
@@ -191,19 +192,19 @@ hu:
       badges:
         accepted_proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
           description_another: A felhasználó %{score} javaslatait elfogadták.
-          description_own: '%{score} ajánlatodat fogadták el.'
+          description_own: "%{score} ajánlatodat fogadták el."
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
           unearned_another: A felhasználónak még nincsenek elfogadott javaslatai.
           unearned_own: Még nincs elfogadott javaslatod.
         proposal_votes:
           conditions:
-            - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
-            - Támogatja a kedvelt javaslatokat, vagy érdekesnek találja azokat
+          - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
+          - Támogatja a kedvelt javaslatokat, vagy érdekesnek találja azokat
           description: Ezt a jelvényt akkor kapja meg, ha más emberek javaslatait támogatja.
           description_another: A felhasználó %{score} javaslatot támogatott.
           description_own: Eddig %{score} javaslatot támogattál.
@@ -213,8 +214,8 @@ hu:
           unearned_own: Még nem támogattál egyetlen javaslatot sem.
         proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Hozzon létre egy új javaslatot
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Hozzon létre egy új javaslatot
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal.
           description_another: A felhasználó %{score} javaslatot hozott létre.
           description_own: Eddig %{score} javaslatot hoztál létre.
@@ -460,7 +461,7 @@ hu:
           request_access: Hozzáférés kérése
           requested_access: Hozzáférés megkérve
           see_other_versions: más verziók
-          version: '%{number} verzió'
+          version: "%{number} verzió"
           version_history: nézd meg a javaslat verziótörténetét
           withdraw: tervezet visszavonása
         states:
@@ -478,7 +479,7 @@ hu:
           step_1: Hozd létre a közös vázlatod
           step_2: Összehasonlítás közös vázlatokkal
           step_3: Fejezd be a közös vázlatodat
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+          step_of: "%{current_step_num}. lépés ennyiből: %{total_steps}"
       create:
         error: Hiba történt a javaslat mentése során.
         success: Javaslat létrehozása sikeres. Vázlatként mentve.
@@ -657,7 +658,7 @@ hu:
           step_2: Összehasonlítás
           step_3: Befejez
           step_4: Javaslatod közzététele
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+          step_of: "%{current_step_num}. lépés ennyiből: %{total_steps}"
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.
@@ -680,7 +681,7 @@ hu:
           version_number: Verziószám
           version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
-          version_index: '%{index} verzió'
+          version_index: "%{index} verzió"
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok

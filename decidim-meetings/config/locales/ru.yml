@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -53,19 +54,19 @@ ru:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Встреча
         few: Встречи
         many: Встреч
+        one: Встреча
         other: Встреч
       decidim/meetings/minutes:
-        one: Протокол
         few: Протокола
         many: Протоколов
+        one: Протокол
         other: Протоколов
       decidim/meetings/registration:
-        one: Зарегистрировался
         few: Зарегистрировалось
         many: Зарегистрировались
+        one: Зарегистрировался
         other: Зарегистрировались
   decidim:
     admin:
@@ -264,9 +265,9 @@ ru:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
             registrations_count:
-              one: Зарегистрировался 1 человек.
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
+              one: Зарегистрировался 1 человек.
               other: Зарегистрировалось %{count} человек.
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
@@ -333,10 +334,10 @@ ru:
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
           remaining_slots:
+            few: Осталось %{count} места
+            many: Осталось %{count} мест
             one: Осталось 1 место
-            few: "Осталось %{count} места"
-            many: "Осталось %{count} мест"
-            other: "Осталось %{count} мест"
+            other: Осталось %{count} мест
           view: Посмотреть
       models:
         invite:

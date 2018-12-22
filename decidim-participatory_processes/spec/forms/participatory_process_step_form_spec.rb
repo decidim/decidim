@@ -37,9 +37,9 @@ module Decidim
               "description_ca" => description[:ca],
               "start_date" => start_date,
               "end_date" => end_date,
-              "action_btn_text_en" => action_btn_text[:en],
-              "action_btn_text_es" => action_btn_text[:es],
-              "action_btn_text_ca" => action_btn_text[:ca]
+              "cta_text_en" => cta_text[:en],
+              "cta_text_es" => cta_text[:es],
+              "cta_text_ca" => cta_text[:ca]
             }
           }
         end
@@ -116,14 +116,14 @@ module Decidim
 
           it { is_expected.to be_valid }
         end
-        context "when action_btn_text is present" do
-          let(:action_btn_text_en) { "SEE" }
+        context "when cta_text is present" do
+          let(:cta_text_en) { "SEE" }
 
           it { is_expected.to be_valid }
         end
 
-        context "when action_btn_text is present" do
-          let(:action_btn_text_en) { nil }
+        context "when cta_text is present" do
+          let(:cta_text_en) { nil }
 
           it { is_expected.to be_valid }
         end

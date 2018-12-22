@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -35,19 +36,19 @@ uk:
   activerecord:
     models:
       decidim/initiative:
-        one: Почин
         few: Почини
         many: Починів
+        one: Почин
         other: Починів
       decidim/initiative_comittee:
-        one: Робочий гурт
         few: Робочих гурти
         many: Робочих гуртів
+        one: Робочий гурт
         other: Робочих гуртів
       decidim/initiative_vote:
-        one: Підпис
         few: Підписи
         many: Підписів
+        one: Підпис
         other: Підписів
   decidim:
     admin:
@@ -242,7 +243,7 @@ uk:
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, підтримав наступний почин. Чи не бажаєте ви зробити свій внесок у розмову:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: '%{author_nickname} підтримав почин'
+          email_subject: "%{author_nickname} підтримав почин"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Почини
@@ -254,15 +255,15 @@ uk:
           deleted: Видалено
         author_list:
           hidden_authors_count:
-            one: і ще 1 особа
             few: і ще %{count} людей
             many: і ще %{count} людей
+            one: і ще 1 особа
             other: і ще %{count} людей
         count:
           title:
-            one: "%{count} почин"
             few: "%{count} почини"
             many: "%{count} починів"
+            one: "%{count} почин"
             other: "%{count} починів"
         filters:
           any: Будь-які
@@ -296,9 +297,9 @@ uk:
         signature_identities:
           select_identity: Виберіть псевдонім учасника
         signatures_count:
-          one: " підпис"
           few: " підписи"
           many: " підписів"
+          one: " підпис"
           other: " підписів"
         statistics:
           assistants_count_title: Помічників
@@ -309,14 +310,14 @@ uk:
           title: Перелік підписів
         vote_cabin:
           already_voted: Вже підписалися
-          supports_required: "Необхідно %{total_supports} підписів"
+          supports_required: Необхідно %{total_supports} підписів
           vote: Підписати
           votes_blocked: Підписування вимкнене
         votes_count:
           count:
-            one: ПІДПИС
             few: ПІДПИСИ
             many: ПІДПИСІВ
+            one: ПІДПИС
             other: ПІДПИСІВ
       initiatives_mailer:
         creation_subject: Ваш громадський почин "%{title}" був доданий

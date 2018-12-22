@@ -187,7 +187,7 @@ hu:
           title: Engedélyezés folyamatban
         unauthorized:
           explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
+          invalid_field: A(z) %{field} %{value} érték nem érvényes.
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
@@ -439,7 +439,7 @@ hu:
       badges:
         continuity:
           conditions:
-            - Gyere ide gyakran
+          - Gyere ide gyakran
           description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
           description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
           description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
@@ -449,7 +449,7 @@ hu:
           unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
-            - Az aktív és más emberek követése biztosan másokat követni fog.
+          - Az aktív és más emberek követése biztosan másokat követni fog.
           description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. %{organization_name} egy társadalmi és politikai hálózat, szövik a webet, hogy kommunikáljon más emberekkel a platformon.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
@@ -464,9 +464,9 @@ hu:
           title: Kitűzők
         invitations:
           conditions:
-            - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
-            - Testreszabása, ha szeretné, az elküldött üzenetet
-            - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
+          - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
+          - Testreszabása, ha szeretné, az elküldött üzenetet
+          - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
           description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
           description_another: Felhasználó meghívott %{score} felhasználókat.
           description_own: Meghívtál %{score} felhasználótkat.
@@ -475,7 +475,7 @@ hu:
           unearned_another: Ez a felhasználó még nem hívott meg senkit.
           unearned_own: Még nem hívtál meg felhasználókat.
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
-      level: '%{level} szint'
+      level: "%{level} szint"
       reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
@@ -787,30 +787,6 @@ hu:
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
-          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
-          title: Az engedélyed lejárt
-        incomplete:
-          cancel: Mégse
-          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
-          invalid_field: "%{field}"
-          reauthorize: Újraengedélyezés
-          title: Kérjük, engedélyezd újra
-        missing:
-          authorize: 'Engedélyezés ezzel: "%{authorization}"'
-          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
-          title: Engedély szükséges
-        pending:
-          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
-          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
-          title: Engedélyezés folyamatban
-        unauthorized:
-          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: A(z) %{field} %{value} érték nem érvényes.
-          ok: Ok
-          title: Nem engedélyezett
       embed_modal:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba

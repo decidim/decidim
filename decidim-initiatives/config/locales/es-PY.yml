@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -73,26 +74,26 @@ es-PY:
     events:
       initiatives:
         initiative_extended:
-          email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
+          email_intro: "¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!"
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
+          email_subject: "¡Ampliado el términio de recogida de firmas para esta iniciativa!"
           notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
-          email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
+          email_intro: "¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!"
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: '¡Nuevo hito completado!'
+          email_subject: "¡Nuevo hito completado!"
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ir al espacio de participación de Iniciativas.
-            - Sigue los pasos para crear una nueva iniciativa.
+          - Ir al espacio de participación de Iniciativas.
+          - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanza nuevas iniciativas, asociándose con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
-          next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
+          next_level_in: "¡Publica %{score} iniciativas más para llegar al siguiente nivel!"
           unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
           unearned_own: Aún no tienes ninguna iniciativa publicada.
     initiatives:
@@ -100,7 +101,7 @@ es-PY:
         committee_requests:
           index:
             approve: Aprobar
-            confirm_revoke: '¿Estás seguro?'
+            confirm_revoke: "¿Estás seguro?"
             invite_to_committee_help: Comparte este enlace para invitar a otros usuarios al comité de promoción
             no_members_yet: No hay miembros en el comité promotor
             revoke: Revocar
@@ -111,7 +112,7 @@ es-PY:
         initiatives:
           edit:
             accept: Aceptar iniciativa
-            confirm: '¿Estás seguro?'
+            confirm: "¿Estás seguro?"
             discard: Descartar la iniciativa
             export_votes: Soportes de exportación
             reject: Rechazar la iniciativa
@@ -147,7 +148,7 @@ es-PY:
             success: El alcance ha sido eliminado con éxito
           edit:
             back: Volver
-            confirm_destroy: '¿Estás seguro?'
+            confirm_destroy: "¿Estás seguro?"
             destroy: Borrar
             title: Editar alcance del tipo de iniciativa
             update: Actualizar
@@ -165,7 +166,7 @@ es-PY:
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente
           edit:
-            confirm_destroy: '¿Estás seguro?'
+            confirm_destroy: "¿Estás seguro?"
             destroy: Borrar
             update: Actualizar
           form:
@@ -211,7 +212,7 @@ es-PY:
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
-          callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
+          callout_text: "¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito."
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
@@ -224,7 +225,7 @@ es-PY:
         previous_form:
           back: Volver
           continue: Continuar
-          help: '¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta.'
+          help: "¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta."
           more_information: "(Más información)"
         promotal_committee:
           back: Volver
@@ -313,7 +314,7 @@ es-PY:
           title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
-          supports_required: "Se requieren %{total_supports} firmas"
+          supports_required: Se requieren %{total_supports} firmas
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
@@ -368,4 +369,4 @@ es-PY:
           check: Échale un vistazo
           check_and_support: Compruébalo y firma
         no_initiatives_yet:
-          no_initiatives_yet: '¡No hay iniciativas todavía!'
+          no_initiatives_yet: "¡No hay iniciativas todavía!"

@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -118,3 +119,6 @@ en:
             body: The survey is available only for private users
             title: Survey closed
           tos_agreement: By participating in this survey you accept its Terms of Service
+  errors:
+    messages:
+      blank: is mandatory

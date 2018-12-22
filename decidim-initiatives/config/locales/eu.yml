@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -78,7 +79,7 @@ eu:
           email_subject: Ekimenaren sinadurak amaiera data luzatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenaren amaierako data luzatu egin da.
         milestone_completed:
-          email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
+          email_intro: "%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!"
           email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Mugarri berria osatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
@@ -86,8 +87,8 @@ eu:
       badges:
         initiatives:
           conditions:
-            - Joan zaitez Intiatives-ko partaidetza eremura
-            - Jarraitu urrats berriak ekimen berri bat sortzeko
+          - Joan zaitez Intiatives-ko partaidetza eremura
+          - Jarraitu urrats berriak ekimen berri bat sortzeko
           description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
           description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
           description_own: Argitaratutako %{score} ekimen dituzu.
@@ -247,12 +248,12 @@ eu:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, ekimen berri bat sortu du, egiaztatu eta lagundu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} ekimen berria'
+          email_subject: "%{author_nickname} ekimen berria"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, hurrengo ekimena onartu du, agian elkarrizketan lagundu nahi baduzu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} babestutako ekimena'
+          email_subject: "%{author_nickname} babestutako ekimena"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> babesten du.
       index:
         title: Ekimenak
@@ -326,13 +327,13 @@ eu:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du.'
+        progress_report_body_for: "%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du."
         progress_report_for: 'Berrekin ekimenari buruz: %{title}'
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
-        status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
-        status_change_for: '%{title} ekimena bere egoera aldatu du'
-        technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
-        technical_validation_for: '%{title} ekimena balidazio teknikoa eskatu du.'
+        status_change_body_for: "%{title} ekimena bere egoera aldatu du: %{state}"
+        status_change_for: "%{title} ekimena bere egoera aldatu du"
+        technical_validation_body_for: "%{title} ekimena balidazio teknikoa eskatu du."
+        technical_validation_for: "%{title} ekimena balidazio teknikoa eskatu du."
       last_activity:
         new_initiative: Ekimen berria
       pages:

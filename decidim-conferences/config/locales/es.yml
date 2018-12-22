@@ -341,7 +341,7 @@ es:
           already_account: "¿Ya tienes una cuenta en decidim?"
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Inscribirte a la conferencia:'
-          new_user: '¿Eres nuevo?'
+          new_user: "¿Eres nuevo?"
           register: Inscripciones
           sign_in: Inicie sesión para inscribirte en esta conferencia
           sign_up: Regístrate gratis para inscribirte

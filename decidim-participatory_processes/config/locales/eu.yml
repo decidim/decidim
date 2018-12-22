@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -246,14 +247,14 @@ eu:
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} urratsa aktiboa da <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> urratsean datak <a href="%{participatory_space_url}">%{participatory_space_title}</a> eguneratu dira.
     menu:
       processes: Prozesuak
@@ -382,5 +383,5 @@ eu:
         process_menu_item: Prozesua
         unfold: Zabaldu
       process_header_steps:
-        step: '%{total} fasetatik %{current}.a'
+        step: "%{total} fasetatik %{current}.a"
         view_steps: Ikusi faseak

@@ -381,14 +381,6 @@ fr:
           notification_title: Vous avez été supprimé du groupe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        email_subject: Sujet de l'e-mail
-        moderation:
-          email_intro: Introduction par courriel
-          email_subject: Sujet de l'e-mail
-          moderation_url: Url de modération
-        notification_title: Titre de la notification
-        url: Url
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -1026,11 +1018,6 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'Non'
-        'true': 'Mise en avant'
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email

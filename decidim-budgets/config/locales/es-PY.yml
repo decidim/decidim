@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -12,10 +13,6 @@ es-PY:
     errors:
       messages:
         equal_to: must be equal to %{count}
-      models:
-        decidim/budgets/project:
-          one: Project
-          other: Projects
     models:
       decidim/budgets/project:
         one: Proyecto
@@ -25,7 +22,7 @@ es-PY:
       actions:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
-        confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
+        confirm_destroy: "¿Estás seguro de que deseas eliminar este proyecto?"
         destroy: Borrar
         edit: Editar
         import: Importar propuestas a proyectos
@@ -78,7 +75,7 @@ es-PY:
             title: Título
       projects:
         budget_confirm:
-          are_you_sure: '¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo.'
+          are_you_sure: "¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo."
           cancel: Cancelar
           confirm: Confirmar
           description: Estos son los proyectos que has elegido para formar parte del presupuesto.
@@ -89,13 +86,12 @@ es-PY:
           ok: De acuerdo
           title: Presupuesto excedido
         budget_summary:
-          are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
+          are_you_sure: "¿Estás seguro de que deseas cancelar tu voto?"
           assigned: 'Asignado:'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
-          description: '¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
           title: Tú decides el presupuesto
         count:
           projects_count:

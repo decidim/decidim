@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -14,7 +15,6 @@ pt:
         description: Descrição
         file: Arquivo
         title: Título
-        weight: Rang d'affichage
       attachment_collection:
         description: Descrição
         name: Nome

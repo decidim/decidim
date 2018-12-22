@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -126,7 +127,7 @@ en:
       badges:
         attended_meetings:
           conditions:
-            - Register in the meetings you want to attend
+          - Register in the meetings you want to attend
           description: This badge is granted when you attend several face-to-face meetings.
           description_another: This user has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
@@ -355,7 +356,7 @@ en:
           no_slots_available: No slots available
           organizations: Attending organizations
           remaining_slots:
-            one: '%{count} slot remaining'
+            one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
       meetings_map:

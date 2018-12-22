@@ -119,3 +119,6 @@ es:
             body: La encuesta está disponible solo para usuarios privados
             title: Encuesta cerrada
           tos_agreement: Al participar en esta encuesta, aceptas sus términos de servicio
+  errors:
+    messages:
+      blank: es obligatorio

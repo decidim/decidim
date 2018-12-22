@@ -231,17 +231,17 @@ describe "Participatory Processes", type: :system do
           end
 
           context "with action button" do
-            let(:action_btn_text) { "SEE" }
+            let(:cta_text) { "SEE" }
             let!(:active_step) do
               create(:participatory_process_step,
                      :active,
-                     action_btn_text: action_btn_text,
+                     cta_text: cta_text,
                      participatory_process: promoted_process,
                      title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
             end
 
             context "when action btn is nil" do
-              let(:action_btn_text) { nil }
+              let(:cta_text) { nil }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -254,7 +254,7 @@ describe "Participatory Processes", type: :system do
             end
 
             it "display custom button" do
-              active_step.action_btn_text = "SEE"
+              active_step.cta_text = "SEE"
               visit decidim_participatory_processes.participatory_processes_path
               within find("#processes-grid .column", text: translated(promoted_process.title)) do
                 within ".card__footer .card__button" do
@@ -277,11 +277,11 @@ describe "Participatory Processes", type: :system do
           end
 
           context "with action button" do
-            let(:action_btn_text) { "SEE" }
+            let(:cta_text) { "SEE" }
             let!(:active_step) do
               create(:participatory_process_step,
                      :active,
-                     action_btn_text: action_btn_text,
+                     cta_text: cta_text,
                      participatory_process: promoted_process,
                      title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
             end
@@ -296,7 +296,7 @@ describe "Participatory Processes", type: :system do
             end
 
             context "when action btn is nil" do
-              let(:action_btn_text) { nil }
+              let(:cta_text) { nil }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path

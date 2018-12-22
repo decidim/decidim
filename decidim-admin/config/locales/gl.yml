@@ -15,7 +15,6 @@ gl:
         description: Descrición
         file: Arquivo
         title: Título
-        weight: Rang d'affichage
       attachment_collection:
         description: Descrición
         name: Nome
