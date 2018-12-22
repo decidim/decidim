@@ -259,8 +259,8 @@ fi:
         public: Julkinen
       filter:
         all: Kaikki
-        commission: komissio
-        consultative_advisory: Neuvoa / Advisory
+        commission: Komitea
+        consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
         government: Hallitus
         label: 'Show:'
