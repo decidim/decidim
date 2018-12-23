@@ -87,8 +87,8 @@ de:
       badges:
         initiatives:
           conditions:
-          - Gehe zum Teilnehmerbereich von Intiativen
-          - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+            - Gehe zum Teilnehmerbereich von Intiativen
+            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Du hast %{score} Initiativen veröffentlicht.

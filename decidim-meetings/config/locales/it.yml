@@ -129,7 +129,7 @@ it:
       badges:
         attended_meetings:
           conditions:
-          - Registrati negli incontri a cui vuoi partecipare
+            - Registrati negli incontri a cui vuoi partecipare
           description: Questo badge è concesso quando si partecipano a numerosi incontri faccia a faccia.
           description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.

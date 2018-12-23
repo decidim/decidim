@@ -129,7 +129,7 @@ gl:
       badges:
         attended_meetings:
           conditions:
-          - Rexístrese nas reunións que desexa asistir
+            - Rexístrese nas reunións que desexa asistir
           description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
           description_another: Este usuario asistiu a %{score} reunións.
           description_own: Atendeu %{score} reunións.

@@ -129,7 +129,7 @@ es:
       badges:
         attended_meetings:
           conditions:
-          - Regístrate en los encuentros a los que quieres asistir
+            - Regístrate en los encuentros a los que quieres asistir
           description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
           description_another: Este usuario asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.

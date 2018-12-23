@@ -87,8 +87,8 @@ ca:
       badges:
         initiatives:
           conditions:
-          - Anar a Inciatives
-          - Segueix els passos per crear una nova iniciativa
+            - Anar a Inciatives
+            - Segueix els passos per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquest usuari ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
