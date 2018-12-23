@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -121,7 +122,7 @@ eu:
         collaborative_draft_access_requester_accepted:
           email_intro: <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroaren laguntzaile gisa sartzeko onartu duzu.
           email_outro: Jakinarazpen hau jaso duzu, <a href="%{resource_path}">%{resource_title}</a>laguntzaile izateko eskatu zenuen.
-          email_subject: '%{resource_title}laguntzaile gisa onartzen duzu.'
+          email_subject: "%{resource_title}laguntzaile gisa onartzen duzu."
           notification_title: Izan zara <strong>onartu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_access_requester_rejected:
           email_intro: Baztertu egin zaituzte <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.
@@ -139,7 +140,7 @@ eu:
           email_subject: Proposamenak orain eskuragarri %{participatory_space_title}
           notification_title: Orain jarri ahal Aurrera <a href="%{resource_path}">proposamen berriak</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:'
+          email_intro: "%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Onarpen proposamenak %{participatory_space_title}-ra hasi dira
           notification_title: Oraingo <a href="%{resource_path}"></a> babes-proposamenak hasi ditzakezu <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -180,7 +181,7 @@ eu:
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, check it out:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
-          email_subject: '%{resource_title} Proposamenaren kategoria eguneratu da'
+          email_subject: "%{resource_title} Proposamenaren kategoria eguneratu da"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
@@ -191,33 +192,33 @@ eu:
       badges:
         accepted_proposals:
           conditions:
-            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
-            - Saiatu egin daitezkeen proposamenak egitea. Horrela onartuko lirateke gehiago.
+          - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+          - Saiatu egin daitezkeen proposamenak egitea. Horrela onartuko lirateke gehiago.
           description: Idazmahaia proposamen berriekin modu aktiboan parte hartzen duzunean onartuko zaituzte eta onartzen dira.
           description_another: Erabiltzaile honek %{score} proposamen jaso ditu.
-          description_own: '%{score} proposamen onartu dituzu.'
+          description_own: "%{score} proposamen onartu dituzu."
           name: Onartutako proposamenak
           next_level_in: Talde %{score} proposamen gehiago hurrengo mailara iristeko onartu!
           unearned_another: Erabiltzaile honek oraindik ez ditu onartutako proposamenik.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
           conditions:
-            - Arakatu eta beste pertsona batzuen proposamenak irakurtzen
-            - Eman gustuko dituzun proposamenei edo interesgarria iruditu
+          - Arakatu eta beste pertsona batzuen proposamenak irakurtzen
+          - Eman gustuko dituzun proposamenei edo interesgarria iruditu
           description: Idazmahaia beste pertsonen proposamenak onartzen dituzunean onartzen da.
           description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
-          description_own: '%{score} proposamenei laguntza eman diezu.'
+          description_own: "%{score} proposamenei laguntza eman diezu."
           name: Proposamenak onartzen ditu
           next_level_in: Eman laguntza %{score} proposamen gehiago hurrengo mailara iristea!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
           unearned_own: Ez duzu proposamenik onartzen oraindik.
         proposals:
           conditions:
-            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
-            - Proposamen berri bat sortu
+          - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+          - Proposamen berri bat sortu
           description: Txartela hau proposamen berriekin parte hartzera gonbidatzen zaituztegu.
           description_another: Erabiltzaile honek %{score} proposamen sortu ditu.
-          description_own: '%{score} proposamen sortu dituzu.'
+          description_own: "%{score} proposamen sortu dituzu."
           name: proposamenak
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik sortu.
@@ -460,7 +461,7 @@ eu:
           request_access: Eskatu sarbidea
           requested_access: Eskatutako sarbidea
           see_other_versions: ikusi beste bertsio batzuk
-          version: '%{number}bertsioa'
+          version: "%{number}bertsioa"
           version_history: ikusi bertsioaren historia proposamen honetarako
           withdraw: kendu zirriborroa
         states:
@@ -638,14 +639,14 @@ eu:
           minimum_votes_per_user:
             description: Gutxienez %{votes} boto eman behar dituzu proposamen desberdinen artean.
             given_enough_votes: Onartutako euskarri guztiak eman dituzu.
-            supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
+            supports_remaining: "%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko."
           proposal_limit:
-            description: '%{limit} proposamen sortu ditzakezu.'
+            description: "%{limit} proposamen sortu ditzakezu."
           threshold_per_proposal:
             description: Onartutako proposamenak %{limit} euskarri behar ditu
           title: 'Botoak honako arauak ditu:'
           vote_limit:
-            description: '%{limit} proposamenari bozkatu ahal zaizkio.'
+            description: "%{limit} proposamenari bozkatu ahal zaizkio."
             left: Emateke
             votes: Euskarriak
         wizard_aside:
@@ -680,7 +681,7 @@ eu:
           version_number: Bertsio zenbakia
           version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
-          version_index: '%{index}bertsioa'
+          version_index: "%{index}bertsioa"
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak

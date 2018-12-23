@@ -69,6 +69,14 @@ shared_examples "manage process steps examples" do
         ca: "El meu nou títol"
       )
 
+      fill_in_i18n(
+        :participatory_process_step_cta_text,
+        "#participatory_process_step-cta_text-tabs",
+        en: "My new button",
+        es: "Mi nuevo impulso",
+        ca: "El meu nou botó"
+      )
+
       find("*[type=submit]").click
     end
 

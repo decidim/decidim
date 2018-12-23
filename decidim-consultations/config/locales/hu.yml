@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -208,7 +209,7 @@ hu:
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
       highlighted_questions:
-        title: '%{scope_name} kérdések'
+        title: "%{scope_name} kérdések"
       index:
         title: Konzultációk
       last_activity:
@@ -273,7 +274,7 @@ hu:
       vote_button:
         already_voted: Már szavaztál
         already_voted_hover: Támogatás visszavonása
-        starting_from: '%{date} óta'
+        starting_from: "%{date} óta"
         vote: Szavazás
       vote_modal:
         contextual_help: Válassz az opciók közül.

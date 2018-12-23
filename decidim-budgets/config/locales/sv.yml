@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -84,7 +85,6 @@ sv:
           checked_out:
             description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetomröstning slutförd
-          description: Vilka projekt tycker du att vi borde avsätta budget för? Tilldela minst %{minimum_budget} till de projekt du vill ha och rösta med dina preferenser för att definiera budgeten.
           title: Du bestämmer budgeten
         count:
           projects_count:

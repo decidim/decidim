@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -386,7 +387,7 @@ hu:
           more_info: További információ
           take_part: Vegyél részt
       process_header_steps:
-        step: '%{current}. lépés ennyiből: %{total}'
+        step: "%{current}. lépés ennyiből: %{total}"
         view_steps: Lépések megtekintése
       process_navigation:
         process_menu_item: A folyamat

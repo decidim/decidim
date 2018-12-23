@@ -1,5 +1,32 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
+<% if component_settings.geocoding_enabled? %>
+  <%= dynamic_map_for projects_data_for_map(geocoded_projects) do %>
+    <template id="marker-popup">
+      <div class="map-info__content">
+        <h3>${title}</h3>
+        <div id="bodyContent">
+          <div class="map__date-adress">
+            <div class="address card__extra">
+              <div class="address__icon">{{html icon}}</div>
+              <div class="address__details">
+                <span>${address}</span><br />
+              </div>
+            </div>
+          </div>
+          <div class="map-info__button">
+            <a href="${link}" class="button button--sc">
+              <%= t(".view_project") %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </template>
+    <%= stylesheet_link_tag "decidim/map" %>
+    <%= javascript_include_tag "decidim/map" %>
+  <% end %>
+<% end %>
+
 <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
   <div class="row column">
     <%= render partial: "budget_summary", locals: { include_heading: true } %>

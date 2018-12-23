@@ -1,8 +1,9 @@
+---
 eu:
   decidim:
     system:
       actions:
-        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        confirm_destroy: "‘Ziur zaude ezabatu nahi duzula?’"
         destroy: ezabatu
         edit: Editatu
         new: Berria

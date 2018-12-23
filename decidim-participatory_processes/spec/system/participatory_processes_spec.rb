@@ -68,7 +68,11 @@ describe "Participatory Processes", type: :system do
 
   context "when there are some published processes" do
     let!(:participatory_process) { base_process }
-    let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
+    let!(:promoted_process) do
+      create(:participatory_process,
+             :promoted,
+             organization: organization)
+    end
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
     let!(:past_process) { create :participatory_process, :past, organization: organization }
     let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
@@ -209,6 +213,110 @@ describe "Participatory Processes", type: :system do
         within find("#processes-grid .column", text: translated(participatory_process.title)) do
           within ".card__footer" do
             expect(page).to have_content("CURRENT STEP:\nActive step")
+          end
+        end
+      end
+      context "when promoted and highlighted processes" do
+        let!(:promoted_process) do
+          create(:participatory_process,
+                 :promoted,
+                 organization: organization)
+        end
+        let!(:active_step) do
+          create(:participatory_process_step,
+                 :active,
+                 participatory_process: promoted_process,
+                 title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
+        end
+
+        context "when promoted process" do
+          it "display default button" do
+            visit decidim_participatory_processes.participatory_processes_path
+
+            within find("#processes-grid .column", text: translated(promoted_process.title)) do
+              within ".card__footer .card__button " do
+                expect(page).to have_content("TAKE PART")
+              end
+            end
+          end
+
+          context "with action button" do
+            let(:cta_text) { "SEE" }
+            let!(:active_step) do
+              create(:participatory_process_step,
+                     :active,
+                     cta_text: cta_text,
+                     participatory_process: promoted_process,
+                     title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
+            end
+
+            context "when action btn is nil" do
+              let(:cta_text) { nil }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                  within ".card__footer .card__button" do
+                    expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            it "display custom button" do
+              active_step.cta_text = "SEE"
+              visit decidim_participatory_processes.participatory_processes_path
+              within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                within ".card__footer .card__button" do
+                  expect(page).to have_content("SEE")
+                end
+              end
+            end
+          end
+        end
+
+        context "when highlighted process" do
+          it "display default button" do
+            visit decidim_participatory_processes.participatory_processes_path
+
+            within find("#highlighted-processes .card--full .card--full__image") do
+              within ".button" do
+                expect(page).to have_content("TAKE PART")
+              end
+            end
+          end
+
+          context "with action button" do
+            let(:cta_text) { "SEE" }
+            let!(:active_step) do
+              create(:participatory_process_step,
+                     :active,
+                     cta_text: cta_text,
+                     participatory_process: promoted_process,
+                     title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
+            end
+
+            it "display custom button" do
+              visit decidim_participatory_processes.participatory_processes_path
+              within find("#highlighted-processes .card--full .card--full__image") do
+                within ".button" do
+                  expect(page).to have_content("SEE")
+                end
+              end
+            end
+
+            context "when action btn is nil" do
+              let(:cta_text) { nil }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#highlighted-processes .card--full .card--full__image") do
+                  within ".button" do
+                    expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
           end
         end
       end

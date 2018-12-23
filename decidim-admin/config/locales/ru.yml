@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -349,7 +350,6 @@ ru:
           fields:
             created_at: 'Создано:'
             name: Имя
-          name: Приложение OAuth
         participatory_space_private_user:
           name: Частный участник пространства соучастия
         scope:
@@ -374,7 +374,6 @@ ru:
             roles:
               admin: Администратор
               user_manager: Распорядитель участников
-          name: участника
         user_group:
           fields:
             actions: Действия
@@ -421,6 +420,8 @@ ru:
         update:
           error: При попытке обновить эту рассылку новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: При попытке создать это приложения произошла ошибка.
@@ -571,6 +572,8 @@ ru:
         static_pages: Страницы
         user_groups: Группы участников
         users: Участники
+      user:
+        new: New
       user_group:
         reject:
           invalid: При отказе от этой группы участников произошла ошибка.

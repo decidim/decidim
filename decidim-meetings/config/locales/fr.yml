@@ -158,7 +158,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        minutes: Compte rendu
+        minutes: Retranscription
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -359,8 +359,8 @@ fr:
           filter_by: Filtrer par
           unfold: Voir la suite
         meeting_minutes:
-          meeting_minutes: Comptes rendus des rencontres
-          related_information: Informations liées
+          meeting_minutes: Retranscription de la rencontre
+          related_information: Retranscription média
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.

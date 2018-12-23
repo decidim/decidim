@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ es-PY:
       admin:
         id_documents:
           help:
-            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
-            - Rellenas la información presente en la imagen subida.
-            - La información debe coincidir con lo que el usuario envió.
-            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+          - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+          - Rellenas la información presente en la imagen subida.
+          - La información debe coincidir con lo que el usuario envió.
+          - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
         postal_letter:
           help:
-            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
-            - Envías la carta a su dirección con el código de verificación.
-            - Marcas la carta como enviada.
-            - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+          - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+          - Envías la carta a su dirección con el código de verificación.
+          - Marcas la carta como enviada.
+          - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
       direct: Directo
       help: Ayuda
       id_documents:
@@ -122,7 +123,7 @@ es-PY:
         authorizations:
           create:
             error: Hubo un problema con su petición
-            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
+            success: "¡Gracias! Te enviaremos un código de verificación a tu dirección"
           edit:
             send: Confirmar
             title: Introduce el código de verificación que recibiste

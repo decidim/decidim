@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     models:
@@ -67,17 +68,19 @@ fi:
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         loading: Ladataan kommentteja ...
         title: "%{count} kommenttia"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
-          email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
+          email_subject: "%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
+          email_subject: "%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
           email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"

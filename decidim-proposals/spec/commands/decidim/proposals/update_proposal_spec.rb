@@ -35,8 +35,8 @@ module Decidim
       describe "call" do
         let(:form_params) do
           {
-            title: "a reasonable proposal title",
-            body: "a reasonable proposal body",
+            title: "A reasonable proposal title",
+            body: "A reasonable proposal body",
             address: address,
             has_address: has_address,
             user_group_id: user_group.try(:id),
@@ -92,12 +92,6 @@ module Decidim
         describe "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
-          end
-
-          it "format title and body" do
-            command.call
-            expect(proposal.title).to eq("A reasonable proposal title")
-            expect(proposal.body).to eq("A reasonable proposal body")
           end
 
           it "updates the proposal" do

@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -143,7 +144,7 @@ en:
       badges:
         commented_debates:
           conditions:
-            - Choose an open debate to take part in
+          - Choose an open debate to take part in
           description: This badge is granted when you actively participate in the different debates by leaving your comments.
           description_another: This user has participated in %{score} debates.
           description_own: You have participated in %{score} debates.

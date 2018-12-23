@@ -377,7 +377,6 @@ gl:
           fields:
             created_at: Creado en
             name: Nome
-          name: Aplicación de OAuth
         participatory_space_private_user:
           name: Espazo participativo usuario privado
         scope:
@@ -402,7 +401,6 @@ gl:
             roles:
               admin: Admin
               user_manager: Xestor de usuarios
-          name: Usuario
         user_group:
           fields:
             actions: Accións
@@ -471,6 +469,8 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Produciuse un erro ao crear esta aplicación.
@@ -652,6 +652,8 @@ gl:
         static_pages: Páxinas
         user_groups: Grupos de usuarios
         users: Usuarios
+      user:
+        new: New
       user_group:
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.

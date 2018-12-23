@@ -140,7 +140,7 @@ ca:
       badges:
         commented_debates:
           conditions:
-            - Tria un debat obert per participar
+          - Tria un debat obert per participar
           description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
           description_another: Aquest usuari ha participat en %{score} debats.
           description_own: Has participat en %{score} debats.

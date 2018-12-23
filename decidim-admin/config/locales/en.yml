@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -384,7 +385,6 @@ en:
           fields:
             created_at: Created at
             name: Name
-          name: OAuth application
         participatory_space_private_user:
           name: Participatory space private user
         scope:
@@ -409,7 +409,6 @@ en:
             roles:
               admin: Admin
               user_manager: User manager
-          name: User
         user_group:
           fields:
             actions: Actions
@@ -478,6 +477,8 @@ en:
         update:
           error: There's been an error updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: There's been an error creating this application.
@@ -659,6 +660,8 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: There was an error reading the CSV file.

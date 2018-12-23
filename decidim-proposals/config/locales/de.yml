@@ -11,6 +11,7 @@ de:
         title: Titel
         user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
       proposal:
+        address: Adresse
         answer: Antworten
         answered_at: Beantwortet bei
         body: Karosserie
@@ -103,6 +104,14 @@ de:
             votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
             votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde als Beitrag zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf akzeptiert.'
@@ -560,9 +569,13 @@ de:
           proposals_count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
+          not_geocoded: Not geocoded
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Angebot bearbeiten
@@ -611,13 +624,18 @@ de:
             document_index: Dokumentenindex
           view_index:
             see_index: Siehe Index
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Ändern Sie den Vorschlag
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach der Veröffentlichung des Vorschlags bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
             other: Sie können dieses Angebot in den ersten %{count} Minuten nach der Veröffentlichung des Angebots bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Veröffentlichen Sie Ihren Vorschlag
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Erstellung: %{date}'
           view_proposal: Angebot anzeigen

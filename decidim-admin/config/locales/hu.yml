@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -239,7 +240,7 @@ hu:
             type: Elem típusa
         new:
           add: Elem hozzáadása
-          title: '%{name} nevű elem hozzáadása'
+          title: "%{name} nevű elem hozzáadása"
         publish:
           success: Az elem közzététele sikeres volt.
         title: Elemek
@@ -297,6 +298,11 @@ hu:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Hiba történt a felügyelt felhasználó előléptetése során.
           success: A felügyelt felhasználó előléptetése sikeres.
@@ -353,6 +359,13 @@ hu:
             reason: Indok
             started_at: 'Kezdődik:'
             user: Felhasználó
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -364,7 +377,6 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
-          name: OAuth alkalmazás
         participatory_space_private_user:
           name: Részvételi tér privát felhasználó
         scope:
@@ -389,7 +401,6 @@ hu:
             roles:
               admin: Admin
               user_manager: Felhasználói menedzser
-          name: Felhasználó
         user_group:
           fields:
             actions: Műveletek
@@ -407,6 +418,28 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
@@ -436,6 +469,8 @@ hu:
         update:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Hiba történt az alkalmazás létrehozása során.
@@ -608,12 +643,17 @@ hu:
         dashboard: Vezérlőpult
         impersonatable_users: Felhatalmazható felhasználók
         impersonations: Felhatalmazások
+        managed_users: Managed users
+        navbar_links: Navbar links
+        officializations: Hivatalossá tételek
         participants: résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
         users: Felhasználók
+      user:
+        new: New
       user_group:
         reject:
           invalid: Hiba történt a felhasználói csoport elutasításakor.

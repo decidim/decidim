@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -331,7 +332,7 @@ hu:
             available_slots_help: Hagyja 0-ra, ha van korlátlan slot.
             registrations_count:
               one: 1 regisztráció volt.
-              other: '%{count} regisztráció volt.'
+              other: "%{count} regisztráció volt."
             slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         diplomas:
           edit:

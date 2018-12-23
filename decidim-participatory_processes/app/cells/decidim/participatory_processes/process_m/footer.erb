@@ -6,10 +6,12 @@
         <div class="text-ellipsis"><strong><%= step_title %></strong></div>
       </div>
     <% end %>
-    <%= link_to(
-      t("layouts.decidim.participatory_processes.participatory_process.take_part"),
-      resource_path,
-      class: "card__button button button--sc secondary light small"
-    ) %>
+    <%= link_to resource_path, class: "card__button button button--sc secondary light small" do %>
+      <% if step_cta_text.blank? %>
+        <%= t("participatory_processes.promoted_process.take_part", scope: "layouts.decidim") %>
+      <% else %>
+        <%= step_cta_text %>
+      <% end %>
+    <% end %>
   </div>
 </div>

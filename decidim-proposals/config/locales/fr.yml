@@ -11,10 +11,11 @@ fr:
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
       proposal:
+        address: Adresse
         answer: Répondre
         answered_at: Répondu à
         automatic_hashtags: Ajout automatique des Hashtags
-        body: Corps du texte
+        body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
         scope_id: Périmètre d'application
@@ -108,6 +109,14 @@ fr:
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
             votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
@@ -608,9 +617,15 @@ fr:
           proposals_count:
             one: 1 proposition
             other: "%{count} propositions"
+            zero: "%{count} proposition"
+        dynamic_map_instructions:
+          primary: Vous pouvez déplacer le point sur la carte.
+          secondary: N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.
         edit:
+          address: Adresse (n'oubliez pas de préciser la ville)
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
+          not_geocoded: Non géocodé
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
@@ -667,13 +682,18 @@ fr:
             document_index: Index du document
           view_index:
             see_index: Voir l'index
+        placeholder:
+          address: 32 rue des cascades 75020 Paris
         preview:
+          address: 'Adresse : %{address}'
           modify: Modifier la proposition
+          not_geocoded: Votre adresse n'a pas été géocodée, l'aperçu n'est pas disponible.
           proposal_edit_before_minutes:
             one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
@@ -776,3 +796,5 @@ fr:
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
+    scopes:
+      global: Portée globale

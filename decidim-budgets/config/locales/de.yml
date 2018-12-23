@@ -85,7 +85,6 @@ de:
           checked_out:
             description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Haushaltsabstimmung abgeschlossen
-          description: Für welche Projekte sollten wir das Budget bereitstellen? Weisen Sie den gewünschten Projekten mindestens %{minimum_budget} zu und stimmen Sie mit Ihren Einstellungen ab, um das Budget zu definieren.
           title: Sie entscheiden über das Budget
         count:
           projects_count:

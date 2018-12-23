@@ -36,7 +36,10 @@ module Decidim
               "description_es" => description[:es],
               "description_ca" => description[:ca],
               "start_date" => start_date,
-              "end_date" => end_date
+              "end_date" => end_date,
+              "cta_text_en" => cta_text[:en],
+              "cta_text_es" => cta_text[:es],
+              "cta_text_ca" => cta_text[:ca]
             }
           }
         end
@@ -110,6 +113,17 @@ module Decidim
 
         context "when end_date is present" do
           let(:end_date) { 2.months.ago }
+
+          it { is_expected.to be_valid }
+        end
+        context "when cta_text is present" do
+          let(:cta_text_en) { "SEE" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when cta_text is present" do
+          let(:cta_text_en) { nil }
 
           it { is_expected.to be_valid }
         end

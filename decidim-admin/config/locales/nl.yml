@@ -377,7 +377,6 @@ nl:
           fields:
             created_at: Aangemaakt op
             name: Naam
-          name: OAuth-toepassing
         participatory_space_private_user:
           name: Gebruiker van de burgerinspraak
         scope:
@@ -402,7 +401,6 @@ nl:
             roles:
               admin: Beheerder
               user_manager: Gebruikersbeheerder
-          name: Gebruiker
         user_group:
           fields:
             actions: acties
@@ -471,6 +469,8 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Er is een fout opgetreden bij het maken van deze toepassing.
@@ -654,6 +654,8 @@ nl:
         static_pages: Pagina's
         user_groups: Gebruikersgroepen
         users: Gebruikers
+      user:
+        new: New
       user_group:
         reject:
           invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.

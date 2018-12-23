@@ -126,6 +126,64 @@ shared_examples "a proposal form" do |options|
         end
       end
     end
+
+    if options && !options[:admin]
+      context "when latitude and longitude are manually set" do
+        let(:latitude) { 2.389643 }
+        let(:longitude) { 48.8682538 }
+        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:params) do
+          {
+            title: title,
+            body: body,
+            author: author,
+            category_id: category_id,
+            scope_id: scope_id,
+            has_address: has_address,
+            address: address,
+            attachment: attachment_params,
+            latitude: latitude,
+            longitude: longitude
+          }
+        end
+
+        context "when the has address checkbox is unchecked" do
+          let(:has_address) { false }
+
+          it "is valid" do
+            expect(subject).to be_valid
+            expect(subject.latitude).to eq(latitude)
+            expect(subject.longitude).to eq(longitude)
+          end
+        end
+
+        context "when the proposal is unchanged" do
+          let(:previous_proposal) { create(:proposal, address: address) }
+
+          let(:params) do
+            {
+              id: previous_proposal.id,
+              title: previous_proposal.title,
+              body: previous_proposal.body,
+              author: previous_proposal.author,
+              category_id: previous_proposal.try(:category_id),
+              scope_id: previous_proposal.try(:scope_id),
+              has_address: has_address,
+              address: address,
+              attachment: previous_proposal.try(:attachment_params),
+              latitude: latitude,
+              longitude: longitude
+            }
+          end
+
+          it "is valid" do
+            expect(subject).to be_valid
+            expect(subject.latitude).to eq(latitude)
+            expect(subject.longitude).to eq(longitude)
+          end
+        end
+      end
+    end
   end
 
   describe "category" do

@@ -17,7 +17,7 @@ ca:
       badges:
         test:
           conditions:
-            - Utilitza un entorn de prova per decidim.
+          - Utilitza un entorn de prova per decidim.
           description: Els usuaris obtenen aquesta insígnia creant proves.
           description_another: Aquest usuari ha creat %{score} proves.
           description_own: Heu creat %{score} proves.

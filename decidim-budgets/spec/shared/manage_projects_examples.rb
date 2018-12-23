@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage projects" do
+shared_examples "manage projects" do |options|
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
       click_link "Edit"
@@ -41,58 +41,104 @@ shared_examples "manage projects" do
   end
 
   context "when seeing finished and pending votes" do
-    let!(:project) { create(:project, budget: 70_000_000, component: current_component) }
+    if options == :total_budget
+      context "when voting by budget" do
+        let!(:project) { create(:project, budget: 70_000_000, component: current_component) }
 
-    let!(:finished_orders) do
-      orders = create_list(:order, 10, component: current_component)
-      orders.each do |order|
-        order.update!(line_items: [create(:line_item, project: project, order: order)])
-        order.reload
-        order.update!(checked_out_at: Time.zone.today)
+        let!(:finished_orders) do
+          orders = create_list(:order, 10, component: current_component)
+          orders.each do |order|
+            order.update!(line_items: [create(:line_item, project: project, order: order)])
+            order.reload
+            order.update!(checked_out_at: Time.zone.today)
+          end
+        end
+
+        let!(:pending_orders) do
+          create_list(:order, 5, component: current_component, checked_out_at: nil)
+        end
+
+        it "shows the order count" do
+          visit current_path
+          expect(page).to have_content("Finished votes: \n10")
+          expect(page).to have_content("Pending votes: \n5")
+        end
       end
     end
 
-    let!(:pending_orders) do
-      create_list(:order, 5, component: current_component, checked_out_at: nil)
-    end
+    if options == :total_projects
+      context "when voting by projects" do
+        let(:component) do
+          create(:budget_component,
+                 :with_vote_per_project,
+                 total_projects: 5,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+        let!(:project_one) { create(:project, budget: 70_000_000, component: current_component) }
+        let!(:project_two) { create(:project, budget: 70_000_000, component: current_component) }
+        let!(:project_three) { create(:project, budget: 70_000_000, component: current_component) }
+        let!(:project_four) { create(:project, budget: 70_000_000, component: current_component) }
+        let!(:project_five) { create(:project, budget: 70_000_000, component: current_component) }
+        let!(:finished_orders) do
+          orders = create_list(:order, 10, component: current_component)
+          orders.each do |order|
+            order.update!(line_items: [
+                            create(:line_item, project: project_one, order: order),
+                            create(:line_item, project: project_two, order: order),
+                            create(:line_item, project: project_three, order: order),
+                            create(:line_item, project: project_four, order: order),
+                            create(:line_item, project: project_five, order: order)
+                          ])
+            order.reload
+            order.update!(checked_out_at: Time.zone.today)
+          end
+        end
+        let!(:pending_orders) do
+          create_list(:order, 5, component: current_component, checked_out_at: nil)
+        end
 
-    it "shows the order count" do
-      visit current_path
-      expect(page).to have_content("Finished votes: \n10")
-      expect(page).to have_content("Pending votes: \n5")
+        it "shows the order count" do
+          visit current_path
+          expect(page).to have_content("Finished votes: \n10")
+          expect(page).to have_content("Pending votes: \n5")
+        end
+      end
     end
   end
 
-  it "creates a new project", :slow do
-    find(".card-title a.button.new").click
+  context "when creating a new project" do
+    it "creates a new project", :slow do
+      find(".card-title a.button").click
 
-    within ".new_project" do
-      fill_in_i18n(
-        :project_title,
-        "#project-title-tabs",
-        en: "My project",
-        es: "Mi proyecto",
-        ca: "El meu projecte"
-      )
-      fill_in_i18n_editor(
-        :project_description,
-        "#project-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-      fill_in :project_budget, with: 22_000_000
+      within ".new_project" do
+        fill_in_i18n(
+          :project_title,
+          "#project-title-tabs",
+          en: "My project",
+          es: "Mi proyecto",
+          ca: "El meu projecte"
+        )
+        fill_in_i18n_editor(
+          :project_description,
+          "#project-description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+        fill_in :project_budget, with: 22_000_000
 
-      scope_pick select_data_picker(:project_decidim_scope_id), scope
-      select translated(category.name), from: :project_decidim_category_id
+        scope_pick select_data_picker(:project_decidim_scope_id), scope
+        select translated(category.name), from: :project_decidim_category_id
 
-      find("*[type=submit]").click
-    end
+        find("*[type=submit]").click
+      end
 
-    expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("successfully")
 
-    within "table" do
-      expect(page).to have_content("My project")
+      within "table" do
+        expect(page).to have_content("My project")
+      end
     end
   end
 

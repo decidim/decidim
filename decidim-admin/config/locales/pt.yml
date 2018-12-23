@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -364,7 +365,6 @@ pt:
           fields:
             created_at: Criado em
             name: Nome
-          name: Aplicação OAuth
         participatory_space_private_user:
           name: Espaço participativo usuário particular
         scope:
@@ -389,7 +389,6 @@ pt:
             roles:
               admin: Administrador
               user_manager: Gerente de usuário
-          name: Do utilizador
         user_group:
           fields:
             actions: Ações
@@ -436,6 +435,8 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Houve um erro ao criar este aplicativo.
@@ -614,6 +615,8 @@ pt:
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Utilizadores
+      user:
+        new: New
       user_group:
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.

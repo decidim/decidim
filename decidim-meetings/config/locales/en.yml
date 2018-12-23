@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -136,7 +137,7 @@ en:
       badges:
         attended_meetings:
           conditions:
-            - Register in the meetings you want to attend
+          - Register in the meetings you want to attend
           description: This badge is granted when you attend several face-to-face meetings.
           description_another: This user has attended %{score} meetings.
           description_own: You have attended %{score} meetings.

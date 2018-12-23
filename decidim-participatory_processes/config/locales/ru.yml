@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -50,19 +51,19 @@ ru:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Движение соучастия
         few: Движения соучастия
         many: Движений соучастия
+        one: Движение соучастия
         other: Движений соучастия
       decidim/participatory_process_group:
-        one: Группа движений соучастия
         few: Группы движений соучастия
         many: Групп движений соучастия
+        one: Группа движений соучастия
         other: Групп движений соучастия
       decidim/participatory_process_step:
-        one: Шаг
         few: Шага
         many: Шагов
+        one: Шаг
         other: Шагов
   decidim:
     admin:
@@ -264,9 +265,9 @@ ru:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 движение у %{group}
           few: "%{count} движения у %{group}"
           many: "%{count} движений у %{group}"
+          one: 1 движение у %{group}
           other: "%{count} движений у %{group}"
         title: Группы движений соучастия
     participatory_process_steps:
@@ -301,24 +302,24 @@ ru:
         filters:
           counters:
             active:
-              one: 1 идущее движение
               few: "%{count} идущих движения"
               many: "%{count} идущих движений"
+              one: 1 идущее движение
               other: "%{count} идущих движений"
             all:
-              one: 1 движение
               few: "%{count} движения"
               many: "%{count} движений"
+              one: 1 движение
               other: "%{count} движений"
             past:
-              one: 1 прошедшее движение
               few: "%{count} прошедших движения"
               many: "%{count} прошедших движений"
+              one: 1 прошедшее движение
               other: "%{count} прошедших движений"
             upcoming:
-              one: 1 грядущее движение
               few: "%{count} грядущих движения"
               many: "%{count} грядущих движений"
+              one: 1 грядущее движение
               other: "%{count} грядущих движений"
           explanations:
             no_active: Нет идущих движений

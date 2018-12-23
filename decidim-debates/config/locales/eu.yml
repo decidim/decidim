@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -39,7 +40,7 @@ eu:
         confirm_destroy: Ziur zaude?
         destroy: ezabatu
         edit: Editatu
-        new: '%{name} berria'
+        new: "%{name} berria"
         title: Ekintzak
       admin:
         debates:
@@ -140,10 +141,10 @@ eu:
       badges:
         commented_debates:
           conditions:
-            - Aukeratu eztabaida irekia parte hartzeko
+          - Aukeratu eztabaida irekia parte hartzeko
           description: Txartel hau debekuei parte hartzeko modu aktiboan parte hartuz ematen da, zure iruzkinak utziz.
           description_another: Erabiltzaile honek %{score} eztabaidatan parte hartu du.
-          description_own: '%{score} eztabaidetan parte hartu duzu.'
+          description_own: "%{score} eztabaidetan parte hartu duzu."
           name: eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.

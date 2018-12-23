@@ -8,8 +8,6 @@ module Decidim
         include Decidim::ApplicationHelper
         mimic :proposal
 
-        include Decidim::Proposals::Concerns::FormattedAttributes
-
         attribute :title, String
         attribute :body, String
         attribute :address, String

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -118,7 +119,7 @@ eu:
         browse: Arakatu
         export: Esportatu
         manage: Kudeatu
-        new: '%{name}berria'
+        new: "%{name}berria"
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
@@ -356,15 +357,14 @@ eu:
         newsletter:
           fields:
             created_at: Sortze-data
-            progress: ' Aurrerapena '
-            sent_at: ' Bidalketa-data: '
+            progress: " Aurrerapena "
+            sent_at: " Bidalketa-data: "
             subject: Gaia
           name: Buletina
         oauth_application:
           fields:
             created_at: Sortutako at
             name: izena
-          name: OAuth aplikazioa
         participatory_space_private_user:
           name: Partaidetza espazioa erabiltzaile pribatua
         scope:
@@ -389,7 +389,6 @@ eu:
             roles:
               admin: Administratzailea
               user_manager: Erabiltzailearen kudeatzailea
-          name: Erabiltzailea
         user_group:
           fields:
             actions: Ekintzak
@@ -401,7 +400,7 @@ eu:
             users_count: Erabiltzaile kopurua
       moderations:
         index:
-          title: ' Salaketak'
+          title: " Salaketak"
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -409,7 +408,7 @@ eu:
             spam: Spam
       newsletters:
         create:
-          error: ' Errorea gertatu da buletin hau sortzean.'
+          error: " Errorea gertatu da buletin hau sortzean."
           success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
@@ -436,6 +435,8 @@ eu:
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Errore bat gertatu da aplikazio hau sortzean.
@@ -614,6 +615,8 @@ eu:
         static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user:
+        new: New
       user_group:
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
@@ -655,7 +658,7 @@ eu:
           reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
     moderations:
       actions:
-        hidden: ' Ezkutatuta'
+        hidden: " Ezkutatuta"
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak

@@ -1,10 +1,11 @@
+---
 ru:
   activerecord:
     models:
       decidim/pages/page:
-        one: Страница
         few: Страницы
         many: Страниц
+        one: Страница
         other: Страниц
   decidim:
     admin_log:

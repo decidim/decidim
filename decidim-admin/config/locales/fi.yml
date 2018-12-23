@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -364,7 +365,6 @@ fi:
           fields:
             created_at: Luontiaika
             name: Nimi
-          name: OAuth-sovellus
         participatory_space_private_user:
           name: Osallisuustilan yksityinen käyttäjä
         scope:
@@ -389,7 +389,6 @@ fi:
             roles:
               admin: Ylläpitäjä
               user_manager: Käyttäjien hallinnoija
-          name: Käyttäjä
         user_group:
           fields:
             actions: Toiminnot
@@ -436,6 +435,8 @@ fi:
         update:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Sovelluksen luonnissa tapahtui virhe.
@@ -615,6 +616,8 @@ fi:
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
+      user:
+        new: New
       user_group:
         reject:
           invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.

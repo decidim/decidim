@@ -347,17 +347,11 @@ fr:
       shared:
         newsletter_modal:
           buttons:
-            check: Vérifiez et continuez
+            check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
-            uncheck: Désactiver
-          notice: |-
-            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
-            Nous vous conseillons vivement de cocher la case ci-dessous permettant de recevoir la newsletter.<br>
-            Il est très important pour nous que vous puissiez recevoir des emails occasionnels qui contiennent des annonces importantes. Vous pourrez toujours vous désinscrire par la suite dans votre compte, dans l'espace "paramètres de vos notifications".</p>
-            <p>Si vous ne cochez pas cette case, vous pourriez manquer les résultats des concertations et l'annonce de l'ouverture de nouveaux espaces de participation au sein de la plateforme.<br>
-            Si vous malgré tout ne pas recevoir des newsletters, nous comprenons parfaitement votre décision.</p>
-            <p>Merci d'avoir lu ce message !</p>
-          title: Notifications de newsletter
+            uncheck: Non merci, je m'informerai autrement
+          notice: La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+          title: La newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -710,6 +704,7 @@ fr:
     menu:
       help: Aidez-moi
       home: Accueil
+      more_information: Plus d'informations
     messaging:
       conversation_mailer:
         new_conversation:
@@ -923,7 +918,6 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
-      global: Portée générale
       picker:
         cancel: Annuler
         choose: Sélectionner

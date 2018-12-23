@@ -17,7 +17,7 @@ sv:
       badges:
         test:
           conditions:
-            - Använd en testmiljö för decidim.
+          - Använd en testmiljö för decidim.
           description: Användare får detta märke genom att skapa test.
           description_another: Den här användaren har skapat %{score} tester.
           description_own: Du har skapat %{score} tester.

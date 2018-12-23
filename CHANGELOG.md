@@ -5,6 +5,7 @@
 
 **Upgrade notes**:
 
+- **decidim-budgets**: Re-introduce vote on budget by number of project. This feature has not been fully tested. See [\#265](https://github.com/OpenSourcePolitics/decidim/pull/265)
 - **Banner uploader**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 you should update existing image if you don't want to reupload them.
 use the following command in your rails console : `Decidim::ParticipatoryProcess.find_each { |process| process.banner_image.recreate_versions! if process.banner_image? }`
@@ -14,6 +15,10 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
+- **decidim-admin**: Add pagination to private user list. [\#345](https://github.com/OpenSourcePolitics/decidim/pull/345)
+- **decidim-budgets**: Re-introduce vote on budget by number of project.[\#330](https://github.com/OpenSourcePolitics/decidim/pull/330)
+- **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
+- **decidim-proposals**: Allow proposals location to be changed on a map [\#296](https://github.com/OpenSourcePolitics/decidim/pull/296)
 - **decidim-participatory_processes**: Ability to order processes in the back-office [#189](https://github.com/OpenSourcePolitics/decidim/pull/189)
 - **decidim-debates**: add export feature to debates [#270](https://github.com/OpenSourcePolitics/decidim/pull/270)
 - **decidim-debates**: Allow debates to be reported [#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
@@ -28,16 +33,26 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Changed**:
 
-- **decidim-proposals**: Remove caps first validator. Format title and body without any intervention from the user [\#259](https://github.com/OpenSourcePolitics/decidim/pull/259)
+- ~~**decidim-proposals**: Remove caps first validator. Format title and body without any intervention from the user [\#259](https://github.com/OpenSourcePolitics/decidim/pull/259)~~
+- **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
+- **decidim-participatory_processes**: Add customised action button text regarding to the steps [\#257](https://github.com/OpenSourcePolitics/decidim/issues/257)
  - **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix participatory processes pagination[\#351](https://github.com/OpenSourcePolitics/decidim/pull/351)
+- **decidim-core**: Fix newsletter notification modal [\#342](https://github.com/OpenSourcePolitics/decidim/pull/342)
 - **decidim-proposals**: Fix responsive car preview for proposals[\#325](https://github.com/OpenSourcePolitics/decidim/pull/325)
 - **decidim-budgets**: Add hyphens to budget card. [\#305](https://github.com/OpenSourcePolitics/decidim/pull/305)
 - **decidim-admin**: Fix issue when updating a navbar link. [\#310](https://github.com/OpenSourcePolitics/decidim/pull/310)
 - **decidim-surveys**: Fix validation issue on survey sortable question [\#314](https://github.com/OpenSourcePolitics/decidim/pull/314)
 - **decidim-surveys**: Fix issue when copying. [\#308](https://github.com/decidim/decidim/pull/308)
+- **decidim-proposals**: Proposal creation and update fixes: [\#3744](https://github.com/decidim/decidim/pull/3744)
+  - Fix `CookieOverflow` in wizard steps
+  - Fix `proposal_length` validation on create_step
+  - Fix ability to update proposal attachment
+  - Fix `has_address` checked and `address` on invalid form
+  - Fix ability to update the proposal's `author/user_group`
 - **decidim-admin**: Add email validation to ManagedUserPromotionForm. [\#295](https://github.com/OpenSourcePolitics/decidim/pull/295)
 - **decidim-budgets**: Fix display of budgets when votes count is activated. [\#268](https://github.com/OpenSourcePolitics/decidim/pull/268)
 - **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
@@ -47,6 +62,8 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Backported**:
 
+- **decidim-core**: Don't send emails to deleted users [\#364](https://github.com/OpenSourcePolitics/decidim/pull/364)
+- **decidim-core**: Fix notifications sending when there's no component. [\#348](https://github.com/opensourcepolitics/decidim/pull/348)
 - **decidim-surveys**: Allow deleting surveys components when there are no answers [#211](https://github.com/OpenSourcePolitics/decidim/pull/211)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)

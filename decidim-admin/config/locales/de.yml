@@ -377,7 +377,6 @@ de:
           fields:
             created_at: Hergestellt in
             name: Name
-          name: OAuth-Anwendung
         participatory_space_private_user:
           name: Participatory Space privater Benutzer
         scope:
@@ -402,7 +401,6 @@ de:
             roles:
               admin: Administrator
               user_manager: Benutzer Manager
-          name: Benutzer
         user_group:
           fields:
             actions: Aktionen
@@ -471,6 +469,8 @@ de:
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
@@ -652,6 +652,8 @@ de:
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
+      user:
+        new: New
       user_group:
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.

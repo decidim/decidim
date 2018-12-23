@@ -377,7 +377,6 @@ pl:
           fields:
             created_at: Utworzono w
             name: Nazwa
-          name: Aplikacja OAuth
         participatory_space_private_user:
           name: Prywatny użytkownik przestrzeni prywatnej
         scope:
@@ -402,7 +401,6 @@ pl:
             roles:
               admin: Admin
               user_manager: Menedżer użytkowników
-          name: Użytkownik
         user_group:
           fields:
             actions: działania
@@ -471,6 +469,8 @@ pl:
         update:
           error: Podczas aktualizowania tego biuletynu wystąpił błąd.
           success: Biuletyn został zaktualizowany. Przeczytaj ją przed wysłaniem.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Wystąpił błąd podczas tworzenia tej aplikacji.
@@ -652,6 +652,8 @@ pl:
         static_pages: Strony
         user_groups: Grupy użytkowników
         users: Użytkownicy
+      user:
+        new: New
       user_group:
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
