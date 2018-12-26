@@ -33,7 +33,7 @@ module Decidim
       end
 
       def show
-        redirect_to "/404" unless retrieve_collaborative_draft
+        raise ActionController::RoutingError, "Not Found" unless retrieve_collaborative_draft
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})

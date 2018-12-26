@@ -53,7 +53,7 @@ module Decidim
       end
 
       def show
-        redirect_to "/404" unless set_proposal
+        raise ActionController::RoutingError, "Not Found" unless set_proposal
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
