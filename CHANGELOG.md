@@ -9,7 +9,8 @@
 
 
 **Changed**:
-- **decidim-admin**: Change admin's moderations manager [\#4717](https://github.com/decidim/decidim/pull/4717)
+
+- **decidim-admin**: Change admin moderations manager [\#4717](https://github.com/decidim/decidim/pull/4717)
 
 **Fixed**:
 
