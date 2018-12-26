@@ -16,7 +16,14 @@ describe "Admin invite", type: :system do
       organization_admin_email: "f.laguardia@gotham.gov",
       available_locales: ["en"],
       default_locale: "en",
-      users_registration_mode: "enabled"
+      users_registration_mode: "enabled",
+      smtp_settings: {
+        "address" => "decide.lvh.me",
+        "port" => "25",
+        "user_name" => "f.laguardia",
+        "password" => Decidim::AttributeEncryptor.encrypt("password"),
+        "from" => "no-reply@decide.lvh.me"
+      }
     }
   end
 
