@@ -86,7 +86,7 @@ FactoryBot.define do
     enable_omnipresent_banner { false }
     badges_enabled { true }
     send_welcome_notification { true }
-    smtp_settings {
+    smtp_settings do
       {
         "from" => "test@example.org",
         "user_name" => "test",
@@ -94,7 +94,7 @@ FactoryBot.define do
         "port" => "25",
         "address" => "smtp.example.org"
       }
-    }
+    end
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
