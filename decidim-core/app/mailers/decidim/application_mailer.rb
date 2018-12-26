@@ -5,8 +5,23 @@ module Decidim
   # mailers.
   class ApplicationMailer < ActionMailer::Base
     include LocalisedMailer
+    after_action :set_smtp
 
     default from: Decidim.config.mailer_sender
     layout "decidim/mailer"
+
+    private
+
+    def set_smtp
+      # byebug
+      return if @organization.nil? || @organization.smtp_settings&.empty? || @organization.smtp_settings.nil?
+      mail.from = @organization.smtp_settings["from"] if @organization
+      mail.delivery_method.settings.merge!(
+        address: @organization.smtp_settings["address"],
+        port: @organization.smtp_settings["port"],
+        user_name: @organization.smtp_settings["user_name"],
+        password: Decidim::AttributeEncryptor.decrypt(@organization.smtp_settings["password"])
+      ) { |_k, o, v| v.nil? ? o : v }
+    end
   end
 end

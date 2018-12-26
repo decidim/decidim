@@ -86,6 +86,15 @@ FactoryBot.define do
     enable_omnipresent_banner { false }
     badges_enabled { true }
     send_welcome_notification { true }
+    smtp_settings {
+      {
+        "from" => "test@example.org",
+        "user_name" => "test",
+        "password" => Decidim::AttributeEncryptor.encrypt("demo"),
+        "port" => "25",
+        "address" => "smtp.example.org"
+      }
+    }
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
