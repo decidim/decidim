@@ -37,7 +37,7 @@ module Decidim
             reportable_type: @reportable.class.name
           }
         ) do
-          @reportable.moderation.destroy!
+          @reportable.moderation.update!(report_count: 0, hidden_at: nil)
         end
       end
     end

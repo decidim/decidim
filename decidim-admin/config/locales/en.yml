@@ -676,16 +676,12 @@ en:
         hide: Hide
         not_hidden: Not hidden
         title: Actions
-        unhide: Unhide
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: There's been a problem hiding the resource.
             success: Resource successfully hidden.
-          unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
           unreport:
             invalid: There's been a problem unreporting the resource.
             success: Resource successfully unreported.

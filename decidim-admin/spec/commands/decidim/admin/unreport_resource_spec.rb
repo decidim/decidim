@@ -15,9 +15,9 @@ module Decidim::Admin
         expect { command.call }.to broadcast(:ok)
       end
 
-      it "deletes the moderation" do
+      it "resets the report count" do
         command.call
-        expect(reportable.reload.moderation).to be(nil)
+        expect(reportable.reload.moderation.report_count).to eq(0)
       end
 
       it "traces the action", versioning: true do
@@ -30,7 +30,16 @@ module Decidim::Admin
 
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
-        expect(action_log.version.event).to eq "destroy"
+        expect(action_log.version.event).to eq "update"
+      end
+
+      context "when the resource is hidden" do
+        let(:moderation) { create(:moderation, reportable: reportable, report_count: 1, hidden_at: Time.current) }
+
+        it "unhides the resource" do
+          command.call
+          expect(reportable.reload).not_to be_hidden
+        end
       end
     end
 

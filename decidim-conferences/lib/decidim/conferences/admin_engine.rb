@@ -66,7 +66,6 @@ module Decidim
             member do
               put :unreport
               put :hide
-              put :unhide
             end
           end
         end
