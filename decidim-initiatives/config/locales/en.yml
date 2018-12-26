@@ -78,6 +78,20 @@ en:
             created_at: Created at
             title: Initiative types
           name: Initiative type
+        initiatives_votes:
+          fields:
+            date_of_birth: Date of birth
+            document_number: Document number
+            hash: Hash
+            initiative_end_date: End date
+            initiative_id: Initiative ID
+            initiative_signatures_count: Number of signatures
+            initiative_start_date: Start date
+            initiative_title: Initiative title
+            name_and_surname: Name and surname
+            postal_code: Postal code
+            time_and_date: Time and date
+            timestamp: Timestamp
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -136,6 +150,7 @@ en:
             accept: Accept initiative
             confirm: Are you sure?
             discard: Discard the initiative
+            export_pdf_signatures: Export PDF of signatures
             export_votes: Export supports
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation

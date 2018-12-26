@@ -58,5 +58,12 @@
                   class: "button alert",
                   data: { confirm: t(".confirm") } %>
     <% end %>
-  </div>
+
+    <% if allowed_to? :export_pdf_signatures, :initiative, initiative: current_initiative %>
+      <%= link_to t(".export_pdf_signatures"),
+                  export_pdf_signatures_initiative_path(current_initiative, format: :pdf),
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+   </div>
 <% end %>
