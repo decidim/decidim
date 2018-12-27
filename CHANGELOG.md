@@ -10,6 +10,7 @@
 
 **Changed**:
 
+- **decidim-proposals** Change collaborative draft contributors permissions [\#4712](https://github.com/decidim/decidim/pull/4712)
 
 **Fixed**:
 
