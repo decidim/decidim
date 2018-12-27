@@ -13,6 +13,7 @@
 
 **Fixed**:
 
+- **decidim-assemblies**: Fix parent assemblies children_count counter [\#4718](https://github.com/decidim/decidim/pull/4718/)
 
 **Removed**:
 
