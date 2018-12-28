@@ -98,6 +98,14 @@ en:
             file: .csv file with emails data
             submit: Upload file
             title: Upload a new census
+        authorizations:
+          create:
+            error: Unable to verify user.
+            success: User successfully verified.
+        errors:
+          messages:
+            not_in_csv: Email entered is not the same as the user logged in.
+            not_same_email: Email entered is not the same as the user logged in.
       dummy_authorization:
         extra_explanation:
           one: Participation is restricted to users with the postal code %{postal_codes}.
