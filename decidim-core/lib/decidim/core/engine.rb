@@ -56,7 +56,7 @@ module Decidim
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
         app.config.middleware.use BatchLoader::Middleware
       end
 
