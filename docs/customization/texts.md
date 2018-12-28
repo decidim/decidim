@@ -13,3 +13,30 @@ en:
 ```
 
 You need to create a file for this translation as [Ruby on Rails i18n documentation](http://guides.rubyonrails.org/i18n.html) says, for instance config/locales/home.en.yml
+
+## By organization
+
+To have different translations by organization on a multitenant (for instance, if an organization would want to call *Councils* instead of *Assemblies*), you'll need to make these steps:
+
+* Add a new file to `config/locales/` with a new regional. For instance we'll call it **"es-CST"**
+
+* Add a new file for datepicker locales on `vendor/assets/javascripts/datepicker-locales/foundation-datepicker.es-CST.js`, based on availables languages.
+
+* Change your available locales on `config/initializers/decidim.rb`:
+
+```ruby
+  config.available_locales = [:en, :ca, :es, :"es-CST"]
+```
+
+* Add the fallback language on `config/application.rb`:
+
+```ruby
+  config.i18n.fallbacks = { 'es-CST' => 'es' }
+```
+
+* Create the organization on System panel with the new language.
+
+At the moment this solution has two handicaps:
+
+* It's only possible to do it with new Organizations
+* It's ugly at the URL level (?locale=es-CST)
