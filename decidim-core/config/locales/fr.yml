@@ -129,20 +129,20 @@ fr:
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
-        verify_via_csv: "%{nom_utilisateur} vérifié le groupe d'utilisateurs %{nom_ressource} via un fichier CSV"
+        verify_via_csv: "%{user_name} vérifié le groupe d'utilisateurs %{resource_name} via un fichier CSV"
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'emendation, veuillez réessayer plus tard.
         success: Cette modification a été acceptée avec succès.
       amendable:
         amended_by: Modifié par
-        button: Modifier %{nom_du_modèle}>%{nom_du_modèle
+        button: Modifier la %{model_name}
         error: Il y a eu une erreur en modifiant cette ressource.
-        help_text: Améliorez ce %{nom_du_modèle} en modifiant son %{champs_amendables}
+        help_text: "Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}"
         no_amenders: Il n'y a pas d'amendement
-        no_amendments: Il n'y a pas de modifications
-        promote_button: Promouvoir à %{nom_du_modèle}>>i18n
-        promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant que %{model_name} indépendant
+        no_amendments: Il n'y a pas de modification
+        promote_button: Transformer en %{model_name}
+        promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant que %{model_name} indépendante
         section_heading: Modifications (%{count})
       created:
         error: Une erreur s'est produite lors de la création de cette modification, réessayez plus tard
@@ -154,34 +154,38 @@ fr:
           help_text: Examinez les modifications et acceptez ou rejetez cet amendement. Une notification sera envoyée à son (ses) auteur(s).
         announcement:
           accepted: |-
-            Cette correction pour le %{type_amendable}  %{lien_amendable} a été effectuée
-            accepté le <strong>%{announcement_date}</strong>.
+            Cet amendement pour la %{amendable_type}
+            %{amendable_link}
+            a été accepté le <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Ceci est une correction pour le %{amendable_type}  %{amendable_link}>%
+            Cet amendement pour la %{amendable_type}
+            %{amendable_link}
             est en cours d'évaluation.
           rejected: |-
-            Cette correction pour le %{type_amendable}  %{lien_amendable}%{lien_amendable
+            Cet amendement pour la %{amendable_type}
+            %{amendable_link}
             a été rejeté le <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Cette correction pour le %{type_amendable}  %{lien_amendable}%{lien_amendable
+            Cet amendement pour la %{amendable_type}
+            %{amendable_link}
             a été retirée par l'auteur.
       new:
-        amendment_author: Auteur de la modification
+        amendment_author: Auteur
         back: Retour
         heading: Créez votre amendement
-        help_text: Vous modifiez le %{nom_du_modèle}
-        send: Envoyer l'amendement
+        help_text: Vous modifiez la %{model_name}
+        send: Proposer votre amendement
       promoted:
-        error: Il y a eu des erreurs lors de la promotion de l'emendation
-        success: La mention élogieuse a été promue avec succès
+        error: Il y a eu des erreurs lors de la promotion de cet amendement.
+        success: L'amendement a été accepté
       rejected:
         error: Une erreur s'est produite lors du rejet de cette correction, veuillez réessayer plus tard
-        success: L'amendement a été rejeté avec succès
+        success: L'amendement a été rejeté
       review:
         back: Retour
-        heading: Examiner la modification
-        help_text: Vous modifiez le %{nom_du_modèle}i18n>
-        send: Accepter l'amendement
+        heading: Examiner l'amendement
+        help_text: Vous modifiez la %{model_name}
+        send: Accepter
     anonymous_user: Anonyme
     application:
       collection:
@@ -383,46 +387,46 @@ fr:
           affected_user:
             email_intro: 'Une correction a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
-            email_subject: Amendement accepté pour %{amendable_title} de %{emendation_author_nickname}%{amendable_title
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+            email_subject: Amendement accepté pour %{amendable_title} de %{emendation_author_nickname}
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Une correction a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Amendement accepté pour %{amendable_title} de %{emendation_author_nickname}%{amendable_title
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
           affected_user:
             email_intro: 'Une nouvelle correction a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
             email_subject: Un nouvel amendement pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
-            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{chemin_amendable}">%{titre_amendable}</a> %{type_amendable}.
+            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Une nouvelle correction a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Un nouvel amendement pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
-            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{chemin_amendable}">%{titre_amendable}</a> %{type_amendable}.
+            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
             email_intro: 'Une correction rejetée pour %{amendable_title} a été promue à un %{amendable_type} indépendant. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
             email_subject: Une emendation de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{type_amendable} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
           follower:
             email_intro: 'Une correction rejetée pour %{amendable_title} a été promue à un %{amendable_type} indépendant. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Une emendation de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{type_amendable} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Une correction a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
             email_subject: Un amendement rejeté pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Une correction a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Un amendement rejeté pour %{amendable_title} de %{emendation_author_nickname}%{emendation_author_nick
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{chemin_amendable}">%{title_amendable}</a> %{type_amendable}.
+            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'

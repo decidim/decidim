@@ -30,9 +30,9 @@ fr:
         authorization_workflows: Vérifications
     admin_log:
       organization:
-        update_id_documents_config: "%{nom_utilisateur} mise à jour de la configuration de vérification des documents d'identité"
+        update_id_documents_config: "%{user_name} mise à jour de la configuration de vérification des documents d'identité"
       user:
-        grant_id_documents_offline_verification: "%{nom_utilisateur} vérifié %{nom_ressource} utilisant une vérification hors ligne des documents d'identité"
+        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} utilisant une vérification hors ligne des documents d'identité"
     authorization_handlers:
       admin:
         id_documents:
