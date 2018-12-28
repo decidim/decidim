@@ -3,8 +3,6 @@
 module Decidim
   module Verifications
     module CsvCensus
-      # TODO: Documentation
-
       class AuthorizationsController < Decidim::ApplicationController
         helper_method :authorization
 

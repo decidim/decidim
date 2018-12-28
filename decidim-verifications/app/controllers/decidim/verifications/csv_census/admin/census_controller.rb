@@ -4,7 +4,6 @@ module Decidim
   module Verifications
     module CsvCensus
       module Admin
-        # TODO: add documentation
         class CensusController < Decidim::Admin::ApplicationController
           include NeedsPermission
 
