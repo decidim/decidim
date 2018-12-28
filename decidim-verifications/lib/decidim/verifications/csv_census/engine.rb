@@ -13,7 +13,6 @@ module Decidim
           resource :authorization, only: [:new, :create], as: :authorization
           root to: "authorizations#new"
         end
-
       end
     end
   end
