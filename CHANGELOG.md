@@ -13,6 +13,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Place `CurrentOrganization` middleware before `WardenManager`. [\#4708](https://github.com/decidim/decidim/pull/4708)
 
 **Removed**:
 
