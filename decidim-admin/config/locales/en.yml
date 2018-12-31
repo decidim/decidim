@@ -509,6 +509,7 @@ en:
         edit:
           update: Update
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
