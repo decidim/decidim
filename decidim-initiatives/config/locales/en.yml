@@ -69,6 +69,11 @@ en:
             created_at: Created at
             title: Initiative types
           name: Initiative type
+      resource_permissions:
+        edit:
+          everyone: Everyone
+          submit: Submit
+          title: Edit permissions
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -360,6 +365,11 @@ en:
       unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: Actions
   layouts:
     decidim:
       admin:

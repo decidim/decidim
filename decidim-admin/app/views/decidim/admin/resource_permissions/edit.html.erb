@@ -1,0 +1,53 @@
+<section id="components">
+  <div class="row">
+    <div class="columns">
+      <h3>
+        <%= t(".title") %>
+        <% if resource %>
+          -
+          <%= resource_title(resource) %>
+        <% end %>
+      </h3>
+    </div>
+  </div>
+  <%= form_for @permissions_form, url: url_for(action: :update, **resource_params), method: "put" do |permissions_form| %>
+    <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>
+      <% action_permission_form.object.permissions.each do |action, permission| %>
+        <fieldset class="card <%= action %>-permission">
+          <div class="card-divider"><%= t("#{resource.manifest.name}.actions.#{action}", scope: "decidim.resources") %></div>
+
+          <div class="card-section">
+            <%= action_permission_form.fields_for(action, permission) do |permission_form| %>
+              <%= permission_form.collection_select :authorization_handler_name,
+                                                    authorizations,
+                                                    :name,
+                                                    :description,
+                                                    { include_blank: t(".everyone") } %>
+              <% if permission.authorization_handler_name %>
+                <div id="authorization-handler-<%= permission.authorization_handler_name %>"
+                     class="authorization-handler">
+                  <%= render "options_form", form: permission_form %>
+                </div>
+              <% end %>
+            <% end %>
+
+            <% other_authorizations_for(action).each do |authorization| %>
+              <% permission = Decidim::Admin::PermissionForm.new(authorization_handler_name: authorization.name) %>
+
+              <%= action_permission_form.fields_for(action, permission) do |permission_form| %>
+                <div id="authorization-handler-<%= authorization.name %>"
+                     class="authorization-handler"
+                     style="display:none">
+                  <%= render "options_form", form: permission_form %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </fieldset>
+      <% end %>
+    <% end %>
+    <%= permissions_form.submit t(".submit") %>
+  <% end %>
+</section>
+
+<%= javascript_include_tag "decidim/admin/component_permissions" %>
