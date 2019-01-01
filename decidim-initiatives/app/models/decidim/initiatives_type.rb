@@ -3,6 +3,8 @@
 module Decidim
   # Initiative type.
   class InitiativesType < ApplicationRecord
+    include Decidim::HasResourcePermission
+
     validates :title, :description, presence: true
     validates :online_signature_enabled, inclusion: { in: [true, false] }
 
@@ -31,6 +33,10 @@ module Decidim
     def initiatives
       initiatives_ids = scopes.map { |scope| scope.initiatives.pluck(:id) }.flatten
       Initiative.where(id: initiatives_ids)
+    end
+
+    def allow_resource_permissions?
+      true
     end
   end
 end
