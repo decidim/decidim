@@ -1,0 +1,8 @@
+# Decidim command line image
+FROM ruby:2.5.1-stretch
+
+WORKDIR /code/
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN gem install decidim
+RUN apt-get update && apt-get -y install nodejs
