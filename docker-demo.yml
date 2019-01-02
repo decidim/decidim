@@ -1,0 +1,15 @@
+version: '3'
+services:
+  decidim:
+    image: decidim/decidim
+    ports:
+      - 3000:3000
+  postgres:
+    image: postgres
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+  redis:
+    image: redis
+    volumes:
+      - ./data/redis:/data
+

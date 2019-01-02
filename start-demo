@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -x
+
+if [ ! -f /initialzied ]; then
+    echo "Initializing database..."
+    rails db:create
+    rails db:migrate
+    rails db:seed
+    echo "Done" > /initialzieds
+fi
+
+rails server

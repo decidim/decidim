@@ -1,0 +1,22 @@
+#Demo image for decidim
+FROM decidim/decidim-cli
+
+#Instance name
+ARG APP_NAME=${APP_NAME:-DemoApp}
+
+#Database connectivity
+ARG DATABASE_HOST=${DATABASE_HOST:-postgres}
+ARG DATABASE_USERNAME=${DATABASE_USERNAME:-postgres}
+ARG DATABASE_PASSWORD=${DATABASE_PASSWORD:-postgres}
+
+ENV DATABASE_HOST=${DATABASE_HOST}
+ENV DATABASE_USERNAME=${DATABASE_USERNAME}
+ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
+
+RUN decidim ${APP_NAME}
+
+WORKDIR /code/${APP_NAME}/
+
+COPY ./start-demo ./
+
+CMD ./start-demo
