@@ -197,8 +197,6 @@ eu:
         create:
           error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
           success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
-        destroy:
-          success: Parte-hartze prozesua behar bezala ezabatu da.
         edit:
           update: Eguneratu
         form:

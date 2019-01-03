@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ sv:
           update:
             invalid: Det har blivit ett problem under uppdateringen av denna debatt.
             success: Debatten uppdaterades.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debatt
@@ -140,7 +144,7 @@ sv:
       badges:
         commented_debates:
           conditions:
-            - Välj en öppen debatt att delta i
+          - Välj en öppen debatt att delta i
           description: Detta märke beviljas när du aktivt deltar i de olika debatterna genom att lämna dina kommentarer.
           description_another: Den här användaren har deltagit i %{score} debatter.
           description_own: Du har deltagit i %{score} debatter.

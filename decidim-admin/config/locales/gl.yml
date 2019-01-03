@@ -92,12 +92,20 @@ gl:
         show_in_footer: Amosar no pé de páxina
         title: Título
         weight: Peso
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
+              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
       decidim/static_page:
@@ -645,7 +653,6 @@ gl:
         impersonations: Impersonacións
         managed_users: Managed users
         navbar_links: Navbar links
-        officializations: Oficinas
         participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
@@ -655,6 +662,9 @@ gl:
       user:
         new: New
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
           success: Grupo de usuarios rexeitado con éxito
@@ -674,6 +684,12 @@ gl:
             pending: Pendente
             rejected: Rexeitado
             verified: Verificado
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.

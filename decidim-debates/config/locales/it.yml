@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Discussione
@@ -140,7 +144,7 @@ it:
       badges:
         commented_debates:
           conditions:
-            - Scegli un dibattito aperto a cui partecipare
+          - Scegli un dibattito aperto a cui partecipare
           description: Questo badge è concesso quando partecipi attivamente ai diversi dibattiti lasciando i tuoi commenti.
           description_another: Questo utente ha partecipato a %{score} dibattiti.
           description_own: Hai partecipato a %{score} dibattiti.

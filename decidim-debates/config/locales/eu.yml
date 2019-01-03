@@ -60,6 +60,9 @@ eu:
           update:
             invalid: Arazo bat izan da eztabaida hau eguneratzean.
             success: Debate arrakastaz eguneratu da.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate

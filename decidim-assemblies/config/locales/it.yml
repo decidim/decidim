@@ -83,8 +83,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo assembly.
           success: L'assemblaggio è stato creato con successo.
-        destroy:
-          success: Assemblea cancellata con successo.
         edit:
           update: Aggiorna
         form:
@@ -171,6 +169,7 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
+          name: Assembly
         assembly_member:
           fields:
             ceased_date: Data di fine
@@ -259,6 +258,17 @@ it:
         city_council: Consiglio comunale
         others: Altri
         public: Pubblico
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: assemblee
       last_activity:

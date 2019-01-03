@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -59,13 +60,16 @@ ca:
           update:
             invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
             success: El debat s'ha actualitzat correctament.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debat
       admin_log:
         debate:
-          create: "L'usuari %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
-          update: "L'usuari %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+          create: L'usuari %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}
+          update: L'usuari %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}
       debates:
         count:
           debates_count:

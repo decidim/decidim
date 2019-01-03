@@ -55,6 +55,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
+            id: ID
             state: Zustand
             supports_count: Unterstützt
             title: Initiativen
@@ -79,16 +80,26 @@ de:
           email_subject: Initiativsignaturendatum verlängert!
           notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Neuer Meilenstein abgeschlossen!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Gehe zum Teilnehmerbereich von Intiativen
-            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          - Gehe zum Teilnehmerbereich von Intiativen
+          - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Du hast %{score} Initiativen veröffentlicht.
@@ -350,6 +361,7 @@ de:
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiativen
   layouts:

@@ -83,8 +83,6 @@ sv:
         create:
           error: Det uppstod ett fel när ett nytt möte skulle skapas.
           success: Mötet skapades framgångsrikt.
-        destroy:
-          success: Mötes raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -260,6 +258,17 @@ sv:
         city_council: Stadsfullmäktige
         others: Övriga
         public: Offentligt
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Möten
       last_activity:

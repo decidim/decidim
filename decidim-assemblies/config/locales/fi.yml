@@ -83,8 +83,6 @@ fi:
         create:
           error: Virhe luotaessa uutta ryhmää.
           success: Ryhmän luonti onnistui.
-        destroy:
-          success: Ryhmä poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -260,6 +258,17 @@ fi:
         city_council: Kaupunginvaltuusto
         others: Muut
         public: Julkinen
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Ryhmät
       last_activity:

@@ -45,7 +45,15 @@ en:
       admin:
         exports:
           survey_user_answers: Survey user answers
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.

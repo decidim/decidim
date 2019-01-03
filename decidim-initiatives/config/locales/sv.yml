@@ -55,6 +55,7 @@ sv:
         initiatives:
           fields:
             created_at: Skapad vid
+            id: ID
             state: stat
             supports_count: stöder
             title: initiativ
@@ -79,16 +80,26 @@ sv:
           email_subject: Initiativa signaturer slutdatum förlängt!
           notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Ny milstolpe färdigställd!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har uppnått %{percentage}% av underskrifterna.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Gå till Intiatives deltagande utrymme
-            - Följ stegen för att skapa ett nytt initiativ
+          - Gå till Intiatives deltagande utrymme
+          - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ, samarbetar med andra för att utföra dem.
           description_another: Den här användaren har fått %{score} initiativ publicerade.
           description_own: Du har %{score} initiativ publicerade.
@@ -350,6 +361,7 @@ sv:
       states:
         accepted: Accepterad
         expired: Utgånget
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: initiativ
   layouts:

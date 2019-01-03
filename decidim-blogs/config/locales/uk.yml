@@ -40,6 +40,8 @@ uk:
           update:
             invalid: При спробі збереження цього допису сталися помилки.
             success: Допис успішно збережено
+      last_activity:
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:

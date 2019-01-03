@@ -106,8 +106,6 @@ hu:
         create:
           error: Hiba történt egy új konferencia létrehozásakor.
           success: A konferencia sikeresen létrejött.
-        destroy:
-          success: A konferencia sikeresen törölve.
         edit:
           update: frissítés
         exports:
@@ -417,7 +415,7 @@ hu:
           collaborators: partnerek
           main_promotors: szervezők
         show:
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: "%{name} <%{email}> -ként jelentkezett be"
           make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
@@ -473,7 +471,7 @@ hu:
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: "%{name} <%{email}> -ként jelentkezett be"
           register: Regisztráció
           title: Regisztrációs típusok
       shared:
@@ -508,6 +506,10 @@ hu:
         votes_count: szavazatok
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+        conference_registration_validation_pending:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
         conference_registrations_over_percentage:
           email_intro: A "%{resource_title}" konferencia foglalt rések több mint %{percentage}%.
           email_outro: Ezt az értesítést megkaptuk, mert Ön a konferencia részvételi helyének adminisztrátora.
@@ -523,6 +525,11 @@ hu:
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" konferenciát követi. Leiratkozhat az előző linkről.
           email_subject: A "%{resource_title}" konferencia lehetővé tette a regisztrációt.
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia engedélyezte a regisztrációkat.
+        upcoming_conference:
+          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference is coming!
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
     log:
       value_types:
         conference_presenter:

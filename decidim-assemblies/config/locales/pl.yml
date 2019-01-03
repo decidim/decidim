@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -66,19 +67,19 @@ pl:
   activerecord:
     models:
       decidim/assembly:
-        one: montaż
         few: Złożenia
         many: Złożenia
+        one: montaż
         other: Złożenia
       decidim/assembly_member:
-        one: Członek zespołu
         few: Członkowie zgromadzenia
         many: Członkowie zgromadzenia
+        one: Członek zespołu
         other: Członkowie zgromadzenia
       decidim/assembly_user_role:
-        one: Zbierz rolę użytkownika
         few: Zbierz role użytkowników
         many: Zbierz role użytkowników
+        one: Zbierz rolę użytkownika
         other: Zbierz role użytkowników
   decidim:
     admin:
@@ -88,8 +89,6 @@ pl:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
           success: Zgromadzenie zostało utworzone.
-        destroy:
-          success: Zgromadzenie zostało pomyślnie usunięte.
         edit:
           update: Aktualizuj
         form:
@@ -265,6 +264,17 @@ pl:
         city_council: Rada Miejska
         others: Inni
         public: Publiczny
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Zespoły
       last_activity:
@@ -356,9 +366,9 @@ pl:
           reset_chart: Nastawić
         order_by_assemblies:
           assemblies:
-            one: "%{count} złożeń"
             few: "%{count} złożeń"
             many: "%{count} złożeń"
+            one: "%{count} złożeń"
             other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji

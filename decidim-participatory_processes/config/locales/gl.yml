@@ -197,8 +197,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo proceso participativo.
           success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
-        destroy:
-          success: O proceso participativo eliminouse con éxito.
         edit:
           update: Actualización
         form:
@@ -261,7 +259,7 @@ gl:
         participatory_processes:
           contextual: "<p>A <strong>proceso de participación</strong> é unha secuencia de actividades de participación (por exemplo, primeiro o recheo dunha enquisa, a continuación, facendo propostas, discutindo los cara a cara ou virtuais reunións, e, finalmente, privilexiando a eles) co obxectivo de establecer e de tomar unha decisión sobre un tema específico.</p> <p>exemplos de procesos participativos son: un proceso de elección dos membros do comité (onde se presentan as candidaturas, despois debatidas e, finalmente, unha candidatura escolleita), orzamentos participativos (onde se formulan propostas, valoradas económicamente e votan co diñeiro dispoñible). un proceso de planificación estratéxica, a redacción colaborativa dunha regulación ou norma, o deseño dun espazo urbano ou a elaboración dun plan de política pública.</p>\n"
           page: "<p>A <strong>proceso de participación</strong> é unha secuencia de actividades de participación (por exemplo, primeiro o recheo dunha enquisa, a continuación, facendo propostas, discutindo los cara a cara ou virtuais reunións, e, finalmente, privilexiando a eles) co obxectivo de establecer e de tomar unha decisión sobre un tema específico.</p> <p>exemplos de procesos participativos son: un proceso de elección dos membros do comité (onde se presentan as candidaturas, despois debatidas e, finalmente, unha candidatura escolleita), orzamentos participativos (onde se formulan propostas, valoradas económicamente e votan co diñeiro dispoñible). un proceso de planificación estratéxica, a redacción colaborativa dunha regulación ou norma, o deseño dun espazo urbano ou a elaboración dun plan de política pública.</p>\n"
-          title: '¿Que é un proceso participativo?'
+          title: "¿Que é un proceso participativo?"
     menu:
       processes: Procesos
     metrics:

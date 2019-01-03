@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -54,6 +55,7 @@ nl:
         initiatives:
           fields:
             created_at: Aangemaakt op
+            id: ID
             state: Staat
             supports_count: steunen
             title: initiatieven
@@ -78,16 +80,26 @@ nl:
           email_subject: Initiatief handtekeningen einddatum verlengd!
           notification_title: De einddatum van de ondertekening van het <a href="%{resource_path}">%{resource_title}</a> initiatief is verlengd.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Nieuwe mijlpaal voltooid!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ga naar de participatieruimte van Intiatives
-            - Volg de stappen om een ​​nieuw initiatief te maken
+          - Ga naar de participatieruimte van Intiatives
+          - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           description_own: Je hebt %{score} initiatieven gepubliceerd.
@@ -349,6 +361,7 @@ nl:
       states:
         accepted: Aanvaard
         expired: Vervallen
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: initiatieven
   layouts:

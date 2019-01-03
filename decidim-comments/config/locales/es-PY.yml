@@ -68,6 +68,8 @@ es-PY:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         loading: Cargando los comentarios ...
         title: "%{count} comentarios"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

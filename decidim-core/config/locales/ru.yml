@@ -10,6 +10,7 @@ ru:
         about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
+        nickname: Nickname
         password: Пароль
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
@@ -17,7 +18,14 @@ ru:
     models:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
+      decidim/demoted_membership: No longer a group admin
+      decidim/gamification/badge_earned_event: Badge earned
+      decidim/gamification/level_up_event: You've leveled up
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Профиль обновлен
+      decidim/promote_to_admin: Promoted to group admin
+      decidim/removed_from_group: Removed from group
   activerecord:
     attributes:
       decidim/user:
@@ -28,6 +36,9 @@ ru:
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
     models:
+      decidim/amendment:
+        one: Amendment
+        other: Amendments
       decidim/user:
         few: Участника
         many: Участников
@@ -47,7 +58,10 @@ ru:
   date:
     formats:
       decidim_short: "%d.%m.%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -97,6 +111,9 @@ ru:
         update: "%{user_name} обновил приложение OAuth %{resource_name}"
       organization:
         update: "%{user_name} обновил настройки организации"
+      participatory_space_private_user:
+        create: "%{user_name} invited %{resource_name} to be a private user"
+        delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -116,6 +133,59 @@ ru:
       user_group:
         reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
         verify: "%{user_name} подтвердил группу участников %{resource_name}"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+    amendments:
+      accepted:
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
+      amendable:
+        amended_by: Amended by
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        section_heading: Amendments (%{count})
+      created:
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
+      emendation:
+        actions:
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+        announcement:
+          accepted: |-
+            This emendation for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            This is an emendation for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
+      new:
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
+        send: Send emendation
+      promoted:
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
+      rejected:
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
+      review:
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept emendation
     anonymous_user: Анонимный
     application:
       collection:
@@ -158,6 +228,9 @@ ru:
           foo: Пример переменной 2
         name: Пример подтверждения личности
       granted_at: Предоставлено %{timestamp}
+      sms:
+        explanation: Submit your mobile phone number so we can check your identity.
+        name: Code by SMS
       started_at: 'Начато: %{timestamp}'
     authorization_modals:
       show:
@@ -168,6 +241,7 @@ ru:
         incomplete:
           cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
+          invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность
           title: Пожалуйста, заново подтвердите свою личность
         missing:
@@ -183,6 +257,11 @@ ru:
           invalid_field: Для %{field} недопустимо значение %{value}.
           ok: Хорошо
           title: Не подтвердили свою личность
+        unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         few: и еще %{count}
@@ -199,9 +278,11 @@ ru:
         name: Пример составляющей
         settings:
           global:
+            amendments_enabled: Amendments enabled
             comments_enabled: Комментарии включены
             dummy_global_attribute_1: Пример свойства 1
             dummy_global_attribute_2: Пример свойства 2
+            enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Разрешения ресурсов включены
           step:
             comments_blocked: Комментарии отключены
@@ -217,6 +298,15 @@ ru:
         name: Баннер рекомендуемого содержимого
       how_to_participate:
         name: Как принять участие
+      html:
+        html_content: HTML content
+        name: HTML block
+      last_activity:
+        name: Last activity
+        title: Last activity
+        view_all: View all
+      metrics:
+        name: Organization metrics
       stats:
         name: Статистика организации
       sub_hero:
@@ -231,6 +321,8 @@ ru:
         download_data: Загрузить данные
         download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
         request_data: Запросить данные
+    datepicker:
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -260,6 +352,8 @@ ru:
         new:
           are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
+          sign_in_disabled: You can access with an external account
+          sign_up_disabled: Sign up is disabled, you can use an existing user to access
       shared:
         newsletter_modal:
           buttons:
@@ -294,6 +388,51 @@ ru:
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
@@ -311,6 +450,53 @@ ru:
         email_intro: "«%{resource_title}» обновили. Вы можете посмотреть его на странице:"
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Great job! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+        level_up:
+          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        demoted_membership:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are no longer an admin of the %{user_group_name} group!
+          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
+        invited_to_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has invited you to join it.
+          email_outro: You have received this notification because you have been invited to an group. Please check the Groups tab in your profile to approve it.
+          email_subject: You have been invited to join the %{user_group_name} group!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> group. Check the <a href="%{groups_profile_tab_path}">Groups page</a> in your profile to approve it!
+        join_request_accepted:
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: You have been accepted to the %{user_group_name} group!
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> group.
+        join_request_created:
+          email_intro: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_url}">the group members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} group.
+          email_subject: Someone requested to join the %{user_group_name} group!
+          notification_title: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_path}">the group members page</a>.
+        join_request_rejected:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: Your request to join the %{user_group_name} group has been rejected!
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> group has been rejected.
+        promoted_to_admin:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has given you admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are now an admin of the %{user_group_name} group!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
+        removed_from_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed you from it.
+          email_outro: You have received this notification because you were a member of that group.
+          email_subject: You have been removed from the %{user_group_name} group!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
       users:
@@ -329,6 +515,7 @@ ru:
     filters:
       linked_classes:
         all: Все
+        collaborative_draft: Collaborative draft
         dummy_resource: Примеры ресурсов
         meeting: Встречи
         project: Проекты
@@ -360,6 +547,142 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    gamification:
+      all_badges_link: See all available badges.
+      badges:
+        continuity:
+          conditions: '["Come here often"]'
+          description: This badge is granted when you visit the platform in a regular way. We like having you around here!
+          description_another: This user has connected for %{score} consecutive days at some point.
+          description_own: You have connected for %{score} consecutive days at some point.
+          name: Continuity
+          next_level_in: Connect for %{score} consecutive days to get to the next level!
+          unearned_another: This user hasn't signed in for more than one consecutive day.
+          unearned_own: You haven't connected for more than one consecutive day.
+        followers:
+          conditions: '["Being active and following other people will surely make other people follow you."]'
+          description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
+          description_another: This user has %{score} followers.
+          description_own: "%{score} users are following you."
+          name: Followers
+          next_level_in: Get %{score} more users to follow you to reach the next level!
+          unearned_another: This user doesn't have any followers yet.
+          unearned_own: You've got no followers yet.
+        index:
+          badge_title: "%{name} badge"
+          how: How can you earn it
+          page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
+          title: Badges
+        invitations:
+          conditions: '["Use the “invite friends” link on your user page to invite your friends", "Customize, if you want, the message you are sending", "You’ll level up by sending invitations and getting them registered."]'
+          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
+          description_another: This user has invited %{score} users.
+          description_own: You have invited %{score} users.
+          name: Invitations
+          next_level_in: Invite %{score} more users to reach the next level!
+          unearned_another: This user hasn't invited any user yet.
+          unearned_own: You have invited no users yet.
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      level: Level %{level}
+      reached_top: You've reached the top level for this badge.
+    group_admins:
+      actions:
+        are_you_sure: Are you sure? This won't remove the user from the group.
+        demote_admin: Remove admin
+      demote:
+        error: There was an error removing this user from the admins list
+        success: User removed from admin successfully
+      index:
+        current_admins: 'Current admins:'
+        manage_admins: Manage admins
+    group_invites:
+      accept:
+        error: There was an error accepting this invitation
+        success: Invitation accepted successfully
+      accept_invitation: Accept
+      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
+      index:
+        invite: Invite
+        invite_user: Invite a user
+      invite:
+        error: There was an error inviting this user
+        success: User invited successfully
+      reject:
+        error: There was an error rejecting this invitation
+        success: Invitation rejected successfully
+      reject_invitation: Reject
+    group_members:
+      accept:
+        error: There was an error accepting this join request
+        success: Join request accepted successfully
+      actions:
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove user
+      index:
+        current_members_without_admins: 'Current members (without admins):'
+        manage_members: Manage members
+      promote:
+        error: There was an error promoting this user
+        success: User promoted successfully
+      reject:
+        error: There was an error rejecting this join request
+        success: Join request rejected successfully
+      remove:
+        error: There was an error removing this user from the group
+        success: User removed from the group successfully
+    groups:
+      actions:
+        are_you_sure: Are you sure?
+      create:
+        error: There has been a problem creating the group
+        success: Group created successfully
+      edit:
+        edit_user_group: Edit group
+        update_user_group: Update group
+      form:
+        document_number_help: Do not use dashes nor spaces
+        email_help: Email of your organization, association, collective, group, etc.
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
+        name_help: Name of your organization, association, collective, group, etc.
+        nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        phone_help: Do not use dashes nor spaces
+      join:
+        error: There has been a problem joining the group
+        success: Join request created successfully. An admin will review your request before accepting you to the group.
+      leave:
+        error: There has been a problem leaving the group
+        success: Group left successfully.
+      members:
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
+      new:
+        create_user_group: Create group
+        new_user_group: New group
+        subtitle: Create a group and invite other users to join to participate in a collective level.
+      no_user_groups: Doesn't belong to any group yet.
+      roles:
+        admin: Administrator
+        creator: Creator
+        member: Member
+      update:
+        error: There has been a problem updating the group
+        success: Group updated successfully
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
+          title: What can I do in %{organization}?
+        description: Read more about %{organization}
+        title: General Help
+    last_activities:
+      activities:
+        no_activities_warning: No activity
+      all: All activity types
+      index:
+        last_activity: Last activity
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -381,7 +704,10 @@ ru:
           not_found: 'Вид охвата не найден в базе данных (ID: %{id})'
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
+    members:
+      no_members: This user groups doesn't have any member yet.
     menu:
+      help: Help
       home: Главная
     messaging:
       conversation_mailer:
@@ -400,13 +726,32 @@ ru:
           error: Беседа не началась. Попробуйте позже
         index:
           no_conversations: У вас еще нет бесед
+          title: Conversations
         reply:
+          send: Send
           title: Ответить
+        show:
+          title: Conversation with %{usernames}
         start:
           send: Отправить
           title: Начать беседу
         update:
           error: Сообщение не отправлено. Попробуйте позже
+    metrics:
+      download:
+        csv: Download data (csv)
+      followers:
+        description: Number of user that follows in organization
+        object: followers
+        title: Followers
+      participants:
+        description: Number of active user in organization
+        object: participants
+        title: Participants
+      users:
+        description: Number of user in organization
+        object: users
+        title: Users
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
@@ -438,16 +783,27 @@ ru:
     notifications_settings:
       show:
         email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
+        everything_followed: Everything I follow
         newsletter_notifications: Я хочу получать рассылку новостей
+        newsletters: Newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Сохранить изменения
       update:
         error: При попытке обновить настройки уведомлений произошла ошибка.
         success: Ваши настройки уведомлений были успешно обновлены.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: В ожидании
         rejected: Отклонено
         verified: Проверено
+    pad_iframe:
+      disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
+      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      pad: Pad
     pages:
       home:
         extended:
@@ -466,10 +822,13 @@ ru:
         hero:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
+        metrics:
+          headline: Participation in figures
         statistics:
           answers_count: Пройденных опросов
           assemblies_count: Собраний
           comments_count: Комментариев
+          conferences_count: Conferences
           debates_count: Обсуждения
           endorsements_count: Выражений поддержки
           headline: Текущее состояние %{organization}
@@ -486,6 +845,16 @@ ru:
           votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
+      index:
+        read_more: Read more
+        standalone_pages: Pages
+        subheading: Navigate through the help pages of %{name}
+        title: Help
+        topics: Topics
+      participatory_space:
+        metrics:
+          headline: Participation in figures
+          link: Show all statistics
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.
@@ -510,12 +879,34 @@ ru:
       deleted: Удаленный участник
       view: Посмотреть
     profiles:
+      default_officialization_text: Texto de oficialización por defecto
+      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
+        activity: Activity
+        badges: Badges
         followers: Читают
         following: Следит за
+        groups: Groups
+        members: Members
+        timeline: Timeline
+        view_full_profile: View full profile
+      sidebar:
+        badges:
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
+        confirmation_instructions_sent: Email confirmation instructions sent
+        create_user_group: Create group
         edit_profile: Редактировать профиль
+        edit_user_group: Edit group profile
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        invite_user: Invite user
+        join_user_group: Request to join group
+        leave_user_group: Leave group
+        manage_user_group_admins: Manage admins
+        manage_user_group_users: Manage members
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -543,16 +934,32 @@ ru:
       results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
+      filters:
+        back: Back to results
+        jump_to: 'Jump to:'
+        state:
+          active: Active
+          all: All
+          future: Future
+          past: Past
       filters_small_view:
         close_modal: Закрыть окошко
         filter: Отобрать
         filter_by: 'Отобрать по признаку:'
         unfold: Развернуть
+      results:
+        results:
+          one: "%{count} result"
+          other: "%{count} results"
+        view_all: View all (%{count})
     shared:
       embed_modal:
         close_window: Закрыть окно
         embed: Пожалуйста, вставьте этот код в свою страницу
         embed_link: Встроить
+      extended_navigation_bar:
+        more: More
+        unfold: Unfold
       flag_modal:
         already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
         close: Закрыть
@@ -562,6 +969,8 @@ ru:
         report: Пожаловаться
         spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
         title: Пожаловаться на проблему
+      floating_help:
+        help: Help
       follow_button:
         sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
       login_modal:
@@ -577,14 +986,63 @@ ru:
         share_link: Поделиться ссылкой
       version_author:
         deleted: Удаленный участник
+    user_activity:
+      index:
+        no_activities_warning: This user hasn't had any activity yet.
+    user_interests:
+      show:
+        my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
+    welcome_notification:
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_subject: Thanks for joining {{organization}}!
   devise:
+    confirmations:
+      confirmed: Your email address has been successfully confirmed.
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
+    failure:
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid %{authentication_keys} or password.
+      invited: You have a pending invitation, accept it to finish creating your account.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid %{authentication_keys} or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
     invitations:
       edit:
         header: Завершите создание своей учетной записи
         nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
         subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
+      invitation_removed: Your invitation was removed.
+      invitation_token_invalid: The invitation token provided is not valid!
+      new:
+        header: Send invitation
+        submit_button: Send an invitation
+      no_invitations_remaining: No invitations remaining
+      send_instructions: An invitation email has been sent to %{email}.
+      updated: Your password was set successfully. You are now signed in.
+      updated_not_active: Your password was set successfully.
     mailer:
+      confirmation_instructions:
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
+        subject: Confirmation instructions
+      email_changed:
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your email is being changed to %{email}.
+        subject: Email Changed
       invitation_instructions:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
@@ -596,6 +1054,7 @@ ru:
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
+        subject: Invitation instructions
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
@@ -608,18 +1067,101 @@ ru:
         greeting: Здравствуйте, %{recipient}!
         message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
         subject: Пароль изменен
+      reset_password_instructions:
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password, and you can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
+        subject: Reset password instructions
+      unlock_instructions:
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        subject: Unlock instructions
+    omniauth_callbacks:
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
     passwords:
       edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
         new_password: Пароль
+      new:
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
+    registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
+      edit:
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      new:
+        sign_up: Sign up
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
+    sessions:
+      already_signed_out: Signed out successfully.
+      new:
+        sign_in: Log in
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
   doorkeeper:
     scopes:
       public: Обнародованные сведения о вас.
   errors:
     messages:
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_whitelist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
+      expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
+      long_words: contains words that are too long (over 35 characters)
+      must_start_with_caps: must start with a capital letter
       nesting_too_deep: не может быть внутри подкатегории
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: is using too many capital letters (over 25% of the text)
+      too_short: is too short (under 15 characters)
   forms:
     required: Обязательно
   invisible_captcha:
@@ -634,6 +1176,7 @@ ru:
       edit_link:
         edit: Редактировать
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
       header:
         close_menu: Закрыть меню
@@ -658,8 +1201,10 @@ ru:
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
         my_data: Мои данные
+        my_interests: My interests
         notifications_settings: Настройки уведомлений
         title: Настройки участника
+        user_groups: Groups
       widget:
         see_more: Читать подробнее
   locale:
@@ -702,6 +1247,10 @@ ru:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%H:%M %d.%m.%Y"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

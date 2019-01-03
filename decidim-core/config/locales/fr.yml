@@ -138,7 +138,7 @@ fr:
         amended_by: Modifié par
         button: Modifier la %{model_name}
         error: Il y a eu une erreur en modifiant cette ressource.
-        help_text: "Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}"
+        help_text: 'Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}'
         no_amenders: Il n'y a pas d'amendement
         no_amendments: Il n'y a pas de modification
         promote_button: Transformer en %{model_name}
@@ -708,7 +708,6 @@ fr:
     menu:
       help: Aidez-moi
       home: Accueil
-      more_information: Plus d'informations
     messaging:
       conversation_mailer:
         new_conversation:
@@ -879,6 +878,7 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
+      default_officialization_text: Texto de oficialización por defecto
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:

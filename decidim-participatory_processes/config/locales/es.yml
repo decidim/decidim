@@ -197,8 +197,6 @@ es:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
-        destroy:
-          success: Proceso participativo eliminado con éxito.
         edit:
           update: Actualizar
         form:
@@ -261,7 +259,7 @@ es:
         participatory_processes:
           contextual: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           page: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
-          title: '¿Qué es un proceso participativo?'
+          title: "¿Qué es un proceso participativo?"
     menu:
       processes: Procesos
     metrics:

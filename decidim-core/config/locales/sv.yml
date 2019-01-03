@@ -36,6 +36,9 @@ sv:
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
     models:
+      decidim/amendment:
+        one: Amendment
+        other: Amendments
       decidim/user:
         one: Inga användare
         other: användare
@@ -126,6 +129,59 @@ sv:
       user_group:
         reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
         verify: "%{user_name} verifierade användargruppen %{resource_name}"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+    amendments:
+      accepted:
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
+      amendable:
+        amended_by: Amended by
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        section_heading: Amendments (%{count})
+      created:
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
+      emendation:
+        actions:
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+        announcement:
+          accepted: |-
+            This emendation for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            This is an emendation for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
+      new:
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
+        send: Send emendation
+      promoted:
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
+      rejected:
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
+      review:
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept emendation
     anonymous_user: Anonym
     application:
       collection:
@@ -212,6 +268,7 @@ sv:
         name: Dummy Komponent
         settings:
           global:
+            amendments_enabled: Amendments enabled
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
@@ -327,6 +384,51 @@ sv:
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
         title: Sidan du söker kan inte hittas
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
@@ -637,6 +739,8 @@ sv:
         update:
           error: Meddelandet har inte skickats. Försök igen senare
     metrics:
+      download:
+        csv: Download data (csv)
       followers:
         description: Antal användare som följer i organisationen
         object: följare
@@ -680,11 +784,18 @@ sv:
     notifications_settings:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
+        everything_followed: Everything I follow
         newsletter_notifications: Jag vill få nyhetsbrev
+        newsletters: Newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Spara ändringar
       update:
         error: Det har uppstått ett fel vid uppdatering av dina notisinställningar.
         success: Dina inställningar för notiser har framgångsrikt uppdaterats.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: Pågående
@@ -769,6 +880,7 @@ sv:
       deleted: Ta bort användare
       view: Se
     profiles:
+      default_officialization_text: Texto de oficialización por defecto
       default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
@@ -785,14 +897,17 @@ sv:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
           title: Märken
       user:
+        confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
         edit_user_group: Redigera grupprofil
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
         invite_user: Bjud in användare
         join_user_group: Begär att gå med i gruppen
         leave_user_group: Lämna gruppen
         manage_user_group_admins: Hantera administratörer
         manage_user_group_users: Hantera medlemmar
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -875,6 +990,15 @@ sv:
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte någon aktivitet än.
+    user_interests:
+      show:
+        my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
     welcome_notification:
       default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
       default_subject: Tack för att du gick med {{organization}}!
@@ -1055,6 +1179,7 @@ sv:
       edit_link:
         edit: Redigera
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
         close_menu: Stäng meny
@@ -1079,6 +1204,7 @@ sv:
         authorizations: Auktoriseringar
         delete_my_account: Ta bort mitt konto
         my_data: Mitt data
+        my_interests: My interests
         notifications_settings: Notisinställningar
         title: Användarinställningar
         user_groups: Grupper

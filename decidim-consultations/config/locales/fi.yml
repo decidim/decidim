@@ -77,8 +77,6 @@ fi:
         create:
           error: Virhe uuden kuulemisen luonnissa.
           success: Kuuleminen luotu onnistuneesti.
-        destroy:
-          success: Kuuleminen poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:

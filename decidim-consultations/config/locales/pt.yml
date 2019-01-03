@@ -77,8 +77,6 @@ pt:
         create:
           error: Ocorreu um erro ao criar uma nova consulta.
           success: Consulta criada com sucesso.
-        destroy:
-          success: Consulta excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -109,6 +107,9 @@ pt:
             created_at: Criado em
             published: Publicados
             title: Título
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Criado em

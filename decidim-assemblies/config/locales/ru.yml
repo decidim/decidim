@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -31,6 +32,7 @@ ru:
         is_transparent: Прозрачное
         local_area: Участок организации
         meta_scope: Метаданные охвата
+        parent_id: Parent assembly
         participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Что решается
         participatory_structure: Как это решается
@@ -65,19 +67,19 @@ ru:
   activerecord:
     models:
       decidim/assembly:
-        one: Собрание
         few: Собрания
         many: Собраний
+        one: Собрание
         other: Собраний
       decidim/assembly_member:
-        one: Член президиума собрания
         few: Члена президиума собрания
         many: Членов президиума собрания
+        one: Член президиума собрания
         other: Членов президиума собрания
       decidim/assembly_user_role:
-        one: Роль участника собрания
         few: Роли участников собрания
         many: Ролей участников собрания
+        one: Роль участника собрания
         other: Ролей участников собрания
   decidim:
     admin:
@@ -87,8 +89,6 @@ ru:
         create:
           error: При попытке добавить новое собрание произошла ошибка.
           success: Собрание успешно добавлено.
-        destroy:
-          success: Собрание успешно удалено.
         edit:
           update: Обновить
         form:
@@ -223,6 +223,7 @@ ru:
             select_a_created_by: Укажите, кем создано
             select_an_area: Выберите участок
             select_an_assembly_type: Выберите вид собрания
+            select_parent_assembly: Select parent assembly
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             social_handlers: Социальные сети
         assembly_copies:
@@ -242,6 +243,9 @@ ru:
               not_ceased: Срок полномочий не истек
             filter_by: 'Отобрать по признаку:'
             search: Поиск
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum amount of elements to show
       assembly_members:
         index:
           members: Члены президиума
@@ -260,8 +264,21 @@ ru:
         city_council: Городской Совет
         others: Другие
         public: Граждане
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Собрания
+      last_activity:
+        new_assembly: New assembly
       pages:
         home:
           highlighted_assemblies:
@@ -318,12 +335,23 @@ ru:
         designated_on: 'Полномочия предоставлены:'
       index:
         title: Члены президиума
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          page: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          title: What are assemblies?
     log:
       value_types:
         assembly_presenter:
           not_found: 'Собрание не найдено в базе данных (ID: %{id})'
     menu:
       assemblies: Собрания
+    metrics:
+      assemblies:
+        description: Number of assemblies created
+        object: assemblies
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: не может быть пустым
@@ -333,11 +361,18 @@ ru:
         assembly:
           take_part: Принять участие
         index:
+          organizational_chart: Organizational chart
           promoted_assemblies: Рекомендуемые собрания
+          reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assemblies"
+            other: "%{count} assemblies"
         promoted_assembly:
           more_info: Дополнительные сведения
           take_part: Принять участие
       assembly_navigation:
+        assembly_member_menu_item: Members
         assembly_menu_item: Собрание
       assembly_widgets:
         show:

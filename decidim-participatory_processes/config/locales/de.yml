@@ -197,8 +197,6 @@ de:
         create:
           error: Beim Erstellen eines neuen partizipativen Prozesses ist ein Fehler aufgetreten.
           success: Partizipativer Prozess erfolgreich erstellt. Konfigurieren Sie jetzt seine Schritte.
-        destroy:
-          success: Participatory-Prozess wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         form:

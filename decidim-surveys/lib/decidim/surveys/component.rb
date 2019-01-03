@@ -29,7 +29,7 @@ Decidim.register_component(:surveys) do |component|
 
     raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
   end
-  
+
   component.on(:copy) do |context|
     survey = if context[:survey].nil?
                Decidim::Surveys::Survey.find_by(decidim_component_id: context[:old_component].id)

@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -105,8 +106,6 @@ es-PY:
         create:
           error: Hubo un error al crear una nueva conferencia.
           success: Conferencia creada con éxito.
-        destroy:
-          success: Conferencia borrada con éxito.
         edit:
           update: Actualizar
         exports:
@@ -477,8 +476,8 @@ es-PY:
           title: Tipos de inscripción
       shared:
         conference_user_login:
-          already_account: '¿Ya tienes una cuenta en decidim?'
-          new_user: '¿Nuevo usuario?'
+          already_account: "¿Ya tienes una cuenta en decidim?"
+          new_user: "¿Nuevo usuario?"
           sign_in: Inicie sesión para registrarse para la conferencia
           sign_up: Crear una cuenta en decidim para registrarse para la conferencia
       show:
@@ -507,6 +506,10 @@ es-PY:
         votes_count: Votos
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+        conference_registration_validation_pending:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
         conference_registrations_over_percentage:
           email_intro: Las ranuras ocupadas por la conferencia "%{resource_title}" superan el %{percentage}%.
           email_outro: Recibió esta notificación porque usted es administrador del espacio participativo de la conferencia.
@@ -522,6 +525,11 @@ es-PY:
           email_outro: Recibió esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: La conferencia "%{resource_title}" ha habilitado los registros.
           notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> ha permitido registros.
+        upcoming_conference:
+          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference is coming!
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
     log:
       value_types:
         conference_presenter:

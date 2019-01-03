@@ -92,12 +92,20 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
         weight: pisu
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Birbideratze URI SSL URI izan behar du
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
+              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
       decidim/static_page:
@@ -298,6 +306,11 @@ eu:
         logs_list:
           no_logs_yet: Ez dago oraindik erregistroik
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
           success: Kudeatutako erabiltzailea zuzen igo da mailaz.
@@ -354,6 +367,13 @@ eu:
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Erabiltzailea
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Sortze-data
@@ -406,6 +426,28 @@ eu:
             does_not_belong: Ez du zer ikusirik
             offensive: Iraingarria
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: " Errorea gertatu da buletin hau sortzean."
@@ -609,6 +651,8 @@ eu:
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile ustekabekoak
         impersonations: Ordezteak
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
@@ -618,6 +662,9 @@ eu:
       user:
         new: New
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
           success: Erabiltzaile taldea arrakastaz arbuiatua
@@ -637,6 +684,12 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatuta
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: Errorea gertatu da erabiltzaile honi gonbit egitean.

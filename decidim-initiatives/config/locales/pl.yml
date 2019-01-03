@@ -61,6 +61,7 @@ pl:
         initiatives:
           fields:
             created_at: Utworzono w
+            id: ID
             state: Stan
             supports_count: Obsługuje
             title: Inicjatywy
@@ -85,16 +86,26 @@ pl:
           email_subject: Data zakończenia podpisów inicjatywa!
           notification_title: Data zakończenia podpisów dla inicjatywy <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowy kamień milowy zakończony!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Idź do miejsca uczestnictwa Intiatives
-            - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
+          - Idź do miejsca uczestnictwa Intiatives
+          - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy uruchamiasz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
           description_own: Masz opublikowanych %{score} inicjatyw.
@@ -364,6 +375,7 @@ pl:
       states:
         accepted: Przyjęty
         expired: Przedawniony
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Inicjatywy
   layouts:

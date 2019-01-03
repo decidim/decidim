@@ -77,8 +77,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di una nuova consultazione.
           success: Consultazione creata con successo.
-        destroy:
-          success: Consultazione cancellata con successo.
         edit:
           update: Aggiornare
         form:
@@ -109,6 +107,9 @@ it:
             created_at: Creato a
             published: Pubblicato
             title: Titolo
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Creato a

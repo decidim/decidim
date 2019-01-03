@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -105,8 +106,6 @@ eu:
         create:
           error: Errore bat gertatu da konferentzia berri bat sortzean.
           success: Konferentzia ondo sortu da.
-        destroy:
-          success: Konferentzia zuzen ezabatu da.
         edit:
           update: eguneratzearen
         exports:
@@ -341,7 +340,7 @@ eu:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
-            registration: '''%{conference_title}'' izen-ematea'
+            registration: "'%{conference_title}' izen-ematea"
         partners:
           index:
             title: Bazkideak
@@ -381,7 +380,7 @@ eu:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
-          details_1: '%{registration_type} motako hitzaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
+          details_1: "%{registration_type} motako hitzaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:"
           details_2: Biltzarraren xehetasunak eranskinean aurkituko dituzu.
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
@@ -416,7 +415,7 @@ eu:
           collaborators: Bazkideak
           main_promotors: Antolatzaileak
         show:
-          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          login_as: "%{name} <%{email}> gisa erregistratuta zaude"
           make_conference_registration: 'Egin zure izen ematea hitzaldian:'
           register: Eman izena
       content_blocks:
@@ -472,7 +471,7 @@ eu:
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
-          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          login_as: "%{name} <%{email}> gisa erregistratuta zaude"
           register: Eman izena
           title: Izen-emate motak
       shared:
@@ -507,6 +506,10 @@ eu:
         votes_count: Botoak
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+        conference_registration_validation_pending:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
         conference_registrations_over_percentage:
           email_intro: Biltzarra "%{resource_title}" okupatutako slotak% %{percentage}baino gehiago dira.
           email_outro: Jakinarazpen hau jaso duzu, hitzaldiko parte hartzaileen gunea delako.
@@ -522,6 +525,11 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Kongresuaren "%{resource_title}" erregistroak gaitu ditu.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilkurak erregistroak gaitu ditu.
+        upcoming_conference:
+          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference is coming!
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
     log:
       value_types:
         conference_presenter:

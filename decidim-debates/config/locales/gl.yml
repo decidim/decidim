@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ gl:
           update:
             invalid: Houbo un problema ao actualizar este debate.
             success: Debate actualizado con éxito.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate
@@ -69,7 +73,7 @@ gl:
       debates:
         count:
           debates_count:
-            one: "Debate %{count}"
+            one: Debate %{count}
             other: "%{count} debates"
         create:
           invalid: Produciuse un problema ao crear o debate.
@@ -140,12 +144,12 @@ gl:
       badges:
         commented_debates:
           conditions:
-            - Escolle un debate aberto para participar
+          - Escolle un debate aberto para participar
           description: Este distintivo é concedido cando participas activamente nos diferentes debates deixando os teus comentarios.
           description_another: Este usuario participou en %{score} debates.
           description_own: Participaches en %{score} debates.
           name: Debates
-          next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
+          next_level_in: "¡Participa en %{score} debates máis para alcanzar o seguinte nivel!"
           unearned_another: Este usuario aínda non participou en ningún debate.
           unearned_own: Participaches nos debates aínda.
     metrics:

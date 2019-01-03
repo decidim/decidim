@@ -49,7 +49,15 @@ pl:
       admin:
         exports:
           survey_user_answers: Odpowiedzi na pytania użytkowników
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Podczas zapisywania ankiety wystąpiły błędy.
             success: Ankieta została zapisana pomyślnie.

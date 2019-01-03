@@ -106,8 +106,6 @@ de:
         create:
           error: Beim Erstellen einer neuen Konferenz ist ein Fehler aufgetreten.
           success: Konferenz erfolgreich erstellt
-        destroy:
-          success: Konferenz wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         exports:
@@ -508,6 +506,10 @@ de:
         votes_count: Stimmen
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+        conference_registration_validation_pending:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
         conference_registrations_over_percentage:
           email_intro: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
@@ -523,6 +525,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
           email_subject: Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht.
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz hat Registrierungen ermöglicht.
+        upcoming_conference:
+          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference is coming!
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
     log:
       value_types:
         conference_presenter:

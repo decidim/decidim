@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     models:
@@ -6,14 +7,14 @@ ru:
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Опрос
         few: Опроса
         many: Опросов
+        one: Опрос
         other: Опросов
       decidim/surveys/survey_answer:
-        one: Ответ
         few: Ответа
         many: Ответов
+        one: Ответ
         other: Ответов
   decidim:
     components:
@@ -39,14 +40,29 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Новый опрос в %{participatory_space_title}
           notification_title: Опрос <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> теперь открыт.
+    metrics:
+      survey_answers:
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
       admin:
         exports:
           survey_user_answers: Ответы участников на опрос
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: При попытке сохранить опрос произошли ошибки.
             success: Опрос успешно сохранен.
+      last_activity:
+        new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
         answer:
           invalid: При прохождении опроса произошли ошибки.

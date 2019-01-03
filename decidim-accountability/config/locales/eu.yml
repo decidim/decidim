@@ -206,7 +206,7 @@ eu:
         result_progress_updated:
           email_intro: '"%{resource_title}" emaitza, "%{proposal_title}" proposamena barne, orain% %{progress}osatuta dago. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hori jaso duzu "%{proposal_title}" jarraitzen duzulako eta proposamen hau "%{resource_title}" emaitza da. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{resource_title} aurrerapen eguneratzea'
+          email_subject: "%{resource_title} aurrerapen eguneratzea"
           notification_title: Emaitza <a href="%{resource_path}">%{resource_title}</a>, <a href="%{proposal_path}">%{proposal_title}</a>proposamena biltzen duena, orain% %{progress}osatu da.
     metrics:
       results:

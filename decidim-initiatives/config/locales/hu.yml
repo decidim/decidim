@@ -55,6 +55,7 @@ hu:
         initiatives:
           fields:
             created_at: 'Létrehozva:'
+            id: ID
             state: Állapot
             supports_count: Támogatás
             title: Kezdeményezések
@@ -79,16 +80,26 @@ hu:
           email_subject: Kezdeményezés aláírásának határideje kitolva!
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának határidejét kitolták.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: Új mérföldkő kész áll!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Menjen az Intiatives részvételi helyére
-            - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
+          - Menjen az Intiatives részvételi helyére
+          - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
           description: Ezt a jelvényt akkor kapja meg, ha új kezdeményezéseket indít el, és másokkal partnerséget hajt végre.
           description_another: Ez a felhasználó %{score} kezdeményezést kapott.
           description_own: "%{score} kezdeményezéseid közzétéve."
@@ -350,6 +361,7 @@ hu:
       states:
         accepted: Elfogadva
         expired: Lejárt
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Kezdeményezések
   layouts:

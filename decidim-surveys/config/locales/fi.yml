@@ -45,7 +45,15 @@ fi:
       admin:
         exports:
           survey_user_answers: Kyselyn vastaukset
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.

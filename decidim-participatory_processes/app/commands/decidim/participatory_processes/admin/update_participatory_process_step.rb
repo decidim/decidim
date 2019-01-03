@@ -49,8 +49,7 @@ module Decidim
             title: form.title,
             start_date: form.start_date,
             end_date: form.end_date,
-            description: form.description,
-            cta_text: form.cta_text
+            description: form.description
           }
         end
 

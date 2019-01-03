@@ -117,7 +117,7 @@ en:
               success: Verification rejected. User will be prompted to amend her documents
         authorizations:
           choose:
-            choose_a_type: "Please select how you want to be verified:"
+            choose_a_type: 'Please select how you want to be verified:'
             offline: Offline
             online: Online
             title: Verify yourself using your identity document

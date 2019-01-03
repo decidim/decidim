@@ -55,6 +55,7 @@ es-PY:
         initiatives:
           fields:
             created_at: Creado en
+            id: ID
             state: Estado
             supports_count: Apoyos
             title: Iniciativas
@@ -79,16 +80,26 @@ es-PY:
           email_subject: "¡Ampliado el términio de recogida de firmas para esta iniciativa!"
           notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: "¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!"
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "¡Nuevo hito completado!"
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ir al espacio de participación de Iniciativas.
-            - Sigue los pasos para crear una nueva iniciativa.
+          - Ir al espacio de participación de Iniciativas.
+          - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanza nuevas iniciativas, asociándose con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
@@ -101,7 +112,7 @@ es-PY:
         initiatives:
           contextual: "<p>Una iniciativa es una propuesta que puede ser promovida por cualquiera por iniciativa propia (independientemente de otros canales o espacios de participación) a través de la recopilación de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar una regulación, iniciar un proyecto). , cambiar el nombre de un departamento o una calle, etc.).</p> <p>Los promotores de una iniciativa pueden definir sus objetivos, obtener apoyo, debatir, difundir y definir puntos de encuentro donde se pueden recopilar firmas de los asistentes o debates abiertos a otros participantes.</p> <p>Ejemplos: una iniciativa puede recopilar firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o área de la organización. Durante el proceso de recolección de firmas, más personas pueden sumarse a esta demanda y llevarla adelante en la organización.</p>\n"
           page: "<p>Una iniciativa es una propuesta que puede ser promovida por cualquiera por iniciativa propia (independientemente de otros canales o espacios de participación) a través de la recopilación de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar una regulación, iniciar un proyecto). , cambiar el nombre de un departamento o una calle, etc.).</p> <p>Los promotores de una iniciativa pueden definir sus objetivos, obtener apoyo, debatir, difundir y definir puntos de encuentro donde se pueden recopilar firmas de los asistentes o debates abiertos a otros participantes.</p> <p>Ejemplos: una iniciativa puede recopilar firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o área de la organización. Durante el proceso de recolección de firmas, más personas pueden sumarse a esta demanda y llevarla adelante en la organización.</p>\n"
-          title: '¿Qué son las iniciativas?'
+          title: "¿Qué son las iniciativas?"
     initiatives:
       admin:
         committee_requests:
@@ -350,6 +361,7 @@ es-PY:
       states:
         accepted: Aceptado
         expired: Caducado
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Iniciativas
   layouts:

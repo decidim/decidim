@@ -2,6 +2,11 @@
 pt:
   activemodel:
     attributes:
+      config:
+        available_methods: Available methods
+        offline: Offline
+        offline_explanation: Instructions for offline verification
+        online: Online
       id_document_information:
         document_number: Número do documento (com letra)
         document_type: Tipo do documento
@@ -10,6 +15,8 @@ pt:
         document_type: Tipo do seu documento
         user: Do utilizador
         verification_attachment: Cópia digitalizada do seu documento
+      offline_confirmation:
+        email: User email
       postal_letter_address:
         full_address: Endereço completo
       postal_letter_confirmation:
@@ -21,6 +28,11 @@ pt:
     admin:
       menu:
         authorization_workflows: Verificações
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
@@ -71,6 +83,13 @@ pt:
           other: 'A participação é restrita aos usuários com qualquer um dos seguintes códigos postais: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Identity documents configuration
+              update: Update
+            update:
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
             create:
               error: A verificação não corresponde. Tente novamente ou rejeite a verificação para que o usuário possa corrigi-la
@@ -79,19 +98,36 @@ pt:
               introduce_user_data: Introduza os dados na imagem
               reject: Rejeitar
               verify: Verificar
+          offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
+            new:
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
+              verify: Verify
           pending_authorizations:
             index:
+              config: Config
+              offline_verification: Offline verification
               title: Verificações pendentes
               verification_number: 'Verificação # %{n}'
           rejections:
             create:
               success: Verificação rejeitada. O usuário será solicitado a alterar seus documentos
         authorizations:
+          choose:
+            choose_a_type: 'Please select how you want to be verified:'
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
             error: Ocorreu um problema ao carregar seu documento
             success: Documento carregado com sucesso
           edit:
             being_reviewed: Estamos revisando seus documentos. Você será verificado em breve
+            offline: Use offline verification
+            online: Use online verification
             rejection_clarity: Verifique se a informação está claramente visível na imagem carregada
             rejection_correctness: Verifique se as informações inseridas estão corretas
             rejection_notice: Ocorreu um problema com sua verificação. Por favor, tente novamente

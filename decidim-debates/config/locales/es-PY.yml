@@ -60,6 +60,9 @@ es-PY:
           update:
             invalid: Ha habido un problema al actualizar este debate.
             success: Debate actualizado con éxito.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -35,6 +36,9 @@ nl:
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
     models:
+      decidim/amendment:
+        one: Amendment
+        other: Amendments
       decidim/user:
         one: Geen gebruikers
         other: gebruikers
@@ -42,8 +46,8 @@ nl:
         one: Gebruikersgroep
         other: Gebruikersgroepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -125,6 +129,59 @@ nl:
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+    amendments:
+      accepted:
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
+      amendable:
+        amended_by: Amended by
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        section_heading: Amendments (%{count})
+      created:
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
+      emendation:
+        actions:
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+        announcement:
+          accepted: |-
+            This emendation for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            This is an emendation for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
+      new:
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
+        send: Send emendation
+      promoted:
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
+      rejected:
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
+      review:
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept emendation
     anonymous_user: Anoniem
     application:
       collection:
@@ -211,6 +268,7 @@ nl:
         name: Voorbeeld onderdeel
         settings:
           global:
+            amendments_enabled: Amendments enabled
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
@@ -326,6 +384,51 @@ nl:
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
         title: De opgevraagde pagina kan niet gevonden worden
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
@@ -445,7 +548,7 @@ nl:
       badges:
         continuity:
           conditions:
-            - Kom hier vaker
+          - Kom hier vaker
           description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
           description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
           description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
@@ -455,7 +558,7 @@ nl:
           unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
-            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen u."
@@ -470,9 +573,9 @@ nl:
           title: badges
         invitations:
           conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas, als u wilt, het bericht aan dat u verzendt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+          - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+          - Pas, als u wilt, het bericht aan dat u verzendt
+          - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om je in %{organization_name} te registreren en deelnemers te worden. Dank u voor u %{organization_name} bekend bij anderen en het helpen om de community uit te breiden!
           description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
           description_own: Je hebt %{score} gebruikers uitgenodigd.
@@ -636,6 +739,8 @@ nl:
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
     metrics:
+      download:
+        csv: Download data (csv)
       followers:
         description: Aantal gebruikers dat volgt in de organisatie
         object: volgelingen
@@ -679,11 +784,18 @@ nl:
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
+        everything_followed: Everything I follow
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
+        newsletters: Newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
         success: Uw notificatie instellingen zijn bijgewerkt.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: In behandeling
@@ -768,6 +880,7 @@ nl:
       deleted: Verwijderde gebruiker
       view: Uitzicht
     profiles:
+      default_officialization_text: Texto de oficialización por defecto
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
@@ -784,14 +897,17 @@ nl:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: badges
       user:
+        confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Maak een groep
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
         invite_user: Nodig gebruiker uit
         join_user_group: Verzoek om lid te worden van de groep
         leave_user_group: Verlaat groep
         manage_user_group_admins: Beheer beheerders
         manage_user_group_users: Leden beheren
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -808,6 +924,7 @@ nl:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     scopes:
+      global: Overall scope
       picker:
         cancel: Annuleer
         choose: Selecteer
@@ -873,6 +990,15 @@ nl:
     user_activity:
       index:
         no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.
+    user_interests:
+      show:
+        my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
@@ -1053,6 +1179,7 @@ nl:
       edit_link:
         edit: Bewerk
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
@@ -1077,6 +1204,7 @@ nl:
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
         my_data: Mijn data
+        my_interests: My interests
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: groepen

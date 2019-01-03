@@ -91,15 +91,27 @@ nl:
     events:
       meetings:
         meeting_closed:
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het event "%{resource_title}" is afgelopen
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
           email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
           email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
           notification_title: Het event <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Het aantal ingenomen plaatsen voor het even "%{resource_title}" is groter dan %{percentage}%.
           email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
@@ -129,7 +141,7 @@ nl:
       badges:
         attended_meetings:
           conditions:
-            - Registreer u in de vergaderingen die u wilt bijwonen
+          - Registreer u in de vergaderingen die u wilt bijwonen
           description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
@@ -183,6 +195,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
             success: Agenda succesvol bijgewerkt
         exports:
+          meetings: Meetings
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
@@ -362,6 +375,10 @@ nl:
           meeting_report: Bijeenkomst verslag
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
             one: "%{count} slot over"
             other: "%{count} slots over"

@@ -106,8 +106,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle conférence.
           success: Conférence créée avec succès.
-        destroy:
-          success: Conférence supprimée avec succès.
         edit:
           update: Mettre à jour
         exports:

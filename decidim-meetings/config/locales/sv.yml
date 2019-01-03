@@ -91,15 +91,27 @@ sv:
     events:
       meetings:
         meeting_closed:
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
           email_outro: Du har fått den här notifikationen eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från den föregående länken.
           email_subject: Mötet "%{resource_title}" stängdes
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: De upptagna platserna vid "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
@@ -129,7 +141,7 @@ sv:
       badges:
         attended_meetings:
           conditions:
-            - Registrera dig i de möten du vill delta i
+          - Registrera dig i de möten du vill delta i
           description: Detta märke beviljas när du deltar i flera möten mellan ansikte mot ansikte.
           description_another: Den här användaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.
@@ -183,6 +195,7 @@ sv:
             invalid: Det har blivit ett problem med att uppdatera den här dagordningen
             success: Dagordning uppdaterad
         exports:
+          meetings: Meetings
           registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
@@ -362,6 +375,10 @@ sv:
           meeting_report: Mötesrapport
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
             one: "%{count} slits kvar"
             other: "%{count} slits kvar"

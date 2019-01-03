@@ -55,6 +55,7 @@ gl:
         initiatives:
           fields:
             created_at: Creado en
+            id: ID
             state: Estado
             supports_count: Soporta
             title: Iniciativas
@@ -79,16 +80,26 @@ gl:
           email_subject: Data de finalización da sinatura de iniciativas estendida!
           notification_title: A data de finalización das sinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi prorrogada.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Novo fito rematado!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ir ao espazo de participación de Intiatives
-            - Segue os pasos para crear unha nova iniciativa
+          - Ir ao espazo de participación de Intiatives
+          - Segue os pasos para crear unha nova iniciativa
           description: Este distintivo concedeuse cando se lanzan novas iniciativas, se asocian con outras persoas para realizalas.
           description_another: Este usuario obtivo %{score} iniciativas publicadas.
           description_own: Tes publicado %{score} iniciativas.
@@ -350,6 +361,7 @@ gl:
       states:
         accepted: Aceptada
         expired: Vencido
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Iniciativas
   layouts:

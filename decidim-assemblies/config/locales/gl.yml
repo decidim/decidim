@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -82,8 +83,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
           success: Asemblea creada con éxito.
-        destroy:
-          success: Asemblea eliminouse con éxito.
         edit:
           update: Actualización
         form:
@@ -259,6 +258,17 @@ gl:
         city_council: Concello
         others: Outros
         public: Público
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Asembleas
       last_activity:

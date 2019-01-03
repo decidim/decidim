@@ -2,6 +2,11 @@
 ru:
   activemodel:
     attributes:
+      config:
+        available_methods: Available methods
+        offline: Offline
+        offline_explanation: Instructions for offline verification
+        online: Online
       id_document_information:
         document_number: Номер документа (с буквой)
         document_type: Вид документа
@@ -10,6 +15,8 @@ ru:
         document_type: Вид вашего документа
         user: Участник
         verification_attachment: Скан вашего документа
+      offline_confirmation:
+        email: User email
       postal_letter_address:
         full_address: Полный адрес
       postal_letter_confirmation:
@@ -21,6 +28,11 @@ ru:
     admin:
       menu:
         authorization_workflows: Пути подтверждения личности
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
@@ -50,6 +62,7 @@ ru:
         create:
           error: При попытке создать это подтверждение личности произошла ошибка.
           success: Вы успешно подтвердили свою личность.
+          unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
             another_dummy_authorization_handler: Проведите подтверждение, сравнив с другим примером подтверждения личности
@@ -72,6 +85,13 @@ ru:
           other: Участие ограничено участниками с почтовыми кодами %{postal_codes}.
       id_documents:
         admin:
+          config:
+            edit:
+              title: Identity documents configuration
+              update: Update
+            update:
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
             create:
               error: Подтверждение не сходится. Повторите попытку или отклоните проверку, чтобы участник мог ее исправить
@@ -80,19 +100,36 @@ ru:
               introduce_user_data: Введите данные на картинке
               reject: Отклонить
               verify: Подтвердить личность
+          offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
+            new:
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
+              verify: Verify
           pending_authorizations:
             index:
+              config: Config
+              offline_verification: Offline verification
               title: Подтверждения, ожидающие рассмотрения
               verification_number: 'Подтверждение #%{n}'
           rejections:
             create:
               success: Подтверждение личности отклонено. Участнику будет предложено внести изменения в документы
         authorizations:
+          choose:
+            choose_a_type: 'Please select how you want to be verified:'
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
             error: Не удалось загрузить ваш документ
             success: Документ успешно загружен
           edit:
             being_reviewed: Мы рассматриваем ваши документы. Ваша личность вскоре будет проверена
+            offline: Use offline verification
+            online: Use online verification
             rejection_clarity: Убедитесь, что в загруженном изображении ясно видны данные
             rejection_correctness: Убедитесь, что введенные данные верны
             rejection_notice: С проверкой вашей личности произошла ошибка. Пожалуйста, попробуйте еще раз
@@ -135,6 +172,20 @@ ru:
           update:
             error: Ваш проверочный код не соответствует нашему. Пожалуйста, еще раз проверьте письмо, которое мы вам отправили
             success: Поздравляем! Вы успешно прошли проверку
+      sms:
+        authorizations:
+          create:
+            error: There was a problem with your request
+            success: Thanks! We've sent an SMS to your phone.
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            send: Send me an SMS
+            title: Request your verification code
+          update:
+            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You've been successfully verified.
   errors:
     messages:
       uppercase_only_letters_numbers: должен содержать только прописные буквы и цифры

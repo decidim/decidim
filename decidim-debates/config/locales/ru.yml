@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ ru:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Обсуждение
         few: Обсуждения
         many: Обсуждений
+        one: Обсуждение
         other: Обсуждений
   decidim:
     components:
@@ -61,6 +62,9 @@ ru:
           update:
             invalid: При попытке обновить это обсуждение произошла ошибка.
             success: Обсуждение успешно обновлено.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Обсуждение
@@ -71,9 +75,9 @@ ru:
       debates:
         count:
           debates_count:
-            one: "%{count} обсуждение"
             few: "%{count} обсуждения"
             many: "%{count} обсуждений"
+            one: "%{count} обсуждение"
             other: "%{count} обсуждений"
         create:
           invalid: При попытке создать это обсуждение произошла ошибка.
@@ -104,6 +108,8 @@ ru:
           close_window: Закрыть окно
           share: Поделиться
           share_link: Поделиться ссылкой
+      last_activity:
+        new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
           fields:
@@ -115,10 +121,19 @@ ru:
       debates:
         create_debate_event:
           space_followers:
+            email_intro: |-
+              Hi,
+              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
             email_outro: Вы получили это уведомление, потому что вы следите за пространством соучастия %{space_title}. Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+            email_subject: New debate "%{resource_title}" on %{space_title}
             notification_title: В <a href="%{space_path}">%{space_title}</a> началось обсуждение <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
+            email_intro: |-
+              Hi,
+              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
             email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+            email_subject: New debate "%{resource_title}" by %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
         creation_disabled:
           email_intro: 'В %{participatory_space_title} уже нельзя начинать обсуждения. Вы можете принять участие в уже начатых обсуждениях на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -129,3 +144,19 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно начинать обсуждения
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность начинать <a href="%{resource_path}">новые обсуждения</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions: '["Choose an open debate to take part in"]'
+          description: This badge is granted when you actively participate in the different debates by leaving your comments.
+          description_another: This user has participated in %{score} debates.
+          description_own: You have participated in %{score} debates.
+          name: Debates
+          next_level_in: Participate in %{score} more debates to reach the next level!
+          unearned_another: This user hasn't participated in any debate yet.
+          unearned_own: You haven't participated in any debates yet.
+    metrics:
+      debates:
+        description: Number of debates created
+        object: debates
+        title: Debates

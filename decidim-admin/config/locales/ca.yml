@@ -92,12 +92,20 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         title: Títol
         weight: Pes
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: L'URL de redirecció ha de ser SSL
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
+              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
       decidim/static_page:
@@ -645,7 +653,6 @@ ca:
         impersonations: Suplantacions
         managed_users: Managed users
         navbar_links: Navbar links
-        officializations: Oficialitzacions
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -655,6 +662,9 @@ ca:
       user:
         new: New
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.
           success: Grup d'usuaris rebutjat amb èxit
@@ -674,6 +684,12 @@ ca:
             pending: Pendent
             rejected: Rebutjat
             verified: Verificat
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.

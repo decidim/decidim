@@ -85,8 +85,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
           success: Assemblée créée avec succès.
-        destroy:
-          success: L'assemblée a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:

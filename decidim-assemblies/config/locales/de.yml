@@ -83,8 +83,6 @@ de:
         create:
           error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
           success: Assembly wurde erfolgreich erstellt.
-        destroy:
-          success: Die Baugruppe wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         form:
@@ -260,6 +258,17 @@ de:
         city_council: Stadtrat
         others: Andere
         public: Öffentlichkeit
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Baugruppen
       last_activity:

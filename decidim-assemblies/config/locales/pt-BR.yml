@@ -83,8 +83,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
           success: Assembleia criada com sucesso.
-        destroy:
-          success: Assembleia excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -260,6 +258,17 @@ pt-BR:
         city_council: Câmara Municipal
         others: Outras
         public: Público
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Assembleias
       last_activity:

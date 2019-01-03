@@ -2,14 +2,25 @@
 uk:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Body
+        category_id: Category
+        decidim_scope_id: Scope
+        has_address: Has address
+        state: State
+        title: Title
+        user_group_id: Create collaborative draft as
       proposal:
+        address: Address
         answer: Відповісти
         answered_at: 'Отримано відповідь:'
+        automatic_hashtags: Hashtags automatically added
         body: Основний текст
         category_id: Категорія
         has_address: Має адресу
         scope_id: Обсяг
         state: Стан
+        suggested_hashtags: Suggested hashtags
         title: Назва
         user_group_id: Створити пропозицію як
       proposal_answer:
@@ -36,6 +47,9 @@ uk:
       decidim/proposals/voting_enabled_event: Увімкнене голосування по пропозиціям
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Collaborative draft
+        other: Collaborative drafts
       decidim/proposals/proposal:
         few: Пропозиції
         many: Пропозицій
@@ -67,13 +81,17 @@ uk:
         name: Пропозиції
         settings:
           global:
+            amendments_enabled: Amendments enabled
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
             can_accumulate_supports_beyond_threshold: Можна накопичувати прояви підтримки більше порогового значення
+            collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Коментарі увімкнено
             geocoding_enabled: Геокодування увімкнено
+            minimum_votes_per_user: Minimum votes per user
             new_proposal_help_text: Підказки зі внесення нової пропозиції
             official_proposals_enabled: Службові пропозиції увімкнено
+            participatory_texts_enabled: Participatory texts enabled
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Гранична довжина основного тексту пропозиції
@@ -87,17 +105,57 @@ uk:
             vote_limit: Гранична кількість голосів від одного учасника
           step:
             announcement: Оголошення
+            automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Коментарі вимкнено
             creation_enabled: Внесення пропозицій увімкнено
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
+            suggested_hashtags: Hashtags suggested to users for new proposals
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування ввімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
             votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: You have been accepted as a contributor of %{resource_title}.
+          notification_title: You have been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_access_requester_rejected:
+          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: You have been rejected as a contributor of %{resource_title}.
+          notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -109,34 +167,69 @@ uk:
           email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">підтримувати пропозиції</a>
         proposal_accepted:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal has been accepted
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
           email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: Пропозиція, за якою ви стежите, була прийнята
+          follower:
+            email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following has been accepted
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
+          email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed the "%{resource_title}" proposal and we think it may be interesting to you. Check it out and contribute:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{endorser_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: "%{endorser_nickname} підтримав нову пропозицію"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> підтримав пропозицію <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal is being evaluated
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
           email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: Пропозиція, за якою ви стежите, зараз розглядається
+          follower:
+            email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following is being evaluated
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
           notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
+          email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
         proposal_published:
+          email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: New proposal "%{resource_title}" by %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> оприлюднив пропозицію <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
           notification_title: До %{participatory_space_title} було додано пропозицію <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal been rejected
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
           email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: Пропозиція, за якою ви стежите, була відхилена
+          follower:
+            email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following has been rejected
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Адміністратор оновив категорію вашої пропозиції "%{resource_title}", перевірте її:'
@@ -148,15 +241,66 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось голосування щодо пропозицій
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions: '["Choose the participation space of your interest with submission for proposals enabled", "Try to make proposals that can be carried out. This way they are more likely to be accepted."]'
+          description: This badge is granted when you actively participate with new proposals and these are accepted.
+          description_another: This user has gotten %{score} proposals accepted.
+          description_own: You got %{score} proposals accepted.
+          name: Accepted proposals
+          next_level_in: Get %{score} more proposals accepted to reach the next level!
+          unearned_another: This user hasn't gotten any proposals accepted yet.
+          unearned_own: You got no proposals accepted yet.
+        proposal_votes:
+          conditions: '["Browse and spend some time reading other people''s proposals", "Give support to the proposals you like or find interesting"]'
+          description: This badge is granted when you support other people's proposals.
+          description_another: This user has given support to %{score} proposals.
+          description_own: You have given support to %{score} proposals.
+          name: Proposal supports
+          next_level_in: Give support to %{score} more proposals to reach the next level!
+          unearned_another: This user hasn't given support to any proposals yet.
+          unearned_own: You have given support to no proposals yet.
+        proposals:
+          conditions: '["Choose the participation space of your interest with submission for proposals enabled", "Create a new proposal"]'
+          description: This badge is granted when you actively participate with new proposals.
+          description_another: This user has created %{score} proposals.
+          description_own: You have created %{score} proposals.
+          name: Proposals
+          next_level_in: Create %{score} more proposals to reach the next level!
+          unearned_another: This user hasn't created any proposals yet.
+          unearned_own: You have created no proposals yet.
+    metrics:
+      accepted_proposals:
+        description: Number of proposals accepted by users
+        object: proposals
+        title: Accepted Proposals
+      endorsements:
+        description: Number of endorsements generated in proposals
+        object: endorsements
+        title: Endorsements
+      proposals:
+        description: Number of proposals generated
+        object: proposals
+        title: Proposals
+      votes:
+        description: Number of votes generated in proposals by users
+        object: votes
+        title: Votes
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Пропозиції
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: See all (%{count})
     proposals:
       actions:
         answer: Відповісти
+        edit_proposal: Edit proposal
         import: Запозичити з іншої складової
         new: Додати нову пропозицію
+        participatory_texts: Participatory texts
         private_notes: Приватні примітки
         title: Дії
       admin:
@@ -168,6 +312,28 @@ uk:
         models:
           proposal:
             name: Пропозиція
+        participatory_texts:
+          bulk-actions:
+            import_doc: Import document
+          import:
+            invalid: The form is invalid!
+            success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+          index:
+            info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+            publish_document: Publish document
+            title: PREVIEW PARTICIPATORY TEXT
+          new_import:
+            bottom_hint: "(You will be able to preview and sort document sections)"
+            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: Markdown'
+            title: ADD DOCUMENT
+            upload_document: Upload document
+          publish:
+            invalid: Could not publish proposals
+            success: All proposals have been published
+          sections:
+            article: "<em>Article</em>"
+            section: "<em>Section:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsection:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Прийнято
@@ -191,14 +357,24 @@ uk:
           create:
             invalid: При спробі створити цю пропозицію сталася помилка
             success: Пропозицію успішно внесено
+          edit:
+            title: Update proposal
+            update: Update
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
+            created_in_meeting: This proposal comes from a meeting
             select_a_category: Оберіть категорію
+            select_a_meeting: Select a meeting
           index:
             actions: Дії
             cancel: Скасувати
             change_category: Змінити категорію
+            merge: Merge into a new one
+            merge_button: Merge
+            select_component: Select a component
             selected: обрані
+            split: Split proposals
+            split_button: Split
             title: Пропозиції
             update: Оновити
           new:
@@ -218,6 +394,14 @@ uk:
             no_components: У цьому просторі співучасті немає інших складових пропозицій, звідки можна було б запозичити пропозиції.
             select_component: Будь ласка, оберіть складову
             select_states: Перевірте стани пропозицій, які бажаєте запозичити
+        proposals_merges:
+          create:
+            invalid: There was an error merging the selected proposals.
+            success: Successfully merged the proposals into a new one.
+        proposals_splits:
+          create:
+            invalid: There was an error spliting the selected proposals.
+            success: Successfully splitted the proposals into new ones.
         shared:
           info_proposal:
             body: Основний текст
@@ -228,6 +412,7 @@ uk:
         proposal:
           answer: "%{user_name} відповів на пропозицію %{resource_name} у просторі %{space_name}"
           create: "%{user_name} вніс пропозицію %{resource_name} у просторі %{space_name} як службову"
+          update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} залишив приватну нотатку щодо пропозиції %{resource_name} у просторі %{space_name}"
       answers:
@@ -238,17 +423,149 @@ uk:
         withdrawn: Відкликана
       application_helper:
         filter_origin_values:
+          all: All
           citizens: Громадяни
+          meetings: Meetings
           official: Службове
+          user_groups: User groups
         filter_state_values:
+          accepted: Accepted
+          all: All
+          evaluating: Evaluating
           except_rejected: Усі, окрім відхилених
+          rejected: Rejected
+        filter_type_values:
+          all: All
+          amendments: Amendments
+          proposals: Proposals
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: There's been errors when publishing the collaborative draft.
+            irreversible_action_modal:
+              body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
+              cancel: Cancel
+              ok: Publish as a Proposal
+              title: The following action is irreversible
+            success: Collaborative draft published successfully as a proposal.
+          view_collaborative_draft: View Collaborative Draft
+          withdraw:
+            error: There's been errors closing the collaborative draft.
+            irreversible_action_modal:
+              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
+              cancel: Cancel
+              ok: Withdraw the collaborative draft
+              title: The following action is irreversible
+            success: Collaborative draft withdrawn successfully.
+        compare:
+          mine_is_different: My collaborative draft is different
+          no_similars_found: Well done! No similar collaborative drafts found
+          title: Similar collaborative drafts
+        complete:
+          send: Send
+          title: Complete your collaborative draft
+        count:
+          drafts_count:
+            one: "%{count} collaborative draft"
+            other: "%{count} collaborative draft"
+        create:
+          error: There's been a problem creating this collaborative drafts
+          success: Collaborative draft successfully created.
+        edit:
+          attachment_legend: "(Optional) Add an attachment"
+          back: Back
+          select_a_category: Please select a category
+          send: Send
+          title: Edit collaborative draft
+        filters:
+          all: All
+          amendment: Amendments
+          category: Category
+          category_prompt: Category Prompt
+          open: Open
+          published: Published
+          related_to: Related to
+          search: Search
+          state: State
+          withdrawn: Withdrawn
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        new:
+          send: Continue
+          title: Create Your collaborative draft
+        new_collaborative_draft_button:
+          new_collaborative_draft: New collaborative draft
+        orders:
+          label: 'Order drafts by:'
+          most_contributed: Most contributed
+          random: Random
+          recent: Recent
+        requests:
+          accepted_request:
+            error: Could not be accepted as a collaborator, try again later.
+            success: "@%{user} has been accepted as a collaborator successfully"
+          access_requested:
+            error: Your request could not be completed, try again later.
+            success: Your request to collaborate has been sent successfully
+          collaboration_requests:
+            accept_request: Accept
+            reject_request: Reject
+            title: Collaboration requests
+          rejected_request:
+            error: Could not be rejected as a collaborator, try again later.
+            success: "@%{user} has been rejected as a collaborator successfully"
+        show:
+          back: Back
+          edit: Edit collaborative draft
+          final_proposal: final proposal
+          final_proposal_help_text: This draft is finished. You can see the final finished proposal
+          hidden_authors_count:
+            one: and %{count} more person
+            other: and %{count} more people
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
+          of_versions: "(of %{number})"
+          publish: Publish
+          publish_info: Publish this version of the draft or
+          published_proposal: published proposal
+          request_access: Request access
+          requested_access: Access requested
+          see_other_versions: see other versions
+          version: Version %{number}
+          version_history: see version history for this proposal
+          withdraw: withdraw the draft
+        states:
+          open: Open
+          published: Published
+          withdrawn: Withdrawn
+        update:
+          error: There's been errors when saving the collaborative draft.
+          success: Collaborative draft updated successfully.
+        wizard_aside:
+          back: Back
+          info: You are creating a <strong>collaborative draft</strong>.
+        wizard_steps:
+          see_steps: see steps
+          step_1: Create your collaborative draft
+          step_2: Compare with collaborative drafts
+          step_3: Complete your collaborative draft
+          step_of: Step %{current_step_num} of %{total_steps}
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
       destroy_draft:
         error: При спробі видалити чернетку цієї пропозиції сталися помилки.
         success: Чернетку пропозиції успішно видалено.
+      last_activity:
+        new_proposal_at_html: "<span>New proposal at %{link}</span>"
       models:
+        collaborative_draft:
+          fields:
+            authors: Authors
+            comments: Comments
+            contributions: Contributions
         proposal:
           fields:
             category: Категорія
@@ -264,6 +581,13 @@ uk:
             votes: Голоси
       new:
         limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
+      participatory_text_proposal:
+        alternative_title: There are no participatory texts at the moment
+        buttons:
+          amend: Amend
+          comment: Comment
+          comments: Comments
+          endorse: Endorse
       proposal_endorsements:
         create:
           error: При спробі надати підтримку цій пропозиції виникла помилка.
@@ -293,9 +617,14 @@ uk:
             many: "%{count} пропозицій"
             one: 1 пропозиція
             other: "%{count} пропозицій"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
+          not_geocoded: Not geocoded
           select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Редагувати пропозицію
@@ -310,6 +639,7 @@ uk:
           comments: Коментарі
         filters:
           activity: Діяльність
+          amendment_type: Type
           category: Категорія
           category_prompt: Оберіть категорію
           origin: Джерело
@@ -323,6 +653,7 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         index:
+          collaborative_drafts_list: Access collaborative drafts
           new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
@@ -340,8 +671,17 @@ uk:
           most_voted: Отримали найбільше голосів
           random: Довільно
           recent: Нещодавні
+        participatory_texts:
+          index:
+            document_index: Document index
+          view_index:
+            see_index: See index
+        placeholder:
+          address: 32 rue des cascades 75020 Paris
         preview:
+          address: 'Address: %{address}'
           modify: Внести зміни в пропозицію
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             few: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             many: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
@@ -349,10 +689,12 @@ uk:
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
+          update_pos: Update the position
         proposal:
           creation_date: 'Внесено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
+          back_to: Back to
           edit_proposal: Редагувати пропозицію
           endorsements_list: Перелік тих, хто підтримав
           hidden_endorsers_count:
@@ -360,13 +702,12 @@ uk:
             many: і ще %{count} людей
             one: і ще 1 особа
             other: і ще %{count} людей
+          link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
+          link_to_collaborative_draft_text: See the collaborative draft
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Поскаржитись
-          sign_in: Увійдіть
-          sign_in_or_up: "%{in} або %{up}, щоб взяти участь"
-          sign_up: зареєструйтесь
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
           withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
           withdraw_proposal: Зняти пропозицію
@@ -380,6 +721,10 @@ uk:
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
           votes_blocked: Голосування вимкнене
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             few: ГОЛОСИ
@@ -388,9 +733,15 @@ uk:
             other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
+        votes_weight:
+          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
+          minimum_votes_per_user:
+            description: You must distribute a minimum of %{votes} votes among different proposals.
+            given_enough_votes: You've given enough supports.
+            supports_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
           threshold_per_proposal:
@@ -419,6 +770,21 @@ uk:
       update_draft:
         error: При спробі збереження чернетки цієї пропозиції сталися помилки.
         success: Чернетку пропозиції успішно оновлено.
+      versions:
+        changes_at_title: Changes at "%{title}"
+        index:
+          title: Versions
+        stats:
+          back_to_collaborative_draft: Go back to collaborative draft
+          back_to_proposal: Go back to proposal
+          number_of_versions: Versions
+          show_all_versions: Show all versions
+          version_author: Version author
+          version_created_at: Version created at
+          version_number: Version number
+          version_number_out_of_total: "%{current_version} out of %{total_count}"
+        version:
+          version_index: Version %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Супутні пропозиції

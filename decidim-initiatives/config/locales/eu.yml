@@ -55,6 +55,7 @@ eu:
         initiatives:
           fields:
             created_at: Sortutako at
+            id: ID
             state: Estatu
             supports_count: euskarri
             title: Ekimenak
@@ -79,16 +80,26 @@ eu:
           email_subject: Ekimenaren sinadurak amaiera data luzatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenaren amaierako data luzatu egin da.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: "%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!"
           email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Mugarri berria osatu da!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Joan zaitez Intiatives-ko partaidetza eremura
-            - Jarraitu urrats berriak ekimen berri bat sortzeko
+          - Joan zaitez Intiatives-ko partaidetza eremura
+          - Jarraitu urrats berriak ekimen berri bat sortzeko
           description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
           description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
           description_own: Argitaratutako %{score} ekimen dituzu.
@@ -350,6 +361,7 @@ eu:
       states:
         accepted: Onartu
         expired: iraungi
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Ekimenak
   layouts:

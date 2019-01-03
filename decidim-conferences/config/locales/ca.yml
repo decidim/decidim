@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -105,8 +106,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova conferència.
           success: La conferència s'ha creat correctament.
-        destroy:
-          success: La conferència s'ha suprimit correctament.
         edit:
           update: Actualitzar
         exports:
@@ -507,6 +506,10 @@ ca:
         votes_count: Vots
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+        conference_registration_validation_pending:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la conferència "%{resource_title}" ocupen més del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets administrador de la conferència.
@@ -522,6 +525,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la conferència "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: S'han activat les inscripcions per a la conferència "%{resource_title}".
           notification_title: S'han activat les inscripcions per a la conferència <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference is coming!
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
     log:
       value_types:
         conference_presenter:

@@ -40,6 +40,8 @@ ru:
           update:
             invalid: При попытке сохранить пост произошли ошибки.
             success: Пост успешно сохранен
+      last_activity:
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     models:
@@ -6,14 +7,14 @@ uk:
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Опитування
         few: Опитування
         many: Опитувань
+        one: Опитування
         other: Опитувань
       decidim/surveys/survey_answer:
-        one: Відповідь
         few: Відповіді
         many: Відповідей
+        one: Відповідь
         other: Відповідей
   decidim:
     components:
@@ -39,14 +40,29 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Нове опитування в %{participatory_space_title}
           notification_title: В <a href="%{participatory_space_url}">%{participatory_space_title}</a> почалось опитування <a href="%{resource_path}">%{resource_title}</a>.
+    metrics:
+      survey_answers:
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
       admin:
         exports:
           survey_user_answers: Відповіді учасників на опитування
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: При спробі збереження цього опитування сталися помилки.
             success: Опитування успішно збережено.
+      last_activity:
+        new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
         answer:
           invalid: При відповідях на опитування сталися помилки.

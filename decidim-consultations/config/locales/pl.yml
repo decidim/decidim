@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -39,24 +40,24 @@ pl:
   activerecord:
     models:
       decidim/consultation:
-        one: Konsultacja
         few: Konsultacje
         many: Konsultacje
+        one: Konsultacja
         other: Konsultacje
       decidim/consultations/question:
-        one: Pytanie
         few: pytania
         many: pytania
+        one: Pytanie
         other: pytania
       decidim/consultations/response:
-        one: Odpowiedź
         few: Odpowiedzi
         many: Odpowiedzi
+        one: Odpowiedź
         other: Odpowiedzi
       decidim/consultations/vote:
-        one: Głosować
         few: Głosować
         many: Głosować
+        one: Głosować
         other: Głosować
   decidim:
     admin:
@@ -84,8 +85,6 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacje zostały pomyślnie utworzone.
-        destroy:
-          success: Konsultacja została pomyślnie usunięta.
         edit:
           update: Aktualizacja
         form:
@@ -117,9 +116,9 @@ pl:
             published: Opublikowany
             title: Tytuł
           name:
-            one: Konsultacja
             few: Konsultacje
             many: Konsultacje
+            one: Konsultacja
             other: Konsultacje
         question:
           fields:
@@ -127,18 +126,18 @@ pl:
             published: Opublikowany
             title: Tytuł
           name:
-            one: Pytanie
             few: pytania
             many: pytania
+            one: Pytanie
             other: pytania
         response:
           fields:
             created_at: Utworzono w
             title: Tytuł
           name:
-            one: Odpowiedź
             few: Odpowiedzi
             many: Odpowiedzi
+            one: Odpowiedź
             other: Odpowiedzi
       question_publications:
         create:
@@ -207,9 +206,9 @@ pl:
           name: Wyróżnione konsultacje
       count:
         title:
-          one: "%{count} konsultacja"
           few: "%{count} konsultacji"
           many: "%{count} konsultacji"
+          one: "%{count} konsultacja"
           other: "%{count} konsultacji"
       filters:
         active: Aktywny
@@ -236,18 +235,18 @@ pl:
             active_consultations: Aktywne konsultacje
             see_all_consultations: Zobacz wszystkie konsultacje
             voting_ends_in:
-              one: Głosowanie kończy się na <strong>jutro</strong>
               few: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
               many: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
+              one: Głosowanie kończy się na <strong>jutro</strong>
               other: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
             voting_ends_today: Głosowanie kończy się dzisiaj <strong></strong>
       question:
         take_part: Wziąć udział
         view_results: Pokaż wyniki
         votes_out_of:
-          one: zagłosuj na
           few: głosów z
           many: głosów z
+          one: zagłosuj na
           other: głosów z
       question_votes:
         create:

@@ -68,6 +68,8 @@ sv:
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         loading: Laddar kommentarer...
         title: "%{count} kommentarer"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

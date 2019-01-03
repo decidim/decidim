@@ -83,8 +83,6 @@ eu:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
           success: Batzarra zuzen sortu da.
-        destroy:
-          success: Batzarra zuzen ezabatu da.
         edit:
           update: Eguneratu
         form:
@@ -171,6 +169,7 @@ eu:
             promoted: Nabarmendua
             published: Argitaratua
             title: Prozesu partizipatiboen multzoak
+          name: Assembly
         assembly_member:
           fields:
             ceased_date: Data amaitua
@@ -259,6 +258,17 @@ eu:
         city_council: Udaletxea
         others: Beste batzuk
         public: Publiko
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Biltzarrak
       last_activity:

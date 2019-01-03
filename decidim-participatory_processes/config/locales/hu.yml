@@ -197,8 +197,6 @@ hu:
         create:
           error: Hiba történt egy új részvételi folyamat létrehozása során.
           success: Részvételi folyamat létrehozása sikeres. Állítsd be a lépéseit.
-        destroy:
-          success: Részvételi folyamat törlése sikeres.
         edit:
           update: Frissítés
         form:

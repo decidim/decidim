@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -27,9 +28,9 @@ pl:
   activerecord:
     models:
       decidim/accountability/result:
-        one: Wynik
         few: Wyniki
         many: Wyniki
+        one: Wynik
         other: Wyniki
   decidim:
     accountability:
@@ -142,9 +143,9 @@ pl:
       results:
         count:
           results_count:
-            one: 1 wynik
             few: "%{count} wyników"
             many: "%{count} wyniki"
+            one: 1 wynik
             other: "%{count} wyników"
         filters:
           all: Wszystkie

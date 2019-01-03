@@ -45,7 +45,15 @@ gl:
       admin:
         exports:
           survey_user_answers: Enquisas respostas dos usuarios
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Houbo erros ao gardar a enquisa.
             success: A enquisa gardouse correctamente.

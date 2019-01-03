@@ -77,8 +77,6 @@ eu:
         create:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
-        destroy:
-          success: Kontsulta ezabatu da.
         edit:
           update: eguneratzearen
         form:
@@ -109,6 +107,9 @@ eu:
             created_at: Sortutako at
             published: Argitaratutako
             title: Izenburua
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Sortutako at

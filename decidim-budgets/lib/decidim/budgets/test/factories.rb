@@ -28,8 +28,8 @@ FactoryBot.define do
 
     trait :with_vote_per_project do
       transient do
-        total_projects 5
-        vote_per_project true
+        total_projects { 5 }
+        vote_per_project { true }
       end
 
       settings do

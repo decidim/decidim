@@ -45,7 +45,15 @@ fr:
       admin:
         exports:
           survey_user_answers: Réponses des participants à l'enquête
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.

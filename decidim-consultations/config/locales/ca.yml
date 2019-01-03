@@ -77,8 +77,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova consulta.
           success: S'ha creat la consulta amb èxit.
-        destroy:
-          success: S'ha eliminat la consulta amb èxit.
         edit:
           update: Actualització
         form:

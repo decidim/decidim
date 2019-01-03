@@ -64,6 +64,10 @@ ru:
         update:
           error: При попытке обновить эту организацию произошла ошибка.
           success: Организация успешно обновлена.
+        users_registration_mode:
+          disabled: Access only can be done with external accounts
+          enabled: Allow users to register and login
+          existing: Don't allow users to register, but allow existing users to login
       shared:
         notices:
           no_organization_warning_html: Для начала определите организацию. Обязательно почитайте %{guide}, прежде чем продолжать дальше.

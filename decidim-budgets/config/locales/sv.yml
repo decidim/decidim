@@ -10,6 +10,9 @@ sv:
         proposal_ids: Relaterade förslag
         title: Titel
   activerecord:
+    errors:
+      messages:
+        equal_to: must be equal to %{count}
     models:
       decidim/budgets/project:
         one: Projekt
@@ -39,6 +42,9 @@ sv:
           edit:
             title: Redigera projekt
             update: Uppdatera
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Avslutade röster
             pending_orders: Pågående röster
@@ -65,6 +71,7 @@ sv:
       models:
         project:
           fields:
+            map: Map
             title: Titel
       projects:
         budget_confirm:
@@ -85,6 +92,8 @@ sv:
           checked_out:
             description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetomröstning slutförd
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Du bestämmer budgeten
         count:
           projects_count:
@@ -99,14 +108,34 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Rösta
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Avlägsna
           selected_projects:
             one: valt projekt
             other: valda projekt
+          total_projects:
+            one: projet
+            other: projets
           view: Visa
+          vote: Voter
         project:
           add: Lägg till
           count:
@@ -129,9 +158,13 @@ sv:
           global:
             announcement: Notis
             comments_enabled: Kommentarer aktiverade
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Projekt per sida
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             total_budget: Total budget
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Tröskel för röster i procent
           step:
             announcement: Notis

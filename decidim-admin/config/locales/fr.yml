@@ -25,7 +25,7 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: "Rang d'affichage"
+        weight: Rang d'affichage
       id: ID
       newsletter:
         body: Corps de texte
@@ -653,7 +653,6 @@ fr:
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs gérés
         navbar_links: Liens Navbar
-        officializations: Validation d'utilisateurs
         participants: Participants
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application

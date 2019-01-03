@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -44,7 +45,15 @@ nl:
       admin:
         exports:
           survey_user_answers: Enquête gebruikersantwoorden
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Er zijn fouten geweest bij het opslaan van de enquête.
             success: Enquête succesvol opgeslagen.

@@ -19,7 +19,6 @@ module Decidim::ParticipatoryProcesses
         description: { en: "new description" },
         start_date: start_date,
         end_date: end_date,
-        cta_text: { en: "SEE" },
         invalid?: invalid
       )
     end

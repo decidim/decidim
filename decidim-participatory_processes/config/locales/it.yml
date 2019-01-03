@@ -100,6 +100,7 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
+          name: Participatory process
         participatory_process_group:
           fields:
             name: Nome
@@ -196,8 +197,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione del processo partecipativo.
           success: Il processo partecipativo è stato creato con successo. Configura ora i suoi passaggi.
-        destroy:
-          success: Processo partecipativo cancellato con successo.
         edit:
           update: Modifica
         form:

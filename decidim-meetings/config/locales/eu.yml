@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -90,15 +91,27 @@ eu:
     events:
       meetings:
         meeting_closed:
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" bilera itxita zegoen'
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
         meeting_created:
           email_intro: Bilera "%{resource_title}" | gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Bilera berria %{participatory_space_title}
           notification_title: Bilera <a href="%{resource_path}">%{resource_title}</a> gehitu da %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
           email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
@@ -128,12 +141,12 @@ eu:
       badges:
         attended_meetings:
           conditions:
-            - Parte hartu nahi duzun bileretan izena eman
+          - Parte hartu nahi duzun bileretan izena eman
           description: Idazmahaia hainbat aurpegi bileretara joaten zarenean ematen da.
           description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
-          description_own: '%{score} bileretan parte hartu duzu.'
+          description_own: "%{score} bileretan parte hartu duzu."
           name: Bilera parte hartzera
-          next_level_in: '%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!'
+          next_level_in: "%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!"
           unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
           unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
@@ -182,6 +195,7 @@ eu:
             invalid: Arazo bat izan da agenda hau eguneratzean
             success: Agenda ondo eguneratu da
         exports:
+          meetings: Meetings
           registrations: Izen-emateak
         invite_join_meeting_mailer:
           invite:
@@ -276,7 +290,7 @@ eu:
               one: Dena den, %{count} erregistratzeko.
               other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
-            reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
+            reserved_slots_less_than: "%{count} baino gutxiago izan behar du"
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
@@ -361,6 +375,10 @@ eu:
           meeting_report: Topaketaren txostena
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
             one: "%{count} slot geratzen da"
             other: "%{count} slot geratzen dira"

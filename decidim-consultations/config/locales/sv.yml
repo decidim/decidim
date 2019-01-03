@@ -77,8 +77,6 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa ett nytt samråd.
           success: Samråd med framgångsrikt skapat.
-        destroy:
-          success: Samråd har tagits bort.
         edit:
           update: Uppdatering
         form:
@@ -109,6 +107,9 @@ sv:
             created_at: Skapad vid
             published: Publicerad
             title: Titel
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Skapad vid

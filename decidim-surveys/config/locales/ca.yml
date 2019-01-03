@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     models:
@@ -44,7 +45,15 @@ ca:
       admin:
         exports:
           survey_user_answers: Respostes dels usuaris
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Hi ha hagut errors en desar l'enquesta.
             success: Enquesta desada correctament.

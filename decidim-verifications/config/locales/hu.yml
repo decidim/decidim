@@ -2,6 +2,11 @@
 hu:
   activemodel:
     attributes:
+      config:
+        available_methods: Available methods
+        offline: Offline
+        offline_explanation: Instructions for offline verification
+        online: Online
       id_document_information:
         document_number: Dokumentum száma (betűvel)
         document_type: A dokumentum típusa
@@ -10,6 +15,8 @@ hu:
         document_type: Dokumentumod típusa
         user: Felhasználó
         verification_attachment: Dokumentumod szkennelt példánya
+      offline_confirmation:
+        email: User email
       postal_letter_address:
         full_address: Teljes lakcím
       postal_letter_confirmation:
@@ -21,6 +28,11 @@ hu:
     admin:
       menu:
         authorization_workflows: Ellenőrzések
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
@@ -71,6 +83,13 @@ hu:
           other: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
       id_documents:
         admin:
+          config:
+            edit:
+              title: Identity documents configuration
+              update: Update
+            update:
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
             create:
               error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
@@ -79,19 +98,36 @@ hu:
               introduce_user_data: Add meg a képen látható adatokat
               reject: Elutasít
               verify: Ellenőrzés
+          offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
+            new:
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
+              verify: Verify
           pending_authorizations:
             index:
+              config: Config
+              offline_verification: Offline verification
               title: Folyamatban lévő ellenőrzések
               verification_number: 'Ellenőrzés #%{n}'
           rejections:
             create:
               success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
+          choose:
+            choose_a_type: 'Please select how you want to be verified:'
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
             error: Hiba történt a dokumentum feltöltése során
             success: Dokumentum feltöltése sikeres
           edit:
             being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
+            offline: Use offline verification
+            online: Use online verification
             rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
             rejection_correctness: Győződjön meg a megadott adatok helyességéről
             rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra

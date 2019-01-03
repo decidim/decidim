@@ -291,9 +291,7 @@ fr:
           proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propositions
         see_all: Voir tout (%{count})
-        see_all_proposals: Voir toutes les propositions
     proposals:
       actions:
         answer: Répondre
@@ -462,8 +460,6 @@ fr:
           no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
           title: Projets collaboratifs similaires
         complete:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Complétez votre projet collaboratif
         count:
@@ -639,18 +635,11 @@ fr:
         endorsements_card_row:
           comments: Commentaires
         filters:
-          accepted: Retenue
           activity: Activité
-          all: Tout
           amendment_type: Type
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Propositions citoyennes
-          evaluating: En cours d'évaluation
-          except_rejected: Toutes sauf les propositions non retenues
-          official: Propositions officielles
           origin: Auteurs
-          rejected: Non retenue
           related_to: Liées à
           search: Rechercher
           state: État
@@ -710,9 +699,6 @@ fr:
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
           report: Signaler
-          sign_in: Se connecter
-          sign_in_or_up: "%{in} ou %{up} pour participer"
-          sign_up: S'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition

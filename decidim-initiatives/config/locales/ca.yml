@@ -55,6 +55,7 @@ ca:
         initiatives:
           fields:
             created_at: Creat a
+            id: ID
             state: Estat
             supports_count: Suports
             title: Iniciatives
@@ -79,16 +80,26 @@ ca:
           email_subject: S'ha estès la data de finalització de la signatura d'iniciatives!
           notification_title: S'ha ampliat la data de finalització de la signatura de la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         milestone_completed:
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha completat una nova fita!
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Anar a Inciatives
-            - Segueix els passos per crear una nova iniciativa
+          - Anar a Inciatives
+          - Segueix els passos per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquest usuari ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
@@ -350,6 +361,7 @@ ca:
       states:
         accepted: Acceptat
         expired: Vençut
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Iniciatives
   layouts:

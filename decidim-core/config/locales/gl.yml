@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -35,6 +36,9 @@ gl:
         password_confirmation: Confirmación por contrasinal
         remember_me: Lémbrame
     models:
+      decidim/amendment:
+        one: Amendment
+        other: Amendments
       decidim/user:
         one: Non hai usuarios
         other: Usuarios
@@ -42,8 +46,8 @@ gl:
         one: Grupo de usuarios
         other: Grupos de usuarios
   booleans:
-    'false': 'Non'
-    'true': 'Si'
+    'false': Non
+    'true': Si
   carrierwave:
     errors:
       image_too_big: A imaxe é demasiado grande
@@ -107,7 +111,7 @@ gl:
         create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
         delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
-        create: "O %{user_name} creou o alcance %{resource_name}"
+        create: O %{user_name} creou o alcance %{resource_name}
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
         delete: "%{user_name} eliminou o alcance %{resource_name}"
         delete_with_parent: "%{user_name} eliminou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -125,6 +129,59 @@ gl:
       user_group:
         reject: "%{user_name} rexeitou a verificación do grupo de usuarios %{resource_name}"
         verify: "%{user_name} verificou o grupo de usuarios %{resource_name}"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+    amendments:
+      accepted:
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
+      amendable:
+        amended_by: Amended by
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        section_heading: Amendments (%{count})
+      created:
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
+      emendation:
+        actions:
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+        announcement:
+          accepted: |-
+            This emendation for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            This is an emendation for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
+      new:
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
+        send: Send emendation
+      promoted:
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
+      rejected:
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
+      review:
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept emendation
     anonymous_user: Anónimo
     application:
       collection:
@@ -189,7 +246,7 @@ gl:
           title: A autorización aínda está en progreso
         unauthorized:
           explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: "O %{field} valor %{value} non é válido."
+          invalid_field: O %{field} valor %{value} non é válido.
           ok: Ok
           title: Non autorizado
         unconfirmed:
@@ -211,6 +268,7 @@ gl:
         name: Compoñente manequim
         settings:
           global:
+            amendments_enabled: Amendments enabled
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Atributo maniquí 1
             dummy_global_attribute_2: Atributo maniquí 2
@@ -326,6 +384,51 @@ gl:
         content_doesnt_exist: Este enderezo non é correcto ou se eliminou.
         title: Non se pode atopar a páxina que buscas
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Engadiuse un novo documento a %{resource_title}. Podes velo desde esta páxina:'
@@ -445,7 +548,7 @@ gl:
       badges:
         continuity:
           conditions:
-            - Veña aquí a miúdo
+          - Veña aquí a miúdo
           description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
           description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
           description_own: Conectado por %{score} días consecutivos nalgún momento.
@@ -455,7 +558,7 @@ gl:
           unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
           conditions:
-            - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
+          - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
           description: Este distintivo é concedido cando chega a un certo número de seguidores. %{organization_name} é unha rede social e política, tece a súa web para comunicarse con outras persoas na plataforma.
           description_another: Este usuario ten %{score} seguidores.
           description_own: "%{score} seguidores están seguindo."
@@ -470,9 +573,9 @@ gl:
           title: Insignias
         invitations:
           conditions:
-            - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
-            - Personaliza, se queres, a mensaxe que estás enviando
-            - Subirás ao enviar invitacións e obtelos rexistrados.
+          - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
+          - Personaliza, se queres, a mensaxe que estás enviando
+          - Subirás ao enviar invitacións e obtelos rexistrados.
           description: Este distintivo concedeuse cando convidou a algunhas persoas e pasaron un pouco de tempo para inscribirse en %{organization_name} e converterse en participantes. Grazas por facer %{organization_name} a coñecer aos outros e axudando a ampliar a comunidade!
           description_another: Este usuario invitou a %{score} usuarios.
           description_own: Invitaches %{score} usuarios.
@@ -636,6 +739,8 @@ gl:
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
     metrics:
+      download:
+        csv: Download data (csv)
       followers:
         description: Número de usuarios que seguen na organización
         object: seguidores
@@ -679,11 +784,18 @@ gl:
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
+        everything_followed: Everything I follow
         newsletter_notifications: Quero recibir boletíns
+        newsletters: Newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Gardar cambios
       update:
         error: Produciuse un erro ao actualizar a configuración das notificacións.
         success: A configuración das notificacións actualizouse correctamente.
+    open_data:
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
         pending: Pendente
@@ -698,7 +810,7 @@ gl:
         extended:
           debates: Debates
           debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-          how_to_participate: '¿Como participo nun proceso?'
+          how_to_participate: "¿Como participo nun proceso?"
           meetings: Reunións
           meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
           more_info: Máis información
@@ -757,7 +869,7 @@ gl:
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos
           modal_close: Pechar modal
-          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
+          modal_title: "¿Realmente rexeita os Termos e condicións actualizados?"
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
@@ -768,6 +880,7 @@ gl:
       deleted: Usuario eliminado
       view: Ver
     profiles:
+      default_officialization_text: Texto de oficialización por defecto
       default_officialization_text_for_user_groups: Este grupo de usuarios está verificado públicamente, o seu nome verificouse para corresponder co seu nome real
       default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
@@ -784,14 +897,17 @@ gl:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
           title: Insignias
       user:
+        confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Crear grupo
         edit_profile: Editar perfil
         edit_user_group: Editar o perfil do grupo
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
         invite_user: Invitar ao usuario
         join_user_group: Solicitude para unirse ao grupo
         leave_user_group: Deixar de grupo
         manage_user_group_admins: Xestionar os administradores
         manage_user_group_users: Xestionar membros
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Ola %{name},
@@ -808,6 +924,7 @@ gl:
         error: Produciuse un erro ao crear o informe. Por favor, proba de novo.
         success: O informe foi creado con éxito e será revisado por un administrador.
     scopes:
+      global: Overall scope
       picker:
         cancel: Cancelar
         choose: Seleccionar
@@ -873,6 +990,15 @@ gl:
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
+    user_interests:
+      show:
+        my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
     welcome_notification:
       default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
       default_subject: Grazas por unirte a {{organization}}!
@@ -1053,6 +1179,7 @@ gl:
       edit_link:
         edit: Editar
       footer:
+        download_open_data: Download Open Data files
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
       header:
         close_menu: Pechar o menú
@@ -1077,6 +1204,7 @@ gl:
         authorizations: Autorizacións
         delete_my_account: Eliminar a miña conta
         my_data: Os meus datos
+        my_interests: My interests
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
         user_groups: Grupos
@@ -1120,7 +1248,7 @@ gl:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
+      decidim_day_of_year: 123_2_0_321 %B 123_2_2_321 |
       decidim_short: "%d/%m/%Y %H:%M"
       devise:
         mailer:

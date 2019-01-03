@@ -64,6 +64,10 @@ uk:
         update:
           error: При спробі оновити цю організацію сталася помилка.
           success: Організацію успішно оновлено.
+        users_registration_mode:
+          disabled: Access only can be done with external accounts
+          enabled: Allow users to register and login
+          existing: Don't allow users to register, but allow existing users to login
       shared:
         notices:
           no_organization_warning_html: Насамперед ви повинні додати організацію. Обов'язково прочитайте %{guide}, перш ніж продовжити.

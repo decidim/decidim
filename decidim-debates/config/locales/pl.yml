@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ pl:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debata
         few: Debaty
         many: Debaty
+        one: Debata
         other: Debaty
   decidim:
     components:
@@ -61,6 +62,9 @@ pl:
           update:
             invalid: Wystąpił problem podczas aktualizowania tej debaty.
             success: Debata zaktualizowana pomyślnie.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debata
@@ -71,9 +75,9 @@ pl:
       debates:
         count:
           debates_count:
-            one: "%{count} debata"
             few: "%{count} debat"
             many: "%{count} debaty"
+            one: "%{count} debata"
             other: "%{count} debat"
         create:
           invalid: Podczas tworzenia debaty wystąpił problem.
@@ -144,7 +148,7 @@ pl:
       badges:
         commented_debates:
           conditions:
-            - Wybierz otwartą debatę, w której możesz wziąć udział
+          - Wybierz otwartą debatę, w której możesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w różnych debatach, pozostawiając komentarze.
           description_another: Ten użytkownik uczestniczył w %{score} debatach.
           description_own: Brałeś udział w %{score} debatach.

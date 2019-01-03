@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -82,8 +83,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova assemblea.
           success: Assemblea creada correctament.
-        destroy:
-          success: L'assemblea s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:
@@ -259,6 +258,17 @@ ca:
         city_council: Ajuntament
         others: Altres
         public: Públic
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Assemblees
       last_activity:

@@ -45,7 +45,15 @@ es-PY:
       admin:
         exports:
           survey_user_answers: Respuestas de los usuarios de la encuesta
+        models:
+          components:
+            description: Description
+            title: Title
+            tos: Tos
         surveys:
+          form:
+            add_question: Add question
+            already_answered_warning: Already answered warning
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.

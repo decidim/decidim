@@ -116,6 +116,7 @@ module Decidim
 
           it { is_expected.to be_valid }
         end
+
         context "when cta_text is present" do
           let(:cta_text_en) { "SEE" }
 

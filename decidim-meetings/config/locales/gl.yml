@@ -91,15 +91,27 @@ gl:
     events:
       meetings:
         meeting_closed:
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           email_intro: 'A reunión "%{resource_title}" pechouse. Podes ler as conclusións da súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A reunión "%{resource_title}" pechouse
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
         meeting_created:
           email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova reunión engadida a %{participatory_space_title}
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: As xuntas ocupadas con "%{resource_title}" ocupan máis de %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da reunión.
@@ -129,7 +141,7 @@ gl:
       badges:
         attended_meetings:
           conditions:
-            - Rexístrese nas reunións que desexa asistir
+          - Rexístrese nas reunións que desexa asistir
           description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
           description_another: Este usuario asistiu a %{score} reunións.
           description_own: Atendeu %{score} reunións.
@@ -183,6 +195,7 @@ gl:
             invalid: Produciuse un problema ao actualizar esta axenda
             success: A axenda actualizouse correctamente
         exports:
+          meetings: Meetings
           registrations: Rexistros
         invite_join_meeting_mailer:
           invite:
@@ -362,6 +375,10 @@ gl:
           meeting_report: Informe de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"

@@ -24,6 +24,7 @@ ru:
         entry_date: Дата
     models:
       decidim/accountability/proposal_linked_event: Предложение, включенное в этот итог
+      decidim/accountability/result_progress_updated_event: Result progress updated
   activerecord:
     models:
       decidim/accountability/result:
@@ -119,6 +120,8 @@ ru:
         value_types:
           parent_presenter:
             not_found: 'Родительский объект не найден в базе данных (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>New result at %{link}</span>"
       models:
         result:
           fields:
@@ -204,10 +207,23 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}". Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{proposal_title}
           notification_title: Предложение <a href="%{proposal_path}">%{proposal_title}</a> было включено в итог <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'The result "%{resource_title}", which includes the proposal "%{proposal_title}", is now %{progress}% complete. You can see it from this page:'
+          email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title} progress
+          notification_title: The result <a href="%{resource_path}">%{resource_title}</a>, which includes the proposal <a href="%{proposal_path}">%{proposal_title}</a>, is now %{progress}% complete.
+    metrics:
+      results:
+        description: Number of accountability results generated
+        object: results
+        title: Results
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
           results: Итоги
+    participatory_spaces:
+      highlighted_results:
+        see_all: See all (%{count})
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги

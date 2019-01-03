@@ -91,15 +91,27 @@ ca:
     events:
       meetings:
         meeting_closed:
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: S'ha tancat la trobada "%{resource_title}"
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
         meeting_created:
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova trobada a %{participatory_space_title}
           notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
@@ -129,7 +141,7 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriu-te a les reunions que vulguis assistir
+          - Inscriu-te a les reunions que vulguis assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquest usuari ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
@@ -183,6 +195,7 @@ ca:
             invalid: Hi ha hagut un problema en actualitzar aquesta agenda
             success: L'agenda s'ha actualitzat correctament
         exports:
+          meetings: Meetings
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
@@ -362,6 +375,10 @@ ca:
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
             one: "%{count} espai restant"
             other: "%{count} places restants restants"

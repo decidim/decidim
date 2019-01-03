@@ -197,8 +197,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar um novo processo participativo.
           success: Processo participativo criado com sucesso. Configure agora seus passos.
-        destroy:
-          success: Processo participativo excluído com sucesso.
         edit:
           update: Atualizar
         form:

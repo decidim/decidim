@@ -83,8 +83,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
-        destroy:
-          success: Vergadering is succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
@@ -260,6 +258,17 @@ nl:
         city_council: Gemeenteraad
         others: Overige
         public: Openbaar
+      filter:
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
         title: Events
       last_activity:
