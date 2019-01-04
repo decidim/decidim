@@ -676,12 +676,16 @@ es-PY:
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
+        unhide: Ocultar
         unreport: Cancelar denuncia
       admin:
         reportable:
           hide:
             invalid: Ha habido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
+          unhide:
+            invalid: Ha habido un problema al no encontrar el recurso.
+            success: Recurso exitosamente no oculto.
           unreport:
             invalid: Ha habido un problema cancelando la denuncia.
             success: Denuncia cancelada correctamente.
