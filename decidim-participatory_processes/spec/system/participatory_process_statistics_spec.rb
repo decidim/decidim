@@ -3,7 +3,7 @@
 require "spec_helper"
 require "csv"
 
-describe "Participatory Processes", type: :system, download: true do
+describe "Participatory Processes", type: :system do
   let(:date) { Time.zone.today - 1.week }
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
@@ -46,25 +46,6 @@ describe "Participatory Processes", type: :system, download: true do
       # LITTLE CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
         expect(page).to have_css(%(##{metric_manifest.metric_name}_chart))
-      end
-    end
-
-    it "downloads CSV data from link" do
-      Decidim.metrics_registry.filtered(scope: "participatory_process").each do |metric_manifest|
-        within "##{metric_manifest.metric_name}_chart+p" do
-          expect(page).to have_content("Download data (csv)")
-          click_link "Download data (csv)"
-          expect(File.basename(download_path)).to eq "#{metric_manifest.metric_name}_metric_data.csv"
-          expect(File).to exist(download_path)
-          expect(CSV.open(download_path, &:readline)).to eq %w(key value)
-          CSV.open(download_path, headers: true) do |csvfile|
-            csvfile.each do |row|
-              expect(row[0]).to eq key
-              expect(row[1]).to eq value
-            end
-          end
-        end
-        clear_downloads
       end
     end
 

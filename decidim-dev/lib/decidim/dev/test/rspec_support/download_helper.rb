@@ -36,14 +36,3 @@ module DownloadHelper
     FileUtils.rm_f(downloads)
   end
 end
-
-RSpec.configure do |config|
-  config.include DownloadHelper, download: true
-  config.before :each, download: true do
-    driven_by(:headless_chrome)
-    switch_to_default_host
-    FileUtils.mkdir_p DownloadHelper::PATH.to_s
-    page.driver.browser.download_path = DownloadHelper::PATH.to_s
-    clear_downloads
-  end
-end
