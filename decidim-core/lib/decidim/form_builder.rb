@@ -354,7 +354,7 @@ module Decidim
 
       if object.errors[attribute].any?
         template += content_tag :p, class: "is-invalid-label" do
-          safe_join object.errors[attribute], "<br/>"
+          safe_join object.errors[attribute], "<br/>".html_safe
         end
       end
 
