@@ -76,8 +76,6 @@ gl:
         create:
           error: Produciuse un erro ao crear unha nova consulta.
           success: Consulta creada con éxito.
-        destroy:
-          success: Consulta eliminada con éxito.
         edit:
           update: Actualización
         form:
