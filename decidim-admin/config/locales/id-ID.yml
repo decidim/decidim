@@ -676,12 +676,16 @@ id:
         hide: Menyembunyikan
         not_hidden: tidak tersembunyi
         title: Tindakan
+        unhide: Tidak terlihat
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: Ada masalah menyembunyikan sumber daya.
             success: Sumber daya berhasil disembunyikan.
+          unhide:
+            invalid: Terjadi masalah saat menyembunyikan sumber daya.
+            success: Sumber daya berhasil tanpa hambatan.
           unreport:
             invalid: Sudah ada masalah yang tidak melaporkan sumber daya.
             success: Sumber daya berhasil tidak dilaporkan.
