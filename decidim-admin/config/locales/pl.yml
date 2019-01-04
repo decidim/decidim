@@ -676,12 +676,16 @@ pl:
         hide: Ukryć
         not_hidden: Nie ukryty
         title: działania
+        unhide: Odkryj
         unreport: Brak oceny
       admin:
         reportable:
           hide:
             invalid: Wystąpił problem z ukryciem zasobu.
             success: Zasób został ukryty.
+          unhide:
+            invalid: Podczas odkrywania zasobu wystąpił problem.
+            success: Zasoby zostały pomyślnie odkryte.
           unreport:
             invalid: Wystąpił problem z niewykorzystaniem zasobów.
             success: Zasób został pomyślnie nieudokumentowany.
