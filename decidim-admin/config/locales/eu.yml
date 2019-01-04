@@ -676,12 +676,16 @@ eu:
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak
+        unhide: Erakutsi
         unreport: Ezeztatu salaketa
       admin:
         reportable:
           hide:
             invalid: Errorea gertatu da edukia ezkutatzean.
             success: Edukia zuzen ezkutatu da.
+          unhide:
+            invalid: Arazo bat izan da baliabidea desegiteko.
+            success: Baliabidea ondo ezabatu da.
           unreport:
             invalid: Arazo bat izan da salaketa ezeztatzean.
             success: Salaketa zuzen ezeztatu da.
