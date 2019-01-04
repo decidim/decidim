@@ -676,12 +676,16 @@ nl:
         hide: Verbergen
         not_hidden: niet verstopt
         title: Acties
+        unhide: Zichtbaar maken
         unreport: Onreporteren
       admin:
         reportable:
           hide:
             invalid: Er is een probleem geweest om de bron te verbergen.
             success: Resource succesvol verborgen.
+          unhide:
+            invalid: Er is een probleem opgetreden bij het zichtbaar maken van de bron.
+            success: Resource succesvol onthuld.
           unreport:
             invalid: Er is een probleem geweest om de bron niet te rapporteren.
             success: Bron succesvol ontmeld.
