@@ -676,12 +676,16 @@ gl:
         hide: Ocultar
         not_hidden: Non escondido
         title: Accións
+        unhide: Unhide
         unreport: Non informar
       admin:
         reportable:
           hide:
             invalid: Produciuse un problema ao ocultar o recurso.
             success: Recurso escondido con éxito.
+          unhide:
+            invalid: Produciuse un problema ao abrir o recurso.
+            success: Recurso sen éxito.
           unreport:
             invalid: Produciuse un problema ao non informar o recurso.
             success: Recurso non publicado correctamente.
