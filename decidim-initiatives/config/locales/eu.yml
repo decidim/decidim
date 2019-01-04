@@ -54,6 +54,7 @@ eu:
         initiatives:
           fields:
             created_at: Sortutako at
+            id: NAN
             state: Estatu
             supports_count: euskarri
             title: Ekimenak
@@ -78,10 +79,16 @@ eu:
           email_subject: Ekimenaren sinadurak amaiera data luzatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenaren amaierako data luzatu egin da.
         milestone_completed:
-          email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
-          email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: Mugarri berria osatu da!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+          affected_user:
+            email_intro: Zure ekimena %{resource_title} sinadurak% %{percentage}lortu ditu!
+            email_outro: Jakinarazpen hau jaso duzu ekimenaren egilea delako %{resource_title}.
+            email_subject: Mugarri berria osatu da!
+            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+          follower:
+            email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
+            email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Mugarri berria osatu da!
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ eu:
       states:
         accepted: Onartu
         expired: iraungi
+      unavailable_scope: Ez dago erabilgarri
     menu:
       initiatives: Ekimenak
   layouts:
