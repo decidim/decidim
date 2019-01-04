@@ -676,12 +676,16 @@ ca:
         hide: Amagar
         not_hidden: No ocult
         title: Accions
+        unhide: Unhide
         unreport: Desfer denúncia
       admin:
         reportable:
           hide:
             invalid: Hi ha hagut un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
+          unhide:
+            invalid: Hi ha hagut un problema en descobrir el recurs.
+            success: S'ha desactivat el recurs amb èxit.
           unreport:
             invalid: Hi ha hagut un problema cancel·lant la denúncia.
             success: Denúncia cancel·lada correctament.
