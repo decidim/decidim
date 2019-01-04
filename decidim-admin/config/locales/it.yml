@@ -676,12 +676,16 @@ it:
         hide: Nascondi
         not_hidden: Non nascosto
         title: Azioni
+        unhide: unhide
         unreport: Non inserire
       admin:
         reportable:
           hide:
             invalid: Si è verificato un problema cercando di nascondere la risorsa.
             success: OK, la risorsa è stata nascosta.
+          unhide:
+            invalid: C'è stato un problema nel mostrare la risorsa.
+            success: Risorsa correttamente non rilevata.
           unreport:
             invalid: Si è verificato un problema cercando di visualizzare la risorsa .
             success: OK, la risorda è visualizzabile.
