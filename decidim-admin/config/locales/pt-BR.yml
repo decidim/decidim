@@ -676,12 +676,16 @@ pt-BR:
         hide: Ocultar
         not_hidden: Não oculto
         title: Ações
+        unhide: Mostrar
         unreport: Anular denúncia
       admin:
         reportable:
           hide:
             invalid: Ocorreu um problema ao ocultar o recurso.
             success: O recurso foi ocultado com sucesso.
+          unhide:
+            invalid: Houve um problema ao exibir o recurso.
+            success: Recurso com sucesso exibido.
           unreport:
             invalid: Tem havido um problema não relatando o recurso.
             success: O recurso não foi relatado com sucesso.
