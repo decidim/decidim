@@ -506,9 +506,9 @@ fi-pl:
     events:
       conferences:
         conference_registration_validation_pending:
-          notification_title: Ilmoittautumislomake <a href="%{resource_url}">%{resource_title}</a> on odottava vahvistettavaksi.
+          notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> odottaa vahvistusta.
         conference_registration_confirmed:
-          notification_title: Ilmoittautumislomake <a href="%{resource_url}">%{resource_title}</a> on vahvistettu.
+          notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> on vahvistettu.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.
@@ -525,10 +525,10 @@ fi-pl:
           email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
         upcoming_conference:
-          email_intro: '"%{resource_title}" -konferenssi järjestetään 2 päivässä. Voit lukea kuvauksen sivulta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" -konferenssia. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -konferenssi on tulossa!'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssi on tulossa 2 päivässä.
+          email_intro: 'Konferenssi "%{resource_title}" järjestetään kahden päivän päästä. Voit lukea kuvauksen sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat konferenssia "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Konferenssi "%{resource_title}" on tulossa!
+          notification_title: Konferenssi <a href="%{resource_path}">%{resource_title}</a> on tulossa kahden päivän päästä.
     log:
       value_types:
         conference_presenter:
