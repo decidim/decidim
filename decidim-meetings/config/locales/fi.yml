@@ -270,7 +270,7 @@ fi:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
             registrations_count:
-              one: 1 ilmoittautuminen.
+              one: '%{count} ilmoittautuminen.'
               other: '%{count} ilmoittautumista.'
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
