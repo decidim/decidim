@@ -676,12 +676,16 @@ hu:
         hide: Elrejt
         not_hidden: Nem rejtett
         title: Műveletek
+        unhide: felfedése
         unreport: Ne jelentse
       admin:
         reportable:
           hide:
             invalid: Probléma történt az erőforrás elrejtésekor.
             success: Erőforrás sikeresen elrejtve.
+          unhide:
+            invalid: Probléma volt az erőforrás elrejtése.
+            success: Az erőforrás sikeresen elrejtve.
           unreport:
             invalid: Probléma történt az erőforrás elrejtésének visszavonásakor.
             success: Erőforrás jelentésének visszavonása sikeres.
