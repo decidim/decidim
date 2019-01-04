@@ -676,12 +676,16 @@ tr:
         hide: Saklamak
         not_hidden: Gizli değil
         title: Eylemler
+        unhide: unhide
         unreport: Bildir
       admin:
         reportable:
           hide:
             invalid: Kaynağı gizleyen bir sorun oluştu.
             success: Kaynak başarıyla gizlendi.
+          unhide:
+            invalid: Kaynağın gizlenmesinde bir sorun var.
+            success: Kaynak başarıyla yasaklandı.
           unreport:
             invalid: Kaynağı bildirmeyen bir sorun oluştu.
             success: Kaynak başarıyla bildirilmedi.
