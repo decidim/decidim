@@ -676,12 +676,16 @@ sv:
         hide: Dölj
         not_hidden: Inte dolt
         title: Handlingar
+        unhide: Ta fram
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: Det har varit ett problem att dölja resursen.
             success: Resurs framgångsrikt dold.
+          unhide:
+            invalid: Det har varit ett problem att undvika resursen.
+            success: Resurs framgångsrikt oskyddat.
           unreport:
             invalid: Det har varit ett problem att rapportera resursen.
             success: Resurs framgångsrikt orapporterad.
