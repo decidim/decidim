@@ -60,6 +60,7 @@ pl:
         initiatives:
           fields:
             created_at: Utworzono w
+            id: ID
             state: Stan
             supports_count: Obsługuje
             title: Inicjatywy
@@ -84,10 +85,16 @@ pl:
           email_subject: Data zakończenia podpisów inicjatywa!
           notification_title: Data zakończenia podpisów dla inicjatywy <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         milestone_completed:
-          email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Nowy kamień milowy zakończony!
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+          affected_user:
+            email_intro: Twoja inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}.
+            email_subject: Nowy kamień milowy zakończony!
+            notification_title: Twoja inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+          follower:
+            email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_subject: Nowy kamień milowy zakończony!
+            notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
     gamification:
       badges:
         initiatives:
@@ -363,6 +370,7 @@ pl:
       states:
         accepted: Przyjęty
         expired: Przedawniony
+      unavailable_scope: Niedostępny zakres
     menu:
       initiatives: Inicjatywy
   layouts:
