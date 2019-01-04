@@ -3,9 +3,9 @@ fi-pl:
     attributes:
       config:
         available_methods: Käytettävissä olevat menetelmät
-        offline: Poissa
-        offline_explanation: Ohjeet offline-todentamiseen
-        online: Online
+        offline: Offline
+        offline_explanation: Ohjeet offline-vahvistamiseen
+        online: Verkossa
       id_document_information:
         document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
