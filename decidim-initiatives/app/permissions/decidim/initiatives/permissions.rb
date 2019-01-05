@@ -24,6 +24,7 @@ module Decidim
         request_membership?
 
         vote_initiative?
+        sign_initiative?
         unvote_initiative?
 
         permission_action
@@ -130,6 +131,13 @@ module Decidim
                      authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
+      end
+
+      def sign_initiative?
+        return unless permission_action.action == :sign_initiative &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(context.fetch(:signature_has_steps, false))
       end
 
       def decidim_user_group_id

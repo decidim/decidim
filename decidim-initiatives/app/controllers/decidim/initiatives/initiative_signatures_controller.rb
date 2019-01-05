@@ -22,14 +22,14 @@ module Decidim
       # GET /initiatives/:initiative_id/initiative_signatures/:step
       def show
         group_id = params[:group_id] || (session[:initiatives_vote] ||= {})["group_id"]
-        enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: group_id
+        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, group_id: group_id, signature_has_steps: signature_has_steps?
         send("#{step}_step", initiatives_vote: session[:initiatives_vote])
       end
 
       # PUT /initiatives/:initiative_id/initiative_signatures/:step
       def update
         group_id = params[:initiatives_vote][:group_id] || session[:initiatives_vote]["group_id"]
-        enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: group_id
+        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, group_id: group_id, signature_has_steps: signature_has_steps?
         send("#{step}_step", params)
       end
 

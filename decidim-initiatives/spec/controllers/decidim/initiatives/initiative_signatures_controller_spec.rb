@@ -28,7 +28,7 @@ module Decidim
             end
           end
 
-          context "and initiative with user extra fields required" do
+          context "and initiative without user extra fields required" do
             it "can vote" do
               expect do
                 sign_in initiative_without_user_extra_fields.author, scope: :user
@@ -88,6 +88,17 @@ module Decidim
             sign_in user, scope: :user
 
             get :show, params: { initiative_slug: initiative.slug, id: :fill_personal_data }
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(:found)
+          end
+        end
+      end
+
+      context "when GET initiative_signatures" do
+        context "and initiative without user extra fields required" do
+          it "action is forbidden" do
+            sign_in initiative_without_user_extra_fields.author, scope: :user
+            get :show, params: { initiative_slug: initiative_without_user_extra_fields.slug, id: :fill_personal_data }
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(:found)
           end
