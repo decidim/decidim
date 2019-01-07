@@ -64,9 +64,9 @@ ca:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: L'organització s'ha actualitzat correctament.
         users_registration_mode:
-          disabled: L'accés només es pot fer amb comptes externs
+          disabled: Només es port accedir amb comptes externs
           enabled: Permetre als usuaris registrar-se i iniciar sessió
-          existing: No permeti que els usuaris es registrin, però permeten que els usuaris existents inicien la sessió
+          existing: No permetre que els usuaris es registrin, però permetre que els usuaris existents iniciïn sessió
       shared:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans.
