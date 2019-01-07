@@ -9,7 +9,7 @@ ca:
         about: Quant a
         email: El teu email
         name: El teu nom
-        nickname: Sobrenom
+        nickname: Nom d'usuari
         password: Contrasenya
         password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
@@ -35,6 +35,9 @@ ca:
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
     models:
+      decidim/amendment:
+        one: Esmena
+        other: Esmenes
       decidim/user:
         one: Sense usuaris
         other: Usuaris
@@ -125,6 +128,58 @@ ca:
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
         verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
+        verify_via_csv: "%{user_name} va verificar el %{resource_name} grup d'usuaris a través d'un fitxer CSV"
+    amendments:
+      accepted:
+        error: S'ha produït un error en acceptar l'esmena, torneu-ho a provar més tard.
+        success: Aquesta esmena ha estat acceptada amb èxit.
+      amendable:
+        amended_by: Esmenat per
+        button: Esmenar %{model_name}
+        promote_button: Promociona't a %{model_name}
+        error: S'ha produït un error en modificar aquest recurs.
+        help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
+        promote_help_text: Podeu promocionar aquesta esmena i publicar-lo com a independent %{model_name}
+        no_amenders: No hi ha cap esmenador
+        no_amendments: No hi ha cap esmena
+        section_heading: Esmenes (%{count})
+      created:
+        error: S'ha produït un error en crear aquesta esmena, torneu-ho a provar més tard
+        success: L'esmena s'ha creat correctament
+      emendation:
+        actions:
+          button_accept: Acceptar
+          button_reject: Rebutjar
+          help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació al seu autor(s).
+        announcement:
+          accepted: |-
+            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat
+            acceptada en <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Aquesta esmena pel %{amendable_type} %{amendable_link} s'està avaluant.
+          rejected: |-
+            Aquesta esmena del %{amendable_type} %{amendable_link}
+            va ser rebutjada en <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Aquesta esmena del %{amendable_type} %{amendable_link}
+            ha estat retirada per l'autor.
+      new:
+        amendment_author: Autor de l'esmena
+        back: Tornar
+        heading: Crea la teva esmena
+        help_text: Estàs modificant el %{model_name}
+        send: Envia l'esmena
+      rejected:
+        error: S'ha produït un error en rebutjar aquesta esmena, torneu-ho a provar més tard
+        success: S'ha rebutjat l'esmena amb èxit
+      promoted:
+        success: S'ha promogut l'emissió amb èxit
+        error: Hi ha hagut errors en promoure l'esmena
+      review:
+        back: Tornar
+        heading: Revisa l'esmena
+        help_text: Estàs modificant el %{model_name}
+        send: Accepta l'esmena
     anonymous_user: Anònim
     application:
       collection:
@@ -211,10 +266,11 @@ ca:
         name: Component de prova
         settings:
           global:
+            amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
-            enable_pads_creation: Activa la creació de pastissos
+            enable_pads_creation: Activar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
             comments_blocked: Comentaris bloquejats
@@ -284,8 +340,8 @@ ca:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
-          sign_in_disabled: Podeu accedir amb un compte extern
-          sign_up_disabled: La inscripció està deshabilitada, podeu accedir a un usuari existent
+          sign_in_disabled: Pots accedir amb un compte extern
+          sign_up_disabled: El registre està deshabilitat, pots accedir a un usuari existent
       shared:
         newsletter_modal:
           buttons:
@@ -326,6 +382,51 @@ ca:
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
         title: No s'ha trobat la pàgina que busques
     events:
+      amendments:
+        amendment_created:
+          affected_user:
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_subject: Una esmena rebutjada per %{amendable_title} de l' %{emendation_author_nickname}
+            notification_title: La <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Una esmena rebutjada per %{amendable_title} de l' %{emendation_author_nickname}
+            notification_title: La <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una independent %{amendable_type}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
+            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una independent %{amendable_type}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
+            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
+            notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
+            notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
@@ -539,12 +640,12 @@ ca:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
       form:
-        document_number_help: No utilitzeu taques ni espais
-        email_help: Correu electrònic de la vostra organització, associació, col·lectiu, grup, etc.
-        fill_in_for_verification: 'Ompliu aquests camps si voleu verificar el vostre grup:'
-        name_help: Nom de la vostra organització, associació, col·lectiu, grup, etc.
-        nickname_help: Nom d'usuari de la vostra organització, associació, col·lectiu, grup, etc. No utilitzeu espais ni accents.
-        phone_help: No utilitzeu taques ni espais
+        document_number_help: No utilitzis guionets ni espais
+        email_help: Correu electrònic de la teva organització, associació, col·lectiu, grup, etc.
+        fill_in_for_verification: 'Omple aquests camps si vols que el teu grup sigui verificat:'
+        name_help: Nom de la teva organització, associació, col·lectiu, grup, etc.
+        nickname_help: Nom d'usuari de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
+        phone_help: No utilitzis guionets ni espais
       join:
         error: Hi ha hagut un problema en unir-se al grup
         success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
@@ -558,7 +659,7 @@ ca:
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
-        subtitle: Creeu un grup i convideu a altres usuaris a unir-se per participar a nivell col·lectiu.
+        subtitle: Crea un grup i convida altres usuaris a unir-se per participar a nivell col·lectiu.
       no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administrador
@@ -570,9 +671,9 @@ ca:
     help:
       main_topic:
         default_page:
-          content: "<p>En %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>A cadascuna d'elles trobareu diferents opcions per participar: fer propostes -de forma individual o amb altres persones-, participar en debats, prioritzar projectes per implementar, assistir a reunions presencials i altres accions.</p>\n"
-          title: Què puc fer en %{organization}?
-        description: Llegiu més sobre %{organization}
+          content: "<p>A %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>Dins de cada un trobaràs diferents opcions per participar: fer propostes - a nivell individual o amb altres persones -, prendre part en debats, prioritzar projectes a executar, assistir a trobades presencials i altres accions.</p>\n"
+          title: Què puc fer a %{organization}?
+        description: Llegeix més sobre %{organization}
         title: Ajuda general
     last_activities:
       activities:
@@ -636,8 +737,10 @@ ca:
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
     metrics:
+      download:
+        csv: Baixeu les dades (csv)
       followers:
-        description: Nombre d'usuari que segueix a l'organització
+        description: Nombre d'usuaris que segueixen aquest espai de participació
         object: seguidors
         title: Seguidors
       participants:
@@ -679,20 +782,27 @@ ca:
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
+        everything_followed: Tot el que segueixo
+        newsletters: Butlletins informatius
         newsletter_notifications: Vull rebre butlletins
+        own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
+        receive_notifications_about: Vull rebre notificacions
+        send_notifications_by_email: Enviar notificacions per correu electrònic
         update_notifications_settings: Guardar canvis
       update:
         error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'han actualitzat correctament.
+    open_data:
+      not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     own_user_groups:
       index:
         pending: Pendents
         rejected: Rebutjades
         verified: Verificada
     pad_iframe:
-      disclaimer: Els continguts d'aquest pad són escrits per usuaris registrats i expressen les seves opinions. %{organization} no es fa responsable dels seus continguts.
-      explanation: Utilitzeu aquest coixí per prendre notes durant la reunió de manera col·laborativa, per la qual cosa és més fàcil escriure un minut després.
-      pad: Coixinet
+      disclaimer: Els continguts d'aquest pad han estat escrits per usuaris registrats i expressen les seves opinions. %{organization} no es fa responsable dels seus contingut.
+      explanation: Utilitzeu aquest pad per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
+      pad: Pad
     pages:
       home:
         extended:
@@ -777,21 +887,24 @@ ca:
         following: Segueix
         groups: Grups
         members: Membres
-        timeline: Cronologia
+        timeline: Línia de temps
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
           title: Distintius
       user:
+        confirmation_instructions_sent: S'han enviat instruccions de confirmació de correu electrònic
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grup
+        fill_in_email_to_confirm_it: Ompliu el correu electrònic del vostre grup per confirmar-lo
         invite_user: Convida l'usuari
         join_user_group: Sol·licitud per unir-se al grup
         leave_user_group: Marxar del grup
         manage_user_group_admins: Administra els administradors
         manage_user_group_users: Gestiona els membres
+        resend_email_confirmation_instructions: Reenvia les instruccions de confirmació de correu electrònic
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -823,10 +936,10 @@ ca:
         back: Torna als resultats
         jump_to: 'Salta a:'
         state:
-          active: Actiu
+          active: Actius
           all: Tots
-          future: Futur
-          past: Passat
+          future: Futurs
+          past: Passats
       filters_small_view:
         close_modal: Tanca el modal
         filter: Filtre
@@ -874,8 +987,17 @@ ca:
     user_activity:
       index:
         no_activities_warning: Aquest usuari encara no ha tingut cap activitat.
+    user_interests:
+      show:
+        no_scopes: Aquesta organització encara no té cap abast.
+        my_interests: Els meus interessos
+        select_your_interests: Seleccioneu els temes als quals us interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
+        update_my_interests: Actualitzeu els meus interessos
+      update:
+        error: S'ha produït un error en actualitzar els vostres interessos.
+        success: Els vostres interessos s'han actualitzat correctament.
     welcome_notification:
-      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut!</p><ul><li>Si voleu tenir una idea ràpida del que podeu fer aquí, consulteu la secció de <a href="{{help_url}}">Ajuda</a> .</li><li>Una vegada que l'heu llegit, obtindreu la vostra primera distinció. Aquí teniu una llista de <a href="{{badges_url}}">de totes les xapes</a> que podeu obtenir a mesura que participa en {{organization}}</li><li>Finalment, però no menys important, uniu-vos a altres persones, compartiu amb ells l'experiència de participar i participar en {{organization}}. Feu propostes, comentaris, debat, pensi en com contribuir al bé comú, proporcioneu arguments per convèncer, escoltar i llegir per estar convençuts, expressar les vostres idees de manera concreta i directa, respondre amb paciència i decisió, defensar les vostres idees i mantenir-les una ment oberta per col·laborar i unir-se a les idees d'altres persones.</li></ul>
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut/da!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
   devise:
     confirmations:
@@ -1054,7 +1176,7 @@ ca:
       edit_link:
         edit: Edita
       footer:
-        download_open_data: Descarregar dades Open Data
+        download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
@@ -1079,6 +1201,7 @@ ca:
         authorizations: Autoritzacions
         delete_my_account: Eliminar el meu compte
         my_data: Les meves dades
+        my_interests: Els meus interessos
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Grups
