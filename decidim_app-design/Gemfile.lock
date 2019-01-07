@@ -67,8 +67,8 @@ PATH
       decidim-core (= 0.16.0)
       jquery-rails (~> 4.0)
     decidim-conferences (0.16.0)
-      decidim-core (~> 0.16.a)
-      decidim-meetings (~> 0.16.a)
+      decidim-core (~> 0.16.dev)
+      decidim-meetings (~> 0.16.dev)
       wicked_pdf
       wkhtmltopdf-binary
     decidim-consultations (0.16.0)
