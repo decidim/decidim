@@ -82,8 +82,6 @@ hu:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
           success: Gyűlés létrehozása sikeres.
-        destroy:
-          success: Gyűlés törlése sikeres.
         edit:
           update: Frissítés
         form:
@@ -259,6 +257,17 @@ hu:
         city_council: Városi közgyűlés
         others: Egyéb
         public: Nyilvános
+      filter:
+        all: Minden
+        commission: jutalék
+        consultative_advisory: Tanácsadó / tanácsadó
+        executive: Végrehajtó
+        government: Kormány
+        label: 'Előadás:'
+        others: Egyéb
+        participatory: A részvételi
+        placeholder: Szűrő típus szerint
+        working_group: Munkacsoport
       index:
         title: Gyűlések
       last_activity:
@@ -350,8 +359,8 @@ hu:
           reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
-            one: "%{count} szerelvényeket"
-            other: "%{count} szerelvényeket"
+            one: "%{count} gyűlés"
+            other: "%{count} gyűlés"
         promoted_assembly:
           more_info: További információ
           take_part: Vegyél részt

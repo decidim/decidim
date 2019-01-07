@@ -1,6 +1,11 @@
 nl:
   activemodel:
     attributes:
+      config:
+        available_methods: Beschikbare methoden
+        offline: offline
+        offline_explanation: Instructies voor offline verificatie
+        online: Online
       id_document_information:
         document_number: Documentnummer (met letter)
         document_type: Type van het document
@@ -9,6 +14,8 @@ nl:
         document_type: Type van uw document
         user: Gebruiker
         verification_attachment: Gescande kopie van uw document
+      offline_confirmation:
+        email: E-mailadres gebruiker
       postal_letter_address:
         full_address: Volledig adres
       postal_letter_confirmation:
@@ -20,6 +27,11 @@ nl:
     admin:
       menu:
         authorization_workflows: keuringen
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} heeft de verificatieconfiguratie Identity Documents bijgewerkt"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} geverifieerd %{resource_name} met behulp van een offline verificatie van identiteitsdocumenten"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +82,13 @@ nl:
           other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Configuratie van identiteitsdocumenten
+              update: Bijwerken
+            update:
+              error: Er is een fout opgetreden bij het bijwerken van de configuratie.
+              success: Configuratie succesvol bijgewerkt
           confirmations:
             create:
               error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
@@ -78,19 +97,36 @@ nl:
               introduce_user_data: Introduceer de gegevens in de afbeelding
               reject: Weigeren
               verify: Verifiëren
+          offline_confirmations:
+            create:
+              error: Verificatie komt niet overeen. Probeer het opnieuw of laat de gebruiker het wijzigen
+              success: Gebruiker succesvol geverifieerd
+            new:
+              cancel: annuleren
+              introduce_user_data: Voer de e-mail van de gebruiker en de documentgegevens in
+              verify: Verifiëren
           pending_authorizations:
             index:
+              config: config
+              offline_verification: Offline verificatie
               title: In afwachting van verificaties
               verification_number: 'Verificatie # %{n}'
           rejections:
             create:
               success: Verificatie gewijgerd. De gebruiker wordt gevraagd om haar documenten te wijzigen
         authorizations:
+          choose:
+            choose_a_type: "Selecteer alstublieft hoe u wilt worden geverifieerd:"
+            offline: offline
+            online: Online
+            title: Verifieer jezelf met je identiteitsdocument
           create:
             error: Er is een probleem opgetreden bij het uploaden van uw document
             success: Document met succes geüpload
           edit:
             being_reviewed: We beoordelen uw documenten. U wordt binnenkort geverifieerd
+            offline: Gebruik offline verificatie
+            online: Gebruik online verificatie
             rejection_clarity: Zorg ervoor dat de informatie duidelijk zichtbaar is in de geüploade afbeelding
             rejection_correctness: Zorg ervoor dat de ingevoerde informatie juist is
             rejection_notice: Er is een probleem met uw verificatie. Probeer het opnieuw

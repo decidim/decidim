@@ -76,8 +76,6 @@ es-PY:
         create:
           error: Hubo un error al crear una nueva consulta.
           success: Consulta creada con éxito.
-        destroy:
-          success: Consulta eliminada con éxito.
         edit:
           update: Actualizar
         form:

@@ -105,8 +105,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova conferência.
           success: Conferência criada com sucesso.
-        destroy:
-          success: Conferência excluída com sucesso.
         edit:
           update: Atualizar
         exports:
@@ -507,6 +505,10 @@ pt-BR:
         votes_count: Votos
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Seu registro para a conferência <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
+        conference_registration_confirmed:
+          notification_title: Sua inscrição para a conferência <a href="%{resource_url}">%{resource_title}</a> foi confirmada.
         conference_registrations_over_percentage:
           email_intro: Os espaços ocupados pela conferência "%{resource_title}" são superiores a %{percentage}%.
           email_outro: Você recebeu esta notificação porque é um administrador do espaço participativo da conferência.
@@ -522,6 +524,11 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a conferência "%{resource_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: A conferência "%{resource_title}" habilitou os registros.
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> permitiu registros.
+        upcoming_conference:
+          email_intro: 'A conferência "%{resource_title}" está ocorrendo em dois dias. Você pode ler a descrição de sua página:'
+          email_outro: Você recebeu esta notificação porque está seguindo a conferência "%{resource_title}". Você pode deixar de segui-lo no link anterior.
+          email_subject: A conferência "%{resource_title}" está chegando!
+          notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> está chegando em 2 dias.
     log:
       value_types:
         conference_presenter:
