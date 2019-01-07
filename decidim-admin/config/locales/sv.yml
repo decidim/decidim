@@ -91,12 +91,20 @@ sv:
         show_in_footer: Visa i sidfoten
         title: Titel
         weight: Vikt
+      user_group_csv_verification:
+        file: Fil
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ogiltig bildfil
+            official_img_footer:
+              allowed_file_content_types: Ogiltig bildfil
   activerecord:
     attributes:
       decidim/static_page:
@@ -110,7 +118,7 @@ sv:
         organization_name: Organisations namn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
-        site: Hemsida
+        site: Webbplats
   decidim:
     admin:
       actions:
@@ -263,14 +271,14 @@ sv:
       impersonatable_users:
         index:
           filter:
-            all: Allt
+            all: Alla
             managed: Managed
             not_managed: Inte hanterad
           filter_by: Filtrera efter
           impersonate: Uppträd som
           impersonate_new_managed_user: Impersonera ny hanterad användare
           managed: Managed
-          name: namn
+          name: Namn
           needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
           not_managed: Inte hanterad
           promote: Främja
@@ -286,7 +294,7 @@ sv:
           success: Den hanterade användaren har skapats.
         form:
           authorization_method: Auktoriseringsmetod
-          name: namn
+          name: Namn
           reason: Anledning
         new:
           impersonate: Uppträd som
@@ -363,7 +371,7 @@ sv:
         oauth_application:
           fields:
             created_at: Skapad vid
-            name: namn
+            name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagande utrymme privat användare
@@ -514,7 +522,7 @@ sv:
           inactive_content_blocks: Inaktiva innehållsblock
       organization_homepage_content_blocks:
         edit:
-          update: Uppdatering
+          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
@@ -615,6 +623,9 @@ sv:
         user_groups: Användargrupper
         users: Användare
       user_group:
+        csv_verify:
+          invalid: Det gick inte att läsa CSV-filen.
+          success: CSV-filen laddades upp, vi verifierar användargrupperna som matchar kriterierna. Det kan ta ett tag.
         reject:
           invalid: Det uppstod ett fel när du avvisade den här användargruppen.
           success: Användargruppen avvisades framgångsrikt
@@ -631,9 +642,15 @@ sv:
           filter_by: Filtrera efter
           search: Sök
           state:
-            pending: Avvaktan
+            pending: Väntande
             rejected: avvisade
             verified: Verifierad
+          verify_via_csv: Verifiera via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Ladda upp din CSV-fil. Den måste ha de officiella e-postmeddelandena för användargrupperna i din organisation i den första kolumnen i filen, utan rubriker. Endast användargrupper som har bekräftat sitt e-postmeddelande och som har ett e-postmeddelande som visas i CSV-filen kommer att valideras.
+          title: Ladda upp din CSV-fil
+          upload: Ladda upp
       users:
         create:
           error: Det uppstod ett fel vid inbjudan till den här användaren.
@@ -659,12 +676,16 @@ sv:
         hide: Dölj
         not_hidden: Inte dolt
         title: Handlingar
+        unhide: Ta fram
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: Det har varit ett problem att dölja resursen.
             success: Resurs framgångsrikt dold.
+          unhide:
+            invalid: Det har varit ett problem att undvika resursen.
+            success: Resurs framgångsrikt oskyddat.
           unreport:
             invalid: Det har varit ett problem att rapportera resursen.
             success: Resurs framgångsrikt orapporterad.
