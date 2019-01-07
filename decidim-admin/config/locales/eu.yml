@@ -91,12 +91,20 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
         weight: pisu
+      user_group_csv_verification:
+        file: file
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Birbideratze URI SSL URI izan behar du
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Irudi fitxategi baliogabea
+            official_img_footer:
+              allowed_file_content_types: Irudi fitxategi baliogabea
   activerecord:
     attributes:
       decidim/static_page:
@@ -615,6 +623,9 @@ eu:
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
       user_group:
+        csv_verify:
+          invalid: Errore bat gertatu da CSV fitxategia irakurtzean.
+          success: CSV fitxategiak behar bezala kargatu du, irizpideekin bat datozen erabiltzaile-taldeak egiaztatzen ari gara. Denbora pixka bat izan liteke.
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
           success: Erabiltzaile taldea arrakastaz arbuiatua
@@ -634,6 +645,12 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatuta
+          verify_via_csv: Egiaztatu CSV bidez
+      user_groups_csv_verifications:
+        new:
+          explanation: Kargatu zure CSV fitxategia. Zure erakundeko erabiltzaile taldeen mezu elektronikoak fitxategian lehen zutabean izan behar du, goibururik gabe. Zure posta elektronikoa baieztatu duten erabiltzaile taldeek eta CSV fitxategian agertzen diren mezu elektronikoak baliozkotu egingo dira.
+          title: Kargatu zure CSV fitxategia
+          upload: Upload
       users:
         create:
           error: Errorea gertatu da erabiltzaile honi gonbit egitean.
@@ -659,12 +676,16 @@ eu:
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak
+        unhide: Erakutsi
         unreport: Ezeztatu salaketa
       admin:
         reportable:
           hide:
             invalid: Errorea gertatu da edukia ezkutatzean.
             success: Edukia zuzen ezkutatu da.
+          unhide:
+            invalid: Arazo bat izan da baliabidea desegiteko.
+            success: Baliabidea ondo ezabatu da.
           unreport:
             invalid: Arazo bat izan da salaketa ezeztatzean.
             success: Salaketa zuzen ezeztatu da.
