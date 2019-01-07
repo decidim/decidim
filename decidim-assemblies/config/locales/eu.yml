@@ -82,8 +82,6 @@ eu:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
           success: Batzarra zuzen sortu da.
-        destroy:
-          success: Batzarra zuzen ezabatu da.
         edit:
           update: Eguneratu
         form:
@@ -259,6 +257,17 @@ eu:
         city_council: Udaletxea
         others: Beste batzuk
         public: Publiko
+      filter:
+        all: guztiak
+        commission: Batzorde
+        consultative_advisory: Aholku / Aholku
+        executive: exekutiboa
+        government: Gobernu
+        label: 'Show:'
+        others: Beste batzuk
+        participatory: partehartzailea
+        placeholder: Iragazi motaren arabera
+        working_group: Lan taldea
       index:
         title: Biltzarrak
       last_activity:
@@ -350,7 +359,7 @@ eu:
           reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
-            one: "%{count} batzarrak"
+            one: "%{count} batzarra"
             other: "%{count} batzarrak"
         promoted_assembly:
           more_info: Informazio gehiago
