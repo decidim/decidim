@@ -2,12 +2,12 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic when a user unreports a resource.
-    class UnreportResource < Rectify::Command
+    # A command with all the business logic when a user hides a resource.
+    class UnhideResource < Rectify::Command
       # Public: Initializes the command.
       #
       # reportable - A Decidim::Reportable
-      # current_user - the user performing the action
+      # current_user - the user that performs the action
       def initialize(reportable, current_user)
         @reportable = reportable
         @current_user = current_user
@@ -16,28 +16,32 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the resource.
-      # - :invalid if the resource is not reported
+      # - :invalid if the resource is already hidden
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless @reportable.reported?
+        return broadcast(:invalid) unless unhideable?
 
-        unreport!
+        unhide!
         broadcast(:ok, @reportable)
       end
 
       private
 
-      def unreport!
+      def unhideable?
+        @reportable.hidden? && @reportable.reported?
+      end
+
+      def unhide!
         Decidim.traceability.perform_action!(
-          "unreport",
+          "unhide",
           @reportable.moderation,
           @current_user,
           extra: {
             reportable_type: @reportable.class.name
           }
         ) do
-          @reportable.moderation.destroy!
+          @reportable.moderation.update!(hidden_at: nil)
         end
       end
     end
