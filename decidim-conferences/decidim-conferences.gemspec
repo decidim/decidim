@@ -18,13 +18,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
-
-  s.add_dependency "decidim-core", compatible_constraint
-  s.add_dependency "decidim-meetings", compatible_constraint
+  s.add_dependency "decidim-core", Decidim::Conferences.version
+  s.add_dependency "decidim-meetings", Decidim::Conferences.version
   s.add_dependency "wicked_pdf"
   s.add_dependency "wkhtmltopdf-binary"
 
-  s.add_development_dependency "decidim-admin", compatible_constraint
-  s.add_development_dependency "decidim-dev", compatible_constraint
+  s.add_development_dependency "decidim-admin", Decidim::Conferences.version
+  s.add_development_dependency "decidim-dev", Decidim::Conferences.version
 end
