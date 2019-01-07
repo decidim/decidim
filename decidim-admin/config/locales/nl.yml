@@ -91,12 +91,20 @@ nl:
         show_in_footer: Laat het in het voettekst zien
         title: Titel
         weight: Gewicht
+      user_group_csv_verification:
+        file: het dossier
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: De omleidings-URI moet een SSL-URI zijn
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ongeldig afbeeldingsbestand
+            official_img_footer:
+              allowed_file_content_types: Ongeldig afbeeldingsbestand
   activerecord:
     attributes:
       decidim/static_page:
@@ -615,6 +623,9 @@ nl:
         user_groups: Gebruikersgroepen
         users: Gebruikers
       user_group:
+        csv_verify:
+          invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
+          success: CSV-bestand geüpload, we verifiëren de gebruikersgroepen die aan de criteria voldoen. Dit kan even duren.
         reject:
           invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.
           success: Gebruikersgroep is succesvol geweigerd
@@ -634,6 +645,12 @@ nl:
             pending: In afwachting
             rejected: Geweigerd
             verified: Geverifieerd
+          verify_via_csv: Controleer via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload uw CSV-bestand. Het moet de officiële e-mails van de gebruikersgroepen in uw organisatie bevatten in de eerste kolom van het bestand, zonder kopteksten. Alleen gebruikersgroepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
+          title: Upload uw CSV-bestand
+          upload: Uploaden
       users:
         create:
           error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
@@ -659,12 +676,16 @@ nl:
         hide: Verbergen
         not_hidden: niet verstopt
         title: Acties
+        unhide: Zichtbaar maken
         unreport: Onreporteren
       admin:
         reportable:
           hide:
             invalid: Er is een probleem geweest om de bron te verbergen.
             success: Resource succesvol verborgen.
+          unhide:
+            invalid: Er is een probleem opgetreden bij het zichtbaar maken van de bron.
+            success: Resource succesvol onthuld.
           unreport:
             invalid: Er is een probleem geweest om de bron niet te rapporteren.
             success: Bron succesvol ontmeld.
