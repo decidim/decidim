@@ -355,8 +355,8 @@ fr:
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
-            one: Il reste 1 place
-            other: "Il reste %{count} places"
+            one: '%{count} emplacement disponible'
+            other: "%{count} places disponibles"
           view: Voir
       meetings_map:
         view_meeting: Voir la réunion

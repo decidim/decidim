@@ -332,11 +332,6 @@ ru:
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
-          remaining_slots:
-            one: Осталось 1 место
-            few: "Осталось %{count} места"
-            many: "Осталось %{count} мест"
-            other: "Осталось %{count} мест"
           view: Посмотреть
       models:
         invite:

@@ -9,7 +9,7 @@ sv:
         about: Om
         email: Din e-post
         name: Ditt namn
-        nickname: Din korta, unika identifierare
+        nickname: Smeknamn
         password: Lösenord
         password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
@@ -36,7 +36,7 @@ sv:
         remember_me: Kom ihåg mig
     models:
       decidim/user:
-        one: Användare
+        one: Inga användare
         other: användare
       decidim/user_group:
         one: Användargrupp
@@ -196,7 +196,7 @@ sv:
           title: Bekräfta din e-postadress
     collapsible_list:
       hidden_elements_count:
-        one: och 1 mer
+        one: och %{count} mer
         other: och %{count} mer
       see_less: "(se mindre)"
       see_more: "(se mer)"
@@ -922,7 +922,7 @@ sv:
         leave_blank_if_you_don_t_want_to_change_it: lämna tomt om du inte vill ändra det
         title: Redigera %{resource}
         unhappy: Olycklig?
-        update: Uppdatering
+        update: Uppdatera
         we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
       new:
         sign_up: Registrera dig

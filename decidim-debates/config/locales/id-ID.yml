@@ -1,0 +1,16 @@
+id:
+  decidim:
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hai,
+              Perdebatan baru telah dibuat pada %{space_title} ruang partisipatif, lihat dan sumbangkan:
+            email_subject: Perdebatan baru tentang %{space_title}
+          user_followers:
+            email_intro: |-
+              Hai,
+              %{author_name} %{author_nickname}, siapa yang Anda ikuti, telah menciptakan perdebatan baru, lihat dan sumbangkan:
+            email_subject: Perdebatan baru dengan %{author_nickname}
+            notification_title: Perdebatan <a href="%{resource_path}">%{resource_title}</a> dibuat oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.

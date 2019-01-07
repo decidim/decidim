@@ -313,7 +313,7 @@ sv:
             cancel: Avbryt
             change_category: Ändra kategori
             merge: Sammanfoga till en ny
-            merge_button: Sammanfoga
+            merge_button: Slå ihop
             select_component: Välj en komponent
             selected: vald
             split: Delade förslag
@@ -389,13 +389,13 @@ sv:
           title: Liknande samarbetsförslag
         complete:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           send: Skicka
           title: Färdigställ i ditt samarbetsutkast
         count:
           drafts_count:
-            one: 1 samarbetsutkast
-            other: "%{count} samarbetsutkast"
+            one: '%{count} samarbetsförslag'
+            other: "%{count} samarbetsförslag"
         create:
           error: Det uppstod ett problem med att skapa dessa samarbetsutkast
           success: Samarbetsutkast framgångsrikt utarbetat.
@@ -449,7 +449,7 @@ sv:
           final_proposal: sista förslaget
           final_proposal_help_text: Detta utkast är färdigt. Du kan se det slutgiltiga förslaget
           hidden_authors_count:
-            one: och 1 till person
+            one: och %{count} mer person
             other: och %{count} fler personer
           info-message: Detta är ett <strong>samlingsförslag</strong> för ett förslag. Det innebär att du kan hjälpa deras författare att forma förslaget med hjälp av kommentarsektionen nedan eller förbättra det direkt genom att begära åtkomst för att redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
           of_versions: "(av %{number})"
@@ -532,7 +532,7 @@ sv:
           title: Färdigställ ditt förslag
         count:
           proposals_count:
-            one: 1 förslag
+            one: '%{count} förslag'
             other: "%{count} förslag"
         edit:
           attachment_legend: "(Valfritt) Lägg till en bilaga"

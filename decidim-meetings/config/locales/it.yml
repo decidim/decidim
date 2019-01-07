@@ -355,7 +355,7 @@ it:
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           remaining_slots:
-            one: 1 slot restanti
+            one: '%{count} slot rimanenti'
             other: "%{count} slot rimanenti"
           view: vista
       meetings_map:

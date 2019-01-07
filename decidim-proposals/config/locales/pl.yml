@@ -399,15 +399,15 @@ pl:
           title: Podobne wersje robocze
         complete:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          select_a_category: Proszę wybierz kategorie
+          select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Uzupełnij swój wspólny projekt
         count:
           drafts_count:
-            one: 1 wspólny projekt
-            few: "%{count} wspólnych projektów"
-            many: "%{count} wspólnych projektów"
-            other: "%{count} wspólnych projektów"
+            one: '%{count} wspólny projekt'
+            few: "%{count} wspólny projekt"
+            many: "%{count} wspólny projekt"
+            other: "%{count} wspólny projekt"
         create:
           error: Podczas tworzenia tych roboczych wersji roboczych wystąpił problem
           success: Z powodzeniem utworzono wspólny projekt.
@@ -461,7 +461,7 @@ pl:
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten projekt jest gotowy. Możesz zobaczyć końcową gotową propozycję
           hidden_authors_count:
-            one: i jeszcze 1 osoba
+            one: i %{count} więcej osób
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób
@@ -546,10 +546,10 @@ pl:
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
-            one: 1 propozycja
-            few: "%{count} propozycje"
-            many: "%{count} propozycje"
-            other: "%{count} propozycje"
+            one: '%{count} propozycji'
+            few: "%{count} propozycji"
+            many: "%{count} propozycji"
+            other: "%{count} propozycji"
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy

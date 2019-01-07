@@ -9,7 +9,7 @@ pl:
         about: O
         email: Twój email
         name: Twoje imię
-        nickname: Twój krótki, niepowtarzalny identyfikator
+        nickname: Przezwisko
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
@@ -36,7 +36,7 @@ pl:
         remember_me: Zapamiętaj mnie
     models:
       decidim/user:
-        one: Użytkownik
+        one: Brak użytkowników
         few: Użytkownicy
         many: Użytkownicy
         other: Użytkownicy
@@ -204,7 +204,7 @@ pl:
           title: Potwierdź swój email
     collapsible_list:
       hidden_elements_count:
-        one: i 1 więcej
+        one: i %{count} więcej
         few: i %{count} więcej
         many: i %{count} więcej
         other: i %{count} więcej

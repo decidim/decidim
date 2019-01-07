@@ -355,8 +355,8 @@ es:
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
           remaining_slots:
-            one: 1 inscripción disponible
-            other: "%{count} inscripciones disponibles"
+            one: 'Queda %{count} plaza'
+            other: "%{count} plazas restantes"
           view: Ver
       meetings_map:
         view_meeting: Ver encuentro

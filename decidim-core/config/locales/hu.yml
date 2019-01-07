@@ -9,7 +9,7 @@ hu:
         about: Rólunk
         email: Email címed
         name: Neved
-        nickname: Rövid, egyedi azonosítód
+        nickname: Becenév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
@@ -36,8 +36,8 @@ hu:
         remember_me: Emlékezz rám
     models:
       decidim/user:
-        one: Felhasználó
-        other: Felhasználók
+        one: Nincsenek felhasználók
+        other: felhasználók
       decidim/user_group:
         one: Felhasználói csoport
         other: Felhasználói csoportok
@@ -196,7 +196,7 @@ hu:
           title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
-        one: és még egy
+        one: és még %{count}
         other: és még %{count}
       see_less: "(kevesebb)"
       see_more: "(tovább)"

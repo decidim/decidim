@@ -9,7 +9,6 @@ uk:
         about: Про учасника
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
-        nickname: Ваш короткий, унікальний псевдонім
         password: Пароль
         password_confirmation: Підтвердьте свій пароль
         personal_url: Особиста веб-адреса
@@ -28,11 +27,6 @@ uk:
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
     models:
-      decidim/user:
-        one: Учасник
-        few: Учасників
-        many: Учасників
-        other: Учасників
       decidim/user_group:
         one: Гурт учасників
         few: Гурти учасників
@@ -185,11 +179,6 @@ uk:
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
-      hidden_elements_count:
-        one: і ще 1
-        few: і ще %{count}
-        many: і ще %{count}
-        other: і ще %{count}
       see_less: "(читати менше)"
       see_more: "(читати далі)"
     components:

@@ -9,7 +9,7 @@ ca:
         about: Quant a
         email: El teu email
         name: El teu nom
-        nickname: El teu identificador curt i únic
+        nickname: Nom d'usuari
         password: Contrasenya
         password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
@@ -36,7 +36,7 @@ ca:
         remember_me: Recorda'm
     models:
       decidim/user:
-        one: Usuari
+        one: Sense usuaris
         other: Usuaris
       decidim/user_group:
         one: Grup d'usuaris
@@ -196,7 +196,7 @@ ca:
           title: Confirma el teu correu electrònic
     collapsible_list:
       hidden_elements_count:
-        one: i 1 més
+        one: i %{count} més
         other: i %{count} més
       see_less: "(veure menys)"
       see_more: "(veure més)"

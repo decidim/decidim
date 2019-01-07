@@ -355,7 +355,7 @@ gl:
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           remaining_slots:
-            one: 1 slot restante
+            one: '%{count} slot restante'
             other: "%{count} slots restantes"
           view: Ver
       meetings_map:

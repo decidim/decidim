@@ -363,10 +363,10 @@ pl:
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           remaining_slots:
-            one: Pozostało 1 gniazdo
-            few: "Pozostało %{count}"
+            one: 'Pozostało %{count} szczelin'
+            few: "Pozostało %{count} gniazd"
             many: "Pozostało %{count} gniazd"
-            other: "Pozostało %{count}"
+            other: "Pozostało %{count} gniazd"
           view: Widok
       meetings_map:
         view_meeting: Zobacz spotkanie

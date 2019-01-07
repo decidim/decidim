@@ -388,14 +388,14 @@ eu:
           no_similars_found: Ongi egina! Ez da antzeko lankidetza zirriborro aurkitu
           title: Antzeko zirriborro kolaboratzaileak
         complete:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Bete lankidetza zirriborroa
         count:
           drafts_count:
-            one: 1 lankidetza zirriborroa
-            other: "%{count} lankidetza zirriborroak"
+            one: '%{count} lankidetza zirriborroa'
+            other: "%{count} lankidetza zirriborroa"
         create:
           error: Arazo bat izan da lankidetza-zirriborroak sortzea
           success: Kolaborazio zirriborroa sortu da.
@@ -449,7 +449,7 @@ eu:
           final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
-            one: eta beste 1 pertsona
+            one: eta %{count} pertsona gehiago
             other: eta beste %{count} pertsona
           info-message: Hau da <strong>elkarlanerako zirriborroa</strong> proposamen bat da. Horrek esan nahi du bere egileek lagundu dezakezula proposamena, beheko iruzkinen atala erabiliz edo zuzenean hobetzeko editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honen aldaketak egin ahal izango dituzu.
           of_versions: "( %{number})"
@@ -532,7 +532,7 @@ eu:
           title: Zure proposamena osatzea
         count:
           proposals_count:
-            one: 1 proposamen
+            one: '%{count} proposamen'
             other: "%{count} proposamen"
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
