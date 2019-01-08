@@ -66,6 +66,7 @@ ca:
         show_statistics: Mostra estadístiques
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
+        user_groups_enabled: Activa els grups d'usuaris
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
