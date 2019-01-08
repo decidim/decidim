@@ -87,8 +87,6 @@ ru:
         create:
           error: При попытке добавить новое собрание произошла ошибка.
           success: Собрание успешно добавлено.
-        destroy:
-          success: Собрание успешно удалено.
         edit:
           update: Обновить
         form:
@@ -334,6 +332,12 @@ ru:
           take_part: Принять участие
         index:
           promoted_assemblies: Рекомендуемые собрания
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} собрание"
+            few: "%{count} собрания"
+            many: "%{count} собраний"
+            other: "%{count} собраний"
         promoted_assembly:
           more_info: Дополнительные сведения
           take_part: Принять участие

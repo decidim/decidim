@@ -48,8 +48,8 @@ fi:
         one: Vastaus
         other: Vastaukset
       decidim/consultations/vote:
-        one: Äänestys
-        other: Äänestys
+        one: Ääni
+        other: Äänet
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ fi:
         create:
           error: Virhe uuden kuulemisen luonnissa.
           success: Kuuleminen luotu onnistuneesti.
-        destroy:
-          success: Kuuleminen poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:

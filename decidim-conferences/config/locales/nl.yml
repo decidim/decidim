@@ -105,8 +105,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe conferentie.
           success: Conferentie met succes gemaakt.
-        destroy:
-          success: Conferentie met succes verwijderd.
         edit:
           update: Bijwerken
         exports:
@@ -507,6 +505,10 @@ nl:
         votes_count: stemmen
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is in afwachting van bevestiging.
+        conference_registration_confirmed:
+          notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is bevestigd.
         conference_registrations_over_percentage:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
           email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de conferentie.
@@ -522,6 +524,11 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties mogelijk gemaakt.
+        upcoming_conference:
+          email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. U kunt de beschrijving van zijn pagina lezen:'
+          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De "%{resource_title}" -conferentie komt eraan!
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie komt over 2 dagen.
     log:
       value_types:
         conference_presenter:

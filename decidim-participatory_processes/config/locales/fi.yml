@@ -196,8 +196,6 @@ fi:
         create:
           error: Uuden osallisuusprosessin luonnissa tapahtui virhe.
           success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
-        destroy:
-          success: Osallisuusprosessi poistettiin onnistuneesti.
         edit:
           update: Päivitä
         form:
