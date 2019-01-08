@@ -82,8 +82,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
           success: Assemblée créée avec succès.
-        destroy:
-          success: L'assemblée a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -259,6 +257,17 @@ fr:
         city_council: Conseil municipal
         others: Autres
         public: Public
+      filter:
+        all: Tout
+        commission: Commission
+        consultative_advisory: Consultatif / consultatif
+        executive: Exécutif
+        government: Gouvernement
+        label: 'Spectacle:'
+        others: Autres
+        participatory: Participatif
+        placeholder: Filtrer par type
+        working_group: Groupe de travail
       index:
         title: Assemblées
       last_activity:
@@ -350,7 +359,7 @@ fr:
           reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblées"
+            one: "%{count} assemblée"
             other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
