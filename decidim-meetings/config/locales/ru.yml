@@ -94,10 +94,13 @@ ru:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Встреча «%{resource_title}» закончена. Вы можете прочитать итоги на странице:'
-          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
-          email_subject: Встреча "%{resource_title}" закончена
-          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закончена.
+          affected_user:
+            email_subject: Встреча "%{resource_title}" закончена
+            notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закончена.
+          follower:
+            email_intro: 'Встреча «%{resource_title}» закончена. Вы можете прочитать итоги на странице:'
+            email_subject: Встреча "%{resource_title}" закончена
+            notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закончена.
         meeting_created:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлена встреча "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.

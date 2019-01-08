@@ -76,8 +76,6 @@ eu:
         create:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
-        destroy:
-          success: Kontsulta ezabatu da.
         edit:
           update: eguneratzearen
         form:

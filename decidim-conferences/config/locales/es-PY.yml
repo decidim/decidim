@@ -105,8 +105,6 @@ es-PY:
         create:
           error: Hubo un error al crear una nueva conferencia.
           success: Conferencia creada con éxito.
-        destroy:
-          success: Conferencia borrada con éxito.
         edit:
           update: Actualizar
         exports:
@@ -154,7 +152,7 @@ es-PY:
           conference_admins: Usuarios de la conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
-          diploma: Diploma
+          diploma: Certificado de asistencia
           info: Información
           media_links: Enlaces de medios
           moderations: Moderaciones
@@ -336,7 +334,7 @@ es-PY:
         diplomas:
           edit:
             save: Salvar
-            title: Diploma
+            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación '%{conference_title}'
@@ -507,6 +505,10 @@ es-PY:
         votes_count: Votos
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Su inscripción para la conferencia <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
+        conference_registration_confirmed:
+          notification_title: Su registro para la conferencia <a href="%{resource_url}">%{resource_title}</a> ha sido confirmado.
         conference_registrations_over_percentage:
           email_intro: Las ranuras ocupadas por la conferencia "%{resource_title}" superan el %{percentage}%.
           email_outro: Recibió esta notificación porque usted es administrador del espacio participativo de la conferencia.
@@ -522,6 +524,11 @@ es-PY:
           email_outro: Recibió esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: La conferencia "%{resource_title}" ha habilitado los registros.
           notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> ha permitido registros.
+        upcoming_conference:
+          email_intro: 'La conferencia "%{resource_title}" se lleva a cabo en 2 días. Puedes leer la descripción de su página:'
+          email_outro: Ha recibido esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: '¡Se acerca la conferencia "%{resource_title}"!'
+          notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> llegará en 2 días.
     log:
       value_types:
         conference_presenter:
