@@ -54,6 +54,7 @@ pt-BR:
         initiatives:
           fields:
             created_at: Criado em
+            id: identidade
             state: Estado
             supports_count: Suporta
             title: Iniciativas
@@ -78,10 +79,16 @@ pt-BR:
           email_subject: Assinatura da iniciativa data final estendida!
           notification_title: A data final das assinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi ampliada.
         milestone_completed:
-          email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
-          email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Novo marco concluído!
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
+          affected_user:
+            email_intro: Sua iniciativa %{resource_title} alcançou o %{percentage}% de assinaturas!
+            email_outro: Você recebeu esta notificação porque é o autor da iniciativa %{resource_title}.
+            email_subject: Novo marco concluído!
+            notification_title: Sua iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+          follower:
+            email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
+            email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
+            email_subject: Novo marco concluído!
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ pt-BR:
       states:
         accepted: Aceitaram
         expired: Expirado
+      unavailable_scope: Escopo não disponível
     menu:
       initiatives: Iniciativas
   layouts:

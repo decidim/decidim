@@ -39,7 +39,7 @@ ca:
             title: Editar projecte
             update: Actualitzar
           index:
-            finished_orders: Vots finalitzats
+            finished_orders: Suports finalitzats
             pending_orders: Vots en procés
             title: Projectes
           new:
