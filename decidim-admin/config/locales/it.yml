@@ -66,6 +66,7 @@ it:
         show_statistics: Mostra statistiche
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
+        user_groups_enabled: Abilita gruppi di utenti
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
