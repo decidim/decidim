@@ -66,6 +66,7 @@ eu:
         show_statistics: Erakutsi estatistikak
         tos_version: Zerbitzu-baldintzak bertsioa
         twitter_handler: Twitter kudeatzailea
+        user_groups_enabled: Gaitu erabiltzaileen taldeak
         youtube_handler: YouTube kudeatzailea
       scope:
         code: Kodea
