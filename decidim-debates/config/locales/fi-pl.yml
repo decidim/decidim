@@ -1,0 +1,155 @@
+fi-pl:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Aihepiiri
+        decidim_category_id: Aihepiiri
+        description: Kuvaus
+        end_time: Päättymisaika
+        information_updates: Tietojen päivitykset
+        instructions: Osallistumisohjeet
+        start_time: Alkamisaika
+        title: Otsikko
+        user_group_id: Luo keskustelu käyttäjänä
+    models:
+      decidim/debates/create_debate_event: Keskustelu
+      decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
+      decidim/debates/creation_enabled_event: Keskustelut käytössä
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Keskustelu
+        other: Keskustelut
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Luo
+        name: Keskustelut
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentointi käytössä
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentointi estetty
+            creation_enabled: Keskustelujen luominen käyttäjien toimesta sallittu
+    debates:
+      actions:
+        confirm_destroy: Oletko varma?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        title: Toiminnot
+      admin:
+        debates:
+          create:
+            invalid: Keskustelua luotaessa tapahtui virhe.
+            success: Keskustelu luotu onnistuneesti.
+          destroy:
+            success: Keskustelu poistettu onnistuneesti.
+          edit:
+            title: Muokkaa keskustelua
+            update: Päivitä keskustelu
+          index:
+            title: Keskustelut
+          new:
+            create: Luo keskustelu
+            title: Uusi keskustelu
+          update:
+            invalid: Keskustelun päivittämisessä tapahtui virhe.
+            success: Keskustelu päivitetty onnistuneesti.
+        models:
+          debate:
+            name: Keskustelu
+      admin_log:
+        debate:
+          create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
+          update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} keskustelu"
+            other: "%{count} keskustelua"
+        create:
+          invalid: Luotaessa keskustelua tapahtui virhe.
+          success: Keskustelu luotu onnistuneesti.
+        debate:
+          participate: Osallistu
+        filters:
+          all: Kaikki
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
+          citizens: Kansalaiset
+          official: Virallinen
+          origin: Alkuperä
+          search: Hae
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        index:
+          new_debate: Uusi keskustelu
+        new:
+          back: Takaisin
+          create: Luo
+          select_a_category: Valitse aihepiiri
+          title: Uusi keskustelu
+        share:
+          close_window: Sulje ikkuna
+          share: Jaa
+          share_link: Jaa linkki
+      last_activity:
+        new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Päättymispäivä
+            official_debate: Virallinen keskustelu
+            start_time: Alkamispäivä
+            title: Otsikko
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hei,
+              osallisuustilaan %{space_title} on luotu uusi keskustelu "%{resource_title}", tutustu siihen ja osallistu:
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi keskustelu "%{resource_title}" tilassa %{space_title}
+            notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hei,
+              %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun "%{resource_title}". Tutustu siihen ja osallistu:
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi keskustelu "%{resource_title}" käyttäjältä %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Keskustelujen luominen ei ole enää käytössä kohteessa %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tämän sivun kautta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Keskustelujen luominen on poistettu käytöstä kohteessa %{participatory_space_title}
+          notification_title: Keskustelujen luominen on nyt poistettu käytöstä kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Nyt voit aloittaa uusia keskusteluja kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Valitse avoin keskustelu ja osallistu siihen
+          description: Tämä kunniamerkki myönnetään, kun osallistut aktiivisesti eri keskusteluihin.
+          description_another: Tämä käyttäjä on osallistunut %{score} keskusteluun.
+          description_own: Olet osallistunut %{score} keskusteluun.
+          name: Keskustelut
+          next_level_in: Osallistu vielä %{score} keskusteluun päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään keskusteluun.
+          unearned_own: Et ole vielä osallistunut yhteenkään keskusteluun.
+    metrics:
+      debates:
+        description: Keskustelujen määrä
+        object: keskustelut
+        title: Keskustelut
