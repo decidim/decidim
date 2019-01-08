@@ -154,7 +154,7 @@ eu:
         announcement:
           accepted: |-
             %{amendable_type} %{amendable_link} aldatze hau
-             <strong>%{announcement_date}</strong>onartu da.
+            <strong>%{announcement_date}</strong>onartu da.
           evaluating: |-
             Hau %{amendable_type} %{amendable_link}
             aldaketaren ebaluazioa da.
