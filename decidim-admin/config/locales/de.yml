@@ -66,6 +66,7 @@ de:
         show_statistics: Zeige Statistiken
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
+        user_groups_enabled: Benutzergruppen aktivieren
         youtube_handler: YouTube-Handler
       scope:
         code: Code

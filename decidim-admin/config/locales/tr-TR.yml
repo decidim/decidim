@@ -66,6 +66,7 @@ tr:
         show_statistics: İstatistikleri göster
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
+        user_groups_enabled: Kullanıcı gruplarını etkinleştir
         youtube_handler: YouTube işleyici
       scope:
         code: kod

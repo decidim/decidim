@@ -66,6 +66,7 @@ pt-BR:
         show_statistics: Exibir estatisticas
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
+        user_groups_enabled: Ativar grupos de usuários
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código

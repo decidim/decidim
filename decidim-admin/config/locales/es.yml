@@ -66,6 +66,7 @@ es:
         show_statistics: Mostrar estadísticas
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
+        user_groups_enabled: Habilitar grupos de usuarios
         youtube_handler: Nombre de YouTube
       scope:
         code: Código

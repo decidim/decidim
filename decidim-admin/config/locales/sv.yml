@@ -66,6 +66,7 @@ sv:
         show_statistics: Visa statistik
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
+        user_groups_enabled: Aktivera användargrupper
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod

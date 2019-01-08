@@ -66,6 +66,7 @@ pl:
         show_statistics: Pokaż statystyki
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
+        user_groups_enabled: Włącz grupy użytkowników
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod

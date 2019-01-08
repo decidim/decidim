@@ -66,6 +66,7 @@ fr:
         show_statistics: Montrer les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
+        user_groups_enabled: Activer les groupes d'utilisateurs
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code

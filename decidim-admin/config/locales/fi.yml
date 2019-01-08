@@ -66,6 +66,7 @@ fi:
         show_statistics: Näytä tilastot
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
+        user_groups_enabled: Ota käyttäjäryhmät käyttöön
         youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi

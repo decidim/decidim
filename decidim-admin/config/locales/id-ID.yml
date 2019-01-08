@@ -66,6 +66,7 @@ id:
         show_statistics: Tampilkan statistik
         tos_version: Versi persyaratan layanan
         twitter_handler: Penangan Twitter
+        user_groups_enabled: Aktifkan grup pengguna
         youtube_handler: Penangan YouTube
       scope:
         code: Kode
