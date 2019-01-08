@@ -54,6 +54,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
+            id: ICH WÜRDE
             state: Zustand
             supports_count: Unterstützt
             title: Initiativen
@@ -78,10 +79,16 @@ de:
           email_subject: Initiativsignaturendatum verlängert!
           notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
         milestone_completed:
-          email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Neuer Meilenstein abgeschlossen!
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+          affected_user:
+            email_intro: Ihre Initiative %{resource_title} hat die %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
+          follower:
+            email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
     gamification:
       badges:
         initiatives:
@@ -335,6 +342,7 @@ de:
         progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
         progress_report_for: 'Resume über die Initiative: %{title}'
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
+        status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
@@ -348,6 +356,7 @@ de:
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
+      unavailable_scope: Nicht verfügbarer Umfang
     menu:
       initiatives: Initiativen
   layouts:
