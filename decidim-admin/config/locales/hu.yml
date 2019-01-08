@@ -66,6 +66,7 @@ hu:
         show_statistics: Statisztikák megjelenítése
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
+        user_groups_enabled: Felhasználói csoportok engedélyezése
         youtube_handler: YouTube handler
       scope:
         code: Kód
