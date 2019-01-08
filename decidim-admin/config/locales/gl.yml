@@ -66,6 +66,7 @@ gl:
         show_statistics: Amosar estatísticas
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
+        user_groups_enabled: Activar grupos de usuarios
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
