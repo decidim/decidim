@@ -47,7 +47,7 @@ module Decidim
       # Only key name attributes in Decidim::Metric will be applied
       def filter
         @filters.each do |key, value|
-          next unless Decidim::Metric.column_names.include? key
+          next unless Decidim::Metric.column_names.include? key.to_s
           @records = @records.where("#{key}": value)
         end
       end
