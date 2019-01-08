@@ -84,8 +84,6 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacje zostały pomyślnie utworzone.
-        destroy:
-          success: Konsultacja została pomyślnie usunięta.
         edit:
           update: Aktualizacja
         form:
