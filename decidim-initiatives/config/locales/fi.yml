@@ -54,6 +54,7 @@ fi:
         initiatives:
           fields:
             created_at: Luontiaika
+            id: ID
             state: Maakunta/osavaltio
             supports_count: Kannatusten määrä
             title: Aloitteet
@@ -78,10 +79,16 @@ fi:
           email_subject: Aloitteen allekirjoitusten keräämisen aikaa on jatkettu!
           notification_title: Aloitteen <a href="%{resource_path}">%{resource_title}</a> allekirjoitusten keräämisen aikaa on jatkettu.
         milestone_completed:
-          email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi virstanpylväs saavutettu!
-          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
+          affected_user:
+            email_intro: Aloitteesi %{resource_title} on saavuttanut %{percentage}% allekirjoituksista!
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}.
+            email_subject: Uusi virstanpylväs saavutettu!
+            notification_title: Aloitteesi <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% allekirjoituksista.
+          follower:
+            email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi virstanpylväs saavutettu!
+            notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ fi:
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet
+      unavailable_scope: Teema ei ole saatavilla
     menu:
       initiatives: Aloitteet
   layouts:

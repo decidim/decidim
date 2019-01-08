@@ -202,8 +202,6 @@ pl:
         create:
           error: Podczas tworzenia nowego procesu partycypacyjnego wystąpił błąd.
           success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
-        destroy:
-          success: Proces partycypacyjny został pomyślnie usunięty.
         edit:
           update: Aktualizuj
         form:

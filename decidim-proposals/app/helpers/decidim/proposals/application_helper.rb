@@ -139,11 +139,9 @@ module Decidim
                  [["all", t("decidim.proposals.application_helper.filter_origin_values.all")]]
                end
 
-        base + [
-          ["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")],
-          ["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")],
-          ["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]
-        ]
+        base += [["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")]]
+        base += [["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")]] if current_organization.user_groups_enabled?
+        base + [["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]]
       end
 
       def filter_state_values
@@ -161,7 +159,6 @@ module Decidim
           ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
           ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
           ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
-
         ]
       end
     end
