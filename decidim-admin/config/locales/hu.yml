@@ -66,6 +66,7 @@ hu:
         show_statistics: Statisztikák megjelenítése
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
+        user_groups_enabled: Felhasználói csoportok engedélyezése
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -91,12 +92,20 @@ hu:
         show_in_footer: Mutassa a láblécben
         title: Cím
         weight: Súly
+      user_group_csv_verification:
+        file: fájl
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Érvénytelen képfájl
+            official_img_footer:
+              allowed_file_content_types: Érvénytelen képfájl
   activerecord:
     attributes:
       decidim/static_page:
@@ -615,6 +624,9 @@ hu:
         user_groups: Felhasználói csoportok
         users: Felhasználók
       user_group:
+        csv_verify:
+          invalid: Hiba történt a CSV fájl olvasásában.
+          success: A CSV-fájl sikeresen fel lett töltve, ellenőrizzük a kritériumoknak megfelelő felhasználói csoportokat. Ez eltarthat egy ideig.
         reject:
           invalid: Hiba történt a felhasználói csoport elutasításakor.
           success: Felhasználói csoport elutasítva
@@ -634,6 +646,12 @@ hu:
             pending: Függőben
             rejected: Elutasítva
             verified: Megerősítve
+          verify_via_csv: Ellenőrizze a CSV használatát
+      user_groups_csv_verifications:
+        new:
+          explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
+          title: Töltse fel a CSV fájlját
+          upload: Feltöltés
       users:
         create:
           error: Hiba történt a felhasználó meghívása során.
