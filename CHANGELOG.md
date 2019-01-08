@@ -7,6 +7,7 @@
 
 **Added**:
 
+- **decidim-core**: User groups can now be disabled per organization. [\#4681](https://github.com/decidim/decidim/pull/4681/)
 
 **Changed**:
 
