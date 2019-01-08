@@ -66,6 +66,7 @@ nl:
         show_statistics: Toon statistieken
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
+        user_groups_enabled: Schakel gebruikersgroepen in
         youtube_handler: YouTube gebruikersnaam
       scope:
         code: Code
