@@ -3,6 +3,8 @@
 module Decidim
   # The controller to handle the user's public profile page.
   class ProfilesController < Decidim::ApplicationController
+    include UserGroups
+
     helper Decidim::Messaging::ConversationHelper
 
     helper_method :profile_holder, :active_content
@@ -33,11 +35,15 @@ module Decidim
     end
 
     def groups
+      enforce_user_groups_enabled
+
       @content_cell = "decidim/groups"
       render :show
     end
 
     def members
+      enforce_user_groups_enabled
+
       @content_cell = "decidim/members"
       render :show
     end

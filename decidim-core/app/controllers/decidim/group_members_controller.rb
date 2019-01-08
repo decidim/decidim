@@ -4,6 +4,9 @@ module Decidim
   # The controller to manage user groups members
   class GroupMembersController < Decidim::ApplicationController
     include FormFactory
+    include UserGroups
+
+    before_action :enforce_user_groups_enabled
 
     helper_method :user_group
 

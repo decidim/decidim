@@ -152,6 +152,13 @@ describe "Profile", type: :system do
         expect(page).to have_content(accepted_user_group.name)
         expect(page).to have_no_content(pending_user_group.name)
       end
+
+      context "when user groups are disabled" do
+        let(:organization) { create(:organization, user_groups_enabled: false) }
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        it { is_expected.to have_no_content("Groups") }
+      end
     end
   end
 

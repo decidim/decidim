@@ -4,6 +4,10 @@ module Decidim
   module Admin
     # Controller that allows batch verifying user groups by uploading a CSV file.
     class UserGroupsCsvVerificationsController < Decidim::Admin::ApplicationController
+      include UserGroups
+
+      before_action :enforce_user_groups_enabled
+
       layout "decidim/admin/users"
 
       def new

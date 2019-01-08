@@ -49,7 +49,8 @@ module Decidim
           instagram_handler: form.instagram_handler,
           youtube_handler: form.youtube_handler,
           github_handler: form.github_handler,
-          badges_enabled: form.badges_enabled
+          badges_enabled: form.badges_enabled,
+          user_groups_enabled: form.user_groups_enabled
         }.merge(welcome_notification_attributes)
       end
 
