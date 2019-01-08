@@ -96,15 +96,23 @@ pl:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski z jej strony:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: Spotkanie "%{resource_title}" zostało zamknięte
-          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+          affected_user:
+            email_intro: 'Twoje spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski z jej strony:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ zorganizowałeś spotkanie "%{resource_title}".
+            email_subject: Spotkanie "%{resource_title}" zostało zamknięte
+            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+          follower:
+            email_intro: 'Spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski z jej strony:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+            email_subject: Spotkanie "%{resource_title}" zostało zamknięte
+            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
         meeting_created:
           email_intro: Spotkanie "%{resource_title}" został dodany do "%{participatory_space_title}" że podążacie.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Nowe spotkanie zostało dodane do %{participatory_space_title}
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Twoja rejestracja na spotkanie <a href="%{resource_url}">%{resource_title}</a> została potwierdzona. Twój kod rejestracyjny to %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" zajmowanych miejsc spotkań przekroczyło %{percentage}%.'
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej spotkania.
@@ -188,6 +196,7 @@ pl:
             invalid: Wystąpił problem podczas aktualizacji tego programu
             success: Agenda została zaktualizowana
         exports:
+          meetings: Spotkania
           registrations: Rejestracje
         invite_join_meeting_mailer:
           invite:
@@ -369,6 +378,10 @@ pl:
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
+          registration_code_help_text: Twój kod rejestracyjny
+          registration_state:
+            validated: WALIDACJA
+            validation_pending: OCZEKUJE WERYFIKACJI
           remaining_slots:
             one: "Pozostało %{count} szczelin"
             few: "Pozostało %{count} gniazd"
