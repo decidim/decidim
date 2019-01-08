@@ -1,6 +1,11 @@
 sv:
   activemodel:
     attributes:
+      config:
+        available_methods: Tillgängliga metoder
+        offline: Off-line
+        offline_explanation: Instruktioner för offline verifiering
+        online: Uppkopplad
       id_document_information:
         document_number: Dokumentnummer (med bokstav)
         document_type: Typ av dokumentet
@@ -9,6 +14,8 @@ sv:
         document_type: Typ av ditt dokument
         user: Användare
         verification_attachment: Skannad kopia av ditt dokument
+      offline_confirmation:
+        email: Användar-e-post
       postal_letter_address:
         full_address: Fullständig adress
       postal_letter_confirmation:
@@ -20,6 +27,11 @@ sv:
     admin:
       menu:
         authorization_workflows: Verifieringar
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} uppdaterade konfiguration av identitetshandlingar"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifierad %{resource_name} hjälp av en offline ID-dokument verifiering"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +82,13 @@ sv:
           other: 'Deltagande är begränsat till användare med någon av följande postnummer: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Konfiguration av identitetsdokument
+              update: Uppdatering
+            update:
+              error: Det uppstod ett fel vid uppdatering av konfigurationen.
+              success: Konfigurationen har uppdaterats
           confirmations:
             create:
               error: Verifieringen matchar inte. Försök igen eller avvisa verifieringen så att användaren kan ändra den
@@ -78,19 +97,36 @@ sv:
               introduce_user_data: Presentera data i bilden
               reject: Avvisa
               verify: Verifiera
+          offline_confirmations:
+            create:
+              error: Verifieringen matchar inte. Försök igen eller berätta för användaren att ändra den
+              success: Användaren har verifierats
+            new:
+              cancel: Annullera
+              introduce_user_data: Presentation av användar-e-post och dokumentdata
+              verify: Kontrollera
           pending_authorizations:
             index:
+              config: config
+              offline_verification: Offline verifiering
               title: Pågående verifieringar
               verification_number: 'Verifiering #%{n}'
           rejections:
             create:
               success: Verifieringen avvisades. Användaren kommer att uppmanas att ändra sina dokument
         authorizations:
+          choose:
+            choose_a_type: "Var god välj hur du vill verifieras:"
+            offline: Off-line
+            online: Uppkopplad
+            title: Verifiera dig själv med ditt identitetsdokument
           create:
             error: Det gick inte att ladda upp dokumentet
             success: Dokumentet har laddats upp
           edit:
             being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
+            offline: Använd offline verifiering
+            online: Använd online verifiering
             rejection_clarity: Se till att informationen syns tydligt i den uppladdade bilden
             rejection_correctness: Se till att informationen som angivits är korrekt
             rejection_notice: Det uppstod ett problem med din verifiering. Var god försök igen
