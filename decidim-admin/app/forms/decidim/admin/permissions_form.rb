@@ -7,6 +7,8 @@ module Decidim
     class PermissionsForm < Form
       mimic :component_permissions
 
+      delegate :current_organization, to: :context
+
       attribute :permissions, Hash[String => PermissionForm]
 
       def valid?
