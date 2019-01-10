@@ -16,7 +16,7 @@ module Decidim
       end
 
       def update
-        @permissions_form = PermissionsForm.from_params(params)
+        @permissions_form = PermissionsForm.from_params(params).with_context(current_organization: current_organization)
 
         UpdateResourcePermissions.call(@permissions_form, resource) do
           on(:ok) do
@@ -47,8 +47,8 @@ module Decidim
       def permission_forms
         actions.inject({}) do |result, action|
           form = PermissionForm.new(
-            authorization_handler_name: authorization_for(action),
-            options: permissions.dig(action, "options")
+            authorization_handlers: authorizations_for(action),
+            authorizations_handlers_options: options_for(action)
           )
 
           result.update(action => form)
@@ -67,7 +67,7 @@ module Decidim
 
       def other_authorizations_for(action)
         Verifications::Adapter.from_collection(
-          current_organization.available_authorizations - [authorization_for(action)]
+          current_organization.available_authorizations - authorizations_for(action).keys
         )
       end
 
@@ -78,12 +78,25 @@ module Decidim
                       end
       end
 
+      def manifest_name
+        @manifest_name ||= resource.manifest.name
+      end
+
       def permissions
         @permissions ||= (resource&.permissions || {})
       end
 
-      def authorization_for(action)
-        permissions.dig(action, "authorization_handler_name")
+      def authorizations_for(action)
+        if permissions.dig(action, "authorization_handler_name")
+          opts = permissions.dig(action, "options")
+          { permissions.dig(action, "authorization_handler_name") => opts.blank? ? {} : { "options" => opts } }
+        else
+          permissions.dig(action, "authorization_handlers") || {}
+        end
+      end
+
+      def options_for(action)
+        authorizations_for(action)&.transform_values { |value| value["options"] }&.reject { |_, value| value.blank? }
       end
     end
   end
