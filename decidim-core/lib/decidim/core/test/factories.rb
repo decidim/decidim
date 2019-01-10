@@ -85,6 +85,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     badges_enabled { true }
+    user_groups_enabled { true }
     send_welcome_notification { true }
     smtp_settings do
       {

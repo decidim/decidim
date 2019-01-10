@@ -52,7 +52,7 @@
   </div>
 <% end %>
 
-<% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
   <div class="field">
     <%= user_group_select_field form, :user_group_id %>
   </div>

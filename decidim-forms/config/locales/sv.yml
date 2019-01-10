@@ -36,7 +36,7 @@ sv:
             already_answered_warning: Frågeformuläret är redan besvarat av vissa användare så att du inte kan ändra sina frågor.
           question:
             add_answer_option: Lägg till svaralternativ
-            any: Några
+            any: Vilken som helst
             description: Beskrivning
             down: Ner
             question: Fråga

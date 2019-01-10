@@ -53,6 +53,7 @@ module Decidim
           available_authorizations: form.clean_available_authorizations,
           users_registration_mode: form.users_registration_mode,
           badges_enabled: true,
+          user_groups_enabled: true,
           default_locale: form.default_locale,
           smtp_settings: form.encrypted_smtp_settings,
           send_welcome_notification: true

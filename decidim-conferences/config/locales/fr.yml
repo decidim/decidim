@@ -105,8 +105,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle conférence.
           success: Conférence créée avec succès.
-        destroy:
-          success: Conférence supprimée avec succès.
         edit:
           update: Mettre à jour
         exports:
@@ -507,6 +505,10 @@ fr:
         votes_count: Votes
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
+        conference_registration_confirmed:
+          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> a été confirmée.
         conference_registrations_over_percentage:
           email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
           email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
@@ -522,6 +524,11 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
+        upcoming_conference:
+          email_intro: 'La conférence "%{resource_title}" se déroule dans 2 jours. Vous pouvez lire la description de sa page:'
+          email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez le désabonner du lien précédent.
+          email_subject: La conférence "%{resource_title}" arrive!
+          notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> arrive dans 2 jours.
     log:
       value_types:
         conference_presenter:

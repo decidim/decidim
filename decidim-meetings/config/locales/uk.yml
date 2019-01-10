@@ -94,10 +94,13 @@ uk:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
-          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Зустріч "%{resource_title}" було завершено
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
+          affected_user:
+            email_subject: Зустріч "%{resource_title}" було завершено
+            notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
+          follower:
+            email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
+            email_subject: Зустріч "%{resource_title}" було завершено
+            notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
         meeting_created:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана зустріч "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.

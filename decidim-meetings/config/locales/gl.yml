@@ -90,15 +90,23 @@ gl:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'A reunión "%{resource_title}" pechouse. Podes ler as conclusións da súa páxina:'
-          email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-          email_subject: A reunión "%{resource_title}" pechouse
-          notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
+          affected_user:
+            email_intro: 'A túa reunión "%{resource_title}" foi pechada. Podes ler as conclusións da súa páxina:'
+            email_outro: Recibiches esta notificación porque organizaches a reunión "%{resource_title}".
+            email_subject: A reunión "%{resource_title}" pechouse
+            notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
+          follower:
+            email_intro: 'A reunión "%{resource_title}" pechouse. Podes ler as conclusións da súa páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
+            email_subject: A reunión "%{resource_title}" pechouse
+            notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
         meeting_created:
           email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova reunión engadida a %{participatory_space_title}
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Inscríbase o rexistro da reunión <a href="%{resource_url}">%{resource_title}</a> . O teu código de rexistro é %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: As xuntas ocupadas con "%{resource_title}" ocupan máis de %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da reunión.
@@ -182,6 +190,7 @@ gl:
             invalid: Produciuse un problema ao actualizar esta axenda
             success: A axenda actualizouse correctamente
         exports:
+          meetings: Reunións
           registrations: Rexistros
         invite_join_meeting_mailer:
           invite:
@@ -361,6 +370,10 @@ gl:
           meeting_report: Informe de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
+          registration_code_help_text: O seu código de rexistro
+          registration_state:
+            validated: VALIDADO
+            validation_pending: VALIDACIÓN PENDENTE
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"

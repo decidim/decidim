@@ -54,6 +54,7 @@ hu:
         initiatives:
           fields:
             created_at: 'Létrehozva:'
+            id: ID
             state: Állapot
             supports_count: Támogatás
             title: Kezdeményezések
@@ -78,10 +79,16 @@ hu:
           email_subject: Kezdeményezés aláírásának határideje kitolva!
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának határidejét kitolták.
         milestone_completed:
-          email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
-          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: Új mérföldkő kész áll!
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
+          affected_user:
+            email_intro: A %{resource_title} kezdeményezése elérte az aláírások %{percentage}% -át!
+            email_outro: Ezt az értesítést megkapta, mert Ön a %{resource_title}kezdeményezés szerzője.
+            email_subject: Új mérföldkő kész áll!
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte az aláírások %{percentage}% -át.
+          follower:
+            email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
+            email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_subject: Új mérföldkő kész áll!
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ hu:
       states:
         accepted: Elfogadva
         expired: Lejárt
+      unavailable_scope: Nem áll rendelkezésre
     menu:
       initiatives: Kezdeményezések
   layouts:

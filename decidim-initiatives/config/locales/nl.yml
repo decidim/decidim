@@ -54,6 +54,7 @@ nl:
         initiatives:
           fields:
             created_at: Aangemaakt op
+            id: ID kaart
             state: Staat
             supports_count: steunen
             title: initiatieven
@@ -78,10 +79,16 @@ nl:
           email_subject: Initiatief handtekeningen einddatum verlengd!
           notification_title: De einddatum van de ondertekening van het <a href="%{resource_path}">%{resource_title}</a> initiatief is verlengd.
         milestone_completed:
-          email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Nieuwe mijlpaal voltooid!
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
+          affected_user:
+            email_intro: Uw initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
+            email_outro: U hebt deze melding ontvangen omdat u de auteur bent van het initiatief %{resource_title}.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Uw <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen bereikt.
+          follower:
+            email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
+            email_outro: U hebt deze melding ontvangen omdat u %{resource_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ nl:
       states:
         accepted: Aanvaard
         expired: Vervallen
+      unavailable_scope: Niet beschikbaar bereik
     menu:
       initiatives: initiatieven
   layouts:

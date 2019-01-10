@@ -18,7 +18,7 @@
     <% end %>
   <% end %>
 
-  <% if current_user.user_groups.verified.any? %>
+  <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
     <div class="field">
       <%= user_group_select_field form, :user_group_id %>
     </div>

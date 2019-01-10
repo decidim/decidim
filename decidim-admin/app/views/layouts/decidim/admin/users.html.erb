@@ -9,7 +9,7 @@
           <%= link_to t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path %>
         </li>
       <% end %>
-      <% if allowed_to? :index, :user_group %>
+      <% if current_organization.user_groups_enabled? && allowed_to?(:index, :user_group) %>
         <li <% if is_active_link?(decidim_admin.user_groups_path) %> class="is-active" <% end %>>
           <%= link_to t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path %>
         </li>

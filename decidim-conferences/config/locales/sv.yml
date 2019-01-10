@@ -10,7 +10,7 @@ sv:
         copy_features: Kopiera funktioner
         decidim_scope_id: Omfattning
         description: Beskrivning
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         participatory_processes_ids: Relaterade deltagande processer
         promoted: främjas
@@ -26,7 +26,7 @@ sv:
         full_name: Fullständiga namn
       conference_user_role:
         email: E-post
-        name: namn
+        name: Namn
         role: Roll
     errors:
       models:
@@ -75,7 +75,7 @@ sv:
           success: Högtalaren raderades framgångsrikt för denna konferens.
         edit:
           title: Uppdatera konferenshögtalare.
-          update: Uppdatering
+          update: Uppdatera
         index:
           conference_speakers_title: Konferenshögtalare
         new:
@@ -92,7 +92,7 @@ sv:
           success: Användaren avlägsnades framgångsrikt från denna konferens.
         edit:
           title: Uppdatera konferensanvändare.
-          update: Uppdatering
+          update: Uppdatera
         index:
           conference_admins_title: konferensanvändare
         new:
@@ -105,10 +105,8 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa en ny konferens.
           success: Konferensen skapades framgångsrikt.
-        destroy:
-          success: Konferensen togs bort framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         exports:
           registrations: registreringar
         form:
@@ -134,7 +132,7 @@ sv:
           success: Media Link raderas framgångsrikt.
         edit:
           title: Uppdatera media länk.
-          update: Uppdatering
+          update: Uppdatera
         index:
           media_links_title: Media Länkar
         new:
@@ -146,8 +144,8 @@ sv:
       menu:
         conferences: konferenser
         conferences_submenu:
-          attachment_collections: mappar
-          attachment_files: filer
+          attachment_collections: Mappar
+          attachment_files: Filer
           attachments: bilagor
           categories: kategorier
           components: Komponenter
@@ -158,7 +156,7 @@ sv:
           info: Info
           media_links: Media Länkar
           moderations: modere
-          partners: partners
+          partners: Partners
           registration_types: Registreringstyper
           registrations: registreringar
           user_registrations: Användarregistreringar
@@ -173,12 +171,12 @@ sv:
           fields:
             affiliation: Anslutning
             full_name: Fullständiga namn
-            position: Placera
+            position: Position
           name: Konferens högtalare
         conference_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Konferensanvändare
           roles:
@@ -195,7 +193,7 @@ sv:
           fields:
             link: Länk
             logo: Logotyp
-            name: namn
+            name: Namn
             partner_type: Typ
           name: Partner
           types:
@@ -217,7 +215,7 @@ sv:
           success: Partner har tagits bort framgångsrikt från denna konferens.
         edit:
           title: Uppdatera partner.
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa
           title: Ny partner
@@ -285,7 +283,7 @@ sv:
         title: Program
     conference_speakers:
       index:
-        title: högtalare
+        title: Talare
     conferences:
       admin:
         conference_copies:
@@ -304,16 +302,16 @@ sv:
           index:
             filter:
               accepted: Accepterad
-              all: Allt
-              rejected: avvisade
-              sent: sände
+              all: Alla
+              rejected: Avvisad
+              sent: Skickad
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningskort
             search: Sök
           new:
             explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Inbjudan
+            invite: Bjuda in
             new_invite: Bjud in användare
         conference_registrations:
           index:
@@ -344,7 +342,7 @@ sv:
             registration: Registrering för '%{conference_title}'
         partners:
           index:
-            title: partners
+            title: Partners
         registration_types:
           form:
             select_conference_meetings: Välj konferensmöten
@@ -362,10 +360,10 @@ sv:
           success: Konferens Diplom skickas korrekt
       conference:
         registration_confirm:
-          cancel: Annullera
+          cancel: Avbryta
           confirm: Bekräfta
         show:
-          free: Fri
+          free: Gratis
           going: Gående
           no_slots_available: Inga slots tillgängliga
           registration: Registrering
@@ -410,7 +408,7 @@ sv:
           go_to_twitter: Gå till Twitter
       conference_speakers:
         index:
-          speakers: högtalare
+          speakers: Talare
       conferences:
         partners:
           collaborators: partners
@@ -440,20 +438,20 @@ sv:
         conference_invite:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             registration_type: Registreringstyp
             sent_at: Skickat på
             status: Status
           status:
             accepted: Accepterad (%{at})
             rejected: Avvisad (%{at})
-            sent: sände
+            sent: Skickad
         conference_registration:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             registration_type: Registreringstyp
-            state: stat
+            state: Status
             states:
               confirmed: bekräftat
               pending: Avvaktan
@@ -465,10 +463,10 @@ sv:
       photo:
         show:
           close_modal: Stäng modal
-          photo: Foto
+          photo: Bild
       photos_list:
         show:
-          related_photos: foton
+          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Välj ditt registreringsalternativ:'
@@ -482,31 +480,35 @@ sv:
           sign_in: Logga in för att registrera dig för konferensen
           sign_up: Skapa ett konto i decidim för att registrera dig för konferensen
       show:
-        details: detaljer
+        details: Detaljer
         introduction: Introduktion
         objectives: mål
         related_assemblies: Relaterade församlingar
         related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade deltagande processer
       statistics:
-        answers_count: svar
-        comments_count: kommentarer
+        answers_count: Svar
+        comments_count: Kommentarer
         conference_count: konferenser
-        debates_count: debatter
+        debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
+        meetings_count: Möten
+        orders_count: Röster
+        pages_count: Sidor
         posts_count: inlägg
-        projects_count: projekt
+        projects_count: Projekt
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på att bekräftas.
+        conference_registration_confirmed:
+          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferensens upptagna platser är över %{percentage}%.'
           email_outro: Du har fått den här meddelandet eftersom du är en administratör för konferensens deltagande utrymme.
@@ -522,6 +524,11 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" -konferensen. Du kan följa det från föregående länk.
           email_subject: Konferensen "%{resource_title}" har aktiverat registreringar.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferensen har aktiverat registreringar.
+        upcoming_conference:
+          email_intro: 'Konferensen "%{resource_title}" äger rum om 2 dagar. Du kan läsa beskrivningen från sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" -konferensen. Du kan följa det från föregående länk.
+          email_subject: Konferensen "%{resource_title}" kommer!
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferensen kommer inom 2 dagar.
     log:
       value_types:
         conference_presenter:
@@ -557,7 +564,7 @@ sv:
           take_part: Ta del
       conferences_nav:
         conference_menu_item: Information
-        conference_partners_menu_item: partners
-        conference_speaker_menu_item: högtalare
+        conference_partners_menu_item: Partners
+        conference_speaker_menu_item: Talare
         media: Media
-        venues: venues
+        venues: Ställen
