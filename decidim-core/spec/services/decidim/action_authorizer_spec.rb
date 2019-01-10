@@ -154,6 +154,14 @@ module Decidim
                                                                               postal_codes: "2345, 4567" } })
             end
           end
+
+          context "when options are present but empty" do
+            let(:options) { { postal_code: "" } }
+
+            it "returns ok" do
+              expect(response).to be_ok
+            end
+          end
         end
 
         context "when the authorization has expired" do
