@@ -5,7 +5,11 @@
         <%= t(".title") %>
         <% if resource %>
           -
-          <%= resource_title(resource) %>
+          <% if resource.is_a?(Decidim::Resourceable) %>
+            <%= link_to(resource_title(resource), resource_locator(resource).path) %>
+          <% else %>
+            <%= resource_title(resource) %>
+          <% end %>
         <% end %>
       </h3>
     </div>
@@ -14,7 +18,11 @@
     <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>
       <% action_permission_form.object.permissions.each do |action, permission| %>
         <fieldset class="card <%= action %>-permission">
-          <div class="card-divider"><%= t("#{resource.manifest.name}.actions.#{action}", scope: "decidim.resources") %></div>
+          <% if @component %>
+            <div class="card-divider"><%= t("#{@component.manifest.name}.actions.#{action}", scope: "decidim.components") %></div>
+          <% else %>
+            <div class="card-divider"><%= t("#{resource.manifest.name}.actions.#{action}", scope: "decidim.resources") %></div>
+          <% end %>
 
           <div class="card-section">
             <%= action_permission_form.fields_for(action, permission) do |permission_form| %>

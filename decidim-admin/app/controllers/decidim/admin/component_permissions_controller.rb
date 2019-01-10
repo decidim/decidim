@@ -2,20 +2,18 @@
 
 module Decidim
   module Admin
-    # Controller that allows managing component permissions.
+    # Controller that allows managing component and related resources permissions.
     #
-    class ComponentPermissionsController < Decidim::Admin::ApplicationController
+    class ComponentPermissionsController < ResourcePermissionsController
       include Decidim::ComponentPathHelper
-
-      helper Decidim::ResourceHelper
-
-      helper_method :authorizations, :other_authorizations_for, :component, :resource_params, :resource
 
       def edit
         enforce_permission_to :update, :component, component: component
         @permissions_form = PermissionsForm.new(
           permissions: permission_forms
         )
+
+        render template: "decidim/admin/resource_permissions/edit"
       end
 
       def update
@@ -44,35 +42,8 @@ module Decidim
         end
       end
 
-      def resource_params
-        params.permit(:resource_id, :resource_name).to_h.symbolize_keys
-      end
-
-      def permission_forms
-        actions.inject({}) do |result, action|
-          form = PermissionForm.new(
-            authorization_handler_name: authorization_for(action),
-            options: permissions.dig(action, "options")
-          )
-
-          result.update(action => form)
-        end
-      end
-
       def actions
         @actions ||= (resource&.resource_manifest || component.manifest).actions
-      end
-
-      def authorizations
-        Verifications::Adapter.from_collection(
-          current_organization.available_authorizations
-        )
-      end
-
-      def other_authorizations_for(action)
-        Verifications::Adapter.from_collection(
-          current_organization.available_authorizations - [authorization_for(action)]
-        )
       end
 
       def resource
@@ -88,10 +59,6 @@ module Decidim
 
       def permissions
         @permissions ||= (component.permissions || {}).merge(resource&.permissions || {})
-      end
-
-      def authorization_for(action)
-        permissions.dig(action, "authorization_handler_name")
       end
     end
   end
