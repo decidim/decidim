@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Fixed**:
+
+- **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
+
+## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
+
 **Upgrade notes**:
 
 - **Surveys / Forms**: *Only for upgrades from 0.15 or earlier versions*
