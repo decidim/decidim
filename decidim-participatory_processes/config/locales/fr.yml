@@ -53,7 +53,7 @@ fr:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Processus participatif
+        one: Concertation
         other: Concertations
       decidim/participatory_process_group:
         one: Groupe de concertations
