@@ -20,7 +20,7 @@ module Decidim
 
         UpdateResourcePermissions.call(@permissions_form, resource) do
           on(:ok) do
-            flash[:notice] = t("component_permissions.update.success", scope: "decidim.admin")
+            flash[:notice] = t("resource_permissions.update.success", scope: "decidim.admin")
             redirect_to return_path
           end
 
