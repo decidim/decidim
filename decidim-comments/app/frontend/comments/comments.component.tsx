@@ -71,8 +71,8 @@ export class Comments extends React.Component<CommentsProps> {
   /**
    * Renders a warning message if the commentable doesn't accept new comments.
    * @private
-* @returns {Void | DOMElement} - A warning message or nothing.
-         */
+   * @returns {Void | DOMElement} - A warning message or nothing.
+   */
   private _renderBlockedCommentsWarning() {
     const { commentable: { acceptsNewComments } } = this.props;
 
@@ -90,8 +90,8 @@ export class Comments extends React.Component<CommentsProps> {
   /**
    * Iterates the comment's collection and render a CommentThread for each one
    * @private
- * @returns {ReactComponent[]} - A collection of CommentThread components
-           */
+   * @returns {ReactComponent[]} - A collection of CommentThread components
+   */
   private _renderCommentThreads() {
     const { session, commentable, orderBy } = this.props;
     const { comments, commentsHaveVotes } = commentable;
@@ -111,8 +111,8 @@ export class Comments extends React.Component<CommentsProps> {
   /**
    * If current user is present it renders the add comment form
    * @private
-* @returns {Void | ReactComponent} - A AddCommentForm component or nothing
-         */
+   * @returns {Void | ReactComponent} - A AddCommentForm component or nothing
+   */
   private _renderAddCommentForm() {
     const { session, commentable, orderBy } = this.props;
     const { acceptsNewComments, commentsHaveAlignment } = commentable;
@@ -172,8 +172,8 @@ export interface CommentsApplicationProps extends GetCommentsQueryVariables {
 /**
  * Wrap the CommentsWithData component within an Application component to
  * connect it with Apollo client and store.
-* @returns {ReactComponent} - A component wrapped within an Application component
-           */
+ * @returns {ReactComponent} - A component wrapped within an Application component
+ */
 const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, commentableId, commentableType }) => (
   <Application locale={locale}>
     <CommentsWithData
