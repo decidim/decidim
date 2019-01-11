@@ -43,4 +43,8 @@ It is a standard Ruby on Rails engine.
 
 ## Decidim gotchas with engines
 
-If you have an external module that defines rake tasks and more than one engine, you probably want to add `paths["lib/tasks"]= nil` to all engines but the main one, otherwise the tasks you define are probably running multiple times unintentionally. Check #3892 for more details.
+If you have an external module that defines rake tasks and more than one
+engine, you probably want to add `paths["lib/tasks"]= nil` to all engines but
+the main one, otherwise the tasks you define are probably running multiple
+times unintentionally. Check #3892 for more details.
+
