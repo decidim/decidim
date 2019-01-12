@@ -58,5 +58,3 @@ end
 ```
 
 Every model in a component doesn't have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
-
-## Gotchas with engines
