@@ -78,12 +78,7 @@ module Decidim
         before { authorization.update!(user: user) }
 
         context "when the authorization has not expired" do
-          before do
-            allow(authorizer)
-              .to receive(:authorization).and_return(authorization)
-            allow(authorization)
-              .to receive(:expired?).and_return(false)
-          end
+          before { authorization.update!(granted_at: 1.minute.ago) }
 
           context "when it doesn't have options" do
             let(:options) { {} }
