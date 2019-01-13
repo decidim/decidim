@@ -19,6 +19,10 @@ module Decidim
       create(:authorization, :granted, name: name, metadata: metadata)
     end
 
+    let!(:another_authorization) do
+      create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata: metadata)
+    end
+
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
 
     let(:response) { subject.authorize }
@@ -39,6 +43,49 @@ module Decidim
 
         it "returns ok" do
           expect(response).to be_ok
+        end
+      end
+
+      context "when more than one authorization handlers are set" do
+        let(:permission) do
+          {
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => { "options" => options },
+              "another_dummy_authorization_handler" => { "options" => {} }
+            }
+          }
+        end
+
+        context "when the user only has a valid authorization" do
+          before { authorization.update!(user: user, granted_at: 1.minute.ago) }
+
+          context "when only one authorzation matches options" do
+            it "returns an authorization status not ok" do
+              expect(response).not_to be_ok
+              expect(response.statuses.count).to eq(2)
+              expect(response.codes).to include(:ok)
+            end
+          end
+
+          context "when both authorizations are ok" do
+            before { another_authorization.update!(user: user, granted_at: 1.minute.ago) }
+
+            it "returns an ok authorization status" do
+              expect(response).to be_ok
+              expect(response.statuses.count).to eq(2)
+              expect(response.codes).to include(:ok)
+            end
+          end
+
+          context "when options doesn't match one authorization" do
+            let(:options) { { postal_code: "789" } }
+
+            it "returns an authorization status collection including unauthorized" do
+              expect(response).not_to be_ok
+              expect(response.statuses.count).to eq(2)
+              expect(response.codes).to include(:unauthorized)
+            end
+          end
         end
       end
 
