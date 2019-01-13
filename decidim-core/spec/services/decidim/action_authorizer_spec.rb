@@ -46,11 +46,14 @@ module Decidim
         context "when the user is not logged in" do
           let(:user) { nil }
 
-          it "returns missing" do
+          it "returns an authorization status collection including missing" do
             expect(response).not_to be_ok
-            expect(response.code).to eq(:missing)
-            expect(response.handler_name).to eq("dummy_authorization_handler")
-            expect(response.data).to eq(action: :authorize)
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:missing)
+            authorizer = response.statuses.first
+            expect(authorizer.code).to eq(:missing)
+            expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+            expect(authorizer.data).to eq(action: :authorize)
           end
         end
 
@@ -93,11 +96,14 @@ module Decidim
           context "when has options that doesn't match the authorization" do
             let(:options) { { postal_code: "789" } }
 
-            it "returns unauthorized" do
+            it "returns an authorization status collection including unauthorized" do
               expect(response).not_to be_ok
-              expect(response.code).to eq(:unauthorized)
-              expect(response.handler_name).to eq("dummy_authorization_handler")
-              expect(response.data).to eq(fields: { "postal_code" => "789" })
+              expect(response.statuses.count).to eq(1)
+              expect(response.codes).to include(:unauthorized)
+              authorizer = response.statuses.first
+              expect(authorizer.code).to eq(:unauthorized)
+              expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+              expect(authorizer.data).to eq(fields: { "postal_code" => "789" })
             end
           end
 
@@ -120,13 +126,16 @@ module Decidim
           context "when has options that contains more keys than the authorization" do
             let(:options) { { postal_code: "1234", age: 18 } }
 
-            it "returns incomplete with the fields" do
+            it "returns an authorization status collection including incomplete with the fields" do
               expect(response).not_to be_ok
-              expect(response.code).to eq(:incomplete)
-              expect(response.handler_name).to eq("dummy_authorization_handler")
-              expect(response.data).to include(fields: ["age"])
-              expect(response.data).to include(action: :reauthorize)
-              expect(response.data).to include(cancel: true)
+              expect(response.statuses.count).to eq(1)
+              expect(response.codes).to include(:incomplete)
+              authorizer = response.statuses.first
+              expect(authorizer.code).to eq(:incomplete)
+              expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+              expect(authorizer.data).to include(fields: ["age"])
+              expect(authorizer.data).to include(action: :reauthorize)
+              expect(authorizer.data).to include(cancel: true)
             end
           end
 
@@ -135,24 +144,29 @@ module Decidim
 
             it "returns ok" do
               expect(response).to be_ok
-              expect(response.data).to include(extra_explanation: { key: "extra_explanation",
-                                                                    params: { scope: "decidim.verifications.dummy_authorization",
-                                                                              count: 2,
-                                                                              postal_codes: "1234, 4567" } })
+              expect(response.statuses.count).to eq(1)
+              authorizer = response.statuses.first
+              expect(authorizer.data).to include(extra_explanation: { key: "extra_explanation",
+                                                                      params: { scope: "decidim.verifications.dummy_authorization",
+                                                                                count: 2,
+                                                                                postal_codes: "1234, 4567" } })
             end
           end
 
           context "when custom action authorizer options are present and don't match the authorization" do
             let(:options) { { allowed_postal_codes: %w(2345 4567) } }
 
-            it "returns unauthorized" do
-              expect(response.code).to eq(:unauthorized)
-              expect(response.handler_name).to eq("dummy_authorization_handler")
-              expect(response.data).to include(fields: { "postal_code" => "1234" })
-              expect(response.data).to include(extra_explanation: { key: "extra_explanation",
-                                                                    params: { scope: "decidim.verifications.dummy_authorization",
-                                                                              count: 2,
-                                                                              postal_codes: "2345, 4567" } })
+            it "returns an authorization status collection including unauthorized" do
+              expect(response.statuses.count).to eq(1)
+              expect(response.codes).to include(:unauthorized)
+              authorizer = response.statuses.first
+              expect(authorizer.code).to eq(:unauthorized)
+              expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+              expect(authorizer.data).to include(fields: { "postal_code" => "1234" })
+              expect(authorizer.data).to include(extra_explanation: { key: "extra_explanation",
+                                                                      params: { scope: "decidim.verifications.dummy_authorization",
+                                                                                count: 2,
+                                                                                postal_codes: "2345, 4567" } })
             end
           end
 
@@ -177,21 +191,27 @@ module Decidim
               .to receive(:expired?).and_return(true)
           end
 
-          it "returns expired" do
+          it "returns an authorization status collection including expired" do
             expect(response).not_to be_ok
-            expect(response.code).to eq(:expired)
-            expect(response.handler_name).to eq("dummy_authorization_handler")
-            expect(response.data).to eq(action: :authorize)
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:expired)
+            authorizer = response.statuses.first
+            expect(authorizer.code).to eq(:expired)
+            expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+            expect(authorizer.data).to eq(action: :authorize)
           end
         end
 
         context "when the authorization is not yet granted" do
           before { authorization.update!(granted_at: nil) }
 
-          it "returns pending" do
+          it "returns an authorization status collection including pending" do
             expect(response).not_to be_ok
-            expect(response.code).to eq(:pending)
-            expect(response.handler_name).to eq("dummy_authorization_handler")
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:pending)
+            authorizer = response.statuses.first
+            expect(authorizer.code).to eq(:pending)
+            expect(authorizer.handler_name).to eq("dummy_authorization_handler")
           end
         end
       end
@@ -199,11 +219,14 @@ module Decidim
       context "when the user doesn't have a valid authorization" do
         let(:name) { "bar_handler" }
 
-        it "returns missing" do
+        it "returns an authorization status collection including missing" do
           expect(response).not_to be_ok
-          expect(response.code).to eq(:missing)
-          expect(response.handler_name).to eq("dummy_authorization_handler")
-          expect(response.data).to eq(action: :authorize)
+          expect(response.statuses.count).to eq(1)
+          expect(response.codes).to include(:missing)
+          authorizer = response.statuses.first
+          expect(authorizer.code).to eq(:missing)
+          expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+          expect(authorizer.data).to eq(action: :authorize)
         end
       end
 
@@ -232,9 +255,12 @@ module Decidim
 
         it "uses resource permissions" do
           expect(response).not_to be_ok
-          expect(response.code).to eq(:missing)
-          expect(response.handler_name).to eq("another_dummy_authorization_handler")
-          expect(response.data).to eq(action: :authorize)
+          expect(response.statuses.count).to eq(1)
+          expect(response.codes).to include(:missing)
+          authorizer = response.statuses.first
+          expect(authorizer.code).to eq(:missing)
+          expect(authorizer.handler_name).to eq("another_dummy_authorization_handler")
+          expect(authorizer.data).to eq(action: :authorize)
         end
 
         context "when resources has no permissions for the given action" do
@@ -242,9 +268,12 @@ module Decidim
 
           it "uses component permissions" do
             expect(response).not_to be_ok
-            expect(response.code).to eq(:missing)
-            expect(response.handler_name).to eq("dummy_authorization_handler")
-            expect(response.data).to eq(action: :authorize)
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:missing)
+            authorizer = response.statuses.first
+            expect(authorizer.code).to eq(:missing)
+            expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+            expect(authorizer.data).to eq(action: :authorize)
           end
         end
 
@@ -256,9 +285,12 @@ module Decidim
 
           it "uses component permissions" do
             expect(response).not_to be_ok
-            expect(response.code).to eq(:missing)
-            expect(response.handler_name).to eq("dummy_authorization_handler")
-            expect(response.data).to eq(action: :authorize)
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:missing)
+            authorizer = response.statuses.first
+            expect(authorizer.code).to eq(:missing)
+            expect(authorizer.handler_name).to eq("dummy_authorization_handler")
+            expect(authorizer.data).to eq(action: :authorize)
           end
         end
       end
