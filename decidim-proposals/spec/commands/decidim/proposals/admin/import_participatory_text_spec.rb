@@ -16,8 +16,7 @@ module Decidim
           end
           let(:form_doc) do
             instance_double(File,
-              blank?: false
-            )
+                            blank?: false)
           end
           let(:form) do
             instance_double(
