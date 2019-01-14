@@ -27,6 +27,7 @@ nl:
       initiatives_type:
         banner_image: Banner afbeelding
         description: Beschrijving
+        online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
       organization_data:
         address: Adres
