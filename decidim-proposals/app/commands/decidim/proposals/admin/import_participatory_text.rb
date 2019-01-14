@@ -39,6 +39,8 @@ module Decidim
         end
 
         def parse_participatory_text_doc(form)
+          return if form.document.blank?
+
           markdown = DocToMarkdown.new(form.document_text, form.document_type).to_md
           parser = MarkdownToProposals.new(form.current_component, form.current_user)
           parser.parse(markdown)
