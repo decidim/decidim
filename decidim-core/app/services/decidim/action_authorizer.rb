@@ -15,7 +15,7 @@ module Decidim
     def initialize(user, action, component, resource)
       @user = user
       @action = action.to_s if action
-      @component = resource&.component || component
+      @component = resource.try(:component) || component
       @resource = resource
     end
 
