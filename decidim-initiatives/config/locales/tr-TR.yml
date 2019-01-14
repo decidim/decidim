@@ -27,6 +27,7 @@ tr:
       initiatives_type:
         banner_image: Banner resmi
         description: Açıklama
+        online_signature_enabled: Çevrimiçi imza etkin
         title: Başlık
       organization_data:
         address: Adres
