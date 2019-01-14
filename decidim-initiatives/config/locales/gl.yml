@@ -27,6 +27,7 @@ gl:
       initiatives_type:
         banner_image: Imaxe do banner
         description: Descrición
+        online_signature_enabled: Sinatura en liña habilitada
         title: Título
       organization_data:
         address: Enderezo
