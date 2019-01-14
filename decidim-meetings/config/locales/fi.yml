@@ -90,15 +90,23 @@ fi:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Tapahtuma "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Tapahtuma "%{resource_title}" suljettiin
-          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+          affected_user:
+            email_intro: 'Tapahtumasi "%{resource_title}" on suljettu. Voit lukea johtopäätökset täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet järjestänyt tapahtuman "%{resource_title}".
+            email_subject: Tapahtuma "%{resource_title}" suljettiin
+            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+          follower:
+            email_intro: 'Tapahtuma "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+            email_subject: Tapahtuma "%{resource_title}" suljettiin
+            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
           email_intro: Tapahtuma "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi tapahtuma lisätty kohteeseen %{participatory_space_title}
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
@@ -182,6 +190,7 @@ fi:
             invalid: Tämän esityslistan päivityksessä esiintyi ongelma
             success: Esityslista päivitettiin onnistuneesti
         exports:
+          meetings: Tapahtumat
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
           invite:
@@ -361,8 +370,12 @@ fi:
           meeting_report: Tapahtumaraportti
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
+          registration_code_help_text: Ilmoittautumiskoodisi
+          registration_state:
+            validated: VAHVISTETTU
+            validation_pending: ODOTTAA VAHVISTUSTA
           remaining_slots:
-            one: '%{count} paikka jäljellä'
+            one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
       meetings_map:
@@ -406,6 +419,7 @@ fi:
         transparent: Läpinäkyvä
     metrics:
       meetings:
+        description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
     participatory_processes:

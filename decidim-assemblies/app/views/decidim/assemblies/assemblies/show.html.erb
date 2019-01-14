@@ -80,7 +80,7 @@ edit_link(
       <%= render_hook(:current_participatory_space_meetings) %>
 
       <%= attachments_for current_participatory_space %>
-      <% if current_participatory_space.children_count > 0 %>
+      <% if current_participatory_space.children.count.positive? %>
         <section id="assemblies-grid" class="section row collapse">
           <h4 class="section-heading"><%= t("assemblies.show.children", scope: "decidim") %></h4>
           <div class="row small-up-1 medium-up-2 large-up-2 card-grid">

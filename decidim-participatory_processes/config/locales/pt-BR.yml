@@ -196,8 +196,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar um novo processo participativo.
           success: Processo participativo criado com sucesso. Configure agora seus passos.
-        destroy:
-          success: Processo participativo excluído com sucesso.
         edit:
           update: Atualizar
         form:
@@ -265,6 +263,7 @@ pt-BR:
       processes: Processos
     metrics:
       participatory_processes:
+        description: Número de processos participativos nesta organização
         object: processos participativos
         title: Processos participativos
     participatory_process_groups:

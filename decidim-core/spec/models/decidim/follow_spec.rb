@@ -43,13 +43,6 @@ describe Decidim::Follow do
           user.reload
         end.to change(user, :following_count).by(1)
       end
-
-      it "does not increase the following users count" do
-        expect do
-          create :follow, user: user
-          user.reload
-        end.not_to change(user, :following_users_count)
-      end
     end
 
     context "when following a user" do
@@ -58,13 +51,6 @@ describe Decidim::Follow do
           create :follow, user: user, followable: another_user
           user.reload
         end.to change(user, :following_count).by(1)
-      end
-
-      it "increases the following users count" do
-        expect do
-          create :follow, user: user, followable: another_user
-          user.reload
-        end.to change(user, :following_users_count).by(1)
       end
     end
 
@@ -90,14 +76,6 @@ describe Decidim::Follow do
           user.reload
         end.to change(user, :following_count).by(-1)
       end
-
-      it "does not decrease the following users count" do
-        follow = create :follow, user: user
-        expect do
-          follow.destroy!
-          user.reload
-        end.not_to change(user, :following_users_count)
-      end
     end
 
     context "when unfollowing a user" do
@@ -107,14 +85,6 @@ describe Decidim::Follow do
           follow.destroy!
           user.reload
         end.to change(user, :following_count).by(-1)
-      end
-
-      it "decreases the following users count" do
-        follow = create :follow, user: user, followable: another_user
-        expect do
-          follow.destroy!
-          user.reload
-        end.to change(user, :following_users_count).by(-1)
       end
     end
 

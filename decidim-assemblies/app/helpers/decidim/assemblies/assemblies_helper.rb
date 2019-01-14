@@ -5,6 +5,8 @@ module Decidim
     # Helpers related to the Assemblies layout.
     module AssembliesHelper
       include Decidim::ResourceHelper
+      include FilterAssembliesHelper
+
       # Public: Returns the characteristics of an assembly in a readable format like
       # "title: close, no public, no transparent and is restricted to the members of the assembly"
       def participatory_processes_for_assembly(assembly_participatory_processes)

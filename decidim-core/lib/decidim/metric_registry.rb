@@ -23,9 +23,6 @@ module Decidim
   #
   # Metrics need to be registered in the `engine.rb` file of each module
   class MetricRegistry
-    HIGHLIGHTED = "highlighted"
-    NOT_HIGHLIGHTED = "not-highlighted"
-
     # Public: Registers a metric for calculations
     #
     # metric_name - a symbol representing the name of the metric
@@ -52,15 +49,16 @@ module Decidim
       metrics_manifests << metric_manifest
     end
 
-    def for(metric_name)
-      all.find { |manifest| manifest.metric_name == metric_name.to_s }
+    def for(metric_name, list = nil)
+      list ||= all
+      list.find { |manifest| manifest.metric_name == metric_name.to_s }
     end
 
     def all
       metrics_manifests
     end
 
-    def filtered(highlight: nil, scope: nil, sort: nil)
+    def filtered(highlight: nil, scope: nil, sort: nil, block: nil)
       result = all
       unless highlight.nil?
         result = if highlight
@@ -71,6 +69,7 @@ module Decidim
       end
       result = scoped(scope, result) if scope.present?
       result = sorted(result) if sort.present?
+      result = stat_block(block, result) if block.present?
       result
     end
 
@@ -87,6 +86,11 @@ module Decidim
     def scoped(scope, list = nil)
       list ||= all
       list.find_all { |manifest| manifest.settings.attributes[:scopes][:default].include?(scope.to_s) }
+    end
+
+    def stat_block(block, list = nil)
+      list ||= all
+      list.find_all { |manifest| manifest.stat_block == block.to_s }
     end
 
     def sorted(list = nil)

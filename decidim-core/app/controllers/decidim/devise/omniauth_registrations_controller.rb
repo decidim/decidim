@@ -85,7 +85,8 @@ module Decidim
           name: oauth_data[:info][:name],
           nickname: oauth_data[:info][:nickname],
           oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid]),
-          avatar_url: oauth_data[:info][:image]
+          avatar_url: oauth_data[:info][:image],
+          raw_data: oauth_hash
         }
       end
 

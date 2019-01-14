@@ -57,6 +57,11 @@ FactoryBot.define do
       end
     end
 
+    trait :active do
+      start_date { 2.weeks.ago }
+      end_date { 1.week.from_now }
+    end
+
     trait :past do
       start_date { 2.weeks.ago }
       end_date { 1.week.ago }

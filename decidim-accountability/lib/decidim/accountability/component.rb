@@ -44,6 +44,8 @@ Decidim.register_component(:accountability) do |component|
         .includes(:category, component: { participatory_space: :organization })
     end
 
+    exports.include_in_open_data = true
+
     exports.serializer Decidim::Accountability::ResultSerializer
   end
 

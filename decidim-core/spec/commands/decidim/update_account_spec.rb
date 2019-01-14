@@ -148,7 +148,7 @@ module Decidim
               event: "decidim.events.users.profile_updated",
               event_class: Decidim::ProfileUpdatedEvent,
               resource: kind_of(Decidim::User),
-              recipient_ids: [follower.id]
+              followers: [follower]
             )
 
           command.call

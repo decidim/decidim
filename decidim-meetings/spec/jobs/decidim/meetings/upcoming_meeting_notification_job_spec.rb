@@ -22,7 +22,7 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
           event: "decidim.events.meetings.upcoming_meeting",
           event_class: Decidim::Meetings::UpcomingMeetingEvent,
           resource: meeting,
-          recipient_ids: [user.id]
+          followers: [user]
         )
 
       subject.perform_now(meeting.id, checksum)

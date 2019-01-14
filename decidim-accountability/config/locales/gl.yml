@@ -209,6 +209,7 @@ gl:
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclúe a proposta <a href="%{proposal_path}">%{proposal_title}</a>, agora é o %{progress}% completo.
     metrics:
       results:
+        description: Número de resultados de rendemento xerado
         object: resultados
         title: Resultados
     participatory_processes:

@@ -49,7 +49,7 @@ eu:
         other: Erantzunak
       decidim/consultations/vote:
         one: Bozkatu
-        other: Botoak
+        other: Bozkatu
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ eu:
         create:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
-        destroy:
-          success: Kontsulta ezabatu da.
         edit:
           update: eguneratzearen
         form:

@@ -12,11 +12,13 @@ sv:
       proposal:
         answer: Svara
         answered_at: Besvarad vid
+        automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
         has_address: Har adress
         scope_id: Omfattning
         state: Status
+        suggested_hashtags: Föreslagna hashtags
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
@@ -69,6 +71,7 @@ sv:
         name: Förslag
         settings:
           global:
+            amendments_enabled: Ändringar möjliga
             announcement: Notis
             attachments_allowed: Tillåt bifogade filer
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd bortom tröskeln
@@ -92,11 +95,13 @@ sv:
             vote_limit: Röstningsgräns per användare
           step:
             announcement: Meddelande
+            automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av förslag aktiverat
             endorsements_blocked: Stöd blockerade
             endorsements_enabled: Stöd aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
+            suggested_hashtags: Hashtags föreslog användare för nya förslag
             votes_blocked: Röstande blockerat
             votes_enabled: Röstning aktiverat
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
@@ -143,22 +148,35 @@ sv:
           email_subject: Förslag till godkännande har startat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
-          email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
-          email_subject: Ett förslag som du följer är godkänt
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har godkänts.
+          affected_user:
+            email_intro: 'Ditt förslag "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
+            email_subject: Ditt förslag har godkänts
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har godkänts.
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
+            email_subject: Ett förslag som du följer är godkänt
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har godkänts.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just godkänt förslaget "%{resource_title}" och vi tycker att det kan vara intressant för dig. Kolla in det och bidra med:'
           email_outro: Du har fått den här notifikationen eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: "%{endorser_nickname} har godkänt ett nytt förslag"
           notification_title: '| <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
         proposal_evaluating:
-          email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-          email_outro: Du har fått den här notifikationen eftersom du följer "%{resource_title}". Du kan sluta följa det på föregående länk.
-          email_subject: Ett förslag som du följer utvärderas
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+          affected_user:
+            email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
+            email_subject: Ditt förslag utvärderas
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
+            email_subject: Ett förslag som du följer utvärderas
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
+          email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
         proposal_published:
@@ -172,10 +190,16 @@ sv:
           email_subject: Nytt förslag "%{resource_title}" läggs till %{participatory_space_title}
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
-          email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länken.
-          email_subject: Ett förslag som du följer har avvisats
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
+          affected_user:
+            email_intro: 'Ditt förslag "%{resource_title}" har avvisats. Du kan läsa svaret på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
+            email_subject: Ditt förslag har avslagits
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avvisats.
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
+            email_subject: Ett förslag som du följer har avvisats
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin av ditt förslag "%{resource_title}", kolla in det:'
           email_outro: Du har fått den här meddelandet eftersom du är författaren till förslaget.
@@ -223,12 +247,19 @@ sv:
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
+        description: Antal förslag accepterade av användarna
         object: förslag
         title: Godkända Förslag
+      endorsements:
+        description: Antal anmärkningar som genereras i förslag
+        object: påskrifter
+        title: påskrifter
       proposals:
+        description: Antal förslag som genererats
         object: förslag
         title: Förslag
       votes:
+        description: Antal röster som genereras i förslag från användare
         object: röster
         title: Röster
     participatory_processes:
@@ -314,7 +345,7 @@ sv:
             cancel: Avbryt
             change_category: Ändra kategori
             merge: Sammanfoga till en ny
-            merge_button: Sammanfoga
+            merge_button: Slå ihop
             select_component: Välj en komponent
             selected: vald
             split: Delade förslag
@@ -367,17 +398,21 @@ sv:
         withdrawn: Tillbakadragen
       application_helper:
         filter_origin_values:
-          all: Allt
+          all: Alla
           citizens: Medborgare
           meetings: möten
           official: Officiell
           user_groups: Användargrupper
         filter_state_values:
           accepted: Accepterad
-          all: Allt
+          all: Alla
           evaluating: utvärdera
           except_rejected: Alla förutom avvisade
           rejected: avvisade
+        filter_type_values:
+          all: Allt
+          amendments: Tillägg
+          proposals: förslag
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -402,24 +437,24 @@ sv:
           no_similars_found: Bra gjort! Inga liknande samarbetsutkast hittades
           title: Liknande samarbetsförslag
         complete:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
           send: Skicka
           title: Färdigställ i ditt samarbetsutkast
         count:
           drafts_count:
-            one: '%{count} samarbetsförslag'
+            one: "%{count} samarbetsförslag"
             other: "%{count} samarbetsförslag"
         create:
           error: Det uppstod ett problem med att skapa dessa samarbetsutkast
           success: Samarbetsutkast framgångsrikt utarbetat.
         edit:
+          attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
           select_a_category: Var god välj en kategori
           send: Skicka
           title: Redigera samarbetsutkast
         filters:
           all: Allt
+          amendment: Tillägg
           category: Kategori
           category_prompt: Kategorifråga
           open: Öppen
@@ -522,11 +557,12 @@ sv:
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
+        alternative_title: Det finns inga deltagande texter just nu
         buttons:
+          amend: Ändra
           comment: Kommentar
           comments: kommentarer
           endorse: Stödja
-          endorsements: påskrifter
       proposal_endorsements:
         create:
           error: Det har blivit fel när man godkände förslaget.
@@ -552,7 +588,7 @@ sv:
           title: Färdigställ ditt förslag
         count:
           proposals_count:
-            one: '%{count} förslag'
+            one: "%{count} förslag"
             other: "%{count} förslag"
         edit:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
@@ -578,6 +614,7 @@ sv:
           search: Sök
           state: Status
           voted: Röstade
+          amendment_type: Typ
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -628,10 +665,6 @@ sv:
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
           report: Rapportera
-          sign_in: Logga in
-          sign_in_or_up: "%{in} eller %{up} för att delta"
-          sign_in_to_participate: "%{in} att delta"
-          sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
@@ -692,6 +725,7 @@ sv:
           title: Versioner
         stats:
           back_to_collaborative_draft: Gå tillbaka till samarbetsutkast
+          back_to_proposal: Gå tillbaka till förslaget
           number_of_versions: Versioner
           show_all_versions: Visa alla versioner
           version_author: Versionsförfattare

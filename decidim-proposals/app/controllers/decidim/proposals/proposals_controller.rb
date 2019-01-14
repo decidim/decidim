@@ -6,10 +6,14 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
+      helper ParticipatoryTextsHelper
+      include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
       include Orderable
       include Paginable
+
+      helper_method :form_presenter
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -49,6 +53,7 @@ module Decidim
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless set_proposal
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -183,15 +188,27 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-
-        WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |_proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        if @proposal.emendation?
+          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
           end
-          on(:invalid) do
-            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        else
+          WithdrawProposal.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
           end
         end
       end
@@ -210,7 +227,8 @@ module Decidim
           category_id: "",
           state: "except_rejected",
           scope_id: nil,
-          related_to: ""
+          related_to: "",
+          type: "all"
         }
       end
 
@@ -224,7 +242,7 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def form_proposal_params
@@ -233,6 +251,10 @@ module Decidim
 
       def form_proposal_model
         form(ProposalForm).from_model(@proposal)
+      end
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
       end
 
       def form_attachment_new

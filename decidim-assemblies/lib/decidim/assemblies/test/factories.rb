@@ -61,6 +61,22 @@ FactoryBot.define do
     trait :with_parent do
       parent { create :assembly, organization: organization }
     end
+
+    trait :public do
+      private_space { false }
+    end
+
+    trait :private do
+      private_space { true }
+    end
+
+    trait :transparent do
+      is_transparent { true }
+    end
+
+    trait :opaque do
+      is_transparent { false }
+    end
   end
 
   factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do

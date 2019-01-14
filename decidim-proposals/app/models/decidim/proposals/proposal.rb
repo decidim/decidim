@@ -21,8 +21,15 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Hashtaggable
       include Decidim::Proposals::ParticipatoryTextSection
+      include Decidim::Amendable
 
       fingerprint fields: [:title, :body]
+
+      amendable(
+        fields: [:title, :body],
+        ignore: [:published_at, :reference, :state, :answered_at, :answer],
+        form:   "Decidim::Proposals::ProposalForm"
+      )
 
       component_manifest_name "proposals"
 
@@ -59,7 +66,7 @@ module Decidim
                           A: :search_title,
                           datetime: :published_at
                         },
-                        index_on_create: false,
+                        index_on_create: ->(proposal) { proposal.official? },
                         index_on_update: ->(proposal) { proposal.visible? })
 
       def self.order_randomly(seed)
@@ -195,7 +202,7 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         return true if draft?
-        authored_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
+        !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -213,12 +220,12 @@ module Decidim
       # method for sort_link by number of comments
       ransacker :commentable_comments_count do
         query = <<-SQL
-              (SELECT COUNT(decidim_comments_comments.id)
-                 FROM decidim_comments_comments
-                WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
-                  AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
-                GROUP BY decidim_comments_comments.decidim_commentable_id
-              )
+        (SELECT COUNT(decidim_comments_comments.id)
+         FROM decidim_comments_comments
+         WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
+         AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
+         GROUP BY decidim_comments_comments.decidim_commentable_id
+         )
         SQL
         Arel.sql(query)
       end

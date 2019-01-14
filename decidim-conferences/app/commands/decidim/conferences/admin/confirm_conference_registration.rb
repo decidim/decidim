@@ -22,6 +22,7 @@ module Decidim
             return broadcast(:invalid) unless can_join_conference?
             confirm_registration
             send_email_confirmation
+            send_notification_confirmation
           end
           broadcast(:ok)
         end
@@ -53,8 +54,20 @@ module Decidim
         end
 
         def send_email_confirmation
-          Decidim::Conferences::ConferenceRegistrationMailer.confirmation(@conference_registration.user,
-                                                                          @conference_registration.conference, @conference_registration.registration_type).deliver_later
+          Decidim::Conferences::ConferenceRegistrationMailer.confirmation(
+            @conference_registration.user,
+            @conference_registration.conference,
+            @conference_registration.registration_type
+          ).deliver_later
+        end
+
+        def send_notification_confirmation
+          Decidim::EventsManager.publish(
+            event: "decidim.events.conferences.conference_registration_confirmed",
+            event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
+            resource: @conference_registration.conference,
+            affected_users: [@conference_registration.user]
+          )
         end
       end
     end

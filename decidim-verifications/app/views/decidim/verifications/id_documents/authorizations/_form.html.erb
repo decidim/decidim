@@ -1,0 +1,17 @@
+<div class="card-section">
+  <div class="field">
+    <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :document_number %>
+  </div>
+
+  <% if using_online? %>
+    <div class="field">
+      <%= form.upload :verification_attachment %>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :verification_type, value: verification_type %>
+</div>

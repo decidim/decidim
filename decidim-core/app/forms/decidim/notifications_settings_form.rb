@@ -8,14 +8,30 @@ module Decidim
 
     attribute :email_on_notification, Boolean
     attribute :newsletter_notifications, Boolean
+    attribute :notifications_from_followed, Boolean
+    attribute :notifications_from_own_activity, Boolean
+
+    def map_model(user)
+      self.newsletter_notifications = user.newsletter_notifications_at.present?
+      self.notifications_from_followed = ["all", "followed-only"].include? user.notification_types
+      self.notifications_from_own_activity = ["all", "own-only"].include? user.notification_types
+    end
 
     def newsletter_notifications_at
       return nil unless newsletter_notifications
       Time.current
     end
 
-    def map_model(model)
-      self.newsletter_notifications = model.newsletter_notifications_at.present?
+    def notification_types
+      if notifications_from_followed && notifications_from_own_activity
+        "all"
+      elsif notifications_from_followed
+        "followed-only"
+      elsif notifications_from_own_activity
+        "own-only"
+      else
+        "none"
+      end
     end
   end
 end

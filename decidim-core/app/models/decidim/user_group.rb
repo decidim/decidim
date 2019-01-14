@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_dependency "devise/models/decidim_validatable"
+require "valid_email2"
+
 module Decidim
   # A UserGroup is an organization of citizens
   class UserGroup < UserBaseEntity
@@ -8,13 +11,22 @@ module Decidim
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
+    has_many :managers,
+             -> { where(decidim_user_group_memberships: { role: [:creator, :admin] }) },
+             through: :memberships,
+             class_name: "Decidim::User",
+             foreign_key: :decidim_user_id,
+             source: :user
 
     validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
 
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
 
+    devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
+
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
+    scope :not_verified, -> { where("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
     scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
 
@@ -97,6 +109,18 @@ module Decidim
 
     def has_document_number?
       document_number.present?
+    end
+
+    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # password.
+    def password_required?
+      false
+    end
+
+    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # password.
+    def password
+      nil
     end
   end
 end

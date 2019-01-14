@@ -30,7 +30,7 @@ module Decidim
                 event: "decidim.events.surveys.survey_opened",
                 event_class: Decidim::Surveys::OpenedSurveyEvent,
                 resource: component,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.perform_now(component.id, previous_settings, current_settings)
@@ -48,7 +48,7 @@ module Decidim
                 event: "decidim.events.surveys.survey_closed",
                 event_class: Decidim::Surveys::ClosedSurveyEvent,
                 resource: component,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.perform_now(component.id, previous_settings, current_settings)

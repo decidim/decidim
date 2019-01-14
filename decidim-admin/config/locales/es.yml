@@ -66,6 +66,7 @@ es:
         show_statistics: Mostrar estadísticas
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
+        user_groups_enabled: Habilitar grupos de usuarios
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -91,12 +92,20 @@ es:
         show_in_footer: Mostrar en el pie de página
         title: Título
         weight: Peso
+      user_group_csv_verification:
+        file: Expediente
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: El URI de redirección debe ser un URI SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Archivo de imagen no válido
+            official_img_footer:
+              allowed_file_content_types: Archivo de imagen no válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -256,10 +265,10 @@ es:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
       help_sections:
-        error: Ha habido un error al actualizar las secciones de ayuda.
+        error: Se ha producido un error al actualizar las secciones de ayuda
         form:
-          save: Salvar
-        success: Secciones de ayuda actualizadas exitosamente
+          save: Guardar
+        success: Las secciones de ayuda se han actualizado correctamente
       impersonatable_users:
         index:
           filter:
@@ -615,6 +624,9 @@ es:
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
+        csv_verify:
+          invalid: Se produjo un error al leer el archivo CSV.
+          success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
         reject:
           invalid: Se ha producido un error al rechazar este grupo de usuarios.
           success: Grupo de usuarios rechazado correctamente
@@ -634,6 +646,12 @@ es:
             pending: Pendiente
             rejected: Rechazado
             verified: Verificado
+          verify_via_csv: Verificar a través de CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Sube tu archivo CSV. Debe tener los correos electrónicos oficiales de los grupos de usuarios en su organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos de usuarios que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
+          title: Sube tu archivo CSV
+          upload: Subir
       users:
         create:
           error: Hubo un error al invitar a este usuario.
@@ -659,12 +677,16 @@ es:
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
+        unhide: Ocultar
         unreport: Cancelar denuncia
       admin:
         reportable:
           hide:
             invalid: Ha habido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
+          unhide:
+            invalid: Ha habido un problema al no encontrar el recurso.
+            success: Recurso exitosamente no oculto.
           unreport:
             invalid: Ha habido un problema cancelando la denuncia.
             success: Denuncia cancelada correctamente.

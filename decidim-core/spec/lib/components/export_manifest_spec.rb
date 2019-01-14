@@ -4,13 +4,20 @@ require "spec_helper"
 
 module Decidim
   describe Components::ExportManifest do
-    subject { described_class.new(name) }
+    subject { described_class.new(name, component_manifest) }
 
+    let(:component_manifest) { Decidim::ComponentManifest.new }
     let(:name) { "foo" }
 
     describe "#name" do
       it "returns the symbolized initialization name" do
         expect(subject.name).to eq(:foo)
+      end
+    end
+
+    describe "#component_manifest" do
+      it "returns the parent component manifest" do
+        expect(subject.component_manifest).to eq(component_manifest)
       end
     end
 

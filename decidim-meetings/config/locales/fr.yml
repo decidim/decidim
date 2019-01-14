@@ -90,15 +90,23 @@ fr:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
+          affected_user:
+            email_intro: 'Votre réunion "%{resource_title}" était fermée. Vous pouvez lire les conclusions de sa page:'
+            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
+            email_subject: La rencontre "%{resource_title}" est terminée
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
+          follower:
+            email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez la réunion "%{resource_title}". Vous pouvez le désabonner du lien précédent.
+            email_subject: La rencontre "%{resource_title}" est terminée
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Votre inscription à la réunion <a href="%{resource_url}">%{resource_title}</a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
@@ -182,6 +190,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          meetings: Des réunions
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
@@ -361,8 +370,12 @@ fr:
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
+          registration_code_help_text: Votre code d'enregistrement
+          registration_state:
+            validated: Validé
+            validation_pending: EN ATTENTE DE VALIDATION
           remaining_slots:
-            one: '%{count} emplacement disponible'
+            one: "%{count} emplacement disponible"
             other: "%{count} places disponibles"
           view: Voir
       meetings_map:
@@ -406,6 +419,7 @@ fr:
         transparent: Visible par les non-membres
     metrics:
       meetings:
+        description: Nombre de réunions créées
         object: des réunions
         title: Des réunions
     participatory_processes:

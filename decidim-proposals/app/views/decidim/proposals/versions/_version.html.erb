@@ -1,7 +1,7 @@
 <div class="card--list__item">
   <div class="card--list__text">
     <div>
-      <%= link_to collaborative_draft_version_path(item, index + 1) do %>
+      <%= link_to resource_version_path(index) do %>
         <h6 class="card--list__heading heading6">
           <%= t(".version_index", index: index + 1) %>
         </h6>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="card--list__data">
-    <%= link_to collaborative_draft_version_path(item, index + 1), class: "card--list__data__icon" do %>
+    <%= link_to resource_version_path(index), class: "card--list__data__icon" do %>
       <%= icon "chevron-right" %>
     <% end %>
   </div>

@@ -85,6 +85,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     badges_enabled { true }
+    user_groups_enabled { true }
     send_welcome_notification { true }
 
     after(:create) do |organization|
@@ -173,6 +174,10 @@ FactoryBot.define do
 
     trait :rejected do
       rejected_at { Time.current }
+    end
+
+    trait :confirmed do
+      confirmed_at { Time.current }
     end
 
     after(:build) do |user_group, evaluator|
@@ -506,5 +511,17 @@ FactoryBot.define do
     category { create :category }
     participatory_space { create :participatory_process, organization: organization }
     related_object { create :component, participatory_space: participatory_space }
+  end
+
+  factory :amendment, class: "Decidim::Amendment" do
+    amender do
+      build(
+        :user,
+        organization: amendable.try(:organization) || build(:organization)
+      )
+    end
+    state { "evaluating" }
+    amendable { build(:dummy_resource) }
+    emendation { build(:dummy_resource) }
   end
 end

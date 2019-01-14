@@ -35,6 +35,11 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Új felmérés itt: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> felmérés elindult itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+    metrics:
+      survey_answers:
+        description: A felhasználók által felmérett felmérések száma
+        object: válaszok a felmérésekre
+        title: Válaszok a felmérésekhez
     surveys:
       admin:
         exports:

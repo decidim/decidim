@@ -196,8 +196,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
           success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
-        destroy:
-          success: Participatief proces succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
@@ -265,6 +263,7 @@ nl:
       processes: Thema's
     metrics:
       participatory_processes:
+        description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
     participatory_process_groups:

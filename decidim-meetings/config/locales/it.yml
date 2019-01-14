@@ -90,15 +90,23 @@ it:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La riunione "%{resource_title}" è stata chiusa. Puoi leggere le conclusioni dalla sua pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: La riunione "%{resource_title}" è stata chiusa
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+          affected_user:
+            email_intro: 'Il tuo incontro "%{resource_title}" è stato chiuso. Puoi leggere le conclusioni dalla sua pagina:'
+            email_outro: Hai ricevuto questa notifica perché hai organizzato la riunione "%{resource_title}".
+            email_subject: La riunione "%{resource_title}" è stata chiusa
+            notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+          follower:
+            email_intro: 'La riunione "%{resource_title}" è stata chiusa. Puoi leggere le conclusioni dalla sua pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+            email_subject: La riunione "%{resource_title}" è stata chiusa
+            notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
         meeting_created:
           email_intro: L'incontro "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova riunione aggiunta a %{participatory_space_title}
           notification_title: L'incontro <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: La tua registrazione per la riunione <a href="%{resource_url}">%{resource_title}</a> è stata confermata. Il tuo codice di registrazione è %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della riunione.
@@ -182,6 +190,7 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
+          meetings: incontri
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
@@ -361,8 +370,12 @@ it:
           meeting_report: Rapporto della riunione
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
+          registration_code_help_text: Il tuo codice di registrazione
+          registration_state:
+            validated: CONVALIDATA
+            validation_pending: IN ATTESA DELLA CONVALIDA
           remaining_slots:
-            one: '%{count} slot rimanenti'
+            one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
           view: vista
       meetings_map:
@@ -406,6 +419,7 @@ it:
         transparent: Trasparente
     metrics:
       meetings:
+        description: Numero di riunioni create
         object: incontri
         title: incontri
     participatory_processes:

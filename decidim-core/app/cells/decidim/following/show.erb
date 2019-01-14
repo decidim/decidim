@@ -3,7 +3,7 @@
 </div>
 <div class="row small-up-1 medium-up-2 card-grid">
   <% followings.each do |following| %>
-    <%= card_for following %>
+    <%= card_for following, context: { label: true, show_space: true } %>
   <% end %>
 </div>
 <%= decidim_paginate followings %>

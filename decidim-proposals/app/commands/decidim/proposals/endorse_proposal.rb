@@ -44,12 +44,11 @@ module Decidim
       end
 
       def notify_endorser_followers
-        recipient_ids = @current_user.followers.pluck(:id)
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.proposal_endorsed",
           event_class: Decidim::Proposals::ProposalEndorsedEvent,
           resource: @proposal,
-          recipient_ids: recipient_ids.uniq,
+          followers: @current_user.followers,
           extra: {
             endorser_id: @current_user.id
           }

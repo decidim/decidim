@@ -49,7 +49,7 @@ gl:
         other: Respostas
       decidim/consultations/vote:
         one: Vota
-        other: Votos
+        other: Vota
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ gl:
         create:
           error: Produciuse un erro ao crear unha nova consulta.
           success: Consulta creada con éxito.
-        destroy:
-          success: Consulta eliminada con éxito.
         edit:
           update: Actualización
         form:

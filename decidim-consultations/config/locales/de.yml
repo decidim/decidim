@@ -49,7 +49,7 @@ de:
         other: Antworten
       decidim/consultations/vote:
         one: Abstimmung
-        other: Stimmen
+        other: Abstimmung
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ de:
         create:
           error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich erstellt.
-        destroy:
-          success: Die Konsultation wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         form:

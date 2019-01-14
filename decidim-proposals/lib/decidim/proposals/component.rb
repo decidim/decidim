@@ -35,6 +35,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled, type: :boolean, default: false
+    settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
@@ -53,6 +54,8 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
+    settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
   end
 
   component.register_resource(:proposal) do |resource|
@@ -60,6 +63,7 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.actions = %w(endorse vote)
+    resource.searchable = true
   end
 
   component.register_resource(:collaborative_draft) do |resource|
@@ -97,6 +101,8 @@ Decidim.register_component(:proposals) do |component|
         .where(component: component_instance)
         .includes(:category, component: { participatory_space: :organization })
     end
+
+    exports.include_in_open_data = true
 
     exports.serializer Decidim::Proposals::ProposalSerializer
   end
@@ -194,6 +200,71 @@ Decidim.register_component(:proposals) do |component|
         end
       end
 
+      if proposal.state.nil?
+        email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
+        name = "#{Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
+
+        author = Decidim::User.find_or_initialize_by(email: email)
+        author.update!(
+          password: "password1234",
+          password_confirmation: "password1234",
+          name: name,
+          nickname: Faker::Twitter.unique.screen_name,
+          organization: component.organization,
+          tos_agreement: "1",
+          confirmed_at: Time.current
+        )
+
+        group = Decidim::UserGroup.create!(
+          name: Faker::Name.name,
+          nickname: Faker::Twitter.unique.screen_name,
+          email: Faker::Internet.email,
+          extended_data: {
+            document_number: Faker::Code.isbn,
+            phone: Faker::PhoneNumber.phone_number,
+            verified_at: Time.current
+          },
+          decidim_organization_id: component.organization.id
+        )
+        group.confirm
+        Decidim::UserGroupMembership.create!(
+          user: author,
+          role: "creator",
+          user_group: group
+        )
+
+        params = {
+          component: component,
+          category: participatory_space.categories.sample,
+          scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+          title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
+          body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
+          state: nil,
+          answer: nil,
+          answered_at: Time.current,
+          published_at: Time.current
+        }
+
+        emendation = Decidim.traceability.perform_action!(
+          "create",
+          Decidim::Proposals::Proposal,
+          author,
+          visibility: "public-only"
+        ) do
+          emendation = Decidim::Proposals::Proposal.new(params)
+          emendation.add_coauthor(author, user_group: author.user_groups.first)
+          emendation.save!
+          emendation
+        end
+
+        Decidim::Amendment.create!(
+          amender: author,
+          amendable: proposal,
+          emendation: emendation,
+          state: "evaluating"
+        )
+      end
+
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
@@ -212,6 +283,7 @@ Decidim.register_component(:proposals) do |component|
         )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal: emendation, author: author) if emendation
       end
 
       unless proposal.answered? && proposal.rejected?
@@ -233,6 +305,7 @@ Decidim.register_component(:proposals) do |component|
             group = Decidim::UserGroup.create!(
               name: Faker::Name.name,
               nickname: Faker::Twitter.unique.screen_name,
+              email: Faker::Internet.email,
               extended_data: {
                 document_number: Faker::Code.isbn,
                 phone: Faker::PhoneNumber.phone_number,
@@ -240,6 +313,7 @@ Decidim.register_component(:proposals) do |component|
               },
               decidim_organization_id: component.organization.id
             )
+            group.confirm
             Decidim::UserGroupMembership.create!(
               user: author,
               role: "creator",

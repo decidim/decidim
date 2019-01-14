@@ -23,5 +23,9 @@ module Decidim
       only_integer: true,
       greater_than: 0
     }
+
+    def scope_name
+      scope&.name.presence || I18n.t("decidim.initiatives.unavailable_scope")
+    end
   end
 end

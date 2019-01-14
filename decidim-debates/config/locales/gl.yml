@@ -148,3 +148,8 @@ gl:
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.
           unearned_own: Participaches nos debates aínda.
+    metrics:
+      debates:
+        description: Número de debates creados
+        object: debates
+        title: Debates

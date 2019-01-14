@@ -34,24 +34,20 @@ module Decidim
         link_to title, proposal_path
       end
 
-      def title
+      # Render the proposal title
+      #
+      # links - should render hashtags as links?
+      # extras - should include extra hashtags?
+      #
+      # Returns a String.
+      def title(links: false, extras: true)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.title)
-        renderer.render_without_link.html_safe
+        renderer.render(links: links, extras: extras).html_safe
       end
 
-      def html_title
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.title)
-        renderer.render.html_safe
-      end
-
-      def body
+      def body(links: false, extras: true)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.body)
-        renderer.render_without_link.html_safe
-      end
-
-      def html_body
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.body)
-        renderer.render.html_safe
+        renderer.render(links: links, extras: extras).html_safe
       end
     end
   end

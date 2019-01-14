@@ -196,8 +196,6 @@ fi:
         create:
           error: Uuden osallisuusprosessin luonnissa tapahtui virhe.
           success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
-        destroy:
-          success: Osallisuusprosessi poistettiin onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -265,6 +263,7 @@ fi:
       processes: Prosessit
     metrics:
       participatory_processes:
+        description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
     participatory_process_groups:

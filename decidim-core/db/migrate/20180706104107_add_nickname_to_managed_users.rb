@@ -7,7 +7,7 @@ class AddNicknameToManagedUsers < ActiveRecord::Migration[5.2]
 
   def up
     User.where(managed: true, nickname: nil).includes(:organization).find_each do |user|
-      user.nickname = User.nicknamize(user.name, organization: user.organization)
+      user.nickname = UserBaseEntity.nicknamize(user.name, organization: user.organization)
       user.save
     end
   end

@@ -35,7 +35,6 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
-        user_can_destroy_process?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -102,9 +101,15 @@ module Decidim
                       [:process, :participatory_space].include?(permission_action.subject) &&
                       process
 
+        return disallow! if cannot_view_private_space
         return allow! if user&.admin?
         return allow! if process.published?
         toggle_allow(can_manage_process?)
+      end
+
+      def cannot_view_private_space
+        return unless process.private_space
+        !user || !user.admin && !process.users.include?(user)
       end
 
       def public_report_content_action?
@@ -164,14 +169,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      # Only organization admins can destroy a process
-      def user_can_destroy_process?
-        return unless permission_action.action == :destroy &&
-                      permission_action.subject == :process
-
-        toggle_allow(user.admin?)
-      end
-
       # Everyone can read the process list
       def user_can_read_process_list?
         return unless read_process_list_permission_action?
@@ -201,13 +198,11 @@ module Decidim
 
       # Process admins can eprform everything *inside* that process. They cannot
       # create a process or perform actions on process groups or other
-      # processes. They cannot destroy their process either.
+      # processes.
       def process_admin_action?
         return unless can_manage_process?(role: :admin)
         return if user.admin?
         return disallow! if permission_action.action == :create &&
-                            permission_action.subject == :process
-        return disallow! if permission_action.action == :destroy &&
                             permission_action.subject == :process
 
         is_allowed = [

@@ -7,7 +7,8 @@
     {
       name: t(".process_menu_item"),
       url: decidim_participatory_processes.participatory_process_path(participatory_space),
-      active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive)
+      active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) ||
+              is_active_link?(decidim_participatory_processes.statistics_participatory_process_path(participatory_space), :exclusive)
     }
   ] + components.map do |component|
     {

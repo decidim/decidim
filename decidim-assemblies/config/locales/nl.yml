@@ -82,8 +82,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
-        destroy:
-          success: Vergadering is succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
@@ -259,6 +257,17 @@ nl:
         city_council: Gemeenteraad
         others: Overige
         public: Openbaar
+      filter:
+        all: Allemaal
+        commission: Commissie
+        consultative_advisory: Consultative / Advisory
+        executive: uitvoerend
+        government: Regering
+        label: 'Laten zien:'
+        others: anderen
+        participatory: deelnemend
+        placeholder: Filteren op type
+        working_group: Werkgroep
       index:
         title: Events
       last_activity:
@@ -333,6 +342,7 @@ nl:
       assemblies: Events
     metrics:
       assemblies:
+        description: Aantal aangemaakte vergaderingen
         object: assemblages
         title: Assemblies
   errors:
@@ -349,8 +359,8 @@ nl:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} vergaderingen"
-            other: "%{count} vergaderingen"
+            one: "%{count} bijeenkomst"
+            other: "%{count} bijeenkomsten"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen

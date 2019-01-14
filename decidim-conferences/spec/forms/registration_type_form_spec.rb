@@ -85,7 +85,7 @@ module Decidim
         context "when price is missing" do
           let(:price) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
 
         context "when price is not number" do

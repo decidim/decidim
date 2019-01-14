@@ -82,8 +82,6 @@ de:
         create:
           error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
           success: Assembly wurde erfolgreich erstellt.
-        destroy:
-          success: Die Baugruppe wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         form:
@@ -259,6 +257,17 @@ de:
         city_council: Stadtrat
         others: Andere
         public: Öffentlichkeit
+      filter:
+        all: Alles
+        commission: Kommission
+        consultative_advisory: Beratung / Beratung
+        executive: Executive
+        government: Regierung
+        label: 'Show:'
+        others: Andere
+        participatory: Partizipativ
+        placeholder: Filtern Sie nach Typ
+        working_group: Arbeitsgruppe
       index:
         title: Baugruppen
       last_activity:
@@ -333,6 +342,7 @@ de:
       assemblies: Baugruppen
     metrics:
       assemblies:
+        description: Anzahl der erstellten Baugruppen
         object: Baugruppen
         title: Baugruppen
   errors:
@@ -349,7 +359,7 @@ de:
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Baugruppen"
+            one: "%{count} Versammlung"
             other: "%{count} Baugruppen"
         promoted_assembly:
           more_info: Mehr Info

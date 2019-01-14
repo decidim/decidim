@@ -35,6 +35,9 @@ nl:
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
     models:
+      decidim/amendment:
+        one: Amendement
+        other: wijzigingen
       decidim/user:
         one: Geen gebruikers
         other: gebruikers
@@ -125,6 +128,59 @@ nl:
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
+        verify_via_csv: "%{user_name} de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
+    amendments:
+      accepted:
+        error: Er is een fout opgetreden bij het accepteren van de emendation. Probeer het later opnieuw.
+        success: Deze emendatie is met succes geaccepteerd.
+      amendable:
+        amended_by: Gewijzigd door
+        button: Wijzigen %{model_name}
+        promote_button: Promoot tot %{model_name}
+        error: Er is een fout opgetreden bij het wijzigen van deze bron.
+        help_text: Verbeter deze %{model_name} door zijn %{amendable_fields}
+        promote_help_text: U kunt deze emendatie promoten en publiceren als een onafhankelijke %{model_name}
+        no_amenders: Er zijn geen amendementen
+        no_amendments: Er zijn geen amendementen
+        section_heading: Wijzigingen (%{count})
+      created:
+        error: Er is een fout opgetreden bij het maken van dit amendement, probeer het later opnieuw
+        success: Het amendement is met succes gemaakt
+      emendation:
+        actions:
+          button_accept: Aanvaarden
+          button_reject: afwijzen
+          help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur (s).
+        announcement:
+          accepted: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link} is
+            geaccepteerd op <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Dit is een verbetering voor de %{amendable_type} %{amendable_link}
+            wordt geëvalueerd.
+          rejected: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            werd afgewezen op <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            is door de auteur ingetrokken.
+      new:
+        amendment_author: Amendement auteur
+        back: Terug
+        heading: Maak uw amendement
+        help_text: U wijzigt de %{model_name}
+        send: Verstuur emendation
+      rejected:
+        error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
+        success: De emendation is met succes afgewezen
+      promoted:
+        success: Emendation met succes gepromoot
+        error: Er zijn fouten opgetreden bij het promoten van de emendation
+      review:
+        back: Terug
+        heading: Bekijk het amendement
+        help_text: U wijzigt de %{model_name}
+        send: Accepteer emendation
     anonymous_user: Anoniem
     application:
       collection:
@@ -211,6 +267,7 @@ nl:
         name: Voorbeeld onderdeel
         settings:
           global:
+            amendments_enabled: Wijzigingen ingeschakeld
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
@@ -326,6 +383,51 @@ nl:
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
         title: De opgevraagde pagina kan niet gevonden worden
     events:
+      amendments:
+        amendment_created:
+          affected_user:
+            email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
+            email_subject: Een nieuw amendement voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: Een <a href="%{emendation_path}">nieuwe emendatie</a> is gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Een nieuw amendement voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: Een <a href="%{emendation_path}">nieuwe emendatie</a> is gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
+            email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgewezen voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgewezen voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
+            email_subject: Een emendation van %{emendation_author_nickname} is gepromoot
+            notification_title: Een <a href="%{emendation_path}">afgewezen emendation</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} is gepromoot met <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Een emendation van %{emendation_author_nickname} is gepromoot
+            notification_title: Een <a href="%{emendation_path}">afgewezen emendation</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} is gepromoot met <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
@@ -623,23 +725,31 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
-          from: Van
-          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
-        show:
-          conversation_with_html: Gesprek met <strong>%{name}</strong>
-          reply: Beantwoorden
+          title: conversaties
+        reply:
           send: Sturen
+          title: Beantwoorden
+        show:
+          title: Gesprek met %{usernames}
         start:
           send: Verzenden
           title: Een gesprek beginnen
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
     metrics:
+      download:
+        csv: Gegevens downloaden (csv)
+      followers:
+        description: Aantal gebruikers dat volgt in de organisatie
+        object: volgelingen
+        title: Volgers
       participants:
+        description: Aantal actieve gebruikers in de organisatie
         object: deelnemers
         title: Deelnemers
       users:
+        description: Aantal gebruikers in de organisatie
         object: gebruikers
         title: gebruikers
     newsletter_mailer:
@@ -673,11 +783,18 @@ nl:
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
+        everything_followed: Alles wat ik volg
+        newsletters: nieuwsbrieven
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
+        own_activity: Mijn eigen activiteit, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
+        receive_notifications_about: Ik wil meldingen ontvangen over
+        send_notifications_by_email: Verstuur meldingen per e-mail
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
         success: Uw notificatie instellingen zijn bijgewerkt.
+    open_data:
+      not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
     own_user_groups:
       index:
         pending: In behandeling
@@ -737,6 +854,7 @@ nl:
       participatory_space:
         metrics:
           headline: Deelname aan cijfers
+          link: Toon alle statistieken
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -764,27 +882,30 @@ nl:
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        activity: Activiteit
         badges: badges
-        conversations: conversaties
         followers: Volgers
         following: volgt
         groups: groepen
         members: leden
-        notifications: meldingen
+        timeline: Tijdlijn
         view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: badges
       user:
+        confirmation_instructions_sent: Stuurbevestigingsinstructies verzonden
         create_user_group: Maak een groep
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
+        fill_in_email_to_confirm_it: Vul alstublieft het e-mailadres van uw groep in om dit te bevestigen
         invite_user: Nodig gebruiker uit
         join_user_group: Verzoek om lid te worden van de groep
         leave_user_group: Verlaat groep
         manage_user_group_admins: Beheer beheerders
         manage_user_group_users: Leden beheren
+        resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -809,19 +930,27 @@ nl:
       prompt: Selecteer een scope
       scopes: scopes
     search:
-      filter:
-        all: Alle
-        component: bestanddeel
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:
-        search: Zoeken
+        back: Terug naar resultaten
+        jump_to: 'Spring naar:'
+        state:
+          active: Actief
+          all: Allemaal
+          future: Toekomst
+          past: Verleden
       filters_small_view:
         close_modal: Modal sluiten
         filter: Filter
         filter_by: Filteren op
         unfold: Ontvouwen
+      results:
+        results:
+          one: "%{count} resultaat"
+          other: "%{count} resultaten"
+        view_all: Bekijk alles (%{count})
     shared:
       embed_modal:
         close_window: Sluit venster
@@ -856,6 +985,18 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    user_activity:
+      index:
+        no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.
+    user_interests:
+      show:
+        no_scopes: Deze organisatie heeft nog geen bereik!
+        my_interests: Mijn interesses
+        select_your_interests: Selecteer de onderwerpen waarin u geïnteresseerd bent om aan hen gerelateerde evenementen te ontvangen op het tabblad Tijdlijn van uw profiel.
+        update_my_interests: Update mijn interesses
+      update:
+        error: Er is een fout opgetreden bij het bijwerken van uw interesses.
+        success: Uw interesses zijn succesvol bijgewerkt.
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
@@ -1036,6 +1177,7 @@ nl:
       edit_link:
         edit: Bewerk
       footer:
+        download_open_data: Download Open Data-bestanden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
@@ -1060,6 +1202,7 @@ nl:
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
         my_data: Mijn data
+        my_interests: Mijn interesses
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: groepen

@@ -4,6 +4,9 @@ module Decidim
   # The controller to handle user groups join requests.
   class UserGroupJoinRequestsController < Decidim::ApplicationController
     include FormFactory
+    include UserGroups
+
+    before_action :enforce_user_groups_enabled
 
     def create
       enforce_permission_to :join, :user_group

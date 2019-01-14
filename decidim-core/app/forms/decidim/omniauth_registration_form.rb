@@ -13,6 +13,7 @@ module Decidim
     attribute :tos_agreement, Boolean
     attribute :oauth_signature, String
     attribute :avatar_url, String
+    attribute :raw_data, Hash
 
     validates :email, presence: true
     validates :name, presence: true
@@ -24,7 +25,7 @@ module Decidim
     end
 
     def normalized_nickname
-      User.nicknamize(nickname || name, organization: current_organization)
+      UserBaseEntity.nicknamize(nickname || name, organization: current_organization)
     end
   end
 end

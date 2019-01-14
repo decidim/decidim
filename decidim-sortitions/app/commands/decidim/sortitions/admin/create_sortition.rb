@@ -74,7 +74,7 @@ module Decidim
             event: "decidim.events.sortitions.sortition_created",
             event_class: Decidim::Sortitions::CreateSortitionEvent,
             resource: sortition,
-            recipient_ids: sortition.participatory_space.followers.pluck(:id)
+            followers: sortition.participatory_space.followers
           )
         end
       end

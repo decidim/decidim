@@ -20,6 +20,7 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.actions = %w(join)
+    resource.searchable = true
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
@@ -27,6 +28,19 @@ Decidim.register_component(:meetings) do |component|
     meetings = meetings.where("created_at >= ?", start_at) if start_at.present?
     meetings = meetings.where("created_at <= ?", end_at) if end_at.present?
     meetings.count
+  end
+
+  component.exports :meetings do |exports|
+    exports.collection do |component_instance|
+      Decidim::Meetings::Meeting
+        .visible
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Meetings::MeetingSerializer
   end
 
   component.actions = %w(join)

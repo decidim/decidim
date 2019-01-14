@@ -1,20 +1,43 @@
-<%= filter_form_for filter do |form| %>
-  <div class="filters-controls">
-    <div class="filters__section">
-      <div class="filters__search">
-        <div class="input-group">
-          <%= form.search_field :term, label: false, class: "input-group-field", placeholder: t(".search") %>
-          <div class="input-group-button">
-            <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t(".search") %>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-      <%= form.collection_radio_buttons :resource_type,searchable_resources_as_options(t("all", scope: "decidim.search.filter")), :first, :last, legend_title: t("component", scope: "decidim.search.filter") %>
-
-      <%= scopes_picker_filter form, :decidim_scope_id %>
-  </div>
+<label class="text-medium mb-s"><%= t(".jump_to") %></label>
+<% if params.dig(:filter, :resource_type).present? %>
+  <p class="text-secondary">
+    <%= link_to main_search_path do %>
+      <%= icon "caret-left", class: "icon--small" %>&nbsp;<%= t(".back") %>
+    <% end %>
+  </p>
 <% end %>
+<div class="card card--secondary">
+  <div class="filters">
+    <% @sections.each do |type, results| %>
+    <div class="filters__section--general<%= " no-results" if results[:count].zero? %>">
+      <% if results[:count].positive? %>
+        <%= link_to search_path_by_resource_type(type), class: "flex--sbc" do %>
+          <strong class="section-title"><%= searchable_resource_human_name(type) %></strong>
+          <span class="muted">&nbsp;<%= results[:count] %></span>
+        <% end %>
+      <% else %>
+        <div class="flex--sbc">
+          <strong class="section-title"><%= searchable_resource_human_name(type) %></strong>
+          <span class="muted">&nbsp;<%= results[:count] %></span>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="card card--secondary">
+  <%= filter_form_for filter do |form| %>
+    <%= scopes_picker_filter form, :decidim_scope_id %>
+    <%= form.hidden_field :term %>
+  <% end %>
+</div>
+<div class="row collapse order-by">
+  <div class="text-uppercase text-right">
+    <span class="order-by__tabs">
+      <%= search_path_by_state_link(:past) %>
+      <%= search_path_by_state_link(:future) %>
+      <%= search_path_by_state_link(:active) %>
+      <%= search_path_by_state_link(nil) %>
+    </span>
+  </div>
+</div>

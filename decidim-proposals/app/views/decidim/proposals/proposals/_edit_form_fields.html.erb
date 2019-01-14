@@ -1,10 +1,34 @@
 <div class="field hashtags__container">
-  <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: present(@proposal).title %>
+  <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: form_presenter.title %>
 </div>
 
 <div class="field hashtags__container">
-  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: present(@proposal).body %>
+  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
 </div>
+
+<% if @form.component_automatic_hashtags.any? %>
+  <div class="field">
+    <%= form.label :automatic_hashtags %>
+    <div class="checkboxes hashtags">
+      <% @form.component_automatic_hashtags.each do |hashtag| %>
+        <label>
+          <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if @form.component_suggested_hashtags.any? %>
+  <div class="field">
+    <%= form.label :suggested_hashtags %>
+    <div class="checkboxes hashtags">
+      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+        option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
+      end %>
+    </div>
+  </div>
+<% end %>
 
 <% if component_settings.geocoding_enabled? %>
   <div class="field">
@@ -28,7 +52,7 @@
   </div>
 <% end %>
 
-<% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
   <div class="field">
     <%= user_group_select_field form, :user_group_id %>
   </div>

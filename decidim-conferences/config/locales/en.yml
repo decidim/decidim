@@ -44,7 +44,7 @@ en:
         other: Conference speakers
       decidim/conference_user_role:
         one: Conference user role
-        other: Conference user role
+        other: Conference user roles
   decidim:
     admin:
       actions:
@@ -105,8 +105,6 @@ en:
         create:
           error: There was an error creating a new conference.
           success: Conference created successfully.
-        destroy:
-          success: Conference deleted successfully.
         edit:
           update: Update
         exports:
@@ -365,6 +363,7 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
+          free: Free
           going: Going
           no_slots_available: No slots available
           registration: Registration
@@ -506,6 +505,10 @@ en:
         votes_count: Votes
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+        conference_registration_confirmed:
+          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
         conference_registrations_over_percentage:
           email_intro: The "%{resource_title}" conference occupied slots are over %{percentage}%.
           email_outro: You have received this notification because you are an admin of the conference's participatory space.
@@ -521,6 +524,11 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" conference has enabled registrations.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference has enabled registrations.
+        upcoming_conference:
+          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference is coming!
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
     log:
       value_types:
         conference_presenter:

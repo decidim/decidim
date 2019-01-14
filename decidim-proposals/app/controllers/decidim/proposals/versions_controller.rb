@@ -11,7 +11,11 @@ module Decidim
       private
 
       def item
-        @item ||= CollaborativeDraft.where(component: current_component).find(params[:collaborative_draft_id])
+        @item ||= if params[:proposal_id]
+                    Proposal.where(component: current_component).find(params[:proposal_id])
+                  else
+                    CollaborativeDraft.where(component: current_component).find(params[:collaborative_draft_id])
+                  end
       end
 
       def current_version

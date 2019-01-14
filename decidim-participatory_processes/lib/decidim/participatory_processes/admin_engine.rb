@@ -16,7 +16,7 @@ module Decidim
 
       routes do
         resources :participatory_process_groups
-        resources :participatory_processes, param: :slug, except: :show do
+        resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
 
@@ -51,6 +51,7 @@ module Decidim
             member do
               put :unreport
               put :hide
+              put :unhide
             end
           end
           resources :participatory_space_private_users, controller: "participatory_space_private_users" do

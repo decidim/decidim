@@ -43,8 +43,8 @@ it:
         one: Relatore della conferenza
         other: Oratori della conferenza
       decidim/conference_user_role:
-        one: Un ruolo utente di conferenza
-        other: Ruoli utente della conferenza
+        one: Ruolo dell'utente della conferenza
+        other: Ruolo dell'utente della conferenza
   decidim:
     admin:
       actions:
@@ -105,8 +105,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di una nuova conferenza.
           success: Conferenza creata con successo.
-        destroy:
-          success: Conferenza cancellata con successo.
         edit:
           update: Aggiornare
         exports:
@@ -365,6 +363,7 @@ it:
           cancel: Annulla
           confirm: Confermare
         show:
+          free: Gratuito
           going: Andando
           no_slots_available: Non ci sono slot disponibili
           registration: Registrazione
@@ -506,6 +505,10 @@ it:
         votes_count: voti
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: La tua registrazione per la conferenza <a href="%{resource_url}">%{resource_title}</a> è in attesa di conferma.
+        conference_registration_confirmed:
+          notification_title: La tua registrazione per la conferenza <a href="%{resource_url}">%{resource_title}</a> è stata confermata.
         conference_registrations_over_percentage:
           email_intro: Gli spazi occupati con la conferenza "%{resource_title}" sono superiori %{percentage}%.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della conferenza.
@@ -521,6 +524,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la conferenza "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La conferenza "%{resource_title}" ha abilitato le registrazioni.
           notification_title: La conferenza <a href="%{resource_path}">%{resource_title}</a> ha abilitato le registrazioni.
+        upcoming_conference:
+          email_intro: 'La conferenza "%{resource_title}" ha luogo tra 2 giorni. Puoi leggere la descrizione dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo la conferenza "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La conferenza "%{resource_title}" sta arrivando!
+          notification_title: La conferenza <a href="%{resource_path}">%{resource_title}</a> arriverà tra 2 giorni.
     log:
       value_types:
         conference_presenter:

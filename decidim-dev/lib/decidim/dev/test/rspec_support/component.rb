@@ -51,6 +51,7 @@ module Decidim
       include Decidim::DataPortability
       include Searchable
       include Paddable
+      include Amendable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -58,6 +59,11 @@ module Decidim
         A: [:title],
         D: [:address],
         datetime: :published_at
+      )
+
+      amendable(
+        fields: [:title],
+        form: "Decidim::DummyResources::DummyResourceForm"
       )
 
       component_manifest_name "dummy"
@@ -106,6 +112,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
     settings.attribute :enable_pads_creation, type: :boolean, default: false
+    settings.attribute :amendments_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -119,6 +126,7 @@ Decidim.register_component(:dummy) do |component|
     resource.model_class_name = "Decidim::DummyResources::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
     resource.actions = %w(foo)
+    resource.searchable = true
   end
 
   component.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
@@ -144,6 +152,7 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.string :title
+          t.string :body
           t.text :address
           t.float :latitude
           t.float :longitude

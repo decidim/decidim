@@ -96,10 +96,6 @@
     @include breakpoint(medium up){
       > .row:nth-child(2){
         margin-top: -$global-margin * .5;
-
-        > :nth-child(2){
-          margin-top: -$global-margin * .5;
-        }
       }
     }
 

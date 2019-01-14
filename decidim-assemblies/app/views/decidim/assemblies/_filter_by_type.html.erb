@@ -1,0 +1,13 @@
+<div class="inline-filters">
+<label>
+  <span><%= label_text %></span>
+  <button data-toggle="inline-filter-sort"><%= placeholder_text %></button>
+  <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+    <ul class="list-reset">
+      <% available_filters.each do |filter| %>
+        <li><%= filter_link(filter) %></li>
+      <% end %>
+    </ul>
+  </div>
+</label>
+</div>

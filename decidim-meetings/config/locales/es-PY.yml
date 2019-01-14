@@ -90,15 +90,23 @@ es-PY:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Se ha cerrado el encuentro "%{resource_title}"
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+          affected_user:
+            email_intro: 'Tu reunión "%{resource_title}" fue cerrada. Puedes leer las conclusiones desde su página:'
+            email_outro: Ha recibido esta notificación porque organizó la reunión "%{resource_title}".
+            email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+          follower:
+            email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
+            email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_created:
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Nuevo encuentro añadido a %{participatory_space_title}
           notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Su inscripción para la reunión <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Su código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
           email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
@@ -182,6 +190,7 @@ es-PY:
             invalid: Ha habido un problema al actualizar el orden del día
             success: Orden del día actualizado correctamente
         exports:
+          meetings: Reuniones
           registrations: Inscripciones
         invite_join_meeting_mailer:
           invite:
@@ -361,8 +370,12 @@ es-PY:
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          registration_code_help_text: Tu codigo de registro
+          registration_state:
+            validated: Validado
+            validation_pending: VALIDACIÓN PENDIENTE
           remaining_slots:
-            one: 'Queda %{count} ranuras'
+            one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
           view: Ver
       meetings_map:
@@ -406,6 +419,7 @@ es-PY:
         transparent: Transparente
     metrics:
       meetings:
+        description: Número de reuniones creadas
         object: reuniones
         title: Reuniones
     participatory_processes:

@@ -35,6 +35,11 @@ pl:
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
     models:
+      decidim/amendment:
+        one: Poprawka
+        few: Poprawki
+        many: Poprawki
+        other: Poprawki
       decidim/user:
         one: Brak użytkowników
         few: Użytkownicy
@@ -129,6 +134,59 @@ pl:
       user_group:
         reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
+        verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
+    amendments:
+      accepted:
+        error: Wystąpił błąd podczas akceptacji poprawki, spróbuj ponownie później.
+        success: Ta emisja została pomyślnie przyjęta.
+      amendable:
+        amended_by: Zmienione przez
+        button: Zmień %{model_name}
+        promote_button: Promuj do %{model_name}
+        error: Wystąpił błąd podczas zmiany tego zasobu.
+        help_text: Popraw to %{model_name} , modyfikując %{amendable_fields}
+        promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
+        no_amenders: Nie ma żadnych fałszerstw
+        no_amendments: Brak zmian
+        section_heading: Poprawki (%{count})
+      created:
+        error: Wystąpił błąd podczas tworzenia tej poprawki, spróbuj ponownie później
+        success: Poprawka została pomyślnie utworzona
+      emendation:
+        actions:
+          button_accept: Zaakceptować
+          button_reject: Odrzucać
+          help_text: Przejrzyj zmiany i zaakceptuj lub odrzuć tę poprawkę. Powiadomienie zostanie wysłane do jego autora (ów).
+        announcement:
+          accepted: |-
+            Ta emisja dla %{amendable_type} %{amendable_link} została
+            zaakceptowana na <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            To jest emisja do oceny %{amendable_type} %{amendable_link}
+            .
+          rejected: |-
+            Ta emisja dla %{amendable_type} %{amendable_link}
+            została odrzucona na <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Ta emisja dla %{amendable_type} %{amendable_link}
+            została wycofana przez autora.
+      new:
+        amendment_author: Autor poprawki
+        back: Z powrotem
+        heading: Utwórz poprawkę
+        help_text: Modyfikujesz %{model_name}
+        send: Wyślij emendation
+      rejected:
+        error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
+        success: Emendacja została odrzucona pomyślnie
+      promoted:
+        success: Emedycja została pomyślnie awansowana
+        error: Podczas promowania wyemitowania wystąpiły błędy
+      review:
+        back: Z powrotem
+        heading: Przejrzyj poprawkę
+        help_text: Zmieniasz %{model_name}
+        send: Zaakceptuj emendację
     anonymous_user: Anonim
     application:
       collection:
@@ -221,6 +279,7 @@ pl:
         name: Manekinowy składnik
         settings:
           global:
+            amendments_enabled: Poprawione włączone
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
@@ -336,6 +395,51 @@ pl:
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
         title: Szukana strona nie została znaleziona
     events:
+      amendments:
+        amendment_created:
+          affected_user:
+            email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
+            email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Emendacja została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
+            email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Emendacja została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Emendacja odrzucona dla %{amendable_title} została awansowana na niezależną %{amendable_type}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
+            email_subject: Promowane od %{emendation_author_nickname} zostało promowane
+            notification_title: Odrzucona <a href="%{emendation_path}">emisja</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została zwiększona o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Emendacja odrzucona dla %{amendable_title} została awansowana na niezależną %{amendable_type}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_subject: Promowane od %{emendation_author_nickname} zostało promowane
+            notification_title: Odrzucona <a href="%{emendation_path}">emisja</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została zwiększona o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
+            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
@@ -633,23 +737,31 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
-          from: Od
-          last_message_html: Ostatnia wiadomość <strong>%{time} temu</strong>
           no_conversations: Nie masz jeszcze żadnych rozmów
-        show:
-          conversation_with_html: Rozmowa z <strong>%{name}</strong>
-          reply: Odpowiadać
+          title: Rozmowy
+        reply:
           send: Wysłać
+          title: Odpowiadać
+        show:
+          title: Konwersacja z %{usernames}
         start:
           send: Wysłać
           title: Zacząć rozmowę
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
     metrics:
+      download:
+        csv: Pobierz dane (csv)
+      followers:
+        description: Liczba użytkowników następujących po organizacji
+        object: Obserwujący
+        title: Obserwujący
       participants:
+        description: Liczba aktywnych użytkowników w organizacji
         object: Uczestnicy
         title: Uczestnicy
       users:
+        description: Liczba użytkowników w organizacji
         object: użytkowników
         title: Użytkownicy
     newsletter_mailer:
@@ -683,11 +795,18 @@ pl:
     notifications_settings:
       show:
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
+        everything_followed: Wszystko, co obserwuję
+        newsletters: Biuletyny
         newsletter_notifications: Chcę otrzymywać newslettery
+        own_activity: Moja własna działalność, np. Kiedy ktoś komentuje moją propozycję lub wspomina mnie
+        receive_notifications_about: Chcę otrzymywać powiadomienia
+        send_notifications_by_email: Wysyłaj powiadomienia pocztą e-mail
         update_notifications_settings: Zapisz zmiany
       update:
         error: Podczas aktualizowania ustawień powiadomień wystąpił błąd.
         success: Ustawienia powiadomień zostały zaktualizowane.
+    open_data:
+      not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
     own_user_groups:
       index:
         pending: W oczekiwaniu
@@ -747,6 +866,7 @@ pl:
       participatory_space:
         metrics:
           headline: Udział w liczbach
+          link: Pokaż wszystkie statystyki
       terms_and_conditions:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
@@ -774,27 +894,30 @@ pl:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        activity: Czynność
         badges: Odznaki
-        conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
         groups: Grupy
         members: Członkowie
-        notifications: Powiadomienia
+        timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
         badges:
           info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
           title: Odznaki
       user:
+        confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail
         create_user_group: Stworzyć grupę
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil grupy
+        fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby to potwierdzić
         invite_user: Zaproś użytkownika
         join_user_group: Poproś o dołączenie do grupy
         leave_user_group: Opuścić grupę
         manage_user_group_admins: Zarządzaj adminami
         manage_user_group_users: Zarządzaj członkami
+        resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
       hide:
         hello: Witaj %{name},
@@ -819,19 +942,29 @@ pl:
       prompt: Wybierz zakres
       scopes: Zakresy
     search:
-      filter:
-        all: Wszystko
-        component: Składnik
       results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:
-        search: Szukaj
+        back: Powrót do wyników
+        jump_to: 'Skocz do:'
+        state:
+          active: Aktywny
+          all: Wszystko
+          future: Przyszłość
+          past: Przeszłość
       filters_small_view:
         close_modal: Zamknij modalne
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwijać się
+      results:
+        results:
+          one: "%{count} wynik"
+          few: "%{count} wyników"
+          many: "%{count} wyników"
+          other: "%{count} wyników"
+        view_all: Zobacz wszystko (%{count})
     shared:
       embed_modal:
         close_window: Zamknij okno
@@ -866,6 +999,18 @@ pl:
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
+    user_activity:
+      index:
+        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
+    user_interests:
+      show:
+        no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
+        my_interests: Moje zainteresowania
+        select_your_interests: Wybierz tematy, które Cię interesują, aby otrzymywać związane z nimi wydarzenia na karcie Oś czasu w profilu.
+        update_my_interests: Zaktualizuj moje zainteresowania
+      update:
+        error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
+        success: Twoje zainteresowania zostały pomyślnie zaktualizowane.
     welcome_notification:
       default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
       default_subject: Dzięki za przyłączenie się do {{organization}}!
@@ -1050,6 +1195,7 @@ pl:
       edit_link:
         edit: Edytować
       footer:
+        download_open_data: Pobierz pliki otwartych danych
         made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Zamknij menu
@@ -1074,6 +1220,7 @@ pl:
         authorizations: Zezwolenia
         delete_my_account: Usuń moje konto
         my_data: Moje dane
+        my_interests: Moje zainteresowania
         notifications_settings: Ustawienia powiadomień
         title: Ustawienia użytkownika
         user_groups: Grupy

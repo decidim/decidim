@@ -34,6 +34,7 @@ if !Rails.env.production? || ENV["SEED"]
     users_registration_mode: :enabled,
     tos_version: Time.current,
     badges_enabled: true,
+    user_groups_enabled: true,
     send_welcome_notification: true
   )
 
@@ -142,6 +143,7 @@ if !Rails.env.production? || ENV["SEED"]
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.unique.name,
         nickname: Faker::Twitter.unique.screen_name,
+        email: Faker::Internet.email,
         extended_data: {
           document_number: Faker::Number.number(10),
           phone: Faker::PhoneNumber.phone_number,
@@ -149,6 +151,7 @@ if !Rails.env.production? || ENV["SEED"]
         },
         decidim_organization_id: user.organization.id
       )
+      user_group.confirm
 
       Decidim::UserGroupMembership.create!(
         user: user,

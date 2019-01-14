@@ -84,10 +84,12 @@ uk:
           email_subject: Строк збору підписів на підтримку почину продовжено!
           notification_title: Строк збору підписів на підтримку почину <a href="%{resource_path}">%{resource_title}</a> продовжено.
         milestone_completed:
-          email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Досягнута нова віха!
-          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
+          affected_user:
+            email_subject: Досягнута нова віха!
+          follower:
+            email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
+            email_subject: Досягнута нова віха!
+            notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
     initiatives:
       admin:
         committee_requests:

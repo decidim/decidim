@@ -196,8 +196,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo proceso participativo.
           success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
-        destroy:
-          success: O proceso participativo eliminouse con éxito.
         edit:
           update: Actualización
         form:
@@ -265,6 +263,7 @@ gl:
       processes: Procesos
     metrics:
       participatory_processes:
+        description: Número de procesos participativos nesta organización
         object: procesos participativos
         title: Procesos participativos
     participatory_process_groups:

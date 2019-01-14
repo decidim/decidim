@@ -95,6 +95,23 @@ describe Decidim::Log::DiffChangesetCalculator do
           expect(subject.first).to include(label: "My field (English)", previous_value: "Foo", new_value: nil)
           expect(subject.last).to include(label: "My field (Català)", previous_value: nil, new_value: "Bar")
         end
+
+        context "when a changeset has an unexisting locale" do
+          let(:changeset) do
+            {
+              field: [
+                { "en" => "Foo", "zn" => "Bar" },
+                { "en" => "Doe", "zn" => "Doe" }
+              ]
+            }
+          end
+
+          it "doesn't try to generate a nice label" do
+            expect(subject.count).to eq 2
+            expect(subject.first).to include(label: "My field (English)", previous_value: "Foo", new_value: "Doe")
+            expect(subject.last).to include(label: "My field (zn)", previous_value: "Bar", new_value: "Doe")
+          end
+        end
       end
 
       context "when i18n labels scope is not set" do

@@ -23,7 +23,9 @@
     </td>
   <% end %>
   <td>
+    <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
     <strong class="<%= proposal_state_css_class proposal.state %>">
+      <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <%= humanize_proposal_state proposal.state %>
     </strong>
   </td>
@@ -59,8 +61,10 @@
       <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
     <% end %>
 
-    <% if allowed_to? :create, :proposal_answer %>
-     <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>
+    <% if allowed_to? :create, :proposal_answer and !proposal.emendation? %>
+      <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: " icon--small" %>
+    <% else %>
+      <%= icon "comment-square", scope: "decidim.proposals.admin", class: "action-icon action-icon--disabled" %>
     <% end %>
 
     <%= resource_permissions_link(proposal) %>

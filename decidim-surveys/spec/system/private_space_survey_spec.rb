@@ -114,8 +114,14 @@ describe "Private Space Answer a survey", type: :system do
     let!(:participatory_space_private) { create :assembly, :published, organization: organization, private_space: true, is_transparent: false }
 
     context "when the user is not logged in" do
-      it_behaves_like "a 404 page" do
-        let(:target_path) { main_component_path(component) }
+      let(:target_path) { main_component_path(component) }
+
+      before do
+        visit target_path
+      end
+
+      it "disallows the access" do
+        expect(page).to have_content("You are not authorized to perform this action")
       end
     end
 
@@ -147,12 +153,15 @@ describe "Private Space Answer a survey", type: :system do
       end
 
       context "and is not private user space" do
+        let(:target_path) { main_component_path(component) }
+
         before do
           login_as user, scope: :user
+          visit target_path
         end
 
-        it_behaves_like "a 404 page" do
-          let(:target_path) { main_component_path(component) }
+        it "disallows the access" do
+          expect(page).to have_content("You are not authorized to perform this action")
         end
       end
     end

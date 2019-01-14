@@ -16,7 +16,7 @@ module Decidim
 
       # Public: returns whether the questionnaire is answered by the user or not.
       def answered_by?(user)
-        answers.where(user: user).count == questions.length
+        answers.where(user: user).any? if questions.present?
       end
     end
   end

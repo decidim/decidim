@@ -17,8 +17,9 @@ module Decidim
         attribute :price, Decimal
         attribute :conference_meeting_ids, Array[Integer]
 
-        validates :title, :description, :price, :weight, presence: true
-        validates :weight, :price, numericality: { greater_than_or_equal_to: 0 }
+        validates :title, :description, :weight, presence: true
+        validates :weight, numericality: { greater_than_or_equal_to: 0 }
+        validates :price, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.price.present? }
 
         def meetings
           meeting_components = current_participatory_space.components.where(manifest_name: "meetings")

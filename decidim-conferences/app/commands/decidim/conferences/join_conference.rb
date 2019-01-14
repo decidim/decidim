@@ -26,7 +26,8 @@ module Decidim
           create_meetings_registrations
           accept_invitation
           send_email_pending_validation
-          send_notification
+          send_notification_pending_validation
+          notify_admin_over_percentage
         end
         broadcast(:ok)
       end
@@ -60,11 +61,20 @@ module Decidim
         Decidim::Conferences::ConferenceRegistrationMailer.pending_validation(user, conference, @registration_type).deliver_later
       end
 
+      def send_notification_pending_validation
+        Decidim::EventsManager.publish(
+          event: "decidim.events.conferences.conference_registration_validation_pending",
+          event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
+          resource: @conference,
+          affected_users: [@user]
+        )
+      end
+
       def participatory_space_admins
         @conference.admins
       end
 
-      def send_notification
+      def notify_admin_over_percentage
         return send_notification_over(0.5) if occupied_slots_over?(0.5)
         return send_notification_over(0.8) if occupied_slots_over?(0.8)
         send_notification_over(1.0) if occupied_slots_over?(1.0)
@@ -75,7 +85,7 @@ module Decidim
           event: "decidim.events.conferences.conference_registrations_over_percentage",
           event_class: Decidim::Conferences::ConferenceRegistrationsOverPercentageEvent,
           resource: @conference,
-          recipient_ids: participatory_space_admins.pluck(:id),
+          followers: participatory_space_admins,
           extra: {
             percentage: percentage
           }

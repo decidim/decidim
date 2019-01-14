@@ -49,7 +49,7 @@ fr:
         other: Réponses
       decidim/consultations/vote:
         one: Vote
-        other: Votes
+        other: Vote
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle votation.
           success: La votation a été créée avec succès.
-        destroy:
-          success: La votation a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:

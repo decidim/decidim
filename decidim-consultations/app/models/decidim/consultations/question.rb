@@ -148,6 +148,10 @@ module Decidim
           select('"decidim_consultations_questions".*, RANDOM()').order(Arel.sql("RANDOM()")).load
         end
       end
+
+      def resource_description
+        subtitle
+      end
     end
   end
 end

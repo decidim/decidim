@@ -196,8 +196,6 @@ en:
         create:
           error: There was an error creating a new participatory process.
           success: Participatory process created successfully. Configure now its steps.
-        destroy:
-          success: Participatory process deleted successfully.
         edit:
           update: Update
         form:
@@ -265,6 +263,7 @@ en:
       processes: Processes
     metrics:
       participatory_processes:
+        description: Number of participatory processes in this organization
         object: participatory processes
         title: Participatory processes
     participatory_process_groups:

@@ -11,5 +11,6 @@ module Decidim
   # Base module for this engine.
   module Meetings
     autoload :Registrations, "decidim/meetings/registrations"
+    autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
   end
 end

@@ -12,6 +12,7 @@ describe Decidim::Debates::Debate do
 
   include_examples "has component"
   include_examples "has category"
+  include_examples "resourceable"
 
   context "without a title" do
     let(:debate) { build :debate, title: nil }

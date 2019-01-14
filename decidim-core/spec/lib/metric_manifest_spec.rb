@@ -43,6 +43,7 @@ module Decidim
             settings.attribute :highlighted, type: :boolean, default: true
             settings.attribute :scopes, type: :array, default: %w(home)
             settings.attribute :weight, type: :integer, default: 1
+            settings.attribute :stat_block, type: :string, default: "normal"
           end
         end
 
@@ -55,6 +56,7 @@ module Decidim
         expect(subject.settings.attributes[:scopes].default).to eq %w(home)
         expect(subject.settings.attributes).to have_key(:weight)
         expect(subject.settings.attributes[:weight].default).to eq 1
+        expect(subject.stat_block).to eq "normal"
       end
     end
   end

@@ -151,10 +151,8 @@ describe "Meeting registrations", type: :system do
 
           expect(page).to have_content("successfully")
 
-          within ".card.extra" do
-            expect(page).to have_css(".button", text: "GOING")
-            expect(page).to have_text("19 slots remaining")
-          end
+          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_text("19 slots remaining")
         end
       end
     end
@@ -163,28 +161,67 @@ describe "Meeting registrations", type: :system do
       let(:registration_form_enabled) { true }
 
       it_behaves_like "has questionnaire"
+
+      context "when the registration form has no questions" do
+        before do
+          questionnaire.questions.last.delete
+          login_as user, scope: :user
+        end
+
+        it "shows the registration form without questions" do
+          visit questionnaire_public_path
+
+          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.description)
+
+          expect(page).to have_no_i18n_content(question.body)
+
+          expect(page).to have_button("Submit")
+        end
+      end
     end
 
     context "and the user is going to the meeting" do
+      let!(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
+      let!(:registration) { create(:registration, meeting: meeting, user: user) }
+
       before do
-        create(:answer, questionnaire: questionnaire, question: question, user: user)
-        create(:registration, meeting: meeting, user: user)
         login_as user, scope: :user
+      end
+
+      it "shows the registration code" do
+        visit_meeting
+
+        expect(page).to have_css(".registration_code")
+        expect(page).to have_content(registration.code)
+      end
+
+      context "when showing the registration code validation state" do
+        it "shows validation pending if not validated" do
+          visit_meeting
+
+          expect(registration.validated_at).to be(nil)
+          expect(page).to have_content("VALIDATION PENDING")
+        end
+
+        it "shows validated if validated" do
+          registration.update validated_at: Time.current
+          visit_meeting
+
+          expect(registration.validated_at).not_to be(nil)
+          expect(page).to have_content("VALIDATED")
+        end
       end
 
       it "they can leave the meeting" do
         visit_meeting
-
-        within ".card.extra" do
-          click_button "Going"
-        end
+        click_button "Going"
 
         expect(page).to have_content("successfully")
+        expect(questionnaire.answers.where(user: user).empty?).to be(true)
 
-        within ".card.extra" do
-          expect(page).to have_css(".button", text: "JOIN MEETING")
-          expect(page).to have_text("20 slots remaining")
-        end
+        expect(page).to have_css(".button", text: "JOIN MEETING")
+        expect(page).to have_text("20 slots remaining")
       end
 
       context "and registration form is enabled" do

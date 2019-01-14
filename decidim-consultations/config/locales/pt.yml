@@ -49,7 +49,7 @@ pt:
         other: Respostas
       decidim/consultations/vote:
         one: Voto
-        other: Votos
+        other: Voto
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ pt:
         create:
           error: Ocorreu um erro ao criar uma nova consulta.
           success: Consulta criada com sucesso.
-        destroy:
-          success: Consulta excluída com sucesso.
         edit:
           update: Atualizar
         form:

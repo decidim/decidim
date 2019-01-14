@@ -85,5 +85,16 @@ module Decidim
     def sign_in_enabled?
       !users_registration_mode_disabled?
     end
+
+    def open_data_file
+      @open_data_file ||= OpenDataUploader.new.tap do |uploader|
+        uploader.retrieve_from_store! open_data_file_path
+        uploader.cache! open_data_file_path
+      end
+    end
+
+    def open_data_file_path
+      "#{host}-open-data.zip"
+    end
   end
 end

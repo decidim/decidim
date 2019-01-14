@@ -35,6 +35,11 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Uma nova pesquisa em %{participatory_space_title}
           notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    metrics:
+      survey_answers:
+        description: Número de pesquisas respondidas por usuários
+        object: respostas para pesquisas
+        title: Respostas para pesquisas
     surveys:
       admin:
         exports:

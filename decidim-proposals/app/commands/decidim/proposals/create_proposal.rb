@@ -5,6 +5,8 @@ module Decidim
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
       include AttachmentMethods
+      include HashtagsMethods
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -41,18 +43,30 @@ module Decidim
 
       attr_reader :form, :proposal, :attachment
 
-      def create_proposal
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+      def proposal_attributes
+        fields = {}
 
-        @proposal = Proposal.new(
-          title: parsed_title,
-          body: parsed_body,
-          component: form.component
-        )
-        @proposal.add_coauthor(@current_user, user_group: user_group)
-        @proposal.save!
-        @proposal
+        fields[:title] = title_with_hashtags
+        fields[:body] = body_with_hashtags
+        fields[:component] = form.component
+
+        fields
+      end
+
+      # This will be the PaperTrail version that is
+      # shown in the version control feature (1 of 1)
+      def create_proposal
+        @proposal = Decidim.traceability.perform_action!(
+          :create,
+          Decidim::Proposals::Proposal,
+          @current_user,
+          visibility: "public-only"
+        ) do
+          proposal = Proposal.new(proposal_attributes)
+          proposal.add_coauthor(@current_user, user_group: user_group)
+          proposal.save!
+          proposal
+        end
       end
 
       def proposal_limit_reached?

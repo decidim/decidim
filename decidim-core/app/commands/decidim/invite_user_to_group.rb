@@ -47,7 +47,7 @@ module Decidim
         event: "decidim.events.groups.invited_to_group",
         event_class: InvitedToGroupEvent,
         resource: user_group,
-        recipient_ids: [form.user.id],
+        affected_users: [form.user],
         extra: {
           user_group_name: user_group.name,
           user_group_nickname: user_group.nickname

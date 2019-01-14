@@ -25,12 +25,10 @@ module Decidim
         return broadcast(:invalid) unless @collaborative_draft.authored_by? @current_user
 
         transaction do
-          @collaborative_draft.requesters.each do |requester_user|
-            RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user)
-          end
-
-          @new_proposal = publish_collaborative_draft
-          broadcast(:invalid) unless @new_proposal
+          reject_access_to_collaborative_draft
+          publish_collaborative_draft
+          create_proposal!
+          link_collaborative_draft_and_proposal
         end
 
         broadcast(:ok, @new_proposal)
@@ -40,47 +38,54 @@ module Decidim
 
       private
 
+      def reject_access_to_collaborative_draft
+        @collaborative_draft.requesters.each do |requester_user|
+          RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user)
+        end
+      end
+
       def publish_collaborative_draft
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          state: "published",
-          published_at: Time.current
+          { state: "published", published_at: Time.current },
+          visibility: "public-only"
         )
-        create_proposal
       end
 
-      def create_proposal
-        proposal_form_params = ActionController::Parameters.new(
-          proposal: @collaborative_draft.as_json
-        )
-        proposal_form_params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
-        proposal_form_params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
-        proposal_form = Decidim::Proposals::ProposalForm.from_params(
-          proposal_form_params
-        ).with_context(
-          current_user: @current_user,
-          current_organization: @current_user.organization,
-          current_component: @collaborative_draft.component,
-          current_participatory_space: @collaborative_draft.participatory_space
-        )
+      def proposal_attributes
+        fields = {}
 
-        result = CreateProposal.call(proposal_form, @current_user, @collaborative_draft.coauthorships)
-        return publish_proposal(result[:ok]) if result[:ok]
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
 
-        false
+        fields[:title] = parsed_title
+        fields[:body] = parsed_body
+        fields[:component] = @collaborative_draft.component
+        fields[:scope] = @collaborative_draft.scope
+        fields[:address] = @collaborative_draft.address
+        fields[:published_at] = Time.current
+
+        fields
       end
 
-      def publish_proposal(new_proposal)
-        result = PublishProposal.call(new_proposal, @current_user)
-        return link_collaborative_draft_and_proposal(result[:ok]) if result[:ok]
-
-        false
+      def create_proposal!
+        @new_proposal = Decidim.traceability.perform_action!(
+          :create,
+          Decidim::Proposals::Proposal,
+          @current_user,
+          visibility: "public-only"
+        ) do
+          new_proposal = Proposal.new(proposal_attributes)
+          new_proposal.coauthorships = @collaborative_draft.coauthorships
+          new_proposal.category = @collaborative_draft.category
+          new_proposal.save!
+          new_proposal
+        end
       end
 
-      def link_collaborative_draft_and_proposal(new_proposal)
-        @collaborative_draft.link_resources(new_proposal, "created_from_collaborative_draft")
-        new_proposal
+      def link_collaborative_draft_and_proposal
+        @collaborative_draft.link_resources(@new_proposal, "created_from_collaborative_draft")
       end
     end
   end

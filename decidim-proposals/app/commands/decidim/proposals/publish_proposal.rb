@@ -23,15 +23,7 @@ module Decidim
         return broadcast(:invalid) unless @proposal.authored_by?(@current_user)
 
         transaction do
-          Decidim.traceability.perform_action!(
-            "publish",
-            @proposal,
-            @current_user,
-            visibility: "public-only"
-          ) do
-            @proposal.update published_at: Time.current
-          end
-
+          publish_proposal
           increment_scores
           send_notification
           send_notification_to_participatory_space
@@ -42,6 +34,14 @@ module Decidim
 
       private
 
+      # Prevent PaperTrail from creating an additional version
+      # in the proposal multi-step creation process (step 4: publish)
+      def publish_proposal
+        PaperTrail.request(enabled: false) do
+          @proposal.update published_at: Time.current
+        end
+      end
+
       def send_notification
         return if @proposal.coauthorships.empty?
 
@@ -49,7 +49,7 @@ module Decidim
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
-          recipient_ids: coauthors_followers(@proposal)
+          followers: coauthors_followers
         )
       end
 
@@ -58,19 +58,15 @@ module Decidim
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
-          recipient_ids: @proposal.participatory_space.followers.pluck(:id) - coauthors_followers(@proposal),
+          followers: @proposal.participatory_space.followers - coauthors_followers,
           extra: {
             participatory_space: true
           }
         )
       end
 
-      def coauthors_followers(_proposal)
-        followers_ids = []
-        @proposal.authors.each do |author|
-          followers_ids += author.followers.pluck(:id)
-        end
-        followers_ids
+      def coauthors_followers
+        @coauthors_followers ||= @proposal.authors.flat_map(&:followers)
       end
 
       def increment_scores

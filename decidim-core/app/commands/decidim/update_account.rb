@@ -58,7 +58,7 @@ module Decidim
         event: "decidim.events.users.profile_updated",
         event_class: Decidim::ProfileUpdatedEvent,
         resource: @user,
-        recipient_ids: @user.followers.pluck(:id)
+        followers: @user.followers
       )
     end
   end

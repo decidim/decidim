@@ -90,15 +90,23 @@ sv:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-          email_outro: Du har fått den här notifikationen eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från den föregående länken.
-          email_subject: Mötet "%{resource_title}" stängdes
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          affected_user:
+            email_intro: 'Ditt möte "%{resource_title}" stängdes. Du kan läsa slutsatserna från sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du organiserade mötet "%{resource_title}".
+            email_subject: Mötet "%{resource_title}" stängdes
+            notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          follower:
+            email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
+            email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
+            email_subject: Mötet "%{resource_title}" stängdes
+            notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Din registrering för mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din registreringskod är %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: De upptagna platserna vid "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
@@ -182,6 +190,7 @@ sv:
             invalid: Det har blivit ett problem med att uppdatera den här dagordningen
             success: Dagordning uppdaterad
         exports:
+          meetings: möten
           registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
@@ -195,7 +204,7 @@ sv:
           form:
             attendee_type: Deltagartyp
             existing_user: Existerande användare
-            invite: Bjud in
+            invite: Bjuda in
             invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
             non_user: Icke-existerande användare
             select_user: Välj användare
@@ -313,13 +322,13 @@ sv:
       directory:
         meetings:
           index:
-            all: Allt
+            all: Alla
             date: Datum
-            meetings: möten
-            past: Dåtid
+            meetings: Möten
+            past: Tidigare
             search: Sök
             space_type: Deltagande utrymme
-            upcoming: kommande
+            upcoming: Kommande
       last_activity:
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       mailer:
@@ -361,8 +370,12 @@ sv:
           meeting_report: Mötesrapport
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
+          registration_code_help_text: Din registreringskod
+          registration_state:
+            validated: validerad
+            validation_pending: BEKRÄFTELSE PÅGÅR
           remaining_slots:
-            one: '%{count} slits kvar'
+            one: "%{count} slits kvar"
             other: "%{count} slits kvar"
           view: Visa
       meetings_map:
@@ -406,8 +419,9 @@ sv:
         transparent: Transparent
     metrics:
       meetings:
+        description: Antal möten skapade
         object: möten
-        title: möten
+        title: Möten
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

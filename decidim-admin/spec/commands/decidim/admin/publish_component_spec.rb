@@ -27,13 +27,15 @@ module Decidim::Admin
     end
 
     it "fires an event" do
+      create :follow, followable: participatory_process, user: user
+
       expect(Decidim::EventsManager)
         .to receive(:publish)
         .with(
           event: "decidim.events.components.component_published",
           event_class: Decidim::ComponentPublishedEvent,
           resource: component,
-          recipient_ids: kind_of(Array)
+          followers: [user]
         )
 
       subject.call

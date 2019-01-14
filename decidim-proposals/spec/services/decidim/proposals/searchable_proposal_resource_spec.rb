@@ -9,6 +9,7 @@ module Decidim
     let(:current_component) { create :proposal_component, manifest_name: "proposals" }
     let(:organization) { current_component.organization }
     let(:scope1) { create :scope, organization: organization }
+    let(:author) { create(:user, organization: organization) }
     let!(:proposal) do
       create(
         :proposal,
@@ -16,20 +17,38 @@ module Decidim
         component: current_component,
         scope: scope1,
         title: "Nulla TestCheck accumsan tincidunt.",
-        body: "Nulla TestCheck accumsan tincidunt description Ow!"
+        body: "Nulla TestCheck accumsan tincidunt description Ow!",
+        users: [author]
       )
     end
 
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
         context "when on create" do
-          let(:proposal2) do
-            create(:proposal, component: current_component)
+          context "when proposals are NOT official" do
+            let(:proposal2) do
+              create(:proposal, component: current_component)
+            end
+
+            it "does not index a SearchableResource after Proposal creation when it is not official" do
+              searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: [proposal.id, proposal2.id])
+              expect(searchables).to be_empty
+            end
           end
 
-          it "does not index a SearchableResource after Proposal creation" do
-            searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: [proposal.id, proposal2.id])
-            expect(searchables).to be_empty
+          context "when proposals ARE official" do
+            let(:author) { organization }
+
+            before do
+              proposal.update(published_at: Time.current)
+            end
+
+            it "does indexes a SearchableResource after Proposal creation when it is official" do
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+                expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
+              end
+            end
           end
         end
 
@@ -109,8 +128,10 @@ module Decidim
 
         it "returns Proposal results" do
           Decidim::Search.call("Ow", organization, resource_type: proposal.class.name) do
-            on(:ok) do |results|
-              expect(results.count).to eq 2
+            on(:ok) do |results_by_type|
+              results = results_by_type[proposal.class.name]
+              expect(results[:count]).to eq 2
+              expect(results[:results]).to match_array [proposal, proposal2]
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -118,8 +139,10 @@ module Decidim
 
         it "allows searching by prefix characters" do
           Decidim::Search.call("wait", organization, resource_type: proposal.class.name) do
-            on(:ok) do |results|
-              expect(results.count).to eq 1
+            on(:ok) do |results_by_type|
+              results = results_by_type[proposal.class.name]
+              expect(results[:count]).to eq 1
+              expect(results[:results]).to eq [proposal2]
             end
             on(:invalid) { raise("Should not happen") }
           end

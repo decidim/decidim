@@ -95,6 +95,7 @@ pl:
           notification_title: Wspomniałeś w <a href="%{resource_path}">%{resource_title}</a> przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Liczba komentarzy wygenerowanych przez użytkowników
         object: komentarze
         title: Komentarze
   errors:

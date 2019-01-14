@@ -38,5 +38,9 @@ module Decidim
     def large?
       options[:large]
     end
+
+    def decidim
+      Decidim::Core::Engine.routes.url_helpers
+    end
   end
 end

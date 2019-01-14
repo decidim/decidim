@@ -48,8 +48,8 @@ hu:
         one: Válasz
         other: Válaszok
       decidim/consultations/vote:
-        one: Szavazat
-        other: Szavazatok
+        one: Szavazás
+        other: Szavazás
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ hu:
         create:
           error: Hiba történt az új konzultáció létrehozása során.
           success: Konzultáció létrehozása sikeres.
-        destroy:
-          success: Konzultáció törlése sikeres.
         edit:
           update: Frissítés
         form:

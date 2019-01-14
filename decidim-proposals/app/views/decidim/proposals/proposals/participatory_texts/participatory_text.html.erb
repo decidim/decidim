@@ -2,7 +2,7 @@
 
 <div class="row view-header">
   <div class="column medium-9">
-    <h2 class="heading2"><%= translated_attribute(@participatory_text.title) %></h2>
+    <h2 class="heading2"><%= render_participatory_text_title(@participatory_text) %></h2>
   </div>
   <div class="column medium-3 pull-right">
     <%= render partial: "decidim/proposals/proposals/participatory_texts/view_index" %>

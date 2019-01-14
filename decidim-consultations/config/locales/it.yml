@@ -49,7 +49,7 @@ it:
         other: risposte
       decidim/consultations/vote:
         one: Votazione
-        other: voti
+        other: Votazione
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di una nuova consultazione.
           success: Consultazione creata con successo.
-        destroy:
-          success: Consultazione cancellata con successo.
         edit:
           update: Aggiornare
         form:

@@ -71,7 +71,7 @@ describe "Profile", type: :system do
     context "when displaying followers and following" do
       let(:other_user) { create(:user, organization: user.organization) }
       let(:user_to_follow) { create(:user, organization: user.organization) }
-      let!(:something_that_should_not_be_counted) { create(:follow, user: user, followable: build(:dummy_resource)) }
+      let!(:followed_resource) { create(:follow, user: user, followable: build(:dummy_resource)).followable }
 
       before do
         create(:follow, user: user, followable: other_user)
@@ -82,7 +82,7 @@ describe "Profile", type: :system do
 
       it "shows the number of followers and following" do
         expect(page).to have_link("Followers 1")
-        expect(page).to have_link("Follows 2")
+        expect(page).to have_link("Follows 3")
       end
 
       it "lists the followers" do
@@ -96,6 +96,7 @@ describe "Profile", type: :system do
 
         expect(page).to have_content(other_user.name)
         expect(page).to have_content(user_to_follow.name)
+        expect(page).to have_content(followed_resource.title)
       end
     end
 
@@ -150,6 +151,13 @@ describe "Profile", type: :system do
 
         expect(page).to have_content(accepted_user_group.name)
         expect(page).to have_no_content(pending_user_group.name)
+      end
+
+      context "when user groups are disabled" do
+        let(:organization) { create(:organization, user_groups_enabled: false) }
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        it { is_expected.to have_no_content("Groups") }
       end
     end
   end

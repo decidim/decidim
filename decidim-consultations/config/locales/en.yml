@@ -48,7 +48,7 @@ en:
         one: Response
         other: Responses
       decidim/consultations/vote:
-        one: No votes
+        one: Vote
         other: Votes
   decidim:
     admin:
@@ -76,8 +76,6 @@ en:
         create:
           error: There was an error creating a new consultation.
           success: Consultation successfully created.
-        destroy:
-          success: Consultation successfully deleted.
         edit:
           update: Update
         form:

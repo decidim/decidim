@@ -16,6 +16,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
+    include Decidim::HasReference
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -95,6 +96,14 @@ module Decidim
         connection.execute("SELECT setseed(#{connection.quote(seed)})")
         select('"decidim_initiatives".*, RANDOM()').order(Arel.sql("RANDOM()")).load
       end
+    end
+
+    def self.future_spaces
+      none
+    end
+
+    def self.past_spaces
+      closed
     end
 
     def self.log_presenter_class_for(_log)

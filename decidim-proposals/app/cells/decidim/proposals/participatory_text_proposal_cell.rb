@@ -41,8 +41,16 @@ module Decidim
         resource_locator(model).path
       end
 
+      def amend_resource_path
+        decidim.new_amend_path(amendable_gid: model.to_sgid.to_s)
+      end
+
       def resource_comments_path
-        "#{resource_locator(model).path}/#comments"
+        resource_locator(model).path(anchor: "comments")
+      end
+
+      def resource_amendments_path
+        resource_locator(model).path(anchor: "amendments")
       end
 
       def current_participatory_space

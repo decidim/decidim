@@ -31,7 +31,8 @@ module Decidim
           create_registration
           accept_invitation
           send_email_confirmation
-          send_notification
+          send_notification_confirmation
+          notify_admin_over_percentage
           increment_score
         end
         broadcast(:ok)
@@ -58,14 +59,30 @@ module Decidim
       end
 
       def send_email_confirmation
-        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
+        Decidim::Meetings::RegistrationMailer.confirmation(
+          @user,
+          @meeting,
+          @registration
+        ).deliver_now
+      end
+
+      def send_notification_confirmation
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_registration_confirmed",
+          event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
+          resource: @meeting,
+          affected_users: [@user],
+          extra: {
+            registration_code: @registration.code
+          }
+        )
       end
 
       def participatory_space_admins
         @meeting.component.participatory_space.admins
       end
 
-      def send_notification
+      def notify_admin_over_percentage
         return send_notification_over(0.5) if occupied_slots_over?(0.5)
         return send_notification_over(0.8) if occupied_slots_over?(0.8)
         send_notification_over(1.0) if occupied_slots_over?(1.0)
@@ -76,7 +93,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registrations_over_percentage",
           event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
           resource: @meeting,
-          recipient_ids: participatory_space_admins.pluck(:id),
+          affected_users: participatory_space_admins,
           extra: {
             percentage: percentage
           }

@@ -17,7 +17,8 @@ module Decidim
 
         transaction do
           create_debate
-          send_notifications
+          send_notification_to_author_followers
+          send_notification_to_space_followers
         end
         broadcast(:ok, debate)
       end
@@ -54,19 +55,26 @@ module Decidim
         )
       end
 
-      def send_notifications
-        send_notification(debate.author.followers.pluck(:id), :user)
-        send_notification(debate.participatory_space.followers.pluck(:id), :participatory_space)
-      end
-
-      def send_notification(recipient_ids, type)
+      def send_notification_to_author_followers
         Decidim::EventsManager.publish(
           event: "decidim.events.debates.debate_created",
           event_class: Decidim::Debates::CreateDebateEvent,
           resource: debate,
-          recipient_ids: recipient_ids,
+          followers: debate.author.followers,
           extra: {
-            type: type.to_s
+            type: "user"
+          }
+        )
+      end
+
+      def send_notification_to_space_followers
+        Decidim::EventsManager.publish(
+          event: "decidim.events.debates.debate_created",
+          event_class: Decidim::Debates::CreateDebateEvent,
+          resource: debate,
+          followers: debate.participatory_space.followers,
+          extra: {
+            type: "participatory_space"
           }
         )
       end

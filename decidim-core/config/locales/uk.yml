@@ -390,13 +390,9 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
-          from: Від
-          last_message_html: Останнє повідомлення <strong>%{time} тому</strong>
           no_conversations: У вас ще немає бесід
-        show:
-          conversation_with_html: Бесіда з <strong>%{name}</strong>
-          reply: Відповісти
-          send: Надіслати
+        reply:
+          title: Відповісти
         start:
           send: Надіслати
           title: Почати бесіду
@@ -507,10 +503,8 @@ uk:
     profiles:
       default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
-        conversations: Бесіди
         followers: Ті, хто стежить
         following: 'Стежить за:'
-        notifications: Сповіщення
       user:
         edit_profile: Редагувати профіль
     reported_mailer:
@@ -537,14 +531,9 @@ uk:
       prompt: Оберіть обсяг
       scopes: Обсяги
     search:
-      filter:
-        all: Усі
-        component: Складові
       results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
-      filters:
-        search: Шукати
       filters_small_view:
         close_modal: Закрити віконце
         filter: Відібрати

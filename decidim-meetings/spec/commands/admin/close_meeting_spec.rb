@@ -101,7 +101,8 @@ module Decidim::Meetings
               event: "decidim.events.meetings.meeting_closed",
               event_class: CloseMeetingEvent,
               resource: meeting,
-              recipient_ids: [user.id]
+              affected_users: [meeting.organizer],
+              followers: [user]
             )
 
           subject.call

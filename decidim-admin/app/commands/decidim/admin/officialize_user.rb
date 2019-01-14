@@ -26,7 +26,7 @@ module Decidim
           event: "decidim.events.users.user_officialized",
           event_class: Decidim::ProfileUpdatedEvent,
           resource: form.user,
-          recipient_ids: form.user.followers.pluck(:id)
+          followers: form.user.followers
         )
 
         broadcast(:ok, form.user)

@@ -1,0 +1,30 @@
+<%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
+  <%= form.hidden_field :amendable_gid %>
+  <%= form.hidden_field :amendable_type %>
+  <%= form.hidden_field :emendation_type %>
+
+  <%= form.fields_for :emendation_fields, form.object.emendation_fields do |emendation_form| %>
+    <% @form.amendable.attributes.each do |key, value| %>
+      <% key = key.to_sym %>
+      <% if @form.amendable.fields.include?(key) %>
+        <div class="field">
+          <%= emendation_form.form_field_for key %>
+        </div>
+      <% elsif @form.amendable.ignore_fields.include?(key) %>
+        <%= emendation_form.hidden_field key, value: emendation_ignored_field_value(key) %>
+      <% else %>
+        <%= emendation_form.hidden_field key, value: value %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
+    <div class="field">
+      <%= user_group_select_field form, :user_group_id %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit t("send", scope: "decidim.amendments.new"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+  </div>
+<% end %>

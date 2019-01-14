@@ -47,10 +47,10 @@ pl:
         many: Głośniki konferencyjne
         other: Głośniki konferencyjne
       decidim/conference_user_role:
-        one: Rola użytkownika konferencji
-        few: Role użytkowników konferencji
-        many: Role użytkowników konferencji
-        other: Role użytkowników konferencji
+        one: Rola użytkownika konferencyjnego
+        few: Rola użytkownika konferencyjnego
+        many: Rola użytkownika konferencyjnego
+        other: Rola użytkownika konferencyjnego
   decidim:
     admin:
       actions:
@@ -111,8 +111,6 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konferencji.
           success: Konferencja została utworzona pomyślnie.
-        destroy:
-          success: Konferencja została pomyślnie usunięta.
         edit:
           update: Aktualizacja
         exports:
@@ -373,6 +371,7 @@ pl:
           cancel: Anuluj
           confirm: Potwierdzać
         show:
+          free: Darmowy
           going: Chodzenie
           no_slots_available: Brak dostępnych miejsc
           registration: Rejestracja
@@ -514,6 +513,10 @@ pl:
         votes_count: Głosy
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> oczekuje na potwierdzenie.
+        conference_registration_confirmed:
+          notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> została potwierdzona.
         conference_registrations_over_percentage:
           email_intro: Konferencje "%{resource_title}" zajmowane przez graczy zajmują ponad %{percentage}%.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej konferencji.
@@ -529,6 +532,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Konferencja "%{resource_title}" umożliwiła rejestrację.
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> umożliwiła rejestrację.
+        upcoming_conference:
+          email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
     log:
       value_types:
         conference_presenter:

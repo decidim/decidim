@@ -67,10 +67,12 @@ module Decidim
   autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
   autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
   autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
   autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
+  autoload :OpenDataExporter, "decidim/open_data_exporter"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -320,6 +322,14 @@ module Decidim
   # Returns nothing.
   def self.register_resource(name, &block)
     resource_registry.register(name, &block)
+  end
+
+  # Public: Finds all registered resource manifests via the `register_component`
+  # method.
+  #
+  # Returns an Array[ResourceManifest].
+  def self.resource_manifests
+    resource_registry.manifests
   end
 
   # Public: Finds all registered component manifest's via the `register_component`

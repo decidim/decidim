@@ -54,6 +54,7 @@ en:
         initiatives:
           fields:
             created_at: Created at
+            id: ID
             state: State
             supports_count: Supports
             title: Initiatives
@@ -78,10 +79,16 @@ en:
           email_subject: Initiative signatures end date extended!
           notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
-          email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-          email_subject: New milestone completed!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ en:
       states:
         accepted: Accepted
         expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
   layouts:

@@ -42,6 +42,12 @@ module Decidim
     end
 
     describe "validations", processing_uploads_for: Decidim::AvatarUploader do
+      context "without an email" do
+        let(:user_group) { build(:user_group, email: nil) }
+
+        it { is_expected.not_to be_valid }
+      end
+
       context "without a document number" do
         subject { another_user_group }
 

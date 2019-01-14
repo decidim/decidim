@@ -55,7 +55,7 @@ module Decidim::Admin
             event: "decidim.events.attachments.attachment_created",
             event_class: Decidim::AttachmentCreatedEvent,
             resource: kind_of(Decidim::Attachment),
-            recipient_ids: [follower.id]
+            followers: [follower]
           )
 
         subject

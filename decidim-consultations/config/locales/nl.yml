@@ -49,7 +49,7 @@ nl:
         other: Antwoorden
       decidim/consultations/vote:
         one: Stemmen
-        other: stemmen
+        other: Stemmen
   decidim:
     admin:
       actions:
@@ -76,8 +76,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw overleg.
           success: Overleg succesvol aangemaakt.
-        destroy:
-          success: Overleg succesvol verwijderd.
         edit:
           update: Bijwerken
         form:

@@ -82,8 +82,6 @@ fi:
         create:
           error: Virhe luotaessa uutta ryhmää.
           success: Ryhmän luonti onnistui.
-        destroy:
-          success: Ryhmä poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -259,6 +257,17 @@ fi:
         city_council: Kaupunginvaltuusto
         others: Muut
         public: Julkinen
+      filter:
+        all: Kaikki
+        commission: Komitea
+        consultative_advisory: Konsultti/neuvonantaja
+        executive: Johtaja
+        government: Hallinto
+        label: 'Näytä:'
+        others: Muut
+        participatory: Osallistava
+        placeholder: Suodata tyypin mukaan
+        working_group: Työryhmä
       index:
         title: Ryhmät
       last_activity:
@@ -333,6 +342,7 @@ fi:
       assemblies: Ryhmät
     metrics:
       assemblies:
+        description: Ryhmien määrä
         object: ryhmät
         title: Ryhmät
   errors:

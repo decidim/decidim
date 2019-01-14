@@ -148,3 +148,8 @@ nl:
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
           unearned_own: Je hebt nog deelgenomen aan debatten.
+    metrics:
+      debates:
+        description: Aantal debatten gemaakt
+        object: debatten
+        title: debatten

@@ -17,6 +17,28 @@ module Decidim::Meetings
     let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
     let(:user) { create :user, :confirmed, organization: organization, email_on_notification: false }
 
+    let(:user_notification) do
+      {
+        event: "decidim.events.meetings.meeting_registration_confirmed",
+        event_class: MeetingRegistrationNotificationEvent,
+        resource: meeting,
+        affected_users: [user],
+        extra: { registration_code: kind_of(String) }
+      }
+    end
+
+    let(:badge_earned) { hash_including(event: "decidim.events.gamification.badge_earned") }
+
+    let(:admin_notification) do
+      {
+        event: "decidim.events.meetings.meeting_registrations_over_percentage",
+        event_class: MeetingRegistrationsOverPercentageEvent,
+        resource: meeting,
+        affected_users: [process_admin],
+        extra: extra
+      }
+    end
+
     context "when everything is ok" do
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
@@ -45,6 +67,13 @@ module Decidim::Meetings
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)
       end
 
+      it "sends a notification to the user with the registration confirmed" do
+        expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+        expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
+
+        subject.call
+      end
+
       it "increases the user's score" do
         expect { subject.call }.to change { Decidim::Gamification.status_for(user, :attended_meetings).score }.from(0).to(1)
       end
@@ -58,28 +87,16 @@ module Decidim::Meetings
       end
 
       context "when the meeting available slots are occupied over the 50%" do
+        let(:extra) { { percentage: 0.5 } }
+
         before do
           create_list :registration, (available_slots * 0.5).round - 1, meeting: meeting
         end
 
-        it "notifies it to the process admins" do
-          expect(Decidim::EventsManager)
-            .to receive(:publish)
-            .with(
-              event: "decidim.events.meetings.meeting_registrations_over_percentage",
-              event_class: MeetingRegistrationsOverPercentageEvent,
-              resource: meeting,
-              recipient_ids: [process_admin.id],
-              extra: {
-                percentage: 0.5
-              }
-            ).ordered
-
-          expect(Decidim::EventsManager)
-            .to receive(:publish)
-            .with(
-              hash_including(event: "decidim.events.gamification.badge_earned")
-            ).ordered
+        it "also sends a notification to the process admins" do
+          expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+          expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
+          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
         end
@@ -90,11 +107,7 @@ module Decidim::Meetings
           end
 
           it "doesn't notify it twice" do
-            expect(Decidim::EventsManager)
-              .not_to receive(:publish)
-              .with(
-                hash_including(event: "decidim.events.meetings.meeting_registrations_over_percentage")
-              )
+            expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
           end
@@ -102,28 +115,16 @@ module Decidim::Meetings
       end
 
       context "when the meeting available slots are occupied over the 80%" do
+        let(:extra) { { percentage: 0.8 } }
+
         before do
           create_list :registration, (available_slots * 0.8).round - 1, meeting: meeting
         end
 
-        it "notifies it to the process admins" do
-          expect(Decidim::EventsManager)
-            .to receive(:publish)
-            .with(
-              event: "decidim.events.meetings.meeting_registrations_over_percentage",
-              event_class: MeetingRegistrationsOverPercentageEvent,
-              resource: meeting,
-              recipient_ids: [process_admin.id],
-              extra: {
-                percentage: 0.8
-              }
-            )
-
-          expect(Decidim::EventsManager)
-            .to receive(:publish)
-            .with(
-              hash_including(event: "decidim.events.gamification.badge_earned")
-            ).ordered
+        it "also sends a notification to the process admins" do
+          expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+          expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
+          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
         end
@@ -134,11 +135,7 @@ module Decidim::Meetings
           end
 
           it "doesn't notify it twice" do
-            expect(Decidim::EventsManager)
-              .not_to receive(:publish)
-              .with(
-                hash_including(event: "decidim.events.meetings.meeting_registrations_over_percentage")
-              )
+            expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
           end
@@ -146,28 +143,16 @@ module Decidim::Meetings
       end
 
       context "when the meeting available slots are occupied over the 100%" do
+        let(:extra) { { percentage: 1 } }
+
         before do
           create_list :registration, available_slots - 1, meeting: meeting
         end
 
-        it "notifies it to the process admins" do
-          expect(Decidim::EventsManager)
-            .to receive(:publish)
-            .with(
-              event: "decidim.events.meetings.meeting_registrations_over_percentage",
-              event_class: MeetingRegistrationsOverPercentageEvent,
-              resource: meeting,
-              recipient_ids: [process_admin.id],
-              extra: {
-                percentage: 1
-              }
-            )
-
-          expect(Decidim::EventsManager)
-            .to receive(:publish)
-            .with(
-              hash_including(event: "decidim.events.gamification.badge_earned")
-            ).ordered
+        it "also sends a notification to the process admins" do
+          expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+          expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
+          expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
         end

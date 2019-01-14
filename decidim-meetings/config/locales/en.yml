@@ -90,15 +90,23 @@ en:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          affected_user:
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          follower:
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
         meeting_created:
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New meeting added to %{participatory_space_title}
           notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
           email_outro: You have received this notification because you are an admin of the meeting's participatory space.
@@ -182,6 +190,7 @@ en:
             invalid: There's been a problem updating this agenda
             success: Agenda successfully updated
         exports:
+          meetings: Meetings
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
@@ -361,8 +370,12 @@ en:
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
+          registration_code_help_text: Your registration code
+          registration_state:
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
-            one: '%{count} slot remaining'
+            one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
       meetings_map:
@@ -406,6 +419,7 @@ en:
         transparent: Transparent
     metrics:
       meetings:
+        description: Number of meetings created
         object: meetings
         title: Meetings
     participatory_processes:

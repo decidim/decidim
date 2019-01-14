@@ -12,6 +12,7 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
+      include ControlVersionHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
 
@@ -36,9 +37,11 @@ module Decidim
         when "rejected"
           "text-alert"
         when "evaluating"
-          "text-info"
-        else
           "text-warning"
+        when "withdrawn"
+          "text-alert"
+        else
+          "text-info"
         end
       end
 
@@ -93,20 +96,7 @@ module Decidim
       end
 
       def follow_button_for(model, large = nil)
-        if current_user
-          render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
-        else
-          content_tag(:p, class: "mt-s mb-none") do
-            if current_organization.sign_up_enabled?
-              t("decidim.proposals.proposals.show.sign_in_or_up",
-                in: link_to(t("decidim.proposals.proposals.show.sign_in"), decidim.new_user_session_path),
-                up: link_to(t("decidim.proposals.proposals.show.sign_up"), decidim.new_user_registration_path)).html_safe
-            else
-              t("decidim.proposals.proposals.show.sign_in_to_participate",
-                in: link_to(t("decidim.proposals.proposals.show.sign_in"), decidim.new_user_session_path)).html_safe
-            end
-          end
-        end
+        render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
       end
 
       def votes_count_for(model, from_proposals_list)
@@ -149,11 +139,9 @@ module Decidim
                  [["all", t("decidim.proposals.application_helper.filter_origin_values.all")]]
                end
 
-        base + [
-          ["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")],
-          ["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")],
-          ["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]
-        ]
+        base += [["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")]]
+        base += [["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")]] if current_organization.user_groups_enabled?
+        base + [["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]]
       end
 
       def filter_state_values
@@ -163,6 +151,14 @@ module Decidim
           ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
           ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")],
           ["all", t("decidim.proposals.application_helper.filter_state_values.all")]
+        ]
+      end
+
+      def filter_type_values
+        [
+          ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
+          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
+          ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
         ]
       end
     end

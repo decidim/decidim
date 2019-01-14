@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 /* global areachart */
 
+const metricsData = {};
+
 $(() => {
 
   const metricsContainer = {};
@@ -19,8 +21,30 @@ $(() => {
 
   const fetch = (metrics) => $.post("/api", query(metrics));
 
-  $(".metric-chart:visible").each((index, container) => {
+  const downloadMetricData = (event) => {
+    event.preventDefault();
+    let metricName = $(event.target).parents(".metric-downloader").data("metric");
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+    csvContent += "key,value\r\n";
+    metricsData[metricName].forEach((metricData)  => {
+      csvContent += `${metricData.key},${metricData.value}\r\n`;
+    });
+
+    // Required for FF
+    let link = document.createElement("a");
+    link.setAttribute("href", encodeURI(csvContent));
+    link.setAttribute("download", `${metricName}_metric_data.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  $(".metric-chart:visible").each((_index, container) => {
     metricsContainer[$(container).data("metric")] = container;
+  });
+  $(".metric-downloader").each((_index, container) => {
+    container.onclick = downloadMetricData;
   });
 
   if (!$.isEmptyObject(metricsContainer)) {
@@ -34,14 +58,12 @@ $(() => {
             return;
           }
           let info = $(container).data("info");
-
-          // Ratio is hardcoded temporally
+          metricsData[metricData.name] = $.extend(true, [], metricData.history);
           areachart({
             container: `#${container.id}`,
             data: metricData.history,
             title: info.title,
             objectName: info.object,
-            ratio: "",
             ...$(container).data()
           });
         });

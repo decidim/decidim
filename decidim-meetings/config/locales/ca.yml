@@ -82,7 +82,7 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             default_registration_terms: Termes de registre per defecte
-            enable_pads_creation: Activa la creació de pastissos
+            enable_pads_creation: Activar la creació de pads
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
           step:
             announcement: Anunci
@@ -90,15 +90,23 @@ ca:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
-          email_subject: S'ha tancat la trobada "%{resource_title}"
-          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          affected_user:
+            email_intro: 'S''ha tancat la vostra reunió "%{resource_title}". Podeu llegir les conclusions de la seva pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè heu organitzat la reunió "%{resource_title}".
+            email_subject: S'ha tancat la trobada "%{resource_title}"
+            notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          follower:
+            email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint la reunió "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+            email_subject: S'ha tancat la trobada "%{resource_title}"
+            notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
         meeting_created:
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova trobada a %{participatory_space_title}
           notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: S'ha confirmat el vostre registre per a la reunió <a href="%{resource_url}">%{resource_title}</a> . El vostre codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
@@ -110,9 +118,9 @@ ca:
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
         registration_code_validated:
-          email_intro: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió "%{resource_title}".
+          email_intro: S'ha validat el teu codi d'inscripció "%{registration_code}" per a la trobada "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
-          email_subject: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió "%{resource_title}"
+          email_subject: S'ha validat el teu codi d'inscripció "%{registration_code}" per a la trobada "%{resource_title}"
           notification_title: S'ha validat el teu codi de registre "%{registration_code}" per a la trobada <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
@@ -132,7 +140,7 @@ ca:
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquest usuari ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
-          name: Torbades a les que has assistit
+          name: Trobades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha assistit a cap reunió.
           unearned_own: Encara no has assistit a cap reunió.
@@ -182,6 +190,7 @@ ca:
             invalid: Hi ha hagut un problema en actualitzar aquesta agenda
             success: L'agenda s'ha actualitzat correctament
         exports:
+          meetings: Reunions
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
@@ -273,8 +282,8 @@ ca:
             invites: Invitacions
             registration_form: Formulari d'inscripció
             registrations_count:
-              one: S'ha registrat %{count}.
-              other: S'han registrat %{count} registres.
+              one: Hi ha hagut %{count} 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
             reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
@@ -361,9 +370,13 @@ ca:
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
+          registration_code_help_text: El vostre codi de registre
+          registration_state:
+            validated: VALIDAT
+            validation_pending: VALIDACIÓ PENDENT
           remaining_slots:
-            one: '%{count} espai restant'
-            other: "%{count} places restants restants"
+            one: "%{count} plaça restant"
+            other: "%{count} places restants"
           view: Veure
       meetings_map:
         view_meeting: Veure trobada
@@ -406,6 +419,7 @@ ca:
         transparent: Transparent
     metrics:
       meetings:
+        description: Nombre de trobades creades
         object: trobades
         title: Trobades
     participatory_processes:

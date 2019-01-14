@@ -31,13 +31,30 @@ module Decidim
     #
     # The card will also be displayed OK if there's no title.
     def title
-      return unless resource.respond_to?(:title)
+      resource_title = resource.try(:resource_title) || resource.try(:title)
+      return if resource_title.blank?
 
-      if resource.title.is_a?(String)
-        resource.title
-      elsif resource.title.is_a?(Hash)
-        translated_attribute(resource.title)
+      if resource_title.is_a?(String)
+        resource_title
+      elsif resource_title.is_a?(Hash)
+        translated_attribute(resource_title)
       end
+    end
+
+    # The description to show at the card.
+    #
+    # The card will also be displayed OK if there's no description.
+    def description
+      resource_description = resource.try(:resource_description) || resource.try(:description)
+      return if resource_description.blank?
+
+      resource_description = if resource_description.is_a?(String)
+                               resource_description
+                             elsif resource_description.is_a?(Hash)
+                               translated_attribute(resource_description)
+                             end
+
+      truncate(strip_tags(resource_description), length: 300)
     end
 
     # The link to the resource linked to the activity.
@@ -48,6 +65,10 @@ module Decidim
     # The text to show as the link to the resource.
     def resource_link_text
       translated_attribute(resource.title)
+    end
+
+    def created_at
+      I18n.l(model.created_at, format: :short)
     end
 
     private
@@ -69,6 +90,11 @@ module Decidim
       model.user_lazy
     end
 
+    def author
+      return unless show_author? && user.is_a?(UserBaseEntity)
+      cell "decidim/author", UserPresenter.new(user)
+    end
+
     def participatory_space
       return resource if resource.is_a?(Decidim::Participable)
 
@@ -80,6 +106,10 @@ module Decidim
         translated_attribute(participatory_space.title),
         resource_locator(participatory_space).path
       )
+    end
+
+    def show_author?
+      context[:show_author]
     end
   end
 end

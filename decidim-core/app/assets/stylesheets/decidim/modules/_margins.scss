@@ -7,6 +7,7 @@ $margin-l: $global-margin * 5;
 //Sections
 .section{
   margin-bottom: $margin-sm;
+  word-wrap: break-word;
 
   @include breakpoint(large){
     margin-bottom: $margin-m;

@@ -15,6 +15,8 @@ module Decidim::Proposals
     let!(:proposal) { create(:proposal, created_at: created_at, published_at: published_at) }
     let(:model) { proposal }
     let(:user) { create :user, organization: proposal.participatory_space.organization }
+    let!(:emendation) { create(:proposal) }
+    let!(:amendment) { create :amendment, amender: emendation.creator_author, amendable: proposal, emendation: emendation }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)
@@ -35,6 +37,25 @@ module Decidim::Proposals
 
         expect(subject).to have_css(".creation_date_status", text: published_date)
         expect(subject).not_to have_css(".creation_date_status", text: creation_date)
+      end
+
+      context "and is a proposal" do
+        it "renders the proposal state (nil by default)" do
+          expect(subject).to have_css(".muted")
+          expect(subject).not_to have_css(".card__text--status")
+        end
+      end
+
+      context "and is an emendation" do
+        subject { cell_html }
+
+        let(:my_cell) { cell("decidim/proposals/proposal_m", emendation, context: { show_space: show_space }) }
+        let(:cell_html) { my_cell.call }
+
+        it "renders the emendation state (evaluating by default)" do
+          expect(subject).to have_css(".warning")
+          expect(subject).to have_css(".card__text--status", text: emendation.state.capitalize)
+        end
       end
     end
   end

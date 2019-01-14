@@ -4,6 +4,11 @@ $(() => {
   const $hashtagContainer = $(".js-hashtags");
   const nodatafound = $hashtagContainer.attr("data-noresults");
 
+  let noMatchTemplate = null
+  if (nodatafound) {
+    noMatchTemplate = () => `<li>${nodatafound}</li>`;
+  }
+
   // Listener for the event triggered by quilljs
   let cursor = "";
   $hashtagContainer.on("quill-position", function(event) {
@@ -44,7 +49,7 @@ $(() => {
     positionMenu: true,
     menuContainer: null,
     fillAttr: "name",
-    noMatchTemplate: () => `<li>${nodatafound}</li>`,
+    noMatchTemplate: noMatchTemplate,
     lookup: (item) => item.name,
     selectTemplate: function(item) {
       if (typeof item === "undefined") {
@@ -98,14 +103,11 @@ $(() => {
   });
   $hashtagContainer.on("input", (event) => {
     let $parent = $(event.target).parent();
-    $parent.removeAttr("style");
 
     if (tribute.isActive) {
       // We need to move the container to the wrapper selected
       let $tribute = $(".tribute-container");
-      $tribute.removeAttr("style");
       $tribute.appendTo($parent);
-      // Remove the inline styles, relative to absolute positioning
       // Parent adaptation
       $parent.addClass("is-active");
     } else {

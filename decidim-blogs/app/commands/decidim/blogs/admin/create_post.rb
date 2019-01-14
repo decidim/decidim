@@ -48,7 +48,7 @@ module Decidim
             event: "decidim.events.blogs.post_created",
             event_class: Decidim::Blogs::CreatePostEvent,
             resource: @post,
-            recipient_ids: @post.participatory_space.followers.pluck(:id)
+            followers: @post.participatory_space.followers
           )
         end
       end
