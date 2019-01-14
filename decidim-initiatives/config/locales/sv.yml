@@ -27,6 +27,7 @@ sv:
       initiatives_type:
         banner_image: Banner image
         description: Beskrivning
+        online_signature_enabled: Online signatur aktiverad
         title: Titel
       organization_data:
         address: Adress
