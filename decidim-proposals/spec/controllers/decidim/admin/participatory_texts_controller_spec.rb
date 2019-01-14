@@ -10,7 +10,7 @@ module Decidim
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create :proposal_component, :with_participatory_texts_enabled }
-        let(:document_file) { nil }
+        let(:document_file) { fixture_file_upload(Decidim::Dev.asset("participatory_text.md")) }
         let(:title) { { en: ::Faker::Book.title } }
         let(:params) do
           {
@@ -30,6 +30,8 @@ module Decidim
 
         describe "POST import" do
           context "when the command fails" do
+            let(:title) { {} }
+
             it "renders new_import template" do
               post :import, params: params
               expect(response).to render_template(:new_import)
@@ -38,7 +40,6 @@ module Decidim
           end
 
           context "when the command succeeds" do
-            let(:document_file) { fixture_file_upload(Decidim::Dev.asset("participatory_text.md")) }
 
             it "parses the document" do
               post :import, params: params
