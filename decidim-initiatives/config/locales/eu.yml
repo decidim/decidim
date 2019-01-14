@@ -27,6 +27,7 @@ eu:
       initiatives_type:
         banner_image: Banner irudia
         description: deskribapena
+        online_signature_enabled: Sinadura elektronikoa gaituta dago
         title: Izenburua
       organization_data:
         address: Helbidea
