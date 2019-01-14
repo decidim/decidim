@@ -6,6 +6,10 @@
     data: { disable: true },
     class: "card__button button expanded button--sc"
   ) %>
+<% else %>
+  <%= authorized_vote_modal_button(initiative, remote: true, class: "card_button button expanded button--sc") do %>
+    <%= verification_label %>
+  <% end %>
 <% end %>
 
 <% if allowed_to? :unvote, :initiative, initiative: initiative %>

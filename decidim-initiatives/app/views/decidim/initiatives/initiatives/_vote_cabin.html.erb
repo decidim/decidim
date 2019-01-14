@@ -13,7 +13,8 @@
                locals: {
                    initiative: initiative,
                    vote_label: t(".vote"),
-                   unvote_label: t(".already_voted")
+                   unvote_label: t(".already_voted"),
+                   verification_label: t(".verification_required")
                } if Decidim::Initiatives.online_voting_allowed %>
 <% end %>
 
