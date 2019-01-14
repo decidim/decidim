@@ -27,6 +27,7 @@ it:
       initiatives_type:
         banner_image: Immagine banner
         description: Descrizione
+        online_signature_enabled: Firma online abilitata
         title: Titolo
       organization_data:
         address: Indirizzo
