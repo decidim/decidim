@@ -27,6 +27,7 @@ pt-BR:
       initiatives_type:
         banner_image: Imagem de banner
         description: Descrição
+        online_signature_enabled: Assinatura on-line ativada
         title: Título
       organization_data:
         address: Endereço
