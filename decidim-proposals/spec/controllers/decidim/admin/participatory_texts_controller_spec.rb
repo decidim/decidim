@@ -40,7 +40,6 @@ module Decidim
           end
 
           context "when the command succeeds" do
-
             it "parses the document" do
               post :import, params: params
               expect(response).to redirect_to participatory_texts_path(component_id: component.id, initiative_slug: "asdf")
