@@ -27,6 +27,7 @@ hu:
       initiatives_type:
         banner_image: Banner kép
         description: Leírás
+        online_signature_enabled: Online aláírás engedélyezve
         title: Cím
       organization_data:
         address: Lakcím
