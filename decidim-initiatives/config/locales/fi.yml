@@ -27,6 +27,7 @@ fi:
       initiatives_type:
         banner_image: Bannerikuva
         description: Kuvaus
+        online_signature_enabled: Online-allekirjoitus on käytössä
         title: Otsikko
       organization_data:
         address: Osoite
