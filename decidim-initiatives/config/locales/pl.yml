@@ -27,6 +27,7 @@ pl:
       initiatives_type:
         banner_image: Obraz baneru
         description: Opis
+        online_signature_enabled: Włączony podpis online
         title: Tytuł
       organization_data:
         address: Adres
