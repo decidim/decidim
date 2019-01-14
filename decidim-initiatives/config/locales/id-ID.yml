@@ -27,6 +27,7 @@ id:
       initiatives_type:
         banner_image: Gambar spanduk
         description: Deskripsi
+        online_signature_enabled: Tanda tangan online diaktifkan
         title: Judul
       organization_data:
         address: Alamat
