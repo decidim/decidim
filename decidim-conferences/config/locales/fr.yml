@@ -25,7 +25,7 @@ fr:
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
-        email: Email
+        email: E-mail
         name: Name
         role: Rôle
     errors:
@@ -175,7 +175,7 @@ fr:
           name: Conférencier
         conference_user_role:
           fields:
-            email: Email
+            email: E-mail
             name: prénom
             role: Rôle
           name: Utilisateur de la conférence
@@ -437,7 +437,7 @@ fr:
       models:
         conference_invite:
           fields:
-            email: Email
+            email: E-mail
             name: prénom
             registration_type: Type d'inscription
             sent_at: Envoyé à
@@ -448,7 +448,7 @@ fr:
             sent: Envoyé
         conference_registration:
           fields:
-            email: Email
+            email: E-mail
             name: prénom
             registration_type: Type d'inscription
             state: Etat
@@ -563,7 +563,7 @@ fr:
           more_info: Plus d'informations
           take_part: Prendre part
       conferences_nav:
-        conference_menu_item: Information
+        conference_menu_item: Informations
         conference_partners_menu_item: Les partenaires
         conference_speaker_menu_item: Haut-parleurs
         media: Médias
