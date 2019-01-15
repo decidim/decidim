@@ -387,7 +387,7 @@ fr:
       models:
         invite:
           fields:
-            email: Email
+            email: E-mail
             name: Titre
             sent_at: Envoyé à
             status: Statut
