@@ -85,6 +85,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     badges_enabled { true }
+    user_groups_enabled { true }
     send_welcome_notification { true }
 
     after(:create) do |organization|
@@ -137,6 +138,14 @@ FactoryBot.define do
       officialized_at { Time.current }
       officialized_as { generate_localized_title }
     end
+  end
+
+  factory :navbar_link, class: "Decidim::NavbarLink" do
+    organization
+    title { generate_localized_title }
+    link { Faker::Internet.url }
+    target { ["blank", ""].sample }
+    weight { (1..10).to_a.sample }
   end
 
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do

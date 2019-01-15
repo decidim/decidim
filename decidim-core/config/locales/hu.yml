@@ -851,10 +851,6 @@ hu:
         subheading: Navigáljon a %{name} súgó oldalán
         title: Segítség
         topics: Témakörök
-      participatory_space:
-        metrics:
-          headline: Részvétel számokban
-          link: Az összes statisztika megjelenítése
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.

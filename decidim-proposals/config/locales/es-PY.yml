@@ -629,6 +629,9 @@ es-PY:
           discard_confirmation: "¿Estás seguro que quieres descartar este borrador de propuesta?"
           send: Previsualizar
           title: Editar borrador de propuesta
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:

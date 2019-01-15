@@ -24,7 +24,7 @@ module Decidim
           resources :participatory_texts, only: :index do
             collection do
               get :new_import
-              patch :import
+              post :import
               post :publish
             end
           end

@@ -127,7 +127,6 @@ de:
         browse: Durchsuche
         export: Export
         manage: Verwalten
-        new: Neu %{name}
         permissions: Berechtigungen
         reject: Ablehnen
         verify: Überprüfen
@@ -330,6 +329,7 @@ de:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        navbar_links: Navbar links
         newsletters: Newsletter
         oauth_applications: OAuth-Anwendungen
         participants: Teilnehmer

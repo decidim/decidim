@@ -49,15 +49,7 @@ uk:
       admin:
         exports:
           survey_user_answers: Відповіді учасників на опитування
-        models:
-          components:
-            description: Description
-            title: Title
-            tos: Tos
         surveys:
-          form:
-            add_question: Add question
-            already_answered_warning: Already answered warning
           update:
             invalid: При спробі збереження цього опитування сталися помилки.
             success: Опитування успішно збережено.

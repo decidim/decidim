@@ -629,6 +629,9 @@ hu:
           discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
           send: Előnézet
           title: Javaslat vázlatok szerkesztése
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Jóváhagy
         endorsements_card_row:

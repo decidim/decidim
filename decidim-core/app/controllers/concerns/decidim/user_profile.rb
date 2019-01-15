@@ -11,14 +11,13 @@ module Decidim
     extend ActiveSupport::Concern
     include FormFactory
 
-    delegate :user_groups, to: :current_user, prefix: false
+    include UserGroups
 
     included do
       helper Decidim::UserProfileHelper
       layout "layouts/decidim/user_profile"
 
-      helper_method :available_verification_workflows,
-                    :user_groups
+      helper_method :available_verification_workflows
 
       before_action :current_user
       before_action do

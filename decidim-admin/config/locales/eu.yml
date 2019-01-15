@@ -127,7 +127,6 @@ eu:
         browse: Arakatu
         export: Esportatu
         manage: Kudeatu
-        new: "%{name}berria"
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
@@ -330,6 +329,7 @@ eu:
         help_sections: Laguntza atalak
         homepage: Hasiera
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
         participants: Parte-hartzaileak

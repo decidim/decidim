@@ -10,8 +10,11 @@ module VoteProposalExtend
   end
 
   def build_proposal_vote
-    @vote = @proposal.votes.find_or_initialize_by(author: @current_user)
-    @vote.update(weight: @weight)
+    @vote = @proposal.votes.build(
+      author: @current_user,
+      temporary: minimum_votes_per_user?,
+      weight: @weight
+    )
   end
 end
 

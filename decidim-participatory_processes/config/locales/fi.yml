@@ -70,10 +70,12 @@ fi:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
-        new_process: Uusi prosessi
+        new: New
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
         new_process_user_role: Uusi prosessikäyttäjä
+        participatory_process:
+          new: New
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
@@ -204,6 +206,9 @@ fi:
         index:
           not_published: Ei julkaistu
           private: Yksityinen
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Julkinen
           published: Julkaistu
         new:
@@ -267,6 +272,11 @@ fi:
         description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

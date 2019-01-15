@@ -852,10 +852,6 @@ pt:
         subheading: Navegue pelas páginas de ajuda de %{name}
         title: Socorro
         topics: Tópicos
-      participatory_space:
-        metrics:
-          headline: Participação em números
-          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Houve um erro ao aceitar os termos e condições.

@@ -127,7 +127,6 @@ ru:
         browse: Просмотреть
         export: Сохранить в виде файла
         manage: Управлять
-        new: Добавить %{name}
         permissions: Права
         reject: Отклонить
         verify: Подтвердить личность
@@ -330,6 +329,7 @@ ru:
         help_sections: Help sections
         homepage: Домашняя страница
         impersonations: Выступления в роли участника
+        navbar_links: Navbar links
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
         participants: Participants

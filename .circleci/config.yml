@@ -8,7 +8,7 @@ defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
     # latest digest by doing `$ docker pull decidim/decidim:latest-test`.
-    - image: decidim/decidim@sha256:743a212e757a0c0d4cb85cf99251290864b6d02d1a17aa285d342d0bdcff796b
+    - image: decidim/decidim@sha256:dd56d61390f588f6d3abf192049e63ef15d43a895d06a55979da4541a649b98e
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres

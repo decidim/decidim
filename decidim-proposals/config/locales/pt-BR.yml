@@ -629,6 +629,9 @@ pt-BR:
           discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
           title: Editar proposta de rascunho
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Endossar
         endorsements_card_row:

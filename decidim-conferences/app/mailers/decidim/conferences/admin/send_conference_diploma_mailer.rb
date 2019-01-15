@@ -6,6 +6,11 @@ module Decidim
       # A custom mailer for sending the diploma of the conference to
       # a registered user who attends to the conference.
       class SendConferenceDiplomaMailer < Decidim::ApplicationMailer
+        # TODO: REMOVE the "default from: Decidim.config.mailer_sender"
+        # The :from should've been inherited from ApplicationMailer
+        # For an unknown reason, it doesn't
+        default from: Decidim.config.mailer_sender
+
         include Decidim::TranslationsHelper
         include Decidim::SanitizeHelper
 

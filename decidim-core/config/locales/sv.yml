@@ -852,10 +852,6 @@ sv:
         subheading: Navigera genom hjälpsidorna till %{name}
         title: Hjälp
         topics: ämnen
-      participatory_space:
-        metrics:
-          headline: Deltagande i siffror
-          link: Visa all statistik
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.

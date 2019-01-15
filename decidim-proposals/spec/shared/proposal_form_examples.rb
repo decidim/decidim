@@ -165,7 +165,7 @@ shared_examples "a proposal form" do |options|
               id: previous_proposal.id,
               title: previous_proposal.title,
               body: previous_proposal.body,
-              author: previous_proposal.author,
+              author: previous_proposal.authors,
               category_id: previous_proposal.try(:category_id),
               scope_id: previous_proposal.try(:scope_id),
               has_address: has_address,

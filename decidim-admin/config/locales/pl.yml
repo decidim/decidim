@@ -127,7 +127,6 @@ pl:
         browse: Paść się
         export: Eksport
         manage: Zarządzanie
-        new: Nowe %{name}
         permissions: Uprawnienia
         reject: Odrzucać
         verify: Zweryfikować
@@ -330,6 +329,7 @@ pl:
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
+        navbar_links: Navbar links
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
         participants: Uczestnicy

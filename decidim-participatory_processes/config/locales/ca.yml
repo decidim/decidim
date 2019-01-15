@@ -70,10 +70,12 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        new_process: Nou procés
+        new: New
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
         new_process_user_role: Nou usuari del procés
+        participatory_process:
+          new: New
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -204,6 +206,9 @@ ca:
         index:
           not_published: No publicada
           private: Privat
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Públic
           published: Publicat
         new:
@@ -267,6 +272,11 @@ ca:
         description: Nombre de processos participatius d'aquesta organització
         object: processos participatius
         title: Processos participatius
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

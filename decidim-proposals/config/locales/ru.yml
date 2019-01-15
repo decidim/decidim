@@ -633,6 +633,9 @@ ru:
           discard_confirmation: Вы действительно хотите отбросить этот черновик предложения?
           send: Предпросмотр
           title: Редактировать черновик предложения
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Поддержать
         endorsements_card_row:

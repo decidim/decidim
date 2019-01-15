@@ -852,10 +852,6 @@ gl:
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Participación en números
-          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Produciuse un erro ao aceptar os termos e condicións.
@@ -924,7 +920,7 @@ gl:
         error: Produciuse un erro ao crear o informe. Por favor, proba de novo.
         success: O informe foi creado con éxito e será revisado por un administrador.
     scopes:
-      global: Overall scope
+      global: Global scope
       picker:
         cancel: Cancelar
         choose: Seleccionar

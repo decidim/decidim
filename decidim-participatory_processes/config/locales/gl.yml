@@ -70,10 +70,12 @@ gl:
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
-        new_process: Novo proceso
+        new: New
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
         new_process_user_role: Novo usuario do proceso
+        participatory_process:
+          new: New
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación
@@ -204,6 +206,9 @@ gl:
         index:
           not_published: Non publicado
           private: Privado
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Público
           published: Publicado
         new:
@@ -267,6 +272,11 @@ gl:
         description: Número de procesos participativos nesta organización
         object: procesos participativos
         title: Procesos participativos
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

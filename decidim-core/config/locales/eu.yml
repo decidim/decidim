@@ -852,10 +852,6 @@ eu:
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
         topics: Gaiak
-      participatory_space:
-        metrics:
-          headline: Zifretan parte hartzea
-          link: Erakutsi estatistiken guztiak
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
@@ -924,7 +920,7 @@ eu:
         error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     scopes:
-      global: Overall scope
+      global: Global scope
       picker:
         cancel: Utzi
         choose: Aukeratu

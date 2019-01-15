@@ -645,6 +645,9 @@ pl:
           discard_confirmation: Czy na pewno chcesz odrzucić ten projekt propozycji?
           send: Zapowiedź
           title: Edytuj wersję roboczą oferty
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Podpisać się
         endorsements_card_row:

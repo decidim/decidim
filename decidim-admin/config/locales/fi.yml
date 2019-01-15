@@ -127,7 +127,6 @@ fi:
         browse: Selaa
         export: Vie
         manage: Hallitse
-        new: Uusi %{name}
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
@@ -330,6 +329,7 @@ fi:
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
+        navbar_links: Navbar links
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         participants: Osallistujat

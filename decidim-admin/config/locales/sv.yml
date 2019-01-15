@@ -127,7 +127,6 @@ sv:
         browse: Bläddra
         export: Exportera
         manage: Hantera
-        new: Ny %{name}
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
@@ -330,6 +329,7 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
         participants: Deltagarna

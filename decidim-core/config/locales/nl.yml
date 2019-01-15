@@ -852,10 +852,6 @@ nl:
         subheading: Navigeer door de helppagina's van %{name}
         title: Helpen
         topics: Onderwerpen
-      participatory_space:
-        metrics:
-          headline: Deelname aan cijfers
-          link: Toon alle statistieken
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -924,7 +920,7 @@ nl:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     scopes:
-      global: Overall scope
+      global: Global scope
       picker:
         cancel: Annuleer
         choose: Selecteer

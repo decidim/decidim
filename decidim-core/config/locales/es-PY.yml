@@ -852,10 +852,6 @@ es-PY:
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Participación en cifras.
-          link: Mostrar todas las estadísticas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
@@ -924,7 +920,7 @@ es-PY:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
     scopes:
-      global: Overall scope
+      global: Global scope
       picker:
         cancel: Cancelar
         choose: Seleccionar

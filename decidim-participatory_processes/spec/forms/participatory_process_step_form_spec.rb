@@ -22,6 +22,13 @@ module Decidim
             ca: "Descripció"
           }
         end
+        let(:cta_text) do
+          {
+            en: "A valid CTA text",
+            es: "Un texto CTA válido",
+            ca: "Un text CTA vàlid"
+          }
+        end
         let(:start_date) {}
         let(:end_date) {}
         let(:cta_path) { nil }

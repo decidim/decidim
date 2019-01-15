@@ -127,7 +127,6 @@ it:
         browse: Naviga
         export: Esporta
         manage: Gestisci
-        new: Nuovo %{name}
         permissions: Permessi
         reject: Rifiutare
         verify: Verifica
@@ -330,6 +329,7 @@ it:
         help_sections: Aiuto sezioni
         homepage: Homepage
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
         participants: I partecipanti

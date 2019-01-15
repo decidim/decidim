@@ -45,15 +45,7 @@ de:
       admin:
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
-        models:
-          components:
-            description: Description
-            title: Title
-            tos: Tos
         surveys:
-          form:
-            add_question: Add question
-            already_answered_warning: Already answered warning
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.

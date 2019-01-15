@@ -45,15 +45,7 @@ sv:
       admin:
         exports:
           survey_user_answers: Enkäten användarsvar
-        models:
-          components:
-            description: Description
-            title: Title
-            tos: Tos
         surveys:
-          form:
-            add_question: Add question
-            already_answered_warning: Already answered warning
           update:
             invalid: Det har blivit fel när du sparat enkäten.
             success: Enkäten sparades.

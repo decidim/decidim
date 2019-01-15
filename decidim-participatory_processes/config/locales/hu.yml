@@ -70,10 +70,12 @@ hu:
         destroy: Törlés
         duplicate: Duplikálás
         edit: Szerkesztés
-        new_process: Új folyamat
+        new: New
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
         new_process_user_role: Új folyamat felhasználó
+        participatory_process:
+          new: New
         preview: Előnézet
         publish: Közzétesz
         resend_invitation: Meghívó újraküldése
@@ -204,6 +206,9 @@ hu:
         index:
           not_published: Nincs közzétéve
           private: Privát
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Nyilvános
           published: Közzétéve
         new:
@@ -267,6 +272,11 @@ hu:
         description: A részvételi folyamatok száma ebben a szervezetben
         object: részvételi folyamatok
         title: Részvételi folyamatok
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

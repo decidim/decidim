@@ -851,10 +851,6 @@ ru:
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
-      participatory_space:
-        metrics:
-          headline: Participation in figures
-          link: Show all statistics
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.

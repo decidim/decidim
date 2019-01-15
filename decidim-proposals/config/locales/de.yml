@@ -629,6 +629,9 @@ de:
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Angebotsentwurf bearbeiten
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Unterstützung
         endorsements_card_row:

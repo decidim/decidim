@@ -140,6 +140,13 @@ module Decidim
                     decidim.pages_path,
                     position: 7,
                     active: :inclusive
+          current_organization.navbar_links.each do |navbar_link|
+            menu.item translated_attribute(navbar_link.title),
+                      navbar_link.link,
+                      position: 5,
+                      active: :exact,
+                      target: navbar_link.target
+          end
         end
       end
 
@@ -160,7 +167,7 @@ module Decidim
                       position: 1.2
           end
 
-          if user_groups.any?
+          if current_organization.user_groups_enabled? && user_groups.any?
             menu.item t("user_groups", scope: "layouts.decidim.user_profile"),
                       decidim.own_user_groups_path,
                       position: 1.3

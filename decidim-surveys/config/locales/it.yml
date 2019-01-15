@@ -45,15 +45,7 @@ it:
       admin:
         exports:
           survey_user_answers: Risposte degli utente al questionario
-        models:
-          components:
-            description: Description
-            title: Title
-            tos: Tos
         surveys:
-          form:
-            add_question: Add question
-            already_answered_warning: Already answered warning
           update:
             invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
             success: Il questionario è stato salvato correttamente.

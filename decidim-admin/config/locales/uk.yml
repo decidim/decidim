@@ -127,7 +127,6 @@ uk:
         browse: Переглянути
         export: Зберегти у вигляді файлу
         manage: Керувати
-        new: Додати %{name}
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
@@ -330,6 +329,7 @@ uk:
         help_sections: Help sections
         homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
+        navbar_links: Navbar links
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
         participants: Participants

@@ -4,6 +4,11 @@ module Decidim
   # This mailer sends a notification email containing the export as an
   # attachment.
   class ExportMailer < ApplicationMailer
+    # TODO: REMOVE the "default from: Decidim.config.mailer_sender"
+    # The :from should've been inherited from ApplicationMailer
+    # For an unknown reason, it doesn't
+    default from: Decidim.config.mailer_sender
+
     # Public: Sends a notification email with the result of an export in a
     # zipped file.
     #
@@ -22,7 +27,7 @@ module Decidim
       attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
 
       with_user(user) do
-        mail(from: Decidim.config.mailer_sender, to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
+        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
       end
     end
 

@@ -49,15 +49,7 @@ ru:
       admin:
         exports:
           survey_user_answers: Ответы участников на опрос
-        models:
-          components:
-            description: Description
-            title: Title
-            tos: Tos
         surveys:
-          form:
-            add_question: Add question
-            already_answered_warning: Already answered warning
           update:
             invalid: При попытке сохранить опрос произошли ошибки.
             success: Опрос успешно сохранен.

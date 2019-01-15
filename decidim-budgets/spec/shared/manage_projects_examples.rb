@@ -109,7 +109,7 @@ shared_examples "manage projects" do |options|
 
   context "when creating a new project" do
     it "creates a new project", :slow do
-      find(".card-title a.button").click
+      find(".card-title a.button.new").click
 
       within ".new_project" do
         fill_in_i18n(

@@ -16,7 +16,8 @@ module Decidim::ParticipatoryProcesses
         description: { en: "description" },
         start_date: Date.current,
         end_date: Date.current + 1.week,
-        invalid?: invalid
+        invalid?: invalid,
+        cta_text: { en: "CTA" }
       )
     end
     let(:invalid) { false }
@@ -29,10 +30,11 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
+    # TODO: remove useless test
     context "when action btn text is present" do
       let(:cta_text) { "SEE" }
 
-      it "broadcasts invalid" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
     end

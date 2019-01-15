@@ -8,7 +8,7 @@ module Decidim
     include Decidim::AriaSelectedLinkToHelper
     include ActiveLinkTo
 
-    delegate :current_organization, :current_user, to: :controller
+    delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
 
     def show
       render :show

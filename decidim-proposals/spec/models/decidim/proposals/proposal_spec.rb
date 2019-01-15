@@ -86,25 +86,27 @@ module Decidim
       end
 
       describe "#users_to_notify_on_comment_created" do
-        let!(:follows) { create_list(:follow, 3, followable: subject) }
-        let(:followers) { follows.map(&:user) }
-        let(:participatory_space) { subject.component.participatory_space }
-        let(:organization) { participatory_space.organization }
-        let!(:participatory_process_admin) do
-          create(:process_admin, participatory_process: participatory_space)
+        let(:admins) { subject.component.organization.admins }
+        let(:users_with_role) { subject.component.organization.users_with_any_role }
+
+        let(:participatory_process) { subject.component.participatory_space }
+        let(:process_users_with_role) { Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process.id).map(&:user) }
+        let(:users) do
+          users = admins + users_with_role + process_users_with_role
+          users.uniq
         end
 
         context "when the proposal is official" do
           let(:proposal) { build(:proposal, :official) }
 
           it "returns the followers and the component's participatory space admins" do
-            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([participatory_process_admin]))
+            expect(subject.users_to_notify_on_comment_created).to match_array(users)
           end
         end
 
         context "when the proposal is not official" do
-          it "returns the followers and the author" do
-            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([proposal.creator.author]))
+          it "returns the followers" do
+            expect(subject.users_to_notify_on_comment_created).to match_array(users)
           end
         end
       end

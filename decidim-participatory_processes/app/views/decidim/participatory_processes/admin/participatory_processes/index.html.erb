@@ -1,7 +1,8 @@
 <div class="card" id="processes">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t "decidim.admin.titles.participatory_processes" %><%= link_to t("actions.new_process", scope: "decidim.admin"), ["new", "participatory_process"], class: "button tiny button--title" if allowed_to? :create, :process %>
+      <%= t "decidim.admin.titles.participatory_processes" %>
+      <%= link_to t("actions.participatory_process.new", scope: "decidim.admin"), ["new", "participatory_process"], class: "button tiny button--title" if allowed_to? :create, :process %>
     </h2>
   </div>
   <div class="card-section">
@@ -10,6 +11,7 @@
         <thead>
           <tr>
             <th><%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %></th>
+            <th><%= sort_link(query, :promoted, t("models.participatory_process.fields.promoted", scope: "decidim.admin")) %></th>
             <th><%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin")) %></th>
             <th><%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %></th>
             <th class="table-list__actions"><%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %></th>
@@ -34,6 +36,9 @@
                 <% else %>
                   <%= translated_attribute(process.title) %>
                 <% end %>
+              </td>
+              <td>
+                <%= process.promoted? ? t("participatory_processes.index.promoted.true", scope: "decidim.admin") : t("participatory_processes.index.promoted.false", scope: "decidim.admin") %>
               </td>
               <td>
                 <%= l process.created_at, format: :short %>

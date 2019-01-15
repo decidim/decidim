@@ -18,10 +18,6 @@ module Decidim
 
           def index
             enforce_permission_to :read, :space_private_user
-            @private_users ||= privatable_to
-                               .participatory_space_private_users
-                               .page(params[:page])
-                               .per(15)
 
             render template: "decidim/admin/participatory_space_private_users/index"
           end

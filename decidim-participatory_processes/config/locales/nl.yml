@@ -70,10 +70,12 @@ nl:
         destroy: Verwijder
         duplicate: Dupliceren
         edit: Bewerken
-        new_process: Nieuw proces
+        new: New
         new_process_group: Nieuwe procesgroep
         new_process_step: Nieuwe stap
         new_process_user_role: Nieuwe procesgebruiker
+        participatory_process:
+          new: New
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden
@@ -204,6 +206,9 @@ nl:
         index:
           not_published: Niet gepubliceerd
           private: Privé
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Openbaar
           published: Gepubliceerd
         new:
@@ -267,6 +272,11 @@ nl:
         description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

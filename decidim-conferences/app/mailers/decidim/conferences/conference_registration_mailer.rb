@@ -5,6 +5,11 @@ module Decidim
     # A custom mailer for sending notifications to users when
     # they join a conference.
     class ConferenceRegistrationMailer < Decidim::ApplicationMailer
+      # TODO: REMOVE the "default from: Decidim.config.mailer_sender"
+      # The :from should've been inherited from ApplicationMailer
+      # For an unknown reason, it doesn't
+      default from: Decidim.config.mailer_sender
+
       include Decidim::TranslationsHelper
       include ActionView::Helpers::SanitizeHelper
 

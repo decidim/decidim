@@ -852,10 +852,6 @@ fi:
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
         topics: Aiheet
-      participatory_space:
-        metrics:
-          headline: Osallistuminen lukuina
-          link: Näytä kaikki tilastot
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.

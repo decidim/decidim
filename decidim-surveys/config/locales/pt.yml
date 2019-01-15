@@ -45,15 +45,7 @@ pt:
       admin:
         exports:
           survey_user_answers: Avalie as respostas dos usuários
-        models:
-          components:
-            description: Description
-            title: Title
-            tos: Tos
         surveys:
-          form:
-            add_question: Add question
-            already_answered_warning: Already answered warning
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.

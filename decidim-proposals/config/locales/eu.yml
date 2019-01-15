@@ -629,6 +629,9 @@ eu:
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
           title: Editatu proposamenaren zirriborroa
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: gatoz
         endorsements_card_row:

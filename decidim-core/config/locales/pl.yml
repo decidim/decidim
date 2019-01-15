@@ -862,10 +862,6 @@ pl:
         subheading: Przejdź przez strony pomocy %{name}
         title: Wsparcie
         topics: Tematy
-      participatory_space:
-        metrics:
-          headline: Udział w liczbach
-          link: Pokaż wszystkie statystyki
       terms_and_conditions:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
@@ -934,7 +930,7 @@ pl:
         error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
         success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
     scopes:
-      global: Overall scope
+      global: Global scope
       picker:
         cancel: Anuluj
         choose: Wybierz

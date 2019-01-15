@@ -630,6 +630,9 @@ fr:
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
           title: Modifier le brouillon de votre proposition
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Soutenir
         endorsements_card_row:

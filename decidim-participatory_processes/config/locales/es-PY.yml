@@ -70,10 +70,12 @@ es-PY:
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        new_process: Nuevo proceso
+        new: New
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
         new_process_user_role: Nuevo usuario de proceso
+        participatory_process:
+          new: New
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -204,6 +206,9 @@ es-PY:
         index:
           not_published: No publicado
           private: Privado
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Público
           published: Publicada
         new:
@@ -267,6 +272,11 @@ es-PY:
         description: Número de procesos participativos en esta organización.
         object: procesos participativos
         title: Procesos participativos
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

@@ -70,10 +70,12 @@ eu:
         destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
-        new_process: Prozesu berria
+        new: New
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
         new_process_user_role: Prozesu berria erabiltzailea
+        participatory_process:
+          new: New
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
@@ -204,6 +206,9 @@ eu:
         index:
           not_published: Argitaratu gabe
           private: Pribatua
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Publiko
           published: Argitaratua
         new:
@@ -267,6 +272,11 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

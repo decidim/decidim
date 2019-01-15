@@ -629,6 +629,9 @@ sv:
           discard_confirmation: Är du säker på att du vill kassera detta förslagsutkast?
           send: Förhandsvisa
           title: Redigera förslagsutkast
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:

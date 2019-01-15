@@ -127,7 +127,6 @@ pt-BR:
         browse: Navegar
         export: Exportar
         manage: Gerenciar
-        new: Nova %{name}
         permissions: Permissões
         reject: Negar
         verify: Verificar
@@ -330,6 +329,7 @@ pt-BR:
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
+        navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: Aplicações OAuth
         participants: Participantes

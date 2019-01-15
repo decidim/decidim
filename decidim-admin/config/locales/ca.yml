@@ -127,7 +127,6 @@ ca:
         browse: Explorar
         export: Exporta
         manage: Gestionar
-        new: Nou %{name}
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
@@ -330,6 +329,7 @@ ca:
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
+        navbar_links: Navbar links
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
         participants: Participants

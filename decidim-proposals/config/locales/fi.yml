@@ -629,6 +629,9 @@ fi:
           discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
           send: Esikatselu
           title: Muokkaa ehdotusluonnosta
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Suosittele
         endorsements_card_row:

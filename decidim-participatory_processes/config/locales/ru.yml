@@ -76,10 +76,12 @@ ru:
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
-        new_process: Добавить новое движение
+        new: New
         new_process_group: Создать группу движений
         new_process_step: Новый шаг
         new_process_user_role: Добавить участника движения
+        participatory_process:
+          new: New
         preview: Предпросмотр
         publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение
@@ -210,6 +212,9 @@ ru:
         index:
           not_published: Не обнародовано
           private: Частное
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Обнародованные
           published: Обнародовано
         new:
@@ -273,6 +278,11 @@ ru:
         description: Number of participatory processes in this organization
         object: participatory processes
         title: Participatory processes
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

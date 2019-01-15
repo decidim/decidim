@@ -45,6 +45,7 @@ module Decidim
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic
           allow! if permission_action.subject == :help_sections
+          allow! if permission_action.subject == :navbar_link
         end
 
         permission_action

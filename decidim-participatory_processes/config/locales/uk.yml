@@ -76,10 +76,12 @@ uk:
         destroy: Видалити
         duplicate: Створити копію
         edit: Редагувати
-        new_process: Додати рух
+        new: New
         new_process_group: Створити сукупність рухів
         new_process_step: Додати крок
         new_process_user_role: Додати учасника руху
+        participatory_process:
+          new: New
         preview: Попередній перегляд
         publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
@@ -210,6 +212,9 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приватний
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Оприлюдені
           published: Оприлюднено
         new:
@@ -273,6 +278,11 @@ uk:
         description: Number of participatory processes in this organization
         object: participatory processes
         title: Participatory processes
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

@@ -860,10 +860,6 @@ es:
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Participación en cifras.
-          link: Mostrar todas las estadísticas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.

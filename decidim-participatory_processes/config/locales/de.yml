@@ -70,10 +70,12 @@ de:
         destroy: Löschen
         duplicate: Duplikat
         edit: Bearbeiten
-        new_process: Neuer Prozess
+        new: New
         new_process_group: Neue Prozessgruppe
         new_process_step: Neuer Schritt
         new_process_user_role: Neuer Prozessbenutzer
+        participatory_process:
+          new: New
         preview: Vorschau
         publish: Veröffentlichen
         resend_invitation: Einladung erneut versenden
@@ -204,6 +206,9 @@ de:
         index:
           not_published: Nicht veröffentlicht
           private: Privatgelände
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Öffentlichkeit
           published: Veröffentlicht
         new:
@@ -267,6 +272,11 @@ de:
         description: Anzahl der partizipativen Prozesse in dieser Organisation
         object: partizipative Prozesse
         title: Partizipative Prozesse
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:

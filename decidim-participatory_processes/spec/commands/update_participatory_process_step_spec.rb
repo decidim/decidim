@@ -13,7 +13,7 @@ module Decidim::ParticipatoryProcesses
       instance_double(
         Admin::ParticipatoryProcessStepForm,
         current_user: user,
-        cta_text: {},
+        cta_text: { "en": "SEE" },
         cta_path: nil,
         title: { en: "new title" },
         description: { en: "new description" },
