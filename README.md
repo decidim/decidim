@@ -1,6 +1,12 @@
-<img src="https://cdn.rawgit.com/decidim/decidim/master/logo.svg" alt="Decidim Logo" width="400">
+![OSP + DECIDIM LOGO](osp+dcd.png)
 
-The participatory democracy framework.
+This is a fork repository.
+
+We are actually working on the 0.16-stable version which can be found [here](https://github.com/OpenSourcePolitics/decidim/tree/0.16-stable).
+
+The original Decidim participatory democracy framework github can be found [here](https://github.com/decidim/decidim).
+
+#### What is Decidim
 
 > Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
@@ -10,28 +16,17 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 ---
 
-[![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim)
-[![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim)
-[![GitHub contributors](https://img.shields.io/github/contributors/decidim/decidim.svg)](https://github.com/decidim/decidim/graphs/contributors)
+[![GitHub contributors](https://img.shields.io/github/contributors/opensourcepolitics/decidim.svg)](https://github.com/opensourcepolitics/decidim/graphs/contributors)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/decidim/decidim/master)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/decidim/decidim)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/open-source-politics/Lobby)
 
 Code quality
 
-[![Build Status](https://img.shields.io/circleci/project/github/decidim/decidim/master.svg)](https://circleci.com/gh/decidim/decidim)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability)](https://codeclimate.com/github/decidim/decidim/maintainability)
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
-[![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
-[![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y)
-[![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html)
-
-Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
-
-[![Stories in Discussion](https://img.shields.io/waffle/label/decidim/decidim/discussion.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Adiscussion)
-[![Stories in Planned](https://img.shields.io/waffle/label/decidim/decidim/planned.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Aplanned)
-[![Bugs](https://img.shields.io/waffle/label/decidim/decidim/bug.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
-[![In Progress](https://img.shields.io/waffle/label/decidim/decidim/in-progress.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Ain-progress)
-[![In Review](https://img.shields.io/waffle/label/decidim/decidim/in-review.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Ain-review)
+[![Build Status](https://img.shields.io/circleci/project/github/opensourcepolitics/decidim/master.svg)](https://circleci.com/gh/opensourcepolitics/decidim)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d7bd950172295dc7e409/maintainability)](https://codeclimate.com/github/OpenSourcePolitics/decidim/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d7bd950172295dc7e409/test_coverage)](https://codeclimate.com/github/OpenSourcePolitics/decidim/test_coverage)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/opensourcepoliticsdecidim/localized.svg)](https://crowdin.com/project/opensourcepoliticsdecidim)
+[![Inline docs](http://inch-ci.org/github/OpenSourcePolitics/decidim.svg?branch=master)](http://inch-ci.org/github/OpenSourcePolitics/decidim)
 
 ---
 
@@ -126,47 +121,6 @@ As a base you can use these modules, although check first that the version is co
 | [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                               |  0.8.3   | Allow user export                                                                                                                                            |
 | [Votings](https://github.com/podemos-info/participa2/tree/master/decidim-module-votings)                               |  0.14.1  | An administrator can add one or more votings to a participatory process or assambly                                                                          |
 
-### Authorizations Strategies
-
-One specific thing regarding these kind of applications is the [authorization/verification](decidim-verifications/README.md) logic. Here are some examples:
-
-* [Barcelona (City)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb)
-* [Calafell](https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb)
-* [DIBA (Barcelona Province)](https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb)
-* [Gavà](https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb)
-* [Hospitalet de Llobregat](https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb)
-* [Malgrat de Mar](https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb)
-* [Mataró](https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb)
-* [Pamplona](https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb)
-* [Reus](https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb)
-* [Sabadell](https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb)
-* [Sant Cugat](https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb)
-* [Terrassa](https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb)
-* [Vilanova i la Geltrú](https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb)
-
-Other special verifications:
-
-* [Podemos](https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector)
-* [FundAction](https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb)
-* [CSV emails](https://github.com/CodiTramuntana/decidim-verifications-csv_emails)
-
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).
-
-## Example applications
-
-Since Decidim is a ruby gem, you can check out the [dependent repositories](https://github.com/decidim/decidim/network/dependents?type=application) to see how many applications are on the wild or tests that other developers have made. Here's a partial list with some of the projects that have used Decidim:
-
-* [Demo](http://staging.decidim.codegram.com)
-* [Decidim Barcelona](https://decidim.barcelona) - [View code](https://github.com/AjuntamentdeBarcelona/decidim-barcelona)
-* [L'H ON Participa](https://www.lhon-participa.cat) - [View code](https://github.com/HospitaletDeLlobregat/decidim-hospitalet)
-* [Decidim Terrassa](https://participa.terrassa.cat) - [View code](https://github.com/AjuntamentDeTerrassa/decidim-terrassa)
-* [Decidim Sabadell](https://decidim.sabadell.cat) - [View code](https://github.com/AjuntamentDeSabadell/decidim-sabadell)
-* [Decidim Gavà](https://participa.gavaciutat.cat) - [View code](https://github.com/AjuntamentDeGava/decidim-gava)
-* [Decidim Sant Cugat](https://decidim.santcugat.cat/) - [View code](https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat)
-* [Vilanova Participa](http://participa.vilanova.cat) - [View code](https://github.com/vilanovailageltru/decidim-vilanova)
-* [Erabaki Pamplona](https://erabaki.pamplona.es) - [View code](https://github.com/ErabakiPamplona/erabaki)
-* [Decidim Mataró](https://www.decidimmataro.cat) - [View code](https://github.com/AjuntamentDeMataro/decidim-mataro)
-* [Commission Nationale du Débat Public (France)](https://cndp.opensourcepolitics.eu/)
-* [MetaDecidim](https://meta.decidim.barcelona/) - [View Code](https://github.com/decidim/metadecidim)

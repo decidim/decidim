@@ -14,3 +14,6 @@
 
 ### :camera: Screenshots (optional)
 ![Description](URL)
+
+### :ghost: GIF (optional)
+![Description](URL)
