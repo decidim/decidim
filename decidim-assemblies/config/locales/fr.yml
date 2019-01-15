@@ -183,7 +183,7 @@ fr:
             vice_president: Vice président
         assembly_user_role:
           fields:
-            email: Email
+            email: E-mail
             name: Nom
             role: Fonction
           name: Utilisateur de l'assemblée
