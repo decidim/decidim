@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -75,7 +74,7 @@ fr:
         new_process_step: Nouvelle étape
         new_process_user_role: Nouvel utilisateur de la concertation
         participatory_process:
-          new: New
+          new: New process
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -275,8 +274,8 @@ fr:
     pages:
       participatory_space:
         metrics:
-          headline: Headline
-          link: Link
+          headline: Participation in figures
+          link: Show all statistics
     participatory_process_groups:
       show:
         group_participatory_processes:

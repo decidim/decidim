@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -456,7 +455,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
+          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser

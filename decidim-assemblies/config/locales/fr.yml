@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -62,9 +61,7 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: 'Nom
-
-'
+        name: Nom 
         role: Fonction
   activerecord:
     models:

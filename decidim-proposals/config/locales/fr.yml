@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -174,7 +173,7 @@ fr:
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est acceptée.
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :"
+          email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: "%{endorser_nickname} a soutenu une nouvelle proposition"
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -199,7 +198,7 @@ fr:
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :"
+          email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :'
           email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
           email_subject: Nouvelle proposition de %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -237,19 +236,19 @@ fr:
       badges:
         accepted_proposals:
           conditions:
-          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-          - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
+            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+            - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
-          description_another: "%{score} des propositions de cet utilisateur ont été acceptées."
-          description_own: "%{score} de vos propositions ont été acceptées."
+          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
+          description_own: '%{score} de vos propositions ont été acceptées.'
           name: Propositions acceptées
           next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
           unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
           unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           conditions:
-          - Parcourir et passer du temps à lire les propositions d'autres personnes
-          - Soutenez les propositions que vous aimez ou trouvez intéressantes
+            - Parcourir et passer du temps à lire les propositions d'autres personnes
+            - Soutenez les propositions que vous aimez ou trouvez intéressantes
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
@@ -259,8 +258,8 @@ fr:
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           conditions:
-          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-          - Créer une nouvelle proposition
+            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+            - Créer une nouvelle proposition
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions.
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
@@ -464,7 +463,7 @@ fr:
           title: Complétez votre projet collaboratif
         count:
           drafts_count:
-            one: 1 projet collaboratif
+            one: "1 projet collaboratif"
             other: "%{count} brouillons collaboratifs"
         create:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
@@ -611,9 +610,8 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: 1 proposition
+            one: "1 proposition"
             other: "%{count} propositions"
-            zero: "%{count} proposition"
         dynamic_map_instructions:
           primary: Vous pouvez déplacer le point sur la carte.
           secondary: N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.
@@ -785,5 +783,3 @@ fr:
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
-    scopes:
-      global: Portée globale

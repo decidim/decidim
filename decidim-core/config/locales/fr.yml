@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -46,8 +45,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': Non
-    'true': Oui
+    'false': 'Non'
+    'true': 'Oui'
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -354,7 +353,8 @@ fr:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
             uncheck: Non merci, je m'informerai autrement
-          notice: La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+          notice: |-
+            La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: La newsletter
         omniauth_buttons:
           or: Ou
@@ -441,7 +441,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -546,7 +546,7 @@ fr:
       badges:
         continuity:
           conditions:
-          - Viens ici souvent
+            - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -556,7 +556,7 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -571,9 +571,9 @@ fr:
           title: Insignes
         invitations:
           conditions:
-          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-          - Personnalisez, si vous le souhaitez, le message que vous envoyez
-          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+            - Personnalisez, si vous le souhaitez, le message que vous envoyez
+            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -918,6 +918,7 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
+      global: Global scope
       picker:
         cancel: Annuler
         choose: Sélectionner
@@ -1005,11 +1006,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: "%{authentication_keys} ou mot de passe invalide."
+      invalid: '%{authentication_keys} ou mot de passe invalide.'
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
+      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
