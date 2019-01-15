@@ -673,7 +673,7 @@ fr:
           view_index:
             see_index: Voir l'index
         placeholder:
-          address: 32 rue des cascades 75020 Paris
+          address: 32, rue des cascades 75020 Paris
         preview:
           address: 'Adresse : %{address}'
           modify: Modifier la proposition
