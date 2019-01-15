@@ -401,7 +401,7 @@ fr:
         user:
           fields:
             created_at: Date de création
-            email: Email
+            email: E-mail
             last_sign_in_at: Date de la dernière connexion
             name: Nom
             role: Rôle
@@ -534,8 +534,8 @@ fr:
           instagram: Instagram
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
-          url: Url
-          youtube: YouTube
+          url: URL
+          youtube: Youtube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
@@ -697,7 +697,7 @@ fr:
           error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
           success: L'utilisateur n'est plus un administrateur.
         form:
-          email: Email
+          email: E-mail
           name: Nom
           role: Rôle
         new:
