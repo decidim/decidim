@@ -80,10 +80,10 @@ fr:
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
         budget_excess:
-          close: Закрити
-          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
+          close: Fermer
+          description: L'ajout de ce projet dépassera le budget maximum et ne peut donc pas être ajouté pour le moment. Vous pouvez supprimer certains des projets que vous avez précédemment choisi d'ajouter.
           ok: Гаразд
-          title: Перевищено граничний бюджет
+          title: Limite de budget dépassée
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
           assigned: 'Affecté à :'
