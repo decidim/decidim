@@ -677,7 +677,7 @@ fi:
         hide: Piilota
         not_hidden: Näkyvillä
         title: Toiminnot
-        unhide: unhide
+        unhide: Poista piilotus
         unreport: Poista ilmoitus
       admin:
         reportable:
@@ -685,8 +685,8 @@ fi:
             invalid: Resurssin piilotuksessa tapahtui virhe.
             success: Resurssi piilotettu onnistuneesti.
           unhide:
-            invalid: Resurssin irrottamisessa on ollut ongelma.
-            success: Resurssi hylättiin onnistuneesti.
+            invalid: Resurssin piilotuksen poistossa esiintyi ongelma.
+            success: Resurssin piilotus poistettu onnistuneesti.
           unreport:
             invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.
             success: Resurssin raportointi onnistuneesti poistettu.
