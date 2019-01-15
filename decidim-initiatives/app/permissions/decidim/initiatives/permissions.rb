@@ -126,7 +126,8 @@ module Decidim
         can_unvote = initiative.votes_enabled? &&
                      initiative.organization&.id == user.organization&.id &&
                      initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
-                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
+                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+                     authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
       end
