@@ -22,7 +22,7 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 Code quality
 
-[![Build Status](https://img.shields.io/circleci/project/github/opensourcepolitics/decidim/master.svg)](https://circleci.com/gh/opensourcepolitics/decidim)
+[![Build Status](https://img.shields.io/circleci/project/github/OpenSourcePolitics/decidim/master.svg)](https://circleci.com/gh/OpenSourcePolitics)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7bd950172295dc7e409/maintainability)](https://codeclimate.com/github/OpenSourcePolitics/decidim/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7bd950172295dc7e409/test_coverage)](https://codeclimate.com/github/OpenSourcePolitics/decidim/test_coverage)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/opensourcepoliticsdecidim/localized.svg)](https://crowdin.com/project/opensourcepoliticsdecidim)
