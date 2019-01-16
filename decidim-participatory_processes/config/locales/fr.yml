@@ -196,8 +196,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle concertation.
           success: Concertation créée avec succès. Configurez maintenant ses étapes.
-        destroy:
-          success: Concertation supprimée avec succès.
         edit:
           update: Mettre à jour
         form:

@@ -12,6 +12,7 @@ files:
         fr: fr
         gl: gl
         hu: hu
+        id-ID: id
         it: it
         nl: nl
         pl: pl
@@ -19,4 +20,5 @@ files:
         pt-PT: pt
         rumany: ru
         sv-SE: sv
+        tr-TR: tr
         ukmany: uk

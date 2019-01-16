@@ -192,6 +192,17 @@ Check the [example authorization handler](https://github.com/decidim/decidim/blo
 and the [DefaultActionAuthorizer class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/default_action_authorizer.rb)
 for additional technical details.
 
+## How Handlers work
+
+For a workflow to be visible in the user's profile, the organization must have
+it in it's `available_authorizations` and the given handler must exist.
+The name of the handler must match the authorization name plus the "Hander"
+suffix. It also has to be in the `Decidim::Verifications` namespace.
+
+The handler is both the Form object that the user must fill in order to be
+verified, but also the validator of the filled information in order to grant the
+authorization.
+
 ## Installation
 
 Add this line to your application's Gemfile:

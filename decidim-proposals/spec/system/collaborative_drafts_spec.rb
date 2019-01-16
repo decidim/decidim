@@ -28,6 +28,10 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:withdrawn_collaborative_draft) { create(:collaborative_draft, :withdrawn, component: component, category: category2) }
   let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component: component, category: category3) }
 
+  let(:request_access_form) { Decidim::Proposals::RequestAccessToCollaborativeDraftForm.from_params(state: collaborative_draft.state, id: collaborative_draft.id) }
+  let!(:other_user) { create :user, :confirmed, organization: organization }
+  let(:request_access_from_other_user) { Decidim::Proposals::RequestAccessToCollaborativeDraft.new(request_access_form, other_user) }
+
   context "with collaborative drafts enabled" do
     before do
       visit main_component_path(component)
@@ -247,7 +251,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             end
           end
 
-          context "when an author receives the request" do
+          context "when the author receives the request" do
             before do
               sign_in author, scope: :user
               visit current_path
@@ -255,6 +259,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
             it "lists the user in Collaboration Requests" do
               within ".card.extra" do
+                expect(page).to have_content("COLLABORATION REQUESTS")
                 expect(page).to have_css("#request_#{user.id}")
               end
             end
@@ -268,11 +273,43 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
                 expect(page).to have_css(".icon--x")
               end
             end
+
+            context "when the request is accepted and the contributor visits the draft" do
+              before do
+                click_button "Accept"
+                sign_in user, scope: :user
+                visit current_path
+              end
+
+              it "shows the user as a coauthor" do
+                expect(page).to have_content(user.name)
+              end
+
+              it "removes the announcement to collaborate" do
+                expect(page).not_to have_css("callout.secondary")
+              end
+
+              it "does not show the buttons to publish or withdraw" do
+                expect(page).not_to have_button("Publish")
+                expect(page).not_to have_button("withdraw the draft")
+              end
+
+              it "shows a button to edit" do
+                expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
+              end
+
+              it "does not show the Collaboration Requests from other users" do
+                request_access_from_other_user.call
+                visit current_path
+
+                expect(page).not_to have_content("COLLABORATION REQUESTS")
+              end
+            end
           end
         end
       end
 
-      context "when is an author" do
+      context "when the author visits the collaborative draft" do
         before do
           sign_in author, scope: :user
           visit current_path
@@ -282,8 +319,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           expect(page).not_to have_css("callout.secondary")
         end
 
-        it "shows a button to publish" do
-          expect(page).to have_css("#collaborative_draft_publish", text: "PUBLISH")
+        it "shows the buttons to publish or withdraw" do
+          expect(page).to have_button("Publish")
+          expect(page).to have_button("withdraw the draft")
         end
 
         it "shows a button to edit" do

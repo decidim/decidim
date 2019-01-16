@@ -14,6 +14,7 @@ module Decidim::Admin
             reference_prefix: "MSO",
             default_locale: "en",
             badges_enabled: true,
+            user_groups_enabled: true,
             send_welcome_notification: false
           }
         }

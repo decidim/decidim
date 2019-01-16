@@ -5,6 +5,10 @@ module Decidim
     # Controller that allows managing user groups at the admin panel.
     #
     class UserGroupsController < Decidim::Admin::ApplicationController
+      include UserGroups
+
+      before_action :enforce_user_groups_enabled
+
       layout "decidim/admin/users"
 
       def index

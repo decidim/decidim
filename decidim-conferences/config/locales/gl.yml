@@ -105,8 +105,6 @@ gl:
         create:
           error: Produciuse un erro ao crear unha nova conferencia.
           success: Conferencia creada con éxito.
-        destroy:
-          success: A conferencia eliminouse con éxito.
         edit:
           update: Actualización
         exports:
@@ -507,6 +505,10 @@ gl:
         votes_count: Votos
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: O teu rexistro para a conferencia <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
+        conference_registration_confirmed:
+          notification_title: Inscríbase o rexistro da conferencia <a href="%{resource_url}">%{resource_title}</a>.
         conference_registrations_over_percentage:
           email_intro: Os slots ocupados por "%{resource_title}" ocupan máis do %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da conferencia.
@@ -522,6 +524,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a conferencia "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A conferencia "%{resource_title}" habilitou as inscricións.
           notification_title: A conferencia <a href="%{resource_path}">%{resource_title}</a> habilitou as inscricións.
+        upcoming_conference:
+          email_intro: 'A conferencia "%{resource_title}" ten lugar en 2 días. Podes ler a descrición da súa páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo a conferencia "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: A conferencia "%{resource_title}" está chegando!
+          notification_title: A conferencia <a href="%{resource_path}">%{resource_title}</a> chegará en 2 días.
     log:
       value_types:
         conference_presenter:

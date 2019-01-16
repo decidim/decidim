@@ -35,7 +35,7 @@ module Decidim
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
-      scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
+      scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
                                     joins("LEFT JOIN decidim_meetings_registrations ON

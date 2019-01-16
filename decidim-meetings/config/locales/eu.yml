@@ -90,15 +90,23 @@ eu:
     events:
       meetings:
         meeting_closed:
-          email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" bilera itxita zegoen'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
+          affected_user:
+            email_intro: 'Zure bilera "%{resource_title}" itxi egin da. Bere orriko ondorioak irakur ditzakezu:'
+            email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera antolatu duzulako.
+            email_subject: '"%{resource_title}" bilera itxita zegoen'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
+          follower:
+            email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen ari zarelako. Aurreko esteka estekan jarrai dezakezu.
+            email_subject: '"%{resource_title}" bilera itxita zegoen'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
         meeting_created:
           email_intro: Bilera "%{resource_title}" | gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Bilera berria %{participatory_space_title}
           notification_title: Bilera <a href="%{resource_path}">%{resource_title}</a> gehitu da %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> bilerako erregistratzea baieztatu da. Zure izena emateko kodea %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
           email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
@@ -182,6 +190,7 @@ eu:
             invalid: Arazo bat izan da agenda hau eguneratzean
             success: Agenda ondo eguneratu da
         exports:
+          meetings: Bilerak
           registrations: Izen-emateak
         invite_join_meeting_mailer:
           invite:
@@ -361,6 +370,10 @@ eu:
           meeting_report: Topaketaren txostena
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          registration_code_help_text: Zure izena emateko kodea
+          registration_state:
+            validated: balioztatu
+            validation_pending: VALIDACIÓN PENDIENTE
           remaining_slots:
             one: "%{count} slot geratzen da"
             other: "%{count} slot geratzen dira"
