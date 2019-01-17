@@ -33,7 +33,7 @@ module Decidim
         end
 
         def load_authorization
-          @authorization = Decidim::Authorization.find_or_create_by(
+          @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "csv_census"
           )
