@@ -22,8 +22,13 @@ module Decidim
       private
 
       def normalize_body(answer)
-        answer.body || answer.choices.pluck(:body)
+        answer.body || normalize_choices(answer.choices)
       end
+
+      def normalize_choices(choices)
+        choices.collect { |c| c.try(:custom_body) || c.try(:body) }
+      end
+
     end
   end
 end
