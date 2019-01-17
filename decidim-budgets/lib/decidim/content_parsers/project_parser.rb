@@ -21,7 +21,7 @@ module Decidim
 
       # Matches a URL
       URL_REGEX_SCHEME = '(?:http(s)?:\/\/)'
-      URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+\/projects\/'
+      URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+\/(Project|projects)\/'
       URL_REGEX_END_CHAR = '[\w]'
       URL_REGEX = /#{URL_REGEX_SCHEME}#{URL_REGEX_CONTENT}#{URL_REGEX_END_CHAR}/i
       # Matches a mentioned Project ID (~(d)+ expression)
