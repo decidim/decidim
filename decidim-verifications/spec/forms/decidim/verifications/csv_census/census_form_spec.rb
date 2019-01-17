@@ -22,7 +22,7 @@ module Decidim
 
         let(:context) do
           {
-            current_organization: organization,
+            current_organization: organization
           }
         end
 
@@ -32,7 +32,6 @@ module Decidim
 
         context "when user email in census" do
           it "is valid" do
-            byebug
             expect(subject).to be_valid
           end
         end
