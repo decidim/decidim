@@ -5,6 +5,7 @@
 **Fixed**:
 
 - **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
+- **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
 
 ## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
 
