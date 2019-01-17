@@ -23,7 +23,7 @@ module Decidim
 
     def empty_translatable(locales = Decidim.available_locales)
       locales.each_with_object({}) do |locale, result|
-        result[locale.to_s] = ''
+        result[locale.to_s] = ""
       end
     end
 
