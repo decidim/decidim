@@ -15,7 +15,7 @@ module Decidim
       # Public: Exports a hash with the serialized data for the user answers.
       def serialize
         @survey_answers.each_with_index.inject({}) do |serialized, (answer, idx)|
-          serialized.update(:date => answer.created_at.strftime("%Y-%m-%d %H:%M:%S"))
+          serialized.update(date: answer.created_at.strftime("%Y-%m-%d %H:%M:%S"))
           serialized.update("#{idx + 1}. #{translated_attribute(answer.question.body)}" => normalize_body(answer))
         end
       end
@@ -29,7 +29,6 @@ module Decidim
       def normalize_choices(choices)
         choices.collect { |c| c.try(:custom_body) || c.try(:body) }
       end
-
     end
   end
 end
