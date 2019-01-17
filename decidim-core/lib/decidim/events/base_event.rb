@@ -73,7 +73,7 @@ module Decidim
       def notifiable?
         return false if resource.is_a?(Decidim::Publicable) && !resource.published?
         return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?
-        return false unless component&.published?
+        return false if component && !component.published?
 
         return false if participatory_space.is_a?(Decidim::Participable) && !participatory_space.can_participate?(user)
 
@@ -90,6 +90,7 @@ module Decidim
       end
 
       def participatory_space
+        return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
         component&.participatory_space
       end
 

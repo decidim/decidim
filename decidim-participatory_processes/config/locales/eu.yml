@@ -206,8 +206,8 @@ eu:
           not_published: Argitaratu gabe
           private: Pribatua
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Publiko
           published: Argitaratua
         new:

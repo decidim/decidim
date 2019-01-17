@@ -46,11 +46,13 @@ describe "Proposals", type: :system do
                  participatory_space: participatory_process)
         end
 
+        let(:proposal_draft) { create(:proposal, :draft, component: component) }
+
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            visit complete_proposal_path(component)
+            visit complete_proposal_path(component, proposal_draft)
 
-            within "form.new_proposal" do
+            within "form.edit_proposal" do
               expect(page).to have_content(/Scope/i)
             end
           end
@@ -60,18 +62,18 @@ describe "Proposals", type: :system do
           let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
-            visit complete_proposal_path(component)
+            visit complete_proposal_path(component, proposal_draft)
 
-            within "form.new_proposal" do
+            within "form.edit_proposal" do
               expect(page).to have_no_content("Scope")
             end
           end
         end
 
         it "creates a new proposal", :slow do
-          visit complete_proposal_path(component)
+          visit complete_proposal_path(component, proposal_draft)
 
-          within ".new_proposal" do
+          within ".edit_proposal" do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
@@ -102,9 +104,9 @@ describe "Proposals", type: :system do
           let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Oriol for president", body: "He will not solve everything") }
 
           it "creates a new proposal", :slow do
-            visit complete_proposal_path(component)
+            visit complete_proposal_path(component, proposal_draft)
 
-            within ".new_proposal" do
+            within ".edit_proposal" do
               check :proposal_has_address
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
@@ -128,7 +130,7 @@ describe "Proposals", type: :system do
         end
 
         context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified) }
+          let(:user_group) { create(:user_group, :verified, organization: organization) }
           let(:user_group_proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Clara for president", body: "She will solve everything") }
 
           before do
@@ -136,9 +138,9 @@ describe "Proposals", type: :system do
           end
 
           it "creates a new proposal as a user group", :slow do
-            visit complete_proposal_path(component)
+            visit complete_proposal_path(component, user_group_proposal_draft)
 
-            within ".new_proposal" do
+            within ".edit_proposal" do
               fill_in :proposal_title, with: "Clara for president"
               fill_in :proposal_body, with: "She will solve everything"
               select translated(category.name), from: :proposal_category_id
@@ -170,9 +172,9 @@ describe "Proposals", type: :system do
             let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Oriol for president", body: "He will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
-              visit complete_proposal_path(component)
+              visit complete_proposal_path(component, proposal_draft)
 
-              within ".new_proposal" do
+              within ".edit_proposal" do
                 fill_in :proposal_title, with: "Oriol for president"
                 fill_in :proposal_body, with: "He will solve everything"
                 check :proposal_has_address
@@ -227,9 +229,9 @@ describe "Proposals", type: :system do
           let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
-            visit complete_proposal_path(component)
+            visit complete_proposal_path(component, proposal_draft)
 
-            within ".new_proposal" do
+            within ".edit_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
               fill_in :proposal_attachment_title, with: "My attachment"
@@ -279,14 +281,6 @@ describe "Proposals", type: :system do
             find("*[type=submit]").click
           end
 
-          click_link "My proposal is different"
-
-          # click_button "Send"
-
-          within ".new_proposal" do
-            find("*[type=submit]").click
-          end
-
           expect(page).to have_no_content("successfully")
           expect(page).to have_css(".callout.alert", text: "limit")
         end
@@ -295,6 +289,6 @@ describe "Proposals", type: :system do
   end
 end
 
-def complete_proposal_path(component)
-  Decidim::EngineRouter.main_proxy(component).proposals_path + "/complete?proposal_title=#{proposal_title}&proposal_body=#{proposal_body}"
+def complete_proposal_path(component, proposal)
+  Decidim::EngineRouter.main_proxy(component).proposal_path(proposal) + "/complete"
 end

@@ -146,6 +146,10 @@ ignore_unused:
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.proposals.proposals.edit.address
+  - decidim.proposals.proposals.edit.not_geocoded
+  - decidim.proposals.proposals.placeholder.address
+  - devise.invitations.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

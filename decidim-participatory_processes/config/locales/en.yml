@@ -206,8 +206,8 @@ en:
           not_published: Not published
           private: Private
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Public
           published: Published
         new:

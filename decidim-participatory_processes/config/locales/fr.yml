@@ -53,11 +53,11 @@ fr:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Processus participatif
-        other: Processus participatifs
+        one: Concertation
+        other: Concertations
       decidim/participatory_process_group:
-        one: Groupe de processus participatifs
-        other: Groupes de processus participatifs
+        one: Groupe de concertations
+        other: Groupes de concertations
       decidim/participatory_process_step:
         one: Étape
         other: Étapes
@@ -205,8 +205,8 @@ fr:
           not_published: Non publiée
           private: Privée
           promoted:
-            'false': Oui
-            'true': Non
+            'false': 'Non'
+            'true': 'Oui'
           public: Publique
           published: Publiée
         new:

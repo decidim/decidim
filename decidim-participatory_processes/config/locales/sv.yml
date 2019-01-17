@@ -206,8 +206,8 @@ sv:
           not_published: Ej publicerad
           private: Privat
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Offentlig
           published: Publicerad
         new:

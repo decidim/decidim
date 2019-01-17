@@ -83,6 +83,10 @@ module Decidim
           end
         end
       end
+
+      def form_has_address?
+        @form.address.present? || @form.has_address
+      end
     end
   end
 end

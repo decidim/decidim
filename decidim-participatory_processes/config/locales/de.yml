@@ -206,8 +206,8 @@ de:
           not_published: Nicht veröffentlicht
           private: Privatgelände
           promoted:
-            'false': 'Yes'
-            'true': 'No'
+            'false': 'No'
+            'true': 'Yes'
           public: Öffentlichkeit
           published: Veröffentlicht
         new:

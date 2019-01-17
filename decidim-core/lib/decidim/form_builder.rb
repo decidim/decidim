@@ -40,7 +40,7 @@ module Decidim
         return send(
           type,
           "#{name}_#{locales.first.to_s.gsub("-", "__")}",
-          options.merge(label: options[:label] || label_for(name))
+          options.merge(label: label_i18n(name, options[:label] || label_for(name)))
         )
       end
 

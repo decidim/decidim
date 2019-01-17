@@ -285,8 +285,6 @@ fr:
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Complétez votre proposition
         count:
@@ -299,6 +297,7 @@ fr:
           secondary: N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.
         edit:
           address: Adresse (n'oubliez pas de préciser la ville)
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           not_geocoded: Non géocodé
           select_a_category: Veuillez sélectionner une catégorie
@@ -450,4 +449,4 @@ fr:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
     scopes:
-      global: Global scope
+      global: Portée globale

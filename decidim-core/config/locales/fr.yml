@@ -423,7 +423,7 @@ fr:
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
-          processes_count: Processus participatifs
+          processes_count: Concertations
           projects_count: Projets
           proposals_accepted: Propositions acceptées
           proposals_count: Propositions
@@ -561,6 +561,10 @@ fr:
         nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
+      invitation_token_invalid: Le jeton d'invitation fourni n'est pas valide.
+      send_instructions: Un email d'invitation a étét envoyé à %{email}.
+      updated: Votre mot de passe a été défini avec succès. Vous êtes maintenant connecté.
+      updated_not_active: Votre mot de passe a été défini avec succès.
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
