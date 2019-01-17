@@ -16,9 +16,9 @@ module Decidim
         private
 
         def censed
-          return if (email == current_user.email) && (census_for_user&.email == email)
+          return if (email == user.email) && (census_for_user&.email == email)
 
-          if email != current_user.email
+          if email != user.email
             errors.add(:email, I18n.t("decidim.verifications.csv_census.errors.messages.not_same_email"))
           else
             errors.add(:email, I18n.t("decidim.verifications.csv_census.errors.messages.not_in_csv"))
@@ -26,7 +26,7 @@ module Decidim
         end
 
         def organization
-          current_organization || current_user.organization
+          current_organization || user.organization
         end
 
         def census_for_user

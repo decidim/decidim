@@ -8,7 +8,8 @@ module Decidim
       describe CensusForm do
         subject do
           described_class.from_params(
-            email: email
+            email: email,
+            user: user
           ).with_context(
             context
           )
@@ -22,7 +23,6 @@ module Decidim
         let(:context) do
           {
             current_organization: organization,
-            current_user: user
           }
         end
 
@@ -32,6 +32,7 @@ module Decidim
 
         context "when user email in census" do
           it "is valid" do
+            byebug
             expect(subject).to be_valid
           end
         end
