@@ -46,6 +46,9 @@ en:
             - You send the letter to their address with the verification code.
             - You mark the letter as sent.
             - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
+      csv_census:
+        explanation: Get verified using the organization census
+        name: Organization census
       direct: Direct
       help: Help
       id_documents:
@@ -102,9 +105,13 @@ en:
           create:
             error: Unable to verify user.
             success: User successfully verified.
+          new:
+            send: Send
+            sending: Sending
+            title: Verify with census.
         errors:
           messages:
-            not_in_csv: Email entered is not the same as the user logged in.
+            not_in_csv: Email entered is not registered in the census.
             not_same_email: Email entered is not the same as the user logged in.
       dummy_authorization:
         extra_explanation:
