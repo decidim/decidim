@@ -6,6 +6,7 @@ module Decidim
     # formats.
     class ProposalSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
+      include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a proposal.
       def initialize(proposal)
@@ -18,11 +19,11 @@ module Decidim
           id: @proposal.id,
           category: {
             id: @proposal.category.try(:id),
-            name: @proposal.category.try(:name)
+            name: @proposal.category.try(:name) || empty_translatable
           },
           scope: {
             id: @proposal.scope.try(:id),
-            name: @proposal.scope.try(:name)
+            name: @proposal.scope.try(:name) || empty_translatable
           },
           title: @proposal.title,
           body: @proposal.body,

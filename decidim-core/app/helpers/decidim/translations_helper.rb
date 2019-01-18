@@ -20,6 +20,13 @@ module Decidim
         end
       end
     end
-    module_function :multi_translation
+
+    def empty_translatable(locales = Decidim.available_locales)
+      locales.each_with_object({}) do |locale, result|
+        result[locale.to_s] = ""
+      end
+    end
+
+    module_function :multi_translation, :empty_translatable
   end
 end
