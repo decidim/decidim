@@ -26,7 +26,7 @@ module Decidim
         return broadcast(:invalid) unless vote.valid?
 
         ActiveRecord::Base.transaction do
-          proposal.with_lock do
+          @proposal.with_lock do
             vote.save!
             update_temporary_votes
           end
