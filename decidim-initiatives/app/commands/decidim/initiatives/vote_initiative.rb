@@ -41,7 +41,7 @@ module Decidim
       attr_reader :form, :current_user
 
       def build_initiative_vote
-        @vote = form.initiative.votes.build(
+        @vote = @initiative.votes.build(
           author: @current_user,
           decidim_user_group_id: form.group_id
         )
