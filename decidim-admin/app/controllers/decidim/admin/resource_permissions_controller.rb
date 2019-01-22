@@ -72,10 +72,11 @@ module Decidim
       end
 
       def resource
-        @resource ||= if (res_name = params[:resource_name])
-                        res = Decidim.find_resource_manifest(res_name)&.model_class&.find_by(id: params["#{res_name}_id"])
-                        res if res&.allow_resource_permissions?
-                      end
+        return if params[:resource_name].blank?
+
+        resource_id = params["#{params[:resource_name]}_id"]
+        @resource ||= Decidim.find_resource_manifest(params[:resource_name])&.model_class&.find_by(id: resource_id)
+        @resource if @resource&.allow_resource_permissions?
       end
 
       def manifest_name
