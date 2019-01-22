@@ -71,7 +71,7 @@ module Decidim
       end
 
       def parent_assemblies
-        @parent_assemblies ||= assemblies | ParentAssemblies.new | FilteredAssemblies.new(params[:filter])
+        @parent_assemblies ||= assemblies | ParentAssemblies.new | FilteredAssemblies.new(current_filter)
       end
 
       alias collection parent_assemblies
@@ -86,6 +86,10 @@ module Decidim
 
       def assembly_participatory_processes
         @assembly_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
+      end
+
+      def current_filter
+        params[:filter] || "all"
       end
     end
   end
