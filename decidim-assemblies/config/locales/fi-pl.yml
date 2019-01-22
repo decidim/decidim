@@ -258,15 +258,14 @@ fi-pl:
         others: Muut
         public: Julkinen
       filter:
-        all: Kaikki
+        all: Kaikenlaiset kokoonpanot
         commission: Komitea
         consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
         government: Hallinto
-        label: 'Näytä:'
+        help: 'Näytä:'
         others: Muut
         participatory: Osallistava
-        placeholder: Suodata tyypin mukaan
         working_group: Työryhmä
       index:
         title: Ryhmät
