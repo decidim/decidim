@@ -258,15 +258,14 @@ hu:
         others: Egyéb
         public: Nyilvános
       filter:
-        all: Minden
+        all: Minden típusú szerelvény
         commission: jutalék
         consultative_advisory: Tanácsadó / tanácsadó
         executive: Végrehajtó
         government: Kormány
-        label: 'Előadás:'
+        help: 'Előadás:'
         others: Egyéb
         participatory: A részvételi
-        placeholder: Szűrő típus szerint
         working_group: Munkacsoport
       index:
         title: Gyűlések
