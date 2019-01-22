@@ -16,6 +16,13 @@ module Decidim
         expect(proposal.official?).to be true
       end
 
+      def proposal_should_conform(section_level, title, body)
+        proposal = Decidim::Proposals::Proposal.where(component: component).last
+        expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[section_level])
+        expect(proposal.title).to eq(title)
+        expect(proposal.body).to eq(body)
+      end
+
       let!(:component) { create(:proposal_component) }
       let(:parser) { MarkdownToProposals.new(component, create(:user)) }
       let(:items) { [] }
@@ -97,6 +104,46 @@ module Decidim
 
         it "are ignored" do
           should_parse_and_produce_proposals(0)
+        end
+      end
+
+      describe "lists as a whole" do
+        context "when unordered" do
+          let(:list) do
+            <<~EOLIST
+              - one
+              - two
+              - three
+            EOLIST
+          end
+
+          before do
+            items << "#{list}\n"
+          end
+
+          it "are articles" do
+            should_parse_and_produce_proposals(1)
+            proposal_should_conform(:article, "1", list)
+          end
+        end
+
+        context "when ordered" do
+          let(:list) do
+            <<~EOLIST
+              1. one
+              2. two
+              3. three
+            EOLIST
+          end
+
+          before do
+            items << "#{list}\n"
+          end
+
+          it "are articles" do
+            should_parse_and_produce_proposals(1)
+            proposal_should_conform(:article, "1", list)
+          end
         end
       end
     end
