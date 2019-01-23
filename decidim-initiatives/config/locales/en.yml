@@ -27,7 +27,7 @@ en:
       initiatives_type:
         banner_image: Banner image
         description: Description
-        min_committee_members: Minimum of committee members
+        minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
       organization_data:

@@ -133,9 +133,9 @@ module Decidim
       end
 
       def promotal_committee_required?
-        min_committee_members = InitiativesType.find(session_initiative[:type_id]).min_committee_members ||
-                                Decidim::Initiatives.minimum_committee_members
-        min_committee_members.present? && min_committee_members.positive?
+        minimum_committee_members = InitiativesType.find(session_initiative[:type_id]).minimum_committee_members ||
+                                    Decidim::Initiatives.minimum_committee_members
+        minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end
   end

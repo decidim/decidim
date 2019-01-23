@@ -40,7 +40,7 @@ module Decidim
             title: form.title,
             description: form.description,
             online_signature_enabled: form.online_signature_enabled,
-            min_committee_members: form.min_committee_members,
+            minimum_committee_members: form.minimum_committee_members,
             banner_image: form.banner_image
           )
 

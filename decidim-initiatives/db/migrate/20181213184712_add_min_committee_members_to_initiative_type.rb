@@ -2,6 +2,6 @@
 
 class AddMinCommitteeMembersToInitiativeType < ActiveRecord::Migration[5.2]
   def change
-    add_column :decidim_initiatives_types, :min_committee_members, :integer, null: true, default: nil
+    add_column :decidim_initiatives_types, :minimum_committee_members, :integer, null: true, default: nil
   end
 end

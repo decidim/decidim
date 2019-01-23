@@ -284,12 +284,12 @@ module Decidim
         published?
     end
 
-    def min_committee_members
-      type.min_committee_members || Decidim::Initiatives.minimum_committee_members
+    def minimum_committee_members
+      type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
     end
 
     def enough_committee_members?
-      committee_members.approved.count >= min_committee_members
+      committee_members.approved.count >= minimum_committee_members
     end
 
     private
