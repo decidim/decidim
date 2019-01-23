@@ -25,7 +25,8 @@ module Decidim
       def parse(document)
         renderer = self
         extensions = {
-          lax_spacing: true,
+          # no lax_spacing so that it is easier to group paragraphs in articles.
+          lax_spacing: false,
           fenced_code_blocks: true
         }
         parser = ::Redcarpet::Markdown.new(renderer, extensions)
