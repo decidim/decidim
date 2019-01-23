@@ -74,7 +74,7 @@ describe "Admin manages particpatory texts", type: :system do
       "Following up accounted results",
       "9", "10", "11", "12",
       "Summary",
-      "13",
+      "13"
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
