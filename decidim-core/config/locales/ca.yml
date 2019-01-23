@@ -131,7 +131,7 @@ ca:
         verify_via_csv: "%{user_name} va verificar el %{resource_name} grup d'usuaris a través d'un fitxer CSV"
     amendments:
       accepted:
-        error: S'ha produït un error en acceptar l'esmena, torneu-ho a provar més tard.
+        error: S'ha produït un error en acceptar l'esmena, torna-ho a provar més tard.
         success: Aquesta esmena ha estat acceptada amb èxit.
       amendable:
         amended_by: Esmenat per
