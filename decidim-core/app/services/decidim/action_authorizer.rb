@@ -36,12 +36,6 @@ module Decidim
 
     attr_reader :user, :component, :resource, :action
 
-    def get_authorization(handler_name)
-      return nil unless user && handler_name
-
-      Verifications::Authorizations.new(organization: user.organization, user: user, name: handler_name).first
-    end
-
     def authorization_handlers
       if permission&.has_key?("authorization_handler_name")
         opts = permission["options"]
