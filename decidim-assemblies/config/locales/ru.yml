@@ -258,6 +258,8 @@ ru:
         city_council: Городской Совет
         others: Другие
         public: Граждане
+      filter:
+        all: Все
       index:
         title: Собрания
       pages:
