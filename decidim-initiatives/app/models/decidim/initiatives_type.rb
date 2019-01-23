@@ -38,5 +38,13 @@ module Decidim
     def allow_resource_permissions?
       true
     end
+
+    def mounted_admin_engine
+      "decidim_admin_initiatives"
+    end
+
+    def mounted_params
+      { host: organization.host }
+    end
   end
 end

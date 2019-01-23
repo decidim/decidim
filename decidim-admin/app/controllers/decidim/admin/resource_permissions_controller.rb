@@ -33,7 +33,7 @@ module Decidim
       private
 
       def return_path
-        send("#{resource_symbol.to_s.pluralize}_path")
+        ResourceLocatorPresenter.new(resource).admin_index
       end
 
       def resource_params
