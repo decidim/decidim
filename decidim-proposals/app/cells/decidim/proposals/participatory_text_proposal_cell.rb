@@ -30,7 +30,7 @@ module Decidim
 
       def body
         return unless model.participatory_text_level == "article"
-        present(model).body
+        simple_format present(model).body(links: true)
       end
 
       def current_user
