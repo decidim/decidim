@@ -303,6 +303,8 @@ en:
       initiative_votes:
         create:
           error: There's been errors when signing the initiative.
+          invalid: The data provided to sign the initiative is not valid
+          success: Congratulations! The initiative has been signed correctly
       initiatives:
         author:
           deleted: Deleted

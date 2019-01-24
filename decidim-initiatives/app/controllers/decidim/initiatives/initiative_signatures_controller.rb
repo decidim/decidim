@@ -52,7 +52,7 @@ module Decidim
 
           on(:invalid) do
             render json: {
-              error: I18n.t("initiative_votes.create.error", scope: "decidim.initiatives")
+              error: I18n.t("create.error", scope: "decidim.initiatives.initiative_votes")
             }, status: 422
           end
         end
@@ -82,11 +82,13 @@ module Decidim
         VoteInitiative.call(@vote_form, current_user) do
           on(:ok) do
             session[:initiative_vote_form] = {}
+            flash[:notice] = I18n.t("create.success", scope: "decidim.initiatives.initiative_votes")
             redirect_to initiative_path(current_initiative)
           end
 
           on(:invalid) do |vote|
             logger.fatal "Failed creating signature: #{vote.errors.full_messages.join(", ")}" if vote
+            flash[:alert] = I18n.t("create.invalid", scope: "decidim.initiatives.initiative_votes")
             redirect_to wizard_path(steps.last)
           end
         end
