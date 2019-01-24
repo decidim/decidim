@@ -36,7 +36,7 @@ module Decidim
             manifest.participatory_spaces.call(@organization).public_spaces
           end
           components = Decidim::Component.where(participatory_space: spaces).published
-          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn
+          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn.not_hidden
           @query = Decidim::Proposals::ProposalVote.joins(proposal: :component)
                                                    .left_outer_joins(proposal: :category)
                                                    .where(proposal: proposals)
