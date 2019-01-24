@@ -7,15 +7,15 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
   let(:day) { Time.zone.yesterday }
-  let!(:proposals) { create_list(:proposal, 5, created_at: day, component: component) }
+  let!(:proposals) { create_list(:proposal, 3, published_at: day, component: component) }
 
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
 
       expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([5])
-      expect(registry.collect(&:quantity)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([3])
+      expect(registry.collect(&:quantity)).to eq([3])
     end
 
     it "does not create any record if there is no data" do
@@ -30,8 +30,8 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([5])
-      expect(registry.collect(&:quantity)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([3])
+      expect(registry.collect(&:quantity)).to eq([3])
     end
 
     context "when calculating the metrics" do
@@ -45,9 +45,8 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
 
         registry = generate_metric_registry
 
-        expect(registry.collect(&:day)).to eq([day])
-        expect(registry.collect(&:cumulative)).to eq([2])
-        expect(registry.collect(&:quantity)).to eq([2])
+        expect(registry.collect(&:cumulative)).to eq([])
+        expect(registry.collect(&:quantity)).to eq([])
       end
     end
   end
