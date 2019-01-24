@@ -91,7 +91,7 @@ FactoryBot.define do
       {
         "from" => "test@example.org",
         "user_name" => "test",
-        "password" => Decidim::AttributeEncryptor.encrypt("demo"),
+        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
         "port" => "25",
         "address" => "smtp.example.org"
       }
