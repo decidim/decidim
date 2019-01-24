@@ -46,9 +46,8 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
 
         registry = generate_metric_registry
 
-        expect(registry.collect(&:day)).to eq([day])
-        expect(registry.collect(&:cumulative)).to eq([0])
-        expect(registry.collect(&:quantity)).to eq([0])
+        expect(registry.collect(&:cumulative)).to eq([])
+        expect(registry.collect(&:quantity)).to eq([])
       end
     end
   end
