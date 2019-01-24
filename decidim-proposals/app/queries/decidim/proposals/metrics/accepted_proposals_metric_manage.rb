@@ -19,7 +19,7 @@ module Decidim
           components = Decidim::Component.where(participatory_space: spaces).published
           @query = Decidim::Proposals::Proposal.where(component: components).joins(:component)
                                                .left_outer_joins(:category)
-          @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_time).accepted
+          @query = @query.where("decidim_proposals_proposals.created_at <= ?", end_time).accepted
           @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id)
           @query
         end
