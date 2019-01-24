@@ -13,8 +13,8 @@ module Decidim
     private
 
     def set_smtp
-      # byebug
       return if @organization.nil? || @organization.smtp_settings&.empty? || @organization.smtp_settings.nil?
+
       mail.from = @organization.smtp_settings["from"] if @organization
       mail.delivery_method.settings.merge!(
         address: @organization.smtp_settings["address"],
