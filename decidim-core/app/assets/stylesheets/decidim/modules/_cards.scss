@@ -77,11 +77,6 @@ $datetime-bg: $primary;
   @extend .heading5;
 }
 
-.card__title--strong{
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 .card__header{
   margin-bottom: $card-padding / 2;
 
