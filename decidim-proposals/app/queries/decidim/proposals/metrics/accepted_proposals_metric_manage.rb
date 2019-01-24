@@ -23,6 +23,10 @@ module Decidim
           @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id)
           @query
         end
+
+        def quantity
+          @quantity ||= query.where("decidim_proposals_proposals.created_at >= ?", start_time).count
+        end
       end
     end
   end
