@@ -20,7 +20,7 @@ module Decidim
         address: @organization.smtp_settings["address"],
         port: @organization.smtp_settings["port"],
         user_name: @organization.smtp_settings["user_name"],
-        password: Decidim::AttributeEncryptor.decrypt(@organization.smtp_settings["password"])
+        password: Decidim::AttributeEncryptor.decrypt(@organization.smtp_settings["encrypted_password"])
       ) { |_k, o, v| v.nil? ? o : v }
     end
   end

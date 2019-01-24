@@ -26,7 +26,7 @@ if !Rails.env.production? || ENV["SEED"]
     smtp_settings: {
       from: Faker::Internet.email,
       user_name: Faker::Twitter.unique.screen_name,
-      password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
       address: ENV["DECIDIM_HOST"] || "localhost",
       port: ENV["DECIDIM_SMTP_PORT"] || "25"
     },
