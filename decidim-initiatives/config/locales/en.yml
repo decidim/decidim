@@ -33,6 +33,7 @@ en:
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
+        validate_sms_code_on_votes: Add SMS code validation step to signature process
       initiatives_vote:
         name_and_surname: Name and surname
         document_number: Document number
