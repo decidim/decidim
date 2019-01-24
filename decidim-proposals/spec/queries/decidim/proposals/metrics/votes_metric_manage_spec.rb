@@ -35,7 +35,7 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
       expect(registry.collect(&:quantity)).to eq([5])
     end
 
-    context "when calculing the metrics" do
+    context "when calculating the metrics" do
       let(:withdrawn_proposal) { create(:proposal, state: "withdrawn", component: component) }
       let!(:invalid_votes) { create_list(:proposal_vote, 5, proposal: withdrawn_proposal, created_at: day) }
       let(:moderation) { create(:moderation, reportable: proposal, report_count: 1, participatory_space: participatory_space) }

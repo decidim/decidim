@@ -34,7 +34,7 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
       expect(registry.collect(&:quantity)).to eq([5])
     end
 
-    context "when calculing the metrics" do
+    context "when calculating the metrics" do
       let(:moderation) { create(:moderation, reportable: proposals[0], report_count: 1, participatory_space: participatory_space) }
       let!(:report) { create(:report, moderation: moderation) }
 
