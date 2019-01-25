@@ -101,8 +101,8 @@ module Decidim
 
       initializer "decidim_proposals.mentions_listener" do
         Decidim::Comments::CommentCreation.subscribe do |data|
-          metadata = data[:metadatas][:proposals]
-          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], metadata)
+          proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
+          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], metadata)	          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
         end
       end
 
