@@ -22,7 +22,7 @@ module Decidim
       # Matches a URL
       URL_REGEX_SCHEME = '(?:http(s)?:\/\/)'
       URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+\/(Proposal|proposals)\/'
-      URL_REGEX_END_CHAR = '[\w]'
+      URL_REGEX_END_CHAR = '[0-9]+'
       URL_REGEX = /#{URL_REGEX_SCHEME}#{URL_REGEX_CONTENT}#{URL_REGEX_END_CHAR}/i
       # Matches a mentioned Proposal ID (~(d)+ expression)
       ID_REGEX = /~(\d+)/
@@ -74,6 +74,7 @@ module Decidim
       def proposal_from_url_match(match)
         uri = URI.parse(match)
         return if uri.path.blank?
+
         proposal_id = uri.path.split("/").last
         find_proposal_by_id(proposal_id)
       rescue URI::InvalidURIError
