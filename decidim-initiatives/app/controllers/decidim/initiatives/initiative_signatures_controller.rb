@@ -11,13 +11,12 @@ module Decidim
       include Decidim::Initiatives::NeedsInitiative
       include Decidim::FormFactory
 
+      prepend_before_action :set_wizard_steps
       before_action :authenticate_user!
 
       helper InitiativeHelper
 
       helper_method :initiative_type, :extra_data_legal_information
-
-      steps :fill_personal_data
 
       # GET /initiatives/:initiative_id/initiative_signatures/:step
       def show
@@ -72,11 +71,53 @@ module Decidim
         render_wizard
       end
 
+      def sms_phone_number_step(parameters)
+        check_session_personal_data unless parameters.has_key? :initiatives_vote
+        clear_session_sms_code
+        build_vote_form(parameters)
+
+        @form = Decidim::Verifications::Sms::MobilePhoneForm.new
+        render_wizard
+      end
+
+      def sms_code_step(parameters)
+        check_session_personal_data
+        @phone_form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(parameters.merge(user: current_user))
+        @form = Decidim::Verifications::Sms::ConfirmationForm.new
+        render_wizard && return if session_sms_code.present?
+
+        ValidateMobilePhone.call(@phone_form, current_user) do
+          on(:ok) do |metadata|
+            store_session_sms_code(metadata)
+            render_wizard
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("sms_phone.invalid", scope: "decidim.initiatives.initiative_votes")
+            redirect_to wizard_path(:sms_phone_number)
+          end
+        end
+      end
+
       def wicked_finish_step(parameters)
         if parameters.has_key? :initiatives_vote
           build_vote_form(parameters)
         else
           check_session_personal_data
+        end
+
+        if sms_step?
+          @confirmation_code_form = Decidim::Verifications::Sms::ConfirmationForm.from_params(parameters)
+
+          ValidateSmsCode.call(@confirmation_code_form, session_sms_code) do
+            on(:ok) { clear_session_sms_code }
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
+              jump_to :sms_code
+              render_wizard && return
+            end
+          end
         end
 
         VoteInitiative.call(@vote_form, current_user) do
@@ -125,6 +166,26 @@ module Decidim
 
         flash[:alert] = I18n.t("create.error", scope: "decidim.initiatives.initiative_votes")
         jump_to(:fill_personal_data)
+      end
+
+      def store_session_sms_code(metadata)
+        session[:initiative_sms_code] = metadata
+      end
+
+      def session_sms_code
+        session[:initiative_sms_code]
+      end
+
+      def clear_session_sms_code
+        session[:initiative_sms_code] = {}
+      end
+
+      def sms_step?
+        current_initiative.validate_sms_code_on_votes?
+      end
+
+      def set_wizard_steps
+        self.steps = sms_step? ? [:fill_personal_data, :sms_phone_number, :sms_code] : [:fill_personal_data]
       end
     end
   end
