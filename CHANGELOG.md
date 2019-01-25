@@ -69,6 +69,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
+- **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 
