@@ -17,7 +17,6 @@ module Decidim
       attribute :initiative_id, Integer
       attribute :author_id, Integer
       attribute :group_id, Integer
-      attribute :type_id, Integer
 
       validates :name_and_surname, :document_number, :date_of_birth, :postal_code, presence: true, if: :required_personal_data?
       validates :encrypted_metadata, presence: true, if: :required_personal_data?
