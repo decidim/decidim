@@ -329,6 +329,7 @@ sv:
         vote_cabin:
           already_voted: Redan undertecknad
           supports_required: "%{total_supports} signaturer krävs"
+          verification_required: Verifiera din identitet för att underteckna initiativet
           vote: Signera
           votes_blocked: Signering inaktiverad
         votes_count:
@@ -361,6 +362,11 @@ sv:
       unavailable_scope: Otillgänglig räckvidd
     menu:
       initiatives: initiativ
+    resources:
+      initiatives_type:
+        actions:
+          vote: Rösta
+          title: Åtgärder
   layouts:
     decidim:
       admin:
