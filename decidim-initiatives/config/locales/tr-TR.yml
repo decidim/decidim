@@ -27,6 +27,7 @@ tr:
       initiatives_type:
         banner_image: Banner resmi
         description: Açıklama
+        minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
         title: Başlık
       organization_data:
@@ -242,7 +243,7 @@ tr:
           more_information: "(Daha fazla bilgi)"
         promotal_committee:
           back: Geri
-          individual_help_text: Vatandaş girişimleri, en az üç kişiden oluşan bir Teşvik Komisyonu (vekilleri) gerektirir. Aşağıdaki bağlantıyı, bu girişimin parçası olan diğer kişilerle paylaşmalısınız. Kişileriniz bu bağlantıyı aldığında, belirtilen adımları izlemelidirler.
+          individual_help_text: Bu tür bir vatandaş girişimi, en az %{committee_size} kişiden (avukatlar) oluşan bir Tanıtım Komisyonu gerektirir. Aşağıdaki bağlantıyı bu girişimin bir parçası olan diğer kişilerle paylaşmanız gerekir. Kişileriniz bu bağlantıyı aldıklarında, belirtilen adımları izlemeleri gerekecektir.
           more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
