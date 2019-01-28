@@ -8,6 +8,7 @@ module Decidim
     class MeetingCell < Decidim::ViewModel
       include MeetingCellsHelper
       include Cell::ViewModel::Partial
+      include Decidim::Meetings::Engine.routes.url_helpers
 
       def show
         cell card_size, model, options

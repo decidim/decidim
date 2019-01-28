@@ -7,12 +7,12 @@
         <% highlighted_processes.each do |process| %>
           <div class="column">
             <article class="card card--process card--mini">
-              <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
+              <%= link_to participatory_process_path(process), class: "card__link" do %>
                 <div class="card__image-top"
                   style="background-image:url(<%= process.hero_image.url %>)"></div>
               <% end %>
               <div class="card__content">
-                <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
+                <%= link_to participatory_process_path(process), class: "card__link" do %>
                   <h4 class="card__title"><%= translated_attribute process.title %></h4>
                 <% end %>
                 <% if process.active_step %>

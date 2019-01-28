@@ -5,7 +5,8 @@ module Decidim
     class SubHeroCell < Decidim::ViewModel
       include Decidim::IconHelper
       include Decidim::SanitizeHelper
-
+      include Decidim::Core::Engine.routes.url_helpers
+      
       def show
         return if translated_attribute(current_organization.description).blank?
         render

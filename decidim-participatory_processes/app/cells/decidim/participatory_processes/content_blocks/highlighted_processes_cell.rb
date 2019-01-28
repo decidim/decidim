@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
+        include Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
 
         delegate :current_organization, to: :controller
         delegate :current_user, to: :controller

@@ -5,6 +5,7 @@ module Decidim
     # This cell renders the Medium (:m) assembyl card
     # for an given instance of an Assembly
     class AssemblyMCell < Decidim::CardMCell
+      include Decidim::Assemblies::Engine.routes.url_helpers
       include Decidim::ViewHooksHelper
 
       # Needed for the view hooks
@@ -19,7 +20,7 @@ module Decidim
       end
 
       def resource_path
-        Decidim::Assemblies::Engine.routes.url_helpers.assembly_path(model)
+        assembly_path(model)
       end
 
       def resource_image_path

@@ -5,6 +5,7 @@ module Decidim
     # This cell renders the Medium (:m) meeting card
     # for an given instance of a Meeting
     class MeetingMCell < Decidim::CardMCell
+      include Decidim::Meetings::Engine.routes.url_helpers
       include MeetingCellsHelper
 
       def date

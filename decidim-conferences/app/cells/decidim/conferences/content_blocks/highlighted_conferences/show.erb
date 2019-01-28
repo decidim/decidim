@@ -7,12 +7,12 @@
         <% highlighted_conferences.each do |conference| %>
           <div class="column">
             <article class="card card--conference card--mini">
-              <%= link_to decidim_conferences.conference_path(conference), class: "card__link" do %>
+              <%= link_to conference_path(conference), class: "card__link" do %>
                 <div class="card__image-top"
                   style="background-image:url(<%= conference.hero_image.url %>)"></div>
               <% end %>
               <div class="card__content">
-                <%= link_to decidim_conferences.conference_path(conference), class: "card__link" do %>
+                <%= link_to conference_path(conference), class: "card__link" do %>
                   <h4 class="card__title"><%= translated_attribute conference.title %></h4>
                 <% end %>
               </div>
@@ -25,7 +25,7 @@
   <div class="row" id="see-all-conferences">
     <div class="columns small-centered small-12
       smallmedium-8 medium-6 large-4">
-      <%= link_to t("see_all_conferences", scope: i18n_scope), decidim_conferences.conferences_path, class: "button expanded hollow button--sc home-section__cta" %>
+      <%= link_to t("see_all_conferences", scope: i18n_scope), conferences_path, class: "button expanded hollow button--sc home-section__cta" %>
     </div>
   </div>
 </section>

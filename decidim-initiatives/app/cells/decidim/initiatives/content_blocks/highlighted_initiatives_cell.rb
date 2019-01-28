@@ -4,6 +4,8 @@ module Decidim
   module Initiatives
     module ContentBlocks
       class HighlightedInitiativesCell < Decidim::ViewModel
+        include Decidim::Initiatives::Engine.routes.url_helpers
+        
         delegate :current_organization, to: :controller
 
         def show
@@ -23,10 +25,6 @@ module Decidim
 
         def i18n_scope
           "decidim.initiatives.pages.home.highlighted_initiatives"
-        end
-
-        def decidim_initiatives
-          Decidim::Initiatives::Engine.routes.url_helpers
         end
       end
     end

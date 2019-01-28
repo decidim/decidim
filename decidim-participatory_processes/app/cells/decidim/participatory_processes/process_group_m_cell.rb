@@ -5,6 +5,8 @@ module Decidim
     # This cell renders the Medium (:m) process group card
     # for an given instance of a ProcessGroup
     class ProcessGroupMCell < Decidim::CardMCell
+      include Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
+
       private
 
       def has_image?
@@ -20,7 +22,7 @@ module Decidim
       end
 
       def resource_path
-        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_process_group_path(model)
+        participatory_process_group_path(model)
       end
 
       def step_title

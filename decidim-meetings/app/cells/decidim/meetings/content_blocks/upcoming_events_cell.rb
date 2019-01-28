@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       class UpcomingEventsCell < Decidim::ViewModel
         include Decidim::CardHelper
+        include Decidim::Meetings::DirectoryEngine.routes.url_helpers
 
         delegate :current_organization, to: :controller
 
@@ -27,7 +28,7 @@ module Decidim
         end
 
         def meetings_directory_path
-          Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
+          meetings_path
         end
 
         private

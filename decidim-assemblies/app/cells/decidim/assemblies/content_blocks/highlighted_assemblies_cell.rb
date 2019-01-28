@@ -4,6 +4,8 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class HighlightedAssembliesCell < Decidim::ViewModel
+        include Decidim::Assemblies::Engine.routes.url_helpers
+
         delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
 
@@ -24,10 +26,6 @@ module Decidim
 
         def i18n_scope
           "decidim.assemblies.pages.home.highlighted_assemblies"
-        end
-
-        def decidim_assemblies
-          Decidim::Assemblies::Engine.routes.url_helpers
         end
       end
     end

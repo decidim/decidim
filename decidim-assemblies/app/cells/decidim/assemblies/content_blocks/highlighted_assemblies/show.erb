@@ -7,12 +7,12 @@
         <% highlighted_assemblies.each do |assembly| %>
           <div class="column">
             <article class="card card--assembly card--mini">
-              <%= link_to decidim_assemblies.assembly_path(assembly), class: "card__link" do %>
+              <%= link_to assembly_path(assembly), class: "card__link" do %>
                 <div class="card__image-top"
                   style="background-image:url(<%= assembly.hero_image.url %>)"></div>
               <% end %>
               <div class="card__content">
-                <%= link_to decidim_assemblies.assembly_path(assembly), class: "card__link" do %>
+                <%= link_to assembly_path(assembly), class: "card__link" do %>
                   <h4 class="card__title"><%= translated_attribute assembly.title %></h4>
                 <% end %>
               </div>
@@ -25,7 +25,7 @@
   <div class="row" id="see-all-assemblies">
     <div class="columns small-centered small-12
       smallmedium-8 medium-6 large-4">
-      <%= link_to t("see_all_assemblies", scope: i18n_scope), decidim_assemblies.assemblies_path, class: "button expanded hollow button--sc home-section__cta" %>
+      <%= link_to t("see_all_assemblies", scope: i18n_scope), assemblies_path, class: "button expanded hollow button--sc home-section__cta" %>
     </div>
   </div>
 </section>

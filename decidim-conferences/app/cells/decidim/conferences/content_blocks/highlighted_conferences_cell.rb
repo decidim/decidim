@@ -4,6 +4,8 @@ module Decidim
   module Conferences
     module ContentBlocks
       class HighlightedConferencesCell < Decidim::ViewModel
+        include Decidim::Conferences::Engine.routes.url_helpers
+
         delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
 
@@ -17,10 +19,6 @@ module Decidim
 
         def i18n_scope
           "decidim.conferences.pages.home.highlighted_conferences"
-        end
-
-        def decidim_conferences
-          Decidim::Conferences::Engine.routes.url_helpers
         end
       end
     end
