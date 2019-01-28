@@ -27,6 +27,7 @@ id:
       initiatives_type:
         banner_image: Gambar spanduk
         description: Deskripsi
+        minimum_committee_members: Minimal anggota komite
         online_signature_enabled: Tanda tangan online diaktifkan
         title: Judul
       organization_data:
@@ -239,7 +240,7 @@ id:
           more_information: "(Informasi lebih lanjut)"
         promotal_committee:
           back: Kembali
-          individual_help_text: Inisiatif warga membutuhkan Komisi Promosi yang terdiri dari setidaknya tiga orang (pengawas). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini mereka harus mengikuti langkah-langkah yang ditunjukkan.
+          individual_help_text: Inisiatif warga negara semacam ini membutuhkan Komisi Promosi yang terdiri dari setidaknya %{committee_size} orang (pengacara). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini, mereka harus mengikuti langkah-langkah yang ditunjukkan.
           more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
