@@ -220,10 +220,6 @@ ca:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
       component_permissions:
-        edit:
-          everyone: Tothom
-          submit: Desar permisos
-          title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
       components:
@@ -536,6 +532,12 @@ ca:
         new:
           create: Crear
           title: Nou usuari privat de l'espai participatiu.
+      resource_permissions:
+        edit:
+          submit: Presentar
+          title: Edita els permisos
+        update:
+          success: S'han actualitzat els permisos amb èxit.
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
