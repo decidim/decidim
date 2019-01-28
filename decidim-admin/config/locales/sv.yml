@@ -220,10 +220,6 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av den här kategorin.
           success: Kategori uppdaterad framgångsrikt.
       component_permissions:
-        edit:
-          everyone: Alla
-          submit: Spara behörigheter
-          title: Redigera behörigheter
         update:
           success: Tillstånd uppdaterade framgångsrikt.
       components:
@@ -536,6 +532,9 @@ sv:
         new:
           create: Skapa
           title: Ny deltagande utrymme privat användare.
+      resource_permissions:
+        edit:
+          title: Redigera behörigheter
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.
