@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals", type: :system do
+describe "Participatory texts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
