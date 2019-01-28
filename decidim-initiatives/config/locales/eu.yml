@@ -329,6 +329,7 @@ eu:
         vote_cabin:
           already_voted: Dagoeneko sinatuta
           supports_required: "%{total_supports} sinadura beharrezkoa da"
+          verification_required: Egiaztatu zure identitatea ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
@@ -361,6 +362,11 @@ eu:
       unavailable_scope: Ez dago erabilgarri
     menu:
       initiatives: Ekimenak
+    resources:
+      initiatives_type:
+        actions:
+          vote: Bozkatu
+          title: Ekintzak
   layouts:
     decidim:
       admin:
