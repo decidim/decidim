@@ -329,6 +329,7 @@ pt:
         vote_cabin:
           already_voted: Já assinado
           supports_required: "%{total_supports} assinaturas exigidas"
+          verification_required: Verifique sua identidade para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:
@@ -361,6 +362,11 @@ pt:
       unavailable_scope: Escopo não disponível
     menu:
       initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          vote: Voto
+          title: Ações
   layouts:
     decidim:
       admin:
