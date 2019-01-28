@@ -27,6 +27,7 @@ pt-BR:
       initiatives_type:
         banner_image: Imagem de banner
         description: Descrição
+        minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
         title: Título
       organization_data:
@@ -242,7 +243,7 @@ pt-BR:
           more_information: "(Mais Informações)"
         promotal_committee:
           back: Costas
-          individual_help_text: Iniciativas cidadãs requerem uma Comissão Promotora composta por pelo menos três pessoas (atestadores). Você deve compartilhar o seguinte link com as outras pessoas que fazem parte dessa iniciativa. Quando seus contatos receberem este link, eles deverão seguir as etapas indicadas.
+          individual_help_text: Este tipo de iniciativa cidadã requer uma Comissão Promotora composta por pelo menos %{committee_size} pessoas (atestadores). Você deve compartilhar o seguinte link com as outras pessoas que fazem parte dessa iniciativa. Quando seus contatos receberem este link, eles deverão seguir as etapas indicadas.
           more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
