@@ -220,10 +220,6 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze categorie.
           success: Categorie is succesvol bijgewerkt.
       component_permissions:
-        edit:
-          everyone: Iedereen
-          submit: Bewaar de toelatingen
-          title: Bewerk toelatingen
         update:
           success: Toelatingen succesvol bijgewerkt.
       components:
@@ -536,6 +532,12 @@ nl:
         new:
           create: creëren
           title: Nieuwe privégebruiker van de burgerinspraak.
+      resource_permissions:
+        edit:
+          submit: voorleggen
+          title: Bewerk toelatingen
+        update:
+          success: Machtigingen succesvol bijgewerkt.
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
