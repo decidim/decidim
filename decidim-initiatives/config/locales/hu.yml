@@ -329,6 +329,7 @@ hu:
         vote_cabin:
           already_voted: Már aláírtad
           supports_required: "%{total_supports} aláírás szükséges"
+          verification_required: Ellenőrizze személyazonosságát, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
@@ -361,6 +362,11 @@ hu:
       unavailable_scope: Nem áll rendelkezésre
     menu:
       initiatives: Kezdeményezések
+    resources:
+      initiatives_type:
+        actions:
+          vote: Szavazás
+          title: Hozzászólások
   layouts:
     decidim:
       admin:
