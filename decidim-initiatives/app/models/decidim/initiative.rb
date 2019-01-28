@@ -284,6 +284,14 @@ module Decidim
         published?
     end
 
+    def minimum_committee_members
+      type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
+    end
+
+    def enough_committee_members?
+      committee_members.approved.count >= minimum_committee_members
+    end
+
     private
 
     def signature_type_allowed

@@ -60,6 +60,12 @@ module Decidim
         text
       end
 
+      def link(link, title, content)
+        attrs = %(href="#{link}")
+        attrs += %( title="#{title}") if title.present?
+        "<a #{attrs}>#{content}</a>"
+      end
+
       # ignore images
       def image(link, title, alt_text)
         attrs = %(src="#{link}")
