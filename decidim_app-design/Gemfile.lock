@@ -176,7 +176,7 @@ PATH
       cells-rails (~> 0.0.9)
       decidim-comments (= 0.16.0)
       decidim-core (= 0.16.0)
-      doc2text (>= 0.3.3)
+      doc2text (>= 0.4.0)
       kaminari (~> 1.0)
       ransack (~> 2.0)
       redcarpet (>= 3.4)
