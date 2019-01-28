@@ -74,6 +74,9 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Added**:
 
+- **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for images in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-assemblies**: Add feature filter assemblies by type [\#4659](https://github.com/decidim/decidim/pull/4659/)
 - **decidim-meetings**: Add notification to conferences and meetings registrations [\#4636](https://github.com/decidim/decidim/pull/4636/)
 - **decidim-proposals**: Add amend button and amendments counter to participatory text proposals [\#4598](https://github.com/decidim/decidim/pull/4598/)
@@ -121,6 +124,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Changed**:
 
+- **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-core**: Show hashtags with original case [\#4554](https://github.com/decidim/decidim/pull/4554)
 - **decidim-conferences**: Remove right sidebar completely from the frontend [\#4480](https://github.com/decidim/decidim/pull/4480)
 - **decidim-core**: Allow to configure OmniAuth provider icons [\#4440](https://github.com/decidim/decidim/pull/4440)
@@ -146,6 +150,8 @@ In order to generate Open Data exports you should add this to your crontab or re
 
 **Fixed**:
 
+- **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-core**: Place `CurrentOrganization` middleware before `WardenManager`. [\#4721](https://github.com/decidim/decidim/pull/4721)
 - **decidim-meetings**: Fix meetings form when only one locale is available [\#4623](https://github.com/decidim/decidim/pull/4623)
 - **decidim-participatory_processes**: Fix admin cannot access public view of private processes by default [\#4591](https://github.com/decidim/decidim/pull/4591)
