@@ -9,6 +9,16 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:initiative) { build :initiative }
 
+    let(:initiatives_type_minimum_committee_members) { 2 }
+    let(:initiatives_type) do
+      create(
+        :initiatives_type,
+        organization: organization,
+        minimum_committee_members: initiatives_type_minimum_committee_members
+      )
+    end
+    let(:scoped_type) { create(:initiatives_type_scope, type: initiatives_type) }
+
     include_examples "has reference"
 
     context "when created initiative" do
@@ -204,6 +214,50 @@ module Decidim
           initiative.update(offline_votes: offline_votes, initiative_votes_count: online_votes)
           expect(initiative.percentage).to eq(100)
         end
+      end
+    end
+
+    describe "#minimum_committee_members" do
+      subject { initiative.minimum_committee_members }
+
+      let(:committee_members_fallback_setting) { 1 }
+      let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+
+      before do
+        allow(Decidim::Initiatives).to(
+          receive(:minimum_committee_members).and_return(committee_members_fallback_setting)
+        )
+      end
+
+      context "when setting defined in type" do
+        it { is_expected.to eq initiatives_type_minimum_committee_members }
+      end
+
+      context "when setting not set" do
+        let(:initiatives_type_minimum_committee_members) { nil }
+
+        it { is_expected.to eq committee_members_fallback_setting }
+      end
+    end
+
+    describe "#enough_committee_members?" do
+      subject { initiative.enough_committee_members? }
+
+      let(:initiatives_type_minimum_committee_members) { 2 }
+      let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+
+      before { initiative.committee_members.destroy_all }
+
+      context "when enough members" do
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative: initiative) }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when not enough members" do
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative: initiative) }
+
+        it { is_expected.to eq false }
       end
     end
   end

@@ -39,6 +39,8 @@ module Decidim
         end
 
         def parse_participatory_text_doc(form)
+          return if form.document.blank?
+
           document = form.document_text
           document = Decidim::IoEncoder.to_standard_encoding(document)
           markdown = DocToMarkdown.new(document, form.document_type).to_md

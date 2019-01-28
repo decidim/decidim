@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals", type: :system do
+describe "Participatory texts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -15,6 +15,8 @@ describe "Proposals", type: :system do
     expect(prop_block).to have_link(proposal.emendations.count) if component.settings.amendments_enabled
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments.count) if component.settings.comments_enabled
+    expect(prop_block).to have_content(proposal.body) if proposal.participatory_text_level == "article"
+    expect(prop_block).not_to have_content(proposal.body) if proposal.participatory_text_level != "article"
   end
 
   shared_examples_for "lists all the proposals ordered" do
@@ -26,6 +28,26 @@ describe "Proposals", type: :system do
       should_have_proposal("#proposals div.hover-section:first-child", proposals.first)
       should_have_proposal("#proposals div.hover-section:nth-child(2)", proposals[1])
       should_have_proposal("#proposals div.hover-section:last-child", proposals.last)
+    end
+
+    context " when participatory text level is not article" do
+      it "not renders the participatory text body" do
+        proposal_section = proposals.first
+        proposal_section.participatory_text_level = "section"
+        proposal_section.save!
+        visit_component
+        should_have_proposal("#proposals div.hover-section:first-child", proposal_section)
+      end
+    end
+
+    context "when participatory text level is article" do
+      it "renders the proposal body" do
+        proposal_article = proposals.last
+        proposal_article.participatory_text_level = "article"
+        proposal_article.save!
+        visit_component
+        should_have_proposal("#proposals div.hover-section:last-child", proposal_article)
+      end
     end
   end
 
