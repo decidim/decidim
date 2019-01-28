@@ -329,6 +329,7 @@ es-PY:
         vote_cabin:
           already_voted: Ha sido firmado
           supports_required: "Se requieren %{total_supports} firmas"
+          verification_required: Verifica tu identidad para firmar la iniciativa.
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
@@ -361,6 +362,11 @@ es-PY:
       unavailable_scope: Alcance no disponible
     menu:
       initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          vote: Votar
+          title: Comportamiento
   layouts:
     decidim:
       admin:
