@@ -323,6 +323,7 @@ id:
         vote_cabin:
           already_voted: Sudah ditandatangani
           supports_required: "%{total_supports} tanda tangan diperlukan"
+          verification_required: Verifikasi identitas Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:
@@ -354,6 +355,11 @@ id:
       unavailable_scope: Ruang lingkup tidak tersedia
     menu:
       initiatives: Inisiatif
+    resources:
+      initiatives_type:
+        actions:
+          vote: Memilih
+          title: Tindakan
   layouts:
     decidim:
       admin:
