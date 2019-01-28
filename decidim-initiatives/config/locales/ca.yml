@@ -27,6 +27,7 @@ ca:
       initiatives_type:
         banner_image: Imatge del bàner
         description: Descripció
+        minimum_committee_members: Mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura en línia
         title: Títol
       organization_data:
@@ -242,7 +243,7 @@ ca:
           more_information: "(Més informació)"
         promotal_committee:
           back: Enrere
-          individual_help_text: Les iniciatives ciutadanes requereixen una Comissió Promotora composta per almenys tres persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els contactes rebin aquest enllaç, hauran de seguir els passos indicats.
+          individual_help_text: Aquest tipus d'iniciativa ciutadana requereix una Comissió de Promoció que consta d'almenys %{committee_size} persones (testimonis). Heu de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els contactes rebin aquest enllaç hauran de seguir els passos indicats.
           more_information: "(Més informació)"
         select_initiative_type:
           back: Enrere
