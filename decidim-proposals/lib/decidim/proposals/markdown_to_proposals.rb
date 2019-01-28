@@ -66,7 +66,6 @@ module Decidim
         "<a #{attrs}>#{content}</a>"
       end
 
-      # ignore images
       def image(link, title, alt_text)
         attrs = %(src="#{link}")
         attrs += %( alt="#{alt_text}") if alt_text.present?
