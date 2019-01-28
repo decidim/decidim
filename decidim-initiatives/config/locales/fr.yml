@@ -27,6 +27,7 @@ fr:
       initiatives_type:
         banner_image: Image d'en-tête
         description: Description
+        minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
         title: Titre
       organization_data:
@@ -242,7 +243,7 @@ fr:
           more_information: "(Plus d'informations)"
         promotal_committee:
           back: Retour
-          individual_help_text: Les initiatives nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          individual_help_text: Ce type d’initiative citoyenne nécessite une Commission de promotion composée d’au moins %{committee_size} personnes. Vous devez partager le lien suivant avec les autres personnes participant à cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
