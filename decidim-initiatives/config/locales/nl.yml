@@ -329,6 +329,7 @@ nl:
         vote_cabin:
           already_voted: Al getekend
           supports_required: "%{total_supports} handtekeningen vereist"
+          verification_required: Verifieer uw identiteit om het initiatief te ondertekenen
           vote: Teken
           votes_blocked: Ondertekenen uitgeschakeld
         votes_count:
@@ -361,6 +362,11 @@ nl:
       unavailable_scope: Niet beschikbaar bereik
     menu:
       initiatives: initiatieven
+    resources:
+      initiatives_type:
+        actions:
+          vote: Stemmen
+          title: acties
   layouts:
     decidim:
       admin:
