@@ -1,4 +1,4 @@
-<% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? && allowed_to?(:vote, :initiative, initiative: initiative) %>
   <button id="select-identity-button"
           class="card__button button expanded button--sc">
     <%= t(".vote") %>
@@ -13,7 +13,8 @@
                locals: {
                    initiative: initiative,
                    vote_label: t(".vote"),
-                   unvote_label: t(".already_voted")
+                   unvote_label: t(".already_voted"),
+                   verification_label: t(".verification_required")
                } if Decidim::Initiatives.online_voting_allowed %>
 <% end %>
 

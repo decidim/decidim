@@ -6,7 +6,8 @@ module Decidim::Admin
   describe UpdateComponentPermissions do
     subject(:command) { described_class.call(form, component, resource) }
 
-    let(:participatory_process) { create(:participatory_process, :with_steps) }
+    let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
+    let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
 
     let(:component) do
       create(
@@ -14,12 +15,18 @@ module Decidim::Admin
         participatory_space: participatory_process,
         permissions: {
           "create" => {
-            "authorization_handler_name" => "dummy_authorization_handler",
-            "options" => { "thelma" => "louise" }
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "thelma" => "louise" }
+              }
+            }
           },
           "vote" => {
-            "authorization_handler_name" => "dummy_authorization_handler",
-            "options" => { "thelma" => "louise" }
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "thelma" => "louise" }
+              }
+            }
           }
         }
       )
@@ -34,8 +41,11 @@ module Decidim::Admin
         valid?: valid,
         permissions: {
           "create" => double(
-            authorization_handler_name: "dummy",
-            options: { "perry" => "mason" }
+            authorization_handlers: {
+              dummy: { options: { "perry" => "mason" } }
+            },
+            authorization_handlers_names: ["dummy"],
+            authorization_handlers_options: { dummy: { "perry" => "mason" } }
           )
         }
       )
@@ -44,8 +54,11 @@ module Decidim::Admin
     let(:expected_permissions) do
       {
         "create" => {
-          "authorization_handler_name" => "dummy",
-          "options" => { "perry" => "mason" }
+          "authorization_handlers" => {
+            "dummy" => {
+              "options" => { "perry" => "mason" }
+            }
+          }
         }
       }
     end
@@ -80,8 +93,11 @@ module Decidim::Admin
       let(:changing_permissions) do
         {
           "create" => {
-            "authorization_handler_name" => "dummy",
-            "options" => { "perry" => "mason" }
+            "authorization_handlers" => {
+              "dummy" => {
+                "options" => { "perry" => "mason" }
+              }
+            }
           }
         }
       end

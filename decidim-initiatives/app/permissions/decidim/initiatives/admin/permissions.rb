@@ -82,7 +82,7 @@ module Decidim
         end
 
         def initiative_type_action?
-          return unless permission_action.subject == :initiative_type
+          return unless [:initiative_type, :initiatives_type].include? permission_action.subject
 
           initiative_type = context.fetch(:initiative_type, nil)
 
