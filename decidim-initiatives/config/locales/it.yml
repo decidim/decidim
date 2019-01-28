@@ -329,6 +329,7 @@ it:
         vote_cabin:
           already_voted: Già firmato
           supports_required: "%{total_supports} firme richieste"
+          verification_required: Verifica la tua identità per firmare l'iniziativa
           vote: Cartello
           votes_blocked: Firma disabilitata
         votes_count:
@@ -361,6 +362,11 @@ it:
       unavailable_scope: Ambito non disponibile
     menu:
       initiatives: iniziative
+    resources:
+      initiatives_type:
+        actions:
+          vote: Votazione
+          title: Azioni
   layouts:
     decidim:
       admin:
