@@ -27,6 +27,7 @@ it:
       initiatives_type:
         banner_image: Immagine banner
         description: Descrizione
+        minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
         title: Titolo
       organization_data:
@@ -242,7 +243,7 @@ it:
           more_information: "(Maggiori informazioni)"
         promotal_committee:
           back: Indietro
-          individual_help_text: Le iniziative dei cittadini richiedono una Commissione di promozione composta da almeno tre persone (gli attestati). È necessario condividere il seguente collegamento con le altre persone che fanno parte di questa iniziativa. Quando i tuoi contatti riceveranno questo link dovranno seguire i passaggi indicati.
+          individual_help_text: Questo tipo di iniziativa dei cittadini richiede una commissione di promozione composta da almeno %{committee_size} persone (gli attestati). È necessario condividere il seguente collegamento con le altre persone che fanno parte di questa iniziativa. Quando i tuoi contatti riceveranno questo link dovranno seguire i passaggi indicati.
           more_information: "(Maggiori informazioni)"
         select_initiative_type:
           back: Indietro
