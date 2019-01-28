@@ -329,6 +329,7 @@ fr:
         vote_cabin:
           already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"
+          verification_required: Vérifiez votre identité pour signer l'initiative
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
@@ -361,6 +362,11 @@ fr:
       unavailable_scope: Portée indisponible
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: actes
   layouts:
     decidim:
       admin:
