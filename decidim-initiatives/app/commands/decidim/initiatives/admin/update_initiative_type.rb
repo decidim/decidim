@@ -41,7 +41,8 @@ module Decidim
           result = {
             title: form.title,
             description: form.description,
-            online_signature_enabled: form.online_signature_enabled
+            online_signature_enabled: form.online_signature_enabled,
+            minimum_committee_members: form.minimum_committee_members
           }
 
           result[:banner_image] = form.banner_image unless form.banner_image.nil?

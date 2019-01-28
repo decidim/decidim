@@ -1,5 +1,7 @@
-var $grid = $('#assemblies-grid');
+var $grid = $('#parent-assemblies');
 var $assembliesCount = $('#assemblies-count');
+var $assembliesFilter = $('#assemblies-filter');
 
 $grid.find('.card-grid').html('<%= j(render(collection)).strip.html_safe %>');
 $assembliesCount.html('<%= j(render partial: "count").strip.html_safe %>');
+$assembliesFilter.html('<%= j(render partial: "decidim/assemblies/filter_by_type") %>');

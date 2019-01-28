@@ -97,6 +97,12 @@ module Decidim
 
       # Span-level calls #######################
 
+      def link(link, title, content)
+        attrs = %(href="#{link}")
+        attrs += %( title="#{title}") if title.present?
+        "<a #{attrs}>#{content}</a>"
+      end
+
       # ignore images
       def image(_link, _title, _alt_text)
         ""

@@ -8,20 +8,14 @@ module Decidim
         @filter = filter
       end
 
-      def filter
-        return "all" if @filter.nil?
-
-        @filter
-      end
-
       def assemblies
         Decidim::Assembly
       end
 
       def query
-        return assemblies.all if filter == "all"
+        return assemblies.all if @filter == "all"
 
-        assemblies.where(assembly_type: filter)
+        assemblies.where(assembly_type: @filter)
       end
     end
   end
