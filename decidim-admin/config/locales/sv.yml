@@ -534,7 +534,10 @@ sv:
           title: Ny deltagande utrymme privat användare.
       resource_permissions:
         edit:
+          submit: Lämna
           title: Redigera behörigheter
+        update:
+          success: Tillstånd uppdaterade framgångsrikt.
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.
