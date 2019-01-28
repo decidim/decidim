@@ -27,6 +27,7 @@ sv:
       initiatives_type:
         banner_image: Banner image
         description: Beskrivning
+        minimum_committee_members: Minsta utskottets medlemmar
         online_signature_enabled: Online signatur aktiverad
         title: Titel
       organization_data:
@@ -242,7 +243,7 @@ sv:
           more_information: "(Mer information)"
         promotal_committee:
           back: Tillbaka
-          individual_help_text: Medborgarinitiativ kräver en föreslagningskommission bestående av minst tre personer (vittnen). Du måste dela följande länk med andra personer som ingår i detta initiativ. När dina kontakter får den här länken måste de följa de angivna stegen.
+          individual_help_text: Denna typ av medborgarinitiativ kräver en uppdragskommission bestående av minst %{committee_size} personer (vittnen). Du måste dela följande länk med andra personer som ingår i detta initiativ. När dina kontakter får den här länken måste de följa de angivna stegen.
           more_information: "(Mer information)"
         select_initiative_type:
           back: Tillbaka
