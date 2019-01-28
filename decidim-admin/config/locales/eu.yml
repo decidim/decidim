@@ -220,10 +220,6 @@ eu:
           error: Errorea gertatu da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
       component_permissions:
-        edit:
-          everyone: Denek
-          submit: Gorde baimenak
-          title: Editatu baimenak
         update:
           success: Baimenak behar bezala eguneratu dira.
       components:
@@ -536,6 +532,12 @@ eu:
         new:
           create: Sortu
           title: Erabiltzaile pribatuaren parte hartzailea.
+      resource_permissions:
+        edit:
+          submit: Bidali
+          title: Editatu baimenak
+        update:
+          success: Baimenak behar bezala eguneratu dira.
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.
