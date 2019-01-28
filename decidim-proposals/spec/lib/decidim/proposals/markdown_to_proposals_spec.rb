@@ -79,8 +79,29 @@ module Decidim
 
           proposal = Proposal.last
           # proposal titled with its numbering (position)
-          # the paragraph ans proposal's body
           expect(proposal.title).to eq("1")
+          expect(proposal.body).to eq(paragraph)
+          expect(proposal.position).to eq(1)
+          expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
+          should_have_expected_states(proposal)
+        end
+      end
+
+      describe "links are parsed" do
+        let(:text_w_link) { %[This text links to [Meta Decidim](https://meta.decidim.org "Community's meeting point").] }
+
+        before do
+          items << "#{text_w_link}\n"
+        end
+
+        it "contains the link as an html anchor" do
+          should_parse_and_produce_proposals(1)
+
+          proposal = Proposal.last
+          # proposal titled with its numbering (position)
+          # the paragraph and proposal's body
+          expect(proposal.title).to eq("1")
+          paragraph = %q(This text links to <a href="https://meta.decidim.org" title="Community's meeting point">Meta Decidim</a>.)
           expect(proposal.body).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
