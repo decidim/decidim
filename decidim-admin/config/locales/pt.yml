@@ -220,10 +220,6 @@ pt:
           error: Ocorreu um erro ao atualizar esta categoria.
           success: Categoria atualizada com sucesso.
       component_permissions:
-        edit:
-          everyone: Todos
-          submit: Salvar permissões
-          title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
       components:
@@ -536,6 +532,12 @@ pt:
         new:
           create: Crio
           title: Novo usuário particular do Espaço Participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permissões
+        update:
+          success: Permissões atualizadas com sucesso.
       scope_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
