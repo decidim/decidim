@@ -220,10 +220,6 @@ tr:
           error: Bu kategori güncellenirken bir hata oluştu.
           success: Kategori başarıyla güncellendi.
       component_permissions:
-        edit:
-          everyone: Herkes
-          submit: İzinleri kaydet
-          title: İzinleri düzenle
         update:
           success: İzinler başarıyla güncellendi.
       components:
@@ -536,6 +532,12 @@ tr:
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+      resource_permissions:
+        edit:
+          submit: Gönder
+          title: İzinleri düzenle
+        update:
+          success: İzinler başarıyla güncellendi.
       scope_types:
         create:
           error: Yeni kapsam türü oluştururken bir hata oluştu.
