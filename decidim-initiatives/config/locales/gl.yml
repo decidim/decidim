@@ -27,6 +27,7 @@ gl:
       initiatives_type:
         banner_image: Imaxe do banner
         description: Descrición
+        minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
         title: Título
       organization_data:
@@ -242,7 +243,7 @@ gl:
           more_information: "(Máis información)"
         promotal_committee:
           back: De volta
-          individual_help_text: As iniciativas cidadáns requiren unha Comisión de Fomento composta por polo menos tres persoas (testemuñas). Debes compartir a seguinte ligazón coas outras persoas que forman parte desta iniciativa. Cando os teus contactos reciben esta ligazón terán que seguir os pasos indicados.
+          individual_help_text: Este tipo de iniciativa cidadá require unha Comisión de Fomento composta por polo menos %{committee_size} persoas (testemuñas). Debes compartir a seguinte ligazón coas outras persoas que forman parte desta iniciativa. Cando os teus contactos reciban esta ligazón terán que seguir os pasos indicados.
           more_information: "(Máis información)"
         select_initiative_type:
           back: De volta
