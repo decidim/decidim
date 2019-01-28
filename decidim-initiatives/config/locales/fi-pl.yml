@@ -329,6 +329,7 @@ fi-pl:
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
+          verification_required: Vahvista henkilöllisyytesi allekirjoittamalla aloite
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
@@ -361,6 +362,11 @@ fi-pl:
       unavailable_scope: Teema ei ole saatavilla
     menu:
       initiatives: Aloitteet
+    resources:
+      initiatives_type:
+        actions:
+          vote: Äänestys
+          title: Toimet
   layouts:
     decidim:
       admin:
