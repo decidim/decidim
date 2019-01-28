@@ -329,6 +329,7 @@ tr:
         vote_cabin:
           already_voted: Zaten imzalanmış
           supports_required: "%{total_supports} imza gerekli"
+          verification_required: Girişimi imzalamak için kimliğinizi doğrulayın
           vote: İşaret
           votes_blocked: İmzalama devre dışı
         votes_count:
@@ -361,6 +362,11 @@ tr:
       unavailable_scope: Kullanılamayan kapsam
     menu:
       initiatives: Girişimler
+    resources:
+      initiatives_type:
+        actions:
+          vote: Oy
+          title: Eylemler
   layouts:
     decidim:
       admin:
