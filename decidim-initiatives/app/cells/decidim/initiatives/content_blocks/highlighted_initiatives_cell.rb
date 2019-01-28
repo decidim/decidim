@@ -5,7 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedInitiativesCell < Decidim::ViewModel
         include Decidim::Initiatives::Engine.routes.url_helpers
-        
+
         delegate :current_organization, to: :controller
 
         def show
