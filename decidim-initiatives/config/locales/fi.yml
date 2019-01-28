@@ -27,6 +27,7 @@ fi:
       initiatives_type:
         banner_image: Bannerikuva
         description: Kuvaus
+        minimum_committee_members: Vähintään valiokunnan jäseniä
         online_signature_enabled: Online-allekirjoitus on käytössä
         title: Otsikko
       organization_data:
@@ -242,7 +243,7 @@ fi:
           more_information: "(Lisää tietoa)"
         promotal_committee:
           back: Takaisin
-          individual_help_text: Kansalaisaloitteet edellyttävät vähintään kolmesta edustajasta koostuvaa kannatuskomiteaa (todistajat). Sinun täytyy jakaa seuraava linkki muiden tämän aloitteen komitean jäsenten kanssa. Kun muut edustajat saavat tämän linkin, heidän on seurattava esitettyjä ohjeita.
+          individual_help_text: Tällainen kansalaisaloitteen edellyttäminen edellyttää, että edistämiskomissio koostuu vähintään %{committee_size} henkilöstä (valtuutetut). Sinun on jaettava seuraava linkki muihin ihmisiin, jotka ovat osa tätä aloitetta. Kun yhteystietosi saavat tämän linkin, heidän on noudatettava ohjeita.
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
