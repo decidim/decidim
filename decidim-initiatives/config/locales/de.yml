@@ -27,6 +27,7 @@ de:
       initiatives_type:
         banner_image: Bannerbild
         description: Beschreibung
+        minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
         title: Titel
       organization_data:
@@ -242,7 +243,7 @@ de:
           more_information: "(Mehr Informationen)"
         promotal_committee:
           back: Zurück
-          individual_help_text: Bürgerinitiativen benötigen eine Förderkommission, die aus mindestens drei Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
+          individual_help_text: Diese Art von Bürgerinitiative erfordert eine Beförderungskommission, die aus mindestens %{committee_size} Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie den angegebenen Schritten folgen.
           more_information: "(Mehr Informationen)"
         select_initiative_type:
           back: Zurück
