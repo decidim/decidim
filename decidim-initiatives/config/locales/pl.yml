@@ -341,6 +341,7 @@ pl:
         vote_cabin:
           already_voted: Już podpisane
           supports_required: "Wymagane %{total_supports} podpisów"
+          verification_required: Zweryfikuj swoją tożsamość, aby podpisać inicjatywę
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
@@ -375,6 +376,11 @@ pl:
       unavailable_scope: Niedostępny zakres
     menu:
       initiatives: Inicjatywy
+    resources:
+      initiatives_type:
+        actions:
+          vote: Głosować
+          title: działania
   layouts:
     decidim:
       admin:
