@@ -27,6 +27,7 @@ eu:
       initiatives_type:
         banner_image: Banner irudia
         description: deskribapena
+        minimum_committee_members: Batzorde kideen gutxienekoak
         online_signature_enabled: Sinadura elektronikoa gaituta dago
         title: Izenburua
       organization_data:
@@ -242,7 +243,7 @@ eu:
           more_information: "(Informazio gehiago)"
         promotal_committee:
           back: Back
-          individual_help_text: Herritarren ekimenek gutxienez hiru pertsona (egiaztatzaileak) osatzen duten Sustapen Batzordea behar dute. Hurrengo estekarekin partekatu behar duzu ekimen honen parte diren beste pertsona batzuekin. Zure kontaktuak esteka hau jasotzen duenean, adierazitako urratsak jarraitu beharko dituzte.
+          individual_help_text: Herritarren ekimen mota honek gutxienez %{committee_size} pertsona (egiaztatzaile) osatutako Sustapen Batzordea eskatzen du. Hurrengo estekarekin partekatu behar duzu ekimen honen parte diren beste pertsona batzuekin. Zure kontaktuak esteka hau jasotzen duenean, adierazitako urratsak jarraitu beharko dituzte.
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
