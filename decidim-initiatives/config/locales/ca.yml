@@ -329,6 +329,7 @@ ca:
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "%{total_supports} suports obligatoris"
+          verification_required: Verifiqueu la vostra identitat per signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -361,6 +362,11 @@ ca:
       unavailable_scope: Àmbit no disponible
     menu:
       initiatives: Iniciatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Votació
+          title: Accions
   layouts:
     decidim:
       admin:
