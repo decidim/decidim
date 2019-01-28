@@ -27,6 +27,7 @@ nl:
       initiatives_type:
         banner_image: Banner afbeelding
         description: Beschrijving
+        minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
       organization_data:
@@ -242,7 +243,7 @@ nl:
           more_information: "(Meer informatie)"
         promotal_committee:
           back: Terug
-          individual_help_text: Burgerinspraken vereisen een promotie groep bestaande uit ten minste drie personen (verklaringen). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer je contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
+          individual_help_text: Dit soort burgerinitiatief vereist een Promotingscommissie bestaande uit ten minste %{committee_size} personen (attestors). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
