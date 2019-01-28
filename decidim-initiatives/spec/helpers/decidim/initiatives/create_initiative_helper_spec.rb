@@ -71,6 +71,18 @@ module Decidim
           expect(signature_type_options).to match_array(all)
         end
       end
+
+      context "when signature setting changed" do
+        let(:signature_type) { "online" }
+        let(:initiative_state) { "published" }
+        let(:signature_type_options) { helper.signature_type_options(form) }
+
+        before { initiative_type.update!(online_signature_enabled: false) }
+
+        it "contains all signature type options" do
+          expect(signature_type_options).to match_array(all)
+        end
+      end
     end
   end
 end

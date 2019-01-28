@@ -171,8 +171,8 @@ module Decidim
             toggle_allow(initiative.created?)
           when :send_to_technical_validation
             allowed = initiative.created? && (
-                        !initiative.decidim_user_group_id.nil? ||
-                          initiative.committee_members.approved.count >= Decidim::Initiatives.minimum_committee_members
+                        !initiative.created_by_individual? ||
+                        initiative.enough_committee_members?
                       )
 
             toggle_allow(allowed)

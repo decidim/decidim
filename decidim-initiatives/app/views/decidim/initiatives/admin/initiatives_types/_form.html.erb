@@ -16,6 +16,10 @@
       <%= form.check_box :online_signature_enabled %>
     </div>
 
+    <div class="row column">
+      <%= form.number_field :minimum_committee_members, min: 0, step: 1 %>
+    </div>
+
     <div class="row">
       <div class="columns xlarge-6">
         <%= form.upload :banner_image %>
