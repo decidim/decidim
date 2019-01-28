@@ -10,6 +10,7 @@ module Decidim
       include ProposalCellsHelper
       include Cell::ViewModel::Partial
       include Messaging::ConversationHelper
+      include Decidim::SanitizeHelper
 
       delegate :current_organization, to: :controller
 
@@ -30,7 +31,8 @@ module Decidim
 
       def body
         return unless model.participatory_text_level == "article"
-        present(model).body
+        formatted = simple_format(present(model).body)
+        decidim_sanitize(strip_links(formatted))
       end
 
       def current_user
