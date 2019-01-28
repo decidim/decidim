@@ -329,6 +329,7 @@ de:
         vote_cabin:
           already_voted: Schon unterschrieben
           supports_required: "%{total_supports} Signaturen erforderlich"
+          verification_required: Bestätigen Sie Ihre Identität, um die Initiative zu unterzeichnen
           vote: Schild
           votes_blocked: Die Anmeldung ist deaktiviert
         votes_count:
@@ -361,6 +362,11 @@ de:
       unavailable_scope: Nicht verfügbarer Umfang
     menu:
       initiatives: Initiativen
+    resources:
+      initiatives_type:
+        actions:
+          vote: Abstimmung
+          title: Aktionen
   layouts:
     decidim:
       admin:
