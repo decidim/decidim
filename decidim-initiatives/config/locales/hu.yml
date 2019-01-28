@@ -27,6 +27,7 @@ hu:
       initiatives_type:
         banner_image: Banner kép
         description: Leírás
+        minimum_committee_members: Minimális bizottsági tagok
         online_signature_enabled: Online aláírás engedélyezve
         title: Cím
       organization_data:
@@ -242,7 +243,7 @@ hu:
           more_information: "(További információk)"
         promotal_committee:
           back: Vissza
-          individual_help_text: A polgári kezdeményezésekhez egy legalább három emberből álló (tanúsítvánnyal rendelkező) Támogató Bizottságra lesz szükség. A résztvevőkkel a következő linket kell megosztanod. A hivatkozás minden szükséges lépést tartalmaz majd.
+          individual_help_text: Az ilyen jellegű polgári kezdeményezéshez legalább %{committee_size} főből álló tanácsadó bizottság szükséges. A következő linket meg kell osztania a többi emberrel, akik e kezdeményezés részét képezik. Amikor a kapcsolattartók ezt a linket kapják, követniük kell a megadott lépéseket.
           more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
