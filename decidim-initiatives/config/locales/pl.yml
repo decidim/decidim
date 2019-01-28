@@ -27,6 +27,7 @@ pl:
       initiatives_type:
         banner_image: Obraz baneru
         description: Opis
+        minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
         title: Tytuł
       organization_data:
@@ -248,7 +249,7 @@ pl:
           more_information: "(Więcej informacji)"
         promotal_committee:
           back: Plecy
-          individual_help_text: Inicjatywy obywatelskie wymagają Komisji Promocyjnej składającej się z co najmniej trzech osób (osób potwierdzających). Musisz udostępnić poniższy link innym osobom, które są częścią tej inicjatywy. Kiedy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
+          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Promującej, która składa się z co najmniej %{committee_size} osób (atestujących). Musisz udostępnić poniższy link innym osobom, które są częścią tej inicjatywy. Kiedy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Plecy
