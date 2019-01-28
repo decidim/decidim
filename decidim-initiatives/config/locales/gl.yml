@@ -329,6 +329,7 @@ gl:
         vote_cabin:
           already_voted: Xa está asinado
           supports_required: "Requírense as %{total_supports} firmas"
+          verification_required: Comprobe a súa identidade para asinar a iniciativa
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:
@@ -361,6 +362,11 @@ gl:
       unavailable_scope: Alcance non dispoñible
     menu:
       initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vota
+          title: Accións
   layouts:
     decidim:
       admin:
