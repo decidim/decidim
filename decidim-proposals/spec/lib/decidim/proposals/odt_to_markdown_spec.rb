@@ -22,7 +22,7 @@ module Decidim
           # doc2text use '*' for lists, use '-' as expected
           actual.gsub!(/^\* /, "- ")
           # doc2text leaves a lot off blank lines, compact them
-          actual.gsub!(/\n\n/, "\n")
+          actual.gsub!(/\n{3,}/, "\n\n")
 
           expect(actual).to eq(expected)
         end

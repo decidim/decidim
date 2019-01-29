@@ -2,8 +2,20 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Added**:
+
+- **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for images in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Changed**:
+
+- **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
 **Fixed**:
 
+- **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
 - **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
 

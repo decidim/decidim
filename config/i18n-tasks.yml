@@ -66,6 +66,7 @@ search:
   exclude:
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+    - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
     - "*.jpeg"
     - "*.odt"
     - "*.docx"
