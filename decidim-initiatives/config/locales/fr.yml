@@ -26,10 +26,17 @@ fr:
         user: Membre du Comité de promotion
       initiatives_type:
         banner_image: Image d'en-tête
+        collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
+        extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
         title: Titre
+      initiatives_vote:
+        name_and_surname: Nom et surnom
+        document_number: Numéro de document
+        date_of_birth: Date de naissance
+        postal_code: Code postal
       organization_data:
         address: Adresse
         id_document: Document d'identité
@@ -70,6 +77,20 @@ fr:
             created_at: Créé à
             title: Types d'initiative
           name: Type d'initiative
+        initiatives_votes:
+          fields:
+            date_of_birth: Date de naissance
+            document_number: Numéro de document
+            hash: Hacher
+            initiative_end_date: Date de fin
+            initiative_id: ID d'initiative
+            initiative_signatures_count: Nombre de signatures
+            initiative_start_date: Date de début
+            initiative_title: Titre de l'initiative
+            name_and_surname: Nom et surnom
+            postal_code: Code postal
+            time_and_date: Heure et date
+            timestamp: Horodatage
       titles:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
@@ -128,6 +149,7 @@ fr:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
             discard: Dépublier la pétition
+            export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
@@ -271,6 +293,10 @@ fr:
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuer
+          help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
       initiative_votes:
         create:
           error: Il y a eu des erreurs lors de la signature de l'initiative.
@@ -386,6 +412,13 @@ fr:
         title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Retour
+        fill_personal_data: Complétez vos données
+        select_identity: Sélectionner une identité
+        see_steps: voir les étapes
+        step: Étape %{current} sur %{total}
+        title: Signe %{initiative_title}
       initiatives:
         initiative:
           check: Découvrez l'initiative
