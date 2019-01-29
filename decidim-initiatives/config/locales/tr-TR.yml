@@ -26,10 +26,17 @@ tr:
         user: Komite Üyesi
       initiatives_type:
         banner_image: Banner resmi
+        collect_user_extra_fields: İmzada kullanıcının kişisel verilerini topla
         description: Açıklama
+        extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
         title: Başlık
+      initiatives_vote:
+        name_and_surname: Ad ve soyadı
+        document_number: Belge Numarası
+        date_of_birth: Doğum tarihi
+        postal_code: Posta kodu
       organization_data:
         address: Adres
         id_document: Kimlik belgesi
@@ -70,6 +77,20 @@ tr:
             created_at: Düzenlendi
             title: Girişim türleri
           name: Girişimi tipi
+        initiatives_votes:
+          fields:
+            date_of_birth: Doğum tarihi
+            document_number: Belge Numarası
+            hash: esrar
+            initiative_end_date: Bitiş tarihi
+            initiative_id: Girişim Kimliği
+            initiative_signatures_count: İmza sayısı
+            initiative_start_date: Başlangıç tarihi
+            initiative_title: Girişim başlığı
+            name_and_surname: Ad ve soyadı
+            postal_code: Posta kodu
+            time_and_date: Saat ve tarih
+            timestamp: Zaman Damgası
       titles:
         initiatives: Girişimler
         initiatives_types: Girişim türleri
@@ -128,6 +149,7 @@ tr:
             accept: Girişimi kabul et
             confirm: Emin misiniz?
             discard: Girişimi atın
+            export_pdf_signatures: İmza PDF'sini dışa aktar
             export_votes: İhracat destekleri
             reject: Girişimi reddet
             send_to_technical_validation: Teknik doğrulamaya gönder
@@ -271,6 +293,10 @@ tr:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından onaylandı.
       index:
         title: Girişimler
+      initiative_signatures:
+        fill_personal_data:
+          continue: Devam et
+          help: Lütfen girişimi imzalamak için aşağıdaki alanları kişisel verilerinizle doldurun
       initiative_votes:
         create:
           error: Girişimi imzalarken hatalar oldu.
@@ -386,6 +412,13 @@ tr:
         title: Yeni girişim oluştur
       initiative_header:
         initiative_menu_item: girişim
+      initiative_signature_creation_header:
+        back: Geri
+        fill_personal_data: Verilerinizi tamamlayın
+        select_identity: Kimlik seç
+        see_steps: adımları gör
+        step: Aşama %{current} arasında %{total}
+        title: İşaret %{initiative_title}
       initiatives:
         initiative:
           check: Buna bir bak
