@@ -19,7 +19,7 @@ module Decidim
         end
 
         def document_text
-          document&.read
+          @document_text ||= document&.read
         end
 
         def document_type
