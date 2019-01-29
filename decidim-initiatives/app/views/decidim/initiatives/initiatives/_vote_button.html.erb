@@ -1,11 +1,19 @@
 <% if allowed_to? :vote, :initiative, initiative: initiative %>
-  <%= button_to(
-    vote_label,
-    initiative_initiative_vote_path(initiative_slug: current_initiative.slug),
-    remote: true,
-    data: { disable: true },
-    class: "card__button button expanded button--sc"
-  ) %>
+  <% if steps %>
+    <%= link_to(
+      vote_label,
+      initiative_initiative_signatures_path(initiative_slug: current_initiative.slug),
+      class: "card__button button expanded button--sc"
+    ) %>
+  <% else %>
+    <%= button_to(
+      vote_label,
+      initiative_initiative_signatures_path(initiative_slug: current_initiative.slug),
+      remote: true,
+      data: { disable: true },
+      class: "card__button button expanded button--sc"
+    ) %>
+  <% end %>
 <% else %>
   <%= authorized_vote_modal_button(initiative, remote: true, class: "card_button button expanded button--sc") do %>
     <%= verification_label %>

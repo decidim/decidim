@@ -151,6 +151,7 @@ PATH
       kaminari (~> 1.0)
       social-share-button (~> 1.0)
       wicked (~> 1.3)
+      wicked_pdf
     decidim-meetings (0.17.0.dev)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -731,6 +732,7 @@ GEM
     websocket-extensions (0.1.3)
     wicked (1.3.3)
       railties (>= 3.0.7)
+    wicked_pdf (1.1.0)
     wisper (2.0.0)
     wisper-rspec (1.1.0)
     xpath (3.2.0)
