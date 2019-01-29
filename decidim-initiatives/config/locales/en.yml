@@ -27,6 +27,8 @@ en:
       initiatives_type:
         banner_image: Banner image
         description: Description
+        minimum_committee_members: Minimum of committee members
+        online_signature_enabled: Online signature enabled
         title: Title
       organization_data:
         address: Address
@@ -241,7 +243,7 @@ en:
           more_information: "(More information)"
         promotal_committee:
           back: Back
-          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           more_information: "(More information)"
         select_initiative_type:
           back: Back
@@ -327,6 +329,7 @@ en:
         vote_cabin:
           already_voted: Already signed
           supports_required: "%{total_supports} signatures required"
+          verification_required: Verify your identity to sign the initiative
           vote: Sign
           votes_blocked: Signing disabled
         votes_count:
@@ -359,6 +362,11 @@ en:
       unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: Actions
   layouts:
     decidim:
       admin:

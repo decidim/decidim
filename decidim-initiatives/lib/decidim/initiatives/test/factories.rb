@@ -9,6 +9,16 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
+    online_signature_enabled { true }
+    minimum_committee_members { 3 }
+
+    trait :online_signature_enabled do
+      online_signature_enabled { true }
+    end
+
+    trait :online_signature_disabled do
+      online_signature_enabled { false }
+    end
   end
 
   factory :initiatives_type_scope, class: Decidim::InitiativesTypeScope do

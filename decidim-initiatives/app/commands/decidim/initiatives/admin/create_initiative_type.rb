@@ -39,6 +39,8 @@ module Decidim
             organization: form.current_organization,
             title: form.title,
             description: form.description,
+            online_signature_enabled: form.online_signature_enabled,
+            minimum_committee_members: form.minimum_committee_members,
             banner_image: form.banner_image
           )
 

@@ -57,6 +57,8 @@ module Decidim
 
     validates :title, :description, :state, presence: true
     validates :signature_type, presence: true
+    validate :signature_type_allowed
+
     validates :hashtag,
               uniqueness: true,
               allow_blank: true,
@@ -78,6 +80,7 @@ module Decidim
     scope :with_state, ->(state) { where(state: state) if state.present? }
 
     scope :public_spaces, -> { published }
+    scope :signature_type_updatable, -> { created }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
@@ -281,7 +284,19 @@ module Decidim
         published?
     end
 
+    def minimum_committee_members
+      type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
+    end
+
+    def enough_committee_members?
+      committee_members.approved.count >= minimum_committee_members
+    end
+
     private
+
+    def signature_type_allowed
+      errors.add(:signature_type, :invalid) if !published? && type.allowed_signature_types_for_initiatives.exclude?(signature_type)
+    end
 
     def notify_state_change
       return unless saved_change_to_state?
