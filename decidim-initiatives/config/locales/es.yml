@@ -26,10 +26,17 @@ es:
         user: Miembro del Comité
       initiatives_type:
         banner_image: Imagen de banner
+        collect_user_extra_fields: Recopilar datos personales del usuario en la firma
         description: Descripción
+        extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
         title: Título
+      initiatives_vote:
+        name_and_surname: Nombre y apellido
+        document_number: Número del Documento
+        date_of_birth: Fecha de nacimiento
+        postal_code: código postal
       organization_data:
         address: Dirección
         id_document: Documento de identidad
@@ -70,6 +77,20 @@ es:
             created_at: Creado en
             title: Tipos de Iniciativa
           name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Fecha de nacimiento
+            document_number: Número del Documento
+            hash: Picadillo
+            initiative_end_date: Fecha final
+            initiative_id: ID de la iniciativa
+            initiative_signatures_count: Número de firmas
+            initiative_start_date: Fecha de inicio
+            initiative_title: Título de la iniciativa
+            name_and_surname: Nombre y apellido
+            postal_code: código postal
+            time_and_date: Hora y fecha
+            timestamp: Marca de tiempo
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
@@ -128,6 +149,7 @@ es:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
             discard: Descartar la iniciativa
+            export_pdf_signatures: Exportar PDF de Firmas.
             export_votes: Soportes de exportación
             reject: Rechazar la iniciativa
             send_to_technical_validation: Enviar a validación técnica
@@ -271,6 +293,10 @@ es:
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue respaldada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          help: Por favor, rellene los siguientes campos con sus datos personales para firmar la iniciativa.
       initiative_votes:
         create:
           error: Ha habido errores al firmar la iniciativa.
@@ -386,6 +412,13 @@ es:
         title: Crear nueva iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: Espalda
+        fill_personal_data: Completa tus datos
+        select_identity: Seleccionar identidad
+        see_steps: ver los pasos
+        step: Paso %{current} de %{total}
+        title: Signo %{initiative_title}
       initiatives:
         initiative:
           check: Échale un vistazo
