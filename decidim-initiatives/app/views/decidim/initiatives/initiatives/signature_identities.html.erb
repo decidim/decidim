@@ -7,7 +7,8 @@
                initiative: current_initiative,
                vote_label: current_user.name,
                unvote_label: current_user.name,
-               verification_label: current_user.name
+               verification_label: current_user.name,
+               steps: signature_has_steps?
            } unless current_initiative.offline? %>
 
 <% Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.each do |g| %>
@@ -22,12 +23,20 @@
       class: "card__button button expanded button--sc success"
     ) %>
   <% else %>
-    <%= button_to(
-      g.name,
-      initiative_initiative_vote_path(initiative_slug: current_initiative.slug, group_id: g.id),
-      remote: true,
-      data: { disable: true },
-      class: "card__button button expanded button--sc"
-    ) %>
+    <% if signature_has_steps? %>
+      <%= link_to(
+        g.name,
+        initiative_initiative_signatures_path(initiative_slug: current_initiative.slug, group_id: g.id),
+        class: "card__button button expanded button--sc"
+      ) %>
+    <% else %>
+      <%= button_to(
+        g.name,
+        initiative_initiative_signatures_path(initiative_slug: current_initiative.slug, group_id: g.id),
+        remote: true,
+        data: { disable: true },
+        class: "card__button button expanded button--sc"
+      ) %>
+    <% end %>
   <% end %>
 <% end %>
