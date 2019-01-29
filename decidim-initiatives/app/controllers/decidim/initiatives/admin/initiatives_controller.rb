@@ -142,6 +142,18 @@ module Decidim
             format.csv { send_data csv_data, file_name: "votes.csv" }
           end
         end
+
+        def export_pdf_signatures
+          enforce_permission_to :export_pdf_signatures, :initiative, initiative: current_initiative
+
+          @votes = current_initiative.votes.votes
+
+          respond_to do |format|
+            format.pdf do
+              render pdf: "votes_#{current_initiative.id}", layout: "decidim/admin/initiatives_votes"
+            end
+          end
+        end
       end
     end
   end
