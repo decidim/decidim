@@ -23,6 +23,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
         build_initiative_vote
+        set_vote_timestamp
 
         percentage_before = @initiative.percentage
         vote.save!
@@ -46,6 +47,18 @@ module Decidim
           decidim_user_group_id: form.group_id,
           encrypted_metadata: form.encrypted_metadata
         )
+      end
+
+      def set_vote_timestamp
+        return unless timestamp_service
+
+        @vote.assign_attributes(
+          timestamp: timestamp_service.new(document: vote.encrypted_metadata).timestamp
+        )
+      end
+
+      def timestamp_service
+        @timestamp_service ||= Decidim::Initiatives.timestamp_service.to_s.safe_constantize
       end
 
       def send_notification
