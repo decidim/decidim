@@ -26,10 +26,17 @@ eu:
         user: Batzordeko kidea
       initiatives_type:
         banner_image: Banner irudia
+        collect_user_extra_fields: Bildu sinadura pertsonalaren datu pertsonalak
         description: deskribapena
+        extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoak
         online_signature_enabled: Sinadura elektronikoa gaituta dago
         title: Izenburua
+      initiatives_vote:
+        name_and_surname: Izena eta abizena
+        document_number: Dokumentuaren zenbakia
+        date_of_birth: Jaioteguna
+        postal_code: Posta kodea
       organization_data:
         address: Helbidea
         id_document: ID dokumentua
@@ -70,6 +77,20 @@ eu:
             created_at: Sortutako at
             title: Ekimen motak
           name: Ekimen mota
+        initiatives_votes:
+          fields:
+            date_of_birth: Jaioteguna
+            document_number: Dokumentuaren zenbakia
+            hash: hash
+            initiative_end_date: Amaiera data
+            initiative_id: Initiative ID
+            initiative_signatures_count: Sinadura kopurua
+            initiative_start_date: Hasiera data
+            initiative_title: Ekimenaren izenburua
+            name_and_surname: Izena eta abizena
+            postal_code: Posta kodea
+            time_and_date: Denbora eta data
+            timestamp: timestamp
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
@@ -128,6 +149,7 @@ eu:
             accept: Onartu ekimena
             confirm: Ziur zaude?
             discard: Ekimena baztertu
+            export_pdf_signatures: Esportatu sinadurak PDF
             export_votes: Esportatu euskarriak
             reject: Ezetsi ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
@@ -271,6 +293,10 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> babesten du.
       index:
         title: Ekimenak
+      initiative_signatures:
+        fill_personal_data:
+          continue: Jarraitu
+          help: Mesedez, bete zure datu pertsonalak ondorengo eremuak ekimena sinatzeko
       initiative_votes:
         create:
           error: Ekimena sinatu zenean akatsak izan dira.
@@ -386,6 +412,13 @@ eu:
         title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Back
+        fill_personal_data: Zure datuak osatzea
+        select_identity: Hautatu identitatea
+        see_steps: ikusi urratsak
+        step: Step %{current} of %{total}
+        title: Saioa hasi %{initiative_title}
       initiatives:
         initiative:
           check: Begiratu
