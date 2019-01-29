@@ -26,10 +26,17 @@ sv:
         user: Kommittémedlem
       initiatives_type:
         banner_image: Banner image
+        collect_user_extra_fields: Samla användarens personuppgifter om signatur
         description: Beskrivning
+        extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta utskottets medlemmar
         online_signature_enabled: Online signatur aktiverad
         title: Titel
+      initiatives_vote:
+        name_and_surname: Namn och efternamn
+        document_number: Dokumentnummer
+        date_of_birth: Födelsedatum
+        postal_code: Postnummer
       organization_data:
         address: Adress
         id_document: ID-dokument
@@ -70,6 +77,20 @@ sv:
             created_at: Skapad vid
             title: Initiativtyper
           name: Initiativtyp
+        initiatives_votes:
+          fields:
+            date_of_birth: Födelsedatum
+            document_number: Dokumentnummer
+            hash: Hash
+            initiative_end_date: Slutdatum
+            initiative_id: Initiativ ID
+            initiative_signatures_count: Antal signaturer
+            initiative_start_date: Start datum
+            initiative_title: Initiativtitel
+            name_and_surname: Namn och efternamn
+            postal_code: Postnummer
+            time_and_date: Tid och datum
+            timestamp: Tidsstämpel
       titles:
         initiatives: initiativ
         initiatives_types: Initiativtyper
@@ -128,6 +149,7 @@ sv:
             accept: Acceptera initiativ
             confirm: Är du säker?
             discard: Förkasta initiativet
+            export_pdf_signatures: Exportera PDF av signaturer
             export_votes: Exportstöd
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
@@ -271,6 +293,10 @@ sv:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet godkändes av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: initiativ
+      initiative_signatures:
+        fill_personal_data:
+          continue: Fortsätta
+          help: Vänligen fyll i följande fält med dina personuppgifter för att underteckna initiativet
       initiative_votes:
         create:
           error: Det har varit fel när du undertecknade initiativet.
@@ -386,6 +412,13 @@ sv:
         title: Skapa ny satsning
       initiative_header:
         initiative_menu_item: Initiativ
+      initiative_signature_creation_header:
+        back: Tillbaka
+        fill_personal_data: Fyll i dina uppgifter
+        select_identity: Välj identitet
+        see_steps: se steg
+        step: Steg %{current} av %{total}
+        title: Sign %{initiative_title}
       initiatives:
         initiative:
           check: Kolla in det
