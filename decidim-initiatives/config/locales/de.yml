@@ -26,10 +26,17 @@ de:
         user: Ausschussmitglied
       initiatives_type:
         banner_image: Bannerbild
+        collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         description: Beschreibung
+        extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
         title: Titel
+      initiatives_vote:
+        name_and_surname: Name und Nachname
+        document_number: Dokumentnummer
+        date_of_birth: Geburtsdatum
+        postal_code: Postleitzahl
       organization_data:
         address: Adresse
         id_document: ID-Dokument
@@ -70,6 +77,20 @@ de:
             created_at: Hergestellt in
             title: Arten von Initiativen
           name: Art der Initiative
+        initiatives_votes:
+          fields:
+            date_of_birth: Geburtsdatum
+            document_number: Dokumentnummer
+            hash: Hash
+            initiative_end_date: Endtermin
+            initiative_id: Initiativ-ID
+            initiative_signatures_count: Anzahl der Unterschriften
+            initiative_start_date: Anfangsdatum
+            initiative_title: Initiativentitel
+            name_and_surname: Name und Nachname
+            postal_code: Postleitzahl
+            time_and_date: Zeit und Datum
+            timestamp: Zeitstempel
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -128,6 +149,7 @@ de:
             accept: Initiative akzeptieren
             confirm: Bist du sicher?
             discard: Verwerfen Sie die Initiative
+            export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
             reject: Initiative ablehnen
             send_to_technical_validation: An technische Validierung senden
@@ -271,6 +293,10 @@ de:
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiativen
+      initiative_signatures:
+        fill_personal_data:
+          continue: Fortsetzen
+          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
@@ -386,6 +412,13 @@ de:
         title: Neue Initiative schaffen
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Zurück
+        fill_personal_data: Ergänzen Sie Ihre Daten
+        select_identity: Identität auswählen
+        see_steps: siehe Schritte
+        step: Schritt %{current} von %{total}
+        title: Zeichen %{initiative_title}
       initiatives:
         initiative:
           check: Hör zu
