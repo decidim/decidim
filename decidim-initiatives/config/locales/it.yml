@@ -26,10 +26,17 @@ it:
         user: membro del Comitato
       initiatives_type:
         banner_image: Immagine banner
+        collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         description: Descrizione
+        extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
         minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
         title: Titolo
+      initiatives_vote:
+        name_and_surname: Nome e cognome
+        document_number: Numero del documento
+        date_of_birth: Data di nascita
+        postal_code: Codice postale
       organization_data:
         address: Indirizzo
         id_document: Documento di identità
@@ -70,6 +77,20 @@ it:
             created_at: Creato a
             title: Tipi di iniziativa
           name: Tipo di iniziativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data di nascita
+            document_number: Numero del documento
+            hash: hash
+            initiative_end_date: Data di fine
+            initiative_id: ID di iniziativa
+            initiative_signatures_count: Numero di firme
+            initiative_start_date: Data d'inizio
+            initiative_title: Titolo dell'iniziativa
+            name_and_surname: Nome e cognome
+            postal_code: Codice postale
+            time_and_date: Ora e data
+            timestamp: timestamp
       titles:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -128,6 +149,7 @@ it:
             accept: Accetta l'iniziativa
             confirm: Sei sicuro?
             discard: Scartare l'iniziativa
+            export_pdf_signatures: Esporta PDF di firme
             export_votes: Supporti di esportazione
             reject: Rifiuta l'iniziativa
             send_to_technical_validation: Invia a convalida tecnica
@@ -271,6 +293,10 @@ it:
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata approvata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: iniziative
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continua
+          help: Per favore, compila i seguenti campi con i tuoi dati personali per firmare l'iniziativa
       initiative_votes:
         create:
           error: Ci sono stati degli errori durante la firma dell'iniziativa.
@@ -386,6 +412,13 @@ it:
         title: Crea una nuova iniziativa
       initiative_header:
         initiative_menu_item: Iniziativa
+      initiative_signature_creation_header:
+        back: Indietro
+        fill_personal_data: Completa i tuoi dati
+        select_identity: Seleziona identità
+        see_steps: vedere i passaggi
+        step: Passaggio %{current} di %{total}
+        title: Iscriviti %{initiative_title}
       initiatives:
         initiative:
           check: Controlla
