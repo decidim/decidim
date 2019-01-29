@@ -90,6 +90,12 @@ module Decidim
     # timestamped and respond to a timestamp method
     config_accessor :timestamp_service
 
+    # Set a service to add a signature to pdf of signatures.
+    # The attribute is the name of a class whose instances are
+    # initialized with the document to be signed and respond to a
+    # signed_pdf method with the signature added
+    config_accessor :pdf_signature_service
+
     # This flag says when mixed and online voting methods
     # are allowed. If set to false, only offline voting will be
     # allowed
