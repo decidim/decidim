@@ -58,7 +58,7 @@ module Decidim
       end
 
       def timestamp_service
-        @timestamp_service ||= Decidim::Initiatives.timestamp_service.to_s.safe_constantize
+        @timestamp_service ||= Decidim.timestamp_service.to_s.safe_constantize
       end
 
       def send_notification

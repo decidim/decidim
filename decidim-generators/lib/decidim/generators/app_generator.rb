@@ -164,16 +164,28 @@ module Decidim
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end
 
-      def initiatives_initializer
-        copy_file "initiatives_initializer.rb", "config/initializers/initiatives.rb"
-      end
-
       def sms_gateway
         return unless options[:demo]
 
         gsub_file "config/initializers/decidim.rb",
                   /# config.sms_gateway_service = \"MySMSGatewayService\"/,
                   "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
+      end
+
+      def timestamp_service
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.timestamp_service = \"MyTimestampService\"/,
+                  "config.timestamp_service = \"Decidim::Initiatives::DummyTimestamp\""
+      end
+
+      def pdf_signature_service
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.pdf_signature_service = \"MyPDFSignatureService\"/,
+                  "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
       end
 
       def install

@@ -166,7 +166,7 @@ module Decidim
         private
 
         def pdf_signature_service
-          @pdf_signature_service ||= Decidim::Initiatives.pdf_signature_service.to_s.safe_constantize
+          @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize
         end
       end
     end
