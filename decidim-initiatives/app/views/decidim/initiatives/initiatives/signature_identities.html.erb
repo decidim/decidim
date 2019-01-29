@@ -6,7 +6,8 @@
            locals: {
                initiative: current_initiative,
                vote_label: current_user.name,
-               unvote_label: current_user.name
+               unvote_label: current_user.name,
+               verification_label: current_user.name
            } unless current_initiative.offline? %>
 
 <% Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.each do |g| %>

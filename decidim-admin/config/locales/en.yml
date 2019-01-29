@@ -220,10 +220,6 @@ en:
           error: There was an error updating this category.
           success: Category updated successfully.
       component_permissions:
-        edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
         update:
           success: Permissions updated successfully.
       components:
@@ -536,6 +532,12 @@ en:
         new:
           create: Create
           title: New Participatory Space private user.
+      resource_permissions:
+        edit:
+          submit: Submit
+          title: Edit permissions
+        update:
+          success: Permissions updated successfully.
       scope_types:
         create:
           error: There was an error creating a new scope type.
