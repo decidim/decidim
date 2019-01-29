@@ -26,10 +26,17 @@ hu:
         user: Bizottsági tag
       initiatives_type:
         banner_image: Banner kép
+        collect_user_extra_fields: Gyűjtse össze a felhasználó személyes adatait az aláíráskor
         description: Leírás
+        extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
         minimum_committee_members: Minimális bizottsági tagok
         online_signature_enabled: Online aláírás engedélyezve
         title: Cím
+      initiatives_vote:
+        name_and_surname: Vezetéknév, keresztnév
+        document_number: Dokumentum szám
+        date_of_birth: Születési dátum
+        postal_code: irányítószám
       organization_data:
         address: Lakcím
         id_document: Személyigazolvány
@@ -70,6 +77,20 @@ hu:
             created_at: 'Létrehozva:'
             title: Kezdeményezés típusai
           name: Kezdeményezés típusa
+        initiatives_votes:
+          fields:
+            date_of_birth: Születési dátum
+            document_number: Dokumentum szám
+            hash: hash
+            initiative_end_date: Befejezés dátuma
+            initiative_id: Kezdeti azonosító
+            initiative_signatures_count: Az aláírások száma
+            initiative_start_date: Kezdő dátum
+            initiative_title: Kezdeti cím
+            name_and_surname: Vezetéknév, keresztnév
+            postal_code: irányítószám
+            time_and_date: Idő és dátum
+            timestamp: Időbélyeg
       titles:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezési típusai
@@ -128,6 +149,7 @@ hu:
             accept: Kezdeményezés elfogadása
             confirm: Biztos vagy benne?
             discard: Kezdeményezés félrerakása
+            export_pdf_signatures: PDF aláírás exportálása
             export_votes: Exportálás támogatása
             reject: Kezdeményezés elutasítása
             send_to_technical_validation: Elküldés technikai ellenőrzésre
@@ -271,6 +293,10 @@ hu:
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezést támogatta: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
       index:
         title: Kezdeményezések
+      initiative_signatures:
+        fill_personal_data:
+          continue: Folytatni
+          help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
       initiative_votes:
         create:
           error: Hiba történt a kezdeményezés aláírása során.
@@ -386,6 +412,13 @@ hu:
         title: Hozzon létre új kezdeményezést
       initiative_header:
         initiative_menu_item: Kezdeményezés
+      initiative_signature_creation_header:
+        back: Hát
+        fill_personal_data: Töltse ki az adatokat
+        select_identity: Válasszon identitást
+        see_steps: lásd a lépéseket
+        step: '%{current} lépés: %{total}'
+        title: '%{initiative_title}jel'
       initiatives:
         initiative:
           check: Nézd meg
