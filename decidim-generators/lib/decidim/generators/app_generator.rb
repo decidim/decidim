@@ -164,6 +164,10 @@ module Decidim
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end
 
+      def initiatives_initializer
+        copy_file "initiatives_initializer.rb", "config/initializers/initiatives.rb"
+      end
+
       def sms_gateway
         return unless options[:demo]
 
