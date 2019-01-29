@@ -1,0 +1,35 @@
+<div class="initiative-title"> <%= translated_attribute(current_initiative.title) %> </div>
+<div class="initiatives-votes-table">
+  <div class="initiatives-votes-table-header">
+    <div class="initiatives-votes-table-cell w20"><%= t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w20"><%= t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w20"><%= t("models.initiatives_votes.fields.initiative_start_date", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w20"><%= t("models.initiatives_votes.fields.initiative_end_date", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w20"><%= t("models.initiatives_votes.fields.initiative_signatures_count", scope: "decidim.admin") %></div>
+  </div>
+  <div class="initiatives-votes-table-row">
+    <div class="initiatives-votes-table-cell w20"><%= current_initiative.reference %></div>
+    <div class="initiatives-votes-table-cell w20"><%= translated_attribute(current_initiative.title) %></div>
+    <div class="initiatives-votes-table-cell w20"><%= current_initiative.signature_start_date %></div>
+    <div class="initiatives-votes-table-cell w20"><%= current_initiative.signature_end_date %></div>
+    <div class="initiatives-votes-table-cell w20"><%= @votes.count %></div>
+  </div>
+</div>
+<br />
+<br />
+<div class="initiatives-votes-table">
+  <div class="initiatives-votes-table-header">
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.name_and_surname", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.document_number", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.date_of_birth", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.postal_code", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.time_and_date", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.timestamp", scope: "decidim.admin") %></div>
+    <div class="initiatives-votes-table-cell w11"><%= t("models.initiatives_votes.fields.hash", scope: "decidim.admin") %></div>
+  </div>
+  <% @votes.each do |vote| %>
+    <%= cell "decidim/initiatives_votes/vote", vote %>
+  <% end %>
+</div>

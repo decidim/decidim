@@ -14,6 +14,7 @@
           <tr>
             <th><%= t("models.initiatives_types.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.initiatives_types.fields.created_at", scope: "decidim.admin") %></th>
+            <th class="actions"><%= t("initiatives_type.actions.title", scope: "decidim.resources") %></th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@
                 <%= translated_attribute initiative_type.title %></td>
               <% end %>
             <td><%= l initiative_type.created_at, format: :short %></td>
+            <td class="table-list__actions"><%= free_resource_permissions_link(initiative_type) %></td>
           <% end %>
         </tbody>
       </table>

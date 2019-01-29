@@ -14,7 +14,7 @@ module Decidim
       def initialize(authorization, options, component, resource)
         @authorization = authorization
         @options = options.deep_dup || {} # options hash is cloned to allow changes applied to it without risks
-        @component = resource&.component || component
+        @component = resource.try(:component) || component
         @resource = resource
       end
 
