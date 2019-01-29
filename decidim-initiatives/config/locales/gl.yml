@@ -26,10 +26,17 @@ gl:
         user: Membro do comité
       initiatives_type:
         banner_image: Imaxe do banner
+        collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
+        extra_fields_legal_information: Información legal sobre a recollida de datos persoais
         minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
         title: Título
+      initiatives_vote:
+        name_and_surname: Nome e apelidos
+        document_number: Número de documento
+        date_of_birth: Data de nacemento
+        postal_code: Código postal
       organization_data:
         address: Enderezo
         id_document: Documento ID
@@ -70,6 +77,20 @@ gl:
             created_at: Creado en
             title: Tipos de iniciativa
           name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de nacemento
+            document_number: Número de documento
+            hash: Hash
+            initiative_end_date: Data de finalización
+            initiative_id: ID da iniciativa
+            initiative_signatures_count: Número de sinaturas
+            initiative_start_date: Data de inicio
+            initiative_title: Título da iniciativa
+            name_and_surname: Nome e apelidos
+            postal_code: Código postal
+            time_and_date: Hora e data
+            timestamp: Timestamp
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -128,6 +149,7 @@ gl:
             accept: Acepte a iniciativa
             confirm: Estás seguro?
             discard: Descartar a iniciativa
+            export_pdf_signatures: Exportar PDF de sinaturas
             export_votes: Soporte de exportación
             reject: Rexeita a iniciativa
             send_to_technical_validation: Enviar á validación técnica
@@ -271,6 +293,10 @@ gl:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          help: Complete os seguintes campos cos seus datos persoais para asinar a iniciativa
       initiative_votes:
         create:
           error: Houbo erros ao asinar a iniciativa.
@@ -386,6 +412,13 @@ gl:
         title: Crea unha nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: De volta
+        fill_personal_data: Completa os teus datos
+        select_identity: Seleccionar identidade
+        see_steps: ver pasos
+        step: Paso %{current} de %{total}
+        title: Rexistrar %{initiative_title}
       initiatives:
         initiative:
           check: Bótalle unha ollada
