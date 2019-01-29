@@ -26,10 +26,17 @@ id:
         user: anggota Komite
       initiatives_type:
         banner_image: Gambar spanduk
+        collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
+        extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
         minimum_committee_members: Minimal anggota komite
         online_signature_enabled: Tanda tangan online diaktifkan
         title: Judul
+      initiatives_vote:
+        name_and_surname: Nama dan nama keluarga
+        document_number: Nomor dokumen
+        date_of_birth: Tanggal lahir
+        postal_code: Kode Pos
       organization_data:
         address: Alamat
         id_document: Dokumen ID
@@ -67,6 +74,20 @@ id:
             created_at: Dibuat di
             title: Jenis inisiatif
           name: Jenis inisiatif
+        initiatives_votes:
+          fields:
+            date_of_birth: Tanggal lahir
+            document_number: Nomor dokumen
+            hash: Hash
+            initiative_end_date: Tanggal akhir
+            initiative_id: ID inisiatif
+            initiative_signatures_count: Jumlah tanda tangan
+            initiative_start_date: Mulai tanggal
+            initiative_title: Judul inisiatif
+            name_and_surname: Nama dan nama keluarga
+            postal_code: Kode Pos
+            time_and_date: Waktu dan tanggal
+            timestamp: Stempel waktu
       titles:
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif
@@ -125,6 +146,7 @@ id:
             accept: Terima inisiatif
             confirm: Apakah kamu yakin?
             discard: Buang inisiatif
+            export_pdf_signatures: Ekspor PDF tanda tangan
             export_votes: Mendukung ekspor
             reject: Tolak inisiatif
             send_to_technical_validation: Kirim ke validasi teknis
@@ -268,6 +290,10 @@ id:
           notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Inisiatif
+      initiative_signatures:
+        fill_personal_data:
+          continue: Terus
+          help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
       initiative_votes:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
@@ -379,6 +405,13 @@ id:
         title: Buat inisiatif baru
       initiative_header:
         initiative_menu_item: Prakarsa
+      initiative_signature_creation_header:
+        back: Kembali
+        fill_personal_data: Lengkapi data Anda
+        select_identity: Pilih identitas
+        see_steps: lihat langkah-langkahnya
+        step: Langkah %{current} dari %{total}
+        title: Tanda %{initiative_title}
       initiatives:
         initiative:
           check: Coba lihat
