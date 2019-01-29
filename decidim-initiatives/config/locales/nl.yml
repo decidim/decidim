@@ -26,10 +26,17 @@ nl:
         user: Commissie lid
       initiatives_type:
         banner_image: Banner afbeelding
+        collect_user_extra_fields: Verzamel persoonlijke gebruikersgegevens bij ondertekening
         description: Beschrijving
+        extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
+      initiatives_vote:
+        name_and_surname: Naam en achternaam
+        document_number: Document Nummer
+        date_of_birth: Geboortedatum
+        postal_code: Postcode
       organization_data:
         address: Adres
         id_document: ID-document
@@ -70,6 +77,20 @@ nl:
             created_at: Aangemaakt op
             title: Initiatieftypen
           name: Initiatieftype
+        initiatives_votes:
+          fields:
+            date_of_birth: Geboortedatum
+            document_number: Document Nummer
+            hash: hachee
+            initiative_end_date: Einddatum
+            initiative_id: Initiatief ID
+            initiative_signatures_count: Aantal handtekeningen
+            initiative_start_date: Begin datum
+            initiative_title: Titel van het initiatief
+            name_and_surname: Naam en achternaam
+            postal_code: Postcode
+            time_and_date: Tijd en datum
+            timestamp: tijdstempel
       titles:
         initiatives: initiatieven
         initiatives_types: Initiatieftypen
@@ -128,6 +149,7 @@ nl:
             accept: Accepteer initiatief
             confirm: Weet je het zeker?
             discard: Gooi het initiatief weg
+            export_pdf_signatures: PDF van handtekeningen exporteren
             export_votes: Exportondersteuning
             reject: Verwerp initiatief
             send_to_technical_validation: Stuur naar technische validatie
@@ -271,6 +293,10 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: initiatieven
+      initiative_signatures:
+        fill_personal_data:
+          continue: Doorgaan met
+          help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
@@ -386,6 +412,13 @@ nl:
         title: Maak nieuw initiatief
       initiative_header:
         initiative_menu_item: Initiatief
+      initiative_signature_creation_header:
+        back: Terug
+        fill_personal_data: Vul uw gegevens in
+        select_identity: Selecteer identiteit
+        see_steps: zie stappen
+        step: Stap %{current} van %{total}
+        title: Teken %{initiative_title}
       initiatives:
         initiative:
           check: Bekijken
