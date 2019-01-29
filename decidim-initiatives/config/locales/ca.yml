@@ -26,10 +26,17 @@ ca:
         user: Membre del comitè
       initiatives_type:
         banner_image: Imatge del bàner
+        collect_user_extra_fields: Recopileu les dades personals de l'usuari amb la signatura
         description: Descripció
+        extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura en línia
         title: Títol
+      initiatives_vote:
+        name_and_surname: Nom i cognom
+        document_number: Número de Document
+        date_of_birth: Data de naixement
+        postal_code: Codi Postal
       organization_data:
         address: Adreça
         id_document: Document d'identificació
@@ -70,6 +77,20 @@ ca:
             created_at: Creat a
             title: Tipus d'iniciatives
           name: Tipus d'iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de naixement
+            document_number: Número de Document
+            hash: Hash
+            initiative_end_date: Data de finalització
+            initiative_id: Identificador de la iniciativa
+            initiative_signatures_count: Nombre de signatures
+            initiative_start_date: Data d'inici
+            initiative_title: Títol de la iniciativa
+            name_and_surname: Nom i cognom
+            postal_code: Codi Postal
+            time_and_date: Hora i data
+            timestamp: Marca de temps
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -128,6 +149,7 @@ ca:
             accept: Accepta la iniciativa
             confirm: Estàs segur?
             discard: Descarta la iniciativa
+            export_pdf_signatures: Exporta PDF de signatures
             export_votes: Suports d'exportació
             reject: Rebutja la iniciativa
             send_to_technical_validation: Enviar a la validació tècnica
@@ -271,6 +293,10 @@ ca:
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser aprovada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continua
+          help: Si us plau, ompli els següents camps amb les seves dades personals per signar la iniciativa
       initiative_votes:
         create:
           error: Hi ha hagut errors en signar la iniciativa.
@@ -386,6 +412,13 @@ ca:
         title: Crea una nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: esquena
+        fill_personal_data: Completa les teves dades
+        select_identity: Selecciona identitat
+        see_steps: vegeu els passos
+        step: Pas %{current} de %{total}
+        title: Signar %{initiative_title}
       initiatives:
         initiative:
           check: Comprova-ho
