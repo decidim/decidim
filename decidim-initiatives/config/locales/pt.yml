@@ -26,10 +26,17 @@ pt:
         user: membro do Comitê
       initiatives_type:
         banner_image: Imagem de banner
+        collect_user_extra_fields: Colete dados pessoais do usuário na assinatura
         description: Descrição
+        extra_fields_legal_information: Informações legais sobre a coleta de dados pessoais
         minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
         title: Título
+      initiatives_vote:
+        name_and_surname: Nome e sobrenome
+        document_number: Número do documento
+        date_of_birth: Data de nascimento
+        postal_code: Código postal
       organization_data:
         address: Endereço
         id_document: Documento de identificação
@@ -70,6 +77,20 @@ pt:
             created_at: Criado em
             title: Tipos de iniciativa
           name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de nascimento
+            document_number: Número do documento
+            hash: Jogo da velha
+            initiative_end_date: Data final
+            initiative_id: ID da iniciativa
+            initiative_signatures_count: Número de assinaturas
+            initiative_start_date: Data de início
+            initiative_title: Título da iniciativa
+            name_and_surname: Nome e sobrenome
+            postal_code: Código postal
+            time_and_date: Hora e data
+            timestamp: Timestamp
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -128,6 +149,7 @@ pt:
             accept: Aceitar iniciativa
             confirm: Você tem certeza?
             discard: Descartar a iniciativa
+            export_pdf_signatures: Exportar PDF de assinaturas
             export_votes: Suporta Exportação
             reject: Rejeitar iniciativa
             send_to_technical_validation: Enviar para validação técnica
@@ -271,6 +293,10 @@ pt:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
       initiative_votes:
         create:
           error: Houve erros ao assinar a iniciativa.
@@ -386,6 +412,13 @@ pt:
         title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: De volta
+        fill_personal_data: Complete seus dados
+        select_identity: Selecione identidade
+        see_steps: ver passos
+        step: Etapa %{current} de %{total}
+        title: Assinar %{initiative_title}
       initiatives:
         initiative:
           check: Confira
