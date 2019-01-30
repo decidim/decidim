@@ -28,7 +28,7 @@ module Decidim
 
         initializer "decidim.my_verification_verification_workflow" do |_app|
           if Decidim.sms_gateway_service
-            Decidim::Verifications.register_workflow(:sms) do |workflow|
+            Decidim::Verifications.register_workflow(:my_verification) do |workflow|
               workflow.engine = Decidim::Verifications::Sms::Engine
             end
           end
