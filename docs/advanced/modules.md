@@ -12,7 +12,7 @@ A typical engine looks like the following:
 ```ruby
 module Decidim
   module Verifications
-    module Sms
+    module MyVerification
       # This is an engine that authorizes users by sending them a code through an SMS.
       class Engine < ::Rails::Engine
         isolate_namespace Decidim::Verifications::Sms
