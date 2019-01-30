@@ -388,10 +388,10 @@ ca:
             email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
             email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: S'ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
