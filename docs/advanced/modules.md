@@ -15,7 +15,7 @@ module Decidim
     module MyVerification
       # This is an engine that authorizes users by sending them a code through an SMS.
       class Engine < ::Rails::Engine
-        isolate_namespace Decidim::Verifications::Sms
+        isolate_namespace Decidim::Verifications::MyVerification
 
         paths["db/migrate"] = nil
         paths["lib/tasks"] = nil
