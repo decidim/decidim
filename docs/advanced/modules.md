@@ -12,10 +12,10 @@ A typical engine looks like the following:
 ```ruby
 module Decidim
   module Verifications
-    module MyVerification
-      # This is an engine that authorizes users by sending them a code through an SMS.
+    module MyVerifier
+      # This is an engine that authorizes users by doing a custom verification.
       class Engine < ::Rails::Engine
-        isolate_namespace Decidim::Verifications::MyVerification
+        isolate_namespace Decidim::Verifications::MyVerifier
 
         paths["db/migrate"] = nil
         paths["lib/tasks"] = nil
@@ -26,13 +26,15 @@ module Decidim
           root to: "authorizations#new"
         end
 
-        initializer "decidim.my_verification_verification_workflow" do |_app|
-          if Decidim.sms_gateway_service
-            Decidim::Verifications.register_workflow(:my_verification) do |workflow|
-              workflow.engine = Decidim::Verifications::Sms::Engine
-            end
+        # This is a Dedicim::Verifications specific initializer
+        initializer "decidim.my_verifier_verification_workflow" do |_app|
+          Decidim::Verifications.register_workflow(:my_verifier) do |workflow|
+            workflow.engine = Decidim::Verifications::MyVerifier::Engine
           end
         end
+
+        # more initializers here...
+
       end
     end
   end
