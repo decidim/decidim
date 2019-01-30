@@ -128,7 +128,7 @@ ca:
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
         verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
-        verify_via_csv: "%{user_name} va verificar el %{resource_name} grup d'usuaris a través d'un fitxer CSV"
+        verify_via_csv: "%{user_name} va verificar el grup d'usuaris %{resource_name} a través d'un fitxer CSV"
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena, torna-ho a provar més tard.
@@ -136,10 +136,10 @@ ca:
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
-        promote_button: Promociona't a %{model_name}
+        promote_button: Promocionar a %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        promote_help_text: Podeu promocionar aquesta esmena i publicar-lo com a independent %{model_name}
+        promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
         section_heading: Esmenes (%{count})
