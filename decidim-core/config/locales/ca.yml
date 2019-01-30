@@ -170,11 +170,11 @@ ca:
         help_text: Estàs modificant el %{model_name}
         send: Envia l'esmena
       rejected:
-        error: S'ha produït un error en rebutjar aquesta esmena, torneu-ho a provar més tard
-        success: S'ha rebutjat l'esmena amb èxit
+        error: S'ha produït un error en rebutjar aquesta esmena, torna-ho a provar més tard
+        success: L'esmena s'ha rebutjat correctament
       promoted:
-        success: S'ha promogut l'emissió amb èxit
-        error: Hi ha hagut errors en promoure l'esmena
+        success: L'esmena s'ha publicat com a proposta correctament
+        error: Hi ha hagut errors en publicar l'esmena com a proposta
       review:
         back: Tornar
         heading: Revisa l'esmena
@@ -385,8 +385,8 @@ ca:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
             email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
