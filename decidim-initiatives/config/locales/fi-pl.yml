@@ -29,11 +29,11 @@ fi-pl:
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksessa
         description: Kuvaus
         document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen äänestyksessä
-        extra_fields_legal_information: Oikeudelliset tiedot henkilötietojen keräämisestä
-        minimum_committee_members: Vähintään valiokunnan jäseniä
+        extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
+        minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
         title: Otsikko
-        validate_sms_code_on_votes: Lisää SMS-koodin validointivaihe allekirjoitusprosessiin
+        validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
       initiatives_vote:
         name_and_surname: Nimi ja sukunimi
         document_number: Asiakirjan numero
@@ -85,9 +85,9 @@ fi-pl:
             document_number: Asiakirjan numero
             hash: hash
             initiative_end_date: Päättymispäivä
-            initiative_id: Aloitteen tunnus
+            initiative_id: Aloitteen ID-tunnus
             initiative_signatures_count: Allekirjoitusten lukumäärä
-            initiative_start_date: Aloituspäivämäärä
+            initiative_start_date: Aloituspäivä
             initiative_title: Aloitteen otsikko
             name_and_surname: Nimi ja sukunimi
             postal_code: Postinumero
@@ -151,7 +151,7 @@ fi-pl:
             accept: Hyväksy aloite
             confirm: Oletko varma?
             discard: Hylkää aloite
-            export_pdf_signatures: Vie PDF-allekirjoituksia
+            export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa kannatusäänet
             reject: Torju aloite
             send_to_technical_validation: Lähetä tekniseen validointiin
@@ -297,21 +297,21 @@ fi-pl:
         title: Aloitteet
       initiative_signatures:
         fill_personal_data:
-          continue: Jatkaa
+          continue: Jatka
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
         sms_phone_number:
           continue: Lähetä minulle tekstiviesti
-          help: Täytä lomake vahvistetun puhelinnumerosi avulla ja pyydä vahvistuskoodi
+          help: Täytä lomake vahvistetun puhelinnumerosi avulla pyytääksesi vahvistuskoodin
         sms_code:
           continue: Tarkista koodi ja jatka
-          help: Tarkista puhelimessa vastaanotetut tekstiviestit
+          help: Tarkista vastaanotetut tekstiviestit puhelimestasi
       initiative_votes:
         create:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
-          invalid: Aloitteen allekirjoittamiseen annetut tiedot eivät ole voimassa
-          success: Onnittelut! Aloite on allekirjoitettu oikein
+          invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
+          success: Onnittelut! Aloite on onnistuneesti allekirjoitettu
         sms_code:
-          invalid: Vahvistuskoodi ei vastaa meitä. Tarkista tällöin lähettämäsi tekstiviesti.
+          invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
           invalid: Puhelinnumero on virheellinen tai odottaa lupaa. Tarkista valtuutesi.
       initiatives:
