@@ -15,7 +15,7 @@ module Decidim
         def censed
           return if census_for_user&.email == user.email
 
-          errors.add(:email, I18n.t("decidim.verifications.csv_census.errors.messages.not_in_csv"))
+          errors.add(:email, I18n.t("decidim.verifications.csv_census.authorizations.new.error"))
         end
 
         def organization
