@@ -28,6 +28,7 @@ tr:
         banner_image: Banner resmi
         collect_user_extra_fields: İmzada kullanıcının kişisel verilerini topla
         description: Açıklama
+        document_number_authorization_handler: Oylamada belge numarasını doğrulama yetkisi
         extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
