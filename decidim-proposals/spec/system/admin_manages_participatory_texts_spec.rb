@@ -82,6 +82,22 @@ describe "Admin manages particpatory texts", type: :system do
     expect(proposals.published.order(:position).pluck(:title)).to eq(titles)
   end
 
+  def edit_participatory_text_body(index, new_body)
+    elem = Array.wrap(find("#participatory-text li"))[index]
+    elem.find("a.accordion-title").click
+
+    elem.fill_in(
+      "Body",
+      with: new_body
+    )
+  end
+
+  def save_participatory_text_drafts
+    click_button "Save draft"
+    expect(page).to have_content "Participatory text updated successfully."
+    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+  end
+
   describe "importing partipatory texts from a document" do
     it "creates proposals" do
       visit_participatory_texts
@@ -94,11 +110,28 @@ describe "Admin manages particpatory texts", type: :system do
   end
 
   describe "accessing participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, component: current_component }
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "section" }
 
     it "renders only draft proposals" do
       visit_participatory_texts
-      validate_occurrences(sections: 0, subsections: 0, articles: 0)
+      validate_occurrences(sections: 1, subsections: 0, articles: 0)
+    end
+  end
+
+  describe "updating" do
+    # describe "updating participatory texts in draft mode" do
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+
+    it "persists" do
+      # it "persists changes and all proposals remain as drafts" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      edit_participatory_text_body(0, new_body)
+      save_participatory_text_drafts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      proposal.reload
+      expect(proposal.body.delete("\r")).to eq(new_body)
     end
   end
 end
