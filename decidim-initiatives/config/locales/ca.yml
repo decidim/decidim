@@ -308,7 +308,7 @@ ca:
         create:
           error: Hi ha hagut errors en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides
-          success: Felicitacions La iniciativa s'ha signat correctament
+          success: Enhorabona! La iniciativa s'ha signat correctament
         sms_code:
           invalid: El codi de verificació no coincideix amb el nostre. Si us plau, reviseu els SMS que us enviem.
         sms_phone:
@@ -430,7 +430,7 @@ ca:
         fill_personal_data: Completa les teves dades
         select_identity: Selecciona identitat
         see_steps: vegeu els passos
-        sms_code: Verificació del codi SMS
+        sms_code: Verificació per codi SMS
         sms_phone_number: Número de telèfon mòbil
         step: Pas %{current} de %{total}
         title: Signar %{initiative_title}
