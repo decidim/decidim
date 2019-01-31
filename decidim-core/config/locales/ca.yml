@@ -128,7 +128,7 @@ ca:
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
         verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
-        verify_via_csv: "%{user_name} va verificar el %{resource_name} grup d'usuaris a través d'un fitxer CSV"
+        verify_via_csv: "%{user_name} va verificar el grup d'usuaris %{resource_name} a través d'un fitxer CSV"
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena, torna-ho a provar més tard.
@@ -136,10 +136,10 @@ ca:
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
-        promote_button: Promociona't a %{model_name}
+        promote_button: Promocionar a %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        promote_help_text: Podeu promocionar aquesta esmena i publicar-lo com a independent %{model_name}
+        promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
         section_heading: Esmenes (%{count})
@@ -170,11 +170,11 @@ ca:
         help_text: Estàs modificant el %{model_name}
         send: Envia l'esmena
       rejected:
-        error: S'ha produït un error en rebutjar aquesta esmena, torneu-ho a provar més tard
-        success: S'ha rebutjat l'esmena amb èxit
+        error: S'ha produït un error en rebutjar aquesta esmena, torna-ho a provar més tard
+        success: L'esmena s'ha rebutjat correctament
       promoted:
-        success: S'ha promogut l'emissió amb èxit
-        error: Hi ha hagut errors en promoure l'esmena
+        success: L'esmena s'ha publicat com a proposta correctament
+        error: Hi ha hagut errors en publicar l'esmena com a proposta
       review:
         back: Tornar
         heading: Revisa l'esmena
@@ -385,13 +385,13 @@ ca:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
             email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: S'ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{amendable_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Una nova esmena per a %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nova esmena</a> ha estat creat per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
