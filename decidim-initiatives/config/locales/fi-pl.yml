@@ -28,6 +28,7 @@ fi-pl:
         banner_image: Bannerikuva
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksessa
         description: Kuvaus
+        document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen äänestyksessä
         extra_fields_legal_information: Oikeudelliset tiedot henkilötietojen keräämisestä
         minimum_committee_members: Vähintään valiokunnan jäseniä
         online_signature_enabled: Online-allekirjoitus on käytössä
