@@ -38,6 +38,7 @@ plugins:
   csslint:
     enabled: true
     exclude_patterns:
+      - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
       - "decidim-admin/app/assets/stylesheets/decidim/admin/bundle.scss"
       - "decidim-core/app/assets/stylesheets/decidim/email.css"
 
@@ -97,6 +98,7 @@ plugins:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"
       - "**/*/*.svg"
+      - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
 
   markdownlint:
     enabled: true

@@ -190,15 +190,70 @@ describe "Initiative signing", type: :system do
     end
   end
 
+  context "when the initiative requires user extra fields collection to be signed" do
+    let(:initiative) do
+      create(:initiative, :published, :with_user_extra_fields_collection, organization: organization)
+    end
+
+    context "when the user has not signed the initiative yet and signs it" do
+      context "when the user has a verified user group" do
+        let!(:user_group) { create :user_group, :verified, users: [confirmed_user], organization: confirmed_user.organization }
+
+        it "votes as a user group" do
+          vote_initiative(user_name: user_group.name)
+        end
+
+        it "votes as themselves" do
+          vote_initiative(user_name: confirmed_user.name)
+        end
+      end
+
+      it "adds the signature" do
+        vote_initiative
+      end
+
+      it "vote is forbidden unless personal data is filled" do
+        visit decidim_initiatives.initiative_path(initiative)
+
+        within ".view-side" do
+          expect(page).to have_content("0\nSIGNATURE")
+          click_on "Sign"
+        end
+        click_button "Continue"
+
+        expect(page).to have_content "error"
+
+        visit decidim_initiatives.initiative_path(initiative)
+        within ".view-side" do
+          expect(page).to have_content("0\nSIGNATURE")
+          click_on "Sign"
+        end
+      end
+    end
+  end
+
   def vote_initiative(user_name: nil)
     visit decidim_initiatives.initiative_path(initiative)
 
     within ".view-side" do
       expect(page).to have_content("0\nSIGNATURE")
-      click_button "Sign"
+      click_on "Sign"
     end
 
-    click_button user_name if user_name.present?
+    if user_name.present?
+      within "#user-identities" do
+        click_on user_name
+      end
+    end
+
+    if has_content?("Complete your data")
+      fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
+      fill_in :initiatives_vote_document_number, with: "012345678A"
+      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago
+      fill_in :initiatives_vote_postal_code, with: "01234"
+
+      click_button "Continue"
+    end
 
     within ".view-side" do
       expect(page).to have_content("1\nSIGNATURE")

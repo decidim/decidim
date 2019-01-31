@@ -14,7 +14,8 @@
                    initiative: initiative,
                    vote_label: t(".vote"),
                    unvote_label: t(".already_voted"),
-                   verification_label: t(".verification_required")
+                   verification_label: t(".verification_required"),
+                   steps: signature_has_steps?
                } if Decidim::Initiatives.online_voting_allowed %>
 <% end %>
 

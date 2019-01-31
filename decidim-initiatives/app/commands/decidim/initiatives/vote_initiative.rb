@@ -6,13 +6,12 @@ module Decidim
     class VoteInitiative < Rectify::Command
       # Public: Initializes the command.
       #
-      # initiative   - A Decidim::Initiative object.
+      # form - A form object with the params.
       # current_user - The current user.
-      # group_id     - Decidim user group id
-      def initialize(initiative, current_user, group_id)
-        @initiative = initiative
+      def initialize(form, current_user)
+        @form = form
+        @initiative = form.initiative
         @current_user = current_user
-        @decidim_user_group_id = group_id
       end
 
       # Executes the command. Broadcasts these events:
@@ -22,8 +21,9 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if form.invalid?
         build_initiative_vote
-        return broadcast(:invalid) unless vote.valid?
+        set_vote_timestamp
 
         percentage_before = @initiative.percentage
         vote.save!
@@ -39,11 +39,26 @@ module Decidim
 
       private
 
+      attr_reader :form, :current_user
+
       def build_initiative_vote
         @vote = @initiative.votes.build(
           author: @current_user,
-          decidim_user_group_id: @decidim_user_group_id
+          decidim_user_group_id: form.group_id,
+          encrypted_metadata: form.encrypted_metadata
         )
+      end
+
+      def set_vote_timestamp
+        return unless timestamp_service
+
+        @vote.assign_attributes(
+          timestamp: timestamp_service.new(document: vote.encrypted_metadata).timestamp
+        )
+      end
+
+      def timestamp_service
+        @timestamp_service ||= Decidim.timestamp_service.to_s.safe_constantize
       end
 
       def send_notification

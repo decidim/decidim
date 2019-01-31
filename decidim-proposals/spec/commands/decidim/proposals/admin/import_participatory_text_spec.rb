@@ -69,7 +69,7 @@ module Decidim
             context "with markdown document" do
               let(:document_name) { "participatory_text.md" }
               let(:document_type) { "text/markdown" }
-              let(:articles) { 11 }
+              let(:articles) { 13 }
 
               it_behaves_like "import participatory_text succeeds"
             end
@@ -77,7 +77,7 @@ module Decidim
             context "with odt document" do
               let(:document_name) { "participatory_text.odt" }
               let(:document_type) { "application/vnd.oasis.opendocument.text" }
-              let(:articles) { 12 }
+              let(:articles) { 13 }
 
               it_behaves_like "import participatory_text succeeds"
             end
