@@ -32,6 +32,7 @@ fi:
         minimum_committee_members: Vähintään valiokunnan jäseniä
         online_signature_enabled: Online-allekirjoitus on käytössä
         title: Otsikko
+        validate_sms_code_on_votes: Lisää SMS-koodin validointivaihe allekirjoitusprosessiin
       initiatives_vote:
         name_and_surname: Nimi ja sukunimi
         document_number: Asiakirjan numero
@@ -297,9 +298,21 @@ fi:
         fill_personal_data:
           continue: Jatkaa
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
+        sms_phone_number:
+          continue: Lähetä minulle tekstiviesti
+          help: Täytä lomake vahvistetun puhelinnumerosi avulla ja pyydä vahvistuskoodi
+        sms_code:
+          continue: Tarkista koodi ja jatka
+          help: Tarkista puhelimessa vastaanotetut tekstiviestit
       initiative_votes:
         create:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
+          invalid: Aloitteen allekirjoittamiseen annetut tiedot eivät ole voimassa
+          success: Onnittelut! Aloite on allekirjoitettu oikein
+        sms_code:
+          invalid: Vahvistuskoodi ei vastaa meitä. Tarkista tällöin lähettämäsi tekstiviesti.
+        sms_phone:
+          invalid: Puhelinnumero on virheellinen tai odottaa lupaa. Tarkista valtuutesi.
       initiatives:
         author:
           deleted: Poistettu
@@ -417,6 +430,8 @@ fi:
         fill_personal_data: Täytä tiedot
         select_identity: Valitse identiteetti
         see_steps: katso vaiheet
+        sms_code: SMS-koodin vahvistaminen
+        sms_phone_number: Matkapuhelimen numero
         step: Vaihe %{current} ja %{total}
         title: Merkki %{initiative_title}
       initiatives:
