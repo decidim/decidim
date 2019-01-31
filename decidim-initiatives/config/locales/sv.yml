@@ -28,6 +28,7 @@ sv:
         banner_image: Banner image
         collect_user_extra_fields: Samla användarens personuppgifter om signatur
         description: Beskrivning
+        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer vid omröstning
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta utskottets medlemmar
         online_signature_enabled: Online signatur aktiverad
