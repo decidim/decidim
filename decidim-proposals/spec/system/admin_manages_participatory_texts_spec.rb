@@ -117,13 +117,11 @@ describe "Admin manages particpatory texts", type: :system do
     end
   end
 
-  describe "updating" do
-    # describe "updating participatory texts in draft mode" do
+  describe "updating participatory texts in draft mode" do
     let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
     let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
 
-    it "persists" do
-      # it "persists changes and all proposals remain as drafts" do
+    it "persists changes and all proposals remain as drafts" do
       visit_participatory_texts
       validate_occurrences(sections: 0, subsections: 0, articles: 1)
       edit_participatory_text_body(0, new_body)
