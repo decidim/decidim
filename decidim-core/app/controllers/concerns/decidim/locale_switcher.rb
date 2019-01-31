@@ -11,7 +11,7 @@ module Decidim
       around_action :switch_locale
       helper_method :current_locale, :available_locales, :default_locale
       before_action :set_locale
-      
+
       # Sets the locale for the current session.
       #
       # Returns nothing.
@@ -61,16 +61,16 @@ module Decidim
       # to prevent unnecessary redirects
       def set_locale
         logger.debug "* Actual locale: #{I18n.locale}"
-        logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+        logger.debug "* Accept-Language: #{request.env["HTTP_ACCEPT_LANGUAGE"]}"
         logger.debug "* params[:locale]: #{params[:locale]}"
-        session[:user_locale]= params[:locale] if params[:locale].present?
-        locale= session[:user_locale] || extract_locale_from_accept_language_header
+        session[:user_locale] = params[:locale] if params[:locale].present?
+        locale = session[:user_locale] || extract_locale_from_accept_language_header
         I18n.locale = available_locales.include?(locale) ? locale : I18n.default_locale
         logger.debug "* Locale set to '#{I18n.locale}'"
       end
 
       def extract_locale_from_accept_language_header
-        lang= request.env['HTTP_ACCEPT_LANGUAGE'] || I18n.locale.to_s
+        lang = request.env["HTTP_ACCEPT_LANGUAGE"] || I18n.locale.to_s
         lang.scan(/\A^[a-z]{2}\z/).first
       end
     end
