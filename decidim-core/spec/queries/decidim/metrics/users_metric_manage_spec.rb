@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Metrics::UsersMetricManage do
   let(:organization) { create(:organization) }
   let(:day) { Time.zone.yesterday }
-  let!(:users) { create_list(:user, 5, confirmed_at: day, organization: organization) }
-  let!(:other_user) { create(:user, confirmed_at: day) }
+  let!(:users) { create_list(:user, 5, created_at: day, confirmed_at: nil, organization: organization) }
+  let!(:other_user) { create(:user, created_at: day) }
 
   context "when executing" do
     it "creates new metric records" do
