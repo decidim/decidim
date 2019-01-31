@@ -28,6 +28,7 @@ es-PY:
         banner_image: Imagen de banner
         collect_user_extra_fields: Recopilar datos personales del usuario en la firma
         description: Descripción
+        document_number_authorization_handler: Autorización para verificar el número de documento en las votaciones.
         extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
