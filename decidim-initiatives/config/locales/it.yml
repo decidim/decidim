@@ -28,6 +28,7 @@ it:
         banner_image: Immagine banner
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         description: Descrizione
+        document_number_authorization_handler: Autorizzazione a verificare il numero del documento sui voti
         extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
         minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
