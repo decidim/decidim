@@ -32,6 +32,7 @@ fr:
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
         title: Titre
+        validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
       initiatives_vote:
         name_and_surname: Nom et surnom
         document_number: Numéro de document
@@ -297,9 +298,21 @@ fr:
         fill_personal_data:
           continue: Continuer
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
+        sms_phone_number:
+          continue: Envoyez moi un SMS
+          help: Remplissez le formulaire avec votre numéro de téléphone vérifié pour demander votre code de vérification
+        sms_code:
+          continue: Vérifier le code et continuer
+          help: Vérifiez les SMS reçus sur votre téléphone
       initiative_votes:
         create:
           error: Il y a eu des erreurs lors de la signature de l'initiative.
+          invalid: Les données fournies pour signer l'initiative ne sont pas valides
+          success: Toutes nos félicitations! L'initiative a été signée correctement
+        sms_code:
+          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+        sms_phone:
+          invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
         author:
           deleted: Supprimé
@@ -417,6 +430,8 @@ fr:
         fill_personal_data: Complétez vos données
         select_identity: Sélectionner une identité
         see_steps: voir les étapes
+        sms_code: Vérification du code SMS
+        sms_phone_number: numéro de téléphone portable
         step: Étape %{current} sur %{total}
         title: Signe %{initiative_title}
       initiatives:
