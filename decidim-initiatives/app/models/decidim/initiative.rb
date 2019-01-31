@@ -175,6 +175,8 @@ module Decidim
     # RETURNS string
     delegate :banner_image, to: :type
 
+    delegate :document_number_authorization_handler, to: :type
+
     def votes_enabled?
       published? &&
         signature_start_date <= Date.current &&
