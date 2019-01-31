@@ -28,6 +28,7 @@ fr:
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
+        document_number_authorization_handler: Autorisation de vérifier le numéro de document sur les votes
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
