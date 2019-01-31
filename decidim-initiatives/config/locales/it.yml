@@ -32,6 +32,7 @@ it:
         minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
         title: Titolo
+        validate_sms_code_on_votes: Aggiungi il passaggio di convalida del codice SMS al processo di firma
       initiatives_vote:
         name_and_surname: Nome e cognome
         document_number: Numero del documento
@@ -297,9 +298,21 @@ it:
         fill_personal_data:
           continue: Continua
           help: Per favore, compila i seguenti campi con i tuoi dati personali per firmare l'iniziativa
+        sms_phone_number:
+          continue: Mandami un sms
+          help: Compila il modulo con il tuo numero di telefono verificato per richiedere il codice di verifica
+        sms_code:
+          continue: Controlla il codice e continua
+          help: Controlla gli SMS ricevuti sul tuo telefono
       initiative_votes:
         create:
           error: Ci sono stati degli errori durante la firma dell'iniziativa.
+          invalid: I dati forniti per firmare l'iniziativa non sono validi
+          success: Congratulazioni! L'iniziativa è stata firmata correttamente
+        sms_code:
+          invalid: Il tuo codice di verifica non corrisponde al nostro. Si prega di ricontrollare gli SMS che ti abbiamo inviato.
+        sms_phone:
+          invalid: Il numero di telefono non è valido o è in attesa di autorizzazione. Per favore, controlla le tue autorizzazioni.
       initiatives:
         author:
           deleted: eliminata
@@ -417,6 +430,8 @@ it:
         fill_personal_data: Completa i tuoi dati
         select_identity: Seleziona identità
         see_steps: vedere i passaggi
+        sms_code: Verifica del codice SMS
+        sms_phone_number: Numero di cellulare
         step: Passaggio %{current} di %{total}
         title: Iscriviti %{initiative_title}
       initiatives:
