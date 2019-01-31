@@ -28,6 +28,7 @@ de:
         banner_image: Bannerbild
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         description: Beschreibung
+        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
