@@ -45,7 +45,8 @@ module Decidim
         @vote = @initiative.votes.build(
           author: @current_user,
           decidim_user_group_id: form.group_id,
-          encrypted_metadata: form.encrypted_metadata
+          encrypted_metadata: form.encrypted_metadata,
+          hash_id: form.hash_id
         )
       end
 

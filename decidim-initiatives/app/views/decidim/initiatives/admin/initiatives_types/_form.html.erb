@@ -34,6 +34,16 @@
       </div>
     <% end %>
 
+    <div class="row column">
+      <%=
+        form.select(
+          :document_number_authorization_handler,
+          current_organization.available_authorizations.map { |name| [t("#{name}.name", scope: "decidim.authorization_handlers"), name] },
+          include_blank: true
+        )
+      %>
+    </div>
+
     <div class="row">
       <div class="columns xlarge-6">
         <%= form.upload :banner_image %>

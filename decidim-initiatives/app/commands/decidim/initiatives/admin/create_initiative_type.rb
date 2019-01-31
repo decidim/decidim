@@ -44,7 +44,8 @@ module Decidim
             banner_image: form.banner_image,
             collect_user_extra_fields: form.collect_user_extra_fields,
             extra_fields_legal_information: form.extra_fields_legal_information,
-            validate_sms_code_on_votes: form.validate_sms_code_on_votes
+            validate_sms_code_on_votes: form.validate_sms_code_on_votes,
+            document_number_authorization_handler: form.document_number_authorization_handler
           )
 
           return initiative_type unless initiative_type.valid?
