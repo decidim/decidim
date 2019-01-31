@@ -32,6 +32,7 @@ de:
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
         title: Titel
+        validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
       initiatives_vote:
         name_and_surname: Name und Nachname
         document_number: Dokumentnummer
@@ -297,9 +298,21 @@ de:
         fill_personal_data:
           continue: Fortsetzen
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
+        sms_phone_number:
+          continue: Senden Sie mir eine SMS
+          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
+        sms_code:
+          continue: Code überprüfen und fortfahren
+          help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
+          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
+          success: Herzliche Glückwünsche! Die Initiative wurde korrekt unterschrieben
+        sms_code:
+          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
+        sms_phone:
+          invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
         author:
           deleted: Gelöscht
@@ -417,6 +430,8 @@ de:
         fill_personal_data: Ergänzen Sie Ihre Daten
         select_identity: Identität auswählen
         see_steps: siehe Schritte
+        sms_code: SMS-Code-Bestätigung
+        sms_phone_number: Handynummer
         step: Schritt %{current} von %{total}
         title: Zeichen %{initiative_title}
       initiatives:
