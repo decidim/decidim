@@ -30,7 +30,7 @@ module Decidim
         def process_row(row)
           user_mail = row["email"]
           if user_mail.present?
-            values << row
+            values << user_mail
           else
             errors << row
           end

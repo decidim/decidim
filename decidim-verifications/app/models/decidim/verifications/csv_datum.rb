@@ -7,7 +7,7 @@ module Decidim
                                 class_name: "Decidim::Organization"
 
       def self.inside(organization)
-        where(decidim_organization_id: organization.id)
+        where(organization: organization)
       end
 
       def self.search_user_email(organization, email)

@@ -48,7 +48,7 @@ en:
             - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
       csv_census:
         explanation: Get verified using the organization's census
-        name: Organization census
+        name: Organization's census
       direct: Direct
       help: Help
       id_documents:
