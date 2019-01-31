@@ -537,7 +537,7 @@ fi-pl:
           submit: Lähetä
           title: Muokkaa käyttöoikeuksia
         update:
-          success: Käyttöoikeudet päivitettiin onnistuneesti.
+          success: Käyttöoikeudet päivitetty onnistuneesti.
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
