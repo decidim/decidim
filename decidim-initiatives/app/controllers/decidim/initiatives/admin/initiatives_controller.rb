@@ -143,16 +143,30 @@ module Decidim
           end
         end
 
+        # GET /admin/initiatives/:id/export_pdf_signatures.pdf
         def export_pdf_signatures
           enforce_permission_to :export_pdf_signatures, :initiative, initiative: current_initiative
 
           @votes = current_initiative.votes.votes
 
+          output = render_to_string(
+            pdf: "votes_#{current_initiative.id}",
+            layout: "decidim/admin/initiatives_votes",
+            template: "decidim/initiatives/admin/initiatives/export_pdf_signatures.pdf.erb"
+          )
+          output = pdf_signature_service.new(pdf: output).signed_pdf if pdf_signature_service
+
           respond_to do |format|
             format.pdf do
-              render pdf: "votes_#{current_initiative.id}", layout: "decidim/admin/initiatives_votes"
+              send_data(output, filename: "votes_#{current_initiative.id}.pdf", type: "application/pdf")
             end
           end
+        end
+
+        private
+
+        def pdf_signature_service
+          @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize
         end
       end
     end

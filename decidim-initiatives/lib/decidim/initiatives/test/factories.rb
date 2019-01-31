@@ -24,6 +24,10 @@ FactoryBot.define do
       collect_user_extra_fields { true }
       extra_fields_legal_information { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     end
+
+    trait :with_sms_code_validation do
+      validate_sms_code_on_votes { true }
+    end
   end
 
   factory :initiatives_type_scope, class: Decidim::InitiativesTypeScope do
