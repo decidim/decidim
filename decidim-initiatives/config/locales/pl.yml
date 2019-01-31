@@ -28,6 +28,7 @@ pl:
         banner_image: Obraz baneru
         collect_user_extra_fields: Zbierz dane osobowe użytkownika na podpisie
         description: Opis
+        document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu w sprawie głosowania
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
