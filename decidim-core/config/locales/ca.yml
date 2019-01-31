@@ -408,7 +408,7 @@ ca:
         amendment_promoted:
           affected_user:
             email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una independent %{amendable_type}. Podeu veure-ho des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè sou un autor de %{amendable_title}.
+            email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
             email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
             notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
