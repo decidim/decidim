@@ -28,6 +28,7 @@ nl:
         banner_image: Banner afbeelding
         collect_user_extra_fields: Verzamel persoonlijke gebruikersgegevens bij ondertekening
         description: Beschrijving
+        document_number_authorization_handler: Autorisatie om documentnummer op stemmen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
