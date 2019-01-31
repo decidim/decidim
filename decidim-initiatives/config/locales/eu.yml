@@ -32,6 +32,7 @@ eu:
         minimum_committee_members: Batzorde kideen gutxienekoak
         online_signature_enabled: Sinadura elektronikoa gaituta dago
         title: Izenburua
+        validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
       initiatives_vote:
         name_and_surname: Izena eta abizena
         document_number: Dokumentuaren zenbakia
@@ -297,9 +298,21 @@ eu:
         fill_personal_data:
           continue: Jarraitu
           help: Mesedez, bete zure datu pertsonalak ondorengo eremuak ekimena sinatzeko
+        sms_phone_number:
+          continue: Bidali SMS bat
+          help: Bete ezazu zure egiaztatutako telefono-zenbakia zure egiaztapen-kodea eskatzeko
+        sms_code:
+          continue: Egiaztatu kodea eta jarraitu
+          help: Egiaztatu telefonoan jasotako SMSa
       initiative_votes:
         create:
           error: Ekimena sinatu zenean akatsak izan dira.
+          invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak
+          success: Zorionak! Ekimena ondo sinatu da
+        sms_code:
+          invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Begiratu bi aldiz bidalitako SMSa.
+        sms_phone:
+          invalid: Telefono-zenbakia baliogabea edo baimenaren zain dago. Egiaztatu zure baimenak.
       initiatives:
         author:
           deleted: Ezabatutako
@@ -417,6 +430,8 @@ eu:
         fill_personal_data: Zure datuak osatzea
         select_identity: Hautatu identitatea
         see_steps: ikusi urratsak
+        sms_code: SMS kodea egiaztatzea
+        sms_phone_number: Telefono mugikorraren zenbakia
         step: Step %{current} of %{total}
         title: Saioa hasi %{initiative_title}
       initiatives:
