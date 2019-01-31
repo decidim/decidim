@@ -29,7 +29,7 @@ module Decidim
 
       def show
         enforce_permission_to :create, :initiative
-        send("#{step}_step", initiative: session[:initiative])
+        send("#{step}_step", initiative: session_initiative)
       end
 
       def update
@@ -71,7 +71,9 @@ module Decidim
       end
 
       def promotal_committee_step(parameters)
-        if session[:initiative].has_key?(:id)
+        skip_step unless promotal_committee_required?
+
+        if session_initiative.has_key?(:id)
           render_wizard
           return
         end
@@ -108,7 +110,7 @@ module Decidim
       def build_form(klass, parameters)
         @form = form(klass).from_params(parameters)
         attributes = @form.attributes_with_values
-        session[:initiative] = session[:initiative].merge(attributes)
+        session[:initiative] = session_initiative.merge(attributes)
         @form.valid? if params[:validate_form]
 
         @form
@@ -119,12 +121,21 @@ module Decidim
       end
 
       def current_initiative
-        initiative = session[:initiative].with_indifferent_access
-        Initiative.find(initiative[:id]) if initiative.has_key?(:id)
+        Initiative.find(session_initiative[:id]) if session_initiative.has_key?(:id)
       end
 
       def initiative_type
         @initiative_type ||= InitiativesType.find(@form&.type_id)
+      end
+
+      def session_initiative
+        session[:initiative]&.with_indifferent_access
+      end
+
+      def promotal_committee_required?
+        minimum_committee_members = InitiativesType.find(session_initiative[:type_id]).minimum_committee_members ||
+                                    Decidim::Initiatives.minimum_committee_members
+        minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end
   end

@@ -11,7 +11,7 @@ module Decidim
     #
     # user     - The user of data portability to be zipped.
     # data     - An array of all data to be zipped.
-    # images   - An array of image urls to be inclueded in the zipped file.
+    # images   - An array of image files to be inclueded in the zipped file.
     def initialize(user, data, images, token = nil)
       super(user, token)
       @export_data = data
@@ -42,11 +42,20 @@ module Decidim
           next if image.file.nil?
           folder_name = image_block.first.parameterize
           uploader = Decidim::ApplicationUploader.new(image.model, image.mounted_as)
-          uploader.cache!(File.open(image.file.file))
-          uploader.retrieve_from_store!(image.file.filename)
+          if image.file.respond_to? :file
+            uploader.cache!(File.open(image.file.file))
+            uploader.retrieve_from_store!(image.file.filename)
+          else
+            my_uploader = image.mounted_as
+            element = image.model
+
+            element.send(my_uploader).cache_stored_file!
+            element.send(my_uploader).retrieve_from_cache!(element.send(my_uploader).cache_name)
+          end
           my_image_path = File.open(image.file.file)
           next unless File.exist?(my_image_path)
           zipfile.add("#{folder_name}/#{image.file.filename}", my_image_path)
+          CarrierWave.clean_cached_files!
         end
       end
       zipfile.close

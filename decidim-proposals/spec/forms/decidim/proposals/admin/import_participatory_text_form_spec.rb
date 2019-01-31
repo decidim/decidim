@@ -46,7 +46,7 @@ module Decidim
         context "when the document is not valid" do
           let(:document_file) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
       end
     end

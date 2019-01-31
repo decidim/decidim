@@ -43,3 +43,5 @@ Well, at the end we required one more paragraph and embedded an image, let's see
 # Summary
 
 We use here a main title again for the summary because we don't know what will happen when having many main titles in one document.
+
+Also, utf-8 characters should be supported. For example: "Cançó de Sangtraït".
