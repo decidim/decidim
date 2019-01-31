@@ -7,7 +7,6 @@ module Decidim
         # A command with the business logic to create census data for a
         # organization.
         class CreateCensusData < Rectify::Command
-
           def initialize(form, organization)
             @form = form
             @organization = organization
