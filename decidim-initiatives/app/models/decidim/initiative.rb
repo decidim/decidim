@@ -175,6 +175,8 @@ module Decidim
     # RETURNS string
     delegate :banner_image, to: :type
 
+    delegate :document_number_authorization_handler, to: :type
+
     def votes_enabled?
       published? &&
         signature_start_date <= Date.current &&
@@ -290,6 +292,17 @@ module Decidim
 
     def enough_committee_members?
       committee_members.approved.count >= minimum_committee_members
+    end
+
+    # PUBLIC
+    #
+    # Checks if the type the initiative belongs to enables SMS code
+    # verification step. Tis configuration is ignored if the organization
+    # doesn't have the sms authorization available
+    #
+    # RETURNS boolean
+    def validate_sms_code_on_votes?
+      organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
     end
 
     private

@@ -6,14 +6,15 @@ module Decidim
   module Initiatives
     describe VoteInitiative do
       let(:form_klass) { VoteForm }
-      let(:initiative) { create(:initiative) }
+      let(:organization) { create(:organization) }
+      let(:initiative) { create(:initiative, organization: organization) }
 
       let(:current_user) { create(:user, organization: initiative.organization) }
       let(:form) do
         form_klass
           .from_params(
             form_params
-          )
+          ).with_context(current_organization: organization)
       end
 
       let(:form_params) do
@@ -69,7 +70,6 @@ module Decidim
         end
 
         context "when a new milestone is completed" do
-          let(:organization) { create(:organization) }
           let(:initiative) do
             create(:initiative,
                    organization: organization,
@@ -108,7 +108,6 @@ module Decidim
         end
 
         context "when initiative type requires extra user fields" do
-          let(:organization) { create(:organization) }
           let(:initiative) do
             create(
               :initiative,
@@ -117,25 +116,81 @@ module Decidim
             )
           end
           let(:form_with_personal_data) do
-            form_klass.from_params(form_params.merge(personal_data_params))
+            form_klass.from_params(form_params.merge(personal_data_params)).with_context(current_organization: organization)
           end
 
           let(:invalid_command) { described_class.new(form, current_user) }
-          let(:valid_command) { described_class.new(form_with_personal_data, current_user) }
+          let(:command_with_personal_data) { described_class.new(form_with_personal_data, current_user) }
 
           it "broadcasts invalid when form doesn't contain personal data" do
             expect { invalid_command.call }.to broadcast :invalid
           end
 
           it "broadcasts ok when form contains personal data" do
-            expect { valid_command.call }.to broadcast :ok
+            expect { command_with_personal_data.call }.to broadcast :ok
           end
 
           it "stores encrypted user personal data in vote" do
-            valid_command.call
+            command_with_personal_data.call
             vote = InitiativesVote.last
             expect(vote.encrypted_metadata).to be_present
             expect(form_klass.from_model(vote).decrypted_metadata).to eq personal_data_params
+          end
+
+          context "when another signature exists with the same hash_id" do
+            before do
+              create(:initiative_user_vote, initiative: initiative, hash_id: form_with_personal_data.hash_id)
+            end
+
+            it "broadcasts invalid" do
+              expect { command_with_personal_data.call }.to broadcast :invalid
+            end
+          end
+
+          context "when initiative type has document number authorization handler" do
+            let(:handler_name) { "dummy_authorization_handler" }
+            let(:unique_id) { "test_digest" }
+            let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }
+
+            before do
+              allow(authorization_handler).to receive(:unique_id).and_return(unique_id)
+              allow(Decidim::AuthorizationHandler).to receive(:handler_for).and_return(authorization_handler)
+              initiative.type.update(document_number_authorization_handler: handler_name)
+            end
+
+            context "when current_user doesn't have any authorization for the handler" do
+              it "broadcasts invalid" do
+                expect { command_with_personal_data.call }.to broadcast :invalid
+              end
+            end
+
+            context "when current_user have an an authorization for the handler" do
+              let!(:authorization) { create(:authorization, granted_at: granted_at, name: handler_name, unique_id: authorization_unique_id, user: current_user) }
+              let(:authorization_unique_id) { unique_id }
+              let(:granted_at) { 1.minute.ago }
+
+              context "when authorization unique_id is the same as handler unique_id" do
+                it "broadcasts ok" do
+                  expect { command_with_personal_data.call }.to broadcast :ok
+                end
+              end
+
+              context "when authorization unique_id is different of handler unique_id" do
+                let(:authorization_unique_id) { "other" }
+
+                it "broadcasts invalid" do
+                  expect { command_with_personal_data.call }.to broadcast :invalid
+                end
+              end
+
+              context "when authorization is not fully granted" do
+                let(:granted_at) { nil }
+
+                it "broadcasts invalid" do
+                  expect { command_with_personal_data.call }.to broadcast :invalid
+                end
+              end
+            end
           end
         end
       end

@@ -28,11 +28,13 @@ en:
         banner_image: Banner image
         collect_user_extra_fields: Collect user personal data on signature
         description: Description
+        document_number_authorization_handler: Authorization to verify document number on votes
         extra_fields_legal_information: Legal information about the collection of
           personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
+        validate_sms_code_on_votes: Add SMS code validation step to signature process
       initiatives_vote:
         name_and_surname: Name and surname
         document_number: Document number
@@ -299,9 +301,22 @@ en:
           continue: Continue
           help: Please, fill the following fields with your personal data to sign
             the initiative
+        sms_phone_number:
+          continue: Send me an SMS
+          help: Fill the form with your verified phone number to request
+            your verification code
+        sms_code:
+          continue: Check code and continue
+          help: Check the SMS received at your phone
       initiative_votes:
         create:
           error: There's been errors when signing the initiative.
+          invalid: The data provided to sign the initiative is not valid
+          success: Congratulations! The initiative has been signed correctly
+        sms_code:
+          invalid: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+        sms_phone:
+          invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
         author:
           deleted: Deleted
@@ -419,6 +434,8 @@ en:
         fill_personal_data: Complete your data
         select_identity: Select identity
         see_steps: see steps
+        sms_code: SMS code verification
+        sms_phone_number: Mobile phone number
         step: Step %{current} of %{total}
         title: Sign %{initiative_title}
       initiatives:

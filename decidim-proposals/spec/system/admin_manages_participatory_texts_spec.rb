@@ -72,9 +72,9 @@ describe "Admin manages particpatory texts", type: :system do
       "What should be accounted",
       "7", "8",
       "Following up accounted results",
-      "9", "10", "11", "12",
+      "9", "10", "11", "12", "13",
       "Summary",
-      "13", "14"
+      "14", "15"
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
@@ -85,7 +85,7 @@ describe "Admin manages particpatory texts", type: :system do
     it "creates proposals" do
       visit_participatory_texts
       import_document
-      validate_occurrences(sections: 2, subsections: 5, articles: 14)
+      validate_occurrences(sections: 2, subsections: 5, articles: 15)
       move_some_sections
       publish_participatory_text
       validate_published

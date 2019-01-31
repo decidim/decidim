@@ -69,7 +69,7 @@ module Decidim
             context "with markdown document" do
               let(:document_name) { "participatory_text.md" }
               let(:document_type) { "text/markdown" }
-              let(:articles) { 14 }
+              let(:articles) { 15 }
 
               it_behaves_like "import participatory_text succeeds"
             end
