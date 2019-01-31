@@ -32,6 +32,7 @@ nl:
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
+        validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces
       initiatives_vote:
         name_and_surname: Naam en achternaam
         document_number: Document Nummer
@@ -297,9 +298,21 @@ nl:
         fill_personal_data:
           continue: Doorgaan met
           help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
+        sms_phone_number:
+          continue: Stuur me een sms
+          help: Vul het formulier in met uw geverifieerde telefoonnummer om uw verificatiecode aan te vragen
+        sms_code:
+          continue: Controleer de code en ga verder
+          help: Controleer de sms die je op je telefoon hebt ontvangen
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
+          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
+          success: Gefeliciteerd! Het initiatief is correct ondertekend
+        sms_code:
+          invalid: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
+        sms_phone:
+          invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer alstublieft uw autorisaties.
       initiatives:
         author:
           deleted: verwijderde
@@ -417,6 +430,8 @@ nl:
         fill_personal_data: Vul uw gegevens in
         select_identity: Selecteer identiteit
         see_steps: zie stappen
+        sms_code: Verificatie van sms-codes
+        sms_phone_number: Mobiele telefoonnummer
         step: Stap %{current} van %{total}
         title: Teken %{initiative_title}
       initiatives:
