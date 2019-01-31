@@ -28,6 +28,7 @@ hu:
         banner_image: Banner kép
         collect_user_extra_fields: Gyűjtse össze a felhasználó személyes adatait az aláíráskor
         description: Leírás
+        document_number_authorization_handler: Engedélyezés a dokumentum számának ellenőrzésére a szavazatokon
         extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
         minimum_committee_members: Minimális bizottsági tagok
         online_signature_enabled: Online aláírás engedélyezve
