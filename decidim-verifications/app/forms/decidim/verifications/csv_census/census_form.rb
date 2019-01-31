@@ -4,9 +4,6 @@ module Decidim
   module Verifications
     module CsvCensus
       class CensusForm < AuthorizationHandler
-        attribute :email, String
-
-        validates :email, presence: true, 'valid_email_2/email': { disposable: true }
         validate :censed
 
         def authorized?
@@ -16,13 +13,9 @@ module Decidim
         private
 
         def censed
-          return if (email == user.email) && (census_for_user&.email == email)
+          return if census_for_user&.email == user.email
 
-          if email != user.email
-            errors.add(:email, I18n.t("decidim.verifications.csv_census.errors.messages.not_same_email"))
-          else
-            errors.add(:email, I18n.t("decidim.verifications.csv_census.errors.messages.not_in_csv"))
-          end
+          errors.add(:email, I18n.t("decidim.verifications.csv_census.errors.messages.not_in_csv"))
         end
 
         def organization
@@ -31,7 +24,7 @@ module Decidim
 
         def census_for_user
           @census_for_user ||= CsvDatum
-                               .search_user_email(organization, email)
+                               .search_user_email(organization, user.email)
         end
       end
     end

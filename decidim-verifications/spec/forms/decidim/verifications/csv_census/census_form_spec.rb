@@ -8,7 +8,6 @@ module Decidim
       describe CensusForm do
         subject do
           described_class.from_params(
-            email: email,
             user: user
           ).with_context(
             context
@@ -33,14 +32,6 @@ module Decidim
         context "when user email in census" do
           it "is valid" do
             expect(subject).to be_valid
-          end
-        end
-
-        context "when not the same user email" do
-          let(:email) { "not_me@example.org" }
-
-          it "is not valid" do
-            expect(subject).not_to be_valid
           end
         end
 

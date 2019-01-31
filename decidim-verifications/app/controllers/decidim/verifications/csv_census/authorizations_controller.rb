@@ -9,20 +9,15 @@ module Decidim
         before_action :load_authorization
 
         def new
-          @form = CensusForm.new
-        end
-
-        def create
-          @form = CensusForm.from_params(params.merge(user: current_user))
+          @form = CensusForm.from_params(user: current_user)
           ConfirmCensusAuthorization.call(@authorization, @form) do
             on(:ok) do
-              flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.csv_census")
-              redirect_to decidim_verifications.authorizations_path
+              flash[:notice] = t("authorizations.new.success", scope: "decidim.verifications.csv_census")
             end
             on(:invalid) do
-              flash.now[:alert] = t("authorizations.create.error", scope: "decidim.verifications.csv_census")
-              render :new
+              flash[:alert] = t("authorizations.new.error", scope: "decidim.verifications.csv_census")
             end
+            redirect_to decidim_verifications.authorizations_path
           end
         end
 

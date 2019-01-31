@@ -47,7 +47,7 @@ en:
             - You mark the letter as sent.
             - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
       csv_census:
-        explanation: Get verified using the organization census
+        explanation: Get verified using the organization's census
         name: Organization census
       direct: Direct
       help: Help
@@ -68,6 +68,7 @@ en:
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
+            csv_census: Verify against the organization's census
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document
@@ -102,17 +103,9 @@ en:
             submit: Upload file
             title: Upload a new census
         authorizations:
-          create:
-            error: Unable to verify user.
-            success: User successfully verified.
           new:
-            send: Send
-            sending: Sending
-            title: Verify with census.
-        errors:
-          messages:
-            not_in_csv: Email entered is not registered in the census.
-            not_same_email: Email entered is not the same as the user logged in.
+            error: We could not verify your account or you are not in the organization's census.
+            success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
           one: Participation is restricted to users with the postal code %{postal_codes}.
