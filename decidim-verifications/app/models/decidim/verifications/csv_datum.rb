@@ -18,13 +18,7 @@ module Decidim
       end
 
       def self.insert_all(organization, values)
-        columns = %w(email decidim_organization_id created_at updated_at).join(",")
-        now = Time.current
-        values = values.map do |row|
-          "('#{row[0]}','#{organization.id}','#{now}','#{now}')"
-        end
-        sql = "INSERT INTO #{table_name} (#{columns}) VALUES #{values.join(",")}"
-        ActiveRecord::Base.connection.execute(sql)
+        values.each { |value| create(email: value, organization: organization) }
       end
 
       def self.clear(organization)

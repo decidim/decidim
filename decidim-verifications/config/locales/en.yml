@@ -84,6 +84,7 @@ en:
         admin:
           census:
             create:
+              error: There was an error importing census.
               success: Successfully imported %{count} items (%{errors} errors)
             destroy_all:
               success: All census data have been deleted

@@ -14,17 +14,21 @@ module Decidim
 
           def index
             enforce_permission_to :index, CsvDatum
+            @form = form(CensusDataForm).instance
             @status = Status.new(current_organization)
           end
 
           def create
             enforce_permission_to :create, CsvDatum
-            if params[:file]
-              data = CsvCensus::Data.new(params[:file].path)
-              CsvDatum.insert_all(current_organization, data.values)
-              RemoveDuplicatesJob.perform_later(current_organization)
-              flash[:notice] = t(".success", count: data.values.count,
-                                             errors: data.errors.count)
+            @form = form(CensusDataForm).from_params(params)
+            CreateCensusData.call(@form, current_organization) do
+              on(:ok) do
+                flash[:notice] = t(".success", count: @form.data.values.count, errors: @form.data.errors.count)
+              end
+
+              on(:invalid) do
+                flash[:alert] = t(".error")
+              end
             end
             redirect_to census_path
           end
