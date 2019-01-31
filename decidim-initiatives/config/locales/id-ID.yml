@@ -28,6 +28,7 @@ id:
         banner_image: Gambar spanduk
         collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
+        document_number_authorization_handler: Otorisasi untuk memverifikasi nomor dokumen pada pemungutan suara
         extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
         minimum_committee_members: Minimal anggota komite
         online_signature_enabled: Tanda tangan online diaktifkan
