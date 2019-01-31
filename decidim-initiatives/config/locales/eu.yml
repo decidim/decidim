@@ -28,6 +28,7 @@ eu:
         banner_image: Banner irudia
         collect_user_extra_fields: Bildu sinadura pertsonalaren datu pertsonalak
         description: deskribapena
+        document_number_authorization_handler: Botoen dokumentu zenbakia egiaztatzeko baimena
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoak
         online_signature_enabled: Sinadura elektronikoa gaituta dago
