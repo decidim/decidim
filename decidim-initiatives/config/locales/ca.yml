@@ -28,6 +28,7 @@ ca:
         banner_image: Imatge del bàner
         collect_user_extra_fields: Recopileu les dades personals de l'usuari amb la signatura
         description: Descripció
+        document_number_authorization_handler: Autorització per verificar el número de document en els vots
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura en línia
