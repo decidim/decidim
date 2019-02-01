@@ -296,6 +296,7 @@ sv:
           index:
             info_1: Följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
             publish_document: Publicera dokument
+            save_draft: Spara utkast
             title: PREVIEW PARTICIPERY TEXT
           new_import:
             bottom_hint: "(Du kommer att kunna förhandsgranska och sortera dokumentavsnitt)"
@@ -309,6 +310,8 @@ sv:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
             sub-section: "<em>Underavsnitt:</em> %{title}"
+          update:
+            success: Deltagande text uppdaterad framgångsrikt.
         proposal_answers:
           edit:
             accepted: Accepterad
