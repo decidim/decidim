@@ -291,6 +291,7 @@ id:
           index:
             info_1: Bagian berikut telah diurai dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
             publish_document: Publikasikan dokumen
+            save_draft: Menyimpan konsep
             title: TEKNIK PREVIEW TEKNIKAL
           new_import:
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
@@ -304,6 +305,8 @@ id:
             article: "<em>Pasal</em>"
             section: "<em>Bagian:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sub-bagian:</em> %{title}"
+          update:
+            success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
           edit:
             accepted: Diterima
