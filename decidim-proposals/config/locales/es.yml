@@ -296,6 +296,7 @@ es:
           index:
             info_1: Los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
             publish_document: Publicar documento
+            save_draft: Guardar borrador
             title: PREVISUALIZAR TEXTO PARTICIPATIVO
           new_import:
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
@@ -309,6 +310,8 @@ es:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
+          update:
+            success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
             accepted: Aceptada
