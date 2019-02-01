@@ -311,7 +311,7 @@ fi:
             section: "<em>Osio:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alaosio:</em> %{title}"
           update:
-            success: Osallistuva teksti päivitettiin onnistuneesti.
+            success: Ehdotusaineisto päivitettiin onnistuneesti.
         proposal_answers:
           edit:
             accepted: Hyväksytty
