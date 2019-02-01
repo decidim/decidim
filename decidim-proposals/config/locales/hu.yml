@@ -296,6 +296,7 @@ hu:
           index:
             info_1: Az importált dokumentumból az alábbi részek kerültek feldolgozásra, amelyek javaslatokká lettek alakítva. Mostantól megtekintheted és módosíthatod, amire szükséged van a közzététel előtt.
             publish_document: Dokumentum közzététele
+            save_draft: Piszkozat mentése
             title: RÉSZTVEVŐ SZÖVEG előnézete
           new_import:
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
@@ -309,6 +310,8 @@ hu:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alszakasz:</em> %{title}"
+          update:
+            success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
           edit:
             accepted: Elfogadva
