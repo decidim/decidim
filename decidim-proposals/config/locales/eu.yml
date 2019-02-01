@@ -296,6 +296,7 @@ eu:
           index:
             info_1: Ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
             publish_document: Argitaratu dokumentua
+            save_draft: Aurreztu zirriborroa
             title: PREVIEW PARTICIPATORIO TEXT
           new_import:
             bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
@@ -309,6 +310,8 @@ eu:
             article: "<em>artikuluaren</em>"
             section: "<em>Artikulua:</em> <strong>%{title}</strong>"
             sub-section: "<em>Azpiatala:</em> %{title}"
+          update:
+            success: Parte hartzailearen testua behar bezala eguneratu da.
         proposal_answers:
           edit:
             accepted: Onartuta
