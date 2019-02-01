@@ -47,6 +47,7 @@
 - **decidim-core**: MetricResolver filtering corrected comparison between symbol and string [\#4733](https://github.com/decidim/decidim/pull/4733)
 - **decidim-core**: Ignore blank permission options in action authorizer [\#4744](https://github.com/decidim/decidim/pull/4744)
 - **decidim-proposals** Lock proposals on voting to avoid race conditions to vote over the limit [\#4763](https://github.com/decidim/decidim/pull/4763)
+- **decidim-initiatives** Add missing dependency for wicked_pdf to initiatives module [\#4813](https://github.com/decidim/decidim/pull/4813)
 
 **Removed**:
 
