@@ -296,6 +296,7 @@ es-PY:
           index:
             info_1: Las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
             publish_document: Publicar documento
+            save_draft: Guardar borrador
             title: PREVIO TEXTO PARTICIPATIVO
           new_import:
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
@@ -309,6 +310,8 @@ es-PY:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
+          update:
+            success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
             accepted: Aceptada
