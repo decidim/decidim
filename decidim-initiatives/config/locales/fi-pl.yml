@@ -83,7 +83,7 @@ fi-pl:
           fields:
             date_of_birth: Syntymäaika
             document_number: Asiakirjan numero
-            hash: hash
+            hash: Tiiviste-luku
             initiative_end_date: Päättymispäivä
             initiative_id: Aloitteen ID-tunnus
             initiative_signatures_count: Allekirjoitusten lukumäärä
@@ -267,7 +267,7 @@ fi-pl:
           more_information: "(Lisää tietoa)"
         promotal_committee:
           back: Takaisin
-          individual_help_text: Tällainen kansalaisaloitteen edellyttäminen edellyttää, että edistämiskomissio koostuu vähintään %{committee_size} henkilöstä (valtuutetut). Sinun on jaettava seuraava linkki muihin ihmisiin, jotka ovat osa tätä aloitetta. Kun yhteystietosi saavat tämän linkin, heidän on noudatettava ohjeita.
+          individual_help_text: Tämäntyyppisen kansalaisaloite edellyttää, että edistämiskomissio koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
@@ -313,7 +313,7 @@ fi-pl:
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
-          invalid: Puhelinnumero on virheellinen tai odottaa lupaa. Tarkista valtuutesi.
+          invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista valtuutesi.
       initiatives:
         author:
           deleted: Poistettu
@@ -369,7 +369,7 @@ fi-pl:
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
-          verification_required: Vahvista henkilöllisyytesi allekirjoittamalla aloite
+          verification_required: Vahvista henkilöllisyytesi allekirjoittaaksesi aloite
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
@@ -405,7 +405,7 @@ fi-pl:
     resources:
       initiatives_type:
         actions:
-          vote: Äänestys
+          vote: Äänestä
           title: Toimet
   layouts:
     decidim:
@@ -428,13 +428,13 @@ fi-pl:
         initiative_menu_item: Aloite
       initiative_signature_creation_header:
         back: Takaisin
-        fill_personal_data: Täytä tiedot
+        fill_personal_data: Täydennä tietosi
         select_identity: Valitse identiteetti
         see_steps: katso vaiheet
-        sms_code: SMS-koodin vahvistaminen
+        sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero
-        step: Vaihe %{current} ja %{total}
-        title: Merkki %{initiative_title}
+        step: Vaihe %{current} / %{total}
+        title: Allekirjoita %{initiative_title}
       initiatives:
         initiative:
           check: Tarkasta
