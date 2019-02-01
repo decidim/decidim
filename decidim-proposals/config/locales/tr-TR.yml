@@ -141,6 +141,7 @@ tr:
           email_intro: 'Şimdi %{participatory_space_title}yeni teklifler oluşturabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: Şu anda %{participatory_space_title}teklif mevcut
+          notification_title: Artık ileri koyabilirsiniz <a href="%{resource_path}">yeni teklifler</a> içinde <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Teklifleri %{participatory_space_title}onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
@@ -295,6 +296,7 @@ tr:
           index:
             info_1: Aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
             publish_document: Belge yayınla
+            save_draft: Taslağı kaydet
             title: ÖNEMLİ KATILIMCI METİN
           new_import:
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
@@ -308,6 +310,8 @@ tr:
             article: "<em>Madde</em>"
             section: "<em>Bölüm:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alt Bölüm:</em> %{title}"
+          update:
+            success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
           edit:
             accepted: Kabul edilmiş
