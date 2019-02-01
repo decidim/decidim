@@ -296,6 +296,7 @@ nl:
           index:
             info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
             publish_document: Publiceer document
+            save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
           new_import:
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
@@ -309,6 +310,8 @@ nl:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
             sub-section: "<em>Onderafdeling:</em> %{title}"
+          update:
+            success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           edit:
             accepted: Aanvaard
