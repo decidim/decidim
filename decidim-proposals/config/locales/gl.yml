@@ -296,6 +296,7 @@ gl:
           index:
             info_1: As seguintes seccións foron analizadas dende o documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
             publish_document: Publicar documento
+            save_draft: Gardar borrador
             title: TEXTO PARTICIPARIO PREVIEW
           new_import:
             bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
@@ -309,6 +310,8 @@ gl:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
+          update:
+            success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
             accepted: Aceptada
