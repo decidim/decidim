@@ -15,13 +15,13 @@ module Decidim
         end
 
         def new_import
-          enforce_permission_to :import, :participatory_texts
+          enforce_permission_to :manage, :participatory_texts
           participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
           @import = form(Admin::ImportParticipatoryTextForm).from_model(participatory_text)
         end
 
         def import
-          enforce_permission_to :import, :participatory_texts
+          enforce_permission_to :manage, :participatory_texts
           @import = form(Admin::ImportParticipatoryTextForm).from_params(params)
 
           Admin::ImportParticipatoryText.call(@import) do
@@ -37,23 +37,41 @@ module Decidim
           end
         end
 
-        def publish
-          enforce_permission_to :publish, :participatory_texts
+        def update
+          enforce_permission_to :manage, :participatory_texts
+
           form_params = params.require(:preview_participatory_text).permit!
           @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params[:proposals_attributes]&.values)
 
-          PublishParticipatoryText.call(@preview_form) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.publish.success", scope: "decidim.proposals.admin")
-              redirect_to proposals_path
-            end
+          if params.has_key?("save_draft")
+            UpdateParticipatoryText.call(@preview_form) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
+                redirect_to participatory_texts_path(component_id: current_component.id, initiative_slug: "asdf")
+              end
 
-            on(:invalid) do |failures|
-              alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
-              failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
-              flash.now[:alert] = alert_msg.join("<br/>").html_safe
-              index
-              render action: "index"
+              on(:invalid) do |failures|
+                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+                failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
+                flash.now[:alert] = alert_msg.join("<br/>").html_safe
+                index
+                render action: "index"
+              end
+            end
+          else
+            PublishParticipatoryText.call(@preview_form) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_texts.publish.success", scope: "decidim.proposals.admin")
+                redirect_to proposals_path
+              end
+
+              on(:invalid) do |failures|
+                alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+                failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
+                flash.now[:alert] = alert_msg.join("<br/>").html_safe
+                index
+                render action: "index"
+              end
             end
           end
         end
