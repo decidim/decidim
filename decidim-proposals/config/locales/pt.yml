@@ -296,6 +296,7 @@ pt:
           index:
             info_1: As seções a seguir foram analisadas a partir do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
             publish_document: Publicar documento
+            save_draft: Salvar rascunho
             title: PREVIEW TEXTO PARTICIPATIVO
           new_import:
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
@@ -309,6 +310,8 @@ pt:
             article: "<em>Artigo</em>"
             section: "<em>Seção:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsecção:</em> %{title}"
+          update:
+            success: Texto participativo atualizado com sucesso.
         proposal_answers:
           edit:
             accepted: Aceitaram
