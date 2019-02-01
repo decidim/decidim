@@ -296,6 +296,7 @@ it:
           index:
             info_1: Le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
             publish_document: Pubblica un documento
+            save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
@@ -309,6 +310,8 @@ it:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sottosezione:</em> %{title}"
+          update:
+            success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
           edit:
             accepted: Accettata
