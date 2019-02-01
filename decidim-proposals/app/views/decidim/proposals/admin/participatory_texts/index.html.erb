@@ -1,4 +1,4 @@
-<%= decidim_form_for(@preview_form, url: publish_participatory_texts_path, class: "form grid-container") do |form| %>
+<%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
@@ -26,8 +26,9 @@
     <% end -%>
   </div>
 </div>
-<div class="grid-x align-center mt-sm">
-  <%= form.submit t(".publish_document") %>
+<div class="button--double form-general-submit">
+  <%= form.submit t(".save_draft"), name: :save_draft, class: "button" %>
+  <%= form.submit t(".publish_document"), class: "button success" %>
 </div>
 <% end -%>
 <script>

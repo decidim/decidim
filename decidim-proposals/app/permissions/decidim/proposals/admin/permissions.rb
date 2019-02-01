@@ -39,10 +39,8 @@ module Decidim
           allow! if permission_action.subject == :proposals && permission_action.action == :split
 
           if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
-            # Every user allowed by the space can import participatory texts to proposals
-            allow! if permission_action.action == :import
-            # Every user allowed by the space can publish participatory texts to proposals
-            allow! if permission_action.action == :publish
+            # Every user allowed by the space can manage (import, update and publish) participatory texts to proposals
+            allow! if permission_action.action == :manage
           end
 
           permission_action
