@@ -17,18 +17,18 @@ On this tutorial we'll see how to install rbenv, PostgreSQL and Decidim, and how
 
 ### Installing rbenv
 
-First we're going to install rbenv, for managing various ruby versions. We're following the guide from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04). You could also use [rvm](https://rvm.io/) as an alternative on this step. On these instruction we're using the latest ruby published version at the moment (2.5.1), but you should check this out on [Ruby official website](https://www.ruby-lang.org/en/downloads/).
+First we're going to install rbenv, for managing various ruby versions. We're following the guide from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04). You could also use [rvm](https://rvm.io/) as an alternative on this step. On these instruction we're using the latest ruby published version at the moment (2.5.3), but you should check this out on [Ruby official website](https://www.ruby-lang.org/en/downloads/).
 
 ```bash
-sudo apt-get update
-sudo apt-get install -y build-essential autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+sudo apt update
+sudo apt install -y build-essential autoconf bison libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libicu-dev
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.5.1
-rbenv global 2.5.1
+rbenv install 2.5.3
+rbenv global 2.5.3
 echo "gem: --no-document" > ~/.gemrc
 gem install bundler
 ```
@@ -38,7 +38,7 @@ gem install bundler
 Now we're going to install PostgreSQL for the database:
 
 ```bash
-sudo apt-get install -y postgresql libpq-dev
+sudo apt install -y postgresql libpq-dev
 sudo -u postgres psql -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'thepassword'"
 ```
 
