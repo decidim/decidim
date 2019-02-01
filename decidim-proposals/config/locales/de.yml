@@ -293,6 +293,7 @@ de:
           index:
             info_1: Die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
             publish_document: Dokument veröffentlichen
+            save_draft: Entwurf speichern
             title: VORSCHAU TEILNEHMERTEXT
           new_import:
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
@@ -306,6 +307,8 @@ de:
             article: "<em>Artikel</em>"
             section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
             sub-section: "<em>Unterabschnitt:</em> %{title}"
+          update:
+            success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
           edit:
             accepted: Akzeptiert
