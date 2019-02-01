@@ -306,6 +306,7 @@ pl:
           index:
             info_1: Z importowanego dokumentu przeanalizowano następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
             publish_document: Opublikuj dokument
+            save_draft: Zapisz Projekt
             title: PREVIEW TEKST UCZESTNIKA
           new_import:
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
@@ -319,6 +320,8 @@ pl:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
             sub-section: "<em>Podsekcja:</em> %{title}"
+          update:
+            success: Tekst uczestnictwa został zaktualizowany pomyślnie.
         proposal_answers:
           edit:
             accepted: Przyjęty
