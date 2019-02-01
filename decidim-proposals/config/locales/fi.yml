@@ -296,6 +296,7 @@ fi:
           index:
             info_1: Seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
             publish_document: Julkaise aineisto
+            save_draft: Tallenna luonnos
             title: ESIKATSELE EHDOTUSAINEISTOA
           new_import:
             bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
@@ -309,6 +310,8 @@ fi:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alaosio:</em> %{title}"
+          update:
+            success: Osallistuva teksti päivitettiin onnistuneesti.
         proposal_answers:
           edit:
             accepted: Hyväksytty
