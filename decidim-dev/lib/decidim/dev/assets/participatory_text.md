@@ -9,6 +9,7 @@ The following co-creation process will be followed: We all will think think thin
 ## Creative consensus for the Creation
 
 Creations will require a consensus from all the participants. Depending on the Creation to be created the following consensus systems will be used:
+
 - consensus by simple majority: when a, b, and c appear in the creation.
 - consensus by enhanced majority: when a, b, c and also d appear in the creation.
 - consensus by absolute majority: when x, y and z appear in the creation.
@@ -24,6 +25,7 @@ When an organization finishes a co-creation process, the accountability process 
 ### What should be accounted
 
 blah, blah, blah...
+
 1. one
 2. two
 3. three

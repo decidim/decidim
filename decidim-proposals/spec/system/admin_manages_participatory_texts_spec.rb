@@ -66,15 +66,15 @@ describe "Admin manages particpatory texts", type: :system do
       "A co-creation process to create creative creations",
       "1", "2",
       "Creative consensus for the Creation",
-      "3", "4",
+      "3", "4", "5",
       "Creation accountability",
-      "5",
-      "What should be accounted",
       "6",
+      "What should be accounted",
+      "7", "8",
       "Following up accounted results",
-      "7", "8", "9", "10", "11",
+      "9", "10", "11", "12", "13",
       "Summary",
-      "12", "13"
+      "14", "15"
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
@@ -106,7 +106,7 @@ describe "Admin manages particpatory texts", type: :system do
     it "creates proposals" do
       visit_participatory_texts
       import_document
-      validate_occurrences(sections: 2, subsections: 5, articles: 13)
+      validate_occurrences(sections: 2, subsections: 5, articles: 15)
       move_some_sections
       publish_participatory_text
       validate_published
@@ -130,6 +130,21 @@ describe "Admin manages particpatory texts", type: :system do
       validate_occurrences(sections: 0, subsections: 0, articles: 5)
       reset_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 0)
+    end
+  end
+
+  describe "updating participatory texts in draft mode" do
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+
+    it "persists changes and all proposals remain as drafts" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      edit_participatory_text_body(0, new_body)
+      save_participatory_text_drafts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      proposal.reload
+      expect(proposal.body.delete("\r")).to eq(new_body)
     end
   end
 
