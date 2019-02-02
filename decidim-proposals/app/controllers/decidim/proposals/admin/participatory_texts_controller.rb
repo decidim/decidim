@@ -37,6 +37,8 @@ module Decidim
           end
         end
 
+        # When `save_draft` param exists, proposals are only saved.
+        # When no `save_draft` param is set, proposals are saved and published.
         def update
           enforce_permission_to :manage, :participatory_texts
 
@@ -72,6 +74,18 @@ module Decidim
                 index
                 render action: "index"
               end
+            end
+          end
+        end
+
+        # Removes all the unpublished proposals (drafts).
+        def reset
+          enforce_permission_to :manage, :participatory_texts
+
+          ResetParticipatoryText.call(current_component) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_texts.reset.success", scope: "decidim.proposals.admin")
+              redirect_to participatory_texts_path(component_id: current_component.id, initiative_slug: "asdf")
             end
           end
         end

@@ -289,7 +289,9 @@ en:
             name: Proposal
         participatory_texts:
           bulk-actions:
+            are_you_sure: Are you sure to remove the whole participatory text draft?
             import_doc: Import document
+            reset_all: Reset all
           import:
             invalid: The form is invalid!
             success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
@@ -306,6 +308,8 @@ en:
           publish:
             invalid: Could not publish proposals
             success: All proposals have been published
+          reset:
+            success: All Participatory text drafts have been deleted.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
