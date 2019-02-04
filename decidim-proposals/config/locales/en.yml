@@ -289,7 +289,7 @@ en:
             name: Proposal
         participatory_texts:
           bulk-actions:
-            are_you_sure: Are you sure to remove the whole participatory text draft?
+            are_you_sure: Are you sure to discard the whole participatory text draft?
             import_doc: Import document
             discard_all: Discard all
           import:
@@ -309,7 +309,7 @@ en:
             invalid: Could not publish proposals
             success: All proposals have been published
           discard:
-            success: All Participatory text drafts have been deleted.
+            success: All Participatory text drafts have been discarded.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
