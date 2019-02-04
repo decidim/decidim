@@ -21,12 +21,13 @@ module Decidim
           resources :proposal_notes, only: [:index, :create]
         end
         scope "/proposal_components/:component_id" do
-          resources :participatory_texts, only: :index do
+          resources :participatory_texts, only: [:index] do
             collection do
               get :new_import
               post :import
               patch :import
               post :update
+              post :discard
             end
           end
         end
