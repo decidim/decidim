@@ -353,7 +353,7 @@ ca:
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de suports.
         show:
           any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
-          offline_method: Aquesta iniciativa ciutadana només recull suports presencials.
+          offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
         signature_identities:
           select_identity: Selecciona l'identificador d'usuari
         signatures_count:
