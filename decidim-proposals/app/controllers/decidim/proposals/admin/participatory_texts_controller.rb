@@ -79,12 +79,12 @@ module Decidim
         end
 
         # Removes all the unpublished proposals (drafts).
-        def reset
+        def discard
           enforce_permission_to :manage, :participatory_texts
 
-          ResetParticipatoryText.call(current_component) do
+          DiscardParticipatoryText.call(current_component) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_texts.reset.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("participatory_texts.discard.success", scope: "decidim.proposals.admin")
               redirect_to participatory_texts_path(component_id: current_component.id, initiative_slug: "asdf")
             end
           end

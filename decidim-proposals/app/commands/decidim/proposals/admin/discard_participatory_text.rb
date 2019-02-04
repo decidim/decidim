@@ -3,8 +3,8 @@
 module Decidim
   module Proposals
     module Admin
-      # A command with all the business logic related with an admin reseting participatory text proposals.
-      class ResetParticipatoryText < Rectify::Command
+      # A command with all the business logic related with an admin discarding participatory text proposals.
+      class DiscardParticipatoryText < Rectify::Command
         # Public: Initializes the command.
         #
         # form - A PreviewParticipatoryTextForm form object with the params.
@@ -20,7 +20,7 @@ module Decidim
         # Returns nothing.
         def call
           transaction do
-            reset_drafts
+            discard_drafts
           end
 
           broadcast(:ok)
@@ -30,7 +30,7 @@ module Decidim
 
         attr_reader :form
 
-        def reset_drafts
+        def discard_drafts
           proposals = Decidim::Proposals::Proposal.drafts.where(component: @component)
           proposals.destroy_all
         end

@@ -27,7 +27,7 @@ module Decidim
               post :import
               patch :import
               post :update
-              post :reset
+              post :discard
             end
           end
         end

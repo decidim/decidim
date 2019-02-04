@@ -94,9 +94,9 @@ describe "Admin manages particpatory texts", type: :system do
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
-  def reset_participatory_text_drafts
+  def discard_participatory_text_drafts
     page.accept_alert "Are you sure to remove the whole participatory text draft?" do
-      click_link "Reset all"
+      click_link "Discard all"
     end
     expect(page).to have_content "All Participatory text drafts have been deleted."
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
@@ -122,13 +122,13 @@ describe "Admin manages particpatory texts", type: :system do
     end
   end
 
-  describe "reseting participatory texts in draft mode" do
+  describe "discarding participatory texts in draft mode" do
     let!(:proposals) { create_list(:proposal, 5, :draft, component: current_component, participatory_text_level: "article") }
 
     it "removes all proposals in draft mode" do
       visit_participatory_texts
       validate_occurrences(sections: 0, subsections: 0, articles: 5)
-      reset_participatory_text_drafts
+      discard_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 0)
     end
   end

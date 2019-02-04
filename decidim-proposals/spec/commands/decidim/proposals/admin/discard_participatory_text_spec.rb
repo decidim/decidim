@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe ResetParticipatoryText do
+      describe DiscardParticipatoryText do
         describe "call" do
           let(:current_component) do
             create(
@@ -18,7 +18,7 @@ module Decidim
           end
           let(:command) { described_class.new(current_component) }
 
-          describe "when reseting" do
+          describe "when discarding" do
             it "removes all drafts" do
               expect { command.call }.to broadcast(:ok)
               proposals = Decidim::Proposals::Proposal.drafts.where(component: current_component)
