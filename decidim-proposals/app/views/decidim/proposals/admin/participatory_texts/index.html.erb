@@ -27,10 +27,10 @@
   </div>
 </div>
 <% if @drafts.any? %>
-<div class="button--double form-general-submit">
-  <%= form.submit t(".save_draft"), name: :save_draft, class: "button" %>
-  <%= form.submit t(".publish_document"), class: "button success" %>
-</div>
+  <div class="button--double form-general-submit">
+    <%= form.submit t(".save_draft"), name: :save_draft, class: "button" %>
+    <%= form.submit t(".publish_document"), class: "button success" %>
+  </div>
 <% end %>
 <% end -%>
 <script>
