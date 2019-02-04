@@ -296,7 +296,7 @@ ca:
           index:
             info_1: Les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
             publish_document: Publicar el document
-            save_draft: Guardar l'esborrany
+            save_draft: Desa l'esborrany
             title: PREVISUALITZAR EL TEXT PARTICIPATIU
           new_import:
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
