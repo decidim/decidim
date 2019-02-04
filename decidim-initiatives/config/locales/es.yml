@@ -353,7 +353,7 @@ es:
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
-          offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
+          offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
         signature_identities:
           select_identity: Selecciona un identificador de usuario
         signatures_count:
