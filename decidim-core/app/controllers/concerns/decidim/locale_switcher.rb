@@ -60,13 +60,9 @@ module Decidim
       # Save current locale in session variable
       # to prevent unnecessary redirects
       def set_locale
-        logger.debug "* Actual locale: #{I18n.locale}"
-        logger.debug "* Accept-Language: #{request.env["HTTP_ACCEPT_LANGUAGE"]}"
-        logger.debug "* params[:locale]: #{params[:locale]}"
         session[:user_locale] = params[:locale] if params[:locale].present?
         locale = session[:user_locale] || extract_locale_from_accept_language_header
         I18n.locale = available_locales.include?(locale) ? locale : I18n.default_locale
-        logger.debug "* Locale set to '#{I18n.locale}'"
       end
 
       def extract_locale_from_accept_language_header
