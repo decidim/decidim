@@ -1,14 +1,35 @@
-# The great title for a new law
+# Section title 1: grouping content
 
-## A co-creation process to create creative creations
+Participatory texts relay on the parsing of Markdown texts to produce a structured document.
 
-When public administrations will need to create or implement things, open and co-creative processes with the participation of any public or private person or institution will be required.
+Participatory texts are divided into 3 types of blocks:
+- Section: produced by main headers (paragraphs starting with "# ")
+- Subsection: produced by secondary headers (paragraphs starting more than one "#") until 6 levels.
+- Article: produced by paragraphs and lists.
 
-The following co-creation process will be followed: We all will think think think and create and meditate and think and obtain creations at the end, blah, blah..
+## Subsection title 1.1
+Parsing of Markdown is strict.
+This means that, for paragraphs and lists, all blocks should be separated by a blank line between them.
+The first, second and this third paragraphs, for example, will be grouped into a single participatory text article.
 
-## Creative consensus for the Creation
+This paragraph instead, will produce a single participatory text article.
 
-Creations will require a consensus from all the participants. Depending on the Creation to be created the following consensus systems will be used:
+This paragraph also, will produce a third participatory text article.
+
+## Subsection title 1.2
+
+Inside a paragraph list or a list, **bold text** is supported, *italics text* is supported, __underlined text__ is supported. 
+As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks (\*) and underscores (\_) as indicators of emphasis. Text wrapped with one \* or \_ will be wrapped with an HTML <em> tag; double \*’s or \_’s will be wrapped with an HTML &lt;strong> tag. E.g., this input:
+- *single asterisks*
+- _single underscores_
+- **double asterisks**
+- __double underscores__
+
+You can use the following reference when writing your documents: [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+
+# Section title 2: lists
+
+Lists will be parsed as one block:
 
 - consensus by simple majority: when a, b, and c appear in the creation.
 - consensus by enhanced majority: when a, b, c and also d appear in the creation.
@@ -16,34 +37,17 @@ Creations will require a consensus from all the participants. Depending on the C
 - consensus by imposing whatever the organization wants: to be used at will.
 - consensus by ignoring whatever resulted from the previous consensus: to be used when organization don't like the results of another consensus system.
 
-It must be taken into account that using "consensus by ignoring whatever resulted from the previous consensus" will grant participants the right to produce a revolution and annihilate the organization.
-
-## Creation accountability
-
-When an organization finishes a co-creation process, the accountability process starts.
-
-### What should be accounted
-
-blah, blah, blah...
+Ordered lists reset numberings to the correct order (1,2,3,4,5 in this case):
 
 1. one
 2. two
 3. three
+1. four
+1. five
 
-### Following up accounted results
+# Section title 3: images and links
 
-This article will require three paragraphs. This will be the first one.
-
-This article will require three paragraphs. This will be the second one.
-
-This article will require three paragraphs. This will be the third one.
+A link to Decidim's web site uses [this format](https://decidim.org).
 
 ![Important image for Decidim](https://meta.decidim.org/assets/decidim/decidim-logo-1f39092fb3e41d23936dc8aeadd054e2119807dccf3c395de88637e4187f0a3f.svg)
 
-Well, at the end we required one more paragraph and embedded an image, let's see what happens with this...
-
-# Summary
-
-We use here a main title again for the summary because we don't know what will happen when having many main titles in one document.
-
-Also, utf-8 characters should be supported. For example: "Cançó de Sangtraït".
