@@ -17,6 +17,14 @@ module Decidim
       ODT_MIME_TYPE = "application/vnd.oasis.opendocument.text"
       DOCX_MIME_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
+      # Accepted mime types
+      # keys: are used for dynamic help text on admin form.
+      # values: are used to validate the file format of imported document.
+      ACCEPTED_MIME_TYPES = {
+        md: MARKDOWN_MIME_TYPE,
+        odt: ODT_MIME_TYPE
+      }.freeze
+
       # Public: Initializes the serializer with a proposal.
       def initialize(doc, mime_type)
         @doc = doc
