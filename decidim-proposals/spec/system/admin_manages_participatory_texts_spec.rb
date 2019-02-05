@@ -98,10 +98,10 @@ describe "Admin manages particpatory texts", type: :system do
   end
 
   def discard_participatory_text_drafts
-    page.accept_alert "Are you sure to remove the whole participatory text draft?" do
+    page.accept_alert "Are you sure to discard the whole participatory text draft?" do
       click_link "Discard all"
     end
-    expect(page).to have_content "All Participatory text drafts have been deleted."
+    expect(page).to have_content "All Participatory text drafts have been discarded."
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
