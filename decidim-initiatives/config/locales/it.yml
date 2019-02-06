@@ -54,6 +54,7 @@ it:
         initiatives:
           fields:
             created_at: Creato a
+            id: ID
             state: Stato
             supports_count: supporti
             title: iniziative
@@ -78,10 +79,16 @@ it:
           email_subject: Data di fine delle firme dell'iniziativa estesa!
           notification_title: La data di fine delle firme per l'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata estesa.
         milestone_completed:
-          email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Nuova pietra miliare completata!
-          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+          affected_user:
+            email_intro: La tua iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
+            email_outro: Hai ricevuto questa notifica perché sei l'autore dell'iniziativa %{resource_title}.
+            email_subject: Nuova pietra miliare completata!
+            notification_title: La tua iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+          follower:
+            email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_subject: Nuova pietra miliare completata!
+            notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
     gamification:
       badges:
         initiatives:
@@ -349,6 +356,7 @@ it:
       states:
         accepted: Accettato
         expired: Scaduto
+      unavailable_scope: Ambito non disponibile
     menu:
       initiatives: iniziative
   layouts:

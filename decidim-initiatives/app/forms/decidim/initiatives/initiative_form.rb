@@ -14,6 +14,7 @@ module Decidim
       attribute :scope_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
+      attribute :state, String
 
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }
@@ -24,6 +25,10 @@ module Decidim
       def map_model(model)
         self.type_id = model.type.id
         self.scope_id = model.scope.id
+      end
+
+      def signature_type_updatable?
+        state == "created" || state.nil?
       end
     end
   end

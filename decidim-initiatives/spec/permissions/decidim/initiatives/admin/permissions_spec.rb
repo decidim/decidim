@@ -198,10 +198,18 @@ describe Decidim::Initiatives::Admin::Permissions do
 
           context "when initiative has enough approved members" do
             before do
-              allow(Decidim::Initiatives).to receive(:minimum_committee_members).and_return(1)
+              allow(initiative).to receive(:enough_committee_members?).and_return(true)
             end
 
             it { is_expected.to eq true }
+          end
+
+          context "when initiative has not enough approved members" do
+            before do
+              allow(initiative).to receive(:enough_committee_members?).and_return(false)
+            end
+
+            it { is_expected.to eq false }
           end
         end
       end
@@ -386,6 +394,7 @@ describe Decidim::Initiatives::Admin::Permissions do
       it_behaves_like "checks initiative state", :unpublish, :published, :validating
       it_behaves_like "checks initiative state", :discard, :validating, :published
       it_behaves_like "checks initiative state", :export_votes, :offline, :online
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :published, :validating
 
       context "when accepting the initiative" do
         let(:action_name) { :accept }

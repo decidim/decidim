@@ -206,6 +206,8 @@ describe Decidim::Initiatives::Permissions do
   end
 
   context "when voting an initiative" do
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
+    let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
     let(:action) do
       { scope: :public, action: :vote, subject: :initiative }
     end
@@ -245,6 +247,42 @@ describe Decidim::Initiatives::Permissions do
       end
 
       it { is_expected.to eq true }
+    end
+
+    context "when the initiative type has permissions to vote" do
+      before do
+        initiative.type.create_resource_permission(
+          permissions: {
+            "vote" => {
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => { "options" => {} },
+                "another_dummy_authorization_handler" => { "options" => {} }
+              }
+            }
+          }
+        )
+      end
+
+      context "when user is not verified" do
+        it { is_expected.to eq false }
+      end
+
+      context "when user is not fully verified" do
+        before do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+        end
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is fully verified" do
+        before do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+        end
+
+        it { is_expected.to eq true }
+      end
     end
   end
 

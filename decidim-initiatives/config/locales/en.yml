@@ -26,8 +26,18 @@ en:
         user: Committee member
       initiatives_type:
         banner_image: Banner image
+        collect_user_extra_fields: Collect user personal data on signature
         description: Description
+        extra_fields_legal_information: Legal information about the collection of
+          personal data
+        minimum_committee_members: Minimum of committee members
+        online_signature_enabled: Online signature enabled
         title: Title
+      initiatives_vote:
+        name_and_surname: Name and surname
+        document_number: Document number
+        date_of_birth: Date of birth
+        postal_code: Postal code
       organization_data:
         address: Address
         id_document: ID document
@@ -68,6 +78,20 @@ en:
             created_at: Created at
             title: Initiative types
           name: Initiative type
+        initiatives_votes:
+          fields:
+            date_of_birth: Date of birth
+            document_number: Document number
+            hash: Hash
+            initiative_end_date: End date
+            initiative_id: Initiative ID
+            initiative_signatures_count: Number of signatures
+            initiative_start_date: Start date
+            initiative_title: Initiative title
+            name_and_surname: Name and surname
+            postal_code: Postal code
+            time_and_date: Time and date
+            timestamp: Timestamp
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -126,6 +150,7 @@ en:
             accept: Accept initiative
             confirm: Are you sure?
             discard: Discard the initiative
+            export_pdf_signatures: Export PDF of signatures
             export_votes: Export supports
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
@@ -241,7 +266,7 @@ en:
           more_information: "(More information)"
         promotal_committee:
           back: Back
-          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           more_information: "(More information)"
         select_initiative_type:
           back: Back
@@ -269,6 +294,11 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continue
+          help: Please, fill the following fields with your personal data to sign
+            the initiative
       initiative_votes:
         create:
           error: There's been errors when signing the initiative.
@@ -327,6 +357,7 @@ en:
         vote_cabin:
           already_voted: Already signed
           supports_required: "%{total_supports} signatures required"
+          verification_required: Verify your identity to sign the initiative
           vote: Sign
           votes_blocked: Signing disabled
         votes_count:
@@ -359,6 +390,11 @@ en:
       unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: Actions
   layouts:
     decidim:
       admin:
@@ -378,6 +414,13 @@ en:
         title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Back
+        fill_personal_data: Complete your data
+        select_identity: Select identity
+        see_steps: see steps
+        step: Step %{current} of %{total}
+        title: Sign %{initiative_title}
       initiatives:
         initiative:
           check: Check it out

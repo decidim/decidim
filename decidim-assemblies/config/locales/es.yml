@@ -82,8 +82,6 @@ es:
         create:
           error: Se produjo un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
-        destroy:
-          success: Asamblea eliminada con éxito.
         edit:
           update: Actualizar
         form:
@@ -259,6 +257,17 @@ es:
         city_council: Ayuntamiento
         others: Otros
         public: Público
+      filter:
+        all: Todos
+        commission: Comisión
+        consultative_advisory: Consultivo / Asesoramiento
+        executive: Ejecutivo
+        government: Gobierno
+        label: 'Show:'
+        others: Otros
+        participatory: Participativo
+        placeholder: Filtrar por tipo
+        working_group: Grupo de trabajo
       index:
         title: Asambleas
       last_activity:
@@ -322,8 +331,8 @@ es:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Una asamblea es un grupo de miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un área o alcance específico de la organización.</p> <p>asambleas celebran reuniones, algunas son privadas y otras están abiertas. Si están abiertos, es posible participar en ellos (por ejemplo: asistir si la capacidad lo permite, agregar puntos a la agenda o comentar sobre las propuestas y decisiones tomadas por este órgano).</p> <p>Ejemplos: una asamblea general (que se reúne una vez al año para definir las principales líneas de acción de la organización, así como sus órganos ejecutivos por voto), un consejo asesor de igualdad (que se reúne cada dos meses para hacer propuestas sobre cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para supervisar un proceso) o un organismo de garantía (que recopila incidentes, abusos o propuestas para mejorar los procedimientos de toma de decisiones) son ejemplos de asambleas.</p>\n"
-          page: "<p>Una asamblea es un grupo de miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un área o alcance específico de la organización.</p> <p>asambleas celebran reuniones, algunas son privadas y otras están abiertas. Si están abiertos, es posible participar en ellos (por ejemplo: asistir si la capacidad lo permite, agregar puntos a la agenda o comentar sobre las propuestas y decisiones tomadas por este órgano).</p> <p>Ejemplos: una asamblea general (que se reúne una vez al año para definir las principales líneas de acción de la organización, así como sus órganos ejecutivos por voto), un consejo asesor de igualdad (que se reúne cada dos meses para hacer propuestas sobre cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para supervisar un proceso) o un organismo de garantía (que recopila incidentes, abusos o propuestas para mejorar los procedimientos de toma de decisiones) son ejemplos de asambleas.</p>\n"
+          contextual: "<p>Una asamblea es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p> <p>Las asambleas realizan encuentros, algunas son privadas y otras son abiertas. Si son abiertas se puede participar en ellas (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o una órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
+          page: "<p>Una asamblea es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p> <p>Las asambleas realizan encuentros, algunas son privadas y otras son abiertas. Si son abiertas se puede participar en ellas (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o una órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
           title: '¿Qué son las asambleas?'
     log:
       value_types:
@@ -333,7 +342,7 @@ es:
       assemblies: Asambleas
     metrics:
       assemblies:
-        description: Número de ensamblajes creados
+        description: Número de asambleas creadas
         object: asambleas
         title: Asambleas
   errors:
@@ -350,7 +359,7 @@ es:
           reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
-            one: "%{count} asambleas"
+            one: "%{count} asamblea"
             other: "%{count} asambleas"
         promoted_assembly:
           more_info: Más información

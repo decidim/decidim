@@ -26,8 +26,10 @@ module Decidim
         return broadcast(:invalid) unless vote.valid?
 
         ActiveRecord::Base.transaction do
-          vote.save!
-          update_temporary_votes
+          @proposal.with_lock do
+            vote.save!
+            update_temporary_votes
+          end
         end
 
         Decidim::Gamification.increment_score(@current_user, :proposal_votes)

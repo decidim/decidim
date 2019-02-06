@@ -30,8 +30,10 @@ module Decidim
         }, constraints: { initiative_id: /[0-9]+/ }
 
         resources :initiatives, param: :slug, only: [:index, :show], path: "initiatives" do
+          resources :initiative_signatures
           member do
             get :signature_identities
+            get :authorization_sign_modal, to: "authorization_sign_modals#show"
           end
 
           resource :initiative_vote, only: [:create, :destroy]

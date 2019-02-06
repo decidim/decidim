@@ -56,7 +56,7 @@ module Decidim
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
         app.config.middleware.use BatchLoader::Middleware
       end
 
@@ -160,7 +160,7 @@ module Decidim
                       position: 1.2
           end
 
-          if user_groups.any?
+          if current_organization.user_groups_enabled? && user_groups.any?
             menu.item t("user_groups", scope: "layouts.decidim.user_profile"),
                       decidim.own_user_groups_path,
                       position: 1.3

@@ -90,15 +90,23 @@ de:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie das Treffen "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
-          email_subject: Das "%{resource_title}" Meeting wurde geschlossen
-          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
+          affected_user:
+            email_intro: 'Ihre Besprechung "%{resource_title}" wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" organisiert haben.
+            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
+            notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
+          follower:
+            email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
+            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
+            notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
         meeting_created:
           email_intro: Das Meeting "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Neues Meeting wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Das Meeting <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
+        meeting_registration_confirmed:
+          notification_title: Ihre Anmeldung zum Meeting <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Die "%{resource_title}" Sitzung belegte Slots sind über %{percentage}%.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
@@ -182,6 +190,7 @@ de:
             invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
+          meetings: Treffen
           registrations: Anmeldungen
         invite_join_meeting_mailer:
           invite:
@@ -361,6 +370,10 @@ de:
           meeting_report: Gesprächsprotokoll
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
+          registration_code_help_text: Ihr Registrierungscode
+          registration_state:
+            validated: GÜLTIG
+            validation_pending: Validierung ausstehend
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"

@@ -66,6 +66,7 @@ fi:
         show_statistics: Näytä tilastot
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
+        user_groups_enabled: Ota käyttäjäryhmät käyttöön
         youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
@@ -91,12 +92,20 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
         weight: Paino
+      user_group_csv_verification:
+        file: Tiedosto
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Uudelleenohjausosoitteen (URI) on oltava SSL-protokollaa käyttävä URI
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Virheellinen kuvatiedosto
+            official_img_footer:
+              allowed_file_content_types: Virheellinen kuvatiedosto
   activerecord:
     attributes:
       decidim/static_page:
@@ -615,6 +624,9 @@ fi:
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
       user_group:
+        csv_verify:
+          invalid: CSV-tiedoston käsittelyssä tapahtui virhe.
+          success: CSV-tiedosto on ladattu onnistuneesti, varmistamme kriteerien mukaiset käyttäjäryhmät. Tämä saattaa kestää jonkin aikaa.
         reject:
           invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.
           success: Käyttäjäryhmä hylätty onnistuneesti
@@ -634,6 +646,12 @@ fi:
             pending: Odottaa
             rejected: Hylätty
             verified: Vahvistettu
+          verify_via_csv: Vahvista CSV-tiedoston avulla
+      user_groups_csv_verifications:
+        new:
+          explanation: Lataa CSV-tiedosto. Siinä on oltava organisaatiosi käyttäjäryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa ilman otsikkoriviä. Ainoastaan käyttäjäryhmät, jotka ovat vahvistaneet sähköpostiosoitteensa ja joiden sähköpostiosoitteesi näkyvät CSV-tiedostossa, vahvistetaan.
+          title: Lataa CSV-tiedosto
+          upload: Lähetä
       users:
         create:
           error: Tämän käyttäjän kutsumisessa tapahtui virhe.
@@ -659,12 +677,16 @@ fi:
         hide: Piilota
         not_hidden: Näkyvillä
         title: Toiminnot
+        unhide: unhide
         unreport: Poista ilmoitus
       admin:
         reportable:
           hide:
             invalid: Resurssin piilotuksessa tapahtui virhe.
             success: Resurssi piilotettu onnistuneesti.
+          unhide:
+            invalid: Resurssin irrottamisessa on ollut ongelma.
+            success: Resurssi hylättiin onnistuneesti.
           unreport:
             invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.
             success: Resurssin raportointi onnistuneesti poistettu.
