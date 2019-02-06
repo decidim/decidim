@@ -641,11 +641,11 @@ hu:
         update_user_group: Csoport frissítése
       form:
         document_number_help: Ne használj kötőjeleket és szóközöket
-        email_help: A szervezet, az egyesület, a kollektív, a csoport stb. E-mailje.
-        fill_in_for_verification: 'Töltse ki ezeket a mezőket, ha azt szeretné, hogy csoportja ellenőrizhető legyen:'
-        name_help: A szervezet, az egyesület, a kollektív, a csoport stb. Neve.
-        nickname_help: A szervezet, az egyesület, a kollektív, a csoport stb. Felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
-        phone_help: Ne használjon kötőjeleket és tereket
+        email_help: A szervezet, az egyesület, a társaság, a csoport stb. e-mailje.
+        fill_in_for_verification: 'Töltsd ki ezeket a mezőket, ha azt szeretnéd, hogy csoportod ellenőrizhető legyen:'
+        name_help: A szervezet, az egyesület, a társaság, a csoport stb. neve.
+        nickname_help: Add meg a szervezet, az egyesület, a társaság, a csoport stb. fFhasználónevét. Ne használj szóközöket vagy ékezeteket.
+        phone_help: Ne használjon kötőjeleket és szóközöket
       join:
         error: Hiba történt a csoporthoz való csatlakozáskor
         success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmedet, mielőtt elfogadja a csatlakozásodat.
@@ -659,7 +659,7 @@ hu:
       new:
         create_user_group: Csoport létrehozása
         new_user_group: Új csoport
-        subtitle: Hozzon létre egy csoportot, és hívja meg a többi felhasználót, hogy vegyen részt kollektív szinten.
+        subtitle: Hozz létre egy csoportot, és hívd meg a többi felhasználót, hogy vegyél részt közöségi szinten.
       no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
@@ -672,8 +672,8 @@ hu:
       main_topic:
         default_page:
           content: "<p>Az %{organization} részt vehet és dönthet különböző témákról a főmenüben megjelenő mezőkön keresztül: Folyamatok, összeállítások, kezdeményezések, konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyen részt vitákban, fontolja meg a végrehajtandó projekteket, vegyen részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
-          title: Mit tehetek a %{organization}?
-        description: További információ a %{organization}
+          title: Mit tehetek a %{organization} szervezetben?
+        description: További információ a %{organization} szervezetről
         title: Általános segítség
     last_activities:
       activities:
@@ -725,12 +725,12 @@ hu:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
           no_conversations: Még nincsenek beszélgetések
-          title: beszélgetések
+          title: Beszélgetések
         reply:
           send: Elküld
           title: Válasz
         show:
-          title: Beszélgetés %{usernames}
+          title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
           title: Beszélgetés indítása
@@ -741,12 +741,12 @@ hu:
         csv: Adatok letöltése (csv)
       followers:
         description: A szervezetben megjelenő felhasználók száma
-        object: követői
-        title: Követő
+        object: követők
+        title: Követők
       participants:
         description: Az aktív felhasználók száma a szervezetben
         object: résztvevők
-        title: résztvevők
+        title: Résztvevők
       users:
         description: A felhasználók száma a szervezetben
         object: felhasználók
@@ -783,7 +783,7 @@ hu:
       show:
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
         everything_followed: Minden, amit követek
-        newsletters: hírlevelek
+        newsletters: Hírlevelek
         newsletter_notifications: Szeretnék hírleveleket kapni
         own_activity: Saját tevékenységem, mint amikor valaki megjegyzi a javaslatomat, vagy megemlíti nekem
         receive_notifications_about: Értesítést szeretnék kapni
