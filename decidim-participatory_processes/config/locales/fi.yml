@@ -348,13 +348,13 @@ fi:
         target: Kuka osallistuu
         unspecified: Ei määritelty
       statistics:
-        answers_count: Vastauksia
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
+        answers_count: Vastausta
+        comments_count: Kommenttia
+        debates_count: Keskustelua
+        endorsements_count: Suositusta
         headline: Tilastot
-        meetings_count: Tapahtumia
-        orders_count: Ääniä
+        meetings_count: Tapahtumaa
+        orders_count: Ääntä
         pages_count: Sivuja
         processes_count: Prosesseja
         projects_count: Suunnitelmia
