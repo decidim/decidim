@@ -18,7 +18,7 @@ This paragraph also, will produce a third participatory text article.
 
 ## Subsection title 1.2
 
-Inside a paragraph list or a list, **bold text** is supported, *italics text* is supported, __underlined text__ is supported. 
+Inside a paragraph list or a list, **bold text** is supported, *italics text* is supported, __underlined text__ is supported.
 As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks (\*) and underscores (\_) as indicators of emphasis. Text wrapped with one \* or \_ will be wrapped with an HTML <em> tag; double \*’s or \_’s will be wrapped with an HTML &lt;strong> tag. E.g., this input:
 - *single asterisks*
 - _single underscores_
@@ -50,4 +50,3 @@ Ordered lists reset numberings to the correct order (1,2,3,4,5 in this case):
 A link to Decidim's web site uses [this format](https://decidim.org).
 
 ![Important image for Decidim](https://meta.decidim.org/assets/decidim/decidim-logo-1f39092fb3e41d23936dc8aeadd054e2119807dccf3c395de88637e4187f0a3f.svg)
-

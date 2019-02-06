@@ -17,12 +17,13 @@ module Decidim
           }
         end
         let(:description) {}
-        let(:document_file) { Decidim::Dev.asset("participatory_text.md") }
+        let(:document) { Decidim::Dev.test_file("participatory_text.md", "text/markdown") }
+        
         let(:params) do
           {
             title: title,
             description: description,
-            document: document_file
+            document: document
           }
         end
 
