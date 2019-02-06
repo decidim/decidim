@@ -40,7 +40,7 @@ hu:
         other: Módosítások
       decidim/user:
         one: Nincsenek felhasználók
-        other: felhasználók
+        other: Felhasználók
       decidim/user_group:
         one: Felhasználói csoport
         other: Felhasználói csoportok
@@ -139,7 +139,7 @@ hu:
         promote_button: Hirdessen a %{model_name}
         error: Hiba történt az erőforrás módosításakor.
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
-        promote_help_text: Önök támogathatják ezt az emelést, és közzétehetik önálló %{model_name}-ként
+        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         no_amenders: Nincsenek módosítások
         no_amendments: Nincsenek módosítások
         section_heading: Módosítások (%{count})
@@ -425,8 +425,8 @@ hu:
           follower:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elfogadásra került.
+            email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}-tól
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} elfogadásra került.
       attachments:
         attachment_created:
           email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
@@ -488,9 +488,9 @@ hu:
           notification_title: Most már a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora vagy.
         removed_from_group:
           email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolított a csoportóból.
-          email_outro: Ezt az értesítést azért kapta meg, mert tagja volt ebbe a csoportba.
-          email_subject: Ön eltávolításra került a %{user_group_name} csoportból!
-          notification_title: Ön eltávolításra került a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
+          email_outro: Ezt az értesítést azért kapta meg, mert tagja ennek a csoportnak.
+          email_subject: Eltávolításra kerültél a %{user_group_name} csoportból!
+          notification_title: Eltávolításra kerültál a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -599,7 +599,7 @@ hu:
         error: Hiba történt a meghívás elfogadásakor
         success: A meghívó sikeresen elfogadott
       accept_invitation: Elfogad
-      accept_or_reject_group_invitations: 'A következő csoportok meghívták Önt, hogy csatlakozzanak hozzájuk. A kérelmek elfogadása vagy elutasítása:'
+      accept_or_reject_group_invitations: 'A következő csoportok meghívtak, hogy csatlakozz hozzájuk. A kérelmek elfogadása vagy elutasítása:'
       index:
         invite: Meghívás
         invite_user: Hívja meg a felhasználót
@@ -640,7 +640,7 @@ hu:
         edit_user_group: Csoport szerkesztése
         update_user_group: Csoport frissítése
       form:
-        document_number_help: Ne használjon kötőjeleket és tereket
+        document_number_help: Ne használj kötőjeleket és szóközöket
         email_help: A szervezet, az egyesület, a kollektív, a csoport stb. E-mailje.
         fill_in_for_verification: 'Töltse ki ezeket a mezőket, ha azt szeretné, hogy csoportja ellenőrizhető legyen:'
         name_help: A szervezet, az egyesület, a kollektív, a csoport stb. Neve.
