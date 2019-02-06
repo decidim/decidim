@@ -167,7 +167,7 @@ a:hover .author__name{
   font-size: $date-font-size;
 }
 
-.author__verified{
+.author__verified, .author__badge svg{
   display: inline-block;
   vertical-align: middle;
   color: $primary;
