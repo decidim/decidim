@@ -383,7 +383,6 @@ fr:
     notification_mailer:
       shared:
         note: Vous avez reçu ce message parce que vous êtes abonné aux notifications par email de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet message correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
