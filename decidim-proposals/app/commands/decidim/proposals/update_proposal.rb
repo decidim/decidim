@@ -69,11 +69,12 @@ module Decidim
 
       # Prevent PaperTrail from creating an additional version
       # in the proposal multi-step creation process (step 3: complete)
+      #
+      # A final version will be created in step 4: publish
+      # for diff rendering in the proposal control version
       def update_draft
         PaperTrail.request(enabled: false) do
           @proposal.update(proposal_attributes)
-          @proposal.coauthorships.clear
-          @proposal.add_coauthor(current_user, user_group: user_group)
         end
       end
 
