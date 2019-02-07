@@ -75,6 +75,8 @@ module Decidim
       def update_draft
         PaperTrail.request(enabled: false) do
           @proposal.update(proposal_attributes)
+          @proposal.coauthorships.clear
+          @proposal.add_coauthor(current_user, user_group: user_group)
         end
       end
 
