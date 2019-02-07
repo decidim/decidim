@@ -59,16 +59,18 @@ module Decidim
       # A final version will be created in step 4: publish
       # for diff rendering in the proposal version control
       def create_proposal
-        @proposal = Decidim.traceability.perform_action!(
-          :create,
-          Decidim::Proposals::Proposal,
-          @current_user,
-          visibility: "public-only"
-        ) do
-          proposal = Proposal.new(proposal_attributes)
-          proposal.add_coauthor(@current_user, user_group: user_group)
-          proposal.save!
-          proposal
+        PaperTrail.request(enabled: false) do
+          @proposal = Decidim.traceability.perform_action!(
+            :create,
+            Decidim::Proposals::Proposal,
+            @current_user,
+            visibility: "public-only"
+          ) do
+            proposal = Proposal.new(proposal_attributes)
+            proposal.add_coauthor(@current_user, user_group: user_group)
+            proposal.save!
+            proposal
+          end
         end
       end
 
