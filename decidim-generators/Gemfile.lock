@@ -153,6 +153,7 @@ PATH
       social-share-button (~> 1.0)
       wicked (~> 1.3)
       wicked_pdf
+      wkhtmltopdf-binary
     decidim-meetings (0.17.0.dev)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -739,6 +740,7 @@ GEM
     wicked_pdf (1.1.0)
     wisper (2.0.0)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
