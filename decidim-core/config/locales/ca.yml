@@ -403,7 +403,7 @@ ca:
           follower:
             email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Una esmena rebutjada per %{amendable_title} de l' %{emendation_author_nickname}
+            email_subject: Una esmena rebutjada per %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
