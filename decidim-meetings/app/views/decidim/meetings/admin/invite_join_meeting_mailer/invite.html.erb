@@ -5,3 +5,7 @@
 </p>
 
 <p><%= link_to t(".join", meeting_title: translated_attribute(@meeting.title)),routes.meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
+
+<% content_for :note do %>
+  <%== t "decidim.notification_mailer.shared.note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
+<% end %>
