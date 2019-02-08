@@ -56,7 +56,7 @@ module Decidim
       # Prevent PaperTrail from creating an additional version
       # in the proposal multi-step creation process (step 1: create)
       #
-      # A final version will be created in step 4: publish
+      # A first version will be created in step 4: publish
       # for diff rendering in the proposal version control
       def create_proposal
         PaperTrail.request(enabled: false) do

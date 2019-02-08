@@ -37,11 +37,8 @@ module Decidim
       # This will be the PaperTrail version that is
       # shown in the version control feature (1 of 1)
       #
-      # But first, we need to reset the proposal attributes
-      # as PaperTrail only keeps track of changes made to a model.
-      # If we don't, the new version will not show the state
-      # of title and body, because they are not modified in
-      # the process of publishing.
+      # For an attribute to appear in the new version it has to be reset
+      # and reassigned, as PaperTrail only keeps track of object CHANGES.
       def publish_proposal
         title = reset(:title)
         body = reset(:body)
@@ -56,7 +53,7 @@ module Decidim
         end
       end
 
-      # Reset the attribute so the definitive version will recieve new changes
+      # Reset the attribute to an empty string and return the old value
       def reset(attribute)
         attribute_value = @proposal[attribute]
         PaperTrail.request(enabled: false) do
