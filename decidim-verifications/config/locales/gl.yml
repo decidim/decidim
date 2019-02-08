@@ -1,12 +1,11 @@
----
 gl:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Métodos dispoñibles
+        offline: Desconectado
+        offline_explanation: Instrucións para a verificación sen conexión
+        online: En liña
       id_document_information:
         document_number: Número do documento (con letra)
         document_type: Tipo do documento
@@ -16,7 +15,7 @@ gl:
         user: Usuario
         verification_attachment: Copia escaneada do documento
       offline_confirmation:
-        email: User email
+        email: Correo electrónico do usuario
       postal_letter_address:
         full_address: Enderezo completo
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ gl:
         authorization_workflows: Verificacións
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} actualizou a configuración de verificación de documentos de identidade"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando unha verificación de documentos de identidade sen conexión"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
-          - Enche a información presente na imaxe cargada.
-          - A información debe coincidir co que o usuario enche.
-          - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
+            - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
+            - Enche a información presente na imaxe cargada.
+            - A información debe coincidir co que o usuario enche.
+            - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
         postal_letter:
           help:
-          - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
-          - Envía a carta ao seu enderezo co código de verificación.
-          - Marca a letra como enviada.
-          - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+            - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
+            - Envía a carta ao seu enderezo co código de verificación.
+            - Marca a letra como enviada.
+            - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
       direct: Directo
       help: Axuda
       id_documents:
@@ -85,11 +84,11 @@ gl:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Configuración de documentos de identidade
+              update: Actualización
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Produciuse un erro ao actualizar a configuración.
+              success: A configuración actualizouse correctamente
           confirmations:
             create:
               error: A verificación non coincide. Téntao de novo ou rexeita a verificación para que o usuario poida modificalo
@@ -100,16 +99,16 @@ gl:
               verify: Verifique
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: A verificación non coincide. Téntao de novo ou díxolles ao usuario que o modifique
+              success: O usuario verificouse con éxito
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Cancelar
+              introduce_user_data: Introduce o correo electrónico do usuario e os datos do documento
+              verify: Verifique
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: Configuración
+              offline_verification: Verificación sen conexión
               title: Verificacións pendentes
               verification_number: 'Verificación # %{n}'
           rejections:
@@ -117,17 +116,17 @@ gl:
               success: Verificación rexeitada. Invitará ao usuario a que modifique os seus documentos
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
-            online: Online
-            title: Verify yourself using your identity document
+            choose_a_type: "Selecciona como queres verificar:"
+            offline: Desconectado
+            online: En liña
+            title: Verifica a túa conta usando o teu documento de identidade
           create:
             error: Produciuse un problema ao cargar o documento
             success: Documento subido con éxito
           edit:
             being_reviewed: Estamos revisando os seus documentos. Verificarase en breve
-            offline: Use offline verification
-            online: Use online verification
+            offline: Use a verificación sen conexión
+            online: Use a verificación en liña
             rejection_clarity: Asegúrese de que a información estea claramente visible na imaxe cargada
             rejection_correctness: Asegúrese de que a información ingresada é correcta
             rejection_notice: Produciuse un problema coa verificación. Por favor intentao de novo

@@ -204,13 +204,13 @@ es:
           email_subject: Una actualización en %{proposal_title}
           notification_title: Se ha incluido la propuesta <a href="%{proposal_path}">%{proposal_title}</a> en el resultado <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
-          email_intro: 'El resultado "%{resource_title}", que incluye la propuesta "%{proposal_title}", ahora está completo al %{progress}%. Puedes verlo desde esta página:'
-          email_outro: Ha recibido esta notificación porque está siguiendo "%{proposal_title}" y esta propuesta se incluye en el resultado "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una actualización a %{resource_title} progreso
-          notification_title: El resultado <a href="%{resource_path}">%{resource_title}</a>, que incluye la propuesta <a href="%{proposal_path}">%{proposal_title}</a>, ahora está completo al %{progress}%.
+          email_intro: 'El resultado "%{resource_title}", que incluye la propuesta "%{proposal_title}", está completado al %{progress}%. Puedes verlo desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo "%{proposal_title}" y esta propuesta se incluye en el resultado "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización sobre el progreso de %{resource_title}
+          notification_title: El resultado <a href="%{resource_path}">%{resource_title}</a>, que incluye la propuesta <a href="%{proposal_path}">%{proposal_title}</a>, ahora está completado al %{progress}%.
     metrics:
       results:
-        description: Número de resultados de responsabilidad generados
+        description: Número de resultados generados
         object: resultados
         title: Resultados
     participatory_processes:

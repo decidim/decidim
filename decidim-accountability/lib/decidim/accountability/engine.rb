@@ -62,6 +62,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:result]
+        end
+      end
     end
   end
 end

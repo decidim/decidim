@@ -1,4 +1,3 @@
----
 pt-BR:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ pt-BR:
         others: Outras
         public: Público
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Todos
+        commission: Comissão
+        consultative_advisory: Consultivo / Consultivo
+        executive: Executivo
+        government: Governo
+        label: 'Exposição:'
+        others: Outras
+        participatory: Participativo
+        placeholder: Filtrar por tipo
+        working_group: Grupo de trabalho
       index:
         title: Assembleias
       last_activity:
@@ -360,8 +359,8 @@ pt-BR:
           reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
-            one: "%{count} montagens"
-            other: "%{count} montagens"
+            one: "Assembly %{count}"
+            other: "Conjuntos %{count}"
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar

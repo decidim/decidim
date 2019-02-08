@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -81,25 +80,21 @@ fi:
           notification_title: Aloitteen <a href="%{resource_path}">%{resource_title}</a> allekirjoitusten keräämisen aikaa on jatkettu.
         milestone_completed:
           affected_user:
-            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
-            email_subject: New milestone completed!
-            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi virstanpylväs saavutettu!
+            email_intro: Aloitteesi %{resource_title} on saavuttanut %{percentage}% allekirjoituksista!
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}.
+            email_subject: Uusi virstanpylväs saavutettu!
+            notification_title: Aloitteesi <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% allekirjoituksista.
           follower:
-            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-            email_subject: New milestone completed!
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
+            email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi virstanpylväs saavutettu!
+            notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
     gamification:
       badges:
         initiatives:
           conditions:
-          - Siirry aloitteiden osallisuustilaan
-          - Luo uusi aloite ohjeiden mukaisesti
+            - Siirry aloitteiden osallisuustilaan
+            - Luo uusi aloite ohjeiden mukaisesti
           description: Tämä kunniamerkki myönnetään, kun laadit uusia aloitteita ja keräät verkoston ihmisiä toteuttamaan niitä.
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
           description_own: Olet julkaissut %{score} aloitetta.
@@ -270,7 +265,7 @@ fi:
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on hyväksynyt seuraavan aloitteen. Ehkä haluat osallistua keskusteluun:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: "%{author_nickname} on suositellut aloitetta"
+          email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Aloitteet
@@ -361,7 +356,7 @@ fi:
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet
-      unavailable_scope: Unavailable scope
+      unavailable_scope: Teema ei ole saatavilla
     menu:
       initiatives: Aloitteet
   layouts:

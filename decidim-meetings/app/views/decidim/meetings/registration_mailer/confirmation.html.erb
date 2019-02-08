@@ -3,3 +3,7 @@
 <p><%= t(".registration_code", code: @registration.code) %></p>
 
 <p><%= t(".details") %></p>
+
+<% content_for :note do %>
+  <%== t "decidim.notification_mailer.shared.note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
+<% end %>

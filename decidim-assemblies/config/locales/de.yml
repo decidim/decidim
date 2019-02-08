@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ de:
         others: Andere
         public: Öffentlichkeit
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
+        all: Alles
+        commission: Kommission
+        consultative_advisory: Beratung / Beratung
         executive: Executive
-        government: Government
+        government: Regierung
         label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        others: Andere
+        participatory: Partizipativ
+        placeholder: Filtern Sie nach Typ
+        working_group: Arbeitsgruppe
       index:
         title: Baugruppen
       last_activity:
@@ -360,7 +359,7 @@ de:
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Baugruppen"
+            one: "%{count} Versammlung"
             other: "%{count} Baugruppen"
         promoted_assembly:
           more_info: Mehr Info

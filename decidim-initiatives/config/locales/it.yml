@@ -1,4 +1,3 @@
----
 it:
   activemodel:
     attributes:
@@ -81,25 +80,21 @@ it:
           notification_title: La data di fine delle firme per l'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata estesa.
         milestone_completed:
           affected_user:
-            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
-            email_subject: New milestone completed!
-            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Nuova pietra miliare completata!
+            email_intro: La tua iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
+            email_outro: Hai ricevuto questa notifica perché sei l'autore dell'iniziativa %{resource_title}.
+            email_subject: Nuova pietra miliare completata!
+            notification_title: La tua iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
           follower:
-            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-            email_subject: New milestone completed!
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+            email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_subject: Nuova pietra miliare completata!
+            notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
     gamification:
       badges:
         initiatives:
           conditions:
-          - Vai allo spazio di partecipazione delle iniziative
-          - Segui i passaggi per creare una nuova iniziativa
+            - Vai allo spazio di partecipazione delle iniziative
+            - Segui i passaggi per creare una nuova iniziativa
           description: Questo badge è garantito quando lanci nuove iniziative, collaborando con altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
           description_own: Hai pubblicato %{score} iniziative.
@@ -361,7 +356,7 @@ it:
       states:
         accepted: Accettato
         expired: Scaduto
-      unavailable_scope: Unavailable scope
+      unavailable_scope: Ambito non disponibile
     menu:
       initiatives: iniziative
   layouts:

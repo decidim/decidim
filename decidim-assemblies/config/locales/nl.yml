@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -169,7 +168,7 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Montage
+          name: Bijeenkomst
         assembly_member:
           fields:
             ceased_date: Gestaakte datum
@@ -259,16 +258,16 @@ nl:
         others: Overige
         public: Openbaar
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Allemaal
+        commission: Commissie
+        consultative_advisory: Consultative / Advisory
+        executive: uitvoerend
+        government: Regering
+        label: 'Laten zien:'
+        others: anderen
+        participatory: deelnemend
+        placeholder: Filteren op type
+        working_group: Werkgroep
       index:
         title: Events
       last_activity:
@@ -360,8 +359,8 @@ nl:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} vergaderingen"
-            other: "%{count} vergaderingen"
+            one: "%{count} bijeenkomst"
+            other: "%{count} bijeenkomsten"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen

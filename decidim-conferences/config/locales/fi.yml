@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -506,10 +505,10 @@ fi:
         votes_count: Ääniä
     events:
       conferences:
-        conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> odottaa vahvistusta.
+        conference_registration_confirmed:
+          notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> on vahvistettu.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.
@@ -526,10 +525,10 @@ fi:
           email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'Konferenssi "%{resource_title}" järjestetään kahden päivän päästä. Voit lukea kuvauksen sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat konferenssia "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Konferenssi "%{resource_title}" on tulossa!
+          notification_title: Konferenssi <a href="%{resource_path}">%{resource_title}</a> on tulossa kahden päivän päästä.
     log:
       value_types:
         conference_presenter:

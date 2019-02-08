@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -67,6 +66,7 @@ pl:
         show_statistics: Pokaż statystyki
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
+        user_groups_enabled: Włącz grupy użytkowników
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod
@@ -93,7 +93,7 @@ pl:
         title: Tytuł
         weight: Waga
       user_group_csv_verification:
-        file: File
+        file: Plik
     errors:
       models:
         oauth_application:
@@ -102,10 +102,10 @@ pl:
               must_be_ssl: Identyfikator URI przekierowania musi być identyfikatorem URI protokołu SSL
         organization:
           attributes:
-            official_img_footer:
-              allowed_file_content_types: Invalid image file
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Nieprawidłowy plik obrazu
+            official_img_footer:
+              allowed_file_content_types: Nieprawidłowy plik obrazu
   activerecord:
     attributes:
       decidim/static_page:
@@ -127,6 +127,7 @@ pl:
         browse: Paść się
         export: Eksport
         manage: Zarządzanie
+        new: Nowe %{name}
         permissions: Uprawnienia
         reject: Odrzucać
         verify: Zweryfikować
@@ -305,11 +306,6 @@ pl:
         logs_list:
           no_logs_yet: Nie ma jeszcze dzienników
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Podczas promowania zarządzanego użytkownika wystąpił błąd.
           success: Zarządzany użytkownik został pomyślnie awansowany.
@@ -329,7 +325,6 @@ pl:
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
-        navbar_links: Navbar links
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
         participants: Uczestnicy
@@ -367,13 +362,6 @@ pl:
             reason: Powód
             started_at: Zaczęło się od
             user: Użytkownik
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Utworzono w
@@ -385,6 +373,7 @@ pl:
           fields:
             created_at: Utworzono w
             name: Nazwa
+          name: Aplikacja OAuth
         participatory_space_private_user:
           name: Prywatny użytkownik przestrzeni prywatnej
         scope:
@@ -409,6 +398,7 @@ pl:
             roles:
               admin: Admin
               user_manager: Menedżer użytkowników
+          name: Użytkownik
         user_group:
           fields:
             actions: działania
@@ -426,28 +416,6 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Podczas tworzenia biuletynu wystąpił błąd.
@@ -477,8 +445,6 @@ pl:
         update:
           error: Podczas aktualizowania tego biuletynu wystąpił błąd.
           success: Biuletyn został zaktualizowany. Przeczytaj ją przed wysłaniem.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Wystąpił błąd podczas tworzenia tej aplikacji.
@@ -651,20 +617,16 @@ pl:
         dashboard: Deska rozdzielcza
         impersonatable_users: Niekodowalni użytkownicy
         impersonations: Impersonaty
-        managed_users: Managed users
-        navbar_links: Navbar links
         participants: Uczestnicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
         user_groups: Grupy użytkowników
         users: Użytkownicy
-      user:
-        new: New
       user_group:
         csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
+          invalid: Wystąpił błąd podczas odczytu pliku CSV.
+          success: Plik CSV przesłany pomyślnie, weryfikujemy grupy użytkowników pasujące do kryteriów. To może zająć chwilę.
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
           success: Grupa użytkowników została odrzucona
@@ -684,12 +646,12 @@ pl:
             pending: W oczekiwaniu
             rejected: Odrzucone
             verified: Zweryfikowano
-          verify_via_csv: Verify via CSV
+          verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
+          explanation: Prześlij swój plik CSV. Musi mieć oficjalne wiadomości e-mail grup użytkowników w organizacji w pierwszej kolumnie pliku, bez nagłówków. Tylko grupy użytkowników, które potwierdziły swój adres e-mail i mają e-mail znajdujący się w pliku CSV, zostaną zweryfikowane.
+          title: Prześlij swój plik CSV
+          upload: Przekazać plik
       users:
         create:
           error: Podczas zapraszania tego użytkownika wystąpił błąd.

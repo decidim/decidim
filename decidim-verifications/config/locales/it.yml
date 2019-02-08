@@ -1,12 +1,11 @@
----
 it:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Metodi disponibili
+        offline: disconnesso
+        offline_explanation: Istruzioni per la verifica offline
+        online: in linea
       id_document_information:
         document_number: Numero del documento (con lettera)
         document_type: Tipo del documento
@@ -16,7 +15,7 @@ it:
         user: Utente
         verification_attachment: Copia scannerizzata del tuo documento
       offline_confirmation:
-        email: User email
+        email: Email dell'utente
       postal_letter_address:
         full_address: Indirizzo completo
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ it:
         authorization_workflows: Verifiche
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} aggiornato la configurazione di verifica dei documenti di identità"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verificato %{resource_name} utilizzando una verifica dei documenti di identità offline"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
-          - Inserisci le informazioni presenti nell'immagine caricata.
-          - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
-          - Se non riesci a vedere chiaramente le informazioni o non riesci a verificarle, puoi rifiutare la richiesta e l'utente sarà in grado di risolverlo.
+            - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
+            - Inserisci le informazioni presenti nell'immagine caricata.
+            - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
+            - Se non riesci a vedere chiaramente le informazioni o non riesci a verificarle, puoi rifiutare la richiesta e l'utente sarà in grado di risolverlo.
         postal_letter:
           help:
-          - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
-          - Inviate la lettera al loro indirizzo con il codice di verifica.
-          - Hai contrassegnato la lettera come inviata.
-          - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
+            - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
+            - Inviate la lettera al loro indirizzo con il codice di verifica.
+            - Hai contrassegnato la lettera come inviata.
+            - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       direct: Diretto
       help: Aiuto
       id_documents:
@@ -85,11 +84,11 @@ it:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Configurazione dei documenti di identità
+              update: Aggiornare
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Si è verificato un errore durante l'aggiornamento della configurazione.
+              success: Configurazione aggiornata con successo
           confirmations:
             create:
               error: La verifica non corrisponde. Prova di nuovo o rifiuta la verifica in modo che l'utente possa modificarla
@@ -100,34 +99,34 @@ it:
               verify: Verifica
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: La verifica non corrisponde. Riprovare o chiedere all'utente di modificarlo
+              success: Utente verificato con successo
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Annulla
+              introduce_user_data: Inserisci l'email dell'utente e i dati del documento
+              verify: Verificare
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: config
+              offline_verification: Verifica offline
               title: Verifiche pendenti
-              verification_number: Verifica n. %{n}
+              verification_number: 'Verifica n. %{n}'
           rejections:
             create:
               success: Verifica respinta. L'utente serà richiesto di modificare i suoi documenti
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
-            online: Online
-            title: Verify yourself using your identity document
+            choose_a_type: "Si prega di selezionare come si desidera essere verificato:"
+            offline: disconnesso
+            online: in linea
+            title: Verifica te stesso usando il tuo documento di identità
           create:
             error: Si è verificato un problema durante il caricamento del documento
             success: Documento caricato con successo
           edit:
             being_reviewed: Stiamo esaminando i tuoi documenti. Sarai verificato prossimamente
-            offline: Use offline verification
-            online: Use online verification
+            offline: Utilizza la verifica offline
+            online: Utilizza la verifica online
             rejection_clarity: Assicurati che le informazioni siano chiaramente visibili nell'immagine caricata
             rejection_correctness: Assicurati che le informazioni inserite siano corrette
             rejection_notice: C'è stato un problema con la tua verifica. Per favore riprova

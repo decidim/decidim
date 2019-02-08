@@ -783,6 +783,9 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      shared:
+        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -880,7 +883,7 @@ en:
       deleted: Deleted user
       view: View
     profiles:
-      default_officialization_text: Texto de oficialización por defecto
+      default_officialization_text: Justification
       default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:

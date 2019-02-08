@@ -6,3 +6,7 @@
 
 <p><%= link_to t(".decline", meeting_title: present(@meeting).title),routes.decline_invitation_meeting_registration_path(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
 <p><%= link_to t(".join", meeting_title: present(@meeting).title),routes.meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
+
+<% content_for :note do %>
+  <%== t "decidim.notification_mailer.shared.note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
+<% end %>

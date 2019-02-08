@@ -1,4 +1,3 @@
----
 it:
   activemodel:
     attributes:
@@ -169,7 +168,7 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
-          name: Assembly
+          name: montaggio
         assembly_member:
           fields:
             ceased_date: Data di fine
@@ -259,16 +258,16 @@ it:
         others: Altri
         public: Pubblico
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
+        all: Tutti
+        commission: Commissione
+        consultative_advisory: Consultivo / Advisory
+        executive: Esecutivo
+        government: Governo
+        label: 'Mostrare:'
+        others: Altri
         participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        placeholder: Filtra per tipo
+        working_group: Gruppo di lavoro
       index:
         title: assemblee
       last_activity:
@@ -360,8 +359,8 @@ it:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblaggi"
-            other: "%{count} assemblaggi"
+            one: "%{count} montaggio"
+            other: "%{count} assemblies"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa

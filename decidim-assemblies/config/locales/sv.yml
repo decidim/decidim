@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ sv:
         others: Övriga
         public: Offentligt
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
+        all: Allt
+        commission: Provision
+        consultative_advisory: Rådgivande / rådgivande
+        executive: Verkställande
+        government: Regering
         label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        others: Övriga
+        participatory: Deltagande
+        placeholder: Filtrera efter typ
+        working_group: Arbetsgrupp
       index:
         title: Möten
       last_activity:
@@ -360,8 +359,8 @@ sv:
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
-            one: "%{count} enheter"
-            other: "%{count} enheter"
+            one: "%{count} möte"
+            other: "%{count} möten"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta

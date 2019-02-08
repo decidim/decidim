@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ hu:
         others: Egyéb
         public: Nyilvános
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Minden
+        commission: jutalék
+        consultative_advisory: Tanácsadó / tanácsadó
+        executive: Végrehajtó
+        government: Kormány
+        label: 'Előadás:'
+        others: Egyéb
+        participatory: A részvételi
+        placeholder: Szűrő típus szerint
+        working_group: Munkacsoport
       index:
         title: Gyűlések
       last_activity:
@@ -360,8 +359,8 @@ hu:
           reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
-            one: "%{count} szerelvényeket"
-            other: "%{count} szerelvényeket"
+            one: "%{count} gyűlés"
+            other: "%{count} gyűlés"
         promoted_assembly:
           more_info: További információ
           take_part: Vegyél részt

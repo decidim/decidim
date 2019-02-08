@@ -1,12 +1,11 @@
----
 fi:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Käytettävissä olevat menetelmät
         offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        offline_explanation: Ohjeet offline-vahvistamiseen
+        online: Verkossa
       id_document_information:
         document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
@@ -16,7 +15,7 @@ fi:
         user: Käyttäjä
         verification_attachment: Asiakirjan skannattu kopio
       offline_confirmation:
-        email: User email
+        email: Käyttäjän sähköposti
       postal_letter_address:
         full_address: Koko osoite
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ fi:
         authorization_workflows: Vahvistukset
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} päivitti henkilöllisyystodistusvahvistuksen asetuksia"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
-          - Sinä täytät ladatussa kuvassa näkyvät tiedot.
-          - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-          - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
+            - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
+            - Sinä täytät ladatussa kuvassa näkyvät tiedot.
+            - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
         postal_letter:
           help:
-          - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
-          - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
-          - Sinä merkitset kirjeen lähetetyksi.
-          - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
+            - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
+            - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
+            - Sinä merkitset kirjeen lähetetyksi.
+            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
       direct: Suoraan
       help: Ohjeet
       id_documents:
@@ -85,11 +84,11 @@ fi:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Henkilöllisyystodistusten asetukset
+              update: Päivitä
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Asetusten päivittämisessä tapahtui virhe.
+              success: Asetukset päivitettiin onnistuneesti
           confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
@@ -100,34 +99,34 @@ fi:
               verify: Vahvista
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Vahvistus ei täsmää. Yritä uudelleen tai pyydä käyttäjää muuttamaan tietojaan
+              success: Käyttäjä vahvistettu onnistuneesti
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Peruuta
+              introduce_user_data: Lisää käyttäjän sähköposti ja asiakirjan tiedot
+              verify: Vahvista
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
-              title: Odottavat vahvistukset
+              config: Asetukset
+              offline_verification: Offline-vahvistus
+              title: Odottaa verkkotarkastuksia
               verification_number: 'Vahvistus #%{n}'
           rejections:
             create:
               success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: "Valitse, kuinka haluat varmistaa henkilöllisyytesi:"
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Varmista henkilöllisyytesi käyttämällä henkilöllisyystodistusta
           create:
             error: Asiakirjan lataamisessa tapahtui virhe
             success: Asiakirja ladattu onnistuneesti
           edit:
             being_reviewed: Tarkistamme asiakirjojasi. Tilisi vahvistetaan pian
-            offline: Use offline verification
-            online: Use online verification
+            offline: Käytä offline-vahvistusta
+            online: Käytä online-vahvistusta
             rejection_clarity: Varmista, että kaikki tiedot näkyvät selvästi ladatussa kuvassa
             rejection_correctness: Varmista, että syötetyt tiedot ovat oikein
             rejection_notice: Tilisi vahvistuksessa tapahtui ongelma. Yritä uudelleen

@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ fi:
         others: Muut
         public: Julkinen
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Kaikki
+        commission: Komitea
+        consultative_advisory: Konsultti/neuvonantaja
+        executive: Johtaja
+        government: Hallinto
+        label: 'Näytä:'
+        others: Muut
+        participatory: Osallistava
+        placeholder: Suodata tyypin mukaan
+        working_group: Työryhmä
       index:
         title: Ryhmät
       last_activity:

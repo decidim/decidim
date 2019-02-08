@@ -21,7 +21,7 @@ sv:
           description: Användare får detta märke genom att skapa test.
           description_another: Den här användaren har skapat %{score} tester.
           description_own: Du har skapat %{score} tester.
-          name: tester
+          name: Tester
           next_level_in: Skapa %{score} fler tester för att nå nästa nivå!
           unearned_another: Den här användaren har inte skapat några tester än.
           unearned_own: Du har inte skapat några tester än.
@@ -31,7 +31,7 @@ sv:
           bar: Bar
           dummies_count_high: Dummies höga
           dummies_count_medium: Dummies medium
-          foo: foo
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies höga

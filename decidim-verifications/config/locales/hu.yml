@@ -1,11 +1,10 @@
----
 hu:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Elérhető módszerek
         offline: Offline
-        offline_explanation: Instructions for offline verification
+        offline_explanation: Az offline ellenőrzésre vonatkozó utasítások
         online: Online
       id_document_information:
         document_number: Dokumentum száma (betűvel)
@@ -16,7 +15,7 @@ hu:
         user: Felhasználó
         verification_attachment: Dokumentumod szkennelt példánya
       offline_confirmation:
-        email: User email
+        email: Felhasználói e-mail
       postal_letter_address:
         full_address: Teljes lakcím
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ hu:
         authorization_workflows: Ellenőrzések
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} ellenőrzött %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
-          - Töltsd ki a feltöltött képen található információkkal.
-          - Az információknak meg kell egyeznie a kitöltött adatokkal.
-          - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
+            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+            - Töltsd ki a feltöltött képen található információkkal.
+            - Az információknak meg kell egyeznie a kitöltött adatokkal.
+            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-          - A felhasználók a lakcímükre kérik az ellenőrző kódot.
-          - A kódot tartalmazó levelet a lakcímükre küldöd el.
-          - Levél elküldöttként megjelölve.
-          - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - A kódot tartalmazó levelet a lakcímükre küldöd el.
+            - Levél elküldöttként megjelölve.
+            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       direct: Közvetlen
       help: Segítség
       id_documents:
@@ -80,16 +79,16 @@ hu:
       dummy_authorization:
         extra_explanation:
           one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
-          other: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
+          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
       id_documents:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Azonosító dokumentumok konfigurálása
+              update: frissítés
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Hiba történt a konfiguráció frissítésében.
+              success: A konfiguráció sikeresen frissült
           confirmations:
             create:
               error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
@@ -100,16 +99,16 @@ hu:
               verify: Ellenőrzés
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
+              success: A felhasználó sikeresen ellenőrizte
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Megszünteti
+              introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
+              verify: Ellenőrizze
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: config
+              offline_verification: Offline ellenőrzés
               title: Folyamatban lévő ellenőrzések
               verification_number: 'Ellenőrzés #%{n}'
           rejections:
@@ -117,17 +116,17 @@ hu:
               success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: "Kérjük, adja meg, hogy miként szeretné ellenőrizni:"
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Ellenőrizze magát személyazonosító okmányával
           create:
             error: Hiba történt a dokumentum feltöltése során
             success: Dokumentum feltöltése sikeres
           edit:
             being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
-            offline: Use offline verification
-            online: Use online verification
+            offline: Az offline ellenőrzés használata
+            online: Online ellenőrzés használatával
             rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
             rejection_correctness: Győződjön meg a megadott adatok helyességéről
             rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra

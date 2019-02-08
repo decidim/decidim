@@ -61,7 +61,7 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: Nom 
+        name: "Nom\n"
         role: Fonction
   activerecord:
     models:
@@ -258,9 +258,9 @@ fr:
         others: Autres
         public: Public
       filter:
-        all: Tous
+        all: Tout
         commission: Commission
-        consultative_advisory: Consultatif/Consultatif
+        consultative_advisory: Consultatif / consultatif
         executive: Exécutif
         government: Gouvernement
         label: 'Montrer :'
@@ -359,7 +359,7 @@ fr:
           reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblées"
+            one: "%{count} assemblée"
             other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations

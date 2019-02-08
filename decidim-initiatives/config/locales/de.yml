@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -55,7 +54,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
-            id: ID
+            id: ICH WÜRDE
             state: Zustand
             supports_count: Unterstützt
             title: Initiativen
@@ -81,25 +80,21 @@ de:
           notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
         milestone_completed:
           affected_user:
-            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
-            email_subject: New milestone completed!
-            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Neuer Meilenstein abgeschlossen!
+            email_intro: Ihre Initiative %{resource_title} hat die %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
           follower:
-            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-            email_subject: New milestone completed!
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+            email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
     gamification:
       badges:
         initiatives:
           conditions:
-          - Gehe zum Teilnehmerbereich von Intiativen
-          - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+            - Gehe zum Teilnehmerbereich von Intiativen
+            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Du hast %{score} Initiativen veröffentlicht.
@@ -347,7 +342,7 @@ de:
         progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
         progress_report_for: 'Resume über die Initiative: %{title}'
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
-        status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}>'
+        status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
@@ -361,7 +356,7 @@ de:
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
-      unavailable_scope: Unavailable scope
+      unavailable_scope: Nicht verfügbarer Umfang
     menu:
       initiatives: Initiativen
   layouts:

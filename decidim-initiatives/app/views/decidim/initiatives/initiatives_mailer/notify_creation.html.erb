@@ -20,3 +20,7 @@
   <%= link_to t("here",  scope: "decidim.initiatives.initiatives_mailer.initiative_link"),
               decidim_admin_initiatives.initiative_url(@initiative, host: @organization.host) %>
 </p>
+
+<% content_for :note do %>
+  <%== t "decidim.notification_mailer.shared.note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
+<% end %>

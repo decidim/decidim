@@ -17,7 +17,7 @@ sv:
       question:
         banner_image: Banner image
         decidim_scope_id: Kommunala området
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: Webbplats för externt röstningssystem
         origin_scope: Omfattning
@@ -25,7 +25,7 @@ sv:
         origin_url: Ursprungsadress
         participatory_scope: Deltagande räckvidd
         promoter_group: Promotorgrupp
-        question_context: Sammanhang
+        question_context: Kontext
         reference: Referens
         scope: Kommunala området
         slug: URL slug
@@ -44,7 +44,7 @@ sv:
         other: samråd
       decidim/consultations/question:
         one: Fråga
-        other: frågor
+        other: Frågor
       decidim/consultations/response:
         one: Svar
         other: Svar
@@ -78,7 +78,7 @@ sv:
           error: Det uppstod ett fel vid att skapa ett nytt samråd.
           success: Samråd med framgångsrikt skapat.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på detta samråd. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
           title: Allmän information
@@ -139,7 +139,7 @@ sv:
         destroy:
           success: Fråga med framgång raderad.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
@@ -159,7 +159,7 @@ sv:
           error: Ett fel uppstod när svaret togs bort.
           success: Svaret har tagits bort.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         new:
@@ -195,15 +195,15 @@ sv:
           one: "%{count} konsultation"
           other: "%{count} konsultationer"
       filters:
-        active: Aktiva
-        all: Allt
+        active: Aktiv
+        all: Alla
         finished: Färdiga
         search: Sök
-        state: stat
-        upcoming: kommande
+        state: Status
+        upcoming: Kommande
       filters_small_view:
         close_modal: Stäng fönstret
-        filter: Filtrera
+        filter: Filter
         filter_by: Filtrera efter
         unfold: Veckla ut
       highlighted_questions:
@@ -235,7 +235,7 @@ sv:
         title: Frågor för detta samråd
       show:
         badge_name:
-          finished: Färdiga
+          finished: Avslutad
           open: Öppen
           open_votes: Öppna röster
           published_results: Resultat publicerade
@@ -264,9 +264,9 @@ sv:
         read_more: Läs mer
       statistics:
         assistants_count_title: assistenter
-        comments_count_title: kommentarer
-        meetings_count_title: möten
-        supports_count_title: stöder
+        comments_count_title: Kommentarer
+        meetings_count_title: Möten
+        supports_count_title: Stöder
       technical_info:
         technical_data: Teknisk data
       vote_button:
@@ -278,7 +278,7 @@ sv:
         contextual_help: Var god välj ett alternativ.
         title: 'Samråd: Frågestöd'
       vote_modal_confirm:
-        change: Byta
+        change: Ändra
         confirm: Bekräfta
         contextual_help: Vänligen bekräfta det valda alternativet.
         title: 'Samråd: bekräfta support'

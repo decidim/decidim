@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -169,7 +168,7 @@ eu:
             promoted: Nabarmendua
             published: Argitaratua
             title: Prozesu partizipatiboen multzoak
-          name: Assembly
+          name: Batzarra
         assembly_member:
           fields:
             ceased_date: Data amaitua
@@ -259,16 +258,16 @@ eu:
         others: Beste batzuk
         public: Publiko
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
+        all: guztiak
+        commission: Batzorde
+        consultative_advisory: Aholku / Aholku
+        executive: exekutiboa
+        government: Gobernu
         label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        others: Beste batzuk
+        participatory: partehartzailea
+        placeholder: Iragazi motaren arabera
+        working_group: Lan taldea
       index:
         title: Biltzarrak
       last_activity:
@@ -360,7 +359,7 @@ eu:
           reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
-            one: "%{count} batzarrak"
+            one: "%{count} batzarra"
             other: "%{count} batzarrak"
         promoted_assembly:
           more_info: Informazio gehiago

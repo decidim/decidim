@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -92,26 +91,22 @@ hu:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'A(z) "%{resource_title}" ülés lezárult. A következtetéseket ezen az oldalod olvashatod el:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-          email_subject: A(z) "%{resource_title}" ülés lezárult
+            email_intro: 'A "%{resource_title}" találkozó lezárult. A következtetéseket olvashatja az oldaláról:'
+            email_outro: Ezt az értesítést megkapta, mert szervezte a "%{resource_title}" találkozót.
+            email_subject: A(z) "%{resource_title}" ülés lezárult
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülés lezárult.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülés lezárult.
+            email_intro: 'A(z) "%{resource_title}" ülés lezárult. A következtetéseket ezen az oldalod olvashatod el:'
+            email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az előző linkről.
+            email_subject: A(z) "%{resource_title}" ülés lezárult
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülés lezárult.
         meeting_created:
           email_intro: 'A(z) "%{resource_title}" találkozót hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: 'Új találkozó hozzáadva ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó hozzáadva ehhez: %{participatory_space_title}'
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: A <a href="%{resource_url}">%{resource_title}</a> találkozó regisztrációja megerősítést nyert. A regisztrációs kódod %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: 'A(z) "%{resource_title}" találkozó ilyen arányban telt be: %{percentage}%.'
           email_outro: Ezt az értesítést azért kaptad, mert adminisztrátora vagy a találkozó részvételi helyének.
@@ -141,10 +136,10 @@ hu:
       badges:
         attended_meetings:
           conditions:
-          - Regisztráljon a résztvevő találkozókon
+            - Regisztráljon a résztvevő találkozókon
           description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
           description_another: Ez a felhasználó %{score} találkozón vett részt.
-          description_own: "%{score} találkozóra vett részt."
+          description_own: '%{score} találkozóra vett részt.'
           name: Részt vett az üléseken
           next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
           unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
@@ -195,7 +190,7 @@ hu:
             invalid: Probléma történt a napirend frissítése során
             success: Napirend frissítése sikeres
         exports:
-          meetings: Meetings
+          meetings: találkozók
           registrations: Regisztrációk
         invite_join_meeting_mailer:
           invite:
@@ -287,8 +282,8 @@ hu:
             invites: Meghívottak
             registration_form: Regisztrációs űrlap
             registrations_count:
-              one: "%{count} regisztráció volt."
-              other: "%{count} regisztráció volt."
+              one: '%{count} regisztráció volt.'
+              other: '%{count} regisztráció volt.'
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
@@ -375,10 +370,10 @@ hu:
           meeting_report: Jelentés a találkozóról
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
-          registration_code_help_text: Your registration code
+          registration_code_help_text: A regisztrációs kódod
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: JÓVÁHAGYOTT
+            validation_pending: ÉRVÉNYESÍTÉS FÜGGŐBEN
           remaining_slots:
             one: "%{count} hely marad"
             other: "%{count} hely marad"

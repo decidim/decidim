@@ -1,11 +1,10 @@
----
 nl:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
+        available_methods: Beschikbare methoden
+        offline: offline
+        offline_explanation: Instructies voor offline verificatie
         online: Online
       id_document_information:
         document_number: Documentnummer (met letter)
@@ -16,7 +15,7 @@ nl:
         user: Gebruiker
         verification_attachment: Gescande kopie van uw document
       offline_confirmation:
-        email: User email
+        email: E-mailadres gebruiker
       postal_letter_address:
         full_address: Volledig adres
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ nl:
         authorization_workflows: keuringen
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} heeft de verificatieconfiguratie Identity Documents bijgewerkt"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} geverifieerd %{resource_name} met behulp van een offline verificatie van identiteitsdocumenten"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
-          - U vult de informatie in die in de geüploade afbeelding aanwezig is.
-          - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
-          - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
+            - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
+            - U vult de informatie in die in de geüploade afbeelding aanwezig is.
+            - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
+            - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
         postal_letter:
           help:
-          - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
-          - U stuurt de brief naar hun adres met de verificatiecode.
-          - U markeert de brief zoals verzonden.
-          - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
+            - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
+            - U stuurt de brief naar hun adres met de verificatiecode.
+            - U markeert de brief zoals verzonden.
+            - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
       direct: direct
       help: Helpen
       id_documents:
@@ -85,11 +84,11 @@ nl:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Configuratie van identiteitsdocumenten
+              update: Bijwerken
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Er is een fout opgetreden bij het bijwerken van de configuratie.
+              success: Configuratie succesvol bijgewerkt
           confirmations:
             create:
               error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
@@ -100,16 +99,16 @@ nl:
               verify: Verifiëren
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Verificatie komt niet overeen. Probeer het opnieuw of laat de gebruiker het wijzigen
+              success: Gebruiker succesvol geverifieerd
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: annuleren
+              introduce_user_data: Voer de e-mail van de gebruiker en de documentgegevens in
+              verify: Verifiëren
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: config
+              offline_verification: Offline verificatie
               title: In afwachting van verificaties
               verification_number: 'Verificatie # %{n}'
           rejections:
@@ -117,17 +116,17 @@ nl:
               success: Verificatie gewijgerd. De gebruiker wordt gevraagd om haar documenten te wijzigen
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
+            choose_a_type: "Selecteer alstublieft hoe u wilt worden geverifieerd:"
+            offline: offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Verifieer jezelf met je identiteitsdocument
           create:
             error: Er is een probleem opgetreden bij het uploaden van uw document
             success: Document met succes geüpload
           edit:
             being_reviewed: We beoordelen uw documenten. U wordt binnenkort geverifieerd
-            offline: Use offline verification
-            online: Use online verification
+            offline: Gebruik offline verificatie
+            online: Gebruik online verificatie
             rejection_clarity: Zorg ervoor dat de informatie duidelijk zichtbaar is in de geüploade afbeelding
             rejection_correctness: Zorg ervoor dat de ingevoerde informatie juist is
             rejection_notice: Er is een probleem met uw verificatie. Probeer het opnieuw

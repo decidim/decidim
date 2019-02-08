@@ -1,4 +1,3 @@
----
 es-PY:
   activemodel:
     attributes:
@@ -92,26 +91,22 @@ es-PY:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            email_intro: 'Tu reunión "%{resource_title}" fue cerrada. Puedes leer las conclusiones desde su página:'
+            email_outro: Ha recibido esta notificación porque organizó la reunión "%{resource_title}".
+            email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+            email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
+            email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_created:
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Nuevo encuentro añadido a %{participatory_space_title}
           notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Su inscripción para la reunión <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Su código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
           email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
@@ -141,12 +136,12 @@ es-PY:
       badges:
         attended_meetings:
           conditions:
-          - Regístrate en las reuniones a las que quieres asistir.
+            - Regístrate en las reuniones a las que quieres asistir.
           description: Este distintivo se otorga cuando asiste a varias reuniones cara a cara.
           description_another: Este usuario asistió a %{score} encuentros.
           description_own: Usted ha asistido a %{score} reuniones.
           name: Reuniones asistidas
-          next_level_in: "¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!"
+          next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha asistido a ninguna reunión.
           unearned_own: No has asistido a ninguna reunión todavía.
     meetings:
@@ -155,7 +150,7 @@ es-PY:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
-        confirm_destroy: "¿Está seguro de que quiere eliminar este encuentro?"
+        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
         minutes: Acta
@@ -195,7 +190,7 @@ es-PY:
             invalid: Ha habido un problema al actualizar el orden del día
             success: Orden del día actualizado correctamente
         exports:
-          meetings: Meetings
+          meetings: Reuniones
           registrations: Inscripciones
         invite_join_meeting_mailer:
           invite:
@@ -375,12 +370,12 @@ es-PY:
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
-          registration_code_help_text: Your registration code
+          registration_code_help_text: Tu codigo de registro
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: Validado
+            validation_pending: VALIDACIÓN PENDIENTE
           remaining_slots:
-            one: Queda %{count} ranuras
+            one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
           view: Ver
       meetings_map:

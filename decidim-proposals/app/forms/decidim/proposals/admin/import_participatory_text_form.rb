@@ -12,7 +12,6 @@ module Decidim
         translatable_attribute :description, String
         attribute :document
 
-        validates :document, presence: true
         validates :title, translatable_presence: true
 
         def default_locale
@@ -20,7 +19,7 @@ module Decidim
         end
 
         def document_text
-          document&.read
+          @document_text ||= document&.read
         end
 
         def document_type
