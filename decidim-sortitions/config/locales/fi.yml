@@ -36,7 +36,7 @@ fi:
           sortitions_count: Satunnaistamisia
     participatory_processes:
       statistics:
-        sortitions_count: Satunnaistamisia
+        sortitions_count: Satunnaistamista
     sortitions:
       admin:
         actions:
