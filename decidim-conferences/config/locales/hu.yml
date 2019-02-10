@@ -198,7 +198,7 @@ hu:
           name: Partner
           types:
             collaborator: Együttműködő
-            main_promotor: Fő promoter
+            main_promotor: Fő kezdeményező
         registration_type:
           fields:
             conference_meetings: Konferencia-találkozók
