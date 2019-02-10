@@ -136,7 +136,7 @@ hu:
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
-        promote_button: Hirdessen a %{model_name}
+        promote_button: Kezdeményezze a %{model_name}
         error: Hiba történt az erőforrás módosításakor.
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
         promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
@@ -166,7 +166,7 @@ hu:
             módosításra a szerző visszavonta a dokumentumot.
       new:
         amendment_author: Módosítás szerző
-        back: Hát
+        back: Vissza
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
         send: Küldj fel
