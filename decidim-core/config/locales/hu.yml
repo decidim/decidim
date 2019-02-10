@@ -169,7 +169,7 @@ hu:
         back: Vissza
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
-        send: Küldj fel
+        send: Helyreigazítás küldése
       rejected:
         error: Az emelés elutasításakor hiba történt, próbálkozzon később
         success: Az emelést sikeresen elutasították
