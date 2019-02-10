@@ -140,7 +140,7 @@ hu:
             approve: Jóváhagy
             confirm_revoke: Biztos vagy benne?
             invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a promóciós bizottságba
-            no_members_yet: A promóciós bizottságban nincsenek tagok
+            no_members_yet: A kezdeményező bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
         content_blocks:
@@ -276,7 +276,7 @@ hu:
           select_initiative_type_help: A polgári kezdeményezés egy olyan eszköz, amellyel az állampolgárok beavatkozhatnak a képviselőtestület munkájába és kiharcolhatják az önkormányzat hatáskörébe tartozó célok elérését. Milyen kezdeményezést szeretnél indítani?
         share_committee_link:
           continue: Tovább
-          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a támogató bizottságban
+          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a kezdeményező bizottságban
         show_similar_initiatives:
           back: Vissza
           compare_help: Ha az alábbi kezdeményezések valamelyike ​​hasonló a tiedhez, inkább azt támogasd. Így a te ügyednek is több esélye van a megvalósításra.
