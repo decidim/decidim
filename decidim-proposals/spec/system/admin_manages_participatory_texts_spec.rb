@@ -92,7 +92,9 @@ describe "Admin manages particpatory texts", type: :system do
   end
 
   def save_participatory_text_drafts
+    # click twice as clicking once provokes flaky tests
     click_button "Save draft"
+    find("button[name=save_draft]").click
     expect(page).to have_content "Participatory text updated successfully."
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
@@ -138,7 +140,7 @@ describe "Admin manages particpatory texts", type: :system do
 
   describe "updating participatory texts in draft mode" do
     let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
-    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+    let!(:new_body) { Faker::Lorem.sentences(3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do
       visit_participatory_texts
