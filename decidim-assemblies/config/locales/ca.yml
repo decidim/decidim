@@ -260,7 +260,7 @@ ca:
       filter:
         all: Tot tipus d'assemblees
         commission: Comissió
-        consultative_advisory: Consultiva / assessora
+        consultative_advisory: Consultiva/Assessora
         executive: Executiu
         government: Govern
         help: 'Mostrar:'
