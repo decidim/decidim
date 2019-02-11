@@ -904,7 +904,7 @@ ca:
         leave_user_group: Marxar del grup
         manage_user_group_admins: Administra els administradors
         manage_user_group_users: Gestiona els membres
-        resend_email_confirmation_instructions: Reenvia les instruccions de confirmació de correu electrònic
+        resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -989,7 +989,7 @@ ca:
         no_activities_warning: Aquest usuari encara no ha tingut cap activitat.
     user_interests:
       show:
-        no_scopes: Aquesta organització encara no té cap abast.
+        no_scopes: Aquesta organització encara no té cap abast!
         my_interests: Els meus interessos
         select_your_interests: Seleccioneu els temes als quals us interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
         update_my_interests: Actualitzeu els meus interessos
