@@ -525,8 +525,8 @@ ca:
           email_subject: S'han activat les inscripcions per a la conferència "%{resource_title}".
           notification_title: S'han activat les inscripcions per a la conferència <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'La conferència "%{resource_title}" s''està duent a terme en 2 dies. Podeu llegir la descripció de la pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: 'La conferència "%{resource_title}" es durà a terme en 2 dies. Podeu llegir la descripció de la pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-la des de l'enllaç anterior.
           email_subject: La conferència "%{resource_title}" està arribant!
           notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> arribarà en 2 dies.
     log:
