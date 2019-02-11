@@ -525,7 +525,10 @@ en:
           title: New Participatory Space private user.
       resource_permissions:
         edit:
+          submit: Submit
           title: Edit permissions
+        update:
+          success: Permissions updated successfully.
       scope_types:
         create:
           error: There was an error creating a new scope type.

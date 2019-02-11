@@ -257,6 +257,16 @@ en:
         city_council: City Council
         others: Others
         public: Public
+      filter:
+        all: All types of assemblies
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        help: 'Show:'
+        others: Others
+        participatory: Participatory
+        working_group: Working group
       index:
         title: Assemblies
       last_activity:

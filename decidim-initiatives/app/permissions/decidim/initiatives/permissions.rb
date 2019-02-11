@@ -24,6 +24,7 @@ module Decidim
         request_membership?
 
         vote_initiative?
+        sign_initiative?
         unvote_initiative?
 
         permission_action
@@ -107,9 +108,16 @@ module Decidim
         can_vote = initiative.votes_enabled? &&
                    initiative.organization&.id == user.organization&.id &&
                    initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
-                   (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
+                   (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+                   authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_vote)
+      end
+
+      def authorized?(permission_action, resource: nil, permissions_holder: nil)
+        return unless resource || permissions_holder
+
+        ActionAuthorizer.new(user, permission_action, permissions_holder, resource).authorize.ok?
       end
 
       def unvote_initiative?
@@ -119,9 +127,17 @@ module Decidim
         can_unvote = initiative.votes_enabled? &&
                      initiative.organization&.id == user.organization&.id &&
                      initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
-                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
+                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+                     authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
+      end
+
+      def sign_initiative?
+        return unless permission_action.action == :sign_initiative &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(context.fetch(:signature_has_steps, false))
       end
 
       def decidim_user_group_id

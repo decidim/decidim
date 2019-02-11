@@ -25,7 +25,8 @@ module Decidim
             collection do
               get :new_import
               post :import
-              post :publish
+              patch :import
+              post :update
             end
           end
         end

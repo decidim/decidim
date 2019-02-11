@@ -49,7 +49,7 @@
 
       <div class="columns xlarge-6">
         <%= form.hidden_field :signature_type %>
-        <%= form.select :signature_type, signature_type_options, {}, { disabled: true } %>
+        <%= form.select :signature_type, signature_type_options(form.object), {}, { disabled: !current_initiative.created? } %>
       </div>
     </div>
 

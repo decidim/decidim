@@ -82,7 +82,7 @@ module Decidim
         end
 
         def initiative_type_action?
-          return unless permission_action.subject == :initiative_type
+          return unless [:initiative_type, :initiatives_type].include? permission_action.subject
 
           initiative_type = context.fetch(:initiative_type, nil)
 
@@ -136,6 +136,8 @@ module Decidim
             toggle_allow(initiative.published?)
           when :discard
             toggle_allow(initiative.validating?)
+          when :export_pdf_signatures
+            toggle_allow(initiative.published?)
           when :export_votes
             toggle_allow(initiative.offline? || initiative.any?)
           when :accept
@@ -171,8 +173,8 @@ module Decidim
             toggle_allow(initiative.created?)
           when :send_to_technical_validation
             allowed = initiative.created? && (
-                        !initiative.decidim_user_group_id.nil? ||
-                          initiative.committee_members.approved.count >= Decidim::Initiatives.minimum_committee_members
+                        !initiative.created_by_individual? ||
+                        initiative.enough_committee_members?
                       )
 
             toggle_allow(allowed)

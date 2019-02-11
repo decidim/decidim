@@ -172,6 +172,22 @@ module Decidim
                   "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
       end
 
+      def timestamp_service
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.timestamp_service = \"MyTimestampService\"/,
+                  "config.timestamp_service = \"Decidim::Initiatives::DummyTimestamp\""
+      end
+
+      def pdf_signature_service
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.pdf_signature_service = \"MyPDFSignatureService\"/,
+                  "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [

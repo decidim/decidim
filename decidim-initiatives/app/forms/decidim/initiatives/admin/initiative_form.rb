@@ -19,6 +19,7 @@ module Decidim
         attribute :signature_end_date, Decidim::Attributes::LocalizedDate
         attribute :hashtag, String
         attribute :offline_votes, Integer
+        attribute :state, String
 
         translatable_attribute :answer, String
         attribute :answer_url, String
@@ -43,6 +44,10 @@ module Decidim
         def map_model(model)
           self.type_id = model.type.id
           self.decidim_scope_id = model.scope.id
+        end
+
+        def signature_type_updatable?
+          state == "created"
         end
       end
     end
