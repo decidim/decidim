@@ -53,20 +53,6 @@ module Decidim
 
       attr_reader :form, :proposal, :current_user, :attachment
 
-      def proposal_attributes
-        fields = {}
-
-        fields[:title] = title_with_hashtags
-        fields[:body] = body_with_hashtags
-        fields[:category] = form.category
-        fields[:scope] = form.scope
-        fields[:address] = form.address
-        fields[:latitude] = form.latitude
-        fields[:longitude] = form.longitude
-
-        fields
-      end
-
       # Prevent PaperTrail from creating an additional version
       # in the proposal multi-step creation process (step 3: complete)
       #
@@ -74,21 +60,28 @@ module Decidim
       # for diff rendering in the proposal control version
       def update_draft
         PaperTrail.request(enabled: false) do
-          @proposal.update(proposal_attributes)
+          @proposal.update(attributes)
           @proposal.coauthorships.clear
           @proposal.add_coauthor(current_user, user_group: user_group)
         end
       end
 
       def update_proposal
-        @proposal = Decidim.traceability.update!(
-          @proposal,
-          current_user,
-          proposal_attributes,
-          visibility: "public-only"
-        )
+        @proposal.update!(attributes)
         @proposal.coauthorships.clear
         @proposal.add_coauthor(current_user, user_group: user_group)
+      end
+
+      def attributes
+        {
+          title: title_with_hashtags,
+          body: body_with_hashtags,
+          category: form.category,
+          scope: form.scope,
+          address: form.address,
+          latitude: form.latitude,
+          longitude: form.longitude
+        }
       end
 
       def proposal_limit_reached?
