@@ -75,6 +75,7 @@ module Decidim
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
   autoload :HasResourcePermission, "decidim/has_resource_permission"
+  autoload :StylesheetCompiler, "decidim/stylesheet_compiler"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
