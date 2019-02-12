@@ -748,7 +748,7 @@ ca:
         object: participants
         title: Participants
       users:
-        description: Nombre d'usuaris de l'organització
+        description: Nombre d'usuaris/àries de l'organització
         object: usuaris
         title: Usuaris
     newsletter_mailer:
@@ -898,7 +898,7 @@ ca:
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grup
-        fill_in_email_to_confirm_it: Ompliu el correu electrònic del vostre grup per confirmar-lo
+        fill_in_email_to_confirm_it: Ompliu el correu electrònic del teu grup per confirmar-lo
         invite_user: Convida l'usuari
         join_user_group: Sol·licitud per unir-se al grup
         leave_user_group: Marxar del grup
@@ -991,11 +991,11 @@ ca:
       show:
         no_scopes: Aquesta organització encara no té cap abast!
         my_interests: Els meus interessos
-        select_your_interests: Seleccioneu els temes als quals us interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
-        update_my_interests: Actualitzeu els meus interessos
+        select_your_interests: Seleccioneu els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
+        update_my_interests: Actualitza els meus interessos
       update:
-        error: S'ha produït un error en actualitzar els vostres interessos.
-        success: Els vostres interessos s'han actualitzat correctament.
+        error: S'ha produït un error en actualitzar els teus interessos.
+        success: Els teus interessos s'han actualitzat correctament.
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut/da!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
