@@ -16,6 +16,8 @@ module Decidim
         attribute :minimum_committee_members, Integer
         attribute :collect_user_extra_fields, Boolean
         translatable_attribute :extra_fields_legal_information, String
+        attribute :validate_sms_code_on_votes, Boolean
+        attribute :document_number_authorization_handler, String
 
         validates :title, :description, translatable_presence: true
         validates :online_signature_enabled, inclusion: { in: [true, false] }

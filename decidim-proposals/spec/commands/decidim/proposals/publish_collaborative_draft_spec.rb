@@ -8,6 +8,14 @@ module Decidim
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
       let!(:collaborative_draft) { create(:collaborative_draft, component: component, state: state) }
+      let!(:attachment) { Decidim::Attachment.create(attachment_params) }
+      let(:attachment_params) do
+        {
+          title: "My attachment",
+          file: Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+          attached_to: collaborative_draft
+        }
+      end
       let(:current_user) { collaborative_draft.creator_author }
       let(:command) { described_class.new(collaborative_draft, current_user) }
 
@@ -55,6 +63,7 @@ module Decidim
             expect(proposal.category).to eq(collaborative_draft.category)
             expect(proposal.scope).to eq(collaborative_draft.scope)
             expect(proposal.address).to eq(collaborative_draft.address)
+            expect(proposal.attachments).to eq(collaborative_draft.attachments)
           end
         end
       end

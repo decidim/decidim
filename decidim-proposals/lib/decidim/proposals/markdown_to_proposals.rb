@@ -19,17 +19,25 @@ module Decidim
         @current_user = current_user
         @last_position = 0
         @num_sections = 0
+        @list_items = []
       end
 
       def parse(document)
         renderer = self
-        parser = ::Redcarpet::Markdown.new(renderer)
+        extensions = {
+          # no lax_spacing so that it is easier to group paragraphs in articles.
+          lax_spacing: false,
+          fenced_code_blocks: true
+        }
+        parser = ::Redcarpet::Markdown.new(renderer, extensions)
         parser.render(document)
       end
 
       ##########################################
       # Redcarpet callbacks
       ##########################################
+
+      # Block-level calls ######################
 
       # Recarpet callback to process headers.
       # Creates Paricipatory Text Proposals at Section and Subsection levels.
@@ -60,15 +68,46 @@ module Decidim
         text
       end
 
+      # Render the list as a whole
+      def list(_contents, list_type)
+        return if @list_items.empty?
+
+        body = case list_type
+               when :ordered
+                 @list_items.collect.with_index { |item, idx| "#{idx + 1}. #{item}\n" }.join
+               else
+                 @list_items.collect { |item| "- #{item}\n" }.join
+               end
+        # reset items for the next list
+        @list_items = []
+        create_proposal(
+          (@last_position + 1 - @num_sections).to_s,
+          body,
+          Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
+        )
+
+        body
+      end
+
+      # do not render list items, save them for rendering with the whole list
+      def list_item(text, _list_type)
+        @list_items << text.strip
+        nil
+      end
+
+      # Span-level calls #######################
+
       def link(link, title, content)
         attrs = %(href="#{link}")
         attrs += %( title="#{title}") if title.present?
         "<a #{attrs}>#{content}</a>"
       end
 
-      # ignore images
-      def image(_link, _title, _alt_text)
-        ""
+      def image(link, title, alt_text)
+        attrs = %(src="#{link}")
+        attrs += %( alt="#{alt_text}") if alt_text.present?
+        attrs += %( title="#{title}") if title.present?
+        "<img #{attrs}/>"
       end
 
       private

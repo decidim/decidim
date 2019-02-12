@@ -149,9 +149,11 @@ PATH
       decidim-core (= 0.17.0.dev)
       decidim-verifications (= 0.17.0.dev)
       kaminari (~> 1.0)
+      origami
       social-share-button (~> 1.0)
       wicked (~> 1.3)
       wicked_pdf
+      wkhtmltopdf-binary
     decidim-meetings (0.17.0.dev)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -172,7 +174,7 @@ PATH
       cells-rails (~> 0.0.9)
       decidim-comments (= 0.17.0.dev)
       decidim-core (= 0.17.0.dev)
-      doc2text (>= 0.3.3)
+      doc2text (>= 0.4.0)
       kaminari (~> 1.0)
       ransack (~> 2.0)
       redcarpet (>= 3.4)
@@ -311,6 +313,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.1.4)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -340,9 +343,9 @@ GEM
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.3)
-    doc2text (0.3.3)
-      nokogiri (~> 1.6, >= 1.6.3)
-      rubyzip (~> 1.1, >= 1.1.6)
+    doc2text (0.4.0)
+      nokogiri (~> 1.8, >= 1.8.2)
+      rubyzip (~> 1.2, >= 1.2.2)
     docile (1.3.1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
@@ -513,6 +516,8 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    origami (2.1.0)
+      colorize (~> 0.7)
     orm_adapter (0.5.0)
     paper_trail (9.2.0)
       activerecord (>= 4.2, < 5.3)
@@ -735,6 +740,7 @@ GEM
     wicked_pdf (1.1.0)
     wisper (2.0.0)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
