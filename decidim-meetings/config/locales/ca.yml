@@ -91,13 +91,13 @@ ca:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'S''ha tancat la vostra reunió "%{resource_title}". Podeu llegir les conclusions de la seva pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè heu organitzat la reunió "%{resource_title}".
+            email_intro: 'S''ha tancat la teva trobada "%{resource_title}". Podeu llegir les conclusions des de la seva pàgina:'
+            email_outro: Has rebut aquesta notificació perquè has organitzat la trobada "%{resource_title}".
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
           follower:
             email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint la reunió "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
         meeting_created:
@@ -190,7 +190,7 @@ ca:
             invalid: Hi ha hagut un problema en actualitzar aquesta agenda
             success: L'agenda s'ha actualitzat correctament
         exports:
-          meetings: Reunions
+          meetings: Trobades
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
@@ -370,7 +370,7 @@ ca:
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
-          registration_code_help_text: El vostre codi de registre
+          registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
             validation_pending: VALIDACIÓ PENDENT
