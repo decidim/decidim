@@ -292,7 +292,7 @@ ca:
       last_activity:
         name: Última activitat
         title: Última activitat
-        view_all: Veure tot
+        view_all: Veure-ho tot
       metrics:
         name: Mètriques de l'organització
       stats:
