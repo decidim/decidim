@@ -407,18 +407,18 @@ ca:
             notification_title: La <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una independent %{amendable_type}. Podeu veure-ho des d''aquesta pàgina:'
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
             email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
             email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
-            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una independent %{amendable_type}. Podeu veure-ho des d''aquesta pàgina:'
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
-            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
+            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
             email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
             notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
@@ -738,7 +738,7 @@ ca:
           error: Missatge no enviat. Torna-ho a provar més tard
     metrics:
       download:
-        csv: Baixeu les dades (csv)
+        csv: Descarrega les dades (csv)
       followers:
         description: Nombre d'usuaris que segueixen aquest espai de participació
         object: seguidors
