@@ -26,14 +26,14 @@ ca:
         user: Membre del comitè
       initiatives_type:
         banner_image: Imatge del bàner
-        collect_user_extra_fields: Recopileu les dades personals de l'usuari amb la signatura
+        collect_user_extra_fields: Recopila les dades personals de l'usuari amb la signatura
         description: Descripció
         document_number_authorization_handler: Autorització per verificar el número de document en els vots
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura en línia
         title: Títol
-        validate_sms_code_on_votes: Afegiu el pas de la validació del codi SMS al procés de signatura
+        validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
       initiatives_vote:
         name_and_surname: Nom i cognom
         document_number: Número de Document
@@ -106,9 +106,9 @@ ca:
         milestone_completed:
           affected_user:
             email_intro: La vostra iniciativa %{resource_title} ha aconseguit un %{percentage}% de les signatures necessàries!
-            email_outro: Heu rebut aquesta notificació perquè sou l'autor de la iniciativa %{resource_title}.
+            email_outro: Has rebut aquesta notificació perquè ets l'autor/a de la iniciativa %{resource_title}.
             email_subject: S'ha completat una nova fita!
-            notification_title: La vostra iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+            notification_title: La teva iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
           follower:
             email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
             email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions clicant a l'enllaç anterior.
@@ -267,7 +267,7 @@ ca:
           more_information: "(Més informació)"
         promotal_committee:
           back: Enrere
-          individual_help_text: Aquest tipus d'iniciativa ciutadana requereix una Comissió de Promoció que consta d'almenys %{committee_size} persones (testimonis). Heu de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els contactes rebin aquest enllaç hauran de seguir els passos indicats.
+          individual_help_text: Aquest tipus d'iniciativa ciutadana requereix una Comissió Promotora que consta d'almenys %{committee_size} persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els contactes rebin aquest enllaç, hauran de seguir els passos indicats.
           more_information: "(Més informació)"
         select_initiative_type:
           back: Enrere
