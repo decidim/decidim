@@ -106,7 +106,7 @@ ca:
           email_subject: Nova trobada a %{participatory_space_title}
           notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: S'ha confirmat el vostre registre per a la reunió <a href="%{resource_url}">%{resource_title}</a> . El vostre codi de registre és %{registration_code}.
+          notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
