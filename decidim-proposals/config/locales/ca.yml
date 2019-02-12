@@ -193,7 +193,7 @@ ca:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Podeu llegir la resposta d''aquesta pàgina:'
             email_outro: Heu rebut aquesta notificació perquè sou un autor de "%{resource_title}".
-            email_subject: S'ha rebutjat la vostra proposta
+            email_subject: La teva proposta ha estat rebutjada
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha estat rebutjada.
           follower:
             email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
@@ -617,7 +617,7 @@ ca:
           search: Cerca
           state: Estat
           voted: Has donat suport
-          amendment_type: Escriviu
+          amendment_type: Escriu
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
