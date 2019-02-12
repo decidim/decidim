@@ -430,7 +430,7 @@ ca:
         back: Enrere
         fill_personal_data: Completa les teves dades
         select_identity: Selecciona identitat
-        see_steps: Vegeu els passos
+        see_steps: vegeu els passos
         sms_code: Verificació per codi SMS
         sms_phone_number: Número de telèfon mòbil
         step: Pas %{current} de %{total}
