@@ -527,8 +527,8 @@ ca:
         upcoming_conference:
           email_intro: 'La conferència "%{resource_title}" es durà a terme en 2 dies. Podeu llegir-ne la descripció des de la pàgina:'
           email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar-la de seguir clicant a l'enllaç anterior.
-          email_subject: La conferència "%{resource_title}" està arribant!
-          notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> arribarà en 2 dies.
+          email_subject: La conferència "%{resource_title}" està a punt de començar!
+          notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> començarà en 2 dies.
     log:
       value_types:
         conference_presenter:
