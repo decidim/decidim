@@ -192,7 +192,7 @@ ca:
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè sou un autor de "%{resource_title}".
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de "%{resource_title}".
             email_subject: La teva proposta ha estat rebutjada
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha estat rebutjada.
           follower:
@@ -450,7 +450,7 @@ ca:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
         edit:
-          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
           back: Tornar
           select_a_category: Selecciona una categoria
           send: Enviar
