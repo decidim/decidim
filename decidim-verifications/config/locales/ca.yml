@@ -4,7 +4,7 @@ ca:
       config:
         available_methods: Mètodes disponibles
         offline: Sense connexió
-        offline_explanation: Instruccions per a la verificació fora de línia
+        offline_explanation: Instruccions per a la verificació sense connexió
         online: En línia
       id_document_information:
         document_number: Número de document (amb lletra)
