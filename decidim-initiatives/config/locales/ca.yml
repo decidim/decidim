@@ -298,12 +298,12 @@ ca:
       initiative_signatures:
         fill_personal_data:
           continue: Continua
-          help: Si us plau, ompli els següents camps amb les seves dades personals per signar la iniciativa
+          help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa
         sms_phone_number:
           continue: Envia'm un SMS
           help: Ompliu el formulari amb el vostre número de telèfon mòbil verificat per sol·licitar el vostre codi de verificació
         sms_code:
-          continue: Comproveu el codi i continueu
+          continue: Comprova el codi i continua
           help: Consulteu els SMS rebuts del vostre telèfon mòbil
       initiative_votes:
         create:
