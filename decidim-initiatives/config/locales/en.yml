@@ -29,8 +29,7 @@ en:
         collect_user_extra_fields: Collect user personal data on signature
         description: Description
         document_number_authorization_handler: Authorization to verify document number on votes
-        extra_fields_legal_information: Legal information about the collection of
-          personal data
+        extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
@@ -66,6 +65,7 @@ en:
         initiatives:
           fields:
             created_at: Created at
+            id: ID
             state: State
             supports_count: Supports
             title: Initiatives
@@ -105,9 +105,13 @@ en:
           notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
           affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
             email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
           follower:
             email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
     gamification:
@@ -294,12 +298,10 @@ en:
       initiative_signatures:
         fill_personal_data:
           continue: Continue
-          help: Please, fill the following fields with your personal data to sign
-            the initiative
+          help: Please, fill the following fields with your personal data to sign the initiative
         sms_phone_number:
           continue: Send me an SMS
-          help: Fill the form with your verified phone number to request
-            your verification code
+          help: Fill the form with your verified phone number to request your verification code
         sms_code:
           continue: Check code and continue
           help: Check the SMS received at your phone
@@ -397,6 +399,7 @@ en:
       states:
         accepted: Accepted
         expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
     resources:
