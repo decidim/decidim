@@ -617,6 +617,7 @@ en:
           search: Search
           state: State
           voted: Voted
+          amendment_type: Type
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -727,6 +728,7 @@ en:
           title: Versions
         stats:
           back_to_collaborative_draft: Go back to collaborative draft
+          back_to_proposal: Go back to proposal
           number_of_versions: Versions
           show_all_versions: Show all versions
           version_author: Version author
