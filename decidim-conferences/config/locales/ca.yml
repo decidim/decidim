@@ -508,7 +508,7 @@ ca:
         conference_registration_validation_pending:
           notification_title: El registre de la conferència <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registration_confirmed:
-          notification_title: S'ha confirmat el registre de la conferència <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: S'ha confirmat el teu registre a la conferència <a href="%{resource_url}">%{resource_title}</a>.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la conferència "%{resource_title}" ocupen més del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets administrador de la conferència.
