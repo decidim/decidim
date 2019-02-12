@@ -369,7 +369,7 @@ ca:
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "%{total_supports} suports obligatoris"
-          verification_required: Verifiqueu la vostra identitat per signar la iniciativa
+          verification_required: Verifica la teva identitat per signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -430,11 +430,11 @@ ca:
         back: Enrere
         fill_personal_data: Completa les teves dades
         select_identity: Selecciona identitat
-        see_steps: vegeu els passos
+        see_steps: Vegeu els passos
         sms_code: Verificació per codi SMS
         sms_phone_number: Número de telèfon mòbil
         step: Pas %{current} de %{total}
-        title: Signar %{initiative_title}
+        title: Signa %{initiative_title}
       initiatives:
         initiative:
           check: Comprova-ho
