@@ -2,7 +2,7 @@ hu:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Kapcsolódó szerelvények
+        assemblies_ids: Kapcsolódó gyűlések
         banner_image: Banner kép
         consultations_ids: Kapcsolódó konzultációk
         copy_categories: Másolási kategóriák
@@ -12,7 +12,7 @@ hu:
         description: Leírás
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
-        participatory_processes_ids: Kapcsolódó Résztvevő folyamatok
+        participatory_processes_ids: Kapcsolódó részvételi folyamatok
         promoted: promotált
         published_at: Megjelent a
         scope_id: terület
@@ -48,7 +48,7 @@ hu:
   decidim:
     admin:
       actions:
-        confirm: megerősít
+        confirm: Megerősít
         new_conference: Új konferencia
         send_diplomas: Oklevél küldése
       conference_copies:
@@ -65,7 +65,7 @@ hu:
           success: A konferencia sikeresen közzétett.
       conference_registration:
         confirm:
-          error: Hiba történt a konferencia regisztráció során.
+          error: Hiba történt a konferencia regisztráció megerősítése során.
           success: A konferencia regisztráció sikeresen megtörtént.
       conference_speakers:
         create:
@@ -151,14 +151,14 @@ hu:
           components: Alkatrészek
           conference_admins: Konferencia felhasználók
           conference_invites: Meghívottak
-          conference_speakers: Hangszórók
-          diploma: Diploma
+          conference_speakers: Előadók
+          diploma: Oklevél
           info: Info
           media_links: Média linkek
           moderations: moderálások
           partners: Partnerek
-          registration_types: Regisztrációs típusok
-          registrations: regisztrációk
+          registration_types: Regisztráció típusok
+          registrations: Regisztrációk
           user_registrations: Felhasználói regisztrálások
       models:
         conference:
@@ -201,18 +201,18 @@ hu:
             main_promotor: Fő kezdeményező
         registration_type:
           fields:
-            conference_meetings: Konferencia-találkozók
+            conference_meetings: Konferencia találkozók
             price: Ár
-            registrations_count: A regisztrációk számítanak
+            registrations_count: A regisztrációk száma
             title: Cím
             weight: Súly
           name: Regisztrációs típus
       partners:
         create:
-          error: Hiba történt a konferencia partnerének hozzáadása esetén.
-          success: Partner sikeresen csatlakozott ehhez a konferenciához.
+          error: Hiba történt a konferencia partnerének hozzáadása során.
+          success: Partner sikeresen hozzáadva ehhez a konferenciához.
         destroy:
-          success: A partner sikeresen eltávolította ezt a konferenciát.
+          success: A partner sikeresen eltávolítva a konferenciáról.
         edit:
           title: Partner frissítése.
           update: Frissítés
@@ -220,24 +220,24 @@ hu:
           create: Létrehozás
           title: Új partner
         update:
-          error: Hiba történt a konferencia partnerének frissítéséhez.
-          success: Partner sikeresen frissült a konferencia számára.
+          error: Hiba történt a konferencia partnerének frissítése során.
+          success: Partner sikeresen frissítve.
       registration_type_publications:
         create:
           error: Hiba történt a regisztrációs típus közzétételében.
-          success: A regisztrációs típus sikeresen közzétett.
+          success: A regisztrációs típus sikeresen közzétéve.
         destroy:
-          error: Hiba történt a regisztrációs típus közzétételének közzétételénél.
-          success: A regisztrációs típus sikeresen be nem jelentett.
+          error: Hiba történt a regisztrációs típus közzétételének visszavonása során.
+          success: A regisztrációs típus közzététele sikeresen visszavonva.
       registration_types:
         create:
-          error: Hiba történt a konferencia regisztrációs típusa hozzáadásával.
-          success: A regisztrációs típus sikeresen hozzá lett adva a konferenciához.
+          error: Hiba történt a konferencia regisztráció-típusnak hozzáadása során.
+          success: A regisztrációs típus sikeresen hozzáadva a konferenciához.
         destroy:
           success: A regisztrációs típus sikeresen el lett távolítva ebből a konferenciából.
         edit:
           title: A regisztrációs típus frissítése.
-          update: frissítés
+          update: Frissítés
         new:
           create: teremt
           title: Új regisztrációs típus
