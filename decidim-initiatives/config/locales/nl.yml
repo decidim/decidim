@@ -310,6 +310,8 @@ nl:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
           invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
           success: Gefeliciteerd! Het initiatief is correct ondertekend
+        personal_data:
+          invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_code:
           invalid: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
         sms_phone:
