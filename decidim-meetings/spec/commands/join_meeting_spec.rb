@@ -168,8 +168,10 @@ module Decidim::Meetings
     end
 
     context "when the meeting has not enough available slots" do
+      let(:available_slots) { 1 }
+
       before do
-        create(:registration, meeting: meeting, user: user)
+        create(:registration, meeting: meeting)
       end
 
       it "broadcasts invalid" do
@@ -178,10 +180,8 @@ module Decidim::Meetings
     end
 
     context "when the user has already registered for the meeting" do
-      let(:available_slots) { 1 }
-
       before do
-        create(:registration, meeting: meeting)
+        create(:registration, meeting: meeting, user: user)
       end
 
       it "broadcasts invalid" do
