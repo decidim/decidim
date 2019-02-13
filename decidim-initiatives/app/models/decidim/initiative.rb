@@ -299,6 +299,10 @@ module Decidim
         votes_enabled?
     end
 
+    def accepts_online_unvotes?
+      accepts_online_votes? && type.undo_online_signatures_enabled?
+    end
+
     def minimum_committee_members
       type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
     end

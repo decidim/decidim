@@ -124,7 +124,7 @@ module Decidim
         return unless permission_action.action == :unvote &&
                       permission_action.subject == :initiative
 
-        can_unvote = initiative.votes_enabled? &&
+        can_unvote = initiative.accepts_online_unvotes? &&
                      initiative.organization&.id == user.organization&.id &&
                      initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
                      (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
