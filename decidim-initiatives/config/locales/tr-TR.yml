@@ -310,6 +310,8 @@ tr:
           error: Girişimi imzalarken hatalar oldu.
           invalid: Girişimi imzalamak için sağlanan veriler geçerli değil
           success: Tebrikler! Girişim doğru imzalandı
+        personal_data:
+          invalid: Kişisel veriler yetkilendirme için verilen verilerle tutarlı değildir.
         sms_code:
           invalid: Doğrulama kodunuz bizimkilerle eşleşmiyor. Lütfen size gönderdiğimiz SMS’i iki kez kontrol edin.
         sms_phone:
