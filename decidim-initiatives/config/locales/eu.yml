@@ -310,6 +310,8 @@ eu:
           error: Ekimena sinatu zenean akatsak izan dira.
           invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak
           success: Zorionak! Ekimena ondo sinatu da
+        personal_data:
+          invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
         sms_code:
           invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Begiratu bi aldiz bidalitako SMSa.
         sms_phone:
