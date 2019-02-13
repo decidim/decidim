@@ -260,7 +260,7 @@ ca:
       filter:
         all: Tots
         commission: Comissió
-        consultative_advisory: Consultiva / assessora
+        consultative_advisory: Consultiva/Assessora
         executive: Executiu
         government: Govern
         label: 'Mostrar:'
