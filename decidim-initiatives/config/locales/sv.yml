@@ -310,6 +310,8 @@ sv:
           error: Det har varit fel när du undertecknade initiativet.
           invalid: Uppgifterna som lämnas för att underteckna initiativet är inte giltiga
           success: grattis! Initiativet har skrivits korrekt
+        personal_data:
+          invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
         sms_code:
           invalid: Din verifieringskod stämmer inte överens med vår. Vänligen dubbelklicka på det SMS vi skickade till dig.
         sms_phone:
