@@ -286,6 +286,12 @@ module Decidim
         published?
     end
 
+    def accepts_online_votes?
+      Decidim::Initiatives.online_voting_allowed &&
+        (online? || any?) &&
+        votes_enabled?
+    end
+
     def minimum_committee_members
       type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
     end
