@@ -80,13 +80,13 @@ ca:
           notification_title: S'ha ampliat la data de finalització de la signatura de la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         milestone_completed:
           affected_user:
-            email_intro: La vostra iniciativa %{resource_title} ha aconseguit l' %{percentage}% de les signatures!
-            email_outro: Heu rebut aquesta notificació perquè sou l'autor de la iniciativa %{resource_title}.
+            email_intro: La vostra iniciativa %{resource_title} ha aconseguit un %{percentage}% de les signatures necessàries!
+            email_outro: Has rebut aquesta notificació perquè ets l'autor/a de la iniciativa %{resource_title}.
             email_subject: S'ha completat una nova fita!
-            notification_title: La vostra iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+            notification_title: La teva iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
           follower:
             email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions clicant a l'enllaç anterior.
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
     gamification:
