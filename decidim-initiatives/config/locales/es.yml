@@ -310,6 +310,8 @@ es:
           error: Ha habido errores al firmar la iniciativa.
           invalid: Los datos proporcionados para firmar la iniciativa no son válidos.
           success: '¡Felicidades! La iniciativa se ha firmado correctamente.'
+        personal_data:
+          invalid: Los datos personales no son consistentes con los datos proporcionados para la autorización.
         sms_code:
           invalid: Su código de verificación no coincide con el nuestro. Por favor, vuelva a comprobar los SMS que le enviamos.
         sms_phone:
