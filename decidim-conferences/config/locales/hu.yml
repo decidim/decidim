@@ -239,10 +239,10 @@ hu:
           title: A regisztrációs típus frissítése.
           update: Frissítés
         new:
-          create: teremt
+          create: Létrehozás
           title: Új regisztrációs típus
         update:
-          error: Hiba történt a konferencia regisztrációs típusának frissítéséhez.
+          error: Hiba történt a konferencia regisztrációs típusának frissítése során.
           success: A regisztrációs típus sikeresen frissült a konferencia számára.
       titles:
         conferences: Konferenciák
@@ -250,10 +250,10 @@ hu:
       conference:
         create: "%{user_name} létrehozta az %{resource_name} konferenciát"
         publish: "%{user_name} közzétette az %{resource_name} konferenciát"
-        send_conference_diplomas: "%{user_name} okleveleket küld az %{resource_name} konferencia-felhasználónak"
+        send_conference_diplomas: "%{user_name} okleveleket küldése a %{resource_name} konferencia-felhasználónak"
         unpublish: "%{user_name} nem publikált az %{resource_name} konferencia"
         update: "%{user_name} frissítette az %{resource_name} konferenciát"
-        update_diploma: "%{user_name} frissítette a diploma konfiguráció %{resource_name} konferenciát"
+        update_diploma: "%{user_name} frissítette az oklevél konfigurációt itt %{resource_name}"
       conference_speaker:
         create: "%{user_name} létrehozta az %{resource_name} hangszórót a %{space_name} konferencián"
         delete: "%{user_name} eltávolította az %{resource_name} hangsugárzót a %{space_name} konferenciából"
@@ -264,18 +264,18 @@ hu:
         update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
       conferences:
         conference_registration:
-          confirm: "%{user_name} megerősítette konferencia regisztrációját %{resource_name} konferencián"
+          confirm: "%{user_name} megerősítette konferencia regisztrációját a %{resource_name} konferencián"
         partner:
-          create: "%{user_name} létre %{resource_name} a %{space_name} konferencia"
-          delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
-          update: "%{user_name} frissített %{resource_name} a %{space_name} konferencián"
+          create: "%{user_name} létrehozta a %{resource_name}-t a %{space_name} konferenciában"
+          delete: "%{user_name} eltávolította a %{resource_name} felhasználót a %{space_name} konferenciából"
+          update: "%{user_name} frissítette a %{resource_name}-t a %{space_name} konferencián"
         registration_type:
           create: "%{user_name} létrehozta az %{resource_name} regisztrációs típust a %{space_name} konferencián"
           publish: "%{user_name} közzétette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
-          unpublish: "%{user_name} az %{resource_name} regisztrációs típus közzétételének meg nem jelentése a %{space_name} konferencián"
-          update: "%{user_name} frissítette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
+          unpublish: "%{user_name} visszavonta a %{resource_name} regisztrációs típus közzétételét a %{space_name} konferencián"
+          update: "%{user_name} frissítette a %{resource_name} regisztrációs típust a %{space_name} konferencián"
       media_link:
-        create: "%{user_name} létrehozta az %{resource_name} média linket a %{space_name} konferencián"
+        create: "%{user_name} létrehozta a %{resource_name} média linket a %{space_name} konferencián"
         delete: "%{user_name} eltávolította az %{resource_name} média linket a %{space_name} konferenciából"
         update: "%{user_name} frissítette az %{resource_name} médiakapcsolatot a %{space_name} konferencián"
     conference_program:
