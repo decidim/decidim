@@ -168,6 +168,16 @@ module Decidim::Meetings
     end
 
     context "when the meeting has not enough available slots" do
+      before do
+        create(:registration, meeting: meeting, user: user)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when the user has already registered for the meeting" do
       let(:available_slots) { 1 }
 
       before do
