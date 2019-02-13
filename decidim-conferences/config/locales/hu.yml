@@ -231,7 +231,7 @@ hu:
           success: A regisztrációs típus közzététele sikeresen visszavonva.
       registration_types:
         create:
-          error: Hiba történt a konferencia regisztráció-típusnak hozzáadása során.
+          error: Hiba történt a konferencia regisztráció-típusának hozzáadása során.
           success: A regisztrációs típus sikeresen hozzáadva a konferenciához.
         destroy:
           success: A regisztrációs típus sikeresen el lett távolítva ebből a konferenciából.
@@ -276,7 +276,7 @@ hu:
           update: "%{user_name} frissítette a %{resource_name} regisztrációs típust a %{space_name} konferencián"
       media_link:
         create: "%{user_name} létrehozta a %{resource_name} média linket a %{space_name} konferencián"
-        delete: "%{user_name} eltávolította az %{resource_name} média linket a %{space_name} konferenciából"
+        delete: "%{user_name} eltávolította a %{resource_name} média linket a %{space_name} konferenciából"
         update: "%{user_name} frissítette az %{resource_name} médiakapcsolatot a %{space_name} konferencián"
     conference_program:
       index:
@@ -334,12 +334,12 @@ hu:
         diplomas:
           edit:
             save: Mentés
-            title: Diploma
+            title: Oklevél
         invite_join_conference_mailer:
           invite:
             decline: A "%{conference_title}" meghívása
             invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
-            registration: Regisztráció a '%{conference_title}'
+            registration: Regisztráció a '%{conference_title}' -ra
         partners:
           index:
             title: Partnerek
@@ -350,14 +350,14 @@ hu:
             title: Regisztrációs típusok
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Megtalálja a <a href="%{url}">%{title}</a> konferencia diplomáját a mellékletekhez.
+            diploma_html: A mellékletben találja meg a <a href="%{url}">%{title}</a> konferencia oklevelét.
           diploma_user:
-            attendance_verified_by: Látogatás által ellenőrzött
+            attendance_verified_by: A részvételt ellenőrizte
             certificate_of_attendance: Tanúsítvány a részvételről
-            certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett és részt vett a <strong>%{title}</strong> ben a <strong>%{location}</strong> , <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett a <strong>%{title}</strong> című eseményen a <strong>%{location}</strong> címen a követező időpontban, <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Probléma merült fel a konferencia diplomák küldésekor.
-          success: Konferencia diplomák helyesen elküldve
+          error: Probléma merült fel a konferencia oklevelek küldésekor.
+          success: Konferencia oklevelek sikeresen elküldve
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -366,12 +366,12 @@ hu:
           free: Ingyenes
           going: Haladó
           no_slots_available: Nincs szabad hely
-          registration: Bejegyzés
+          registration: Regisztráció
       conference_program:
         program_meeting:
           content: Tartalom
           location: Helyszín
-          speakers: Hangszórók
+          speakers: Előadók
           streaming: Élő közvetítés
         show:
           day: Nap
@@ -462,7 +462,7 @@ hu:
             see_all_conferences: Lásd az összes konferenciát
       photo:
         show:
-          close_modal: Közeli modal
+          close_modal: Modal bezárása
           photo: Fénykép
       photos_list:
         show:
