@@ -316,6 +316,8 @@ pl:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
           invalid: Dane dostarczone do podpisania inicjatywy nie są ważne
           success: Gratulacje! Inicjatywa została podpisana poprawnie
+        personal_data:
+          invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
         sms_code:
           invalid: Twój kod weryfikacyjny nie pasuje do naszego. Sprawdź dokładnie SMS, który Ci wysłaliśmy.
         sms_phone:
