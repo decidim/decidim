@@ -310,6 +310,8 @@ hu:
           error: Hiba történt a kezdeményezés aláírása során.
           invalid: A kezdeményezés aláírásához megadott adatok nem érvényesek
           success: Gratulálunk! A kezdeményezést helyesen írták alá
+        personal_data:
+          invalid: A személyes adatok nem felelnek meg az engedélyezéshez megadott adatoknak.
         sms_code:
           invalid: Ellenőrző kódja nem felel meg a miénknek. Kérjük, ellenőrizze a küldött SMS-t.
         sms_phone:
