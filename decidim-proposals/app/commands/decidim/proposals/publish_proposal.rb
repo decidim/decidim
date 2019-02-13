@@ -34,12 +34,34 @@ module Decidim
 
       private
 
-      # Prevent PaperTrail from creating an additional version
-      # in the proposal multi-step creation process (step 4: publish)
+      # This will be the PaperTrail version that is
+      # shown in the version control feature (1 of 1)
+      #
+      # For an attribute to appear in the new version it has to be reset
+      # and reassigned, as PaperTrail only keeps track of object CHANGES.
       def publish_proposal
-        PaperTrail.request(enabled: false) do
-          @proposal.update published_at: Time.current
+        title = reset(:title)
+        body = reset(:body)
+
+        Decidim.traceability.perform_action!(
+          "publish",
+          @proposal,
+          @current_user,
+          visibility: "public-only"
+        ) do
+          @proposal.update title: title, body: body, published_at: Time.current
         end
+      end
+
+      # Reset the attribute to an empty string and return the old value
+      def reset(attribute)
+        attribute_value = @proposal[attribute]
+        PaperTrail.request(enabled: false) do
+          # rubocop:disable Rails/SkipsModelValidations
+          @proposal.update_attribute attribute, ""
+          # rubocop:enable Rails/SkipsModelValidations
+        end
+        attribute_value
       end
 
       def send_notification

@@ -158,6 +158,7 @@ PATH
       social-share-button (~> 1.0)
       wicked (~> 1.3)
       wicked_pdf
+      wkhtmltopdf-binary
     decidim-meetings (0.17.0.dev)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
