@@ -310,6 +310,8 @@ gl:
           error: Houbo erros ao asinar a iniciativa.
           invalid: Os datos proporcionados para asinar a iniciativa non son válidos
           success: Parabéns! A iniciativa asinouse correctamente
+        personal_data:
+          invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
         sms_code:
           invalid: O teu código de verificación non coincide coa nosa. Verifique os SMS que lle enviamos.
         sms_phone:
