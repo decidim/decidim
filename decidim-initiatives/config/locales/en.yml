@@ -34,6 +34,7 @@ en:
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
+        undo_online_signatures_enabled: Enable users to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
       initiatives_vote:
         name_and_surname: Name and surname
