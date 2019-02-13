@@ -316,6 +316,8 @@ cs:
           error: Při podpisu iniciativy došlo k chybám.
           invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné
           success: Gratulujeme! Iniciativa byla správně podepsána
+        personal_data:
+          invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
         sms_code:
           invalid: Váš ověřovací kód neodpovídá našemu. Prosím, zkontrolujte SMS, který jsme vám poslali.
         sms_phone:
