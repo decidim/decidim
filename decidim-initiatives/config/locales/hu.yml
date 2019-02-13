@@ -115,7 +115,7 @@ hu:
             approve: Jóváhagy
             confirm_revoke: Biztos vagy benne?
             invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a promóciós bizottságba
-            no_members_yet: A promóciós bizottságban nincsenek tagok
+            no_members_yet: A kezdeményező bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
         content_blocks:
@@ -250,7 +250,7 @@ hu:
           select_initiative_type_help: A polgári kezdeményezés egy olyan eszköz, amellyel az állampolgárok beavatkozhatnak a képviselőtestület munkájába és kiharcolhatják az önkormányzat hatáskörébe tartozó célok elérését. Milyen kezdeményezést szeretnél indítani?
         share_committee_link:
           continue: Tovább
-          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a támogató bizottságban
+          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a kezdeményező bizottságban
         show_similar_initiatives:
           back: Vissza
           compare_help: Ha az alábbi kezdeményezések valamelyike ​​hasonló a tiedhez, inkább azt támogasd. Így a te ügyednek is több esélye van a megvalósításra.
@@ -341,7 +341,7 @@ hu:
         more_information: Itt további információkat találsz a kezdeményezés létrehozásának folyamatáról.
         progress_report_body_for: A(z) %{title} kezdeményezést már %{percentage}% támogatja.
         progress_report_for: 'Helyzetjelentés a kezdeményezésről: %{title}'
-        promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a támogató bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
+        promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a kezdeményező bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
         status_change_body_for: 'A(z) %{title} kezdeményezés megváltozott állapota: %{state}'
         status_change_for: A(z) %{title} kezdeményezés állapota változott
         technical_validation_body_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
