@@ -310,6 +310,8 @@ fi-pl:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
           invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
           success: Onnittelut! Aloite on onnistuneesti allekirjoitettu
+        personal_data:
+          invalid: Henkilötiedot eivät ole yhdenmukaisia lupaa varten annettujen tietojen kanssa.
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
