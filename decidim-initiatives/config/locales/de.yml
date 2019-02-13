@@ -310,6 +310,8 @@ de:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
           invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
           success: Herzliche Glückwünsche! Die Initiative wurde korrekt unterschrieben
+        personal_data:
+          invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_code:
           invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
         sms_phone:
