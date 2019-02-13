@@ -535,7 +535,7 @@ fr:
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: URL
-          youtube: Youtube
+          youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
