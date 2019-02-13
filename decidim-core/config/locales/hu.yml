@@ -177,7 +177,7 @@ hu:
         success: Az emelés sikeresen előmozdult
         error: Az emelés előmozdításakor hiba történt
       review:
-        back: Hát
+        back: Vissza
         heading: Tekintse át a módosítást
         help_text: Ön módosítja a %{model_name}
         send: Elfogadja a módosítást
