@@ -310,6 +310,8 @@ ca:
           error: Hi ha hagut errors en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides
           success: Enhorabona! La iniciativa s'ha signat correctament
+        personal_data:
+          invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
         sms_code:
           invalid: El codi de verificació no coincideix amb el nostre. Si us plau, revisa l'SMS que t'hem enviat.
         sms_phone:
