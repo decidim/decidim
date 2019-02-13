@@ -65,6 +65,23 @@ describe "Initiative signing", type: :system do
   end
 
   context "when the user has signed the initiative and unsigns it" do
+    context "when initiative type has unvotes disabled" do
+      let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization: organization) }
+      let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
+      let(:initiative) { create(:initiative, :published, organization: organization, scoped_type: scope) }
+
+      it "unsigning initiative is disabled" do
+        vote_initiative
+
+        within ".view-side" do
+          expect(page).to have_content("1\nSIGNATURE")
+          expect(page).to have_button("Already signed", disabled: true)
+          click_button "Already signed", disabled: true
+          expect(page).to have_content("1\nSIGNATURE")
+        end
+      end
+    end
+
     context "when the user has a verified user group" do
       let!(:user_group) { create :user_group, :verified, users: [confirmed_user], organization: confirmed_user.organization }
 

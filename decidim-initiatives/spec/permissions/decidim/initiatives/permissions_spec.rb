@@ -295,13 +295,21 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
     let(:votes_enabled?) { true }
+    let(:accepts_online_unvotes?) { true }
 
     before do
       allow(initiative).to receive(:votes_enabled?).and_return(votes_enabled?)
+      allow(initiative).to receive(:accepts_online_unvotes?).and_return(accepts_online_unvotes?)
     end
 
     context "when initiative has votes disabled" do
       let(:votes_enabled?) { false }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when initiative has unvotes disabled" do
+      let(:accepts_online_unvotes?) { false }
 
       it { is_expected.to eq false }
     end
