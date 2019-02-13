@@ -84,7 +84,7 @@ describe "Initiative signing", type: :system do
 
       within ".view-side" do
         expect(page).to have_content("1\nSIGNATURE")
-        click_button "Sign"
+        click_button "Already signed"
         expect(page).to have_content("0\nSIGNATURE")
       end
     end
@@ -140,10 +140,11 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_button("Already signed", disabled: true)
+              click_button "Already signed", disabled: true
+              expect(page).to have_content("1\nSIGNATURE")
             end
-            click_button "Verify your identity"
-            expect(page).to have_content("Authorization required")
           end
         end
       end
@@ -205,10 +206,11 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_button("Already signed", disabled: true)
+              click_button "Already signed", disabled: true
+              expect(page).to have_content("1\nSIGNATURE")
             end
-            click_button "Verify your identity"
-            expect(page).to have_content("Authorization required")
           end
         end
       end
