@@ -12,11 +12,13 @@ en:
       proposal:
         answer: Answer
         answered_at: Answered at
+        automatic_hashtags: Hashtags automatically added
         body: Body
         category_id: Category
         has_address: Has address
         scope_id: Scope
         state: State
+        suggested_hashtags: Suggested hashtags
         title: Title
         user_group_id: Create proposal as
       proposal_answer:
@@ -93,11 +95,13 @@ en:
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
+            automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
+            suggested_hashtags: Hashtags suggested to users for new proposals
             votes_blocked: Voting blocked
             votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
@@ -144,6 +148,11 @@ en:
           email_subject: Proposals endorsing has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal has been accepted
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
           follower:
             email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -155,6 +164,11 @@ en:
           email_subject: "%{endorser_nickname} has endorsed a new proposal"
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal is being evaluated
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
           follower:
             email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -162,6 +176,7 @@ en:
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+          email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
           notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
         proposal_published:
@@ -175,6 +190,11 @@ en:
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         proposal_rejected:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal been rejected
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -389,6 +409,10 @@ en:
           evaluating: Evaluating
           except_rejected: All except rejected
           rejected: Rejected
+        filter_type_values:
+          all: All
+          amendments: Amendments
+          proposals: Proposals
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -423,12 +447,14 @@ en:
           error: There's been a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
         edit:
+          attachment_legend: "(Optional) Add an attachment"
           back: Back
           select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
         filters:
           all: All
+          amendment: Amendments
           category: Category
           category_prompt: Category Prompt
           open: Open
@@ -533,6 +559,7 @@ en:
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
+          amend: Amend
           comment: Comment
           comments: Comments
           endorse: Endorse
@@ -587,6 +614,7 @@ en:
           search: Search
           state: State
           voted: Voted
+          amendment_type: Type
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -697,6 +725,7 @@ en:
           title: Versions
         stats:
           back_to_collaborative_draft: Go back to collaborative draft
+          back_to_proposal: Go back to proposal
           number_of_versions: Versions
           show_all_versions: Show all versions
           version_author: Version author
