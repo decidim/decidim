@@ -355,14 +355,14 @@ fi:
         headline: Tilastot
         meetings_count: Tapahtumaa
         orders_count: Ääntä
-        pages_count: Sivuja
-        processes_count: Prosesseja
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
+        pages_count: Sivua
+        processes_count: Prosessia
+        projects_count: Suunnitelmaa
+        proposals_count: Ehdotusta
+        results_count: Tulosta
+        surveys_count: Kyselyä
+        users_count: Osallistujaa
+        votes_count: Ääntä
   layouts:
     decidim:
       participatory_process_groups:
