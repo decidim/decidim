@@ -307,6 +307,8 @@ id:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
           invalid: Data yang diberikan untuk menandatangani inisiatif tidak valid
           success: Selamat! Inisiatif telah ditandatangani dengan benar
+        personal_data:
+          invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
         sms_code:
           invalid: Kode verifikasi Anda tidak cocok dengan kode kami. Harap periksa ulang SMS yang kami kirimkan kepada Anda.
         sms_phone:
