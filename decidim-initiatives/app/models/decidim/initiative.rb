@@ -183,6 +183,13 @@ module Decidim
         signature_end_date >= Date.current
     end
 
+    # Public: Check if the user has voted the question.
+    #
+    # Returns Boolean.
+    def voted_by?(user)
+      votes.where(author: user).any?
+    end
+
     # Public: Checks if the organization has given an answer for the initiative.
     #
     # Returns Boolean.
