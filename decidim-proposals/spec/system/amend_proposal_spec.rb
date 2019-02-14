@@ -84,7 +84,7 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_css(".field", text: "Amendment author", visible: true)
         end
         it "is shown the submit button" do
-          expect(page).to have_button("Send emendation")
+          expect(page).to have_button("Send amendment")
         end
       end
 
