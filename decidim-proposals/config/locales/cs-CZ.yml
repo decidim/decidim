@@ -2,6 +2,7 @@ cs:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adresa
         body: Tělo
         category_id: Kategorie
         decidim_scope_id: Rozsah
@@ -10,6 +11,7 @@ cs:
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
       proposal:
+        address: Adresa
         answer: Odpovědět
         answered_at: Odpovězeno na
         automatic_hashtags: Hashtags se automaticky přidali
@@ -299,7 +301,9 @@ cs:
             name: Návrh
         participatory_texts:
           bulk-actions:
+            are_you_sure: Opravdu chcete vyřadit celý participační text?
             import_doc: Importovat dokument
+            discard_all: Zlikvidujte vše
           import:
             invalid: Formulář je neplatný!
             success: Gratulujeme, následující části byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
@@ -316,6 +320,8 @@ cs:
           publish:
             invalid: Nelze publikovat návrhy
             success: Všechny návrhy byly zveřejněny
+          discard:
+            success: Všechny textové texty s účastí byly zrušeny.
           sections:
             article: "<em>Článek</em>"
             section: "<em>Sekce:</em> <strong>%{title}</strong>"
