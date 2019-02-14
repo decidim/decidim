@@ -297,23 +297,23 @@ hu:
         title: Kezdeményezések
       initiative_signatures:
         fill_personal_data:
-          continue: Folytatni
+          continue: Tovább
           help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
         sms_phone_number:
           continue: Küldj nekem SMS-t
-          help: Töltse ki az űrlapot a hitelesített telefonszámmal, hogy kérje hitelesítési kódját
+          help: Töltse ki az űrlapot a hitelesített telefonszámával, a hitelesítési kódjának igényléséhez
         sms_code:
           continue: Ellenőrizze a kódot és folytassa
-          help: Ellenőrizze a telefonon kapott SMS-eket
+          help: Ellenőrizze a telefonon kapott SMS-t
       initiative_votes:
         create:
           error: Hiba történt a kezdeményezés aláírása során.
           invalid: A kezdeményezés aláírásához megadott adatok nem érvényesek
-          success: Gratulálunk! A kezdeményezést helyesen írták alá
+          success: Gratulálunk! A kezdeményezést aláírta
         personal_data:
-          invalid: A személyes adatok nem felelnek meg az engedélyezéshez megadott adatoknak.
+          invalid: A személyes adatok nem egyeznek meg az engedélyezéshez megadott adatokkal.
         sms_code:
-          invalid: Ellenőrző kódja nem felel meg a miénknek. Kérjük, ellenőrizze a küldött SMS-t.
+          invalid: Ellenőrző kódja nem megfelelő. Kérjük, ellenőrizze a küldött SMS-t.
         sms_phone:
           invalid: A telefonszám érvénytelen vagy függőben van. Kérjük, ellenőrizze engedélyeit.
       initiatives:
@@ -371,7 +371,7 @@ hu:
         vote_cabin:
           already_voted: Már aláírtad
           supports_required: "%{total_supports} aláírás szükséges"
-          verification_required: Ellenőrizze személyazonosságát, hogy aláírja a kezdeményezést
+          verification_required: Személyazonosságod ellenőrzésére vagy szükség a kezdeményezés aláírásához
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
