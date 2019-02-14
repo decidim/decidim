@@ -2,6 +2,7 @@ pl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adres
         body: Ciało
         category_id: Kategoria
         decidim_scope_id: Zakres
@@ -10,6 +11,7 @@ pl:
         title: Tytuł
         user_group_id: Utwórz roboczą wersję roboczą jako
       proposal:
+        address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
         automatic_hashtags: Hashtagi zostały automatycznie dodane
@@ -299,7 +301,9 @@ pl:
             name: Wniosek
         participatory_texts:
           bulk-actions:
+            are_you_sure: Czy na pewno chcesz odrzucić cały szkic tekstu dla uczestników?
             import_doc: Zaimportuj dokument
+            discard_all: Odrzuć wszystko
           import:
             invalid: Formularz jest nieprawidłowy!
             success: Gratulacje, z importowanego dokumentu zostały przeanalizowane następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
@@ -316,6 +320,8 @@ pl:
           publish:
             invalid: Nie można publikować propozycji
             success: Wszystkie wnioski zostały opublikowane
+          discard:
+            success: Wszystkie projekty tekstowe z uczestnictwem zostały odrzucone.
           sections:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
