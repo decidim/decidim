@@ -2,6 +2,7 @@ gl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Enderezo
         body: Corpo
         category_id: Categoría
         decidim_scope_id: Alcance
@@ -10,6 +11,7 @@ gl:
         title: Título
         user_group_id: Crear un borrador colaborativo como
       proposal:
+        address: Enderezo
         answer: Resposta
         answered_at: Respondeu en
         automatic_hashtags: Engadíronse automaticamente os hexágonos
@@ -289,7 +291,9 @@ gl:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: '¿Está seguro de descartar o borrador de texto participativo enteiro?'
             import_doc: Importar documento
+            discard_all: Descartar todo
           import:
             invalid: O formulario non é válido.
             success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
@@ -306,6 +310,8 @@ gl:
           publish:
             invalid: Non se puideron publicar propostas
             success: Todas as propostas foron publicadas
+          discard:
+            success: Todos os borradores de texto participativos foron descartados.
           sections:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
