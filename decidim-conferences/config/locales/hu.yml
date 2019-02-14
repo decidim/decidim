@@ -379,12 +379,12 @@ hu:
       conference_registration_mailer:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
-          details_1: 'Regisztrálva van a konferencia %{registration_type} típusára. Az ára %{price} és a következő eseményeken vehet részt:'
+          details_1: 'A konferenciára a következő típussal vagy regisztrálva %{registration_type}. Az ára %{price} és a következő eseményeken vehetsz részt:'
           details_2: A konferencia részleteit megtalálja a mellékletben.
         pending_validation:
-          confirmation_pending: Rövidesen megkapja a visszaigazolást
-          details: 'Ön már regisztrált %{registration_type} típusú melyek költsége %{price} és részt vehet a következő eseményekre:'
-          pending_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja függőben van.
+          confirmation_pending: Rövidesen megkapod a visszaigazolást
+          details: 'A %{registration_type} típussal regisztráltál a konferenciára, melyek költsége %{price} és így részt vehetsz a következő eseményeken:'
+          pending_html: A <a href="%{url}">%{title}</a> konferencia regisztrációd függőben van.
       conference_registrations:
         create:
           invalid: Probléma merült fel a konferencián.
@@ -411,10 +411,10 @@ hu:
           speakers: Hangszórók
       conferences:
         partners:
-          collaborators: partnerek
-          main_promotors: szervezők
+          collaborators: Partnerek
+          main_promotors: Szervezők
         show:
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: '%{name} <%{email}> -ként jelentkeztél be'
           make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
@@ -427,13 +427,13 @@ hu:
           confirmation:
             subject: A konferencia regisztrációja megerősítést nyert
           pending_validation:
-            subject: A konferencia regisztrációja függőben van, hogy megerősítést nyerjen
+            subject: A konferencia regisztrációd megerősítése függőben van
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
         send_conference_diploma_mailer:
           diploma:
-            subject: A konferencia oklevelét elküldték
+            subject: A konferencia okleveled elküldve
       models:
         conference_invite:
           fields:
@@ -477,13 +477,13 @@ hu:
         conference_user_login:
           already_account: Van már fiókja decidimben?
           new_user: Új felhasználó?
-          sign_in: Jelentkezzen be a konferencia regisztrálásához
-          sign_up: Hozzon létre egy fiókot decidimben, hogy regisztráljon a konferenciára
+          sign_in: Jelentkezz be a konferenciára való regisztrálásához
+          sign_up: Hozz létre egy fiókot a Decidimben, hogy regisztrálni tudja a konferenciára
       show:
         details: Részletek
         introduction: Bevezetés
         objectives: célok
-        related_assemblies: Kapcsolódó szerelvények
+        related_assemblies: Kapcsolódó gyűlések
         related_consultations: Kapcsolódó konzultációk
         related_participatory_processes: Kapcsolódó részvételi folyamatok
       statistics:
@@ -506,9 +506,9 @@ hu:
     events:
       conferences:
         conference_registration_validation_pending:
-          notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencia regisztrációja függőben van.
+          notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencijára történt regisztrációd függőben van.
         conference_registration_confirmed:
-          notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencia regisztrációja megerősítést nyert.
+          notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencia regisztrációd megerősítést nyert.
         conference_registrations_over_percentage:
           email_intro: A "%{resource_title}" konferencia foglalt rések több mint %{percentage}%.
           email_outro: Ezt az értesítést megkaptuk, mert Ön a konferencia részvételi helyének adminisztrátora.
@@ -525,10 +525,10 @@ hu:
           email_subject: A "%{resource_title}" konferencia lehetővé tette a regisztrációt.
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia engedélyezte a regisztrációkat.
         upcoming_conference:
-          email_intro: 'A "%{resource_title}" konferencia 2 nap alatt zajlik. A leírás az oldaláról olvasható:'
-          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" konferenciát követi. Leiratkozhat az előző linkről.
-          email_subject: A "%{resource_title}" konferencia jön!
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap alatt érkezik.
+          email_intro: 'A "%{resource_title}" konferencia 2 nap múlva kezdődik. Olvasd el a leírást ezen az oldalon:'
+          email_outro: Ezt az értesítést azért kaptad, mert a "%{resource_title}" konferenciát követed. Leiratkozhatsz az értesítésekről az előző linken keresztül.
+          email_subject: A "%{resource_title}" konferencia hamarosan indul!
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap múlva kezdődik.
     log:
       value_types:
         conference_presenter:
