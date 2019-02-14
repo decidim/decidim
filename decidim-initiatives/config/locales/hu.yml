@@ -26,19 +26,19 @@ hu:
         user: Bizottsági tag
       initiatives_type:
         banner_image: Banner kép
-        collect_user_extra_fields: Gyűjtse össze a felhasználó személyes adatait az aláíráskor
+        collect_user_extra_fields: Személyes adatok gyűjtése az aláíráskor
         description: Leírás
         document_number_authorization_handler: Engedélyezés a dokumentum számának ellenőrzésére a szavazatokon
         extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
-        minimum_committee_members: Minimális bizottsági tagok
+        minimum_committee_members: Bizottsági tagok minimális száma
         online_signature_enabled: Online aláírás engedélyezve
         title: Cím
-        validate_sms_code_on_votes: Add SMS-kód érvényesítési lépést az aláíráshoz
+        validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
       initiatives_vote:
-        name_and_surname: Vezetéknév, keresztnév
+        name_and_surname: Keresztnév, Vezetéknév
         document_number: Dokumentum szám
         date_of_birth: Születési dátum
-        postal_code: irányítószám
+        postal_code: Irányítószám
       organization_data:
         address: Lakcím
         id_document: Személyigazolvány
@@ -85,12 +85,12 @@ hu:
             document_number: Dokumentum szám
             hash: hash
             initiative_end_date: Befejezés dátuma
-            initiative_id: Kezdeti azonosító
+            initiative_id: Kezdeményezés azonosítója
             initiative_signatures_count: Az aláírások száma
             initiative_start_date: Kezdő dátum
-            initiative_title: Kezdeti cím
-            name_and_surname: Vezetéknév, keresztnév
-            postal_code: irányítószám
+            initiative_title: Kezdeményezés címe
+            name_and_surname: Keresztnév és Vezetéknév
+            postal_code: Irányítószám
             time_and_date: Idő és dátum
             timestamp: Időbélyeg
       titles:
@@ -105,13 +105,13 @@ hu:
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának határidejét kitolták.
         milestone_completed:
           affected_user:
-            email_intro: A %{resource_title} kezdeményezése elérte az aláírások %{percentage}% -át!
-            email_outro: Ezt az értesítést megkapta, mert Ön a %{resource_title}kezdeményezés szerzője.
+            email_intro: A %{resource_title} kezdeményezésed elérte az aláírások %{percentage}% -át!
+            email_outro: Ezt az értesítést azért kaptad, mert Te vagy a %{resource_title} kezdeményezés szerzője.
             email_subject: Új mérföldkő kész áll!
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte az aláírások %{percentage}% -át.
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezésed elérte az aláírások %{percentage}% -át.
           follower:
             email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
-            email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_outro: Ezt az értesítést azért kaptad, mert követed ezt %{resource_title}. Leállíthathatod az értesítések fogadását az előző linkkel.
             email_subject: Új mérföldkő kész áll!
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
     gamification:
@@ -151,7 +151,7 @@ hu:
             accept: Kezdeményezés elfogadása
             confirm: Biztos vagy benne?
             discard: Kezdeményezés félrerakása
-            export_pdf_signatures: PDF aláírás exportálása
+            export_pdf_signatures: Aláírások exportálása PDF-be
             export_votes: Exportálás támogatása
             reject: Kezdeményezés elutasítása
             send_to_technical_validation: Elküldés technikai ellenőrzésre
