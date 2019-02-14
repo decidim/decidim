@@ -2,6 +2,7 @@ fi:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Osoite
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
@@ -10,6 +11,7 @@ fi:
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
+        address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
         automatic_hashtags: Hashtagit lisätty automaattisesti
@@ -289,7 +291,9 @@ fi:
             name: Ehdotus
         participatory_texts:
           bulk-actions:
+            are_you_sure: Haluatko varmasti hylätä koko osallistuvan tekstiluonnoksen?
             import_doc: Tuo aineisto
+            discard_all: Hävitä kaikki
           import:
             invalid: Lomake on virheellinen!
             success: Onnittelut, seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
@@ -306,6 +310,8 @@ fi:
           publish:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
+          discard:
+            success: Kaikki osallistuvan tekstin luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
