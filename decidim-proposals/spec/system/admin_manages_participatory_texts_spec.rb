@@ -94,6 +94,14 @@ describe "Admin manages particpatory texts", type: :system do
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
+  def discard_participatory_text_drafts
+    page.accept_alert "Are you sure to discard the whole participatory text draft?" do
+      click_link "Discard all"
+    end
+    expect(page).to have_content "All Participatory text drafts have been discarded."
+    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+  end
+
   describe "importing partipatory texts from a document" do
     it "creates proposals" do
       visit_participatory_texts
@@ -111,6 +119,32 @@ describe "Admin manages particpatory texts", type: :system do
     it "renders only draft proposals" do
       visit_participatory_texts
       validate_occurrences(sections: 1, subsections: 0, articles: 0)
+    end
+  end
+
+  describe "discarding participatory texts in draft mode" do
+    let!(:proposals) { create_list(:proposal, 5, :draft, component: current_component, participatory_text_level: "article") }
+
+    it "removes all proposals in draft mode" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 5)
+      discard_participatory_text_drafts
+      validate_occurrences(sections: 0, subsections: 0, articles: 0)
+    end
+  end
+
+  describe "updating participatory texts in draft mode" do
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+
+    it "persists changes and all proposals remain as drafts" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      edit_participatory_text_body(0, new_body)
+      save_participatory_text_drafts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      proposal.reload
+      expect(proposal.body.delete("\r")).to eq(new_body)
     end
   end
 
