@@ -2,6 +2,7 @@ ca:
   activemodel:
     attributes:
       collaborative_draft:
+        address: adreça
         body: Cos
         category_id: Categoria
         decidim_scope_id: Àmbit
@@ -10,6 +11,7 @@ ca:
         title: Títol
         user_group_id: Crea un esborrany de col·laboració com a
       proposal:
+        address: adreça
         answer: Resposta
         answered_at: Respost el
         automatic_hashtags: Etiquetes afegides automàticament
@@ -289,7 +291,9 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Esteu segur de descartar l'esborrany de text participatiu complet?
             import_doc: Importar document
+            discard_all: Descarta'ls tots
           import:
             invalid: El formulari no és vàlid!
             success: Enhorabona, les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
@@ -306,6 +310,8 @@ ca:
           publish:
             invalid: No s'han pogut publicar propostes
             success: S'han publicat totes les propostes
+          discard:
+            success: S'han descartat tots els esborranys de text participatius.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
