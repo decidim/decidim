@@ -380,10 +380,10 @@ hu:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
           details_1: 'A konferenciára a következő típussal vagy regisztrálva %{registration_type}. Az ára %{price} és a következő eseményeken vehetsz részt:'
-          details_2: A konferencia részleteit megtalálja a mellékletben.
+          details_2: A konferencia részleteit megtalálod a mellékletben.
         pending_validation:
           confirmation_pending: Rövidesen megkapod a visszaigazolást
-          details: 'Ön a %{registration_type} típussal regisztrált a konferenciára, melyek költsége %{price} és részt vehet a következő eseményeken:'
+          details: 'A %{registration_type} típussal regisztráltál a konferenciára, melyek költsége %{price} és így részt vehetsz a következő eseményeken:'
           pending_html: A <a href="%{url}">%{title}</a> konferencia regisztrációd függőben van.
       conference_registrations:
         create:
@@ -475,7 +475,7 @@ hu:
           title: Regisztrációs típusok
       shared:
         conference_user_login:
-          already_account: Van már fiókja decidimben?
+          already_account: Van már fiókod a Decidimben?
           new_user: Új felhasználó?
           sign_in: Jelentkezz be a konferenciára való regisztrálásához
           sign_up: Hozz létre egy fiókot a Decidimben, hogy regisztrálni tudja a konferenciára
@@ -527,8 +527,8 @@ hu:
         upcoming_conference:
           email_intro: 'A "%{resource_title}" konferencia 2 nap múlva kezdődik. Olvasd el a leírást ezen az oldalon:'
           email_outro: Ezt az értesítést azért kaptad, mert a "%{resource_title}" konferenciát követed. Leiratkozhatsz az értesítésekről az előző linken keresztül.
-          email_subject: A "%{resource_title}" konferencia jön!
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap alatt érkezik.
+          email_subject: A "%{resource_title}" konferencia hamarosan indul!
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap múlva kezdődik.
     log:
       value_types:
         conference_presenter:
