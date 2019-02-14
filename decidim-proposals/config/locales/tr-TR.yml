@@ -2,6 +2,7 @@ tr:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adres
         body: Vücut
         category_id: Kategori
         decidim_scope_id: kapsam
@@ -10,6 +11,7 @@ tr:
         title: Başlık
         user_group_id: Ortak çalışma taslağını oluştur
       proposal:
+        address: Adres
         answer: Cevap
         answered_at: Yanıtladı
         automatic_hashtags: Hashtag'ler otomatik olarak eklendi
@@ -289,7 +291,9 @@ tr:
             name: öneri
         participatory_texts:
           bulk-actions:
+            are_you_sure: Katılımcı metin taslağının tamamını atadığınızdan emin misiniz?
             import_doc: Dokümanı içe aktar
+            discard_all: Hepsini at
           import:
             invalid: Form geçersiz!
             success: Tebrikler, aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
@@ -306,6 +310,8 @@ tr:
           publish:
             invalid: Teklifler yayınlanamadı
             success: Tüm teklifler yayınlandı
+          discard:
+            success: Tüm Katılımcı metin taslakları atıldı.
           sections:
             article: "<em>Madde</em>"
             section: "<em>Bölüm:</em> <strong>%{title}</strong>"
