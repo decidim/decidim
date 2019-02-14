@@ -72,9 +72,17 @@ module Decidim
       end
 
       def sms_phone_number_step(parameters)
-        check_session_personal_data unless parameters.has_key? :initiatives_vote
+        if parameters.has_key? :initiatives_vote
+          build_vote_form(parameters)
+        else
+          check_session_personal_data
+        end
         clear_session_sms_code
-        build_vote_form(parameters)
+
+        if @vote_form.invalid?
+          flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
+          jump_to(:fill_personal_data)
+        end
 
         @form = Decidim::Verifications::Sms::MobilePhoneForm.new
         render_wizard

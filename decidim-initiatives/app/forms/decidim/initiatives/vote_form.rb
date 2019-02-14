@@ -26,10 +26,13 @@ module Decidim
 
       validate :document_number_authorized, if: :required_personal_data?
       validate :document_number_uniqueness, if: :required_personal_data?
+      validate :personal_data_consistent_with_metadata, if: :required_personal_data?
 
       def initiative
         @initiative ||= Decidim::Initiative.find_by(id: initiative_id)
       end
+
+      delegate :scope, to: :initiative
 
       def metadata
         { name_and_surname: name_and_surname,
@@ -84,6 +87,12 @@ module Decidim
         errors.add(:document_number, :taken) if initiative.votes.where(hash_id: hash_id).exists?
       end
 
+      def personal_data_consistent_with_metadata
+        return if initiative.document_number_authorization_handler.blank?
+
+        errors.add(:base, :invalid) unless authorized? && authorization_handler && authorization.metadata.symbolize_keys == authorization_handler.metadata.symbolize_keys
+      end
+
       def author
         @author ||= current_organization.users.find_by(id: author_id)
       end
@@ -111,7 +120,12 @@ module Decidim
       def authorization_handler
         return unless document_number && handler_name
 
-        @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name, document_number: document_number)
+        @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name,
+                                                                             document_number: document_number,
+                                                                             name_and_surname: name_and_surname,
+                                                                             date_of_birth: date_of_birth,
+                                                                             postal_code: postal_code,
+                                                                             scope_id: scope&.id)
       end
     end
   end

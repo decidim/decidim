@@ -150,10 +150,12 @@ module Decidim
           context "when initiative type has document number authorization handler" do
             let(:handler_name) { "dummy_authorization_handler" }
             let(:unique_id) { "test_digest" }
+            let(:metadata) { { test: "dummy" } }
             let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }
 
             before do
               allow(authorization_handler).to receive(:unique_id).and_return(unique_id)
+              allow(authorization_handler).to receive(:metadata).and_return(metadata)
               allow(Decidim::AuthorizationHandler).to receive(:handler_for).and_return(authorization_handler)
               initiative.type.update(document_number_authorization_handler: handler_name)
             end
@@ -165,11 +167,12 @@ module Decidim
             end
 
             context "when current_user have an an authorization for the handler" do
-              let!(:authorization) { create(:authorization, granted_at: granted_at, name: handler_name, unique_id: authorization_unique_id, user: current_user) }
+              let!(:authorization) { create(:authorization, granted_at: granted_at, name: handler_name, unique_id: authorization_unique_id, metadata: authorization_metadata, user: current_user) }
               let(:authorization_unique_id) { unique_id }
+              let(:authorization_metadata) { metadata }
               let(:granted_at) { 1.minute.ago }
 
-              context "when authorization unique_id is the same as handler unique_id" do
+              context "when authorization unique_id and metadata are coincident with handler" do
                 it "broadcasts ok" do
                   expect { command_with_personal_data.call }.to broadcast :ok
                 end
@@ -177,6 +180,14 @@ module Decidim
 
               context "when authorization unique_id is different of handler unique_id" do
                 let(:authorization_unique_id) { "other" }
+
+                it "broadcasts invalid" do
+                  expect { command_with_personal_data.call }.to broadcast :invalid
+                end
+              end
+
+              context "when authorization metadata is different of handler metadata" do
+                let(:authorization_metadata) { { test: "other" } }
 
                 it "broadcasts invalid" do
                   expect { command_with_personal_data.call }.to broadcast :invalid
