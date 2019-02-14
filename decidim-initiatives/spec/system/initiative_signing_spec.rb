@@ -297,6 +297,9 @@ describe "Initiative signing", type: :system do
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
+
+      expect(page).to have_content("initiative has been signed correctly")
+      click_on "Back to initiative"
     end
 
     within ".view-side" do

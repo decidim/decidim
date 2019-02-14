@@ -43,7 +43,9 @@ describe "Initiative signing", type: :system do
   context "when initiative type personal data collection is disabled" do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization: organization) }
 
-    it "The vote is created" do
+    it "The vote is created without wizard steps" do
+      expect(page).to have_no_content("initiative has been signed correctly")
+
       within ".view-side" do
         expect(page).to have_content("1\nSIGNATURE")
       end
@@ -56,6 +58,9 @@ describe "Initiative signing", type: :system do
         let(:authorizations) { [] }
 
         it "The vote is created" do
+          expect(page).to have_content("initiative has been signed correctly")
+          click_on "Back to initiative"
+
           within ".view-side" do
             expect(page).to have_content("1\nSIGNATURE")
             expect(initiative.reload.initiative_votes_count).to eq(1)
@@ -121,6 +126,9 @@ describe "Initiative signing", type: :system do
             context "and inserts the correct code number" do
               it "the vote is created" do
                 fill_sms_code
+
+                expect(page).to have_content("initiative has been signed correctly")
+                click_on "Back to initiative"
 
                 expect(page).to have_content("1\nSIGNATURE")
                 expect(initiative.reload.initiative_votes_count).to eq(1)
