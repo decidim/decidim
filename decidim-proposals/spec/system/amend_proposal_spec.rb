@@ -97,7 +97,7 @@ describe "Amend Proposal", type: :system do
             fill_in "amend[emendation_fields][body]", with: "Cities need more people, not more cars"
             select user_group.name, from: :amend_user_group_id
           end
-          click_button "Send emendation"
+          click_button "Send amendment"
         end
 
         it "is shown the Success Callout" do
@@ -142,13 +142,13 @@ describe "Amend Proposal", type: :system do
             expect(page).to have_content("REVIEW THE AMENDMENT")
             expect(page).to have_field("Title", with: emendation.title.to_s)
             expect(page).to have_field("Body", with: emendation.body.to_s)
-            expect(page).to have_button("Accept emendation")
+            expect(page).to have_button("Accept amendment")
           end
 
           context "and the emendation is accepted" do
             before do
               within ".edit_amend" do
-                click_button "Accept emendation"
+                click_button "Accept amendment"
               end
             end
 
