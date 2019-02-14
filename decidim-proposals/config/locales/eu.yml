@@ -2,6 +2,7 @@ eu:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Helbidea
         body: Gorputzeko
         category_id: Kategoria
         decidim_scope_id: esparrua
@@ -10,6 +11,7 @@ eu:
         title: Izenburua
         user_group_id: Lankidetza zirriborroa sortu
       proposal:
+        address: Helbidea
         answer: Erantzuna
         answered_at: Erantzuna at
         automatic_hashtags: Hashtags automatikoki gehitu da
@@ -289,7 +291,9 @@ eu:
             name: Proposamena
         participatory_texts:
           bulk-actions:
+            are_you_sure: Ziur al zaude parte hartzailearen testu-zirriborroa baztertu nahi duzula?
             import_doc: Inportatu dokumentua
+            discard_all: Baztertu guztiak
           import:
             invalid: Inprimakia baliogabea da!
             success: Zorionak, ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
@@ -306,6 +310,8 @@ eu:
           publish:
             invalid: Ezin izan dira proposamenik argitaratu
             success: Proposamen guztiak argitaratu dira
+          discard:
+            success: Parte-hartzaileen testu-zirriborro guztiak baztertu egin dira.
           sections:
             article: "<em>artikuluaren</em>"
             section: "<em>Artikulua:</em> <strong>%{title}</strong>"
