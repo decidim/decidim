@@ -80,13 +80,13 @@ hu:
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának határidejét kitolták.
         milestone_completed:
           affected_user:
-            email_intro: A %{resource_title} kezdeményezése elérte az aláírások %{percentage}% -át!
-            email_outro: Ezt az értesítést megkapta, mert Ön a %{resource_title}kezdeményezés szerzője.
+            email_intro: A %{resource_title} kezdeményezésed elérte az aláírások %{percentage}% -át!
+            email_outro: Ezt az értesítést azért kaptad, mert Te vagy a %{resource_title} kezdeményezés szerzője.
             email_subject: Új mérföldkő kész áll!
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte az aláírások %{percentage}% -át.
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezésed elérte az aláírások %{percentage}% -át.
           follower:
             email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
-            email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_outro: Ezt az értesítést azért kaptad, mert követed ezt %{resource_title}. Leállíthathatod az értesítések fogadását az előző linkkel.
             email_subject: Új mérföldkő kész áll!
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
     gamification:
@@ -374,8 +374,8 @@ hu:
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
-        step: Lépés %{current} Az %{total}
-        title: Hozzon létre új kezdeményezést
+        step: '%{current} lépés a %{total} lépésből'
+        title: Új kezdeményezés létrehozása
       initiative_header:
         initiative_menu_item: Kezdeményezés
       initiatives:
