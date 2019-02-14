@@ -315,7 +315,7 @@ hu:
         sms_code:
           invalid: Ellenőrző kódja nem megfelelő. Kérjük, ellenőrizze a küldött SMS-t.
         sms_phone:
-          invalid: A telefonszám érvénytelen vagy függőben van. Kérjük, ellenőrizze engedélyeit.
+          invalid: A telefonszám érvénytelen vagy függőben van. Kérjük, ellenőrizd az engedélyeket.
       initiatives:
         author:
           deleted: Törölve
@@ -424,19 +424,19 @@ hu:
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
-        step: Lépés %{current} Az %{total}
-        title: Hozzon létre új kezdeményezést
+        step: '%{current} lépés a %{total} lépésből'
+        title: Új kezdeményezés létrehozása
       initiative_header:
         initiative_menu_item: Kezdeményezés
       initiative_signature_creation_header:
-        back: Hát
-        fill_personal_data: Töltse ki az adatokat
+        back: Vissza
+        fill_personal_data: Add meg az adataidat
         select_identity: Válasszon identitást
         see_steps: lásd a lépéseket
         sms_code: SMS-kód ellenőrzése
-        sms_phone_number: mobiltelefon szám
-        step: '%{current} lépés: %{total}'
-        title: '%{initiative_title}jel'
+        sms_phone_number: Mobiltelefonszám
+        step: '%{current} lépés a %{total} lépésből'
+        title: '%{initiative_title} kezdeményezés aláírása'
       initiatives:
         initiative:
           check: Nézd meg
