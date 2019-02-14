@@ -2,6 +2,7 @@ de:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adresse
         body: Karosserie
         category_id: Kategorie
         decidim_scope_id: Umfang
@@ -10,6 +11,7 @@ de:
         title: Titel
         user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
       proposal:
+        address: Adresse
         answer: Antworten
         answered_at: Beantwortet bei
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
@@ -286,7 +288,9 @@ de:
             name: Vorschlag
         participatory_texts:
           bulk-actions:
+            are_you_sure: Sind Sie sicher, den gesamten Entwurf des partizipativen Textes zu verwerfen?
             import_doc: Dokument importieren
+            discard_all: Alle verwerfen
           import:
             invalid: Das Formular ist ungültig!
             success: Herzlichen Glückwunsch, die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
@@ -303,6 +307,8 @@ de:
           publish:
             invalid: Vorschläge konnten nicht veröffentlicht werden
             success: Alle Vorschläge wurden veröffentlicht
+          discard:
+            success: Alle Mitentscheidungsentwürfe wurden verworfen.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
