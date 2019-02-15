@@ -84,7 +84,7 @@ shared_examples "manage diplomas" do
         visit_edit_diplomas_page
         within ".card-title" do
           expect(page).not_to have_selector("#send-diplomas")
-          expect(page).to have_content("SEND CERTIFICATES OF ATTENDANCE")
+          expect(page).to have_content("CERTIFICATE OF ATTENDANCE")
         end
       end
     end
