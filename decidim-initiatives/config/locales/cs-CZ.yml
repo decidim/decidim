@@ -33,6 +33,7 @@ cs:
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
         title: Titul
+        undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
       initiatives_vote:
         name_and_surname: Jméno a příjmení
@@ -305,6 +306,8 @@ cs:
         fill_personal_data:
           continue: Pokračovat
           help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
+        finish:
+          back_to_initiative: Zpět na iniciativu
         sms_phone_number:
           continue: Pošlete mi SMS
           help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód
@@ -315,7 +318,7 @@ cs:
         create:
           error: Při podpisu iniciativy došlo k chybám.
           invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné
-          success: Gratulujeme! Iniciativa byla správně podepsána
+          success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla správně podepsána
         personal_data:
           invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
         sms_code:
@@ -445,6 +448,8 @@ cs:
       initiative_signature_creation_header:
         back: Zadní
         fill_personal_data: Dokončete své údaje
+        finish: Dokončit
+        finished: Vytvoření podpisu iniciativy
         select_identity: Vyberte identitu
         see_steps: viz kroky
         sms_code: Ověření kódu SMS
