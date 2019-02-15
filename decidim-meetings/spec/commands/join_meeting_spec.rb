@@ -179,6 +179,16 @@ module Decidim::Meetings
       end
     end
 
+    context "when the user has already registered for the meeting" do
+      before do
+        create(:registration, meeting: meeting, user: user)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
     context "when there are a registration form" do
       let!(:questionnaire) { create(:questionnaire) }
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }

@@ -10,6 +10,7 @@ FactoryBot.define do
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
     online_signature_enabled { true }
+    undo_online_signatures_enabled { true }
     minimum_committee_members { 3 }
 
     trait :online_signature_enabled do
@@ -18,6 +19,14 @@ FactoryBot.define do
 
     trait :online_signature_disabled do
       online_signature_enabled { false }
+    end
+
+    trait :undo_online_signatures_enabled do
+      undo_online_signatures_enabled { true }
+    end
+
+    trait :undo_online_signatures_disabled do
+      undo_online_signatures_enabled { false }
     end
 
     trait :with_user_extra_fields_collection do
