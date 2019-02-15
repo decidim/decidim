@@ -33,6 +33,7 @@ tr:
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
         title: Başlık
+        undo_online_signatures_enabled: Kullanıcıların çevrimiçi imzalarını geri almalarını sağlama
         validate_sms_code_on_votes: İmza işlemine SMS kodu doğrulama adımı ekleme
       initiatives_vote:
         name_and_surname: Ad ve soyadı
@@ -299,6 +300,8 @@ tr:
         fill_personal_data:
           continue: Devam et
           help: Lütfen girişimi imzalamak için aşağıdaki alanları kişisel verilerinizle doldurun
+        finish:
+          back_to_initiative: Girişime geri dön
         sms_phone_number:
           continue: Bana bir sms gönder
           help: Doğrulama kodunuzu istemek için formu doğrulanmış telefon numaranızla doldurun
@@ -309,7 +312,7 @@ tr:
         create:
           error: Girişimi imzalarken hatalar oldu.
           invalid: Girişimi imzalamak için sağlanan veriler geçerli değil
-          success: Tebrikler! Girişim doğru imzalandı
+          success_html: Tebrikler! <strong> %{title}</strong> girişimi doğru imzalandı
         personal_data:
           invalid: Kişisel veriler yetkilendirme için verilen verilerle tutarlı değildir.
         sms_code:
@@ -431,6 +434,8 @@ tr:
       initiative_signature_creation_header:
         back: Geri
         fill_personal_data: Verilerinizi tamamlayın
+        finish: Bitiş
+        finished: Girişim imzası oluşturuldu
         select_identity: Kimlik seç
         see_steps: adımları gör
         sms_code: SMS kodu doğrulama
