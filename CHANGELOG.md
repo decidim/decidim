@@ -71,6 +71,7 @@
 - **decidim-core**: Prevent empty selection in the data picker [\#4842](https://github.com/decidim/decidim/pull/4842)
 - **decidim-forms**: Fix free text fields exporting. [\#4846](https://github.com/decidim/decidim/pull/4846)
 - **decidim-initiatives** Fix admin layout of some subsections of initiatives participatory spaces. [\#4849](https://github.com/decidim/decidim/pull/4849)
+- **decidim-core**: Fix user activities list [\#4853](https://github.com/decidim/decidim/pull/4853)
 
 **Removed**:
 
