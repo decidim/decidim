@@ -183,6 +183,13 @@ module Decidim
         signature_end_date >= Date.current
     end
 
+    # Public: Check if the user has voted the question.
+    #
+    # Returns Boolean.
+    def voted_by?(user)
+      votes.where(author: user).any?
+    end
+
     # Public: Checks if the organization has given an answer for the initiative.
     #
     # Returns Boolean.
@@ -284,6 +291,16 @@ module Decidim
       Decidim::Initiatives.face_to_face_voting_allowed &&
         (offline? || any?) &&
         published?
+    end
+
+    def accepts_online_votes?
+      Decidim::Initiatives.online_voting_allowed &&
+        (online? || any?) &&
+        votes_enabled?
+    end
+
+    def accepts_online_unvotes?
+      accepts_online_votes? && type.undo_online_signatures_enabled?
     end
 
     def minimum_committee_members

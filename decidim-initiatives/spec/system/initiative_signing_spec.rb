@@ -18,6 +18,34 @@ describe "Initiative signing", type: :system do
     login_as confirmed_user, scope: :user
   end
 
+  context "when the user has not signed the initiative" do
+    context "when online signatures are disabled for site" do
+      before do
+        allow(Decidim::Initiatives)
+          .to receive(:online_voting_allowed)
+          .and_return(false)
+      end
+
+      it "voting disabled message is shown" do
+        visit decidim_initiatives.initiative_path(initiative)
+
+        expect(page).to have_content("SIGNING DISABLED")
+      end
+    end
+
+    context "when online signatures are enabled for site" do
+      context "when initative type only allows face to face signatures" do
+        let(:initiative) { create(:initiative, :published, organization: organization, signature_type: "offline") }
+
+        it "voting disabled message is shown" do
+          visit decidim_initiatives.initiative_path(initiative)
+
+          expect(page).to have_content("SIGNING DISABLED")
+        end
+      end
+    end
+  end
+
   context "when the user has not signed the initiative yet and signs it" do
     context "when the user has a verified user group" do
       let!(:user_group) { create :user_group, :verified, users: [confirmed_user], organization: confirmed_user.organization }
@@ -37,6 +65,23 @@ describe "Initiative signing", type: :system do
   end
 
   context "when the user has signed the initiative and unsigns it" do
+    context "when initiative type has unvotes disabled" do
+      let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization: organization) }
+      let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
+      let(:initiative) { create(:initiative, :published, organization: organization, scoped_type: scope) }
+
+      it "unsigning initiative is disabled" do
+        vote_initiative
+
+        within ".view-side" do
+          expect(page).to have_content("1\nSIGNATURE")
+          expect(page).to have_button("Already signed", disabled: true)
+          click_button "Already signed", disabled: true
+          expect(page).to have_content("1\nSIGNATURE")
+        end
+      end
+    end
+
     context "when the user has a verified user group" do
       let!(:user_group) { create :user_group, :verified, users: [confirmed_user], organization: confirmed_user.organization }
 
@@ -56,7 +101,7 @@ describe "Initiative signing", type: :system do
 
       within ".view-side" do
         expect(page).to have_content("1\nSIGNATURE")
-        click_button "Sign"
+        click_button "Already signed"
         expect(page).to have_content("0\nSIGNATURE")
       end
     end
@@ -83,7 +128,6 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("SIGNING DISABLED")
               expect(page).to have_content("VERIFY YOUR IDENTITY")
             end
             click_button "Verify your identity"
@@ -113,11 +157,11 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("SIGNING DISABLED")
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_button("Already signed", disabled: true)
+              click_button "Already signed", disabled: true
+              expect(page).to have_content("1\nSIGNATURE")
             end
-            click_button "Verify your identity"
-            expect(page).to have_content("Authorization required")
           end
         end
       end
@@ -146,7 +190,7 @@ describe "Initiative signing", type: :system do
 
             within ".view-side" do
               expect(page).to have_content("0\nSIGNATURE")
-              expect(page).to have_content("SIGNING DISABLED")
+              expect(page).to have_content("VERIFY YOUR IDENTITY")
             end
             click_button "Verify your identity"
             expect(page).to have_content("Authorization required")
@@ -179,11 +223,11 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("SIGNING DISABLED")
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_button("Already signed", disabled: true)
+              click_button "Already signed", disabled: true
+              expect(page).to have_content("1\nSIGNATURE")
             end
-            click_button "Verify your identity"
-            expect(page).to have_content("Authorization required")
           end
         end
       end
@@ -253,6 +297,9 @@ describe "Initiative signing", type: :system do
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
+
+      expect(page).to have_content("initiative has been signed correctly")
+      click_on "Back to initiative"
     end
 
     within ".view-side" do

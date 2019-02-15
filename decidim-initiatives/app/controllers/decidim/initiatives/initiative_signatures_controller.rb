@@ -107,7 +107,7 @@ module Decidim
         end
       end
 
-      def wicked_finish_step(parameters)
+      def finish_step(parameters)
         if parameters.has_key? :initiatives_vote
           build_vote_form(parameters)
         else
@@ -131,16 +131,15 @@ module Decidim
         VoteInitiative.call(@vote_form, current_user) do
           on(:ok) do
             session[:initiative_vote_form] = {}
-            flash[:notice] = I18n.t("create.success", scope: "decidim.initiatives.initiative_votes")
-            redirect_to initiative_path(current_initiative)
           end
 
           on(:invalid) do |vote|
             logger.fatal "Failed creating signature: #{vote.errors.full_messages.join(", ")}" if vote
             flash[:alert] = I18n.t("create.invalid", scope: "decidim.initiatives.initiative_votes")
-            redirect_to wizard_path(steps.last)
+            jump_to previous_step
           end
         end
+        render_wizard
       end
 
       def build_vote_form(parameters)
@@ -193,7 +192,7 @@ module Decidim
       end
 
       def set_wizard_steps
-        self.steps = sms_step? ? [:fill_personal_data, :sms_phone_number, :sms_code] : [:fill_personal_data]
+        self.steps = sms_step? ? [:fill_personal_data, :sms_phone_number, :sms_code, :finish] : [:fill_personal_data, :finish]
       end
     end
   end
