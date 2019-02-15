@@ -33,6 +33,7 @@ id:
         minimum_committee_members: Minimal anggota komite
         online_signature_enabled: Tanda tangan online diaktifkan
         title: Judul
+        undo_online_signatures_enabled: Aktifkan pengguna untuk membatalkan tanda tangan online mereka
         validate_sms_code_on_votes: Tambahkan langkah validasi kode SMS ke proses tanda tangan
       initiatives_vote:
         name_and_surname: Nama dan nama keluarga
@@ -296,6 +297,8 @@ id:
         fill_personal_data:
           continue: Terus
           help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
+        finish:
+          back_to_initiative: Kembali ke inisiatif
         sms_phone_number:
           continue: Kirimi saya SMS
           help: Isi formulir dengan nomor telepon terverifikasi Anda untuk meminta kode verifikasi Anda
@@ -306,7 +309,7 @@ id:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
           invalid: Data yang diberikan untuk menandatangani inisiatif tidak valid
-          success: Selamat! Inisiatif telah ditandatangani dengan benar
+          success_html: Selamat! Inisiatif <strong> %{title}</strong> telah ditandatangani dengan benar
         personal_data:
           invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
         sms_code:
@@ -424,6 +427,8 @@ id:
       initiative_signature_creation_header:
         back: Kembali
         fill_personal_data: Lengkapi data Anda
+        finish: Selesai
+        finished: Tanda tangan inisiatif dibuat
         select_identity: Pilih identitas
         see_steps: lihat langkah-langkahnya
         sms_code: Verifikasi kode SMS
