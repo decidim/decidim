@@ -105,13 +105,7 @@ module Decidim
         return unless permission_action.action == :vote &&
                       permission_action.subject == :initiative
 
-        can_vote = initiative.votes_enabled? &&
-                   initiative.organization&.id == user.organization&.id &&
-                   initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
-                   (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
-                   authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
-
-        toggle_allow(can_vote)
+        toggle_allow(can_vote?)
       end
 
       def authorized?(permission_action, resource: nil, permissions_holder: nil)
@@ -124,7 +118,7 @@ module Decidim
         return unless permission_action.action == :unvote &&
                       permission_action.subject == :initiative
 
-        can_unvote = initiative.votes_enabled? &&
+        can_unvote = initiative.accepts_online_unvotes? &&
                      initiative.organization&.id == user.organization&.id &&
                      initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
                      (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
@@ -137,11 +131,22 @@ module Decidim
         return unless permission_action.action == :sign_initiative &&
                       permission_action.subject == :initiative
 
-        toggle_allow(context.fetch(:signature_has_steps, false))
+        can_sign = can_vote? &&
+                   context.fetch(:signature_has_steps, false)
+
+        toggle_allow(can_sign)
       end
 
       def decidim_user_group_id
         context.fetch(:group_id, nil)
+      end
+
+      def can_vote?
+        initiative.votes_enabled? &&
+          initiative.organization&.id == user.organization&.id &&
+          initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
+          (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+          authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
       end
 
       def can_user_support?(initiative)

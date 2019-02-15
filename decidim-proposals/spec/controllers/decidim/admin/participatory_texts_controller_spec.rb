@@ -42,7 +42,7 @@ module Decidim
           context "when the command succeeds" do
             it "parses the document" do
               post :import, params: params
-              expect(response).to redirect_to participatory_texts_path(component_id: component.id, initiative_slug: "asdf")
+              expect(response).to redirect_to EngineRouter.admin_proxy(component).participatory_texts_path
               expect(flash[:notice].starts_with?("Congratulations")).to be true
             end
           end
