@@ -15,18 +15,27 @@
     ) %>
   <% end %>
 <% else %>
-  <%= authorized_vote_modal_button(initiative, remote: true, class: "card_button button expanded button--sc") do %>
-    <%= verification_label %>
+  <% if initiative.voted_by?(current_user) %>
+    <% if allowed_to? :unvote, :initiative, initiative: initiative %>
+      <%= button_to(
+        initiative_initiative_vote_path(initiative_slug: current_initiative.slug),
+        method: :delete,
+        remote: true,
+        data: { disable: true },
+        class: "card__button button expanded button--sc success light"
+      ) do %>
+        <%= icon("check", class: "icon--small") %>
+        <%= unvote_label %>
+      <% end %>
+    <% else %>
+      <button class='card__button button expanded button--sc success light disabled' disabled>
+        <%= icon("check", class: "icon--small") %>
+        <%= unvote_label %>
+      </button>
+    <% end %>
+  <% else %>
+    <%= authorized_vote_modal_button(initiative, remote: true, class: "card_button button expanded button--sc") do %>
+      <%= verification_label %>
+    <% end %>
   <% end %>
-<% end %>
-
-<% if allowed_to? :unvote, :initiative, initiative: initiative %>
-  <%= button_to(
-    vote_label,
-    initiative_initiative_vote_path(initiative_slug: current_initiative.slug),
-    method: :delete,
-    remote: true,
-    data: { disable: true },
-    class: "card__button button expanded button--sc success"
-  ) %>
 <% end %>
