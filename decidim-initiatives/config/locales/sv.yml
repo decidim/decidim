@@ -33,6 +33,7 @@ sv:
         minimum_committee_members: Minsta utskottets medlemmar
         online_signature_enabled: Online signatur aktiverad
         title: Titel
+        undo_online_signatures_enabled: Aktivera användarna att ångra sina online-signaturer
         validate_sms_code_on_votes: Lägg till SMS-kodvalideringssteg till signaturprocess
       initiatives_vote:
         name_and_surname: Namn och efternamn
@@ -299,6 +300,8 @@ sv:
         fill_personal_data:
           continue: Fortsätta
           help: Vänligen fyll i följande fält med dina personuppgifter för att underteckna initiativet
+        finish:
+          back_to_initiative: Tillbaka till initiativet
         sms_phone_number:
           continue: Skicka mig ett SMS
           help: Fyll i formuläret med ditt verifierade telefonnummer för att begära din verifieringskod
@@ -309,7 +312,7 @@ sv:
         create:
           error: Det har varit fel när du undertecknade initiativet.
           invalid: Uppgifterna som lämnas för att underteckna initiativet är inte giltiga
-          success: grattis! Initiativet har skrivits korrekt
+          success_html: grattis! <strong> %{title}</strong> initiativet har skrivits korrekt
         personal_data:
           invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
         sms_code:
@@ -431,6 +434,8 @@ sv:
       initiative_signature_creation_header:
         back: Tillbaka
         fill_personal_data: Fyll i dina uppgifter
+        finish: Avsluta
+        finished: Initiativ signatur skapad
         select_identity: Välj identitet
         see_steps: se steg
         sms_code: SMS-kod verifiering
