@@ -291,9 +291,9 @@ fi-pl:
             name: Ehdotus
         participatory_texts:
           bulk-actions:
-            are_you_sure: Haluatko varmasti hylätä koko osallistuvan tekstiluonnoksen?
+            are_you_sure: Haluatko varmasti hylätä koko ehdotusaineiston luonnoksen?
             import_doc: Tuo aineisto
-            discard_all: Hävitä kaikki
+            discard_all: Hylkää kaikki
           import:
             invalid: Lomake on virheellinen!
             success: Onnittelut, seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
@@ -311,7 +311,7 @@ fi-pl:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
           discard:
-            success: Kaikki osallistuvan tekstin luonnokset on hylätty.
+            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
