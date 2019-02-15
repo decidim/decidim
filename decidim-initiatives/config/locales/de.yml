@@ -33,6 +33,7 @@ de:
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
         title: Titel
+        undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
       initiatives_vote:
         name_and_surname: Name und Nachname
@@ -299,6 +300,8 @@ de:
         fill_personal_data:
           continue: Fortsetzen
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
+        finish:
+          back_to_initiative: Zurück zur Initiative
         sms_phone_number:
           continue: Senden Sie mir eine SMS
           help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
@@ -309,7 +312,7 @@ de:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
           invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success: Herzliche Glückwünsche! Die Initiative wurde korrekt unterschrieben
+          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_code:
@@ -431,6 +434,8 @@ de:
       initiative_signature_creation_header:
         back: Zurück
         fill_personal_data: Ergänzen Sie Ihre Daten
+        finish: Fertig
+        finished: Initiativsignatur erstellt
         select_identity: Identität auswählen
         see_steps: siehe Schritte
         sms_code: SMS-Code-Bestätigung
