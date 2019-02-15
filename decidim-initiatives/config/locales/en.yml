@@ -34,6 +34,7 @@ en:
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
+        undo_online_signatures_enabled: Enable users to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
       initiatives_vote:
         name_and_surname: Name and surname
@@ -301,6 +302,8 @@ en:
           continue: Continue
           help: Please, fill the following fields with your personal data to sign
             the initiative
+        finish:
+          back_to_initiative: Back to initiative
         sms_phone_number:
           continue: Send me an SMS
           help: Fill the form with your verified phone number to request
@@ -312,7 +315,7 @@ en:
         create:
           error: There's been errors when signing the initiative.
           invalid: The data provided to sign the initiative is not valid
-          success: Congratulations! The initiative has been signed correctly
+          success_html: Congratulations! The <strong> %{title}</strong> initiative has been signed correctly
         personal_data:
           invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
@@ -434,6 +437,8 @@ en:
       initiative_signature_creation_header:
         back: Back
         fill_personal_data: Complete your data
+        finish: Finish
+        finished: Initiative signature created
         select_identity: Select identity
         see_steps: see steps
         sms_code: SMS code verification
