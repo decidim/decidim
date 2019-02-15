@@ -291,7 +291,7 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
-            are_you_sure: Esteu segur de descartar l'esborrany de text participatiu complet?
+            are_you_sure: Esteu segur de descartar tot l'esborrany de text participatiu?
             import_doc: Importar document
             discard_all: Descarta'ls tots
           import:
