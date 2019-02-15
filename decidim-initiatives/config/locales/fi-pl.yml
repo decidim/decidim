@@ -33,6 +33,7 @@ fi-pl:
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
         title: Otsikko
+        undo_online_signatures_enabled: Salli käyttäjien peruuttaa online-allekirjoituksensa
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
       initiatives_vote:
         name_and_surname: Nimi ja sukunimi
@@ -299,6 +300,8 @@ fi-pl:
         fill_personal_data:
           continue: Jatka
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
+        finish:
+          back_to_initiative: Takaisin aloitteeseen
         sms_phone_number:
           continue: Lähetä minulle tekstiviesti
           help: Täytä lomake vahvistetun puhelinnumerosi avulla pyytääksesi vahvistuskoodin
@@ -309,7 +312,7 @@ fi-pl:
         create:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
           invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
-          success: Onnittelut! Aloite on onnistuneesti allekirjoitettu
+          success_html: Onnittelut! <strong> %{title}</strong> -aloite on allekirjoitettu oikein
         personal_data:
           invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
         sms_code:
@@ -431,6 +434,8 @@ fi-pl:
       initiative_signature_creation_header:
         back: Takaisin
         fill_personal_data: Täydennä tietosi
+        finish: Suorittaa loppuun
+        finished: Aloitteen allekirjoitus luotu
         select_identity: Valitse identiteetti
         see_steps: katso vaiheet
         sms_code: Tekstiviestikoodin vahvistaminen
