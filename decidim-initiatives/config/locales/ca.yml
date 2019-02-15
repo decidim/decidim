@@ -312,7 +312,7 @@ ca:
         create:
           error: Hi ha hagut errors en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides
-          success_html: Felicitacions La iniciativa <strong> %{title}</strong> s'ha signat correctament
+          success_html: Enhorabona! La iniciativa <strong> %{title}</strong> s'ha signat correctament
         personal_data:
           invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
         sms_code:
