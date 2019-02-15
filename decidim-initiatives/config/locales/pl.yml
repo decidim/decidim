@@ -33,6 +33,7 @@ pl:
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
         title: Tytuł
+        undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
       initiatives_vote:
         name_and_surname: Imię i nazwisko
@@ -305,6 +306,8 @@ pl:
         fill_personal_data:
           continue: dalej
           help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę
+        finish:
+          back_to_initiative: Powrót do inicjatywy
         sms_phone_number:
           continue: Wyślij mi SMS-a
           help: Wypełnij formularz zweryfikowanym numerem telefonu, aby poprosić o kod weryfikacyjny
@@ -315,7 +318,7 @@ pl:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
           invalid: Dane dostarczone do podpisania inicjatywy nie są ważne
-          success: Gratulacje! Inicjatywa została podpisana poprawnie
+          success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została podpisana poprawnie
         personal_data:
           invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
         sms_code:
@@ -445,6 +448,8 @@ pl:
       initiative_signature_creation_header:
         back: Z powrotem
         fill_personal_data: Uzupełnij swoje dane
+        finish: koniec
+        finished: Utworzono podpis inicjatywy
         select_identity: Wybierz tożsamość
         see_steps: zobacz kroki
         sms_code: Weryfikacja kodu SMS
