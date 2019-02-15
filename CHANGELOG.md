@@ -68,6 +68,7 @@
 - **decidim-meetings**: Fix accepting/declining meeting invitations [\#4839](https://github.com/decidim/decidim/pull/4839)
 - **decidim-budgets**: Allow only to attach published proposals to budgeting projects [\#4840](https://github.com/decidim/decidim/pull/4840)
 - **decidim-core**: Prevent empty selection in the data picker [\#4842](https://github.com/decidim/decidim/pull/4842)
+- **decidim-forms**: Fix free text fields exporting. [\#4846](https://github.com/decidim/decidim/pull/4846)
 - **decidim-initiatives** Fix admin layout of some subsections of initiatives participatory spaces. [\#4849](https://github.com/decidim/decidim/pull/4849)
 
 **Removed**:
