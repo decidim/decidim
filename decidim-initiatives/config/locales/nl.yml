@@ -33,6 +33,7 @@ nl:
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
+        undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
         validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces
       initiatives_vote:
         name_and_surname: Naam en achternaam
@@ -299,6 +300,8 @@ nl:
         fill_personal_data:
           continue: Doorgaan met
           help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
+        finish:
+          back_to_initiative: Terug naar initiatief
         sms_phone_number:
           continue: Stuur me een sms
           help: Vul het formulier in met uw geverifieerde telefoonnummer om uw verificatiecode aan te vragen
@@ -309,7 +312,7 @@ nl:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
           invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
-          success: Gefeliciteerd! Het initiatief is correct ondertekend
+          success_html: Gefeliciteerd! Het <strong> %{title}</strong> initiatief is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_code:
@@ -431,6 +434,8 @@ nl:
       initiative_signature_creation_header:
         back: Terug
         fill_personal_data: Vul uw gegevens in
+        finish: Af hebben
+        finished: Initiatief handtekening gemaakt
         select_identity: Selecteer identiteit
         see_steps: zie stappen
         sms_code: Verificatie van sms-codes
