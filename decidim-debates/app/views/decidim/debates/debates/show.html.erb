@@ -42,10 +42,10 @@ edit_link(
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%= simple_format(translated_attribute(debate.description)) %></p>
+      <p><%= decidim_sanitize(simple_format(translated_attribute(debate.description))) %></p>
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
-          <%= simple_format(translated_attribute(debate.instructions)) %>
+          <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>
         </div>
       <% end %>
       <% if translated_attribute(debate.information_updates).present? %>
