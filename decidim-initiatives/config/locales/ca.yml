@@ -33,6 +33,7 @@ ca:
         minimum_committee_members: Mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura en línia
         title: Títol
+        undo_online_signatures_enabled: Permetre als usuaris desfer les seves signatures en línia
         validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
       initiatives_vote:
         name_and_surname: Nom i cognom
@@ -299,6 +300,8 @@ ca:
         fill_personal_data:
           continue: Continua
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa
+        finish:
+          back_to_initiative: Torna a la iniciativa
         sms_phone_number:
           continue: Envia'm un SMS
           help: Ompliu el formulari amb el vostre número de telèfon mòbil verificat per sol·licitar el vostre codi de verificació
@@ -309,7 +312,7 @@ ca:
         create:
           error: Hi ha hagut errors en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides
-          success: Enhorabona! La iniciativa s'ha signat correctament
+          success_html: Felicitacions La iniciativa <strong> %{title}</strong> s'ha signat correctament
         personal_data:
           invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
         sms_code:
@@ -431,6 +434,8 @@ ca:
       initiative_signature_creation_header:
         back: Enrere
         fill_personal_data: Completa les teves dades
+        finish: Acaba
+        finished: S'ha creat la signatura d'iniciativa
         select_identity: Selecciona identitat
         see_steps: vegeu els passos
         sms_code: Verificació per codi SMS
