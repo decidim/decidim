@@ -33,6 +33,7 @@ hu:
         minimum_committee_members: Bizottsági tagok minimális száma
         online_signature_enabled: Online aláírás engedélyezve
         title: Cím
+        undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
         validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
       initiatives_vote:
         name_and_surname: Keresztnév, Vezetéknév
@@ -299,6 +300,8 @@ hu:
         fill_personal_data:
           continue: Tovább
           help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
+        finish:
+          back_to_initiative: Vissza a kezdeményezéshez
         sms_phone_number:
           continue: Küldj nekem SMS-t
           help: Töltse ki az űrlapot a hitelesített telefonszámával, a hitelesítési kódjának igényléséhez
@@ -309,7 +312,7 @@ hu:
         create:
           error: Hiba történt a kezdeményezés aláírása során.
           invalid: A kezdeményezés aláírásához megadott adatok nem érvényesek
-          success: Gratulálunk! A kezdeményezést aláírta
+          success_html: Gratulálunk! A <strong> %{title}</strong> kezdeményezést helyesen írták alá
         personal_data:
           invalid: A személyes adatok nem egyeznek meg az engedélyezéshez megadott adatokkal.
         sms_code:
@@ -431,6 +434,8 @@ hu:
       initiative_signature_creation_header:
         back: Vissza
         fill_personal_data: Add meg az adataidat
+        finish: Befejez
+        finished: Létrehozott kezdeményezési aláírás
         select_identity: Válasszon identitást
         see_steps: lásd a lépéseket
         sms_code: SMS-kód ellenőrzése
