@@ -33,6 +33,7 @@ pt:
         minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
         title: Título
+        undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
       initiatives_vote:
         name_and_surname: Nome e sobrenome
@@ -299,6 +300,8 @@ pt:
         fill_personal_data:
           continue: Continuar
           help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
+        finish:
+          back_to_initiative: De volta à iniciativa
         sms_phone_number:
           continue: Envie-me um SMS
           help: Preencha o formulário com seu número de telefone confirmado para solicitar seu código de verificação
@@ -309,7 +312,7 @@ pt:
         create:
           error: Houve erros ao assinar a iniciativa.
           invalid: Os dados fornecidos para assinar a iniciativa não são válidos
-          success: Parabéns! A iniciativa foi assinada corretamente
+          success_html: Parabéns! A iniciativa <strong> %{title}</strong> foi assinada corretamente
         personal_data:
           invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
         sms_code:
@@ -431,6 +434,8 @@ pt:
       initiative_signature_creation_header:
         back: De volta
         fill_personal_data: Complete seus dados
+        finish: Terminar
+        finished: Assinatura de iniciativa criada
         select_identity: Selecione identidade
         see_steps: ver passos
         sms_code: Verificação de código SMS
