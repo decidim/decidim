@@ -27,7 +27,9 @@ module Decidim
         extensions = {
           # no lax_spacing so that it is easier to group paragraphs in articles.
           lax_spacing: false,
-          fenced_code_blocks: true
+          fenced_code_blocks: true,
+          autolink: true,
+          underline: true
         }
         parser = ::Redcarpet::Markdown.new(renderer, extensions)
         parser.render(document)
@@ -108,6 +110,18 @@ module Decidim
         attrs += %( alt="#{alt_text}") if alt_text.present?
         attrs += %( title="#{title}") if title.present?
         "<img #{attrs}/>"
+      end
+
+      def emphasis(text)
+        "<em>#{text}</em>"
+      end
+
+      def double_emphasis(text)
+        "<strong>#{text}</strong>"
+      end
+
+      def underline(text)
+        "<u>#{text}</u>"
       end
 
       private

@@ -27,7 +27,7 @@ module Decidim
           Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
-              redirect_to participatory_texts_path(component_id: current_component.id, initiative_slug: "asdf")
+              redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
             end
 
             on(:invalid) do
@@ -37,6 +37,8 @@ module Decidim
           end
         end
 
+        # When `save_draft` param exists, proposals are only saved.
+        # When no `save_draft` param is set, proposals are saved and published.
         def update
           enforce_permission_to :manage, :participatory_texts
 
@@ -47,7 +49,7 @@ module Decidim
             UpdateParticipatoryText.call(@preview_form) do
               on(:ok) do
                 flash[:notice] = I18n.t("participatory_texts.update.success", scope: "decidim.proposals.admin")
-                redirect_to participatory_texts_path(component_id: current_component.id, initiative_slug: "asdf")
+                redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
               end
 
               on(:invalid) do |failures|
@@ -72,6 +74,18 @@ module Decidim
                 index
                 render action: "index"
               end
+            end
+          end
+        end
+
+        # Removes all the unpublished proposals (drafts).
+        def discard
+          enforce_permission_to :manage, :participatory_texts
+
+          DiscardParticipatoryText.call(current_component) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_texts.discard.success", scope: "decidim.proposals.admin")
+              redirect_to EngineRouter.admin_proxy(current_component).participatory_texts_path
             end
           end
         end

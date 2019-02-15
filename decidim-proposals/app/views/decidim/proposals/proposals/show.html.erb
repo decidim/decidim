@@ -4,6 +4,15 @@
   url: proposal_url(@proposal.id)
 }) %>
 
+<%
+edit_link(
+  resource_locator(@proposal).edit,
+  :edit,
+  :proposal,
+  proposal: @proposal
+)
+%>
+
 <%= render partial: "voting_rules" %>
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">

@@ -21,6 +21,20 @@ module Decidim
         end
       end
     end
-    module_function :multi_translation
+
+    # Public: Creates an translation for each available language in the list
+    # so empty fields still have the correct format.
+    #
+    # locales - A list of locales to scope the translations to. Picks up all the
+    #           available locales by default.
+    #
+    # Returns a Hash with the locales as keys and the empty strings as values.
+    def empty_translatable(locales = Decidim.available_locales)
+      locales.each_with_object({}) do |locale, result|
+        result[locale.to_s] = ""
+      end
+    end
+
+    module_function :multi_translation, :empty_translatable
   end
 end
