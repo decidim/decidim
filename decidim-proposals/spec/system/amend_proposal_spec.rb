@@ -84,7 +84,7 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_css(".field", text: "Amendment author", visible: true)
         end
         it "is shown the submit button" do
-          expect(page).to have_button("Send emendation")
+          expect(page).to have_button("Send amendment")
         end
       end
 
@@ -97,7 +97,7 @@ describe "Amend Proposal", type: :system do
             fill_in "amend[emendation_fields][body]", with: "Cities need more people, not more cars"
             select user_group.name, from: :amend_user_group_id
           end
-          click_button "Send emendation"
+          click_button "Send amendment"
         end
 
         it "is shown the Success Callout" do

@@ -40,7 +40,7 @@ module Decidim::Conferences
 
           email = last_email
 
-          expect(email.subject).to include("diploma has been sent")
+          expect(email.subject).to include("has been sent")
 
           attachment = email.attachments.first
           expect(attachment.read.length).to be_positive
