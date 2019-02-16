@@ -617,9 +617,9 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
-        impersonatable_users: Impersonable Benutzer
-        impersonations: Identitätswechsel
-        participants: Teilnehmer
+        impersonatable_users: Überschaubare Benutzer
+        impersonations: Benutzerverwaltung
+        participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten
