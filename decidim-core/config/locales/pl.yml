@@ -158,24 +158,14 @@ pl:
           button_reject: Odrzucać
           help_text: Przejrzyj zmiany i zaakceptuj lub odrzuć tę poprawkę. Powiadomienie zostanie wysłane do jego autora (ów).
         announcement:
-          accepted: |-
-            Ta emisja dla %{amendable_type} %{amendable_link} została
-            zaakceptowana na <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            To jest emisja do oceny %{amendable_type} %{amendable_link}
-            .
           rejected: |-
             Ta emisja dla %{amendable_type} %{amendable_link}
             została odrzucona na <strong>%{announcement_date}</strong>.
-          withdrawn: |-
-            Ta emisja dla %{amendable_type} %{amendable_link}
-            została wycofana przez autora.
       new:
         amendment_author: Autor poprawki
         back: Z powrotem
         heading: Utwórz poprawkę
         help_text: Modyfikujesz %{model_name}
-        send: Wyślij emendation
       rejected:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Emendacja została odrzucona pomyślnie
@@ -186,7 +176,6 @@ pl:
         back: Z powrotem
         heading: Przejrzyj poprawkę
         help_text: Zmieniasz %{model_name}
-        send: Zaakceptuj emendację
     anonymous_user: Anonim
     application:
       collection:
@@ -753,7 +742,6 @@ pl:
       download:
         csv: Pobierz dane (csv)
       followers:
-        description: Liczba użytkowników następujących po organizacji
         object: Obserwujący
         title: Obserwujący
       participants:
