@@ -152,14 +152,24 @@ pt-BR:
           button_reject: Rejeitar
           help_text: Revise as alterações e aceite ou rejeite esta emenda. Uma notificação será enviada para seu (s) autor (es).
         announcement:
+          accepted: |-
+            Esta alteração para o %{amendable_type} %{amendable_link} foi
+            aceito em <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Esta emenda para o %{amendable_type} %{amendable_link}
+            está sendo avaliada.
           rejected: |-
             Esta emenda para o %{amendable_type} %{amendable_link}
             foi rejeitada em <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Esta emenda para o %{amendable_type} %{amendable_link}
+            foi retirada pelo autor.
       new:
         amendment_author: Autor de alteração
         back: De volta
         heading: Crie sua emenda
         help_text: Você está modificando o %{model_name}
+        send: Enviar emenda
       rejected:
         error: Ocorreu um erro ao rejeitar esta emenda, por favor, tente novamente mais tarde
         success: A emendação foi rejeitada com sucesso
@@ -170,6 +180,7 @@ pt-BR:
         back: De volta
         heading: Revise a emenda
         help_text: Você está alterando o %{model_name}
+        send: Aceitar alteração
     anonymous_user: Anônimo
     application:
       collection:
@@ -730,6 +741,7 @@ pt-BR:
       download:
         csv: Download de dados (csv)
       followers:
+        description: Número de usuários que seguem este espaço de participação
         object: seguidores
         title: Seguidores
       participants:
