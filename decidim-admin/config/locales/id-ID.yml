@@ -617,9 +617,9 @@ id:
         areas: Area
         authorization_workflows: Metode verifikasi
         dashboard: Dasbor
-        impersonatable_users: Pengguna yang tidak dapat disalahgunakan
-        impersonations: Peniruan identitas
-        participants: Peserta
+        impersonatable_users: Pengguna yang dikelola
+        impersonations: Manajemen pengguna
+        participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
         static_pages: Halaman
