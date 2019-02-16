@@ -616,7 +616,7 @@ eu:
         authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile ustekabekoak
-        impersonations: Ordezteak
+        impersonations: impersonations
         participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
