@@ -617,6 +617,9 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
+        impersonatable_users: Usuarios manejables
+        impersonations: Gestion de usuarios
+        participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
