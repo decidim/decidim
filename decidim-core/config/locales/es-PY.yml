@@ -152,14 +152,24 @@ es-PY:
           button_reject: Rechazar
           help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autor(es).
         announcement:
+          accepted: |-
+            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido
+            aceptada en <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Esta enmienda para el %{amendable_type} %{amendable_link}
+            está siendo evaluada.
           rejected: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             fue rechazada en <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            Esta enmienda para el %{amendable_type} %{amendable_link}
+            ha sido retirada por el autor.
       new:
         amendment_author: Autor de la enmienda
         back: Volver
         heading: Crea tu enmienda
         help_text: Estás modificando el %{model_name}
+        send: Enviar enmienda
       rejected:
         error: Se ha producido un error al rechazar esta enmienda. Inténtalo de nuevo más tarde.
         success: La enmienda ha sido rechazada con éxito.
@@ -170,6 +180,7 @@ es-PY:
         back: Volver
         heading: Revisar la enmienda
         help_text: Estás enmendando el %{model_name}
+        send: Aceptar enmienda
     anonymous_user: Anónimo
     application:
       collection:
@@ -730,6 +741,7 @@ es-PY:
       download:
         csv: Descargar datos (csv)
       followers:
+        description: Número de usuarios que siguen este espacio de participación.
         object: seguidores
         title: Seguidores
       participants:
