@@ -152,24 +152,14 @@ fi-pl:
           button_reject: Hylkää
           help_text: Tarkastele muutoksia ja hyväksy tai hylkää tämä muutos. Laatijoille lähetetään ilmoitus.
         announcement:
-          accepted: |-
-            Tämä muutos kohteelle %{amendable_type} %{amendable_link} on
-            hyväksytty <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Tämä on muutos kohteelle %{amendable_type} %{amendable_link}
-            arvioimiselle.
           rejected: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
             hylättiin ajankohtana <strong>%{announcement_date}</strong>.
-          withdrawn: |-
-            Tämä muutos kohteelle %{amendable_type} %{amendable_link}
-            on peruutettu sen laatijan toimesta.
       new:
         amendment_author: Muutoksen laatija
         back: Takaisin
         heading: Luo muutos
         help_text: Olet muuttamassa kohdetta %{model_name}
-        send: Lähetä muutos
       rejected:
         error: Tämän muutoksen, hylkäämisessä tapahtui virhe, yritä myöhemmin uudelleen
         success: Muutos on hylätty onnistuneesti
@@ -180,7 +170,6 @@ fi-pl:
         back: Takaisin
         heading: Tarkastele muutosta
         help_text: Olet muuttamassa kohdetta %{model_name}
-        send: Hyväksy muutos
     anonymous_user: Anonyymi
     application:
       collection:
@@ -741,7 +730,6 @@ fi-pl:
       download:
         csv: Lataa tiedot (csv)
       followers:
-        description: Organisaatiota seuraavien käyttäjien määrä
         object: seuraajat
         title: Seuraajat
       participants:
