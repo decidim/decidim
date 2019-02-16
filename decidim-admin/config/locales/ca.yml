@@ -616,7 +616,7 @@ ca:
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
-        impersonations: Suplantacions
+        impersonations: Impersonacions
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
