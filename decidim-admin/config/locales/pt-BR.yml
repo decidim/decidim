@@ -618,6 +618,8 @@ pt-BR:
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         impersonatable_users: Usuários gerenciáveis
+        impersonations: Gerenciamento de usuários
+        participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
