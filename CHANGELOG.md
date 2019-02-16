@@ -43,6 +43,7 @@
 
 **Fixed**:
 
+- **decidim-assemblies**: Fix parent assemblies children_count counter (add migration) [\#4852](https://github.com/decidim/decidim/pull/4852/)
 - **decidim-proposals**: Fix Proposals Last Activity feed [\#4828](https://github.com/decidim/decidim/pull/4828)
 - **decidim-proposals**: Fix attachments not being inherited from collaborative draft when published as proposal. [\#4811](https://github.com/decidim/decidim/pull/4811)
 - **decidim-core**: Add set_locale method to prevent users be redirected to unexpected locale[#4809](https://github.com/decidim/decidim/pull/4809)
