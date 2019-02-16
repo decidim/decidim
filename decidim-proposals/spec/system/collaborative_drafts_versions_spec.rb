@@ -79,10 +79,8 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the version author and creation date" do
-      within ".card.extra.definition-data" do
-        expect(page).to have_content(author.name)
-        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
-      end
+      expect(page).to have_content(author.name)
+      expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
     end
 
     it "shows the changed attributes" do

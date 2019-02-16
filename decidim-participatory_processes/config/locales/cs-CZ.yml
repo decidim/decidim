@@ -1,0 +1,406 @@
+cs:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Oznámení
+        banner_image: Obrázek banneru
+        copy_categories: Kopírovat kategorie
+        copy_components: Kopírování komponent
+        copy_steps: Kopírování kroků
+        description: Popis
+        developer_group: Skupina promotérů
+        domain: Doména
+        end_date: Datum ukončení
+        hashtag: Hashtag
+        hero_image: Domácí obrázek
+        local_area: Oblast organizace
+        meta_scope: Rozsah metadat
+        participatory_process_group_id: Skupina procesů
+        participatory_scope: Co se rozhodlo
+        participatory_structure: Jak se to rozhoduje
+        promoted: Propagováno
+        published_at: Publikováno v
+        scope_id: Rozsah
+        scopes_enabled: Schopnosti povoleny
+        short_description: Stručný popis
+        show_statistics: Zobrazit statistiky
+        slug: URL slug
+        start_date: Počáteční datum
+        subtitle: Titulky
+        target: Kdo se účastní
+        title: Titul
+      participatory_process_group:
+        description: Popis
+        hero_image: obraz
+        name: název
+        participatory_process_ids: Související procesy
+      participatory_process_step:
+        cta_path: Cesta k akci
+        cta_text: Text výzvy k akci
+        description: Popis
+        end_date: Datum ukončení
+        short_description: Stručný popis
+        start_date: Počáteční datum
+        title: Titul
+      participatory_process_user_role:
+        email: E-mailem
+        name: název
+        role: Role
+    models:
+      decidim/participatory_process_step_activated_event: Krok aktivován
+      decidim/participatory_process_step_changed_event: Krok se změnil
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participační proces
+        few: Participativní procesy
+        many: Participativní procesy
+        other: Participativní procesy
+      decidim/participatory_process_group:
+        one: Skupina účastnických procesů
+        few: Skupiny zúčastněných procesů
+        many: Skupiny zúčastněných procesů
+        other: Skupiny zúčastněných procesů
+      decidim/participatory_process_step:
+        one: Krok
+        few: Kroky
+        many: Kroky
+        other: Kroky
+  decidim:
+    admin:
+      actions:
+        activate: aktivovat
+        configure: Konfigurovat
+        confirm_destroy: Potvrďte smazání
+        destroy: Odstranit
+        duplicate: Duplikát
+        edit: Upravit
+        new_process: Nový proces
+        new_process_group: Nová skupina procesů
+        new_process_step: Nový krok
+        new_process_user_role: Nový uživatel procesu
+        preview: Náhled
+        publish: Publikovat
+        resend_invitation: Znovu poslat pozvánku
+        unpublish: Zrušit publikování
+      menu:
+        participatory_process_groups: Skupiny procesů
+        participatory_processes: Procesy
+        participatory_processes_submenu:
+          attachment_collections: Složky
+          attachment_files: Soubory
+          attachments: Přílohy
+          categories: Kategorie
+          components: Komponenty
+          info: Info
+          moderations: Moderování
+          private_users: Soukromí uživatelé
+          process_admins: Zpracovat uživatele
+          steps: Kroky
+      models:
+        participatory_process:
+          fields:
+            created_at: Vytvořeno u
+            private: Soukromé
+            promoted: Zvýrazněno
+            published: Publikováno
+            title: Titul
+          name: Participační proces
+        participatory_process_group:
+          fields:
+            name: název
+          name: Skupina procesů
+        participatory_process_step:
+          fields:
+            end_date: Datum ukončení
+            start_date: Počáteční datum
+            title: Titul
+          name: Participační krok procesu
+        participatory_process_user_role:
+          fields:
+            email: E-mailem
+            name: název
+            role: Role
+          name: Uživatel participativního procesu
+          roles:
+            admin: Správce
+            collaborator: Spolupracovník
+            moderator: Moderátor
+        user:
+          fields:
+            invitation_accepted_at: Pozvánka byla přijata na
+            invitation_sent_at: Pozvánka odeslána na
+      participatory_process_copies:
+        new:
+          copy: kopírovat
+          select: Vyberte, která data chcete duplikovat
+          title: Duplicitní participační proces
+      participatory_process_groups:
+        destroy:
+          success: Účastní skupina procesů byla úspěšně smazána.
+        edit:
+          title: Upravit skupinu procesů
+          update: Aktualizace
+        new:
+          create: Vytvořit
+          title: Nová skupina procesů
+        update:
+          error: Byla chyba při aktualizaci této participační skupiny procesů.
+          success: Skupina účastnických procesů byla úspěšně aktualizována.
+      participatory_process_publications:
+        create:
+          error: Při publikování tohoto procesu participace došlo k chybě.
+          success: Účastnící proces byl úspěšně publikován.
+        destroy:
+          error: Došlo k chybě při zrušení publikování tohoto participačního procesu.
+          success: Účastní proces byl nepublikován úspěšně.
+      participatory_process_step_activations:
+        create:
+          error: Došlo k chybě aktivace tohoto kroku procesu participace.
+          success: Úspěšný krok procesu byl úspěšně aktivován.
+      participatory_process_steps:
+        create:
+          error: Při vytváření nového kroku procesu participace došlo k chybě.
+          success: Úspěšný krok procesu byl úspěšně vytvořen.
+        default_title: Úvod
+        destroy:
+          error:
+            active_step: Aktivní krok nelze odstranit.
+            last_step: Poslední krok procesu nelze odstranit.
+          success: Úspěšný krok procesu byl úspěšně smazán.
+        edit:
+          title: Úprava kroku procesu participace
+          update: Aktualizace
+        index:
+          steps_title: Kroky
+        new:
+          create: Vytvořit
+          title: Nový krok procesu participace
+        ordering:
+          error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
+        update:
+          error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
+          success: Úspěšný krok procesu byl úspěšně aktualizován.
+      participatory_process_user_roles:
+        create:
+          error: Při přidávání uživatele pro tento participační proces došlo k chybě.
+          success: Uživatel úspěšně přidal do tohoto participačního procesu.
+        destroy:
+          success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
+        edit:
+          title: Aktualizovat uživatele participačního procesu.
+          update: Aktualizace
+        index:
+          process_admins_title: Uživatelé účastnických procesů
+        new:
+          create: Vytvořit
+          title: Nový účastník procesu procesu.
+        update:
+          error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
+          success: Uživatel byl úspěšně aktualizován pro tento participační proces.
+      participatory_processes:
+        create:
+          error: Při vytváření nového participačního procesu došlo k chybě.
+          success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
+        edit:
+          update: Aktualizace
+        form:
+          title: Obecná informace
+        index:
+          not_published: Není zveřejněno
+          private: Soukromé
+          public: Veřejnost
+          published: Publikováno
+        new:
+          create: Vytvořit
+          title: Nový participační proces
+        update:
+          error: Při aktualizaci tohoto participačního procesu došlo k chybě.
+          success: Participační proces byl úspěšně aktualizován.
+      participatory_processes_copies:
+        create:
+          error: Při kopírování tohoto participačního procesu došlo k chybě.
+          success: Účastnící proces byl úspěšně zdvojen.
+      participatory_processes_group:
+        create:
+          error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
+          success: Skupina úspěšně vytvořená skupina účastníků.
+      titles:
+        participatory_process_groups: Skupiny zúčastněných procesů
+        participatory_processes: Participativní procesy
+      users:
+        resend_invitation:
+          error: Při odeslání pozvánky došlo k chybě.
+          success: Pozvánka byla úspěšně odmítnuta.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} vytvořil %{resource_name} participační proces"
+        publish: "%{user_name} publikoval %{resource_name} participační proces"
+        unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
+        update: "%{user_name} aktualizoval %{resource_name} participační proces"
+      participatory_process_step:
+        activate: "%{user_name} aktivoval %{resource_name} krok %{space_name} participaci"
+        create: "%{user_name} vytvořil %{resource_name} krok ve %{space_name} účastnických procesech"
+        delete: "%{user_name} odstraněno %{resource_name} krok ve %{space_name} účastnických procesech"
+        update: "%{user_name} aktualizoval %{resource_name} krok ve %{space_name} účastnických procesech"
+      participatory_process_user_role:
+        create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
+        delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
+        update: "%{user_name} změnilo roli uživatele %{resource_name} ve %{space_name} účastnických procesech"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'Krok %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Aktualizace na %{participatory_space_title}
+          notification_title: Krok %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Byly aktualizovány datum pro krok %{resource_title} v %{participatory_space_title} . Můžete ji vidět z této stránky:'
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Aktualizace na %{participatory_space_title}
+          notification_title: Byly aktualizovány data pro krok <a href="%{resource_path}">%{resource_title}</a> ve <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů komise (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
+          page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů komise (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
+          title: Co je participační proces?
+    menu:
+      processes: Procesy
+    metrics:
+      participatory_processes:
+        description: Počet participativních procesů v této organizaci
+        object: participativní procesy
+        title: Participativní procesy
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 pro %{group}
+          few: "%{count} procesů pro %{group}"
+          many: "%{count} procesů pro %{group}"
+          other: "%{count} procesů pro %{group}"
+        title: Skupiny zúčastněných procesů
+    participatory_process_steps:
+      index:
+        process_steps: Procesní kroky
+        title: Stacionární kroky procesu
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximální množství prvků, které chcete zobrazit
+        participatory_process_copies:
+          form:
+            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Není-li nastaveno, tlačítko se nezobrazí. Příklad: %{url}'
+            cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
+        participatory_processes:
+          form:
+            announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
+            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Zvýrazněné procesy
+      index:
+        title: Participativní procesy
+      last_activity:
+        new_participatory_process: Nový participační proces
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktivní procesy
+            active_step: Aktivní krok
+            more_information: Více informací
+            participate: Účastnit se
+            see_all_processes: Zobrazit všechny procesy
+      participatory_process_groups:
+        none: Žádný
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktivní proces
+              few: "%{count} aktivních procesů"
+              many: "%{count} aktivních procesů"
+              other: "%{count} aktivních procesů"
+            all:
+              one: 1
+              few: "%{count} procesů"
+              many: "%{count} procesů"
+              other: "%{count} procesů"
+            past:
+              one: 1 minulý proces
+              few: "%{count} minulých procesů"
+              many: "%{count} minulých procesů"
+              other: "%{count} minulých procesů"
+            upcoming:
+              one: 1 nadcházející proces
+              few: "%{count} nadcházejících procesů"
+              many: "%{count} nadcházejících procesů"
+              other: "%{count} nadcházejících procesů"
+          explanations:
+            no_active: Žádné aktivní procesy
+            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy
+            no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
+          names:
+            active: Aktivní
+            all: Všechno
+            past: Minulost
+            upcoming: Nadcházející
+          see: Vidět
+        index:
+          loading: Načítá výsledky ...
+      show:
+        developer_group: Skupina promotérů
+        end_date: Datum ukončení
+        local_area: Oblast organizace
+        participatory_scope: Co se rozhodlo
+        participatory_structure: Jak se to rozhoduje
+        private_space: Jedná se o soukromý proces
+        scope: Rozsah
+        start_date: Počáteční datum
+        target: Kdo se účastní
+        unspecified: Nespecifikováno
+      statistics:
+        answers_count: Odpovědi
+        comments_count: Komentáře
+        debates_count: Debaty
+        endorsements_count: Potvrzení
+        headline: Aktivita
+        meetings_count: Setkání
+        orders_count: Hlasy
+        pages_count: Stránky
+        processes_count: Procesy
+        projects_count: Projekty
+        proposals_count: Návrhy
+        results_count: Výsledek
+        surveys_count: Průzkumy
+        users_count: Účastníci
+        votes_count: Hlasy
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Procházet
+          processes_count: 'Procesy:'
+      participatory_process_widgets:
+        show:
+          active_step: Aktivní krok
+          take_part: Zúčastnit se
+      participatory_processes:
+        index:
+          promoted_processes: Zvýrazněné procesy
+        participatory_process:
+          active_step: 'Aktuální krok:'
+          take_part: Zúčastnit se
+        promoted_process:
+          active_step: 'Aktuální krok:'
+          more_info: Více informací
+          take_part: Zúčastnit se
+      process_header_steps:
+        step: Krok %{current} z %{total}
+        view_steps: Zobrazit kroky
+      process_navigation:
+        process_menu_item: Proces

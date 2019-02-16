@@ -260,10 +260,10 @@ ca:
       filter:
         all: Tots
         commission: Comissió
-        consultative_advisory: Consultiva / assessora
+        consultative_advisory: Consultiva/Assessora
         executive: Executiu
         government: Govern
-        label: 'Espectacle:'
+        label: 'Mostrar:'
         others: Altres
         participatory: Participatiu
         placeholder: Filtrar per tipus

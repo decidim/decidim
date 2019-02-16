@@ -85,9 +85,9 @@ hu:
           config:
             edit:
               title: Azonosító dokumentumok konfigurálása
-              update: frissítés
+              update: Frissítés
             update:
-              error: Hiba történt a konfiguráció frissítésében.
+              error: Hiba történt a konfiguráció frissítése során.
               success: A konfiguráció sikeresen frissült
           confirmations:
             create:
@@ -100,11 +100,11 @@ hu:
           offline_confirmations:
             create:
               error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
-              success: A felhasználó sikeresen ellenőrizte
+              success: A felhasználó sikeresen ellenőrizve
             new:
-              cancel: Megszünteti
+              cancel: Mégse
               introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
-              verify: Ellenőrizze
+              verify: Ellenőrzés
           pending_authorizations:
             index:
               config: config
@@ -175,10 +175,10 @@ hu:
             error: Probléma volt a kéréssel
             success: Kösz! SMS-t küldtünk telefonjára.
           edit:
-            send: megerősít
+            send: Megerősítés
             title: Vigye be a kapott ellenőrző kódot
           new:
-            send: Küldj nekem egy SMS-t
+            send: Küldj nekem SMS-t
             title: Kérjen ellenőrző kódot
           update:
             error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze az SMS-t, amit elküldtek.

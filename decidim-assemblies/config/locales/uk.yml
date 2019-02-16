@@ -258,6 +258,8 @@ uk:
         city_council: Міська рада
         others: Інші
         public: Громадяни
+      filter:
+        all: Усі
       index:
         title: Збори
       pages:
