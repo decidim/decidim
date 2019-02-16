@@ -358,7 +358,7 @@ es-MX:
           reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
-            one: "%{count} asamblea"
+            one: "%{count} asambleas"
             other: "%{count} asambleas"
         promoted_assembly:
           more_info: Más información
