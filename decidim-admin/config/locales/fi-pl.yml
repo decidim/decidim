@@ -617,9 +617,9 @@ fi-pl:
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        impersonatable_users: Käyttäjien puolesta tehdyt istunnot
-        impersonations: Esiintymiset toisena käyttäjänä
-        participants: Osallistujat
+        impersonatable_users: Hallittavat käyttäjät
+        impersonations: Käyttäjien hallinta
+        participants: käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut
