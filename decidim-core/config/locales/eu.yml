@@ -152,14 +152,24 @@ eu:
           button_reject: Ukatu
           help_text: Aldaketak berrikustea eta aldaketa hori onartzea edo arbuiatzea. Jakinarazpen bat bere egileei bidaliko zaie.
         announcement:
+          accepted: |-
+            For the Aldaketa hori %{amendable_type} %{amendable_link} izan da
+            onartu <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            For the Aldaketa hori %{amendable_type} %{amendable_link}
+            ebaluatu dago.
           rejected: |-
             %{amendable_type} %{amendable_link}
             aldatze hau <strong>%{announcement_date}</strong>baztertu egin zen.
+          withdrawn: |-
+            %{amendable_type} %{amendable_link}
+            ren aldaketa hori egilearen arabera kendu da.
       new:
         amendment_author: Egile aldaketa
         back: Back
         heading: Sortu zure aldaketa
         help_text: '%{model_name}aldatzen ari zara'
+        send: Bidali aldaketa
       rejected:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
@@ -170,6 +180,7 @@ eu:
         back: Back
         heading: Aldaketa berrikustea
         help_text: '%{model_name}aldatzen ari zara'
+        send: Onartu aldaketa
     anonymous_user: Anonimoa
     application:
       collection:
@@ -730,6 +741,7 @@ eu:
       download:
         csv: Deskargatu datuak (csv)
       followers:
+        description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
         title: Jarraitzaileak
       participants:
