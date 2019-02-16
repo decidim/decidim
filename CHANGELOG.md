@@ -72,6 +72,9 @@
 - **decidim-forms**: Fix free text fields exporting. [\#4846](https://github.com/decidim/decidim/pull/4846)
 - **decidim-initiatives** Fix admin layout of some subsections of initiatives participatory spaces. [\#4849](https://github.com/decidim/decidim/pull/4849)
 - **decidim-proposals** Fix recent proposals order [\#4854](https://github.com/decidim/decidim/pull/4854)
+- **decidim-core**: Fix user activities list [\#4853](https://github.com/decidim/decidim/pull/4853)
+- **decidim-comments** Fix author display in comments [\#4851](https://github.com/decidim/decidim/pull/4851)
+- **decidim-debates** Allow HTML content at debates page [\#4850](https://github.com/decidim/decidim/pull/4850)
 
 **Removed**:
 
