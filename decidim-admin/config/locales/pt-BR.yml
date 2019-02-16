@@ -617,9 +617,7 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
-        impersonatable_users: Usuários impersonáveis
-        impersonations: Personagens
-        participants: Participantes
+        impersonatable_users: Usuários gerenciáveis
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
