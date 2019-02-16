@@ -220,10 +220,6 @@ id:
           error: Terjadi kesalahan saat memperbarui kategori ini.
           success: Kategori berhasil diperbarui.
       component_permissions:
-        edit:
-          everyone: Semua orang
-          submit: Simpan izin
-          title: Edit izin
         update:
           success: Izin berhasil diperbarui.
       components:
@@ -536,6 +532,12 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
+      resource_permissions:
+        edit:
+          submit: Menyerahkan
+          title: Edit izin
+        update:
+          success: Izin berhasil diperbarui.
       scope_types:
         create:
           error: Terjadi kesalahan saat membuat jenis cakupan baru.

@@ -29,8 +29,7 @@ en:
         collect_user_extra_fields: Collect user personal data on signature
         description: Description
         document_number_authorization_handler: Authorization to verify document number on votes
-        extra_fields_legal_information: Legal information about the collection of
-          personal data
+        extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
@@ -300,14 +299,12 @@ en:
       initiative_signatures:
         fill_personal_data:
           continue: Continue
-          help: Please, fill the following fields with your personal data to sign
-            the initiative
+          help: Please, fill the following fields with your personal data to sign the initiative
         finish:
           back_to_initiative: Back to initiative
         sms_phone_number:
           continue: Send me an SMS
-          help: Fill the form with your verified phone number to request
-            your verification code
+          help: Fill the form with your verified phone number to request your verification code
         sms_code:
           continue: Check code and continue
           help: Check the SMS received at your phone

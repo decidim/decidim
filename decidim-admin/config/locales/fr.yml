@@ -220,10 +220,6 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       component_permissions:
-        edit:
-          everyone: Tout le monde
-          submit: Enregistrer les autorisations
-          title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
       components:
@@ -536,6 +532,12 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      resource_permissions:
+        edit:
+          submit: Soumettre
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.

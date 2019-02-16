@@ -220,10 +220,6 @@ fi-pl:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
-        edit:
-          everyone: Jokainen
-          submit: Tallenna käyttöoikeudet
-          title: Muokkaa käyttöoikeuksia
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
@@ -536,6 +532,12 @@ fi-pl:
         new:
           create: Luo
           title: Uusi osallisuustilan yksityinen käyttäjä.
+      resource_permissions:
+        edit:
+          submit: Lähetä
+          title: Muokkaa käyttöoikeuksia
+        update:
+          success: Käyttöoikeudet päivitetty onnistuneesti.
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.

@@ -2,6 +2,7 @@ sv:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adress
         body: Innehåll
         category_id: Kategori
         decidim_scope_id: Omfattning
@@ -10,6 +11,7 @@ sv:
         title: Titel
         user_group_id: Skapa samarbetsförslag som
       proposal:
+        address: Adress
         answer: Svara
         answered_at: Besvarad vid
         automatic_hashtags: Hashtags läggs till automatiskt
@@ -289,13 +291,16 @@ sv:
             name: Förslag
         participatory_texts:
           bulk-actions:
+            are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
             import_doc: Importera dokument
+            discard_all: Kassera allt
           import:
             invalid: Blanketten är ogiltig!
             success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
           index:
             info_1: Följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
             publish_document: Publicera dokument
+            save_draft: Spara utkast
             title: PREVIEW PARTICIPERY TEXT
           new_import:
             bottom_hint: "(Du kommer att kunna förhandsgranska och sortera dokumentavsnitt)"
@@ -305,10 +310,14 @@ sv:
           publish:
             invalid: Kunde inte publicera förslag
             success: Alla förslag har publicerats
+          discard:
+            success: Alla deltagande textförslag har kasseras.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
             sub-section: "<em>Underavsnitt:</em> %{title}"
+          update:
+            success: Deltagande text uppdaterad framgångsrikt.
         proposal_answers:
           edit:
             accepted: Accepterad

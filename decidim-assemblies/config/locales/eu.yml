@@ -258,15 +258,14 @@ eu:
         others: Beste batzuk
         public: Publiko
       filter:
-        all: guztiak
+        all: Batzar mota guztiak
         commission: Batzorde
         consultative_advisory: Aholku / Aholku
         executive: exekutiboa
         government: Gobernu
-        label: 'Show:'
+        help: 'Show:'
         others: Beste batzuk
         participatory: partehartzailea
-        placeholder: Iragazi motaren arabera
         working_group: Lan taldea
       index:
         title: Biltzarrak

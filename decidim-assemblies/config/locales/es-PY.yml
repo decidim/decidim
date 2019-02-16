@@ -258,15 +258,14 @@ es-PY:
         others: Otros
         public: Público
       filter:
-        all: Todos
+        all: Todo tipo de montajes.
         commission: Comisión
         consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo
         government: Gobierno
-        label: 'Show:'
+        help: 'Mostrar:'
         others: Otros
         participatory: Participativo
-        placeholder: Filtrar por tipo
         working_group: Grupo de trabajo
       index:
         title: Asambleas

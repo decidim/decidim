@@ -93,7 +93,7 @@ hu:
         title: Cím
         weight: Súly
       user_group_csv_verification:
-        file: fájl
+        file: Fájl
     errors:
       models:
         oauth_application:
@@ -220,10 +220,6 @@ hu:
           error: Hiba történt a kategória frissítése során.
           success: Kategória frissítése sikeres.
       component_permissions:
-        edit:
-          everyone: Mindenki
-          submit: Engedélyek mentése
-          title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
       components:
@@ -265,10 +261,10 @@ hu:
         export_as: "%{name} mint %{export_format}"
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       help_sections:
-        error: Hiba történt a súgóelemek frissítésében
+        error: Hiba történt a súgószakaszok frissítésekor
         form:
           save: Mentés
-        success: A súgóelemek sikeresen frissültek
+        success: A súgó szakaszok sikeresen frissültek
       impersonatable_users:
         index:
           filter:
@@ -322,12 +318,12 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
-        help_sections: Segítségrészek
+        help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
-        participants: résztvevők
+        participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -536,6 +532,12 @@ hu:
         new:
           create: Létrehozás
           title: Új privát felhasználó a részvételi térben.
+      resource_permissions:
+        edit:
+          submit: Beküldés
+          title: Engedélyek szerkesztése
+        update:
+          success: Engedélyek frissítése sikeres.
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
@@ -617,7 +619,7 @@ hu:
         dashboard: Vezérlőpult
         impersonatable_users: Felhatalmazható felhasználók
         impersonations: Felhatalmazások
-        participants: résztvevők
+        participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
@@ -677,7 +679,7 @@ hu:
         hide: Elrejt
         not_hidden: Nem rejtett
         title: Műveletek
-        unhide: felfedése
+        unhide: Felfedés
         unreport: Ne jelentse
       admin:
         reportable:
@@ -685,7 +687,7 @@ hu:
             invalid: Probléma történt az erőforrás elrejtésekor.
             success: Erőforrás sikeresen elrejtve.
           unhide:
-            invalid: Probléma volt az erőforrás elrejtése.
+            invalid: Probléma volt az erőforrás megmutatásával.
             success: Az erőforrás sikeresen elrejtve.
           unreport:
             invalid: Probléma történt az erőforrás elrejtésének visszavonásakor.

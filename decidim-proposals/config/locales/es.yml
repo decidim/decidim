@@ -2,6 +2,7 @@ es:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Dirección
         body: Cuerpo
         category_id: Categoría
         decidim_scope_id: Ámbito
@@ -10,6 +11,7 @@ es:
         title: Título
         user_group_id: Crear borrador colaborativo como
       proposal:
+        address: Dirección
         answer: Respuesta
         answered_at: Respondido en
         automatic_hashtags: Hashtags añadidos automáticamente
@@ -289,13 +291,16 @@ es:
             name: Propuesta
         participatory_texts:
           bulk-actions:
+            are_you_sure: '¿Estás seguro de descartar todo el borrador del texto participativo?'
             import_doc: Importar documento
+            discard_all: Descartar todo
           import:
             invalid: '¡El formulario no es válido!'
             success: Enhorabuena, los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
           index:
             info_1: Los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
             publish_document: Publicar documento
+            save_draft: Guardar borrador
             title: PREVISUALIZAR TEXTO PARTICIPATIVO
           new_import:
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
@@ -305,10 +310,14 @@ es:
           publish:
             invalid: No se pudieron publicar las propuestas
             success: Todas las propuestas han sido publicadas
+          discard:
+            success: Todos los borradores de textos participativos han sido descartados.
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
+          update:
+            success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
             accepted: Aceptada

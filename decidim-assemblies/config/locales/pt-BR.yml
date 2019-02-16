@@ -258,15 +258,14 @@ pt-BR:
         others: Outras
         public: Público
       filter:
-        all: Todos
+        all: Todos os tipos de montagens
         commission: Comissão
         consultative_advisory: Consultivo / Consultivo
         executive: Executivo
         government: Governo
-        label: 'Exposição:'
+        help: 'Exposição:'
         others: Outras
         participatory: Participativo
-        placeholder: Filtrar por tipo
         working_group: Grupo de trabalho
       index:
         title: Assembleias

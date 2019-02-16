@@ -220,10 +220,6 @@ it:
           error: Si è verificato un errore aggiornando questa categoria.
           success: OK, la categoria è stata aggiornata.
       component_permissions:
-        edit:
-          everyone: Tutti
-          submit: Salva permessi
-          title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
       components:
@@ -536,6 +532,12 @@ it:
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+      resource_permissions:
+        edit:
+          submit: Sottoscrivi
+          title: Modifica permessi
+        update:
+          success: Autorizzazioni aggiornate correttamente.
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
