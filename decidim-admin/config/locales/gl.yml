@@ -617,9 +617,9 @@ gl:
         areas: Campos
         authorization_workflows: Métodos de verificación
         dashboard: Taboleiro de instrumentos
-        impersonatable_users: Usuarios privilexiados
-        impersonations: Impersonacións
-        participants: Participantes
+        impersonatable_users: Usuarios xestionables
+        impersonations: Xestión dos usuarios
+        participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas
