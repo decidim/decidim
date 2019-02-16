@@ -359,7 +359,7 @@ tr:
         order_by_assemblies:
           assemblies:
             one: "%{count} derleme"
-            other: "%{count} derlemeler"
+            other: "%{count} derleme"
         promoted_assembly:
           more_info: Daha fazla bilgi
           take_part: Yer almak
