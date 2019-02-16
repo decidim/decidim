@@ -617,9 +617,9 @@ it:
         areas: le zone
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Utenti impersonabili
-        impersonations: impersonations
-        participants: I partecipanti
+        impersonatable_users: Utenti gestibili
+        impersonations: Gestione degli utenti
+        participants: utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
