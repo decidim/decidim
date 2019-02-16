@@ -616,8 +616,8 @@ en:
         authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonatable_users: Manageable users
-        impersonations: Users management
-        participants: Users
+        impersonations: Impersonations
+        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
