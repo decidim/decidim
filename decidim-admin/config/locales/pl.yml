@@ -617,9 +617,6 @@ pl:
         areas: Obszary
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
-        impersonatable_users: Niekodowalni użytkownicy
-        impersonations: Impersonaty
-        participants: Uczestnicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
