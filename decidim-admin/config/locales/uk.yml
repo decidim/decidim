@@ -563,8 +563,6 @@ uk:
         areas: Дільниці
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
-        impersonatable_users: Учасники, в ролі яких можна виступати
-        impersonations: Виступи в ролі учасника
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки
