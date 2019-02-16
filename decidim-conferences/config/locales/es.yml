@@ -50,6 +50,7 @@ es:
       actions:
         confirm: Confirmar
         new_conference: Nueva conferencia
+        send_diplomas: Enviar certificados de asistencia.
       conference_copies:
         new:
           copy: Copiar
@@ -151,6 +152,7 @@ es:
           conference_admins: Usuarios de la conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
+          diploma: Certificado de asistencia
           info: Información
           media_links: Enlaces multimedia
           moderations: Moderaciones
@@ -248,8 +250,10 @@ es:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
+        send_conference_diplomas: "%{user_name} certificados de asistencia enviados a los asistentes a %{resource_name} conferencia"
         unpublish: "%{user_name} ha despublicado la conferencia %{resource_name}"
         update: "%{user_name} ha actualizado la conferencia %{resource_name}"
+        update_diploma: "%{user_name} actualización de la configuración de certificados de asistencia para %{resource_name} conferencia."
       conference_speaker:
         create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
@@ -330,6 +334,7 @@ es:
         diplomas:
           edit:
             save: Guardar
+            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
@@ -344,10 +349,15 @@ es:
           index:
             title: Tipos de inscripción
         send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Encontrará el certificado de asistencia para la conferencia <a href="%{url}">%{title}</a> en los adjuntos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
             certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en los encuentros <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Ha habido un problema al enviar los certificados de asistencia a la conferencia.
+          success: Certificados de asistencia a conferencias enviados correctamente.
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -421,6 +431,9 @@ es:
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Su certificado de asistencia a la conferencia ha sido enviado.
       models:
         conference_invite:
           fields:
