@@ -563,8 +563,6 @@ ru:
         areas: Участки
         authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
-        impersonatable_users: Участники, в роли которых можно выступить
-        impersonations: Выступления в роли участника
         scope_types: Виды охвата
         scopes: Охваты
         static_pages: Страницы
