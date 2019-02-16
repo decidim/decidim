@@ -741,7 +741,7 @@ es-MX:
       download:
         csv: Descargar datos (csv)
       followers:
-        description: Número de usuarios que siguen este espacio de participación
+        description: Número de usuarios que siguen este espacio de participación.
         object: seguidores
         title: Seguidores
       participants:
