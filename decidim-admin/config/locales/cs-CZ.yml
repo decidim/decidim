@@ -617,9 +617,9 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Přístrojová deska
-        impersonatable_users: Nezodpovědní uživatelé
-        impersonations: Odhalení
-        participants: Účastníci
+        impersonatable_users: Spravovatelní uživatelé
+        impersonations: Správa uživatelů
+        participants: Uživatelé
         scope_types: Typy rozsahu
         scopes: Scopes
         static_pages: Stránky
