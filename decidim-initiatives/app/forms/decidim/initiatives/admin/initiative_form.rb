@@ -53,6 +53,10 @@ module Decidim
                                         end
         end
 
+        def state_updatable?
+          false
+        end
+
         def scoped_type_id
           return unless type && decidim_scope_id
 

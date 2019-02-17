@@ -4,6 +4,15 @@
   </div>
 
   <div class="card-section">
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.select :state,
+                        Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
+                        {},
+                        { disabled: !@form.state_updatable? } %>
+      </div>
+    </div>
+
     <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
     </div>
