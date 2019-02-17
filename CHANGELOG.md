@@ -77,6 +77,7 @@
 - **decidim-comments** Fix author display in comments [\#4851](https://github.com/decidim/decidim/pull/4851)
 - **decidim-debates** Allow HTML content at debates page [\#4850](https://github.com/decidim/decidim/pull/4850)
 - **decidim-proposals** Fix proposals search indexes [\#4857](https://github.com/decidim/decidim/pull/4857)
+- **decidim-proposals** Remove etiquette validation from proposals admin [\#4856](https://github.com/decidim/decidim/pull/4856)
 
 **Removed**:
 
