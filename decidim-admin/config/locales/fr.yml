@@ -617,9 +617,9 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs représentés
-        impersonations: Représentations d'utilisateurs
-        participants: Participants
+        impersonatable_users: Utilisateurs gérables
+        impersonations: Gestion des utilisateurs
+        participants: Utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
         static_pages: Pages

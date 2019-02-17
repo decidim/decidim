@@ -617,9 +617,9 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
-        impersonatable_users: Felhatalmazható felhasználók
-        impersonations: Felhatalmazások
-        participants: Résztvevők
+        impersonatable_users: Kezelhető felhasználók
+        impersonations: Felhasználók kezelése
+        participants: felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak

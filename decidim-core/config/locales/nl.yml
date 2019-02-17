@@ -153,23 +153,23 @@ nl:
           help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur (s).
         announcement:
           accepted: |-
-            Deze emendatie voor de %{amendable_type} %{amendable_link} is
-            geaccepteerd op <strong>%{announcement_date}</strong>.
+            Dit amendement voor de %{amendable_type} %{amendable_link} is
+            aanvaard op <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Dit is een verbetering voor de %{amendable_type} %{amendable_link}
+            Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
           rejected: |-
             Deze emendatie voor de %{amendable_type} %{amendable_link}
             werd afgewezen op <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
       new:
         amendment_author: Amendement auteur
         back: Terug
         heading: Maak uw amendement
         help_text: U wijzigt de %{model_name}
-        send: Verstuur emendation
+        send: Verzend amendement
       rejected:
         error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
         success: De emendation is met succes afgewezen
@@ -180,7 +180,7 @@ nl:
         back: Terug
         heading: Bekijk het amendement
         help_text: U wijzigt de %{model_name}
-        send: Accepteer emendation
+        send: Accepteer het amendement
     anonymous_user: Anoniem
     application:
       collection:
@@ -741,7 +741,7 @@ nl:
       download:
         csv: Gegevens downloaden (csv)
       followers:
-        description: Aantal gebruikers dat volgt in de organisatie
+        description: Aantal gebruikers dat deze participatieruimte volgt
         object: volgelingen
         title: Volgers
       participants:

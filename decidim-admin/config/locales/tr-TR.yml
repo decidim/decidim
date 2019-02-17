@@ -617,9 +617,9 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: gösterge paneli
-        impersonatable_users: Impersonatable kullanıcılar
-        impersonations: impersonations
-        participants: Katılımcılar
+        impersonatable_users: Yönetilebilir kullanıcılar
+        impersonations: Kullanıcılar yönetimi
+        participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar

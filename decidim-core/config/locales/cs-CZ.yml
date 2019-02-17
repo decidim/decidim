@@ -159,23 +159,23 @@ cs:
           help_text: Zkontrolujte změny a přijměte nebo zamítněte tuto změnu. Oznámení bude zasláno jeho autorovi (autorům).
         announcement:
           accepted: |-
-            Toto vylepšení pro %{amendable_type} %{amendable_link} je
-            přijímány <strong>%{announcement_date}</strong>.
+            Tento pozměňovací návrh pro %{amendable_type} %{amendable_link} byl
+            přijala dne <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Toto je příznak pro hodnocení %{amendable_type} %{amendable_link}
-            .
+            Tato změna pro hodnocení %{amendable_type} %{amendable_link}
+            se hodnotí.
           rejected: |-
             Tato změna pro %{amendable_type} %{amendable_link}
             byla zamítnuta na <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Tato poznámka k číslu %{amendable_type} %{amendable_link}
+            Tato změna pro číslo %{amendable_type} %{amendable_link}
             byla autorem stažena.
       new:
         amendment_author: Autor změn
         back: Zadní
         heading: Vytvořte svůj pozměňovací návrh
         help_text: Upravujete %{model_name}
-        send: Poslat emendaci
+        send: Odeslat změnu
       rejected:
         error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
         success: Emenda byla úspěšně odmítnuta
@@ -186,7 +186,7 @@ cs:
         back: Zadní
         heading: Přezkoumejte pozměňovací návrh
         help_text: Změníte %{model_name}
-        send: Přijmout změnu
+        send: Přijmout pozměňovací návrh
     anonymous_user: Anonymní
     application:
       collection:
@@ -757,7 +757,7 @@ cs:
       download:
         csv: Stáhnout data (csv)
       followers:
-        description: Počet uživatelů, které následují v organizaci
+        description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
         title: Následovníci
       participants:

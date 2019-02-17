@@ -364,7 +364,7 @@ cs:
           reset_chart: Resetovat
         order_by_assemblies:
           assemblies:
-            one: "%{count}"
+            one: "%{count} sestav"
             few: "%{count} sestav"
             many: "%{count} sestav"
             other: "%{count} sestav"

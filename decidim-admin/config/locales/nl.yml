@@ -617,9 +617,9 @@ nl:
         areas: Onderwerpen
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
-        impersonatable_users: Niet-personaliseerbare gebruikers
-        impersonations: Nabootsingingen
-        participants: Deelnemers
+        impersonatable_users: Beheersbare gebruikers
+        impersonations: Gebruikersbeheer
+        participants: gebruikers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's

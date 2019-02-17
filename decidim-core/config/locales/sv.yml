@@ -153,23 +153,23 @@ sv:
           help_text: Granska ändringarna och acceptera eller avslå detta ändringsförslag. En anmälan kommer att skickas till dess författare (er).
         announcement:
           accepted: |-
-            Denna utgåva för %{amendable_type} %{amendable_link} har blivit
-            accepterad på <strong>%{announcement_date}</strong>.
+            Detta ändringsförslag för %{amendable_type} %{amendable_link} har blivit
+            godkänt på <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Detta är en emendation för %{amendable_type} %{amendable_link}
+            Detta ändringsförslag för %{amendable_type} %{amendable_link}
             utvärderas.
           rejected: |-
             Denna utgåva för %{amendable_type} %{amendable_link}
             avvisades på <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Denna utgåva för %{amendable_type} %{amendable_link}
+            Denna ändring för %{amendable_type} %{amendable_link}
             har dragits tillbaka av författaren.
       new:
         amendment_author: Ändringsförfattare
         back: Tillbaka
         heading: Skapa ditt ändringsförslag
         help_text: Du ändrar %{model_name}
-        send: Skicka emendation
+        send: Skicka ändringsförslag
       rejected:
         error: Ett fel uppstod när du avvisade den här utgåvan, var god försök igen senare
         success: Emendationen har avvisats framgångsrikt
@@ -180,7 +180,7 @@ sv:
         back: Tillbaka
         heading: Granska ändringen
         help_text: Du ändrar %{model_name}
-        send: Godkänn emendation
+        send: Godkänn ändring
     anonymous_user: Anonym
     application:
       collection:
@@ -741,7 +741,7 @@ sv:
       download:
         csv: Hämta data (csv)
       followers:
-        description: Antal användare som följer i organisationen
+        description: Antal användare som följer detta deltagarutrymme
         object: följare
         title: anhängare
       participants:

@@ -355,7 +355,7 @@ id:
           reset_chart: Setel ulang
         order_by_assemblies:
           assemblies:
-            other: "%{count} majelis"
+            other: "%{count} rakitan"
         promoted_assembly:
           more_info: Info lebih lanjut
           take_part: Ambil bagian

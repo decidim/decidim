@@ -617,9 +617,9 @@ sv:
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
-        impersonatable_users: Impersonatable användare
-        impersonations: impersonations
-        participants: Deltagarna
+        impersonatable_users: Hanterbara användare
+        impersonations: Användarhantering
+        participants: användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor

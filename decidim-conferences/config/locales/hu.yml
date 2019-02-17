@@ -50,7 +50,7 @@ hu:
       actions:
         confirm: Megerősít
         new_conference: Új konferencia
-        send_diplomas: Oklevél küldése
+        send_diplomas: Küldési igazolások küldése
       conference_copies:
         new:
           copy: Másolat
@@ -152,7 +152,7 @@ hu:
           conference_admins: Konferencia felhasználók
           conference_invites: Meghívottak
           conference_speakers: Előadók
-          diploma: Oklevél
+          diploma: Tanúsítvány a jelenlétről
           info: Info
           media_links: Média linkek
           moderations: moderálások
@@ -250,10 +250,10 @@ hu:
       conference:
         create: "%{user_name} létrehozta az %{resource_name} konferenciát"
         publish: "%{user_name} közzétette az %{resource_name} konferenciát"
-        send_conference_diplomas: "%{user_name} okleveleket küldése a %{resource_name} konferencia-felhasználónak"
+        send_conference_diplomas: "%{user_name} küldött igazolást az %{resource_name} konferencia résztvevőjének részvételéről"
         unpublish: "%{user_name} nem publikált az %{resource_name} konferencia"
         update: "%{user_name} frissítette az %{resource_name} konferenciát"
-        update_diploma: "%{user_name} frissítette az oklevél konfigurációt itt %{resource_name}"
+        update_diploma: "%{user_name} frissített bizonyítványok jelenléti konfiguráció %{resource_name} konferencia"
       conference_speaker:
         create: "%{user_name} létrehozta az %{resource_name} hangszórót a %{space_name} konferencián"
         delete: "%{user_name} eltávolította az %{resource_name} hangsugárzót a %{space_name} konferenciából"
@@ -334,7 +334,7 @@ hu:
         diplomas:
           edit:
             save: Mentés
-            title: Oklevél
+            title: Tanúsítvány a jelenlétről
         invite_join_conference_mailer:
           invite:
             decline: A "%{conference_title}" meghívása
@@ -350,14 +350,14 @@ hu:
             title: Regisztrációs típusok
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: A mellékletben találja meg a <a href="%{url}">%{title}</a> konferencia oklevelét.
+            diploma_html: A mellékletben találja meg a konferencián való részvételi igazolást <a href="%{url}">%{title}</a>.
           diploma_user:
             attendance_verified_by: A részvételt ellenőrizte
             certificate_of_attendance: Tanúsítvány a részvételről
             certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett a <strong>%{title}</strong> című eseményen a <strong>%{location}</strong> címen a követező időpontban, <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Probléma merült fel a konferencia oklevelek küldésekor.
-          success: Konferencia oklevelek sikeresen elküldve
+          error: Probléma merült fel a konferencia részvételi igazolásainak elküldése közben.
+          success: A konferencia részvételi igazolások helyesen küldtek
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -433,7 +433,7 @@ hu:
             subject: Meghívás egy konferenciára való belépéshez
         send_conference_diploma_mailer:
           diploma:
-            subject: A konferencia okleveled elküldve
+            subject: A konferencia részvételi igazolását elküldtük
       models:
         conference_invite:
           fields:
