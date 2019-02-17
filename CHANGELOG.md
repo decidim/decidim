@@ -113,6 +113,32 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
 
+**Added**:
+
+- **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4817](https://github.com/decidim/decidim/pull/4817)
+- **decidim-proposals**: In participatory texts it is better to render Article cards open by default. [\#4817](https://github.com/decidim/decidim/pull/4817)
+- **decidim-proposals**: Allow to persist participatory text drafts before publishing. [\#4817](https://github.com/decidim/decidim/pull/4817)
+- **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for images in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Changed**:
+
+- **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Fixed**:
+
+- **decidim-assemblies**: Fix parent assemblies children_count counter (add migration) [\#4855](https://github.com/decidim/decidim/pull/4855/)
+- **decidim-assemblies**: Fix parent assemblies children_count counter [\#4847](https://github.com/decidim/decidim/pull/4847/)
+- **decidim-proposals**: Fix Proposals Last Activity feed. [\#4836](https://github.com/decidim/decidim/pull/4836)
+- **decidim-proposals**: Fix attachments not being inherited from collaborative draft when published as proposal. [\#4815](https://github.com/decidim/decidim/pull/4815)
+- **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
+- **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
+
+## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
+
 **Upgrade notes**:
 
 This version has breaking changes, `Decidim::Feature` has been renamed to `Decidim::Component`,

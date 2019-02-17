@@ -650,11 +650,11 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        impersonatable_users: Impersonatable users
-        impersonations: Impersonations
+        impersonatable_users: Manageable users
+        impersonations: Users management
         managed_users: Managed users
         navbar_links: Navbar links
-        participants: Participants
+        participants: Users
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages

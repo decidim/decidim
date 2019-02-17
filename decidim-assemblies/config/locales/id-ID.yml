@@ -354,6 +354,9 @@ id:
           organizational_chart: Struktur organisasi
           promoted_assemblies: Majelis yang disorot
           reset_chart: Setel ulang
+        order_by_assemblies:
+          assemblies:
+            other: "%{count} majelis"
         promoted_assembly:
           more_info: Info lebih lanjut
           take_part: Ambil bagian

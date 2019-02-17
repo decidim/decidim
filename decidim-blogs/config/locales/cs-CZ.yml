@@ -1,0 +1,81 @@
+cs:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nový blogový příspěvek
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Pošta
+        few: Příspěvky
+        many: Příspěvky
+        other: Příspěvky
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Opravdu chcete tento příspěvek smazat?
+        destroy: Odstranit
+        edit: Upravit
+        new: Nový příspěvek
+        title: Akce
+      admin:
+        models:
+          components:
+            body: Tělo
+          post:
+            name: Pošta
+        posts:
+          create:
+            invalid: Při vytváření tohoto příspěvku došlo k potížím
+            success: Pošta byla úspěšně vytvořena
+          destroy:
+            success: Pošta byla úspěšně smazána
+          edit:
+            save: Aktualizace
+          index:
+            title: Příspěvky
+          new:
+            create: Vytvořit
+            title: Vytvořte příspěvek
+          update:
+            invalid: Při ukládání příspěvku došlo k chybám.
+            success: Úspěšně uložen příspěvek
+      last_activity:
+        new_post_at_html: "<span>Nový příspěvek v %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Tělo
+            created_at: Vytvořeno u
+            title: titul
+      posts:
+        show:
+          view: Pohled
+        sidebar_blog:
+          comments: komentáře
+          most_commented_posts: Nejvíce komentované příspěvky
+      read_more: Přečtěte si více
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Oznámení
+            comments_enabled: Komentáře povoleny
+          step:
+            announcement: Oznámení
+            comments_blocked: Komentáře byly blokovány
+    events:
+      blogs:
+        post_created:
+          email_intro: Písmeno "%{resource_title}" bylo zveřejněno v "%{participatory_space_title}", které sledujete.
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
+          email_subject: Nový příspěvek publikován v %{participatory_space_title}
+          notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn ve %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Příspěvky
+    participatory_processes:
+      statistics:
+        posts_count: Příspěvky

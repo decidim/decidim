@@ -127,7 +127,7 @@ describe "Assemblies", type: :system do
 
       before do
         visit decidim_assemblies.assemblies_path
-        click_button "All types of assemblies"
+        click_button "All"
       end
 
       it "filters by All types" do

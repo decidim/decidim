@@ -128,7 +128,7 @@ fr:
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
-        verify_via_csv: "%{user_name} a vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+        verify_via_csv: "%{user_name} a vérifié le groupe %{resource_name} via un fichier CSV"
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement. Veuillez réessayer ultérieurement.

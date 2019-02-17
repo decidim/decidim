@@ -776,9 +776,6 @@ id:
         greetings: Salam,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Halo,
         subject: Apakah Anda ingin tetap menerima informasi yang relevan tentang %{organization_name}?
-    notification_mailer:
-      shared:
-        note: Anda menerima pesan ini karena Anda berlangganan pemberitahuan melalui email di% {organization_name}. Anda dapat mengubah pengaturan di <a href="%{link}"> halaman pemberitahuan </a> Anda.
     notifications:
       no_notifications: Belum ada pemberitahuan.
     notifications_settings:

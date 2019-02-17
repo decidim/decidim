@@ -154,34 +154,34 @@ en:
           help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
         announcement:
           accepted: |-
-            This emendation for the %{amendable_type} %{amendable_link} has been
+            This amendment for the %{amendable_type} %{amendable_link} has been
             accepted on <strong>%{announcement_date}</strong>.
           evaluating: |-
-            This is an emendation for the %{amendable_type} %{amendable_link}
+            This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
           rejected: |-
             This emendation for the %{amendable_type} %{amendable_link}
             was rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            This emendation for the %{amendable_type} %{amendable_link}
+            This amendment for the %{amendable_type} %{amendable_link}
             has been withdrawn by the author.
       new:
         amendment_author: Amendment author
         back: Back
         heading: Create your amendment
         help_text: You are modifying the %{model_name}
-        send: Send emendation
-      promoted:
-        error: There's been errors when promoting the emendation
-        success: Emendation promoted successfully
+        send: Send amendment
       rejected:
         error: An error ocurred when rejecting this emendation, please try again later
         success: The emendation has been rejected successfully
+      promoted:
+        success: Emendation promoted successfully
+        error: There's been errors when promoting the emendation
       review:
         back: Back
         heading: Review the amendment
         help_text: You are amending the %{model_name}
-        send: Accept emendation
+        send: Accept amendment
     anonymous_user: Anonymous
     application:
       collection:
@@ -746,7 +746,7 @@ en:
       download:
         csv: Download data (csv)
       followers:
-        description: Number of user that follows in organization
+        description: Number of users that follow this participation space
         object: followers
         title: Followers
       participants:

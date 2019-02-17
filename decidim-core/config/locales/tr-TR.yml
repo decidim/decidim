@@ -782,9 +782,6 @@ tr:
         greetings: Selamlar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Merhaba,
         subject: '%{organization_name}ilgili bilgileri almaya devam etmek istiyor musunuz?'
-    notification_mailer:
-      shared:
-        note: Bu iletiyi %{organization_name} adresindeki e-posta yoluyla bildirime abone olduğunuz için aldınız. Ayarlarınızı <a href="%{link}"> bildirim sayfanızdan </a> değiştirebilirsiniz.
     notifications:
       no_notifications: Henüz bildirim yok.
     notifications_settings:

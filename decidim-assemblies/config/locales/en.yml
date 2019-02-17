@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -259,14 +258,16 @@ en:
         others: Others
         public: Public
       filter:
-        all: All types of assemblies
+        all: All
         commission: Commission
         consultative_advisory: Consultative/Advisory
         executive: Executive
         government: Government
         help: 'Show:'
+        label: 'Show:'
         others: Others
         participatory: Participatory
+        placeholder: Filter by type
         working_group: Working group
       index:
         title: Assemblies

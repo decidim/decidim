@@ -2,7 +2,7 @@
 
 def visit_edit_diplomas_page
   within ".secondary-nav" do
-    page.click_link "Diploma"
+    page.click_link "Certificate of Attendance"
   end
 end
 
@@ -46,12 +46,12 @@ shared_examples "manage diplomas" do
         it "can send the diplomas" do
           within ".card-title" do
             expect(page).to have_selector("#send-diplomas")
-            expect(page).to have_content("SEND DIPLOMAS")
+            expect(page).to have_content("SEND CERTIFICATES OF ATTENDANCE")
           end
         end
 
         it "is successfully created" do
-          click_link "Send Diplomas"
+          click_link "Send certificates of attendance"
           expect(page).to have_admin_callout("correctly")
         end
       end
@@ -70,7 +70,7 @@ shared_examples "manage diplomas" do
           visit_edit_diplomas_page
           within ".card-title" do
             expect(page).to have_selector("#send-diplomas.disabled")
-            expect(page).to have_content("SEND DIPLOMAS")
+            expect(page).to have_content("SEND CERTIFICATES OF ATTENDANCE")
           end
         end
       end
@@ -84,7 +84,7 @@ shared_examples "manage diplomas" do
         visit_edit_diplomas_page
         within ".card-title" do
           expect(page).not_to have_selector("#send-diplomas")
-          expect(page).not_to have_content("SEND DIPLOMAS")
+          expect(page).not_to have_content("SEND CERTIFICATES OF ATTENDANCE")
         end
       end
     end

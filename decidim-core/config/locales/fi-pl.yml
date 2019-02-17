@@ -778,9 +778,6 @@ fi-pl:
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
-    notification_mailer:
-      shared:
-        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
