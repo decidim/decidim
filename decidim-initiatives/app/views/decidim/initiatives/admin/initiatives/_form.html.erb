@@ -18,7 +18,7 @@
                         initiative_type_options,
                         {},
                         {
-                          disabled: true,
+                          disabled: !@form.signature_type_updatable?,
                           "data-scope-selector": "initiative_decidim_scope_id",
                           "data-scope-id": current_initiative.scope.id,
                           "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url
@@ -26,7 +26,7 @@
       </div>
 
       <div class="columns xlarge-6">
-        <%= form.select :decidim_scope_id, [], {}, { disabled: true } %>
+        <%= form.select :decidim_scope_id, [], {}, { disabled: !@form.signature_type_updatable? } %>
       </div>
     </div>
 
