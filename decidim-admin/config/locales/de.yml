@@ -220,10 +220,6 @@ de:
           error: Beim Aktualisieren dieser Kategorie ist ein Fehler aufgetreten.
           success: Die Kategorie wurde erfolgreich aktualisiert.
       component_permissions:
-        edit:
-          everyone: Jeder
-          submit: Berechtigungen speichern
-          title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
       components:
@@ -536,6 +532,12 @@ de:
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
+      resource_permissions:
+        edit:
+          submit: einreichen
+          title: Berechtigungen bearbeiten
+        update:
+          success: Berechtigungen wurden erfolgreich aktualisiert.
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -615,9 +617,9 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
-        impersonatable_users: Impersonable Benutzer
-        impersonations: Identitätswechsel
-        participants: Teilnehmer
+        impersonatable_users: Überschaubare Benutzer
+        impersonations: Benutzerverwaltung
+        participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten

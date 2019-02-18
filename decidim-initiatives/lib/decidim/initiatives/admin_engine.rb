@@ -15,6 +15,7 @@ module Decidim
 
       routes do
         resources :initiatives_types, except: :show do
+          resource :permissions, controller: "initiatives_types_permissions"
           resources :initiatives_type_scopes, except: [:index, :show]
         end
 
@@ -25,6 +26,7 @@ module Decidim
             delete :unpublish
             delete :discard
             get :export_votes
+            get :export_pdf_signatures
             post :accept
             delete :reject
           end

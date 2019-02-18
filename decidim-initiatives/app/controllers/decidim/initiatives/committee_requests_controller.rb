@@ -20,7 +20,10 @@ module Decidim
       def spawn
         enforce_permission_to :request_membership, :initiative, initiative: current_initiative
 
-        SpawnCommitteeRequest.call(current_initiative, current_user) do
+        form = Decidim::Initiatives::CommitteeMemberForm
+               .from_params(initiative_id: current_initiative.id, user_id: current_user.id, state: "requested")
+
+        SpawnCommitteeRequest.call(form, current_user) do
           on(:ok) do
             redirect_to initiatives_path, flash: {
               notice: I18n.t(

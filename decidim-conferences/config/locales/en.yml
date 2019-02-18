@@ -50,7 +50,7 @@ en:
       actions:
         confirm: Confirm
         new_conference: New Conference
-        send_diplomas: Send Diplomas
+        send_diplomas: Send certificates of attendance
       conference_copies:
         new:
           copy: Copy
@@ -152,7 +152,7 @@ en:
           conference_admins: Conference users
           conference_invites: Invites
           conference_speakers: Speakers
-          diploma: Diploma
+          diploma: Certificate of Attendance
           info: Info
           media_links: Media Links
           moderations: Moderations
@@ -250,10 +250,10 @@ en:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
         publish: "%{user_name} published the %{resource_name} conference"
-        send_conference_diplomas: "%{user_name} send diplomas to the %{resource_name} conference users"
+        send_conference_diplomas: "%{user_name} sent certificates of attendance to the %{resource_name} conference atendees"
         unpublish: "%{user_name} unpublished the %{resource_name} conference"
         update: "%{user_name} updated the %{resource_name} conference"
-        update_diploma: "%{user_name} updated the diploma configuration %{resource_name} conference"
+        update_diploma: "%{user_name} updated the certificates of attendance configuration for %{resource_name} conference"
       conference_speaker:
         create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
         delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
@@ -334,7 +334,7 @@ en:
         diplomas:
           edit:
             save: Save
-            title: Diploma
+            title: Certificate of Attendance
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
@@ -350,14 +350,14 @@ en:
             title: Registration types
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: You will be find the diploma for the conference <a href="%{url}">%{title}</a> in the attachments.
+            diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
           diploma_user:
             attendance_verified_by: Attendance verified by
             certificate_of_attendance: Certificate of Attendance
             certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: There's been a problem while sending the conference diplomas.
-          success: Conference Diplomas sent correctly
+          error: There's been a problem while sending the conference certificates of attendance.
+          success: Conference certificates of attendance sent correctly
       conference:
         registration_confirm:
           cancel: Cancel
@@ -433,7 +433,7 @@ en:
             subject: Invitation to join a conference
         send_conference_diploma_mailer:
           diploma:
-            subject: Your conference's diploma has been sent
+            subject: Your conference certificate of attendance has been sent
       models:
         conference_invite:
           fields:

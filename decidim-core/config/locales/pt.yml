@@ -153,11 +153,11 @@ pt:
           help_text: Revise as alterações e aceite ou rejeite esta emenda. Uma notificação será enviada para seu (s) autor (es).
         announcement:
           accepted: |-
-            Esta emenda para o %{amendable_type} %{amendable_link} foi
+            Esta alteração para o %{amendable_type} %{amendable_link} foi
             aceito em <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Esta é uma emendação para o %{amendable_type} %{amendable_link}
-            está sendo avaliado.
+            Esta emenda para o %{amendable_type} %{amendable_link}
+            está sendo avaliada.
           rejected: |-
             Esta emenda para o %{amendable_type} %{amendable_link}
             foi rejeitada em <strong>%{announcement_date}</strong>.
@@ -180,7 +180,7 @@ pt:
         back: De volta
         heading: Revise a emenda
         help_text: Você está alterando o %{model_name}
-        send: Aceitar emendação
+        send: Aceitar alteração
     anonymous_user: Anônimo
     application:
       collection:
@@ -741,7 +741,7 @@ pt:
       download:
         csv: Download de dados (csv)
       followers:
-        description: Número de usuário que segue em organização
+        description: Número de usuários que seguem este espaço de participação
         object: seguidores
         title: Seguidores
       participants:

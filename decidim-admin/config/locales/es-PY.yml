@@ -220,10 +220,6 @@ es-PY:
           error: Se ha producido un error al actualizar esta categoría.
           success: Categoría actualizada correctamente.
       component_permissions:
-        edit:
-          everyone: Todo el mundo
-          submit: Guardar permisos
-          title: Editar permisos
         update:
           success: Permisos actualizados con éxito.
       components:
@@ -536,6 +532,12 @@ es-PY:
         new:
           create: Crear
           title: Nuevo usuario privado en el espacio participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permisos
+        update:
+          success: Permisos actualizados con éxito.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -615,9 +617,9 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
-        impersonatable_users: Usuarios impersonables
-        impersonations: Suplantaciones
-        participants: Participantes
+        impersonatable_users: Usuarios manejables
+        impersonations: Gestion de usuarios
+        participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

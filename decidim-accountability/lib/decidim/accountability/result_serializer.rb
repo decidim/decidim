@@ -6,6 +6,7 @@ module Decidim
     # formats.
     class ResultSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
+      include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a result.
       def initialize(result)
@@ -18,11 +19,11 @@ module Decidim
           id: result.id,
           category: {
             id: result.category.try(:id),
-            name: result.category.try(:name)
+            name: result.category.try(:name) || empty_translatable
           },
           scope: {
             id: result.scope.try(:id),
-            name: result.scope.try(:name)
+            name: result.scope.try(:name) || empty_translatable
           },
           parent: {
             id: result.parent.try(:id)
@@ -34,7 +35,7 @@ module Decidim
           status: {
             id: result.status.try(:id),
             key: result.status.try(:key),
-            name: result.status.try(:name)
+            name: result.status.try(:name) || empty_translatable
           },
           progress: result.progress,
           created_at: result.created_at,

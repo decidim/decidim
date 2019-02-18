@@ -82,6 +82,13 @@ shared_examples "create an initiative" do
           end
         end
       end
+
+      it "adds the author as committee member in accepted state" do
+        command.call
+        initiative = Decidim::Initiative.last
+
+        expect(initiative.committee_members.accepted.where(user: author)).to exist
+      end
     end
   end
 end

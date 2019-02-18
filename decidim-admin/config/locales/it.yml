@@ -220,10 +220,6 @@ it:
           error: Si è verificato un errore aggiornando questa categoria.
           success: OK, la categoria è stata aggiornata.
       component_permissions:
-        edit:
-          everyone: Tutti
-          submit: Salva permessi
-          title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
       components:
@@ -536,6 +532,12 @@ it:
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+      resource_permissions:
+        edit:
+          submit: Sottoscrivi
+          title: Modifica permessi
+        update:
+          success: Autorizzazioni aggiornate correttamente.
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -615,9 +617,9 @@ it:
         areas: le zone
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Utenti impersonabili
-        impersonations: impersonations
-        participants: I partecipanti
+        impersonatable_users: Utenti gestibili
+        impersonations: Gestione degli utenti
+        participants: utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine

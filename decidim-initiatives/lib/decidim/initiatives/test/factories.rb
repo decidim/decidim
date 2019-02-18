@@ -10,6 +10,8 @@ FactoryBot.define do
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
     online_signature_enabled { true }
+    undo_online_signatures_enabled { true }
+    minimum_committee_members { 3 }
 
     trait :online_signature_enabled do
       online_signature_enabled { true }
@@ -18,12 +20,33 @@ FactoryBot.define do
     trait :online_signature_disabled do
       online_signature_enabled { false }
     end
+
+    trait :undo_online_signatures_enabled do
+      undo_online_signatures_enabled { true }
+    end
+
+    trait :undo_online_signatures_disabled do
+      undo_online_signatures_enabled { false }
+    end
+
+    trait :with_user_extra_fields_collection do
+      collect_user_extra_fields { true }
+      extra_fields_legal_information { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    end
+
+    trait :with_sms_code_validation do
+      validate_sms_code_on_votes { true }
+    end
   end
 
   factory :initiatives_type_scope, class: Decidim::InitiativesTypeScope do
     type { create(:initiatives_type) }
     scope { create(:scope, organization: type.organization) }
     supports_required { 1000 }
+
+    trait :with_user_extra_fields_collection do
+      type { create(:initiatives_type, :with_user_extra_fields_collection) }
+    end
   end
 
   factory :initiative, class: Decidim::Initiative do
@@ -102,6 +125,13 @@ FactoryBot.define do
 
       after(:build) do |initiative|
         initiative.initiative_votes_count = initiative.scoped_type.supports_required - 1
+      end
+    end
+
+    trait :with_user_extra_fields_collection do
+      scoped_type do
+        create(:initiatives_type_scope,
+               type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization))
       end
     end
   end

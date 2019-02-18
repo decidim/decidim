@@ -2,6 +2,7 @@ en:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Address
         body: Body
         category_id: Category
         decidim_scope_id: Scope
@@ -10,6 +11,7 @@ en:
         title: Title
         user_group_id: Create collaborative draft as
       proposal:
+        address: Address
         answer: Answer
         answered_at: Answered at
         automatic_hashtags: Hashtags automatically added
@@ -289,13 +291,16 @@ en:
             name: Proposal
         participatory_texts:
           bulk-actions:
+            are_you_sure: Are you sure to discard the whole participatory text draft?
             import_doc: Import document
+            discard_all: Discard all
           import:
             invalid: The form is invalid!
             success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
           index:
             info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
             publish_document: Publish document
+            save_draft: Save draft
             title: PREVIEW PARTICIPATORY TEXT
           new_import:
             bottom_hint: "(You will be able to preview and sort document sections)"
@@ -305,10 +310,14 @@ en:
           publish:
             invalid: Could not publish proposals
             success: All proposals have been published
+          discard:
+            success: All Participatory text drafts have been discarded.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsection:</em> %{title}"
+          update:
+            success: Participatory text updated successfully.
         proposal_answers:
           edit:
             accepted: Accepted

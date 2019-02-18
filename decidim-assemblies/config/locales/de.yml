@@ -258,15 +258,14 @@ de:
         others: Andere
         public: Öffentlichkeit
       filter:
-        all: Alles
+        all: Alle Arten von Baugruppen
         commission: Kommission
         consultative_advisory: Beratung / Beratung
         executive: Executive
         government: Regierung
-        label: 'Show:'
+        help: 'Show:'
         others: Andere
         participatory: Partizipativ
-        placeholder: Filtern Sie nach Typ
         working_group: Arbeitsgruppe
       index:
         title: Baugruppen

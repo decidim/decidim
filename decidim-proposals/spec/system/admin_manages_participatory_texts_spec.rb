@@ -66,26 +66,47 @@ describe "Admin manages particpatory texts", type: :system do
       "A co-creation process to create creative creations",
       "1", "2",
       "Creative consensus for the Creation",
-      "3", "4",
+      "3", "4", "5",
       "Creation accountability",
-      "5",
-      "What should be accounted",
       "6",
+      "What should be accounted",
+      "7", "8",
       "Following up accounted results",
-      "7", "8", "9", "10",
+      "9", "10", "11", "12", "13",
       "Summary",
-      "11"
+      "14", "15"
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
     expect(proposals.published.order(:position).pluck(:title)).to eq(titles)
   end
 
+  def edit_participatory_text_body(index, new_body)
+    fill_in(
+      "preview_participatory_text_proposals_attributes_#{index}_body",
+      with: new_body
+    )
+  end
+
+  def save_participatory_text_drafts
+    click_button "Save draft"
+    expect(page).to have_content "Participatory text updated successfully."
+    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+  end
+
+  def discard_participatory_text_drafts
+    page.accept_alert "Are you sure to discard the whole participatory text draft?" do
+      click_link "Discard all"
+    end
+    expect(page).to have_content "All Participatory text drafts have been discarded."
+    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
+  end
+
   describe "importing partipatory texts from a document" do
     it "creates proposals" do
       visit_participatory_texts
       import_document
-      validate_occurrences(sections: 2, subsections: 5, articles: 11)
+      validate_occurrences(sections: 2, subsections: 5, articles: 15)
       move_some_sections
       publish_participatory_text
       validate_published
@@ -93,11 +114,52 @@ describe "Admin manages particpatory texts", type: :system do
   end
 
   describe "accessing participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, component: current_component }
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "section" }
 
     it "renders only draft proposals" do
       visit_participatory_texts
+      validate_occurrences(sections: 1, subsections: 0, articles: 0)
+    end
+  end
+
+  describe "discarding participatory texts in draft mode" do
+    let!(:proposals) { create_list(:proposal, 5, :draft, component: current_component, participatory_text_level: "article") }
+
+    it "removes all proposals in draft mode" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 5)
+      discard_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 0)
+    end
+  end
+
+  describe "updating participatory texts in draft mode" do
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+
+    it "persists changes and all proposals remain as drafts" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      edit_participatory_text_body(0, new_body)
+      save_participatory_text_drafts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      proposal.reload
+      expect(proposal.body.delete("\r")).to eq(new_body)
+    end
+  end
+
+  describe "updating participatory texts in draft mode" do
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+
+    it "persists changes and all proposals remain as drafts" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      edit_participatory_text_body(0, new_body)
+      save_participatory_text_drafts
+      validate_occurrences(sections: 0, subsections: 0, articles: 1)
+      proposal.reload
+      expect(proposal.body.delete("\r")).to eq(new_body)
     end
   end
 end

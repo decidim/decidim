@@ -26,8 +26,20 @@ it:
         user: membro del Comitato
       initiatives_type:
         banner_image: Immagine banner
+        collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         description: Descrizione
+        document_number_authorization_handler: Autorizzazione a verificare il numero del documento sui voti
+        extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
+        minimum_committee_members: Minimo dei membri del comitato
+        online_signature_enabled: Firma online abilitata
         title: Titolo
+        undo_online_signatures_enabled: Consenti agli utenti di annullare le loro firme online
+        validate_sms_code_on_votes: Aggiungi il passaggio di convalida del codice SMS al processo di firma
+      initiatives_vote:
+        name_and_surname: Nome e cognome
+        document_number: Numero del documento
+        date_of_birth: Data di nascita
+        postal_code: Codice postale
       organization_data:
         address: Indirizzo
         id_document: Documento di identità
@@ -68,6 +80,20 @@ it:
             created_at: Creato a
             title: Tipi di iniziativa
           name: Tipo di iniziativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data di nascita
+            document_number: Numero del documento
+            hash: hash
+            initiative_end_date: Data di fine
+            initiative_id: ID di iniziativa
+            initiative_signatures_count: Numero di firme
+            initiative_start_date: Data d'inizio
+            initiative_title: Titolo dell'iniziativa
+            name_and_surname: Nome e cognome
+            postal_code: Codice postale
+            time_and_date: Ora e data
+            timestamp: timestamp
       titles:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -126,6 +152,7 @@ it:
             accept: Accetta l'iniziativa
             confirm: Sei sicuro?
             discard: Scartare l'iniziativa
+            export_pdf_signatures: Esporta PDF di firme
             export_votes: Supporti di esportazione
             reject: Rifiuta l'iniziativa
             send_to_technical_validation: Invia a convalida tecnica
@@ -241,7 +268,7 @@ it:
           more_information: "(Maggiori informazioni)"
         promotal_committee:
           back: Indietro
-          individual_help_text: Le iniziative dei cittadini richiedono una Commissione di promozione composta da almeno tre persone (gli attestati). È necessario condividere il seguente collegamento con le altre persone che fanno parte di questa iniziativa. Quando i tuoi contatti riceveranno questo link dovranno seguire i passaggi indicati.
+          individual_help_text: Questo tipo di iniziativa dei cittadini richiede una commissione di promozione composta da almeno %{committee_size} persone (gli attestati). È necessario condividere il seguente collegamento con le altre persone che fanno parte di questa iniziativa. Quando i tuoi contatti riceveranno questo link dovranno seguire i passaggi indicati.
           more_information: "(Maggiori informazioni)"
         select_initiative_type:
           back: Indietro
@@ -269,9 +296,29 @@ it:
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata approvata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: iniziative
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continua
+          help: Per favore, compila i seguenti campi con i tuoi dati personali per firmare l'iniziativa
+        finish:
+          back_to_initiative: Ritorno all'iniziativa
+        sms_phone_number:
+          continue: Mandami un sms
+          help: Compila il modulo con il tuo numero di telefono verificato per richiedere il codice di verifica
+        sms_code:
+          continue: Controlla il codice e continua
+          help: Controlla gli SMS ricevuti sul tuo telefono
       initiative_votes:
         create:
           error: Ci sono stati degli errori durante la firma dell'iniziativa.
+          invalid: I dati forniti per firmare l'iniziativa non sono validi
+          success_html: Congratulazioni! L'iniziativa <strong> %{title}</strong> è stata firmata correttamente
+        personal_data:
+          invalid: I dati personali non sono coerenti con i dati forniti per l'autorizzazione.
+        sms_code:
+          invalid: Il tuo codice di verifica non corrisponde al nostro. Si prega di ricontrollare gli SMS che ti abbiamo inviato.
+        sms_phone:
+          invalid: Il numero di telefono non è valido o è in attesa di autorizzazione. Per favore, controlla le tue autorizzazioni.
       initiatives:
         author:
           deleted: eliminata
@@ -327,6 +374,7 @@ it:
         vote_cabin:
           already_voted: Già firmato
           supports_required: "%{total_supports} firme richieste"
+          verification_required: Verifica la tua identità per firmare l'iniziativa
           vote: Cartello
           votes_blocked: Firma disabilitata
         votes_count:
@@ -359,6 +407,11 @@ it:
       unavailable_scope: Ambito non disponibile
     menu:
       initiatives: iniziative
+    resources:
+      initiatives_type:
+        actions:
+          vote: Votazione
+          title: Azioni
   layouts:
     decidim:
       admin:
@@ -378,6 +431,17 @@ it:
         title: Crea una nuova iniziativa
       initiative_header:
         initiative_menu_item: Iniziativa
+      initiative_signature_creation_header:
+        back: Indietro
+        fill_personal_data: Completa i tuoi dati
+        finish: finire
+        finished: Firma dell'iniziativa creata
+        select_identity: Seleziona identità
+        see_steps: vedere i passaggi
+        sms_code: Verifica del codice SMS
+        sms_phone_number: Numero di cellulare
+        step: Passaggio %{current} di %{total}
+        title: Iscriviti %{initiative_title}
       initiatives:
         initiative:
           check: Controlla

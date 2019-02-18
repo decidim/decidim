@@ -2,6 +2,7 @@ nl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adres
         body: Lichaam
         category_id: Categorie
         decidim_scope_id: strekking
@@ -10,6 +11,7 @@ nl:
         title: Titel
         user_group_id: Creëer samenwerkingsconcept als
       proposal:
+        address: Adres
         answer: Antwoord
         answered_at: Beantwoord op
         automatic_hashtags: Hashtags worden automatisch toegevoegd
@@ -289,13 +291,16 @@ nl:
             name: Voorstel
         participatory_texts:
           bulk-actions:
+            are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
             import_doc: Document importeren
+            discard_all: Gooi alles weg
           import:
             invalid: Het formulier is ongeldig!
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
           index:
             info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
             publish_document: Publiceer document
+            save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
           new_import:
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
@@ -305,10 +310,14 @@ nl:
           publish:
             invalid: Kan voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
+          discard:
+            success: Alle participatieve tekstconcepten zijn genegeerd.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
             sub-section: "<em>Onderafdeling:</em> %{title}"
+          update:
+            success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           edit:
             accepted: Aanvaard

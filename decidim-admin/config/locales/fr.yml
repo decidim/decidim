@@ -220,10 +220,6 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       component_permissions:
-        edit:
-          everyone: Tout le monde
-          submit: Enregistrer les autorisations
-          title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
       components:
@@ -536,6 +532,12 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      resource_permissions:
+        edit:
+          submit: Soumettre
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
@@ -615,9 +617,9 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs représentés
-        impersonations: Représentations d'utilisateurs
-        participants: Participants
+        impersonatable_users: Utilisateurs gérables
+        impersonations: Gestion des utilisateurs
+        participants: Utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
         static_pages: Pages

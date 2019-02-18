@@ -220,10 +220,6 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av den här kategorin.
           success: Kategori uppdaterad framgångsrikt.
       component_permissions:
-        edit:
-          everyone: Alla
-          submit: Spara behörigheter
-          title: Redigera behörigheter
         update:
           success: Tillstånd uppdaterade framgångsrikt.
       components:
@@ -536,6 +532,12 @@ sv:
         new:
           create: Skapa
           title: Ny deltagande utrymme privat användare.
+      resource_permissions:
+        edit:
+          submit: Lämna
+          title: Redigera behörigheter
+        update:
+          success: Tillstånd uppdaterade framgångsrikt.
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.
@@ -615,9 +617,9 @@ sv:
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
-        impersonatable_users: Impersonatable användare
-        impersonations: impersonations
-        participants: Deltagarna
+        impersonatable_users: Hanterbara användare
+        impersonations: Användarhantering
+        participants: användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor

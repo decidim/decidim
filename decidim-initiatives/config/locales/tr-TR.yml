@@ -26,8 +26,20 @@ tr:
         user: Komite Üyesi
       initiatives_type:
         banner_image: Banner resmi
+        collect_user_extra_fields: İmzada kullanıcının kişisel verilerini topla
         description: Açıklama
+        document_number_authorization_handler: Oylamada belge numarasını doğrulama yetkisi
+        extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
+        minimum_committee_members: Minimum komite üyesi
+        online_signature_enabled: Çevrimiçi imza etkin
         title: Başlık
+        undo_online_signatures_enabled: Kullanıcıların çevrimiçi imzalarını geri almalarını sağlama
+        validate_sms_code_on_votes: İmza işlemine SMS kodu doğrulama adımı ekleme
+      initiatives_vote:
+        name_and_surname: Ad ve soyadı
+        document_number: Belge Numarası
+        date_of_birth: Doğum tarihi
+        postal_code: Posta kodu
       organization_data:
         address: Adres
         id_document: Kimlik belgesi
@@ -68,6 +80,20 @@ tr:
             created_at: Düzenlendi
             title: Girişim türleri
           name: Girişimi tipi
+        initiatives_votes:
+          fields:
+            date_of_birth: Doğum tarihi
+            document_number: Belge Numarası
+            hash: esrar
+            initiative_end_date: Bitiş tarihi
+            initiative_id: Girişim Kimliği
+            initiative_signatures_count: İmza sayısı
+            initiative_start_date: Başlangıç tarihi
+            initiative_title: Girişim başlığı
+            name_and_surname: Ad ve soyadı
+            postal_code: Posta kodu
+            time_and_date: Saat ve tarih
+            timestamp: Zaman Damgası
       titles:
         initiatives: Girişimler
         initiatives_types: Girişim türleri
@@ -126,6 +152,7 @@ tr:
             accept: Girişimi kabul et
             confirm: Emin misiniz?
             discard: Girişimi atın
+            export_pdf_signatures: İmza PDF'sini dışa aktar
             export_votes: İhracat destekleri
             reject: Girişimi reddet
             send_to_technical_validation: Teknik doğrulamaya gönder
@@ -241,7 +268,7 @@ tr:
           more_information: "(Daha fazla bilgi)"
         promotal_committee:
           back: Geri
-          individual_help_text: Vatandaş girişimleri, en az üç kişiden oluşan bir Teşvik Komisyonu (vekilleri) gerektirir. Aşağıdaki bağlantıyı, bu girişimin parçası olan diğer kişilerle paylaşmalısınız. Kişileriniz bu bağlantıyı aldığında, belirtilen adımları izlemelidirler.
+          individual_help_text: Bu tür bir vatandaş girişimi, en az %{committee_size} kişiden (avukatlar) oluşan bir Tanıtım Komisyonu gerektirir. Aşağıdaki bağlantıyı bu girişimin bir parçası olan diğer kişilerle paylaşmanız gerekir. Kişileriniz bu bağlantıyı aldıklarında, belirtilen adımları izlemeleri gerekecektir.
           more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
@@ -269,9 +296,29 @@ tr:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından onaylandı.
       index:
         title: Girişimler
+      initiative_signatures:
+        fill_personal_data:
+          continue: Devam et
+          help: Lütfen girişimi imzalamak için aşağıdaki alanları kişisel verilerinizle doldurun
+        finish:
+          back_to_initiative: Girişime geri dön
+        sms_phone_number:
+          continue: Bana bir sms gönder
+          help: Doğrulama kodunuzu istemek için formu doğrulanmış telefon numaranızla doldurun
+        sms_code:
+          continue: Kodu kontrol et ve devam et
+          help: Telefonunuza gelen SMS’leri kontrol edin.
       initiative_votes:
         create:
           error: Girişimi imzalarken hatalar oldu.
+          invalid: Girişimi imzalamak için sağlanan veriler geçerli değil
+          success_html: Tebrikler! <strong> %{title}</strong> girişimi doğru imzalandı
+        personal_data:
+          invalid: Kişisel veriler yetkilendirme için verilen verilerle tutarlı değildir.
+        sms_code:
+          invalid: Doğrulama kodunuz bizimkilerle eşleşmiyor. Lütfen size gönderdiğimiz SMS’i iki kez kontrol edin.
+        sms_phone:
+          invalid: Telefon numarası geçersiz veya izin bekliyor. Lütfen yetkilerini kontrol et.
       initiatives:
         author:
           deleted: silindi
@@ -327,6 +374,7 @@ tr:
         vote_cabin:
           already_voted: Zaten imzalanmış
           supports_required: "%{total_supports} imza gerekli"
+          verification_required: Girişimi imzalamak için kimliğinizi doğrulayın
           vote: İşaret
           votes_blocked: İmzalama devre dışı
         votes_count:
@@ -359,6 +407,11 @@ tr:
       unavailable_scope: Kullanılamayan kapsam
     menu:
       initiatives: Girişimler
+    resources:
+      initiatives_type:
+        actions:
+          vote: Oy
+          title: Eylemler
   layouts:
     decidim:
       admin:
@@ -378,6 +431,17 @@ tr:
         title: Yeni girişim oluştur
       initiative_header:
         initiative_menu_item: girişim
+      initiative_signature_creation_header:
+        back: Geri
+        fill_personal_data: Verilerinizi tamamlayın
+        finish: Bitiş
+        finished: Girişim imzası oluşturuldu
+        select_identity: Kimlik seç
+        see_steps: adımları gör
+        sms_code: SMS kodu doğrulama
+        sms_phone_number: cep telefonu numarası
+        step: Aşama %{current} arasında %{total}
+        title: İşaret %{initiative_title}
       initiatives:
         initiative:
           check: Buna bir bak

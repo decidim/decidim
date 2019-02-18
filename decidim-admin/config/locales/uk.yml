@@ -203,10 +203,6 @@ uk:
           error: При спробі оновити цю категорію сталася помилка.
           success: Категорію успішно оновлено.
       component_permissions:
-        edit:
-          everyone: Будь-хто
-          submit: Зберегти права доступу
-          title: Редагувати права доступу
         update:
           success: Права доступу успішно оновлено.
       components:
@@ -508,6 +504,9 @@ uk:
         new:
           create: Додати
           title: Додати приватного учасника простору співучасті.
+      resource_permissions:
+        edit:
+          title: Редагувати права доступу
       scope_types:
         create:
           error: При спробі створити новий різновид обсягу сталася помилка.
@@ -564,8 +563,6 @@ uk:
         areas: Дільниці
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
-        impersonatable_users: Учасники, в ролі яких можна виступати
-        impersonations: Виступи в ролі учасника
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки
