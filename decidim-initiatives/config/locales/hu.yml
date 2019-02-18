@@ -28,7 +28,7 @@ hu:
         banner_image: Banner kép
         collect_user_extra_fields: Személyes adatok gyűjtése az aláíráskor
         description: Leírás
-        document_number_authorization_handler: Engedélyezés a dokumentum számának ellenőrzésére a szavazatokon
+        document_number_authorization_handler: A dokumentum számának ellenőrzésének engedélyezése a szavazatokon
         extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
         minimum_committee_members: Bizottsági tagok minimális száma
         online_signature_enabled: Online aláírás engedélyezve
@@ -268,7 +268,7 @@ hu:
           more_information: "(További információk)"
         promotal_committee:
           back: Vissza
-          individual_help_text: Az ilyen jellegű polgári kezdeményezéshez legalább %{committee_size} főből álló tanácsadó bizottság szükséges. A következő linket meg kell osztania a többi emberrel, akik e kezdeményezés részét képezik. Amikor a kapcsolattartók ezt a linket kapják, követniük kell a megadott lépéseket.
+          individual_help_text: Az ilyen jellegű polgári kezdeményezéshez legalább %{committee_size} főből álló bizottság szükséges. A következő linket meg kell osztania a többi emberrel, akik e kezdeményezés részét képezik. Amikor a kapcsolattartók ezt a linket kapják, követniük kell a megadott lépéseket.
           more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
@@ -434,8 +434,8 @@ hu:
       initiative_signature_creation_header:
         back: Vissza
         fill_personal_data: Add meg az adataidat
-        finish: Befejez
-        finished: Létrehozott kezdeményezési aláírás
+        finish: Befejezés
+        finished: Kezdeményezés aláírása létrehozva
         select_identity: Válasszon identitást
         see_steps: lásd a lépéseket
         sms_code: SMS-kód ellenőrzése
