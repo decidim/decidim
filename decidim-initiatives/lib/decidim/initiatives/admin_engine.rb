@@ -50,6 +50,14 @@ module Decidim
             end
             resources :exports, only: :create
           end
+
+          resources :moderations do
+            member do
+              put :unreport
+              put :hide
+              put :unhide
+            end
+          end
         end
 
         scope "/initiatives/:initiative_slug/components/:component_id/manage" do
