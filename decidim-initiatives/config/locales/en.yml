@@ -13,6 +13,7 @@ en:
           any: Mixed
           offline: Face to face
           online: OnLine
+        state: State
         title: Title
       initiative_author:
         address: Address

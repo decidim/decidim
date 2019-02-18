@@ -52,7 +52,7 @@ module Decidim
 
       def search_initiative_types_and_scopes?
         return unless permission_action.action == :search
-        return unless [:initiative_type, :initiative_type_scope].include?(permission_action.subject)
+        return unless [:initiative_type, :initiative_type_scope, :initiative_type_signature_types].include?(permission_action.subject)
 
         allow!
       end
