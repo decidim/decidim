@@ -14,6 +14,8 @@ module Decidim
     #
     class DocToMarkdown
       MARKDOWN_MIME_TYPE = "text/markdown"
+      # sometimes markdown documents are classified as text/plain
+      TEXT_PLAIN_MIME_TYPE = "text/plain"
       ODT_MIME_TYPE = "application/vnd.oasis.opendocument.text"
       DOCX_MIME_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 

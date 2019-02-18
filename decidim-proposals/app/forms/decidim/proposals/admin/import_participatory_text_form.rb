@@ -30,7 +30,8 @@ module Decidim
         end
 
         def accepted_mime_type
-          return if ACCEPTED_MIME_TYPES.has_value?(document_type)
+          accepted_mime_types = ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE]
+          return if accepted_mime_types.include?(document_type)
 
           errors.add(:document,
                      I18n.t("activemodel.errors.models.participatory_text.attributes.document.invalid_document_type",
