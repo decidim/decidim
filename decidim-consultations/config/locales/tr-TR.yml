@@ -47,6 +47,9 @@ tr:
       decidim/consultations/response:
         one: Tepki
         other: Tepkiler
+      decidim/consultations/vote:
+        one: Oy
+        other: oy
   decidim:
     admin:
       actions:
@@ -245,7 +248,7 @@ tr:
       participatory_spaces:
         consultations:
           contextual: "<p>İstişareler, bir organizasyon oluşturan tüm kişilere net bir soru sormanızı, görüşmelere katılmak için bir çağrı yapmanızı, bir sorgunun lehine veya aleyhinde tartışma başlatmanızı ve talep etmenizi sağlayan bir alandır. Danışma tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir örgütü etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler, organizasyonun adını veya logosunu çeşitli alternatifler sunarak değiştirir, daha büyük bir organizasyonun parçası olmak için Evet veya Hayır'a karar verir, yeni bir stratejikin geçerliliğini onaylar veya reddeder. Bir çalışma grubunun sonucu veya planı veya pozisyonların en fazla 1, 2 veya 3 mandat kalması gerekip gerekmediğini tanımlamak.</p>\n"
-          page: "<p>İstişareler, bir organizasyon oluşturan tüm kişilere net bir soru sormanızı, görüşmelere katılmak için bir çağrı yapmanızı, bir sorgunun lehine veya aleyhinde tartışma başlatmanızı ve talep etmenizi sağlayan bir alandır. Danışma tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir örgütü etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler, organizasyonun adını veya logosunu çeşitli alternatifler sunarak değiştirir, daha büyük bir organizasyonun parçası olmak için Evet veya Hayır'a karar verir, yeni bir stratejikin geçerliliğini onaylar veya reddeder. Bir çalışma grubunun sonucu veya planı veya pozisyonların en fazla 1, 2 veya 3 mandat kalması gerekip gerekmediğini tanımlamak. Organizasyonda</p>ard.</p>\n"
+          page: "<p>İstişareler, bir örgütü oluşturan herkese açık bir soru sormanıza, istişareye katılmak için bir çağrı yapmanıza, bir yanıtı yanıtlamaya ya da aleyhine tartışmaya yol açmanıza izin veren bir alandır. İstişare tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir kuruluşu etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler daha büyük bir kuruluşun parçası olmak için Evet veya Hayır olarak karar vermek, yeni bir stratejik onaylamak veya reddetmek için çeşitli alternatifler sunan kuruluşun adını veya logosunu değiştiriyor Bir çalışma grubunun planını veya sonucunu ya da pozisyonların organizasyonda azami 1, 2 veya 3 zorunlu kalması gerekip gerekmediğini tanımlayın.</p>\n"
           title: Danışmalar nelerdir?
     menu:
       consultations: istişareler

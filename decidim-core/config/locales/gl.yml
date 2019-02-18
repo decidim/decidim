@@ -153,23 +153,23 @@ gl:
           help_text: Revisa os cambios e acepta ou rexeita esta modificación. Enviarase unha notificación aos seus autores.
         announcement:
           accepted: |-
-            Esta emenda ao %{amendable_type} %{amendable_link} foi
+            Este cambio ao %{amendable_type} %{amendable_link} foi
             aceptado en <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Esta é unha emenda para que o %{amendable_type} %{amendable_link}
-            estea a ser evaluado.
+            Esta enquisa para o %{amendable_type} %{amendable_link}
+            está sendo avaliada.
           rejected: |-
             Esta modificación do %{amendable_type} %{amendable_link}
             foi rexeitada en <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Esta autorización foi retirada por esta autorización para o %{amendable_type} %{amendable_link}
+            Esta autorización foi retirada esta enmenda do %{amendable_type} %{amendable_link}
             .
       new:
         amendment_author: Autor da emenda
         back: De volta
         heading: Crea a túa emenda
         help_text: Está a modificar o %{model_name}
-        send: Enviar emenda
+        send: Enviar a emenda
       rejected:
         error: Produciuse un erro ao rexeitar esta emenda, téntao de novo máis tarde
         success: A emenda foi rexeitada con éxito
@@ -180,7 +180,7 @@ gl:
         back: De volta
         heading: Revisa a modificación
         help_text: Está a modificar o %{model_name}
-        send: Acepte a modificación
+        send: Aceptar a emenda
     anonymous_user: Anónimo
     application:
       collection:
@@ -741,7 +741,7 @@ gl:
       download:
         csv: Descargar datos (csv)
       followers:
-        description: Número de usuarios que seguen na organización
+        description: Número de usuarios que seguen este espazo de participación
         object: seguidores
         title: Seguidores
       participants:

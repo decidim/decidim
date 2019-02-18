@@ -2,6 +2,7 @@ hu:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Cím
         body: Szöveg
         category_id: Kategória
         decidim_scope_id: Hatáskör
@@ -10,6 +11,7 @@ hu:
         title: Cím
         user_group_id: Közösen szerkesztett vázlat
       proposal:
+        address: Cím
         answer: Válasz
         answered_at: 'Megválaszolva:'
         automatic_hashtags: Hashtags automatikusan hozzáadva
@@ -289,13 +291,16 @@ hu:
             name: Javaslat
         participatory_texts:
           bulk-actions:
+            are_you_sure: Biztosan eldobja az egész részvételi szövegtervezetet?
             import_doc: Dokumentum importálása
+            discard_all: Eldobja az összeset
           import:
             invalid: Az űrlap érvénytelen!
             success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
           index:
             info_1: Az importált dokumentumból az alábbi részek kerültek feldolgozásra, amelyek javaslatokká lettek alakítva. Mostantól megtekintheted és módosíthatod, amire szükséged van a közzététel előtt.
             publish_document: Dokumentum közzététele
+            save_draft: Piszkozat mentése
             title: RÉSZTVEVŐ SZÖVEG előnézete
           new_import:
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
@@ -305,10 +310,14 @@ hu:
           publish:
             invalid: Nem sikerült közzé tenni a javaslatokat
             success: Minden pályázat megjelent
+          discard:
+            success: Az összes résztvevő szövegtervezetet elvetették.
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alszakasz:</em> %{title}"
+          update:
+            success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
           edit:
             accepted: Elfogadva

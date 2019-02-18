@@ -66,7 +66,7 @@ ca:
         show_statistics: Mostra estadístiques
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
-        user_groups_enabled: Activa els grups d'usuaris
+        user_groups_enabled: Activar els grups d'usuaris
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -93,7 +93,7 @@ ca:
         title: Títol
         weight: Pes
       user_group_csv_verification:
-        file: Dossier
+        file: Fitxer
     errors:
       models:
         oauth_application:
@@ -220,10 +220,6 @@ ca:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
       component_permissions:
-        edit:
-          everyone: Tothom
-          submit: Desar permisos
-          title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
       components:
@@ -536,6 +532,12 @@ ca:
         new:
           create: Crear
           title: Nou usuari privat de l'espai participatiu.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Edita els permisos
+        update:
+          success: Els permisos s'han actualitzat correctament.
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -615,9 +617,9 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
-        impersonatable_users: Usuaris impersonables
-        impersonations: Suplantacions
-        participants: Participants
+        impersonatable_users: Usuaris manejables
+        impersonations: Gestió d'usuaris
+        participants: Usuaris
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
@@ -651,7 +653,7 @@ ca:
         new:
           explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups d'usuaris de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups d'usuaris que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
           title: Penja el fitxer CSV
-          upload: Carrega
+          upload: Penja
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.
@@ -677,7 +679,7 @@ ca:
         hide: Amagar
         not_hidden: No ocult
         title: Accions
-        unhide: Unhide
+        unhide: Tornar a mostrar
         unreport: Desfer denúncia
       admin:
         reportable:
@@ -685,8 +687,8 @@ ca:
             invalid: Hi ha hagut un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
           unhide:
-            invalid: Hi ha hagut un problema en descobrir el recurs.
-            success: S'ha desactivat el recurs amb èxit.
+            invalid: Hi ha hagut un problema en tornar a mostrar el recurs.
+            success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: Hi ha hagut un problema cancel·lant la denúncia.
             success: Denúncia cancel·lada correctament.

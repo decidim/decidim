@@ -258,15 +258,14 @@ gl:
         others: Outros
         public: Público
       filter:
-        all: Todo
+        all: Todo tipo de montaxes
         commission: Comisión
         consultative_advisory: Consultivo / asesor
         executive: Executivo
         government: Goberno
-        label: 'Amosar:'
+        help: 'Amosar:'
         others: Outros
         participatory: Participativa
-        placeholder: Filtrar por tipo
         working_group: Grupo de traballo
       index:
         title: Asembleas

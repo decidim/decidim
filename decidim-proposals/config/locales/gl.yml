@@ -2,6 +2,7 @@ gl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Enderezo
         body: Corpo
         category_id: Categoría
         decidim_scope_id: Alcance
@@ -10,6 +11,7 @@ gl:
         title: Título
         user_group_id: Crear un borrador colaborativo como
       proposal:
+        address: Enderezo
         answer: Resposta
         answered_at: Respondeu en
         automatic_hashtags: Engadíronse automaticamente os hexágonos
@@ -289,13 +291,16 @@ gl:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: '¿Está seguro de descartar o borrador de texto participativo enteiro?'
             import_doc: Importar documento
+            discard_all: Descartar todo
           import:
             invalid: O formulario non é válido.
             success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
           index:
             info_1: As seguintes seccións foron analizadas dende o documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
             publish_document: Publicar documento
+            save_draft: Gardar borrador
             title: TEXTO PARTICIPARIO PREVIEW
           new_import:
             bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
@@ -305,10 +310,14 @@ gl:
           publish:
             invalid: Non se puideron publicar propostas
             success: Todas as propostas foron publicadas
+          discard:
+            success: Todos os borradores de texto participativos foron descartados.
           sections:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
+          update:
+            success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
             accepted: Aceptada

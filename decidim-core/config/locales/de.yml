@@ -153,23 +153,23 @@ de:
           help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
         announcement:
           accepted: |-
-            Diese emendation für die %{amendable_type} %{amendable_link} wurde
+            Durch diese Änderung für die %{amendable_type} %{amendable_link} wurde
             auf akzeptiert <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Dies ist eine Ausgabe für die %{amendable_type} %{amendable_link}
-            , die gerade ausgewertet wird.
+            Diese Änderung für die %{amendable_type} %{amendable_link}
+            wird bewertet.
           rejected: |-
             Diese Änderung für die %{amendable_type} %{amendable_link}
             wurde am <strong>%{announcement_date}</strong>abgelehnt.
           withdrawn: |-
-            Diese Ausgabe für die %{amendable_type} %{amendable_link}
+            Diese Änderung für die %{amendable_type} %{amendable_link}
             wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
         back: Zurück
         heading: Erstellen Sie Ihre Änderung
         help_text: Sie ändern die %{model_name}
-        send: Sendung senden
+        send: Änderung senden
       rejected:
         error: Beim Ablehnen dieser Änderung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut
         success: Die Emendation wurde erfolgreich abgelehnt
@@ -180,7 +180,7 @@ de:
         back: Zurück
         heading: Überprüfen Sie die Änderung
         help_text: Sie ändern die %{model_name}
-        send: Akzeptiere Emendation
+        send: Akzeptieren Sie den Änderungsantrag
     anonymous_user: Anonym
     application:
       collection:
@@ -741,7 +741,7 @@ de:
       download:
         csv: Daten herunterladen (csv)
       followers:
-        description: Anzahl der Benutzer, die in der Organisation folgen
+        description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
         title: Anhänger
       participants:
