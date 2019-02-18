@@ -22,7 +22,7 @@ hu:
         location_hints: Tippek a helyre
         organizer_id: Szervező
         private_meeting: Privát találkozó
-        registration_form_enabled: Engedélyezési űrlap engedélyezve
+        registration_form_enabled: Regisztrációs űrlap engedélyezve
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
         start_time: Kezdő időpont
@@ -190,7 +190,7 @@ hu:
             invalid: Probléma történt a napirend frissítése során
             success: Napirend frissítése sikeres
         exports:
-          meetings: találkozók
+          meetings: Találkozók
           registrations: Regisztrációk
         invite_join_meeting_mailer:
           invite:
@@ -311,8 +311,8 @@ hu:
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
       calendar_modal:
         calendar_url: Naptár URL
-        close_window: Zárja be az ablakot
-        export_calendar: Export naptár
+        close_window: Ablak bezárása
+        export_calendar: Naptár exportálása
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_events:
