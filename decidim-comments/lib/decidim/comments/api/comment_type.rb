@@ -13,7 +13,7 @@ module Decidim
 
       field :author, !Decidim::Core::AuthorInterface, "The resource author" do
         resolve lambda { |obj, _args, _ctx|
-          obj.author
+          obj.user_group || obj.author
         }
       end
 
