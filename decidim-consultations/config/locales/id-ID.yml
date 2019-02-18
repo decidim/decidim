@@ -44,6 +44,8 @@ id:
         other: Pertanyaan
       decidim/consultations/response:
         other: Tanggapan
+      decidim/consultations/vote:
+        other: Voting
   decidim:
     admin:
       actions:

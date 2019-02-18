@@ -315,7 +315,7 @@ en:
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsection:</em> %{title}"
           update:
-            success: Participatory text updated successfully.
+             success: Participatory text updated successfully.
         proposal_answers:
           edit:
             accepted: Accepted

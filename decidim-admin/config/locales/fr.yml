@@ -616,7 +616,7 @@ fr:
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
-        impersonations: Représentations d'utilisateurs
+        impersonations: Utilisateurs représentés
         participants: Participants
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application

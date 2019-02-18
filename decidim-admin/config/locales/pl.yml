@@ -616,7 +616,7 @@ pl:
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
         impersonatable_users: Niekodowalni użytkownicy
-        impersonations: Impersonaty
+        impersonations: Podszywanie się pod inne osoby
         participants: Uczestnicy
         scope_types: Typy zakresów
         scopes: Zakresy

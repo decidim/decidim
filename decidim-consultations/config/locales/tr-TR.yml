@@ -47,6 +47,9 @@ tr:
       decidim/consultations/response:
         one: Tepki
         other: Tepkiler
+      decidim/consultations/vote:
+        one: Oy
+        other: oy
   decidim:
     admin:
       actions:

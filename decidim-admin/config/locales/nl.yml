@@ -616,7 +616,7 @@ nl:
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonatable_users: Niet-personaliseerbare gebruikers
-        impersonations: Nabootsingingen
+        impersonations: Zich voordoen als
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
