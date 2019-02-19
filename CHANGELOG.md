@@ -87,6 +87,7 @@
 - **decidim-proposals** Remove etiquette validation from proposals admin [\#4856](https://github.com/decidim/decidim/pull/4856)
 - **decidim-core**: Fix process filters [\#4872](https://github.com/decidim/decidim/pull/4872)
 - **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
+- **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 
 **Removed**:
 
