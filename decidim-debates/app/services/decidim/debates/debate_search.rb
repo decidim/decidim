@@ -32,6 +32,16 @@ module Decidim
           query
         end
       end
+
+      def search_order_start_time
+        if order_start_time == "asc"
+          query.order("start_time ASC")
+        elsif order_start_time == "desc"
+          query.order("start_time DESC")
+        else
+          query.order("start_time ASC")
+        end
+      end
     end
   end
 end

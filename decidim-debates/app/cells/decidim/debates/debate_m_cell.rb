@@ -7,6 +7,10 @@ module Decidim
     class DebateMCell < Decidim::CardMCell
       include DebateCellsHelper
 
+      def date
+        render
+      end
+
       private
 
       def resource_icon
