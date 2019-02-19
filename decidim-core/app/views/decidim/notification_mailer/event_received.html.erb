@@ -10,7 +10,7 @@
   </blockquote>
 <% end %>
 
-<% if @event_instance.resource_url.present? && @event_instance.resource_title.present? %>
+<% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
   <p>
     <%= link_to @event_instance.resource_title, @event_instance.resource_url %>
   </p>
