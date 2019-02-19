@@ -49,13 +49,18 @@ module Decidim
             answer_url: form.answer_url
           }
 
-          attrs[:signature_type] = form.signature_type if initiative.created?
           attrs[:answered_at] = Time.current if form.answer.present?
+
+          if form.signature_type_updatable?
+            attrs[:signature_type] = form.signature_type
+            attrs[:scoped_type_id] = form.scoped_type_id if form.scoped_type_id
+          end
 
           if current_user.admin?
             attrs[:signature_start_date] = form.signature_start_date
             attrs[:signature_end_date] = form.signature_end_date
             attrs[:offline_votes] = form.offline_votes
+            attrs[:state] = form.state if form.state
 
             if initiative.published?
               @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
