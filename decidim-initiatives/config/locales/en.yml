@@ -355,7 +355,13 @@ en:
           random: Random
           recent: Most recent
         result:
-          initiative_accepted_reason: This initiative has been accepted because
+          answer_title:
+            accepted: This proposal has been accepted because
+            created: This proposal has been created
+            discarded: This proposal has been discarded because
+            published: This proposal is published because
+            rejected: This proposal has been rejected because
+            validating: This proposal is being evaluated
           initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
         show:
           any_vote_method: This citizen initiative collects online support as well as face to face.
