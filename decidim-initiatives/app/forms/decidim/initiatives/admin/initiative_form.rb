@@ -21,9 +21,6 @@ module Decidim
         attribute :offline_votes, Integer
         attribute :state, String
 
-        translatable_attribute :answer, String
-        attribute :answer_url, String
-
         validates :title, :description, presence: true
         validates :signature_type, presence: true, if: :signature_type_updatable?
         validates :signature_start_date, presence: true, if: ->(form) { form.context.initiative.published? }
@@ -31,9 +28,6 @@ module Decidim
         validates :signature_end_date, date: { after: :signature_start_date }, if: lambda { |form|
           form.signature_start_date.present? && form.signature_end_date.present?
         }
-
-        validates :answer, translatable_presence: true, if: ->(form) { form.context.initiative.accepted? }
-        validates :answer_url, presence: true, if: ->(form) { form.context.initiative.accepted? }
 
         validates :offline_votes,
                   numericality: {

@@ -44,12 +44,8 @@ module Decidim
           attrs = {
             title: form.title,
             description: form.description,
-            hashtag: form.hashtag,
-            answer: form.answer,
-            answer_url: form.answer_url
+            hashtag: form.hashtag
           }
-
-          attrs[:answered_at] = Time.current if form.answer.present?
 
           if form.signature_type_updatable?
             attrs[:signature_type] = form.signature_type
