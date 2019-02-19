@@ -106,6 +106,7 @@ plugins:
     exclude_patterns:
       - .github/*
       - decidim-dev/lib/decidim/dev/assets/participatory_text.md
+      - decidim-proposals/app/assets/documents/decidim/proposals/participatory_texts/participatory_text.md
 
     issue_override:
       severity: minor
