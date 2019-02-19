@@ -43,6 +43,7 @@
 - **decidim-initiatives**: Add a last step on signature initiatives wizard and use it instead of redirect to initiative after signing. [\#4841](https://github.com/decidim/decidim/pull/4841)
 - **decidim-initiatives**: Change permissions of sign_initiative action. [\#4841](https://github.com/decidim/decidim/pull/4841)
 - **decidim-initiatives**: Allow edition of type, scope and signature type of initiatives depending on state and user. [\#4861](https://github.com/decidim/decidim/pull/4861)
+- **decidim-initiatives**: Move edition of initiatives answer to a separated form in admin panel and shows answer in front if present for any state. [\#4881](https://github.com/decidim/decidim/pull/4881)
 
 **Fixed**:
 
