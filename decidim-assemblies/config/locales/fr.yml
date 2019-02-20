@@ -16,7 +16,7 @@ fr:
         created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Filtre géographique
         description: Description
         developer_group: Groupe initiateur
         domain: Domaine
@@ -39,8 +39,8 @@ fr:
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
-        scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
+        scope_id: Filtre géographique
+        scopes_enabled: Filtres géographiques activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -304,7 +304,7 @@ fr:
         read_less: Voir moins
         read_more: Voir la suite
         related_participatory_processes: Concertations associées
-        scope: Périmètre d'application
+        scope: Filtre géographique
         social_networks: Réseaux sociaux
         target: Qui participe
       statistics:
