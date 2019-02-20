@@ -12,7 +12,7 @@
 
 <% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
   <p>
-    <%= link_to @event_instance.resource_title, @event_instance.resource_url %>
+    <%= link_to @event_instance.resource_title, (@event_instance.get_url_host+@event_instance.resource_url) %>
   </p>
 <% end %>
 

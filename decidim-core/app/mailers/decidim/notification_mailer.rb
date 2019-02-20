@@ -13,6 +13,7 @@ module Decidim
         @organization = user.organization
         event_class = event_class_name.constantize
         @event_instance = event_class.new(resource: resource, event_name: event, user: user, extra: extra, user_role: user_role)
+        @event_instance.set_url_host("https://"+@organization.host)
         subject = @event_instance.email_subject
 
         mail(to: user.email, subject: subject)
