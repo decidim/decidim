@@ -390,11 +390,6 @@ en:
         signatures_count:
           one: " signature"
           other: " signatures"
-        statistics:
-          assistants_count_title: Assistants
-          comments_count_title: Comments
-          meetings_count_title: Meetings
-          supports_count_title: Signatures
         supports:
           title: Listing of signatures
         vote_cabin:

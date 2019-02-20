@@ -53,8 +53,6 @@ edit_link(
     <% end %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for initiative_initiative_widget_url(current_initiative, format: :js) %>
-
-    <%= render partial: "statistics" %>
     <%= resource_reference(current_initiative) %>
   </div>
 
