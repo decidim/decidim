@@ -85,7 +85,7 @@ module Decidim
     end
 
     def participatory_space
-      @participatory_space ||= @reportable.component.participatory_space
+      @participatory_space ||= @reportable.component&.participatory_space || @reportable.try(:participatory_space)
     end
   end
 end
