@@ -131,7 +131,7 @@ describe "Assemblies", type: :system do
       end
 
       it "filters by All types" do
-        click_link "All types of assemblies"
+        click_link "All"
         expect(page).to have_selector("article.card.card--assembly", count: 7)
       end
 

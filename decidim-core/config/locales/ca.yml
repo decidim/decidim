@@ -777,6 +777,9 @@ ca:
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: Vols seguir rebent informació rellevant sobre %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Heu rebut aquest missatge perquè estàs subscrit a la notificació per correu electrònic a% {organization_name}. Podeu canviar la vostra configuració a la pàgina <a href="%{link}"> notificacions </ a>.
     notifications:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:

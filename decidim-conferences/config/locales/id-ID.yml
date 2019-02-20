@@ -40,6 +40,8 @@ id:
         other: Konferensi
       decidim/conference_speaker:
         other: Pembicara konferensi
+      decidim/conference_user_role:
+        other: Peran pengguna konferensi
   decidim:
     admin:
       actions:

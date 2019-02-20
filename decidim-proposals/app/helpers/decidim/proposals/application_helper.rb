@@ -91,10 +91,6 @@ module Decidim
         ).count
       end
 
-      def current_user_proposals
-        Proposal.where(component: current_component, author: current_user)
-      end
-
       def follow_button_for(model, large = nil)
         render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
       end

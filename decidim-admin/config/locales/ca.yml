@@ -651,7 +651,7 @@ ca:
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
-        impersonations: Suplantacions
+        impersonations: Impersonacions
         managed_users: Managed users
         navbar_links: Navbar links
         participants: Participants

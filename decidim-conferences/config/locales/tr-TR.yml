@@ -42,6 +42,9 @@ tr:
       decidim/conference_speaker:
         one: Konferans konuşmacı
         other: Konferans konuşmacıları
+      decidim/conference_user_role:
+        one: Konferans kullanıcı rolü
+        other: Konferans kullanıcı rolleri
   decidim:
     admin:
       actions:
