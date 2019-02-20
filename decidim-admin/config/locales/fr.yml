@@ -2,8 +2,8 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type de zone d'application
-        name: Titre
+        area_type: Type échelle géographique
+        name: Dénomination
         organization: Organisation
       area_type:
         name: Titre
