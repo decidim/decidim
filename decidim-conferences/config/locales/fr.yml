@@ -8,14 +8,14 @@ fr:
         copy_categories: Copier des catégories
         copy_components: Copier des composants
         copy_features: Fonctions de copie
-        decidim_scope_id: Portée
+        decidim_scope_id: Filtre géographique
         description: La description
         hashtag: Hashtag
         hero_image: Image de la maison
         participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
-        scope_id: Portée
+        scope_id: Filtre géographique
         scopes_enabled: Scopes activés
         short_description: Brève description
         show_statistics: Montrez les statistiques
