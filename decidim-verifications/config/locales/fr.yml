@@ -107,7 +107,7 @@ fr:
               verify: Vérifier
           pending_authorizations:
             index:
-              config: Config
+              config: Configuration
               offline_verification: Vérification hors ligne
               title: Vérifications en attente
               verification_number: 'Vérification # %{n}'
