@@ -111,7 +111,7 @@ fr:
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
-        create_with_parent: "%{user_name} a créé le périmètre d'application %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        create_with_parent: "%{user_name} a créé le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
         delete: "%{user_name} a supprimé le périmètre d'application %{resource_name}"
         delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
         update: "%{user_name} a mis à jour le périmètre d'application %{resource_name}"
