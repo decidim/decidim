@@ -123,7 +123,7 @@ fr:
         result:
           fields:
             end_date: Date de fin
-            progress: Avancement
+            progress: Pourcentage d'avancement
             start_date: Date de début
             status: Etat d'avancement
             title: Titre
@@ -131,7 +131,7 @@ fr:
           fields:
             description: Description
             key: Clé
-            name: Nom
+            name: Etat d'avancement
             progress: Avancement
         timeline_entry:
           fields:
@@ -144,7 +144,7 @@ fr:
             other: "%{count} réalisations"
         filters:
           all: Tous
-          scopes: Périmètre d'application
+          scopes: Tous les secteurs
         home:
           categories_label: Catégories
           subcategories_label: Sous-catégories
