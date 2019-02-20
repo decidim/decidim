@@ -110,12 +110,12 @@ fr:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
-        create: "%{user_name} a créé le périmètre d'application %{resource_name}"
+        create: "%{user_name} a créé le filtre géographique %{resource_name}"
         create_with_parent: "%{user_name} a créé le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
-        delete: "%{user_name} a supprimé le périmètre d'application %{resource_name}"
+        delete: "%{user_name} a supprimé le filtre géographique %{resource_name}"
         delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
-        update: "%{user_name} a mis à jour le périmètre d'application %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
+        update: "%{user_name} a mis à jour le filtre géographique %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -698,9 +698,9 @@ fr:
         area_type_presenter:
           not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le filtre n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de filtres géographiques n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
@@ -923,8 +923,8 @@ fr:
         cancel: Annuler
         choose: Sélectionner
         title: Sélectionnez %{field}
-      prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      prompt: Sélectionnez un filtre géographique
+      scopes: Filtres géographiques
     search:
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
@@ -987,7 +987,7 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore d'envergure !
+        no_scopes: Cette organisation n'a pas encore de filtres géographiques !
         select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
@@ -1145,7 +1145,7 @@ fr:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_whitelist_error: le type de fichier n'est pas valide
-      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
+      cycle_detected: un filtre géographique parent ne peut pas être au même niveau que ses sous-filtres
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       long_words: contient des mots trop longs (plus de 35 caractères)
