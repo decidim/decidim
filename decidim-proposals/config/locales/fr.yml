@@ -59,8 +59,8 @@ fr:
         one: Remarque
         other: Remarques
       decidim/proposals/proposal_vote:
-        one: Vote
-        other: Votes
+        one: Voter
+        other: Voter
   decidim:
     components:
       proposals:
@@ -112,10 +112,10 @@ fr:
         email_subject: Nouvelle proposition de %{author_name}.
         moderation:
           email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
+          email_subject: Objet de l'email
+          moderation_url: Url de la modération
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+        url: 'lien vers le commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
@@ -329,7 +329,7 @@ fr:
             success: Toutes les propositions ont été publiées
           sections:
             article: "<em>article</em>"
-            section: "<em>Section:</em> <strong>%{title}</strong>"
+            section: "<em>Section :</em> <strong>%{title}</strong>"
             sub-section: "<em>Sous-section:</em> %{title}"
         proposal_answers:
           edit:
