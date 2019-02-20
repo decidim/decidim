@@ -285,8 +285,9 @@ en:
           more_information: "(More information)"
         select_initiative_type:
           back: Back
+          choose_html: I want to create a <strong>%{title}</strong>
           more_information: "(More information)"
-          select: Choose
+          select: I want to promote this initiative
           select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
           continue: Continue
