@@ -15,7 +15,7 @@ fr:
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Filtre géographique
         description: Description
         end_time: Heure de fin
         location: Lieu
