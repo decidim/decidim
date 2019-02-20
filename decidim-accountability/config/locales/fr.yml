@@ -172,7 +172,7 @@ fr:
             version_number_out_of_total: "%{current_version} sur %{total_count}"
             votes: Votes
         timeline:
-          title: Évolution du projet
+          title: Évolution de la réalisation
       versions:
         index:
           changes_at_title: Changements à "%{title}"
