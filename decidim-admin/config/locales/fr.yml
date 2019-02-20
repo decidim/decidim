@@ -598,8 +598,8 @@ fr:
           title: Nouveau filtre géographique
         no_scopes: Pas de filtre géographique à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
-          success: Périmètre d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce filtre géographique.
+          success: Filtre géographique mis à jour avec succès
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
@@ -653,8 +653,8 @@ fr:
         managed_users: Utilisateurs gérés
         navbar_links: Liens Navbar
         participants: Participants
-        scope_types: Types de périmètre d'application
-        scopes: Périmètres d'application
+        scope_types: Types de filtres géographiques
+        scopes: Filtres géographiques
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
