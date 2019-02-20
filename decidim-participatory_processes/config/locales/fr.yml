@@ -20,8 +20,8 @@ fr:
         participatory_structure: Modalités
         promoted: Mise en avant
         published_at: Publiée à
-        scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
+        scope_id: Filtre géographique
+        scopes_enabled: Filtres géographiques activés
         short_description: Résumé
         show_statistics: Montrer les statistiques
         slug: Identifiant
@@ -353,7 +353,7 @@ fr:
         participatory_scope: Objectifs
         participatory_structure: Modalités
         private_space: Ceci est une concertation privée
-        scope: Périmètre d'application
+        scope: Filtre géographique
         start_date: Date de début
         target: Participants
         unspecified: Non précisé
