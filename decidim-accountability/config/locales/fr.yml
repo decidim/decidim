@@ -94,21 +94,21 @@ fr:
             success: Etat mis à jour avec succès
         timeline_entries:
           create:
-            invalid: Un problème est survenu lors de la création de cette entrée
-            success: Entrée créée avec succès
+            invalid: Un problème est survenu lors de la création de cette étape
+            success: Etape créée avec succès
           destroy:
-            success: Entrée supprimée avec succès
+            success: Etape supprimée avec succès
           edit:
-            title: Modifier l'entrée
-            update: Mise à jour de l'entrée
+            title: Modifier l'étape
+            update: Mise à jour de l'étape
           index:
-            title: Entrées de la chronologie du projet
+            title: Etapes-clés de la réalisation
           new:
-            create: Créer une entrée
-            title: Nouvelle entrée
+            create: Créer une étape
+            title: Nouvelle étape
           update:
-            invalid: Un problème est survenu lors de la mise à jour de cette entrée
-            success: Entrée mise à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de cette étape
+            success: Etape mise à jour avec succès
       admin_log:
         result:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
@@ -116,16 +116,16 @@ fr:
           update: "%{user_name} a mis à jour la réalisation %{resource_name} dans %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
+            not_found: 'L'' élément parent n''a pas été trouvé dans la base de données (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>Nouveau résultat à %{link}</span>"
+        new_result_at_html: "<span>Nouvelle réalisation à %{link}</span>"
       models:
         result:
           fields:
             end_date: Date de fin
             progress: Avancement
             start_date: Date de début
-            status: Statut
+            status: Etat d'avancement
             title: Titre
         status:
           fields:
