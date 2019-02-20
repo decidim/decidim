@@ -189,7 +189,7 @@ fr:
     application:
       collection:
         documents:
-          one: Documents
+          one: Document
           other: Documents
       documents:
         related_documents: Documents à consulter
