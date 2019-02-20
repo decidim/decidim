@@ -50,7 +50,7 @@ fr:
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
         highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
-        highlighted_content_banner_image: Image
+        highlighted_content_banner_image: Bannière de contenu mis en valeur
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
         instagram_handler: Gestionnaire Instagram
