@@ -39,6 +39,8 @@ module Decidim
               delete :revoke
             end
           end
+
+          resource :answer, only: [:edit, :update]
         end
 
         scope "/initiatives/:initiative_slug" do

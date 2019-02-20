@@ -107,21 +107,6 @@ describe "User prints the initiative", type: :system do
           initiative.accepted!
         end
 
-        it "updates accepted initiative data" do
-          page.find(".action-icon--edit").click
-          within ".edit_initiative" do
-            fill_in_i18n_editor(
-              :initiative_answer,
-              "#initiative-answer-tabs",
-              ca: "Alguna resposta",
-              en: "Some answer",
-              es: "Alguna respuesta"
-            )
-            fill_in :initiative_answer_url, with: "http://meta.decidim.org"
-          end
-          submit_and_validate
-        end
-
         it "update of type, scope and signature type are disabled" do
           page.find(".action-icon--edit").click
 
