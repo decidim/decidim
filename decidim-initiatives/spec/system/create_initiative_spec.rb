@@ -69,7 +69,7 @@ describe "Initiative", type: :system do
 
       context "and fill basic data" do
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
         end
 
         it "Has a hidden field with the selected initiative type" do
@@ -93,7 +93,7 @@ describe "Initiative", type: :system do
         let!(:initiative) { create(:initiative, organization: organization) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
@@ -122,7 +122,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
@@ -151,7 +151,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
@@ -194,7 +194,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
