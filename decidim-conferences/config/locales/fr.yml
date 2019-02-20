@@ -26,7 +26,7 @@ fr:
         full_name: Nom complet
       conference_user_role:
         email: E-mail
-        name: Name
+        name: Rôle
         role: Rôle
     errors:
       models:
@@ -153,7 +153,7 @@ fr:
           conference_invites: Invite
           conference_speakers: Haut-parleurs
           diploma: Diplôme
-          info: Info
+          info: Information
           media_links: Liens médias
           moderations: Modération
           partners: Les partenaires
@@ -169,9 +169,9 @@ fr:
             title: Titre
         conference_speaker:
           fields:
-            affiliation: Affiliation
+            affiliation: Bio
             full_name: Nom complet
-            position: Position
+            position: Profession
           name: Conférencier
         conference_user_role:
           fields:
@@ -194,7 +194,7 @@ fr:
             link: Lien
             logo: Logo
             name: prénom
-            partner_type: Type
+            partner_type: Rôle
           name: Partenaire
           types:
             collaborator: Collaborateur
@@ -466,7 +466,7 @@ fr:
           photo: Photo
       photos_list:
         show:
-          related_photos: Photos
+          related_photos: Photos associées
       registration_types:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
