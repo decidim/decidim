@@ -129,7 +129,7 @@ fr:
           edit:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
-            discard: Dépublier la pétition
+            discard: Dépublier
             export_votes: Exporter la liste des votes
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
@@ -221,7 +221,7 @@ fr:
         fill_data:
           back: Retour
           continue: Continuer
-          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
+          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre initiative est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
           select_scope: Sélectionnez une portée
@@ -245,7 +245,7 @@ fr:
           more_information: "(Plus d'informations)"
         promotal_committee:
           back: Retour
-          individual_help_text: Les initiatives nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          individual_help_text: Les initiatives nécessitent un comité de promotion composé d'au moins trois personnes (garants). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
