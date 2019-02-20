@@ -74,24 +74,24 @@ fr:
             success: Réalisation mise à jour avec succès
         shared:
           subnav:
-            statuses: Statuts
+            statuses: Etats d'avancement
         statuses:
           create:
-            invalid: Un problème est survenu lors de la création de ce statut
-            success: Statut créé avec succès
+            invalid: Un problème est survenu lors de la création de cet état
+            success: Etat créé avec succès
           destroy:
-            success: Statut supprimé avec succès
+            success: Etat supprimé avec succès
           edit:
-            title: Modifier le statut
-            update: Mettre à jour le statut
+            title: Modifier l'état
+            update: Mettre à jour l'état
           index:
-            title: Statuts
+            title: Etats d'avancement
           new:
-            create: Créer un statut
-            title: Nouveau statut
+            create: Créer un état
+            title: Nouvel état
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce statut
-            success: Statut mis à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de cet état
+            success: Etat mis à jour avec succès
         timeline_entries:
           create:
             invalid: Un problème est survenu lors de la création de cette entrée
