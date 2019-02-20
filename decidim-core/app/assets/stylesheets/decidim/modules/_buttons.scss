@@ -29,22 +29,23 @@
 
 .button{
   @include button(false, var(--primary), var(--primary), white, solid);
+
   &.hollow{
     @include button(false, var(--primary), var(--primary), white, hollow);
   }
+
   &.secondary{
     @include button(false, var(--secondary), var(--secondary), white, solid);
+
     &.hollow{
       @include button(false, var(--secondary), var(--secondary), white, hollow);
     }
-
   }
 }
 
 .progress-meter{
   background-color: var(--primary);
 }
-
 
 // Overwrite Foundation hover styles in hollow disabled buttons
 .button.hollow:disabled:hover,

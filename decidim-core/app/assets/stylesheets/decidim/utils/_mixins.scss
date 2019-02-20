@@ -169,21 +169,25 @@ $palette: $foundation-palette;
 // rewrite foundation mixins to use css variables
 
 @mixin button-style(
-$background: $button-background,
-$background-hover: $button-background-hover,
-$color: $button-color,
-$background-hover-lightness: $button-background-hover-lightness
-) {
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color,
+  $background-hover-lightness: $button-background-hover-lightness
+){
   // Default and disabled states
   &,
-  &.disabled, &[disabled],
-  &.disabled:hover, &[disabled]:hover,
-  &.disabled:focus, &[disabled]:focus {
+  &.disabled,
+  &[disabled],
+  &.disabled:hover,
+  &[disabled]:hover,
+  &.disabled:focus,
+  &[disabled]:focus{
     background-color: $background;
     color: $color;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus{
     filter: brightness(80%);
     background-color: $background-hover;
     color: $color;
@@ -191,22 +195,26 @@ $background-hover-lightness: $button-background-hover-lightness
 }
 
 @mixin button-hollow-style(
-$color: $button-background,
-$hover-lightness: $button-hollow-hover-lightness,
-$border-width: $button-hollow-border-width
-) {
+  $color: $button-background,
+  $hover-lightness: $button-hollow-hover-lightness,
+  $border-width: $button-hollow-border-width
+){
   $color-hover: $color;
 
   // Default and disabled states
   &,
-  &.disabled, &[disabled],
-  &.disabled:hover, &[disabled]:hover,
-  &.disabled:focus, &[disabled]:focus {
+  &.disabled,
+  &[disabled],
+  &.disabled:hover,
+  &[disabled]:hover,
+  &.disabled:focus,
+  &[disabled]:focus{
     border: $border-width solid $color;
     color: $color;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus{
     filter: brightness(80%);
     border-color: $color-hover;
     color: $color-hover;
