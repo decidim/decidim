@@ -4,7 +4,7 @@ fr:
       project:
         budget: Budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Filtre géographique
         description: Description
         proposal_ids: Propositions liées
         title: Titre
