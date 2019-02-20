@@ -35,6 +35,9 @@
 - **decidim-debates** Allow HTML content at debates page [\#4850](https://github.com/decidim/decidim/pull/4850)
 - **decidim-proposals**: Fix proposal activity cell rendering. [\#4848](https://github.com/decidim/decidim/pull/4848)
 - **decidim-forms**: Fix free text fields exporting. [\#4846](https://github.com/decidim/decidim/pull/4846)
+- **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
+- **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
+- **decidim-core**: Fix process filters [\#4872](https://github.com/decidim/decidim/pull/4872)
 
 
 ## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
