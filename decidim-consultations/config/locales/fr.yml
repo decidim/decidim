@@ -3,7 +3,7 @@ fr:
     attributes:
       consultation:
         banner_image: Image de la bannière
-        decidim_highlighted_scope_id: Périmètre d'application mis en avant
+        decidim_highlighted_scope_id: Périmètre mis en avant
         description: Description
         end_voting_date: Le vote prend fin le
         introductory_image: Image d'introduction
@@ -15,7 +15,7 @@ fr:
         title: Titre
       question:
         banner_image: Image de la bannière
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Filtre thématique
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
@@ -26,7 +26,7 @@ fr:
         promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
-        scope: Périmètre d'application
+        scope: Filtre thématique
         slug: Identifiant
         subtitle: Sous-titre
         title: Titre
