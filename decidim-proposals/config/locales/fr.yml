@@ -140,11 +140,11 @@ fr:
         collaborative_draft_access_requester_rejected:
           email_intro: Vous avez été refusé à accéder en tant que collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Vous avez été rejeté en tant que contributeur de %{resource_title}.
+          email_subject: Vous avez été rejeté en tant que collaborateur de %{resource_title}.
           notification_title: Vous avez été <strong>rejeté pour accéder en tant que collaborateur de la proposition </strong> du <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} retiré la proposition collaborative %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -476,20 +476,20 @@ fr:
           title: Modifier une proposition collaborative
         filters:
           all: Tout
-          amendment: Modifications
+          amendment: Amendements
           category: Catégorie
           category_prompt: Catégories
           open: Ouvrir
-          published: Publié
-          related_to: Lié à
-          search: Chercher
+          published: Publiée
+          related_to: Liées à
+          search: Rechercher
           state: État
-          withdrawn: Retiré
+          withdrawn: Retirée
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Voir plus
         new:
           send: Continuer
           title: Créez votre proposition collaborative
@@ -497,12 +497,12 @@ fr:
           new_collaborative_draft: Nouvelle proposition collaborative
         orders:
           label: 'Trier les propositions par:'
-          most_contributed: La plupart ont contribué
+          most_contributed: Avec le plus de contributions
           random: Aléatoire
           recent: Récent
         requests:
           accepted_request:
-            error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
+            error: Votre demande de collaboration n'a pas pu aboutir, veuillez réessayer plus tard.
             success: "@%{user} a été accepté comme collaborateur avec succès"
           access_requested:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
@@ -512,8 +512,8 @@ fr:
             reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:
-            error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
-            success: "@%{user} a été rejeté en tant que collaborateur avec succès"
+            error: Le rejet de la demande de collaboration n'a pas pu aboutir, veuillez réessayer plus tard.
+            success: "@%{user} a été bien refusé en tant que collaborateur"
         show:
           back: Retour
           edit: Modifier une proposition collaborative
