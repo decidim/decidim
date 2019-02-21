@@ -367,7 +367,7 @@ fr:
     decidim:
       admin:
         initiative:
-          attachments: Documents liés
+          attachments: Pièces jointes
           committee_members: Membres du Comité de promotion
           components: Fonctionnalités
           information: Informations
