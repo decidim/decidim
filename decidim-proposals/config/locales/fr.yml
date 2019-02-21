@@ -8,7 +8,7 @@ fr:
         has_address: Renseigner une adresse
         state: État
         title: Titre
-        user_group_id: Créez un brouillon collaboratif comme
+        user_group_id: Créez une proposition collaborative en tant que
       proposal:
         address: Adresse
         answer: Répondre
@@ -47,8 +47,8 @@ fr:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Projet de collaboration
-        other: Brouillons collaboratifs
+        one: Proposition collaborative
+        other: Propositions collaboratives
       decidim/proposals/proposal:
         one: Proposition
         other: Propositions
@@ -76,7 +76,7 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
-            collaborative_drafts_enabled: Brouillons collaboratifs activés
+            collaborative_drafts_enabled: Propositions collaboratives activées
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
@@ -118,35 +118,35 @@ fr:
         url: 'lien vers le commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a été accepté en tant que collaborateur de la proposition <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} a été accepté pour accéder en tant que contributeur du %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que collaborateur</strong> de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} a été refusé d''accès en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a été refusé d''accès en tant que collaborateur de la proposition <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a été rejetée pour accéder en tant que contributeur du %{resource_title} projet de collaboration."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_subject: "%{requester_name} a été rejetée pour accéder en tant que collaborateur de la proposition %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que collaborateur</strong> de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} demandé l''accès en tant que contributeur. Vous pouvez <strong>accepter ou rejeter la demande</strong> de la page de brouillon collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} demandé l''accès en tant que collaborateur. Vous pouvez <strong>accepter ou rejeter la demande</strong> depuis la page de proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} demandé un accès pour contribuer à %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer au projet de collaboration <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer à la proposition collaborative <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Vous avez été accepté pour accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Vous avez été accepté pour accéder en tant que collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Vous avez été accepté comme contributeur de %{resource_title}.
-          notification_title: Vous avez été <strong>accepté d'accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          notification_title: Vous avez été <strong>accepté d'accéder en tant que collaborateur de la proposition collaborative</strong> de <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Vous avez été refusé à accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Vous avez été refusé à accéder en tant que collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Vous avez été rejeté en tant que contributeur de %{resource_title}.
-          notification_title: Vous avez été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          notification_title: Vous avez été <strong>rejeté pour accéder en tant que collaborateur de la proposition </strong> du <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré le projet de collaboration <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} retiré le %{resource_title} projet de collaboration."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> le <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_subject: "%{author_name} %{author_nickname} retiré la proposition collaborative %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
@@ -438,29 +438,29 @@ fr:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
+            error: Il y a eu des erreurs lors de la publication de la proposition collaborative.
             irreversible_action_modal:
               body: Après avoir publié le projet en tant que proposition, le projet ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
-            success: Projet collaboratif publié avec succès en tant que proposition.
-          view_collaborative_draft: Afficher le brouillon collaboratif
+            success: Proposition collaborative publiée avec succès en tant que proposition.
+          view_collaborative_draft: Afficher la proposition collaborative
           withdraw:
-            error: Il y a eu des erreurs en fermant le projet de collaboration.
+            error: Il y a eu des erreurs en fermant la proposition collaborative.
             irreversible_action_modal:
               body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
-              ok: Retirer le projet collaboratif
+              ok: Retirer la proposition collaborative
               title: L'action suivante est irréversible
-            success: Projet de collaboration retiré avec succès.
+            success: Proposition collaborative retirée avec succès.
         compare:
-          mine_is_different: Mon projet de collaboration est différent
-          no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
-          title: Projets collaboratifs similaires
+          mine_is_different: Ma proposition collaborative est différente
+          no_similars_found: Bien joué ! Aucune proposition collaborative similaire n'a été trouvée
+          title: Propositions collaboratives similaires
         complete:
           send: Envoyer
-          title: Complétez votre projet collaboratif
+          title: Complétez votre proposition collaborative
         count:
           drafts_count:
             one: "1 projet collaboratif"
