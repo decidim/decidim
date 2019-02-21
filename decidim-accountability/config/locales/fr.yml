@@ -192,7 +192,7 @@ fr:
             heading_leaf_level_results: Intitulé pour "Projets"
             heading_parent_level_results: Intitulé pour "Réalisations"
             intro: Introduction
-            subcategories_label: Nom pour "Sous-catégories"
+            subcategories_label: Intitulé pour "Sous-catégories"
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
     events:
