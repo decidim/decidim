@@ -509,7 +509,7 @@ fr:
     filters:
       linked_classes:
         all: Tout
-        collaborative_draft: Projet de collaboration
+        collaborative_draft: Propositions collaboratives
         dummy_resource: Exemple factice
         meeting: Rencontres
         project: Projets
