@@ -198,12 +198,12 @@ fr:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'La proposition "%{proposal_title}" a été incluse dans une réalisation. Vous pouvez le voir sur cette page :'
+          email_intro: 'La proposition "%{proposal_title}" a été incluse dans une réalisation. Vous pouvez la voir sur cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Mise à jour de %{proposal_title}
           notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans la réalisation <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
-          email_intro: 'La réalisation "%{resource_title}", qui inclut la proposition "%{proposal_title}", est maintenant terminée à %{progress}%. Vous pouvez le voir sur cette page:'
+          email_intro: 'La réalisation "%{resource_title}", qui inclut la proposition "%{proposal_title}", est maintenant terminée à %{progress}%. Vous pouvez la voir sur cette page:'
           email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
           email_subject: Mise à jour de l'avancement de %{resource_title}
           notification_title: La réalisation <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevée à %{progress}%.
