@@ -311,19 +311,19 @@ fr:
             name: Proposition
         participatory_texts:
           bulk-actions:
-            import_doc: Document d'importation
+            import_doc: Importer un document
           import:
             invalid: Le formulaire est invalide!
-            success: Félicitations, les sections suivantes ont été analysées à partir du document importé, elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
+            success: Félicitations, les sections suivantes ont été analysées à partir du document importé. Elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
           index:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
-            bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
+            bottom_hint: "(Vous pourrez prévisualiser et trier les sections du document)"
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée dans Propositions. Les formats supportés sont: Markdown'
             title: AJOUTER UN DOCUMENT
-            upload_document: Télécharger le document
+            upload_document: Importer le document
           publish:
             invalid: Impossible de publier des propositions
             success: Toutes les propositions ont été publiées
