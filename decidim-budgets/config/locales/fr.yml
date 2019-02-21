@@ -86,7 +86,7 @@ fr:
           title: Limite du budget dépassée
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          assigned: 'Affecté à :'
+          assigned: 'Montant affecté :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
             description: Vous avez déjà voté. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
@@ -115,14 +115,14 @@ fr:
           description_per_project: Ce projet ne peut pas être ajouté car le nombre maximum de projets à sélectionner serait dépassé. Pour l'ajouter, supprimez un projet que vous avez déjà sélectionné.
           ok: D'accord
           title_per_budget: Budget maximum dépassé
-          title_per_project: Nombre de projets maximum atteints
+          title_per_project: Nombre de projets maximum atteint
         order_progress:
-          vote: Confirmer votre vote
+          vote: Confirmer votre choix
         order_selected_projects:
           choose: Choisissez encore
           per_project:
             one: projet sélectionné sur un total de
-            other: projets sélectionné sur un total de
+            other: projets sélectionnés sur un total de
           remaining_projects:
             one: 1 projet pour valider votre vote.
             other: "%{count} projets pour valider votre vote."
@@ -156,17 +156,17 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Activer le module de commentaire
-            geocoding_enabled: Géocodage activé
+            comments_enabled: Activer le module de "Commentaires"
+            geocoding_enabled: Activer la "Géolocalisation"
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             total_budget: Budget total
             total_projects: Nombre de projets total
-            vote_per_budget: Activer le vote selon un budget (par défaut)
-            vote_per_project: Activer le vote par nombre de projets
+            vote_per_budget: Activer le "Vote selon un budget" (par défaut)
+            vote_per_project: Activer le "Vote par nombre de projets"
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
-            announcement: Message d'annonce
+            announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
             votes_enabled: Votes activés
