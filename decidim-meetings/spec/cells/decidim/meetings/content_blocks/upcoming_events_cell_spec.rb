@@ -12,7 +12,7 @@ module Decidim
         let(:organization) { create(:organization) }
 
         before do
-          expect(controller).to receive(:current_organization).and_return(organization)
+          expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
         end
 
         context "with events" do
