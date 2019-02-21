@@ -72,7 +72,7 @@ fr:
         name: Propositions
         settings:
           global:
-            amendments_enabled: Modifications permises
+            amendments_enabled: Activer le module "Amendements"
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -644,7 +644,7 @@ fr:
           related_to: Liées à
           search: Rechercher
           state: État
-          voted: Ne montrer que les propositions pour lesquelles j'ai voté
+          voted: Afficher uniquement les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
