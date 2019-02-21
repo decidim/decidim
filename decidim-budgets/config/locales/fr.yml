@@ -60,7 +60,7 @@ fr:
             success: "%{number} propositions importées avec succès"
           new:
             create: Importer des propositions dans des projets
-            no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            no_components: Il n'y a pas d'autre module de propositions dans lequel importer les propositions dans des projets, au sein de cet espace participatif.
             select_component: Veuillez sélectionner un module
       admin_log:
         project:
