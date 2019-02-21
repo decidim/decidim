@@ -443,7 +443,7 @@ fr:
         meeting_result: 'Résultats associés :'
         result_meeting: 'Rencontres associées :'
       proposals_from_meeting:
-        meeting_proposal: 'Propositions créées lors de cette rencontre :'
+        meeting_proposal: 'Propositions élaborées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
   devise:
     mailer:
