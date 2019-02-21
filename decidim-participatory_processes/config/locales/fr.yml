@@ -23,7 +23,7 @@ fr:
         scope_id: Filtre géographique
         scopes_enabled: Filtres géographiques activés
         short_description: Résumé
-        show_statistics: Montrer les statistiques
+        show_statistics: Afficher les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
