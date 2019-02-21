@@ -82,13 +82,13 @@ fr:
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
-        show_in_footer: Montrer dans le pied de page
+        show_in_footer: Afficher dans le pied de page
         slug: Identifiant
         title: Titre
         weight: Poids
       static_page_topic:
         description: La description
-        show_in_footer: Montrer dans le pied de page
+        show_in_footer: Afficher dans le pied de page
         title: Titre
         weight: Poids
       user_group_csv_verification:
