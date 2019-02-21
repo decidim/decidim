@@ -39,7 +39,7 @@ fr:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
             - Vous remplissez les informations présentes dans l'image téléchargée.
             - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
             - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
@@ -49,7 +49,7 @@ fr:
       direct: Direct
       help: Texte d'aide
       id_documents:
-        explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
+        explanation: Importer vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
       multistep: En plusieurs étapes
       name: Nom
@@ -91,11 +91,11 @@ fr:
               success: Configuration mise à jour avec succès
           confirmations:
             create:
-              error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
+              error: La vérification ne correspond pas. Réessayez ou refusez la vérification afin que l'utilisateur puisse la modifier
               success: Utilisateur vérifié avec succès
             new:
               introduce_user_data: Introduire les données dans l'image
-              reject: Rejeter
+              reject: Refuser
               verify: Vérifier
           offline_confirmations:
             create:
@@ -119,10 +119,10 @@ fr:
             choose_a_type: 'Veuillez sélectionner la façon dont vous voulez être vérifié :'
             offline: Hors ligne
             online: En ligne
-            title: Vérifiez vous-même à l'aide de votre pièce d'identité
+            title: Authentifiez-vous à l'aide de votre pièce d'identité
           create:
-            error: Un problème est survenu lors du téléchargement de votre document
-            success: Document téléchargé avec succès
+            error: Un problème est survenu lors de l'importation de votre document
+            success: Document importé avec succès
           edit:
             being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
             offline: Utiliser la vérification hors ligne
@@ -130,13 +130,13 @@ fr:
             rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
             rejection_correctness: Assurez-vous que les informations entrées sont correctes
             rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
-            send: Demande de vérification à nouveau
+            send: Renouveler la demande de vérification
           new:
             send: Demande de vérification
-            title: Téléchargez votre document d'identité
+            title: Importez votre document d'identité
           update:
             error: Un problème est survenu lors du chargement de votre document
-            success: Document téléchargé avec succès
+            success: Document importé avec succès
         dni: Carte nationale d'identité
         nie: Carte de séjour ou de résident
         passport: Passeport
