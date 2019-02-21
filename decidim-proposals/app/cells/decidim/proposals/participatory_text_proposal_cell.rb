@@ -33,10 +33,6 @@ module Decidim
         decidim_sanitize(strip_links(formatted))
       end
 
-      def current_user
-        context[:current_user]
-      end
-
       def resource_path
         resource_locator(model).path
       end
