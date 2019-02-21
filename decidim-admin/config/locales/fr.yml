@@ -180,21 +180,21 @@ fr:
           success: Dossier mis à jour avec succès.
       attachments:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau document lié.
-          success: Document lié créé avec succès.
+          error: Une erreur s'est produite lors de l'ajout de la pièce jointe.
+          success: Pièce jointe ajoutée avec succès.
         destroy:
-          success: Document lié supprimé avec succès.
+          success: Pièce jointe supprimée avec succès.
         edit:
-          title: Modifier le document lié
+          title: Modifier la pièce jointe
           update: Mettre à jour
         index:
-          attachments_title: Documents liés
+          attachments_title: Pièces jointes
         new:
-          create: Lier un document
-          title: Nouveau document lié
+          create: Joindre un fichier
+          title: Nouvelle pièce jointe
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce document lié.
-          success: Document lié mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette pièce jointe.
+          success: Pièce jointe mise à jour avec succès.
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
@@ -203,7 +203,7 @@ fr:
           error: Une erreur s'est produite lors de la création de cette catégorie.
           success: Catégorie créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
+          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toutes les sous-catégories puis assurez-vous qu'aucun élément n'appartient à cette catégorie avant de réessayer.
           success: Catégorie supprimée avec succès.
         edit:
           title: Modifier la catégorie
@@ -353,7 +353,7 @@ fr:
             content_type: Type de contenu
             file_size: Taille
             title: Titre
-          name: Document lié
+          name: Pièce jointe
         attachment_collection:
           name: Dossier
         category:
