@@ -2,18 +2,18 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type de zone d'application
-        name: Titre
+        area_type: Type échelle géographique
+        name: Dénomination
         organization: Organisation
       area_type:
         name: Titre
         organization: Organisation
         plural: Pluriel
       attachment:
-        attachment_collection_id: Dossier
+        attachment_collection_id: Associer à un dossier
         description: Description
         file: Fichier
-        title: Titre de la pièce jointe
+        title: Titre
       attachment_collection:
         description: Description
         name: Titre
@@ -30,27 +30,27 @@ fr:
         body: Corps de texte
         subject: Objet
       oauth_application:
-        name: Titre
+        name: Nom
         organization_logo: Logo de l'organisation (carré)
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
-        badges_enabled: Activer les badges
+        badges_enabled: Activer les Badges
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
-        enable_omnipresent_banner: Montrer une bannière d'actualités
+        enable_omnipresent_banner: Afficher une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
-        favicon: Icône
+        favicon: Favicon
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
-        highlighted_content_banner_action_title: Titre du bouton d'action
+        highlighted_content_banner_action_title: Texte du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
         highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
-        highlighted_content_banner_image: Image
+        highlighted_content_banner_image: Bannière de contenu mis en valeur
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
         instagram_handler: Gestionnaire Instagram
@@ -63,7 +63,7 @@ fr:
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
-        show_statistics: Montrer les statistiques
+        show_statistics: Afficher les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
@@ -73,8 +73,8 @@ fr:
         name: Titre
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de périmètre d'application
-        scope_type_id: Type de périmètre d'application
+        scope_type: Type de filtres géographiques
+        scope_type_id: Type de filtre géographique
       scope_type:
         name: Titre
         organization: Organisation
@@ -83,13 +83,13 @@ fr:
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
-        show_in_footer: Montrer dans le pied de page
+        show_in_footer: Afficher dans le pied de page
         slug: Identifiant
         title: Titre
         weight: Poids
       static_page_topic:
         description: La description
-        show_in_footer: Montrer dans le pied de page
+        show_in_footer: Afficher dans le pied de page
         title: Titre
         weight: Poids
       user_group_csv_verification:
@@ -182,21 +182,21 @@ fr:
           success: Dossier mis à jour avec succès.
       attachments:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau document lié.
-          success: Document lié créé avec succès.
+          error: Une erreur s'est produite lors de l'ajout de la pièce jointe.
+          success: Pièce jointe ajoutée avec succès.
         destroy:
-          success: Document lié supprimé avec succès.
+          success: Pièce jointe supprimée avec succès.
         edit:
-          title: Modifier le document lié
+          title: Modifier la pièce jointe
           update: Mettre à jour
         index:
-          attachments_title: Documents liés
+          attachments_title: Pièces jointes
         new:
-          create: Lier un document
-          title: Nouveau document lié
+          create: Joindre un fichier
+          title: Nouvelle pièce jointe
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce document lié.
-          success: Document lié mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette pièce jointe.
+          success: Pièce jointe mise à jour avec succès.
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
@@ -205,7 +205,7 @@ fr:
           error: Une erreur s'est produite lors de la création de cette catégorie.
           success: Catégorie créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
+          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toutes les sous-catégories puis assurez-vous qu'aucun élément n'appartient à cette catégorie avant de réessayer.
           success: Catégorie supprimée avec succès.
         edit:
           title: Modifier la catégorie
@@ -330,12 +330,13 @@ fr:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        navbar_links: Liens de navigation
         newsletters: Bulletins d'information (newsletter)
         navbar_links: Navbar links
         oauth_applications: Applications OAuth
         participants: Participants
-        scope_types: Types de périmètre d'application
-        scopes: Périmètres d’application
+        scope_types: Types de filtre géographique
+        scopes: Filtres géographiques
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -355,7 +356,7 @@ fr:
             content_type: Type de contenu
             file_size: Taille
             title: Titre
-          name: Document lié
+          name: Pièce jointe
         attachment_collection:
           name: Dossier
         category:
@@ -392,7 +393,7 @@ fr:
         scope:
           fields:
             name: Titre
-            scope_type: Type de périmètre d'application
+            scope_type: Type de filtres géographiques
         scope_type:
           fields:
             name: Titre
@@ -404,7 +405,7 @@ fr:
         user:
           fields:
             created_at: Date de création
-            email: Email
+            email: E-mail
             last_sign_in_at: Date de la dernière connexion
             name: Nom
             role: Rôle
@@ -538,7 +539,7 @@ fr:
           instagram: Instagram
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
@@ -575,35 +576,35 @@ fr:
           title: Nouvel utilisateur privé de l'espace participatif.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
-          success: Type de périmètre d'application créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de filtres géographiques.
+          success: Type de filtres géographiques créé avec succès.
         destroy:
-          success: Le type de périmètre d'application a été supprimé avec succès
+          success: Le type de filtres géographiques a été supprimé avec succès
         edit:
-          title: Modifier le type de périmètre d'application
+          title: Modifier le type de filtres géographiques
           update: Mettre à jour
         new:
-          create: Créer un type de périmètre d'application
-          title: Nouveau périmètre d'application
+          create: Créer un type de filtres géographiques
+          title: Nouveau filtre géographique
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
-          success: Type de périmètre d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce type de filtres géographiques.
+          success: Type de filtres géographiques mis à jour avec succès
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
-          success: Périmètre d'application créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau filtre géographique.
+          success: Filtre géographique créé avec succès.
         destroy:
-          success: Périmètre d'application supprimé avec succès
+          success: Filtre géographique supprimé avec succès
         edit:
-          title: Modifier le périmètre d'application
+          title: Modifier le filtre géographique
           update: Mettre à jour
         new:
-          create: Créer un périmètre d'application
-          title: Nouveau périmètre d'application
-        no_scopes: Pas de périmètre d'application à ce niveau.
+          create: Créer un filtre géographique
+          title: Nouveau filtre géographique
+        no_scopes: Pas de filtre géographique à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
-          success: Périmètre d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce filtre géographique.
+          success: Filtre géographique mis à jour avec succès
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
@@ -657,8 +658,8 @@ fr:
         oauth_application:
         new: Nouvelle application Oauth
         participants: Participants
-        scope_types: Types de périmètre d'application
-        scopes: Périmètres d'application
+        scope_types: Types de filtres géographiques
+        scopes: Filtres géographiques
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -701,7 +702,7 @@ fr:
           error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
           success: L'utilisateur n'est plus un administrateur.
         form:
-          email: Email
+          email: E-mail
           name: Nom
           role: Rôle
         new:

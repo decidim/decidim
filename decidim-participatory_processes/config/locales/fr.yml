@@ -20,10 +20,10 @@ fr:
         participatory_structure: Modalités
         promoted: Mise en avant
         published_at: Publiée à
-        scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
+        scope_id: Filtre géographique
+        scopes_enabled: Filtres géographiques activés
         short_description: Résumé
-        show_statistics: Montrer les statistiques
+        show_statistics: Afficher les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
@@ -43,7 +43,7 @@ fr:
         start_date: Date de début
         title: Titre
       participatory_process_user_role:
-        email: Email
+        email: E-mail
         name: Nom
         role: Rôle
     models:
@@ -74,7 +74,7 @@ fr:
         new_process_step: Nouvelle étape
         new_process_user_role: Nouvel utilisateur de la concertation
         participatory_process:
-          new: New process
+          new: Nouvelle concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -85,7 +85,7 @@ fr:
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
-          attachments: Documents liés
+          attachments: Pièces jointes
           categories: Catégories
           components: Fonctionnalités
           info: Information
@@ -114,7 +114,7 @@ fr:
           name: Étape de la concertation
         participatory_process_user_role:
           fields:
-            email: Email
+            email: E-mail
             name: Nom
             role: Rôle
           name: Utilisateur de la concertation
@@ -158,7 +158,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
           success: Étape de la concertation créée avec succès.
-        default_title: Introduction
+        default_title: Présentation
         destroy:
           error:
             active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
@@ -206,8 +206,8 @@ fr:
           not_published: Non publiée
           private: Privée
           promoted:
-            'false': 'False'
-            'true': 'True'
+            'false': 'Non'
+            'true': 'Oui'
           public: Publique
           published: Publiée
         new:
@@ -275,7 +275,7 @@ fr:
       participatory_space:
         metrics:
           headline: Participation in figures
-          link: Show all statistics
+          link: Afficher toutes les statistiques
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -353,7 +353,7 @@ fr:
         participatory_scope: Objectifs
         participatory_structure: Modalités
         private_space: Ceci est une concertation privée
-        scope: Périmètre d'application
+        scope: Filtre géographique
         start_date: Date de début
         target: Participants
         unspecified: Non précisé

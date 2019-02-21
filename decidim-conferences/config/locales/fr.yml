@@ -8,14 +8,14 @@ fr:
         copy_categories: Copier des catégories
         copy_components: Copier des composants
         copy_features: Fonctions de copie
-        decidim_scope_id: Portée
+        decidim_scope_id: Filtre géographique
         description: La description
         hashtag: Hashtag
         hero_image: Image de la maison
         participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
-        scope_id: Portée
+        scope_id: Filtre géographique
         scopes_enabled: Scopes activés
         short_description: Brève description
         show_statistics: Montrez les statistiques
@@ -25,8 +25,8 @@ fr:
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
-        email: Email
-        name: Nom
+        email: E-mail
+        name: Rôle
         role: Rôle
     errors:
       models:
@@ -153,7 +153,7 @@ fr:
           conference_invites: Invite
           conference_speakers: Haut-parleurs
           diploma: Diplôme
-          info: Info
+          info: Information
           media_links: Liens médias
           moderations: Modération
           partners: Les partenaires
@@ -169,13 +169,13 @@ fr:
             title: Titre
         conference_speaker:
           fields:
-            affiliation: Affiliation
+            affiliation: Bio
             full_name: Nom complet
-            position: Position
+            position: Profession
           name: Conférencier
         conference_user_role:
           fields:
-            email: Email
+            email: E-mail
             name: prénom
             role: Rôle
           name: Utilisateur de la conférence
@@ -194,7 +194,7 @@ fr:
             link: Lien
             logo: Logo
             name: prénom
-            partner_type: Type
+            partner_type: Rôle
           name: Partenaire
           types:
             collaborator: Collaborateur
@@ -437,7 +437,7 @@ fr:
       models:
         conference_invite:
           fields:
-            email: Email
+            email: E-mail
             name: prénom
             registration_type: Type d'inscription
             sent_at: Envoyé à
@@ -448,7 +448,7 @@ fr:
             sent: Envoyé
         conference_registration:
           fields:
-            email: Email
+            email: E-mail
             name: prénom
             registration_type: Type d'inscription
             state: Etat
@@ -466,7 +466,7 @@ fr:
           photo: Photo
       photos_list:
         show:
-          related_photos: Photos
+          related_photos: Photos associées
       registration_types:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
@@ -563,7 +563,7 @@ fr:
           more_info: Plus d'informations
           take_part: Prendre part
       conferences_nav:
-        conference_menu_item: Information
+        conference_menu_item: Informations
         conference_partners_menu_item: Les partenaires
         conference_speaker_menu_item: Haut-parleurs
         media: Médias

@@ -2,23 +2,24 @@ fr:
   activemodel:
     attributes:
       collaborative_draft:
-        body: Corps
+        body: Corps de texte
         category_id: Catégorie
-        decidim_scope_id: Portée
-        has_address: Renseigner une adresse
+        decidim_scope_id: Filtre géographique
+        has_address: Est associée à un lieu
         state: État
         title: Titre
-        user_group_id: Créez un brouillon collaboratif comme
+        user_group_id: Créez une proposition collaborative en tant que
       proposal:
+        address: Adresse
         answer: Répondre
         answered_at: Répondu à
-        automatic_hashtags: Hashtags ajoutés automatiquement
+        automatic_hashtags: Ajout automatique des Hashtags
         body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
-        scope_id: Périmètre d'application
+        scope_id: Filtre géographique
         state: État
-        suggested_hashtags: Hashtags suggérés
+        suggested_hashtags: Suggestions de hashtags
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
@@ -42,12 +43,12 @@ fr:
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/rejected_proposal_event: Proposition non retenue
-      decidim/proposals/voting_enabled_event: Activer le module de vote simple
+      decidim/proposals/voting_enabled_event: Activer le "Vote simple"
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Projet de collaboration
-        other: Brouillons collaboratifs
+        one: Proposition collaborative
+        other: Propositions collaboratives
       decidim/proposals/proposal:
         one: Proposition
         other: Propositions
@@ -58,8 +59,8 @@ fr:
         one: Remarque
         other: Remarques
       decidim/proposals/proposal_vote:
-        one: Vote
-        other: Votes
+        one: Voter
+        other: Voter
   decidim:
     components:
       proposals:
@@ -71,11 +72,11 @@ fr:
         name: Propositions
         settings:
           global:
-            amendments_enabled: Autoriser les ammendements
+            amendments_enabled: Activer le module "Amendements"
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
-            collaborative_drafts_enabled: Brouillons collaboratifs activés
+            collaborative_drafts_enabled: Propositions collaboratives activées
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
@@ -85,7 +86,7 @@ fr:
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
-            proposal_limit: Limite de proposition par utilisateur
+            proposal_limit: Limite de propositions par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
@@ -107,37 +108,45 @@ fr:
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
             votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Objet de l'email
+          moderation_url: Url de la modération
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+        url: 'lien vers le commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a été accepté pour accéder en tant que contributeur du %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_intro: '%{requester_name} a été accepté en tant que collaborateur de la proposition <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a été accepté pour accéder en tant que collaborateur de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que collaborateur</strong> de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} a été refusé d''accès en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a été rejetée pour accéder en tant que contributeur du %{resource_title} projet de collaboration."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_intro: '%{requester_name} a été refusé d''accès en tant que collaborateur de la proposition <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de la proposition collaborative<a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a été rejetée pour accéder en tant que collaborateur de la proposition %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que collaborateur</strong> de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} demandé l''accès en tant que contributeur. Vous pouvez <strong>accepter ou rejeter la demande</strong> de la page de brouillon collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} demandé un accès pour contribuer à %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer au projet de collaboration <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
+          email_intro: '%{requester_name} demandé l''accès en tant que collaborateur. Vous pouvez <strong>accepter ou rejeter la demande</strong> depuis la page de proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} demandé un accès pour collaborer à %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer à la proposition collaborative <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Vous avez été accepté pour accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Vous avez été accepté comme contributeur de %{resource_title}.
-          notification_title: Vous avez été <strong>accepté d'accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_intro: Vous avez été accepté pour accéder en tant que collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Vous avez été accepté comme collaborateur de la proposition collaborative %{resource_title}.
+          notification_title: Vous avez été <strong>accepté d'accéder en tant que collaborateur de la proposition collaborative</strong> de <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Vous avez été refusé à accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Vous avez été rejeté en tant que contributeur de %{resource_title}.
-          notification_title: Vous avez été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_intro: Vous avez été refusé à accéder en tant que collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Vous avez été rejeté en tant que collaborateur de %{resource_title}.
+          notification_title: Vous avez été <strong>rejeté pour accéder en tant que collaborateur de la proposition </strong> du <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré le projet de collaboration <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} retiré le %{resource_title} projet de collaboration."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> le <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} retiré la proposition collaborative %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
@@ -150,65 +159,69 @@ fr:
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse dans cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de "%{resource_title}".
             email_subject: Votre proposition a été acceptée
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+          email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
+          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+          email_subject: Une proposition que vous suivez a été acceptée
           follower:
-            email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse dans cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
             email_subject: Une proposition que vous suivez a été acceptée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_created:
-          email_subject: Nouvelle proposition de %{author_name}.
-          moderation:
-            email_intro: Email intro
-            email_subject: Email subject
-            moderation_url: Moderation url
-          notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-          url: 'url de commentaire : %{resource_url}'
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est acceptée.
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, qui vous suivez, vient d’approuver la proposition "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez:'
+          email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: "%{endorser_nickname} a soutenu une nouvelle proposition"
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez vérifier la réponse dans cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de "%{resource_title}".
             email_subject: Votre proposition est en cours d'évaluation
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est évaluée.
+          email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Une proposition que vous suivez est en cours d'évaluation
           follower:
-            email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez vérifier la réponse dans cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
-          notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
+          notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans les commentaires de cet espace</a>.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition appelée "%{resource_title}". Découvrez-le et contribuez:'
+          email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :'
           email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-          email_subject: Nouvelle proposition "%{resource_title}" par %{author_nickname}
+          email_subject: Nouvelle proposition de %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
-          email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
+          email_subject: Nouvelle proposition publiée dans %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse dans cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de "%{resource_title}".
             email_subject: Votre proposition a été rejetée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a> a été rejetée.
+          email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Une proposition que vous suivez n'a pas été retenue
           follower:
-            email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez n'a pas été retenue
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
+            email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse dans cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
+            email_subject: Une proposition que vous suivez a été rejetée
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a>projet a été rejetée.
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -260,15 +273,15 @@ fr:
         object: les propositions
         title: Propositions Acceptées
       endorsements:
-        description: Nombre de soutiens dans les propositions
-        object: soutiens
-        title: Soutiens
+        description: Nombre d'approbations générées dans les propositions
+        object: avenants
+        title: Approbations
       proposals:
         description: Nombre de propositions générées
         object: les propositions
         title: Les propositions
       votes:
-        description: Nombre de votes générés dans les propositions par les utilisateurs
+        description: Nombre de votes générés dans les propositions des utilisateurs
         object: votes
         title: Votes
     participatory_processes:
@@ -277,7 +290,7 @@ fr:
           proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tout voir (%{count})
+        see_all: Voir tout (%{count})
     proposals:
       actions:
         answer: Répondre
@@ -298,25 +311,25 @@ fr:
             name: Proposition
         participatory_texts:
           bulk-actions:
-            import_doc: Document d'importation
+            import_doc: Importer un document
           import:
             invalid: Le formulaire est invalide!
-            success: Félicitations, les sections suivantes ont été analysées à partir du document importé, elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
+            success: Félicitations, les sections suivantes ont été analysées à partir du document importé. Elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
           index:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
-            bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
+            bottom_hint: "(Vous pourrez prévisualiser et trier les sections du document)"
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée dans Propositions. Les formats supportés sont: Markdown'
             title: AJOUTER UN DOCUMENT
-            upload_document: Télécharger le document
+            upload_document: Importer le document
           publish:
             invalid: Impossible de publier des propositions
             success: Toutes les propositions ont été publiées
           sections:
             article: "<em>article</em>"
-            section: "<em>Section:</em> <strong>%{title}</strong>"
+            section: "<em>Section :</em> <strong>%{title}</strong>"
             sub-section: "<em>Sous-section:</em> %{title}"
         proposal_answers:
           edit:
@@ -346,7 +359,7 @@ fr:
             update: Mettre à jour
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-            created_in_meeting: Cette proposition provient d'une réunion
+            created_in_meeting: Cette proposition est issue d'une réunion
             select_a_category: Sélectionner une catégorie
             select_a_meeting: Sélectionnez une réunion
           index:
@@ -407,134 +420,134 @@ fr:
         withdrawn: Retirée
       application_helper:
         filter_origin_values:
-          all: Tout
+          all: Tous
           citizens: Citoyens
           meetings: Réunions
           official: Officiel
-          user_groups: Groupes
+          user_groups: Groupes d'utilisateurs
         filter_state_values:
           accepted: Accepté
-          all: Tout
-          evaluating: "Évaluer les "
-          except_rejected: Toutes sauf les propositions non retenues
+          all: Tous
+          evaluating: Évaluer les
+          except_rejected: Tous sauf rejetés
           rejected: Rejeté
         filter_type_values:
-          all: Tout
-          amendments: Amendements
-          proposals: Les propositions
+          all: Tous
+          amendments: Modifications
+          proposals: Propositions
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
+            error: Il y a eu des erreurs lors de la publication de la proposition collaborative.
             irreversible_action_modal:
-              body: Après avoir publié le projet en tant que proposition, le projet ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir publié la proposition collaborative, elle ne sera plus modifiable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
-            success: Projet collaboratif publié avec succès en tant que proposition.
-          view_collaborative_draft: Afficher le brouillon collaboratif
+            success: Proposition collaborative publiée avec succès en tant que proposition.
+          view_collaborative_draft: Afficher la proposition collaborative
           withdraw:
-            error: Il y a eu des erreurs en fermant le projet de collaboration.
+            error: Il y a eu des erreurs en fermant la proposition collaborative.
             irreversible_action_modal:
               body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
-              ok: Retirer le projet collaboratif
+              ok: Retirer la proposition collaborative
               title: L'action suivante est irréversible
-            success: Projet de collaboration retiré avec succès.
+            success: Proposition collaborative retirée avec succès.
         compare:
-          mine_is_different: Mon projet de collaboration est différent
-          no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
-          title: Projets collaboratifs similaires
+          mine_is_different: Ma proposition collaborative est différente
+          no_similars_found: Bien joué ! Aucune proposition collaborative similaire n'a été trouvée
+          title: Propositions collaboratives similaires
         complete:
           send: Envoyer
-          title: Complétez votre projet collaboratif
+          title: Complétez votre proposition collaborative
         count:
           drafts_count:
-            one: "%{count} projet collaboratif"
-            other: "%{count} projets collaboratifs"
+            one: "%{count} proposition collaborative"
+            other: "%{count} propositions collaboratives"
         create:
-          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
-          success: Projet collaboratif créé avec succès.
+          error: Il y a eu un problème lors de la création de ces propositions collaboratives
+          success: Proposition collaborative créée avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
-          title: Modifier un brouillon collaboratif
+          title: Modifier une proposition collaborative
         filters:
           all: Tout
           amendment: Amendements
           category: Catégorie
           category_prompt: Catégories
           open: Ouvrir
-          published: Publié
-          related_to: Lié à
-          search: Chercher
+          published: Publiée
+          related_to: Liées à
+          search: Rechercher
           state: État
-          withdrawn: Retiré
+          withdrawn: Retirée
         filters_small_view:
           close_modal: Fermer la fenêtre
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Voir plus
         new:
           send: Continuer
-          title: Créez votre projet collaboratif
+          title: Créez votre proposition collaborative
         new_collaborative_draft_button:
-          new_collaborative_draft: Nouveau projet de collaboration
+          new_collaborative_draft: Nouvelle proposition collaborative
         orders:
-          label: 'Ordre des brouillons par:'
-          most_contributed: La plupart ont contribué
+          label: 'Trier les propositions par:'
+          most_contributed: Avec le plus de contributions
           random: Aléatoire
           recent: Récent
         requests:
           accepted_request:
-            error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
+            error: Votre demande de collaboration n'a pas pu aboutir, veuillez réessayer plus tard.
             success: "@%{user} a été accepté comme collaborateur avec succès"
           access_requested:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
             success: Votre demande de collaboration a été envoyée avec succès
           collaboration_requests:
-            accept_request: Accepté
-            reject_request: Rejeté
+            accept_request: Accepter
+            reject_request: Rejeter
             title: Demandes de collaboration
           rejected_request:
-            error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
-            success: "@%{user} a été rejeté en tant que collaborateur avec succès"
+            error: Le rejet de la demande de collaboration n'a pas pu aboutir, veuillez réessayer plus tard.
+            success: "@%{user} a été bien refusé en tant que collaborateur"
         show:
           back: Retour
-          edit: Modifier un brouillon collaboratif
-          final_proposal: proposition finale
-          final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
+          edit: Modifier une proposition collaborative
+          final_proposal: version finale
+          final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition qui en est issue
           hidden_authors_count:
-            one: et %{count} personne de plus
-            other: et %{count} autres personnes
-          info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
+            one: et 1 personne de plus
+            other: et %{count} plus de personnes
+          info-message: Ceci est une <strong>proposition collaborative</strong>. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
           of_versions: "(de %{number})"
           publish: Publier
-          publish_info: Publiez cette version du brouillon ou
+          publish_info: Publiez cette version de la proposition ou
           published_proposal: proposition publiée
-          request_access: Demande d'accès
-          requested_access: Accès demandé
+          request_access: Demander à collaborer
+          requested_access: Demande de collaboration envoyée
           see_other_versions: voir d'autres versions
           version: Version %{number}
           version_history: voir l'historique des versions de cette proposition
-          withdraw: retirer le projet
+          withdraw: retirer la proposition collaborative
         states:
           open: Ouvrir
-          published: Publié
-          withdrawn: Retiré
+          published: Publiée
+          withdrawn: Retirée
         update:
-          error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
-          success: Projet de collaboration mis à jour avec succès.
+          error: Il y a eu des erreurs lors de la sauvegarde de la proposition collaborative.
+          success: Proposition collaborative mise à jour avec succès.
         wizard_aside:
-          back: Arrière
-          info: Vous créez un <strong>projet collaboratif</strong>.
+          back: Retour
+          info: Vous créez une <strong>proposition collaborative</strong>.
         wizard_steps:
           see_steps: voir les étapes
-          step_1: Créez votre projet collaboratif
-          step_2: Comparer avec les projets collaboratifs
-          step_3: Complétez votre projet collaboratif
+          step_1: Créez votre proposition collaborative
+          step_2: Comparer avec les propositions collaboratives
+          step_3: Complétez votre proposition collaborative
           step_of: Etape %{current_step_num} sur %{total_steps}
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
@@ -559,7 +572,7 @@ fr:
             notes: Remarques
             official_proposal: Proposition officielle
             published_at: Publiée à
-            scope: Périmètre d'application
+            scope: Filtre géographique
             state: État
             title: Titre
             votes: Votes
@@ -570,8 +583,8 @@ fr:
         buttons:
           amend: Modifier
           comment: Commentaire
-          comments: commentaires
-          endorse: Soutenir
+          comments: Commentaires
+          endorse: Approuver
       proposal_endorsements:
         create:
           error: Des erreurs sont survenues au moment de soutenir la proposition.
@@ -597,7 +610,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: "%{count} proposition"
+            one: "1 proposition"
             other: "%{count} propositions"
         dynamic_map_instructions:
           primary: Vous pouvez déplacer le point sur la carte.
@@ -616,30 +629,29 @@ fr:
           send: Aperçu
           title: Modifier le brouillon de votre proposition
         edit_form_fields:
-          address: Address
-          not_geocoded: Not geocoded
+          address: Adresse
+          not_geocoded: Non géolocalisé
         endorsement_identities_cabin:
           endorse: Soutenir
         endorsements_card_row:
           comments: Commentaires
         filters:
           activity: Activité
-          amendment_type: Type
+          amendment_type: Type de proposition
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           origin: Auteurs
           related_to: Liées à
           search: Rechercher
           state: État
-          voted: Ne montrer que les propositions pour lesquelles j'ai voté
-          amendment_type: Type
+          voted: Afficher uniquement les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir plus
         index:
-          collaborative_drafts_list: Accéder aux brouillons collaboratifs
+          collaborative_drafts_list: Accéder aux propositions collaboratives
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
@@ -657,11 +669,11 @@ fr:
           recent: Les plus récentes
         participatory_texts:
           index:
-            document_index: Index de document
+            document_index: Index du document
           view_index:
-            see_index: Voir index
+            see_index: Voir l'index
         placeholder:
-          address: "<numéro> <adresse> <code-postal> <ville>"
+          address: 32, rue des cascades 75020 Paris
         preview:
           address: 'Adresse : %{address}'
           modify: Modifier la proposition
@@ -680,10 +692,10 @@ fr:
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
-            one: et %{count} personne de plus
+            one: et 1 autre personne
             other: et %{count} autres personnes
-          link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
-          link_to_collaborative_draft_text: Voir le brouillon collaboratif
+          link_to_collaborative_draft_help_text: Cette proposition est le résultat d'une proposition collaborative. Revoir l'historique
+          link_to_collaborative_draft_text: Voir la proposition collaborative
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
@@ -701,10 +713,10 @@ fr:
           no_votes_remaining: Aucun vote restant
           vote: Voter
           votes_blocked: Votes désactivés
-          vote_weight:
-            maximum_votes_reached: Nombre maximal de voix obtenues
-            no_votes_remaining: Aucun vote restant
-            votes_blocked: Votes bloqués
+        vote_weight:
+          maximum_votes_reached: Nombre maximal de voix obtenues
+          no_votes_remaining: Aucun vote restant
+          votes_blocked: Votes bloqués
         votes_count:
           count:
             one: VOTE
@@ -753,8 +765,8 @@ fr:
         index:
           title: Des versions
         stats:
-          back_to_collaborative_draft: Revenir au brouillon collaboratif
-          back_to_proposal: Retourner à la proposition
+          back_to_collaborative_draft: Revenir à la proposition collaborative
+          back_to_proposal: Retour à la proposition
           number_of_versions: Des versions
           show_all_versions: Afficher toutes les versions
           version_author: Auteur de la version

@@ -15,7 +15,7 @@ fr:
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Filtre géographique
         description: Description
         end_time: Heure de fin
         location: Lieu
@@ -148,7 +148,7 @@ fr:
       actions:
         agenda: Ordre du jour
         attachment_collections: Dossiers
-        attachments: Documents liés
+        attachments: Pièces jointes
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
@@ -383,7 +383,7 @@ fr:
       models:
         invite:
           fields:
-            email: Email
+            email: E-mail
             name: Titre
             sent_at: Envoyé à
             status: Statut
@@ -439,7 +439,7 @@ fr:
         meeting_result: 'Résultats associés :'
         result_meeting: 'Rencontres associées :'
       proposals_from_meeting:
-        meeting_proposal: 'Propositions créées lors de cette rencontre :'
+        meeting_proposal: 'Propositions élaborées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
   devise:
     mailer:

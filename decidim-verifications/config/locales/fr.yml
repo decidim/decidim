@@ -15,7 +15,7 @@ fr:
         user: Utilisateur
         verification_attachment: Copie scannée du document
       offline_confirmation:
-        email: Email de l'utilisateur
+        email: Courriel de l'utilisateur
       postal_letter_address:
         full_address: Adresse complète
       postal_letter_confirmation:
@@ -29,7 +29,7 @@ fr:
         authorization_workflows: Vérifications
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} a mis à jour la configuration de la vérification des documents d'identité"
+        update_id_documents_config: "%{user_name} mise à jour de la configuration de vérification des documents d'identité"
       user:
         grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} utilisant une vérification hors ligne des documents d'identité"
     authorization_handlers:
@@ -39,7 +39,7 @@ fr:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
             - Vous remplissez les informations présentes dans l'image téléchargée.
             - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
             - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
@@ -49,7 +49,7 @@ fr:
       direct: Direct
       help: Texte d'aide
       id_documents:
-        explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
+        explanation: Importer vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
       multistep: En plusieurs étapes
       name: Nom
@@ -85,17 +85,17 @@ fr:
           config:
             edit:
               title: Configuration des documents d'identité
-              update: Mettre à jour
+              update: Mise à jour
             update:
               error: Une erreur s'est produite lors de la mise à jour de la configuration.
               success: Configuration mise à jour avec succès
           confirmations:
             create:
-              error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
+              error: La vérification ne correspond pas. Réessayez ou refusez la vérification afin que l'utilisateur puisse la modifier
               success: Utilisateur vérifié avec succès
             new:
               introduce_user_data: Introduire les données dans l'image
-              reject: Rejeter
+              reject: Refuser
               verify: Vérifier
           offline_confirmations:
             create:
@@ -103,11 +103,11 @@ fr:
               success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
-              introduce_user_data: Saisir le courrier électronique de l'utilisateur et les données du document
+              introduce_user_data: Introduire le courriel de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:
-              config: Config
+              config: Configuration
               offline_verification: Vérification hors ligne
               title: Vérifications en attente
               verification_number: 'Vérification # %{n}'
@@ -116,13 +116,13 @@ fr:
               success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
-            choose_a_type: "Veuillez sélectionner la méthode de vérification:"
+            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez être vérifié :'
             offline: Hors ligne
             online: En ligne
-            title: Vérification en utilisant votre pièce d'identité
+            title: Authentifiez-vous à l'aide de votre pièce d'identité
           create:
-            error: Un problème est survenu lors du téléchargement de votre document
-            success: Document téléchargé avec succès
+            error: Un problème est survenu lors de l'importation de votre document
+            success: Document importé avec succès
           edit:
             being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
             offline: Utiliser la vérification hors ligne
@@ -130,13 +130,13 @@ fr:
             rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
             rejection_correctness: Assurez-vous que les informations entrées sont correctes
             rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
-            send: Demande de vérification à nouveau
+            send: Renouveler la demande de vérification
           new:
             send: Demande de vérification
-            title: Téléchargez votre document d'identité
+            title: Importez votre document d'identité
           update:
             error: Un problème est survenu lors du chargement de votre document
-            success: Document téléchargé avec succès
+            success: Document importé avec succès
         dni: Carte nationale d'identité
         nie: Carte de séjour ou de résident
         passport: Passeport
