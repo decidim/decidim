@@ -43,7 +43,7 @@ fr:
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/rejected_proposal_event: Proposition non retenue
-      decidim/proposals/voting_enabled_event: Activer le module de vote simple
+      decidim/proposals/voting_enabled_event: Activer le "Vote simple"
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
@@ -86,7 +86,7 @@ fr:
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
-            proposal_limit: Limite de proposition par utilisateur
+            proposal_limit: Limite de propositions par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
@@ -196,7 +196,7 @@ fr:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
-          notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
+          notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans les commentaires de cet espace</a>.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :'
           email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
