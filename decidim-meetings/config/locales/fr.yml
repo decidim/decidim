@@ -152,7 +152,7 @@ fr:
       actions:
         agenda: Ordre du jour
         attachment_collections: Dossiers
-        attachments: Documents liés
+        attachments: Pièces jointes
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
