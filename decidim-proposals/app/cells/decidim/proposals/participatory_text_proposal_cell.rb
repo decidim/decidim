@@ -12,8 +12,6 @@ module Decidim
       include Messaging::ConversationHelper
       include Decidim::SanitizeHelper
 
-      delegate :current_organization, to: :controller
-
       def show
         render
       end
