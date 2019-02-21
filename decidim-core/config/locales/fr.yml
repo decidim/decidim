@@ -15,7 +15,7 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
     models:
-      decidim/attachment_created_event: Document lié
+      decidim/attachment_created_event: Pièce jointe
       decidim/component_published_event: Fonctionnalité active
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
