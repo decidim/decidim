@@ -72,9 +72,9 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
   private _renderBlockedCommentsWarning() {
-    const { commentable: { acceptsNewComments } } = this.props;
+    const { commentable: { acceptsNewComments, userCanComment } } = this.props;
 
-    if (!acceptsNewComments) {
+    if (!acceptsNewComments && !userCanComment) {
       return (
         <div className="callout warning">
           <p>{I18n.t("components.comments.blocked_comments_warning")}</p>
@@ -113,9 +113,9 @@ export class Comments extends React.Component<CommentsProps> {
    */
   private _renderAddCommentForm() {
     const { session, commentable, orderBy } = this.props;
-    const { acceptsNewComments, commentsHaveAlignment } = commentable;
+    const { acceptsNewComments, commentsHaveAlignment, userCanComment } = commentable;
 
-    if (acceptsNewComments) {
+    if (acceptsNewComments && userCanComment && session) {
       return (
         <AddCommentForm
           session={session}

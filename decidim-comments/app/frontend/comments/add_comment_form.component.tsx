@@ -377,6 +377,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 comments: [],
                 hasComments: false,
                 acceptsNewComments: false,
+                userCanComment: false,
                 upVotes: 0,
                 upVoted: false,
                 downVotes: 0,

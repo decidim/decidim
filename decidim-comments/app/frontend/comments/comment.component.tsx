@@ -214,9 +214,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderReplyButton() {
-    const { comment: { acceptsNewComments }, session } = this.props;
+    const { comment: { acceptsNewComments, userCanComment }, session } = this.props;
 
-    if (session && acceptsNewComments) {
+    if (session && acceptsNewComments && userCanComment) {
       return (
         <button
           className="comment__reply muted-link"
