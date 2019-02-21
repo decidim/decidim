@@ -37,7 +37,7 @@ fr:
     models:
       decidim/amendment:
         one: Amendement
-        other: Modifications
+        other: Amendements
       decidim/user:
         one: Aucun utilisateur
         other: Utilisateurs
