@@ -504,6 +504,11 @@ en:
           email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> has been officialized.
+          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{nickname} has been officialized"
+          notification_title: The <a href="%{resource_path}">%{name} (%{nickname})</a>, who you are following, has been officialized.
     export_mailer:
       data_portability_export:
         click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
