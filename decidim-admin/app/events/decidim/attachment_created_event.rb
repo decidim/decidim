@@ -19,13 +19,9 @@ module Decidim
       )
     end
 
-    def url_host=(host)
-      @url_host = host
-    end
+    attr_writer :url_host
 
-    def url_host
-      @url_host
-    end
+    attr_reader :url_host
 
     private
 
