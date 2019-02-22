@@ -19,10 +19,6 @@ module Decidim
       )
     end
 
-    attr_writer :url_host
-
-    attr_reader :url_host
-
     private
 
     def attached_to_url
