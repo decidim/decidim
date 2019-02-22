@@ -19,11 +19,11 @@ module Decidim
       )
     end
 
-    def set_url_host(host)
+    def url_host=(host)
       @url_host = host
     end
 
-    def get_url_host
+    def url_host
       @url_host
     end
 
