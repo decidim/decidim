@@ -97,6 +97,10 @@ module Decidim
         nil
       end
 
+      attr_writer :url_host
+
+      attr_reader :url_host
+
       private
 
       def event_interpolations
