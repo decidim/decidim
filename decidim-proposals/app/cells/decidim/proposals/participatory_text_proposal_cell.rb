@@ -12,8 +12,6 @@ module Decidim
       include Messaging::ConversationHelper
       include Decidim::SanitizeHelper
 
-      delegate :current_organization, to: :controller
-
       def show
         render
       end
@@ -33,10 +31,6 @@ module Decidim
         return unless model.participatory_text_level == "article"
         formatted = simple_format(present(model).body)
         decidim_sanitize(strip_links(formatted))
-      end
-
-      def current_user
-        context[:current_user]
       end
 
       def resource_path
