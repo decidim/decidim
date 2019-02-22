@@ -655,8 +655,6 @@ fr:
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
-        oauth_application:
-        new: Nouvelle application Oauth
         participants: Participants
         scope_types: Types de filtres géographiques
         scopes: Filtres géographiques

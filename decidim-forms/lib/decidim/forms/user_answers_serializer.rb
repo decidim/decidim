@@ -27,7 +27,9 @@ module Decidim
       end
 
       def normalize_choices(choices)
-        choices.collect { |c| c.try(:custom_body) || c.try(:body) }
+        choices.map do |choice|
+          choice.try(:custom_body) || choice.try(:body)
+        end
       end
     end
   end
