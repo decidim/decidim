@@ -95,7 +95,7 @@ module Decidim
 
     def trigger_omniauth_registration
       ActiveSupport::Notifications.publish(
-        "decidim.events.user.omniauth_registration",
+        "decidim.user.omniauth_registration",
         user_id: @user.id,
         identity_id: @identity.id,
         provider: form.provider,
