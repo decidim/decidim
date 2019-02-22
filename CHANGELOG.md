@@ -94,6 +94,7 @@
 - **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-initiatives** Fix author duplicated appearance in some initiatives authors lists. [\#4885](https://github.com/decidim/decidim/pull/4885)
+- **decidim-meetings**, **decidim-forms**: Fix form to_param methods printing out empty IDs and causing an HTTP 400 exception [\#4896](https://github.com/decidim/decidim/pull/4896)
 
 **Removed**:
 
