@@ -4,6 +4,21 @@
 
 **Upgrade notes**:
 
+- **Actions on omniauth registrations**: Due to [#4895](https://github.com/decidim/decidim/pull/4895), if there are [actions registered to be performed when a user registers throught OAuth](https://github.com/decidim/decidim/blob/master/docs/customization/oauth.md#performing-more-actions-on-omniauth-registration), the name of the event must be changed to keep them working. The subscription to the notification should be changed from:
+
+```ruby
+ActiveSupport::Notifications.subscribe "decidim.events.user.omniauth_registration" do |name, started, finished, unique_id, data|
+```
+
+to
+
+```ruby
+ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |name, started, finished, unique_id, data|
+```
+
+
+- **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events
+
 **Added**:
 
 - **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4814](https://github.com/decidim/decidim/pull/4814)
@@ -54,6 +69,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events [#4895](https://github.com/decidim/decidim/pull/4895)
 - **decidim-core**: Hide comments on cards when deactivated on a component. [\#4904](https://github.com/decidim/decidim/pull/4904)
 - **decidim-debates**: Fix stats display for debates when a debate has been moderated. [\#4903](https://github.com/decidim/decidim/pull/4903)
 - **decidim-core**: Fix comments count when a comment has been moderated [\#4901](https://github.com/decidim/decidim/pull/4901)

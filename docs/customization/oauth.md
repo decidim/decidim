@@ -24,7 +24,7 @@ Check [omniauth-decidim](https://github.com/decidim/omniauth-decidim) in order t
 
 ## Performing more actions on omniauth registration
 
-Some times, there is the need to perform more actions than just ceating a user on registration, this is why `CreateOmniauthRegistration` command publishes a `"decidim.user.omniauth_registration` event after registration so that developers can subscribe to it and perform other actions like user verification or alike.
+Some times, there is the need to perform more actions than just creating a user on registration, this is why `CreateOmniauthRegistration` command publishes a `"decidim.user.omniauth_registration` event after registration so that developers can subscribe to it and perform other actions like user verification or alike.
 
 This event comes with the following payload:
 
