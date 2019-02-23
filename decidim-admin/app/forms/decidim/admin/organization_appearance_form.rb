@@ -30,7 +30,7 @@ module Decidim
       attribute :omnipresent_banner_url, String
 
       attribute :primary_color, String, default: "#ef604d"
-      attribute :secundary_color, String, default: "#599aa6"
+      attribute :secondary_color, String, default: "#599aa6"
       attribute :success_color, String, default: "#57d685"
       attribute :warning_color, String, default: "#ffae00"
       attribute :alert_color, String, default: "#ec5840"

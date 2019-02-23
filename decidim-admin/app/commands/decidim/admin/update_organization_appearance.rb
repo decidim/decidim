@@ -99,7 +99,7 @@ module Decidim
         {
           colors: {
             primary: form.primary_color,
-            secundary: form.secundary_color,
+            secondary: form.secondary_color,
             success: form.success_color,
             warning: form.warning_color,
             alert: form.alert_color
