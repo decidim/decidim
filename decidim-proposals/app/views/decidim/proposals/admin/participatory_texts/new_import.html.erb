@@ -21,7 +21,7 @@
       <div class="grid-x">
         <div class="cell">
           <fieldset>
-            <legend><%= t(".document_legend") %></legend>
+            <legend> <%= t(".document_legend", valid_mime_types: mime_types_with_document_examples).html_safe %> </legend>
               <div class="row column">
                 <%= form.upload :document, optional: false %>
               </div>

@@ -110,5 +110,23 @@ describe Decidim::Debates::DebateSearch do
         end
       end
     end
+
+    describe "order_start_time" do
+      context "when ordering ascending" do
+        let(:params) { default_params.merge(order_start_time: "asc") }
+
+        it "shows the upcoming debates first" do
+          expect(subject).to eq([debate1, debate2])
+        end
+      end
+
+      context "when ordering descending" do
+        let(:params) { default_params.merge(order_start_time: "desc") }
+
+        it "shows the latest debates first" do
+          expect(subject).to eq([debate2, debate1])
+        end
+      end
+    end
   end
 end

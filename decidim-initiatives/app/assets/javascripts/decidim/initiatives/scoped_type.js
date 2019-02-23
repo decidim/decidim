@@ -1,12 +1,9 @@
 /* eslint-disable camelcase */
-
-$(document).ready(function () {
-  let typeSelector = $("[data-scope-selector]");
-
-  if (typeSelector.length) {
-    let currentValue = typeSelector.data("scope-id"),
-        searchUrl = typeSelector.data("scope-search-url"),
-        targetElement = $(`#${typeSelector.data("scope-selector")}`);
+let controlSelector = function(source, prefix, currentValueKey) {
+  if (source.length) {
+    let currentValue = source.data(currentValueKey),
+        searchUrl = source.data(`${prefix}-search-url`),
+        targetElement = $(`#${source.data(`${prefix}-selector`)}`);
 
     if (targetElement.length) {
       let refresh = function () {
@@ -15,7 +12,7 @@ $(document).ready(function () {
           cache: false,
           dataType: "html",
           data: {
-            type_id: typeSelector.val(),
+            type_id: source.val(),
             selected: currentValue
           },
           success: function (data) {
@@ -24,8 +21,14 @@ $(document).ready(function () {
         });
       };
 
-      typeSelector.change(refresh);
+      source.change(refresh);
       refresh();
     }
   }
+};
+
+$(document).ready(function () {
+  let typeSelector = $("[data-scope-selector]");
+  controlSelector(typeSelector, "scope", "scope-id");
+  controlSelector(typeSelector, "signature-types", "signature-type");
 });

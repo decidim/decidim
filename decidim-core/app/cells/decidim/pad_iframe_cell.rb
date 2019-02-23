@@ -42,10 +42,6 @@ module Decidim
       model
     end
 
-    def current_user
-      context[:current_user]
-    end
-
     def current_organization
       current_user.organization
     end

@@ -14,6 +14,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         # Non-logged users permissions
+        public_report_content_action?
         list_public_initiatives?
         read_public_initiative?
         search_initiative_types_and_scopes?
@@ -52,7 +53,7 @@ module Decidim
 
       def search_initiative_types_and_scopes?
         return unless permission_action.action == :search
-        return unless [:initiative_type, :initiative_type_scope].include?(permission_action.subject)
+        return unless [:initiative_type, :initiative_type_scope, :initiative_type_signature_types].include?(permission_action.subject)
 
         allow!
       end
@@ -125,6 +126,13 @@ module Decidim
                      authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
+      end
+
+      def public_report_content_action?
+        return unless permission_action.action == :create &&
+                      permission_action.subject == :moderation
+
+        allow!
       end
 
       def sign_initiative?

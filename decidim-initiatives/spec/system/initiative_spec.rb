@@ -40,6 +40,12 @@ describe "Initiative", type: :system do
       end
     end
 
+    it "shows the author name once in the authors list" do
+      within ".initiative-authors" do
+        expect(page).to have_content(initiative.author_name, count: 1)
+      end
+    end
+
     it_behaves_like "has attachments"
   end
 end
