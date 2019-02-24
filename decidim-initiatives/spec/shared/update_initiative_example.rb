@@ -24,8 +24,6 @@ shared_examples "update an initiative" do
       signature_type: "any",
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
-      answer: { en: "Measured answer" },
-      answer_url: "http://decidim.org",
       hashtag: "update_initiative_example",
       offline_votes: 1
     }
@@ -64,10 +62,7 @@ shared_examples "update an initiative" do
 
         expect(initiative.title["en"]).to eq(form_params[:title][:en])
         expect(initiative.description["en"]).to eq(form_params[:description][:en])
-        expect(initiative.answer["en"]).to eq(form_params[:answer][:en])
         expect(initiative.type.id).to eq(form_params[:type_id])
-        expect(initiative.signature_type).to eq(form_params[:signature_type])
-        expect(initiative.answer_url).to eq(form_params[:answer_url])
         expect(initiative.hashtag).to eq(form_params[:hashtag])
       end
 
@@ -95,6 +90,26 @@ shared_examples "update an initiative" do
         command.call
         initiative.reload
         expect(initiative.offline_votes).not_to eq(form_params[:offline_votes])
+      end
+
+      describe "when in created state" do
+        let!(:initiative) { create(:initiative, :created, signature_type: "online") }
+
+        before { form.signature_type = "offline" }
+
+        it "updates signature type" do
+          expect { command.call }.to change(initiative, :signature_type).from("online").to("offline")
+        end
+      end
+
+      describe "when not in created state" do
+        let!(:initiative) { create(:initiative, :published, signature_type: "online") }
+
+        before { form.signature_type = "offline" }
+
+        it "doesn't update signature type" do
+          expect { command.call }.not_to change(initiative, :signature_type)
+        end
       end
 
       context "when administrator user" do

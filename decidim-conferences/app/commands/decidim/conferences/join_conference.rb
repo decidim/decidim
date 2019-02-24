@@ -66,7 +66,7 @@ module Decidim
           event: "decidim.events.conferences.conference_registration_validation_pending",
           event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
           resource: @conference,
-          recipient_ids: [@user.id]
+          affected_users: [@user]
         )
       end
 
@@ -85,7 +85,7 @@ module Decidim
           event: "decidim.events.conferences.conference_registrations_over_percentage",
           event_class: Decidim::Conferences::ConferenceRegistrationsOverPercentageEvent,
           resource: @conference,
-          recipient_ids: participatory_space_admins.pluck(:id),
+          followers: participatory_space_admins,
           extra: {
             percentage: percentage
           }

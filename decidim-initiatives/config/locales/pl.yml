@@ -26,8 +26,20 @@ pl:
         user: członek Komisji
       initiatives_type:
         banner_image: Obraz baneru
+        collect_user_extra_fields: Zbierz dane osobowe użytkownika na podpisie
         description: Opis
+        document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu w sprawie głosowania
+        extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
+        minimum_committee_members: Minimum członków komitetu
+        online_signature_enabled: Włączony podpis online
         title: Tytuł
+        undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
+        validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
+      initiatives_vote:
+        name_and_surname: Imię i nazwisko
+        document_number: Numer dokumentu
+        date_of_birth: Data urodzenia
+        postal_code: Kod pocztowy
       organization_data:
         address: Adres
         id_document: Dokument tożsamości
@@ -60,6 +72,7 @@ pl:
         initiatives:
           fields:
             created_at: Utworzono w
+            id: ID
             state: Stan
             supports_count: Obsługuje
             title: Inicjatywy
@@ -73,6 +86,20 @@ pl:
             created_at: Utworzono w
             title: Rodzaje inicjatyw
           name: Typ inicjatywy
+        initiatives_votes:
+          fields:
+            date_of_birth: Data urodzenia
+            document_number: Numer dokumentu
+            hash: Haszysz
+            initiative_end_date: Data zakonczenia
+            initiative_id: ID inicjatywy
+            initiative_signatures_count: Liczba podpisów
+            initiative_start_date: Data rozpoczęcia
+            initiative_title: Tytuł inicjatywy
+            name_and_surname: Imię i nazwisko
+            postal_code: Kod pocztowy
+            time_and_date: Czas i data
+            timestamp: Znak czasu
       titles:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw
@@ -84,10 +111,16 @@ pl:
           email_subject: Data zakończenia podpisów inicjatywa!
           notification_title: Data zakończenia podpisów dla inicjatywy <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         milestone_completed:
-          email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Nowy kamień milowy zakończony!
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+          affected_user:
+            email_intro: Twoja inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}.
+            email_subject: Nowy kamień milowy zakończony!
+            notification_title: Twoja inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+          follower:
+            email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_subject: Nowy kamień milowy zakończony!
+            notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
     gamification:
       badges:
         initiatives:
@@ -125,6 +158,7 @@ pl:
             accept: Przyjmij inicjatywę
             confirm: Jesteś pewny?
             discard: Odrzuć inicjatywę
+            export_pdf_signatures: Eksportuj PDF podpisów
             export_votes: Wsparcie eksportu
             reject: Odrzuć inicjatywę
             send_to_technical_validation: Wyślij do sprawdzenia technicznego
@@ -240,7 +274,7 @@ pl:
           more_information: "(Więcej informacji)"
         promotal_committee:
           back: Plecy
-          individual_help_text: Inicjatywy obywatelskie wymagają Komisji Promocyjnej składającej się z co najmniej trzech osób (osób potwierdzających). Musisz udostępnić poniższy link innym osobom, które są częścią tej inicjatywy. Kiedy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
+          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Promującej, która składa się z co najmniej %{committee_size} osób (atestujących). Musisz udostępnić poniższy link innym osobom, które są częścią tej inicjatywy. Kiedy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Plecy
@@ -268,9 +302,29 @@ pl:
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zatwierdzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Inicjatywy
+      initiative_signatures:
+        fill_personal_data:
+          continue: dalej
+          help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę
+        finish:
+          back_to_initiative: Powrót do inicjatywy
+        sms_phone_number:
+          continue: Wyślij mi SMS-a
+          help: Wypełnij formularz zweryfikowanym numerem telefonu, aby poprosić o kod weryfikacyjny
+        sms_code:
+          continue: Sprawdź kod i kontynuuj
+          help: Sprawdź SMS-y odebrane w telefonie
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
+          invalid: Dane dostarczone do podpisania inicjatywy nie są ważne
+          success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została podpisana poprawnie
+        personal_data:
+          invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
+        sms_code:
+          invalid: Twój kod weryfikacyjny nie pasuje do naszego. Sprawdź dokładnie SMS, który Ci wysłaliśmy.
+        sms_phone:
+          invalid: Numer telefonu jest nieprawidłowy lub oczekuje na autoryzację. Sprawdź swoje autoryzacje.
       initiatives:
         author:
           deleted: Usunięto
@@ -332,6 +386,7 @@ pl:
         vote_cabin:
           already_voted: Już podpisane
           supports_required: "Wymagane %{total_supports} podpisów"
+          verification_required: Zweryfikuj swoją tożsamość, aby podpisać inicjatywę
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
@@ -363,8 +418,14 @@ pl:
       states:
         accepted: Przyjęty
         expired: Przedawniony
+      unavailable_scope: Niedostępny zakres
     menu:
       initiatives: Inicjatywy
+    resources:
+      initiatives_type:
+        actions:
+          vote: Głosować
+          title: działania
   layouts:
     decidim:
       admin:
@@ -384,6 +445,17 @@ pl:
         title: Utwórz nową inicjatywę
       initiative_header:
         initiative_menu_item: Inicjatywa
+      initiative_signature_creation_header:
+        back: Z powrotem
+        fill_personal_data: Uzupełnij swoje dane
+        finish: koniec
+        finished: Utworzono podpis inicjatywy
+        select_identity: Wybierz tożsamość
+        see_steps: zobacz kroki
+        sms_code: Weryfikacja kodu SMS
+        sms_phone_number: numer telefonu komórkowego
+        step: Krok %{current} z %{total}
+        title: Zaloguj %{initiative_title}
       initiatives:
         initiative:
           check: Sprawdź to

@@ -66,6 +66,7 @@ de:
         show_statistics: Zeige Statistiken
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
+        user_groups_enabled: Benutzergruppen aktivieren
         youtube_handler: YouTube-Handler
       scope:
         code: Code
@@ -91,12 +92,20 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Gewicht
+      user_group_csv_verification:
+        file: Datei
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ungültige Bilddatei
+            official_img_footer:
+              allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ de:
           error: Beim Aktualisieren dieser Kategorie ist ein Fehler aufgetreten.
           success: Die Kategorie wurde erfolgreich aktualisiert.
       component_permissions:
-        edit:
-          everyone: Jeder
-          submit: Berechtigungen speichern
-          title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
       components:
@@ -481,6 +486,7 @@ de:
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
+          title: Benutzer "%{name}" offiziellisieren
       organization:
         edit:
           title: Organisation bearbeiten
@@ -526,6 +532,12 @@ de:
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
+      resource_permissions:
+        edit:
+          submit: einreichen
+          title: Berechtigungen bearbeiten
+        update:
+          success: Berechtigungen wurden erfolgreich aktualisiert.
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -605,15 +617,18 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
-        impersonatable_users: Impersonable Benutzer
-        impersonations: Identitätswechsel
-        participants: Teilnehmer
+        impersonatable_users: Überschaubare Benutzer
+        impersonations: Benutzerverwaltung
+        participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
       user_group:
+        csv_verify:
+          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
           success: Benutzergruppe wurde erfolgreich abgelehnt
@@ -633,6 +648,12 @@ de:
             pending: steht aus
             rejected: Abgelehnt
             verified: Überprüft
+          verify_via_csv: Überprüfen Sie über CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          title: Laden Sie Ihre CSV-Datei hoch
+          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -658,12 +679,16 @@ de:
         hide: verbergen
         not_hidden: Nicht versteckt
         title: Aktionen
+        unhide: Einblenden
         unreport: Nicht melden
       admin:
         reportable:
           hide:
             invalid: Beim Verbergen der Ressource ist ein Problem aufgetreten.
             success: Ressource erfolgreich ausgeblendet
+          unhide:
+            invalid: Es gab ein Problem beim Verstecken der Ressource.
+            success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.
             success: Die Ressource wurde erfolgreich nicht gemeldet.

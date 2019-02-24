@@ -1,0 +1,79 @@
+fi-pl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Uusi blogiartikkeli
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Artikkeli
+        other: Artikkelia
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi artikkeli
+        title: Toiminnot
+      admin:
+        models:
+          components:
+            body: Leipäteksti
+          post:
+            name: Artikkeli
+        posts:
+          create:
+            invalid: Tämän artikkelin luomisessa esiintyi ongelma
+            success: Artikkeli luotu onnistuneesti
+          destroy:
+            success: Artikkeli poistettu onnistuneesti
+          edit:
+            save: Päivitä
+          index:
+            title: Artikkelit
+          new:
+            create: Luo
+            title: Luo artikkeli
+          update:
+            invalid: Artikkelin tallennuksessa tapahtui virheitä.
+            success: Artikkeli tallennettu onnistuneesti
+      last_activity:
+        new_post_at_html: "<span>Uusi artikkeli osoitteessa %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Kirjoittaja
+            body: Leipäteksti
+            created_at: Luotu
+            title: otsikko
+      posts:
+        show:
+          view: Näytä
+        sidebar_blog:
+          comments: kommentit
+          most_commented_posts: Eniten kommentoidut artikkelit
+      read_more: Lue lisää
+    components:
+      blogs:
+        name: Blogi
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentointi käytössä
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentointi estetty
+    events:
+      blogs:
+        post_created:
+          email_intro: Seuraamassasi kohteessa "%{participatory_space_title}" on julkaistu artikkeli "%{resource_title}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Uusi artikkeli julkaistiin tilassa %{participatory_space_title}
+          notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          posts_count: Artikkeleja
+    participatory_processes:
+      statistics:
+        posts_count: Artikkeleja

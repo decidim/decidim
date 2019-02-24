@@ -82,8 +82,6 @@ es-PY:
         create:
           error: Se produjo un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
-        destroy:
-          success: Asamblea eliminada con éxito.
         edit:
           update: Actualizar
         form:
@@ -259,6 +257,16 @@ es-PY:
         city_council: Ayuntamiento
         others: Otros
         public: Público
+      filter:
+        all: Todo tipo de montajes.
+        commission: Comisión
+        consultative_advisory: Consultivo / Asesoramiento
+        executive: Ejecutivo
+        government: Gobierno
+        help: 'Mostrar:'
+        others: Otros
+        participatory: Participativo
+        working_group: Grupo de trabajo
       index:
         title: Asambleas
       last_activity:
@@ -350,7 +358,7 @@ es-PY:
           reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
-            one: "%{count} asambleas"
+            one: "%{count} asamblea"
             other: "%{count} asambleas"
         promoted_assembly:
           more_info: Más información

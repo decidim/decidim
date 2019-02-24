@@ -22,7 +22,7 @@ module Decidim::Meetings
         event: "decidim.events.meetings.meeting_registration_confirmed",
         event_class: MeetingRegistrationNotificationEvent,
         resource: meeting,
-        recipient_ids: [user.id],
+        affected_users: [user],
         extra: { registration_code: kind_of(String) }
       }
     end
@@ -34,7 +34,7 @@ module Decidim::Meetings
         event: "decidim.events.meetings.meeting_registrations_over_percentage",
         event_class: MeetingRegistrationsOverPercentageEvent,
         resource: meeting,
-        recipient_ids: [process_admin.id],
+        affected_users: [process_admin],
         extra: extra
       }
     end
@@ -172,6 +172,16 @@ module Decidim::Meetings
 
       before do
         create(:registration, meeting: meeting)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when the user has already registered for the meeting" do
+      before do
+        create(:registration, meeting: meeting, user: user)
       end
 
       it "broadcasts invalid" do

@@ -1,0 +1,40 @@
+cs:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Vytvořeno u
+        field: Moje pole
+        start_date: Počáteční datum
+        title: Titul
+        updated_at: Aktualizováno na
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Použijte testovací prostředí pro decidim.
+          description: Uživatelé získají tento odznak vytvořením testů.
+          description_another: Tento uživatel vytvořil %{score} testů.
+          description_own: Vytvořili jste %{score} testů.
+          name: Testy
+          next_level_in: Vytvořte %{score} dalších testů, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel zatím nevytvořil žádné testy.
+          unearned_own: Dosud jste nevytvořili žádné testy.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Figuríny vysoké
+          dummies_count_medium: Dummies střední
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Figuríny vysoké
+        dummies_count_medium: Dummies střední
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Související figurína

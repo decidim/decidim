@@ -66,6 +66,7 @@ gl:
         show_statistics: Amosar estatísticas
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
+        user_groups_enabled: Activar grupos de usuarios
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
@@ -91,12 +92,20 @@ gl:
         show_in_footer: Amosar no pé de páxina
         title: Título
         weight: Peso
+      user_group_csv_verification:
+        file: Arquivo
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ficheiro de imaxe non válido
+            official_img_footer:
+              allowed_file_content_types: Ficheiro de imaxe non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ gl:
           error: Produciuse un erro ao actualizar esta categoría.
           success: A categoría actualizouse con éxito.
       component_permissions:
-        edit:
-          everyone: Todo o mundo
-          submit: Gardar permisos
-          title: Editar permisos
         update:
           success: Permisos actualizados con éxito.
       components:
@@ -527,6 +532,12 @@ gl:
         new:
           create: Crear
           title: Novo usuario privado do espazo participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permisos
+        update:
+          success: Permisos actualizados correctamente.
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
@@ -606,15 +617,18 @@ gl:
         areas: Campos
         authorization_workflows: Métodos de verificación
         dashboard: Taboleiro de instrumentos
-        impersonatable_users: Usuarios privilexiados
-        impersonations: Impersonacións
-        participants: Participantes
+        impersonatable_users: Usuarios xestionables
+        impersonations: Xestión dos usuarios
+        participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
+        csv_verify:
+          invalid: Produciuse un erro ao ler o ficheiro CSV.
+          success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
           success: Grupo de usuarios rexeitado con éxito
@@ -634,6 +648,12 @@ gl:
             pending: Pendente
             rejected: Rexeitado
             verified: Verificado
+          verify_via_csv: Verifique a través de CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
+          title: Carga o teu ficheiro CSV
+          upload: Cargar
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.
@@ -659,12 +679,16 @@ gl:
         hide: Ocultar
         not_hidden: Non escondido
         title: Accións
+        unhide: Unhide
         unreport: Non informar
       admin:
         reportable:
           hide:
             invalid: Produciuse un problema ao ocultar o recurso.
             success: Recurso escondido con éxito.
+          unhide:
+            invalid: Produciuse un problema ao abrir o recurso.
+            success: Recurso sen éxito.
           unreport:
             invalid: Produciuse un problema ao non informar o recurso.
             success: Recurso non publicado correctamente.

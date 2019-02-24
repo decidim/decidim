@@ -375,7 +375,7 @@ module Decidim
           end
 
           context "and Administrator" do
-            let!(:admin) { create(:user, :confirmed, :admin) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -408,7 +408,7 @@ module Decidim
           end
 
           context "and Administrator" do
-            let(:admin) { create(:user, :confirmed, :admin) }
+            let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -442,7 +442,7 @@ module Decidim
           end
 
           context "and Administrator" do
-            let(:admin) { create(:user, :confirmed, :admin) }
+            let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -475,7 +475,7 @@ module Decidim
           end
 
           context "when Administrator" do
-            let!(:admin) { create(:user, :confirmed, :admin) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -507,7 +507,7 @@ module Decidim
           end
 
           context "when Administrator" do
-            let!(:admin) { create(:user, :confirmed, :admin) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             before do
               sign_in admin, scope: :user
@@ -560,6 +560,34 @@ module Decidim
 
             it "is allowed" do
               get :export_votes, params: { slug: initiative.to_param, format: :csv }
+              expect(flash[:alert]).to be_nil
+              expect(response).to have_http_status(:ok)
+            end
+          end
+        end
+
+        context "when GET export_pdf_signatures" do
+          let(:initiative) { create(:initiative, :with_user_extra_fields_collection, organization: organization) }
+
+          context "and author" do
+            before do
+              sign_in initiative.author, scope: :user
+            end
+
+            it "is not allowed" do
+              get :export_pdf_signatures, params: { slug: initiative.to_param, format: :pdf }
+              expect(flash[:alert]).not_to be_empty
+              expect(response).to have_http_status(:found)
+            end
+          end
+
+          context "and admin" do
+            before do
+              sign_in admin_user, scope: :user
+            end
+
+            it "is allowed" do
+              get :export_pdf_signatures, params: { slug: initiative.to_param, format: :pdf }
               expect(flash[:alert]).to be_nil
               expect(response).to have_http_status(:ok)
             end

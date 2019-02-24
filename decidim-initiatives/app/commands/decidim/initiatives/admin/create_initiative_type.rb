@@ -39,7 +39,14 @@ module Decidim
             organization: form.current_organization,
             title: form.title,
             description: form.description,
-            banner_image: form.banner_image
+            online_signature_enabled: form.online_signature_enabled,
+            undo_online_signatures_enabled: form.undo_online_signatures_enabled,
+            minimum_committee_members: form.minimum_committee_members,
+            banner_image: form.banner_image,
+            collect_user_extra_fields: form.collect_user_extra_fields,
+            extra_fields_legal_information: form.extra_fields_legal_information,
+            validate_sms_code_on_votes: form.validate_sms_code_on_votes,
+            document_number_authorization_handler: form.document_number_authorization_handler
           )
 
           return initiative_type unless initiative_type.valid?

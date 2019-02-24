@@ -134,9 +134,9 @@ describe Decidim::Proposals::Admin::Permissions do
     it { is_expected.to eq true }
   end
 
-  describe "import participatory texts" do
+  describe "manage participatory texts" do
     let(:action) do
-      { scope: :admin, action: :import, subject: :participatory_texts }
+      { scope: :admin, action: :manage, subject: :participatory_texts }
     end
 
     it { is_expected.to eq true }

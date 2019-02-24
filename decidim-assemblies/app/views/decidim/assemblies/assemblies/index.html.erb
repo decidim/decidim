@@ -16,12 +16,7 @@ edit_link(
     </section>
   <% end %>
 
-  <section id="assemblies-grid" class="section row collapse">
-    <%= render partial: "decidim/assemblies/order_by_assemblies" %>
-    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-      <%= render(collection) %>
-    </div>
-  </section>
+  <%= render partial: "parent_assemblies" %>
 
   <section id="assemblies-chart" class="row column section">
     <div class="row column">

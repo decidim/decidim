@@ -1,0 +1,371 @@
+tr:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: alan
+        assembly_type: Montaj tipi
+        assembly_type_other: Diğer montaj türü
+        banner_image: Banner resmi
+        closing_date: Kapanış tarihi
+        closing_date_reason: Kapanış tarihi nedeni
+        composition: bileştirme, kompozisyon
+        copy_categories: Kategorileri kopyala
+        copy_components: Bileşenleri kopyala
+        copy_features: Özellikleri kopyala
+        created_by: Tarafından yaratıldı
+        created_by_other: Diğer tarafından oluşturuldu
+        creation_date: Tarih oluşturuldu
+        decidim_area_id: alan
+        decidim_scope_id: kapsam
+        description: Açıklama
+        developer_group: Tanıtım grubu
+        domain: domain
+        duration: süre
+        facebook: Facebook
+        github: GitHub
+        hashtag: Başlık etiketi
+        hero_image: Ana resim
+        included_at: Dahil
+        instagram: Instagram
+        internal_organisation: İç organizasyon
+        is_transparent: Şeffaf mı
+        local_area: Organizasyon alanı
+        meta_scope: Kapsam meta verileri
+        parent_id: Ana montaj
+        participatory_processes_ids: İlgili Katılımcı süreçler
+        participatory_scope: Karar nedir
+        participatory_structure: Nasıl karar verilir
+        private_space: Özel alan
+        promoted: Tanıtılan
+        published_at: Yayınlandı
+        purpose_of_action: Eylem amacı
+        scope_id: kapsam
+        scopes_enabled: Kapsamlar etkin
+        short_description: Kısa Açıklama
+        show_statistics: İstatistikleri göster
+        slug: URL sümüklü böcek
+        special_features: Özel özellikler
+        subtitle: Alt yazı
+        target: Kimler katılır
+        title: Başlık
+        twitter: heyecan
+        youtube: Youtube
+      assembly_member:
+        birthday: Doğum günü
+        birthplace: doğum yeri
+        ceased_date: Bitiş tarihi
+        designation_date: Atama tarihi
+        designation_mode: Tanımlama modu
+        full_name: Ad Soyad
+        gender: Cinsiyet
+        position: pozisyon
+      assembly_user_role:
+        email: E-posta
+        name: isim
+        role: rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaj
+        other: meclisleri
+      decidim/assembly_member:
+        one: Montaj üyesi
+        other: Meclis üyeleri
+      decidim/assembly_user_role:
+        one: Montaj kullanıcısı rolü
+        other: Montaj kullanıcı rolleri
+  decidim:
+    admin:
+      actions:
+        new_assembly: Yeni montaj
+      assemblies:
+        create:
+          error: Yeni bir derleme oluştururken bir hata oluştu.
+          success: Montaj başarıyla oluşturuldu.
+        edit:
+          update: Güncelleştirme
+        form:
+          title: Genel bilgi
+        index:
+          not_published: Yayınlanmadı
+          private: Özel
+          public: halka açık
+          published: Yayınlanan
+        new:
+          create: yaratmak
+          title: Yeni montaj
+        update:
+          error: Bu derleme güncellenirken bir hata oluştu.
+          success: Montaj başarıyla güncellendi.
+      assemblies_copies:
+        create:
+          error: Bu derlemeyi çoğaltırken bir hata oluştu.
+          success: Montaj başarıyla kopyalandı.
+      assembly_copies:
+        new:
+          copy: kopya
+          select: Çoğaltmak istediğiniz verileri seçin
+          title: Duplicate assembly
+      assembly_members:
+        create:
+          error: Bu derleme için üye eklenirken bir hata oluştu.
+          success: Üye bu derleme için başarıyla oluşturuldu.
+        destroy:
+          success: Üye bu derlemede başarıyla silindi.
+        edit:
+          title: Montaj üyesini güncelle.
+          update: Güncelleştirme
+        index:
+          assembly_members_title: Meclis üyeleri
+        new:
+          create: yaratmak
+          title: Yeni montaj üyesi.
+        update:
+          error: Bu derleme için üye güncellenirken bir hata oluştu.
+          success: Üye bu derleme için başarıyla güncellendi.
+      assembly_publications:
+        create:
+          error: Bu derleme yayınlanırken bir hata oluştu.
+          success: Montaj başarıyla yayınlandı.
+        destroy:
+          error: Bu derlemenin yayından kaldırılmasıyla ilgili bir hata oluştu.
+          success: Montaj başarıyla yayından kaldırıldı.
+      assembly_user_roles:
+        create:
+          error: Bu derleme için bir kullanıcı eklenirken bir hata oluştu.
+          success: Kullanıcı bu meclise başarıyla eklendi.
+        destroy:
+          success: Kullanıcı bu derlemeden başarıyla kaldırıldı.
+        edit:
+          title: Montaj kullanıcısını güncelle.
+          update: Güncelleştirme
+        index:
+          assembly_admins_title: Montaj kullanıcıları
+        new:
+          create: yaratmak
+          title: Yeni montaj kullanıcısı.
+        update:
+          error: Bu derleme için bir kullanıcı güncellendi bir hata oluştu.
+          success: Kullanıcı bu derleme için başarıyla güncellendi.
+      menu:
+        assemblies: meclisleri
+        assemblies_submenu:
+          assembly_admins: Montaj kullanıcıları
+          assembly_members: Üyeler
+          attachment_collections: Klasörler
+          attachment_files: Dosyalar
+          attachments: Ekler
+          categories: Kategoriler
+          components: Bileşenler
+          info: Bilgi
+          moderations: Denetimler
+          private_users: Özel kullanıcılar
+      models:
+        assembly:
+          fields:
+            created_at: Düzenlendi
+            private: Özel
+            promoted: Vurgulanan
+            published: Yayınlanan
+            title: Başlık
+          name: montaj
+        assembly_member:
+          fields:
+            ceased_date: Bitiş tarihi
+            designation_date: Atama tarihi
+            full_name: isim
+            position: pozisyon
+          name: üye
+          positions:
+            other: Diğer
+            president: Devlet Başkanı
+            secretary: Sekreter
+            vice_president: Başkan Vekili
+        assembly_user_role:
+          fields:
+            email: E-posta
+            name: isim
+            role: rol
+          name: Montaj Kullanıcı
+          roles:
+            admin: yönetici
+            collaborator: işbirlikçi
+            moderator: arabulucu
+      titles:
+        assemblies: meclisleri
+    admin_log:
+      assembly:
+        create: "%{user_name} %{resource_name} meclisi oluşturdu"
+        publish: "%{user_name} %{resource_name} meclisi yayınladı"
+        unpublish: "%{user_name} %{resource_name} montajı yayından kaldırıldı"
+        update: "%{user_name} güncellenmiş %{resource_name} meclis"
+      assembly_member:
+        create: "%{user_name} , %{space_name} mecliste %{resource_name} üye yarattı"
+        delete: "%{user_name} uzaklaştırıldı %{resource_name} den elemanı %{space_name} montaj"
+        update: "%{user_name} , %{space_name} mecliste %{resource_name} üye güncellendi"
+      assembly_user_role:
+        create: "%{user_name} %{space_name} mecraya %{resource_name} davet edildi"
+        delete: "%{user_name} kullanıcı %{resource_name} %{space_name} aksamından çıkardı"
+        update: "%{user_name} , %{space_name} mecliste %{resource_name} rolünü değiştirdi"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: Bu meclisin süresi sınırlı ise, bitiş tarihini seçin. Aksi halde, belirsiz olarak görünecektir.
+            included_at_help: Bu montajın Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
+            select_a_created_by: Tarafından oluşturulmuş bir seç
+            select_an_area: Bir alan seçin
+            select_an_assembly_type: Bir montaj tipi seçin
+            select_parent_assembly: Ebeveyn grubunu seç
+            slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+            social_handlers: Sosyal
+        assembly_copies:
+          form:
+            slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+        assembly_members:
+          form:
+            existing_user: Mevcut kullanıcı
+            non_user: Kullanıcı yok
+            select_a_position: Bir pozisyon seç
+            select_user: Bir kullanıcı seç
+            user_type: Kullanıcı tipi
+          index:
+            filter:
+              all: Herşey
+              ceased: durdurdu
+              not_ceased: Durdurulmadı
+            filter_by: Tarafından filtre
+            search: Arama
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Gösterilecek maksimum öğe miktarı
+      assembly_members:
+        index:
+          members: Üyeler
+      assembly_types:
+        commission: Komisyonu
+        consultative_advisory: Danışma / Danışma
+        executive: yönetici
+        government: hükümet
+        others: Diğerleri
+        participatory: katılımcı
+        working_group: Çalışma Grubu
+      content_blocks:
+        highlighted_assemblies:
+          name: Vurgulanan derlemeler
+      created_by:
+        city_council: Belediye Meclisi
+        others: Diğerleri
+        public: halka açık
+      filter:
+        all: Her tür montaj
+        commission: komisyon
+        consultative_advisory: Danışma / Danışma
+        executive: yönetici
+        government: hükümet
+        help: 'Göstermek:'
+        others: Diğerleri
+        participatory: katılımcı
+        working_group: Çalışma Grubu
+      index:
+        title: meclisleri
+      last_activity:
+        new_assembly: Yeni montaj
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktif meclisler
+            see_all_assemblies: Tüm montajları gör
+        user_profile:
+          member_of:
+            member_of: Üyesi
+      show:
+        area: alan
+        assembly_type: Montaj tipi
+        children: meclisleri
+        closing_date: Kapanış tarihi
+        composition: bileştirme, kompozisyon
+        created_by: Tarafından yaratıldı
+        creation_date: Tarih oluşturuldu
+        developer_group: Tanıtım grubu
+        duration: süre
+        included_at: Dahil
+        indefinite_duration: Belirsiz
+        internal_organisation: İç organizasyon
+        is_transparent:
+          'false': opak
+          'true': şeffaf
+        local_area: Organizasyon alanı
+        participatory_scope: Karar nedir
+        participatory_structure: Nasıl karar verilir
+        private_space: Bu özel bir meclis
+        purpose_of_action: Eylem amacı
+        read_less: Az oku
+        read_more: Daha fazla oku
+        related_participatory_processes: İlgili katılımcı süreçler
+        scope: kapsam
+        social_networks: Sosyal ağlar
+        target: Kimler katılır
+      statistics:
+        answers_count: Cevaplar
+        assemblies_count: meclisleri
+        comments_count: Yorumlar
+        debates_count: Tartışmalar
+        endorsements_count: Cirolar
+        headline: Aktivite
+        meetings_count: Toplantılar
+        orders_count: oy
+        pages_count: Sayfalar
+        projects_count: Projeler
+        proposals_count: Teklif
+        results_count: Sonuçlar
+        surveys_count: Anketler
+        users_count: Katılımcılar
+        votes_count: oy
+    assembly_members:
+      assembly_member:
+        designated_on: Üzerinde belirlenen
+      index:
+        title: Üyeler
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
+          page: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
+          title: Meclis nedir?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Derleme veritabanında bulunamadı (ID: %{id})'
+    menu:
+      assemblies: meclisleri
+    metrics:
+      assemblies:
+        description: Oluşturulan derleme sayısı
+        object: düzenekleri
+        title: meclisleri
+  errors:
+    messages:
+      cannot_be_blank: boş bırakılamaz
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Yer almak
+        index:
+          organizational_chart: Organizasyon şeması
+          promoted_assemblies: Vurgulanan derlemeler
+          reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} derleme"
+            other: "%{count} derleme"
+        promoted_assembly:
+          more_info: Daha fazla bilgi
+          take_part: Yer almak
+      assembly_navigation:
+        assembly_member_menu_item: Üyeler
+        assembly_menu_item: Meclis
+      assembly_widgets:
+        show:
+          take_part: Yer almak

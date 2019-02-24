@@ -26,8 +26,20 @@ pt-BR:
         user: membro do Comitê
       initiatives_type:
         banner_image: Imagem de banner
+        collect_user_extra_fields: Colete dados pessoais do usuário na assinatura
         description: Descrição
+        document_number_authorization_handler: Autorização para verificar o número do documento nos votos
+        extra_fields_legal_information: Informações legais sobre a coleta de dados pessoais
+        minimum_committee_members: Mínimo dos membros do comitê
+        online_signature_enabled: Assinatura on-line ativada
         title: Título
+        undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
+        validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
+      initiatives_vote:
+        name_and_surname: Nome e sobrenome
+        document_number: Número do documento
+        date_of_birth: Data de nascimento
+        postal_code: Código postal
       organization_data:
         address: Endereço
         id_document: Documento de identificação
@@ -54,6 +66,7 @@ pt-BR:
         initiatives:
           fields:
             created_at: Criado em
+            id: identidade
             state: Estado
             supports_count: Suporta
             title: Iniciativas
@@ -67,6 +80,20 @@ pt-BR:
             created_at: Criado em
             title: Tipos de iniciativa
           name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de nascimento
+            document_number: Número do documento
+            hash: Jogo da velha
+            initiative_end_date: Data final
+            initiative_id: ID da iniciativa
+            initiative_signatures_count: Número de assinaturas
+            initiative_start_date: Data de início
+            initiative_title: Título da iniciativa
+            name_and_surname: Nome e sobrenome
+            postal_code: Código postal
+            time_and_date: Hora e data
+            timestamp: Timestamp
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -78,10 +105,16 @@ pt-BR:
           email_subject: Assinatura da iniciativa data final estendida!
           notification_title: A data final das assinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi ampliada.
         milestone_completed:
-          email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
-          email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Novo marco concluído!
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
+          affected_user:
+            email_intro: Sua iniciativa %{resource_title} alcançou o %{percentage}% de assinaturas!
+            email_outro: Você recebeu esta notificação porque é o autor da iniciativa %{resource_title}.
+            email_subject: Novo marco concluído!
+            notification_title: Sua iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+          follower:
+            email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
+            email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
+            email_subject: Novo marco concluído!
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
     gamification:
       badges:
         initiatives:
@@ -119,6 +152,7 @@ pt-BR:
             accept: Aceitar iniciativa
             confirm: Você tem certeza?
             discard: Descartar a iniciativa
+            export_pdf_signatures: Exportar PDF de assinaturas
             export_votes: Suporta Exportação
             reject: Rejeitar iniciativa
             send_to_technical_validation: Enviar para validação técnica
@@ -234,7 +268,7 @@ pt-BR:
           more_information: "(Mais Informações)"
         promotal_committee:
           back: Costas
-          individual_help_text: Iniciativas cidadãs requerem uma Comissão Promotora composta por pelo menos três pessoas (atestadores). Você deve compartilhar o seguinte link com as outras pessoas que fazem parte dessa iniciativa. Quando seus contatos receberem este link, eles deverão seguir as etapas indicadas.
+          individual_help_text: Este tipo de iniciativa cidadã requer uma Comissão Promotora composta por pelo menos %{committee_size} pessoas (atestadores). Você deve compartilhar o seguinte link com as outras pessoas que fazem parte dessa iniciativa. Quando seus contatos receberem este link, eles deverão seguir as etapas indicadas.
           more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
@@ -262,9 +296,29 @@ pt-BR:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
+        finish:
+          back_to_initiative: De volta à iniciativa
+        sms_phone_number:
+          continue: Envie-me um SMS
+          help: Preencha o formulário com seu número de telefone confirmado para solicitar seu código de verificação
+        sms_code:
+          continue: Verifique o código e continue
+          help: Verifique o SMS recebido no seu telefone
       initiative_votes:
         create:
           error: Houve erros ao assinar a iniciativa.
+          invalid: Os dados fornecidos para assinar a iniciativa não são válidos
+          success_html: Parabéns! A iniciativa <strong> %{title}</strong> foi assinada corretamente
+        personal_data:
+          invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
+        sms_code:
+          invalid: Seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviamos.
+        sms_phone:
+          invalid: O número de telefone é inválido ou está pendente de autorização. Por favor, verifique suas autorizações.
       initiatives:
         author:
           deleted: Excluído
@@ -320,6 +374,7 @@ pt-BR:
         vote_cabin:
           already_voted: Já assinadas
           supports_required: "São necessárias %{total_supports} assinaturas"
+          verification_required: Verifique sua identidade para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:
@@ -349,8 +404,14 @@ pt-BR:
       states:
         accepted: Aceitaram
         expired: Expirado
+      unavailable_scope: Escopo não disponível
     menu:
       initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          vote: Voto
+          title: Ações
   layouts:
     decidim:
       admin:
@@ -370,6 +431,17 @@ pt-BR:
         title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: De volta
+        fill_personal_data: Complete seus dados
+        finish: Terminar
+        finished: Assinatura de iniciativa criada
+        select_identity: Selecione identidade
+        see_steps: ver passos
+        sms_code: Verificação de código SMS
+        sms_phone_number: número de celular
+        step: Etapa %{current} de %{total}
+        title: Assinar %{initiative_title}
       initiatives:
         initiative:
           check: Confira

@@ -66,7 +66,7 @@ module Decidim
             event: "decidim.events.conferences.conference_registration_confirmed",
             event_class: Decidim::Conferences::ConferenceRegistrationNotificationEvent,
             resource: @conference_registration.conference,
-            recipient_ids: [@conference_registration.user.id]
+            affected_users: [@conference_registration.user]
           )
         end
       end

@@ -49,7 +49,7 @@ module Decidim
             event: "decidim.events.meetings.registrations_enabled",
             event_class: Decidim::Meetings::MeetingRegistrationsEnabledEvent,
             resource: meeting,
-            recipient_ids: meeting.followers.pluck(:id)
+            followers: meeting.followers
           )
         end
 

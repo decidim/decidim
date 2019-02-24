@@ -2,6 +2,7 @@ it:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Indirizzo
         body: Corpo
         category_id: Categoria
         decidim_scope_id: Scopo
@@ -10,13 +11,16 @@ it:
         title: Titolo
         user_group_id: Crea una bozza collaborativa come
       proposal:
+        address: Indirizzo
         answer: Risposta
         answered_at: Risposto a
+        automatic_hashtags: Hashtag aggiunti automaticamente
         body: Corpo del testo
         category_id: Categoria
         has_address: Ha un indirizzo
         scope_id: Visibilità
         state: Stato
+        suggested_hashtags: Hashtag consigliati
         title: Titolo
         user_group_id: Crea proposta come
       proposal_answer:
@@ -69,6 +73,7 @@ it:
         name: proposte
         settings:
           global:
+            amendments_enabled: Emendamenti abilitati
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
@@ -92,11 +97,13 @@ it:
             vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
+            automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
             creation_enabled: Creazione della proposta abilitata
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
+            suggested_hashtags: Gli hashtag hanno suggerito agli utenti nuove proposte
             votes_blocked: Votazione bloccata
             votes_enabled: Voto abilitato
             votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
@@ -143,22 +150,35 @@ it:
           email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
           notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
-          email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: Una proposta che stai seguendo è stata accettata
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
+          affected_user:
+            email_intro: 'La tua proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
+            email_subject: La tua proposta è stata accettata
+            notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
+          follower:
+            email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+            email_subject: Una proposta che stai seguendo è stata accettata
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e dai:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: "%{endorser_nickname} ha approvato una nuova proposta"
           notification_title: Il <a href="%{resource_path}">%{resource_title}</a> la proposta è stata approvata da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
-          email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: Una proposta che stai seguendo è in corso di valutazione
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
+          affected_user:
+            email_intro: 'La tua proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
+            email_subject: La tua proposta è in corso di valutazione
+            notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
+          follower:
+            email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+            email_subject: Una proposta che stai seguendo è in corso di valutazione
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
         proposal_mentioned:
           email_intro: La tua proposta "%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_path}">in questo spazio</a> nei commenti.
+          email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
           email_subject: La tua proposta "%{mentioned_proposal_title}" è stata menzionata
           notification_title: La tua proposta "%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_path}">in questo spazio</a> nei commenti.
         proposal_published:
@@ -172,10 +192,16 @@ it:
           email_subject: Nuova proposta "%{resource_title}" aggiunta a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title}
         proposal_rejected:
-          email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: Una proposta che stai seguendo è stata respinta
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
+          affected_user:
+            email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
+            email_subject: La tua proposta è stata respinta
+            notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
+          follower:
+            email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+            email_subject: Una proposta che stai seguendo è stata respinta
+            notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
         proposal_update_category:
           email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
           email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
@@ -265,13 +291,16 @@ it:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Sei sicuro di scartare l'intera bozza del testo partecipativo?
             import_doc: Importa il documento
+            discard_all: Scarta tutto
           import:
             invalid: Il modulo non è valido!
             success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
           index:
             info_1: Le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
             publish_document: Pubblica un documento
+            save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
@@ -281,10 +310,14 @@ it:
           publish:
             invalid: Impossibile pubblicare proposte
             success: Tutte le proposte sono state pubblicate
+          discard:
+            success: Tutte le bozze di testo partecipativo sono state scartate.
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sottosezione:</em> %{title}"
+          update:
+            success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
           edit:
             accepted: Accettata
@@ -385,6 +418,10 @@ it:
           evaluating: Valutare
           except_rejected: Tutto tranne rifiutato
           rejected: Respinto
+        filter_type_values:
+          all: Tutti
+          amendments: Modifiche
+          proposals: proposte
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -409,8 +446,6 @@ it:
           no_similars_found: Molto bene! Nessuna bozza collaborativa simile trovata
           title: Bozze collaborative simili
         complete:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
-          select_a_category: Si prega di selezionare una categoria
           send: Inviare
           title: Completa la tua bozza collaborativa
         count:
@@ -421,12 +456,14 @@ it:
           error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
+          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           select_a_category: Si prega di selezionare una categoria
           send: Inviare
           title: Modifica bozza collaborativa
         filters:
           all: Tutti
+          amendment: Modifiche
           category: Categoria
           category_prompt: Prompt di categoria
           open: Aperto
@@ -529,11 +566,12 @@ it:
       new:
         limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
       participatory_text_proposal:
+        alternative_title: Al momento non ci sono testi di partecipazione
         buttons:
+          amend: emendare
           comment: Commento
           comments: Commenti
           endorse: Approvare
-          endorsements: Riconoscimenti
       proposal_endorsements:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
@@ -585,6 +623,7 @@ it:
           search: Cerca
           state: Stato
           voted: Votata
+          amendment_type: genere
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
@@ -635,10 +674,6 @@ it:
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
           report: Report
-          sign_in: registrati
-          sign_in_or_up: "%{in} o %{up} per partecipare"
-          sign_in_to_participate: "%{in} per partecipare"
-          sign_up: Iscriviti
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
           withdraw_proposal: Ritirare la proposta
@@ -699,6 +734,7 @@ it:
           title: versioni
         stats:
           back_to_collaborative_draft: Torna alla bozza collaborativa
+          back_to_proposal: Torna alla proposta
           number_of_versions: versioni
           show_all_versions: Mostra tutte le versioni
           version_author: Autore della versione

@@ -76,8 +76,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle votation.
           success: La votation a été créée avec succès.
-        destroy:
-          success: La votation a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -250,7 +248,7 @@ fr:
       participatory_spaces:
         consultations:
           contextual: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
-          page: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>ard dans l'organisation.</p>\n"
+          page: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant Oui ou Non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie plan ou le résultat d’un groupe de travail, ou définir si les postes doivent rester au maximum d’un, deux ou trois mandats dans l’organisation.</p>\n"
           title: Que sont les consultations?
     menu:
       consultations: Votations

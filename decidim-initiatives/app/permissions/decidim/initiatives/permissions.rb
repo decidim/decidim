@@ -14,6 +14,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         # Non-logged users permissions
+        public_report_content_action?
         list_public_initiatives?
         read_public_initiative?
         search_initiative_types_and_scopes?
@@ -24,6 +25,7 @@ module Decidim
         request_membership?
 
         vote_initiative?
+        sign_initiative?
         unvote_initiative?
 
         permission_action
@@ -51,7 +53,7 @@ module Decidim
 
       def search_initiative_types_and_scopes?
         return unless permission_action.action == :search
-        return unless [:initiative_type, :initiative_type_scope].include?(permission_action.subject)
+        return unless [:initiative_type, :initiative_type_scope, :initiative_type_signature_types].include?(permission_action.subject)
 
         allow!
       end
@@ -104,28 +106,55 @@ module Decidim
         return unless permission_action.action == :vote &&
                       permission_action.subject == :initiative
 
-        can_vote = initiative.votes_enabled? &&
-                   initiative.organization&.id == user.organization&.id &&
-                   initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
-                   (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
+        toggle_allow(can_vote?)
+      end
 
-        toggle_allow(can_vote)
+      def authorized?(permission_action, resource: nil, permissions_holder: nil)
+        return unless resource || permissions_holder
+
+        ActionAuthorizer.new(user, permission_action, permissions_holder, resource).authorize.ok?
       end
 
       def unvote_initiative?
         return unless permission_action.action == :unvote &&
                       permission_action.subject == :initiative
 
-        can_unvote = initiative.votes_enabled? &&
+        can_unvote = initiative.accepts_online_unvotes? &&
                      initiative.organization&.id == user.organization&.id &&
                      initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
-                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
+                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+                     authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
       end
 
+      def public_report_content_action?
+        return unless permission_action.action == :create &&
+                      permission_action.subject == :moderation
+
+        allow!
+      end
+
+      def sign_initiative?
+        return unless permission_action.action == :sign_initiative &&
+                      permission_action.subject == :initiative
+
+        can_sign = can_vote? &&
+                   context.fetch(:signature_has_steps, false)
+
+        toggle_allow(can_sign)
+      end
+
       def decidim_user_group_id
         context.fetch(:group_id, nil)
+      end
+
+      def can_vote?
+        initiative.votes_enabled? &&
+          initiative.organization&.id == user.organization&.id &&
+          initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
+          (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+          authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
       end
 
       def can_user_support?(initiative)

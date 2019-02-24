@@ -66,6 +66,7 @@ it:
         show_statistics: Mostra statistiche
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
+        user_groups_enabled: Abilita gruppi di utenti
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
@@ -91,12 +92,20 @@ it:
         show_in_footer: Mostra nel piè di pagina
         title: Titolo
         weight: Peso
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI di reindirizzamento deve essere un URI SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: File immagine non valido
+            official_img_footer:
+              allowed_file_content_types: File immagine non valido
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ it:
           error: Si è verificato un errore aggiornando questa categoria.
           success: OK, la categoria è stata aggiornata.
       component_permissions:
-        edit:
-          everyone: Tutti
-          submit: Salva permessi
-          title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
       components:
@@ -527,6 +532,12 @@ it:
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+      resource_permissions:
+        edit:
+          submit: Sottoscrivi
+          title: Modifica permessi
+        update:
+          success: Autorizzazioni aggiornate correttamente.
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -606,15 +617,18 @@ it:
         areas: le zone
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Utenti impersonabili
-        impersonations: impersonations
-        participants: I partecipanti
+        impersonatable_users: Utenti gestibili
+        impersonations: Gestione degli utenti
+        participants: utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
         user_groups: Gruppi di utenti
         users: Utenti
       user_group:
+        csv_verify:
+          invalid: Si è verificato un errore durante la lettura del file CSV.
+          success: File CSV caricato con successo, stiamo verificando i gruppi di utenti che soddisfano i criteri. Questo potrebbe richiedere del tempo.
         reject:
           invalid: Si è verificato un errore quando rifiuta questo gruppo di utenti.
           success: Gruppo utenti rifiutato correttamente
@@ -634,6 +648,12 @@ it:
             pending: in attesa di
             rejected: Rifiutata
             verified: Verificato
+          verify_via_csv: Verifica tramite CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
+          title: Carica il tuo file CSV
+          upload: Caricare
       users:
         create:
           error: Si è verificato un errore cercando di mandare l'invito a questo utente.
@@ -659,12 +679,16 @@ it:
         hide: Nascondi
         not_hidden: Non nascosto
         title: Azioni
+        unhide: unhide
         unreport: Non inserire
       admin:
         reportable:
           hide:
             invalid: Si è verificato un problema cercando di nascondere la risorsa.
             success: OK, la risorsa è stata nascosta.
+          unhide:
+            invalid: C'è stato un problema nel mostrare la risorsa.
+            success: Risorsa correttamente non rilevata.
           unreport:
             invalid: Si è verificato un problema cercando di visualizzare la risorsa .
             success: OK, la risorda è visualizzabile.

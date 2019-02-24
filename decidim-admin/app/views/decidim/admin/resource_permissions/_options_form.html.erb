@@ -1,0 +1,17 @@
+<%
+  handler_name = local_assigns[:handler_name]
+  schema = form.object.options_schema(handler_name)
+  attributes = form.object.options_attributes(handler_name)
+%>
+
+<%= form.fields_for(:authorization_handlers_options) do |options_form| %>
+  <% attributes.each do |name, attribute| %>
+    <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
+      <%= attribute_options_form.send(
+            form_method_for_attribute(attribute),
+            name,
+            label: t("authorization_handlers.#{handler_name}.fields.#{name}", scope: "decidim")#,
+          ) %>
+    <% end %>
+  <% end %>
+<% end %>

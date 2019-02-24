@@ -26,6 +26,12 @@ module Decidim
             render "index"
           end
 
+          format.js do
+            raise ActionController::RoutingError, "Not Found" if published_assemblies.none?
+
+            render "index"
+          end
+
           format.json do
             render json: published_assemblies.query.includes(:children).where(parent: nil).collect { |assembly|
               {
@@ -65,7 +71,7 @@ module Decidim
       end
 
       def parent_assemblies
-        @parent_assemblies ||= assemblies | ParentAssemblies.new
+        @parent_assemblies ||= assemblies | ParentAssemblies.new | FilteredAssemblies.new(current_filter)
       end
 
       alias collection parent_assemblies
@@ -80,6 +86,10 @@ module Decidim
 
       def assembly_participatory_processes
         @assembly_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
+      end
+
+      def current_filter
+        params[:filter] || "all"
       end
     end
   end

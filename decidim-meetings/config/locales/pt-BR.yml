@@ -90,15 +90,23 @@ pt-BR:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'A reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões da sua página:'
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
-          email_subject: A reunião "%{resource_title}" foi fechada
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
+          affected_user:
+            email_intro: 'Sua reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões da sua página:'
+            email_outro: Você recebeu esta notificação porque organizou a reunião "%{resource_title}".
+            email_subject: A reunião "%{resource_title}" foi fechada
+            notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
+          follower:
+            email_intro: 'A reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões da sua página:'
+            email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode deixar de segui-lo no link anterior.
+            email_subject: A reunião "%{resource_title}" foi fechada
+            notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
         meeting_created:
           email_intro: A reunião "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
           email_subject: Nova reunião adicionada a %{participatory_space_title}
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi adicionado a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Sua inscrição para a reunião <a href="%{resource_url}">%{resource_title}</a> foi confirmada. Seu código de registro é %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Os slots ocupados pela reunião "%{resource_title}" estão acima de %{percentage}%.
           email_outro: Você recebeu esta notificação porque você é administrador do espaço participativo da reunião.
@@ -182,6 +190,7 @@ pt-BR:
             invalid: Houve um problema ao atualizar esta agenda
             success: Agenda atualizada com sucesso
         exports:
+          meetings: Reuniões
           registrations: Inscrições
         invite_join_meeting_mailer:
           invite:
@@ -361,6 +370,10 @@ pt-BR:
           meeting_report: Relatório de reunião
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
+          registration_code_help_text: Seu código de registro
+          registration_state:
+            validated: VALIDADO
+            validation_pending: VALIDAÇÃO PENDENTE
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"

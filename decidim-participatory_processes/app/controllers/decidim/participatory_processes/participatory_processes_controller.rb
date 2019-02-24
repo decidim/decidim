@@ -85,7 +85,8 @@ module Decidim
       end
 
       def filter
-        @filter = params[:filter] || default_filter
+        return default_filter unless ProcessFiltersCell::ALL_FILTERS.include?(params[:filter])
+        @filter ||= params[:filter] || default_filter
       end
 
       def default_filter

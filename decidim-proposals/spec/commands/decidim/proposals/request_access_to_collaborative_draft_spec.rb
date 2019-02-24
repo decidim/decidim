@@ -42,7 +42,7 @@ module Decidim
                 event: "decidim.events.proposals.collaborative_draft_access_requested",
                 event_class: Decidim::Proposals::CollaborativeDraftAccessRequestedEvent,
                 resource: collaborative_draft,
-                recipient_ids: collaborative_draft.authors.pluck(:id),
+                affected_users: collaborative_draft.authors,
                 extra: {
                   requester_id: current_user.id
                 }

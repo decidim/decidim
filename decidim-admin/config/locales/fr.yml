@@ -66,6 +66,7 @@ fr:
         show_statistics: Montrer les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
+        user_groups_enabled: Activer les groupes d'utilisateurs
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -91,12 +92,20 @@ fr:
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Poids
+      user_group_csv_verification:
+        file: Fichier
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI de redirection doit être un URI SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Fichier image invalide
+            official_img_footer:
+              allowed_file_content_types: Fichier image invalide
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       component_permissions:
-        edit:
-          everyone: Tout le monde
-          submit: Enregistrer les autorisations
-          title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
       components:
@@ -527,6 +532,12 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      resource_permissions:
+        edit:
+          submit: Soumettre
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
@@ -606,15 +617,18 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs représentés
-        impersonations: Représentations d'utilisateurs
-        participants: Participants
+        impersonatable_users: Utilisateurs gérables
+        impersonations: Gestion des utilisateurs
+        participants: Utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
       user_group:
+        csv_verify:
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
+          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
@@ -634,6 +648,12 @@ fr:
             pending: En attente
             rejected: Non retenu
             verified: Vérifié
+          verify_via_csv: Vérifier via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
+          title: Téléchargez votre fichier CSV
+          upload: Télécharger
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
@@ -659,12 +679,16 @@ fr:
         hide: Masquer
         not_hidden: Visibles
         title: Actions
+        unhide: Afficher
         unreport: Annuler le signalement
       admin:
         reportable:
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
+          unhide:
+            invalid: Il y a eu un problème pour découvrir la ressource.
+            success: Ressource non cachée avec succès.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
             success: Le contenu n'est plus signalé.

@@ -23,12 +23,12 @@ describe Decidim::NotificationGeneratorForRecipientJob do
     it "delegates the work to the class" do
       expect(Decidim::NotificationGeneratorForRecipient)
         .to receive(:new)
-        .with(event, event_class, resource, recipient, extra)
+        .with(event, event_class, resource, recipient, :follower, extra)
         .and_return(generator)
       expect(generator)
         .to receive(:generate)
 
-      subject.perform_now(event, event_class_name, resource, recipient, extra)
+      subject.perform_now(event, event_class_name, resource, recipient, :follower, extra)
     end
   end
 end

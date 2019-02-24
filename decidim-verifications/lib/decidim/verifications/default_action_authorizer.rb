@@ -14,7 +14,7 @@ module Decidim
       def initialize(authorization, options, component, resource)
         @authorization = authorization
         @options = options.deep_dup || {} # options hash is cloned to allow changes applied to it without risks
-        @component = resource&.component || component
+        @component = resource.try(:component) || component
         @resource = resource
       end
 
@@ -70,17 +70,23 @@ module Decidim
       attr_reader :authorization, :options, :component, :resource
 
       def unmatched_fields
-        @unmatched_fields ||= (options.keys & authorization.metadata.to_h.keys).each_with_object({}) do |field, unmatched|
+        @unmatched_fields ||= (valid_options_keys & authorization.metadata.to_h.keys).each_with_object({}) do |field, unmatched|
           unmatched[field] = options[field] if authorization.metadata[field] != options[field]
           unmatched
         end
       end
 
       def missing_fields
-        @missing_fields ||= options.keys.each_with_object([]) do |field, missing|
+        @missing_fields ||= valid_options_keys.each_with_object([]) do |field, missing|
           missing << field if authorization.metadata[field].blank?
           missing
         end
+      end
+
+      def valid_options_keys
+        @valid_options_keys ||= options.map do |key, value|
+          key if value.present?
+        end.compact
       end
 
       def authorization_expired?

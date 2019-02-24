@@ -41,7 +41,8 @@ module Decidim
       end
 
       def user_group
-        return unless user_group_id
+        return unless current_organization.user_groups_enabled? && user_group_id
+
         @user_group ||= Decidim::UserGroup.find_by(id: user_group_id, organization: current_organization)
       end
 

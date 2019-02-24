@@ -82,8 +82,6 @@ pt:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.
           success: Assembléia criada com sucesso.
-        destroy:
-          success: Montagem excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -259,6 +257,16 @@ pt:
         city_council: Câmara Municipal
         others: Outras
         public: Público
+      filter:
+        all: Todos os tipos de montagens
+        commission: Comissão
+        consultative_advisory: Consultivo / Consultivo
+        executive: Executivo
+        government: Governo
+        help: 'Exposição:'
+        others: Outras
+        participatory: Participativo
+        working_group: Grupo de trabalho
       index:
         title: Assembléias
       last_activity:
@@ -350,8 +358,8 @@ pt:
           reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
-            one: "%{count} montagens"
-            other: "%{count} montagens"
+            one: "Assembly %{count}"
+            other: "Conjuntos %{count}"
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar

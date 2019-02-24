@@ -55,7 +55,8 @@ module Decidim
       end
 
       def can_join_meeting?
-        meeting.registrations_enabled? && meeting.has_available_slots?
+        meeting.registrations_enabled? && meeting.has_available_slots? &&
+          !meeting.has_registration_for?(user)
       end
 
       def send_email_confirmation
@@ -71,7 +72,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          recipient_ids: [@user.id],
+          affected_users: [@user],
           extra: {
             registration_code: @registration.code
           }
@@ -93,7 +94,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registrations_over_percentage",
           event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
           resource: @meeting,
-          recipient_ids: participatory_space_admins.pluck(:id),
+          affected_users: participatory_space_admins,
           extra: {
             percentage: percentage
           }

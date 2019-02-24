@@ -26,8 +26,20 @@ de:
         user: Ausschussmitglied
       initiatives_type:
         banner_image: Bannerbild
+        collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         description: Beschreibung
+        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
+        extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
+        minimum_committee_members: Minimum der Ausschussmitglieder
+        online_signature_enabled: Online-Signatur aktiviert
         title: Titel
+        undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
+        validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
+      initiatives_vote:
+        name_and_surname: Name und Nachname
+        document_number: Dokumentnummer
+        date_of_birth: Geburtsdatum
+        postal_code: Postleitzahl
       organization_data:
         address: Adresse
         id_document: ID-Dokument
@@ -54,6 +66,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
+            id: ICH WÜRDE
             state: Zustand
             supports_count: Unterstützt
             title: Initiativen
@@ -67,6 +80,20 @@ de:
             created_at: Hergestellt in
             title: Arten von Initiativen
           name: Art der Initiative
+        initiatives_votes:
+          fields:
+            date_of_birth: Geburtsdatum
+            document_number: Dokumentnummer
+            hash: Hash
+            initiative_end_date: Endtermin
+            initiative_id: Initiativ-ID
+            initiative_signatures_count: Anzahl der Unterschriften
+            initiative_start_date: Anfangsdatum
+            initiative_title: Initiativentitel
+            name_and_surname: Name und Nachname
+            postal_code: Postleitzahl
+            time_and_date: Zeit und Datum
+            timestamp: Zeitstempel
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -78,10 +105,16 @@ de:
           email_subject: Initiativsignaturendatum verlängert!
           notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
         milestone_completed:
-          email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Neuer Meilenstein abgeschlossen!
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+          affected_user:
+            email_intro: Ihre Initiative %{resource_title} hat die %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
+          follower:
+            email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
     gamification:
       badges:
         initiatives:
@@ -119,6 +152,7 @@ de:
             accept: Initiative akzeptieren
             confirm: Bist du sicher?
             discard: Verwerfen Sie die Initiative
+            export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
             reject: Initiative ablehnen
             send_to_technical_validation: An technische Validierung senden
@@ -234,7 +268,7 @@ de:
           more_information: "(Mehr Informationen)"
         promotal_committee:
           back: Zurück
-          individual_help_text: Bürgerinitiativen benötigen eine Förderkommission, die aus mindestens drei Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
+          individual_help_text: Diese Art von Bürgerinitiative erfordert eine Beförderungskommission, die aus mindestens %{committee_size} Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie den angegebenen Schritten folgen.
           more_information: "(Mehr Informationen)"
         select_initiative_type:
           back: Zurück
@@ -262,9 +296,29 @@ de:
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiativen
+      initiative_signatures:
+        fill_personal_data:
+          continue: Fortsetzen
+          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
+        finish:
+          back_to_initiative: Zurück zur Initiative
+        sms_phone_number:
+          continue: Senden Sie mir eine SMS
+          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
+        sms_code:
+          continue: Code überprüfen und fortfahren
+          help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
+          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
+          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
+        personal_data:
+          invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
+        sms_code:
+          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
+        sms_phone:
+          invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
         author:
           deleted: Gelöscht
@@ -320,6 +374,7 @@ de:
         vote_cabin:
           already_voted: Schon unterschrieben
           supports_required: "%{total_supports} Signaturen erforderlich"
+          verification_required: Bestätigen Sie Ihre Identität, um die Initiative zu unterzeichnen
           vote: Schild
           votes_blocked: Die Anmeldung ist deaktiviert
         votes_count:
@@ -335,6 +390,7 @@ de:
         progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
         progress_report_for: 'Resume über die Initiative: %{title}'
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
+        status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
@@ -348,8 +404,14 @@ de:
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
+      unavailable_scope: Nicht verfügbarer Umfang
     menu:
       initiatives: Initiativen
+    resources:
+      initiatives_type:
+        actions:
+          vote: Abstimmung
+          title: Aktionen
   layouts:
     decidim:
       admin:
@@ -369,6 +431,17 @@ de:
         title: Neue Initiative schaffen
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Zurück
+        fill_personal_data: Ergänzen Sie Ihre Daten
+        finish: Fertig
+        finished: Initiativsignatur erstellt
+        select_identity: Identität auswählen
+        see_steps: siehe Schritte
+        sms_code: SMS-Code-Bestätigung
+        sms_phone_number: Handynummer
+        step: Schritt %{current} von %{total}
+        title: Zeichen %{initiative_title}
       initiatives:
         initiative:
           check: Hör zu

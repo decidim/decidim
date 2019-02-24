@@ -35,6 +35,7 @@ module Decidim
           initiative_type_scope_action?
           initiative_committee_action?
           initiative_admin_user_action?
+          moderator_action?
           allow! if permission_action.subject == :attachment
 
           permission_action
@@ -82,7 +83,7 @@ module Decidim
         end
 
         def initiative_type_action?
-          return unless permission_action.subject == :initiative_type
+          return unless [:initiative_type, :initiatives_type].include? permission_action.subject
 
           initiative_type = context.fetch(:initiative_type, nil)
 
@@ -136,6 +137,8 @@ module Decidim
             toggle_allow(initiative.published?)
           when :discard
             toggle_allow(initiative.validating?)
+          when :export_pdf_signatures
+            toggle_allow(initiative.published?)
           when :export_votes
             toggle_allow(initiative.offline? || initiative.any?)
           when :accept
@@ -151,6 +154,12 @@ module Decidim
           else
             allow!
           end
+        end
+
+        def moderator_action?
+          return unless permission_action.subject == :moderation
+
+          allow!
         end
 
         def read_initiative_list_action?
@@ -171,8 +180,8 @@ module Decidim
             toggle_allow(initiative.created?)
           when :send_to_technical_validation
             allowed = initiative.created? && (
-                        !initiative.decidim_user_group_id.nil? ||
-                          initiative.committee_members.approved.count >= Decidim::Initiatives.minimum_committee_members
+                        !initiative.created_by_individual? ||
+                        initiative.enough_committee_members?
                       )
 
             toggle_allow(allowed)

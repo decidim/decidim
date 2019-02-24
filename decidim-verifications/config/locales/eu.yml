@@ -1,6 +1,11 @@
 eu:
   activemodel:
     attributes:
+      config:
+        available_methods: Metodo erabilgarriak
+        offline: Offline
+        offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
+        online: Online
       id_document_information:
         document_number: Dokumentuaren zenbakia (letra batekin)
         document_type: Dokumentuaren mota
@@ -9,6 +14,8 @@ eu:
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
+      offline_confirmation:
+        email: Erabiltzailearen helbide elektronikoa
       postal_letter_address:
         full_address: Helbide osoa
       postal_letter_confirmation:
@@ -20,6 +27,11 @@ eu:
     admin:
       menu:
         authorization_workflows: egiaztapen
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} identitate dokumentuen egiaztapen konfigurazioa eguneratu du"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} egiaztatua %{resource_name} Lineako identitate dokumentuen egiaztapena erabiliz"
     authorization_handlers:
       admin:
         id_documents:
@@ -70,6 +82,13 @@ eu:
           other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Nortasun agirien konfigurazioa
+              update: eguneratzearen
+            update:
+              error: Errore bat gertatu da konfigurazioa eguneratzean.
+              success: Konfigurazioa behar bezala eguneratu da
           confirmations:
             create:
               error: Egiaztapena ez dator bat. Berriro saiatu edo ezeztatu egiaztapena erabiltzaileak hura aldatzeko
@@ -78,19 +97,36 @@ eu:
               introduce_user_data: Idatzi irudian datuak
               reject: Ukatu
               verify: Ziurtatu
+          offline_confirmations:
+            create:
+              error: Egiaztapena ez dator bat. Saiatu berriro edo esan erabiltzaileak hura aldatzeko
+              success: Erabiltzaileak behar bezala egiaztatu du
+            new:
+              cancel: Utzi
+              introduce_user_data: Erabiltzailearen helbide elektronikoa eta dokumentuaren datuak sartu
+              verify: Ziurtatu
           pending_authorizations:
             index:
+              config: config
+              offline_verification: Lineaz kanpoko egiaztapena
               title: Zain dauden egiaztapenak
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
               success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
+          choose:
+            choose_a_type: "Hautatu nola egiaztatu nahi duzun:"
+            offline: Offline
+            online: Online
+            title: Egiaztatu zure identifikazio dokumentua
           create:
             error: Arazo bat izan da dokumentua kargatzean
             success: Dokumentua behar bezala kargatu da
           edit:
             being_reviewed: Zure dokumentuak berrikusten ari gara. Handik gutxira, egiaztatu egingo zara
+            offline: Erabili lineaz kanpoko egiaztapena
+            online: Erabili lineako egiaztapena
             rejection_clarity: Ziurtatu informazioa kargatutako irudian ikusgai dagoela
             rejection_correctness: Egiaztatu informazioa zuzena dela
             rejection_notice: Arazo bat izan da zure egiaztapenarekin. Saiatu berriro mesedez

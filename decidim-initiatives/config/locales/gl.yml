@@ -26,8 +26,20 @@ gl:
         user: Membro do comité
       initiatives_type:
         banner_image: Imaxe do banner
+        collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
+        document_number_authorization_handler: Autorización para verificar o número do documento nos votos
+        extra_fields_legal_information: Información legal sobre a recollida de datos persoais
+        minimum_committee_members: Mínimo de membros da comisión
+        online_signature_enabled: Sinatura en liña habilitada
         title: Título
+        undo_online_signatures_enabled: Habilita os usuarios para desfacer as súas sinaturas en liña
+        validate_sms_code_on_votes: Engada o paso de validación do código SMS ao proceso de sinatura
+      initiatives_vote:
+        name_and_surname: Nome e apelidos
+        document_number: Número de documento
+        date_of_birth: Data de nacemento
+        postal_code: Código postal
       organization_data:
         address: Enderezo
         id_document: Documento ID
@@ -54,6 +66,7 @@ gl:
         initiatives:
           fields:
             created_at: Creado en
+            id: ID
             state: Estado
             supports_count: Soporta
             title: Iniciativas
@@ -67,6 +80,20 @@ gl:
             created_at: Creado en
             title: Tipos de iniciativa
           name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de nacemento
+            document_number: Número de documento
+            hash: Hash
+            initiative_end_date: Data de finalización
+            initiative_id: ID da iniciativa
+            initiative_signatures_count: Número de sinaturas
+            initiative_start_date: Data de inicio
+            initiative_title: Título da iniciativa
+            name_and_surname: Nome e apelidos
+            postal_code: Código postal
+            time_and_date: Hora e data
+            timestamp: Timestamp
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -78,10 +105,16 @@ gl:
           email_subject: Data de finalización da sinatura de iniciativas estendida!
           notification_title: A data de finalización das sinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi prorrogada.
         milestone_completed:
-          email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
-          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Novo fito rematado!
-          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+          affected_user:
+            email_intro: A túa iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
+            email_outro: Recibiches esta notificación porque es o autor da iniciativa %{resource_title}.
+            email_subject: Novo fito rematado!
+            notification_title: A túa iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+          follower:
+            email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
+            email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Novo fito rematado!
+            notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
     gamification:
       badges:
         initiatives:
@@ -119,6 +152,7 @@ gl:
             accept: Acepte a iniciativa
             confirm: Estás seguro?
             discard: Descartar a iniciativa
+            export_pdf_signatures: Exportar PDF de sinaturas
             export_votes: Soporte de exportación
             reject: Rexeita a iniciativa
             send_to_technical_validation: Enviar á validación técnica
@@ -234,7 +268,7 @@ gl:
           more_information: "(Máis información)"
         promotal_committee:
           back: De volta
-          individual_help_text: As iniciativas cidadáns requiren unha Comisión de Fomento composta por polo menos tres persoas (testemuñas). Debes compartir a seguinte ligazón coas outras persoas que forman parte desta iniciativa. Cando os teus contactos reciben esta ligazón terán que seguir os pasos indicados.
+          individual_help_text: Este tipo de iniciativa cidadá require unha Comisión de Fomento composta por polo menos %{committee_size} persoas (testemuñas). Debes compartir a seguinte ligazón coas outras persoas que forman parte desta iniciativa. Cando os teus contactos reciban esta ligazón terán que seguir os pasos indicados.
           more_information: "(Máis información)"
         select_initiative_type:
           back: De volta
@@ -262,9 +296,29 @@ gl:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          help: Complete os seguintes campos cos seus datos persoais para asinar a iniciativa
+        finish:
+          back_to_initiative: Volver á iniciativa
+        sms_phone_number:
+          continue: Envíame un SMS
+          help: Encha o formulario co número de teléfono verificado para solicitar o teu código de verificación
+        sms_code:
+          continue: Comprobe o código e continúe
+          help: Comprobe o SMS recibido no seu teléfono
       initiative_votes:
         create:
           error: Houbo erros ao asinar a iniciativa.
+          invalid: Os datos proporcionados para asinar a iniciativa non son válidos
+          success_html: Parabéns! A iniciativa <strong> %{title}</strong> asinouse correctamente
+        personal_data:
+          invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
+        sms_code:
+          invalid: O teu código de verificación non coincide coa nosa. Verifique os SMS que lle enviamos.
+        sms_phone:
+          invalid: O número de teléfono non é válido nin está en espera de autorización. Verifique as súas autorizacións.
       initiatives:
         author:
           deleted: Eliminado
@@ -320,6 +374,7 @@ gl:
         vote_cabin:
           already_voted: Xa está asinado
           supports_required: "Requírense as %{total_supports} firmas"
+          verification_required: Comprobe a súa identidade para asinar a iniciativa
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:
@@ -349,8 +404,14 @@ gl:
       states:
         accepted: Aceptada
         expired: Vencido
+      unavailable_scope: Alcance non dispoñible
     menu:
       initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vota
+          title: Accións
   layouts:
     decidim:
       admin:
@@ -370,6 +431,17 @@ gl:
         title: Crea unha nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: De volta
+        fill_personal_data: Completa os teus datos
+        finish: Finalizar
+        finished: Creouse a sinatura da iniciativa
+        select_identity: Seleccionar identidade
+        see_steps: ver pasos
+        sms_code: Verificación do código SMS
+        sms_phone_number: Número de teléfono
+        step: Paso %{current} de %{total}
+        title: Rexistrar %{initiative_title}
       initiatives:
         initiative:
           check: Bótalle unha ollada

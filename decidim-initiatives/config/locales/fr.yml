@@ -26,8 +26,20 @@ fr:
         user: Membre du Comité de promotion
       initiatives_type:
         banner_image: Image d'en-tête
+        collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
+        document_number_authorization_handler: Autorisation de vérifier le numéro de document sur les votes
+        extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
+        minimum_committee_members: Minimum de membres du comité
+        online_signature_enabled: Signature en ligne activée
         title: Titre
+        undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
+        validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
+      initiatives_vote:
+        name_and_surname: Nom et surnom
+        document_number: Numéro de document
+        date_of_birth: Date de naissance
+        postal_code: Code postal
       organization_data:
         address: Adresse
         id_document: Document d'identité
@@ -54,6 +66,7 @@ fr:
         initiatives:
           fields:
             created_at: Créé à
+            id: ID
             state: État
             supports_count: Soutiens
             title: Initiatives
@@ -67,6 +80,20 @@ fr:
             created_at: Créé à
             title: Types d'initiative
           name: Type d'initiative
+        initiatives_votes:
+          fields:
+            date_of_birth: Date de naissance
+            document_number: Numéro de document
+            hash: Hacher
+            initiative_end_date: Date de fin
+            initiative_id: ID d'initiative
+            initiative_signatures_count: Nombre de signatures
+            initiative_start_date: Date de début
+            initiative_title: Titre de l'initiative
+            name_and_surname: Nom et surnom
+            postal_code: Code postal
+            time_and_date: Heure et date
+            timestamp: Horodatage
       titles:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
@@ -78,10 +105,16 @@ fr:
           email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
           notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
-          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Nouvelle étape franchie !
-          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+          affected_user:
+            email_intro: Votre initiative %{resource_title} a réalisé le %{percentage}% de signatures!
+            email_outro: Vous avez reçu cette notification car vous êtes l'auteur de l'initiative %{resource_title}.
+            email_subject: Nouvelle étape franchie !
+            notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
+          follower:
+            email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+            email_subject: Nouvelle étape franchie !
+            notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
@@ -119,6 +152,7 @@ fr:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
             discard: Dépublier la pétition
+            export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
@@ -234,7 +268,7 @@ fr:
           more_information: "(Plus d'informations)"
         promotal_committee:
           back: Retour
-          individual_help_text: Les initiatives nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          individual_help_text: Ce type d’initiative citoyenne nécessite une Commission de promotion composée d’au moins %{committee_size} personnes. Vous devez partager le lien suivant avec les autres personnes participant à cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
@@ -262,9 +296,29 @@ fr:
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuer
+          help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
+        finish:
+          back_to_initiative: Retour à l'initiative
+        sms_phone_number:
+          continue: Envoyez moi un SMS
+          help: Remplissez le formulaire avec votre numéro de téléphone vérifié pour demander votre code de vérification
+        sms_code:
+          continue: Vérifier le code et continuer
+          help: Vérifiez les SMS reçus sur votre téléphone
       initiative_votes:
         create:
           error: Il y a eu des erreurs lors de la signature de l'initiative.
+          invalid: Les données fournies pour signer l'initiative ne sont pas valides
+          success_html: Toutes nos félicitations! L'initiative <strong> %{title}</strong> a été signée correctement
+        personal_data:
+          invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
+        sms_code:
+          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+        sms_phone:
+          invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
         author:
           deleted: Supprimé
@@ -320,6 +374,7 @@ fr:
         vote_cabin:
           already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"
+          verification_required: Vérifiez votre identité pour signer l'initiative
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
@@ -349,8 +404,14 @@ fr:
       states:
         accepted: Acceptées
         expired: Expirées
+      unavailable_scope: Portée indisponible
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: actes
   layouts:
     decidim:
       admin:
@@ -370,6 +431,17 @@ fr:
         title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Retour
+        fill_personal_data: Complétez vos données
+        finish: terminer
+        finished: Signature de l'initiative créée
+        select_identity: Sélectionner une identité
+        see_steps: voir les étapes
+        sms_code: Vérification du code SMS
+        sms_phone_number: numéro de téléphone portable
+        step: Étape %{current} sur %{total}
+        title: Signe %{initiative_title}
       initiatives:
         initiative:
           check: Découvrez l'initiative

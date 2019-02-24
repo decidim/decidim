@@ -1,4 +1,4 @@
-<% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? && allowed_to?(:vote, :initiative, initiative: initiative) %>
   <button id="select-identity-button"
           class="card__button button expanded button--sc">
     <%= t(".vote") %>
@@ -8,16 +8,16 @@
        id="user-identities"
        data-reveal data-refresh-url="<%= signature_identities_initiative_url(slug: initiative.slug) %>">
   </div>
-<% else %>
+<% elsif initiative.accepts_online_votes? %>
     <%= render partial: "decidim/initiatives/initiatives/vote_button",
                locals: {
                    initiative: initiative,
                    vote_label: t(".vote"),
-                   unvote_label: t(".already_voted")
-               } if Decidim::Initiatives.online_voting_allowed %>
-<% end %>
-
-<% if !allowed_to?(:vote, :initiative, initiative: initiative) && !allowed_to?(:unvote, :initiative, initiative: initiative) %>
+                   unvote_label: t(".already_voted"),
+                   verification_label: t(".verification_required"),
+                   steps: signature_has_steps?
+               } %>
+<% else %>
   <button class='card__button button expanded button--sc disabled' disabled>
     <%= t(".votes_blocked") %>
   </button>

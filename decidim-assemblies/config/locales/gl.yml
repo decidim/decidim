@@ -82,8 +82,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
           success: Asemblea creada con éxito.
-        destroy:
-          success: Asemblea eliminouse con éxito.
         edit:
           update: Actualización
         form:
@@ -259,6 +257,16 @@ gl:
         city_council: Concello
         others: Outros
         public: Público
+      filter:
+        all: Todo tipo de montaxes
+        commission: Comisión
+        consultative_advisory: Consultivo / asesor
+        executive: Executivo
+        government: Goberno
+        help: 'Amosar:'
+        others: Outros
+        participatory: Participativa
+        working_group: Grupo de traballo
       index:
         title: Asembleas
       last_activity:
@@ -350,8 +358,8 @@ gl:
           reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
-            one: "%{count} asembleas"
-            other: "%{count} asembleas"
+            one: "Asemblea %{count}"
+            other: "Asembleas %{count}"
         promoted_assembly:
           more_info: Máis información
           take_part: Tomar parte en

@@ -5,6 +5,8 @@ module Decidim
   # for transparency reasons, to log all actions so all other users can
   # see the actions being performed.
   class ActionLog < ApplicationRecord
+    include Decidim::Scopable
+
     belongs_to :organization,
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
@@ -29,6 +31,11 @@ module Decidim
     belongs_to :version,
                optional: true,
                class_name: "PaperTrail::Version"
+
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
+               optional: true
 
     validates :organization, :user, :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }

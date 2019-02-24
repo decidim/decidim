@@ -26,8 +26,20 @@ nl:
         user: Commissie lid
       initiatives_type:
         banner_image: Banner afbeelding
+        collect_user_extra_fields: Verzamel persoonlijke gebruikersgegevens bij ondertekening
         description: Beschrijving
+        document_number_authorization_handler: Autorisatie om documentnummer op stemmen te verifiëren
+        extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
+        minimum_committee_members: Minimaal aantal commissieleden
+        online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
+        undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
+        validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces
+      initiatives_vote:
+        name_and_surname: Naam en achternaam
+        document_number: Document Nummer
+        date_of_birth: Geboortedatum
+        postal_code: Postcode
       organization_data:
         address: Adres
         id_document: ID-document
@@ -54,6 +66,7 @@ nl:
         initiatives:
           fields:
             created_at: Aangemaakt op
+            id: ID kaart
             state: Staat
             supports_count: steunen
             title: initiatieven
@@ -67,6 +80,20 @@ nl:
             created_at: Aangemaakt op
             title: Initiatieftypen
           name: Initiatieftype
+        initiatives_votes:
+          fields:
+            date_of_birth: Geboortedatum
+            document_number: Document Nummer
+            hash: hachee
+            initiative_end_date: Einddatum
+            initiative_id: Initiatief ID
+            initiative_signatures_count: Aantal handtekeningen
+            initiative_start_date: Begin datum
+            initiative_title: Titel van het initiatief
+            name_and_surname: Naam en achternaam
+            postal_code: Postcode
+            time_and_date: Tijd en datum
+            timestamp: tijdstempel
       titles:
         initiatives: initiatieven
         initiatives_types: Initiatieftypen
@@ -78,10 +105,16 @@ nl:
           email_subject: Initiatief handtekeningen einddatum verlengd!
           notification_title: De einddatum van de ondertekening van het <a href="%{resource_path}">%{resource_title}</a> initiatief is verlengd.
         milestone_completed:
-          email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Nieuwe mijlpaal voltooid!
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
+          affected_user:
+            email_intro: Uw initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
+            email_outro: U hebt deze melding ontvangen omdat u de auteur bent van het initiatief %{resource_title}.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Uw <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen bereikt.
+          follower:
+            email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
+            email_outro: U hebt deze melding ontvangen omdat u %{resource_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
     gamification:
       badges:
         initiatives:
@@ -119,6 +152,7 @@ nl:
             accept: Accepteer initiatief
             confirm: Weet je het zeker?
             discard: Gooi het initiatief weg
+            export_pdf_signatures: PDF van handtekeningen exporteren
             export_votes: Exportondersteuning
             reject: Verwerp initiatief
             send_to_technical_validation: Stuur naar technische validatie
@@ -234,7 +268,7 @@ nl:
           more_information: "(Meer informatie)"
         promotal_committee:
           back: Terug
-          individual_help_text: Burgerinspraken vereisen een promotie groep bestaande uit ten minste drie personen (verklaringen). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer je contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
+          individual_help_text: Dit soort burgerinitiatief vereist een Promotingscommissie bestaande uit ten minste %{committee_size} personen (attestors). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
@@ -262,9 +296,29 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: initiatieven
+      initiative_signatures:
+        fill_personal_data:
+          continue: Doorgaan met
+          help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
+        finish:
+          back_to_initiative: Terug naar initiatief
+        sms_phone_number:
+          continue: Stuur me een sms
+          help: Vul het formulier in met uw geverifieerde telefoonnummer om uw verificatiecode aan te vragen
+        sms_code:
+          continue: Controleer de code en ga verder
+          help: Controleer de sms die je op je telefoon hebt ontvangen
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
+          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
+          success_html: Gefeliciteerd! Het <strong> %{title}</strong> initiatief is correct ondertekend
+        personal_data:
+          invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
+        sms_code:
+          invalid: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
+        sms_phone:
+          invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer alstublieft uw autorisaties.
       initiatives:
         author:
           deleted: verwijderde
@@ -320,6 +374,7 @@ nl:
         vote_cabin:
           already_voted: Al getekend
           supports_required: "%{total_supports} handtekeningen vereist"
+          verification_required: Verifieer uw identiteit om het initiatief te ondertekenen
           vote: Teken
           votes_blocked: Ondertekenen uitgeschakeld
         votes_count:
@@ -349,8 +404,14 @@ nl:
       states:
         accepted: Aanvaard
         expired: Vervallen
+      unavailable_scope: Niet beschikbaar bereik
     menu:
       initiatives: initiatieven
+    resources:
+      initiatives_type:
+        actions:
+          vote: Stemmen
+          title: acties
   layouts:
     decidim:
       admin:
@@ -370,6 +431,17 @@ nl:
         title: Maak nieuw initiatief
       initiative_header:
         initiative_menu_item: Initiatief
+      initiative_signature_creation_header:
+        back: Terug
+        fill_personal_data: Vul uw gegevens in
+        finish: Af hebben
+        finished: Initiatief handtekening gemaakt
+        select_identity: Selecteer identiteit
+        see_steps: zie stappen
+        sms_code: Verificatie van sms-codes
+        sms_phone_number: Mobiele telefoonnummer
+        step: Stap %{current} van %{total}
+        title: Teken %{initiative_title}
       initiatives:
         initiative:
           check: Bekijken

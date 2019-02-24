@@ -19,6 +19,7 @@ shared_examples "a proposal form" do |options|
   let(:longitude) { 2.1234 }
   let(:has_address) { false }
   let(:address) { nil }
+  let(:suggested_hashtags) { [] }
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
   let(:params) do
@@ -31,7 +32,8 @@ shared_examples "a proposal form" do |options|
       address: address,
       has_address: has_address,
       meeting_as_author: meeting_as_author,
-      attachment: attachment_params
+      attachment: attachment_params,
+      suggested_hashtags: suggested_hashtags
     }
   end
 
@@ -59,15 +61,17 @@ shared_examples "a proposal form" do |options|
   end
 
   context "when the title is too long" do
-    let(:body) { "A" * 200 }
+    let(:title) { "A" * 200 }
 
     it { is_expected.to be_invalid }
   end
 
-  context "when the body is not etiquette-compliant" do
-    let(:body) { "A" }
+  unless options[:skip_etiquette_validation]
+    context "when the body is not etiquette-compliant" do
+      let(:body) { "A" }
 
-    it { is_expected.to be_invalid }
+      it { is_expected.to be_invalid }
+    end
   end
 
   context "when there's no body" do
@@ -220,9 +224,55 @@ shared_examples "a proposal form" do |options|
       end
     end
   end
+
+  describe "#extra_hashtags" do
+    subject { form.extra_hashtags }
+
+    let(:component) do
+      create(
+        :proposal_component,
+        :with_extra_hashtags,
+        participatory_space: participatory_space,
+        suggested_hashtags: component_suggested_hashtags,
+        automatic_hashtags: component_automatic_hashtags
+      )
+    end
+    let(:component_automatic_hashtags) { "" }
+    let(:component_suggested_hashtags) { "" }
+
+    it { is_expected.to eq([]) }
+
+    context "when there are auto hashtags" do
+      let(:component_automatic_hashtags) { "HashtagAuto1 HashtagAuto2" }
+
+      it { is_expected.to eq(%w(HashtagAuto1 HashtagAuto2)) }
+    end
+
+    context "when there are some suggested hashtags checked" do
+      let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2 HashtagSuggested3" }
+      let(:suggested_hashtags) { %w(HashtagSuggested1 HashtagSuggested2) }
+
+      it { is_expected.to eq(%w(HashtagSuggested1 HashtagSuggested2)) }
+    end
+
+    context "when there are invalid suggested hashtags checked" do
+      let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2" }
+      let(:suggested_hashtags) { %w(HashtagSuggested1 HashtagSuggested3) }
+
+      it { is_expected.to eq(%w(HashtagSuggested1)) }
+    end
+
+    context "when there are both suggested and auto hashtags" do
+      let(:component_automatic_hashtags) { "HashtagAuto1 HashtagAuto2" }
+      let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2" }
+      let(:suggested_hashtags) { %w(HashtagSuggested2) }
+
+      it { is_expected.to eq(%w(HashtagAuto1 HashtagAuto2 HashtagSuggested2)) }
+    end
+  end
 end
 
-shared_examples "a proposal form with meeting as author" do |_options|
+shared_examples "a proposal form with meeting as author" do |options|
   subject { form }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
@@ -264,15 +314,17 @@ shared_examples "a proposal form with meeting as author" do |_options|
   end
 
   context "when the title is too long" do
-    let(:body) { "A" * 200 }
+    let(:title) { "A" * 200 }
 
     it { is_expected.to be_invalid }
   end
 
-  context "when the body is not etiquette-compliant" do
-    let(:body) { "A" }
+  unless options[:skip_etiquette_validation]
+    context "when the body is not etiquette-compliant" do
+      let(:body) { "A" }
 
-    it { is_expected.to be_invalid }
+      it { is_expected.to be_invalid }
+    end
   end
 
   context "when there's no body" do

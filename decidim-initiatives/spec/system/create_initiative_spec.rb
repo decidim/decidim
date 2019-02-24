@@ -32,7 +32,8 @@ describe "Initiative", type: :system do
     end
 
     context "without validation" do
-      let(:initiative_type) { create(:initiatives_type, organization: organization) }
+      let(:initiative_type_minimum_committee_members) { 2 }
+      let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members) }
       let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
       let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
@@ -68,7 +69,7 @@ describe "Initiative", type: :system do
 
       context "and fill basic data" do
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
         end
 
         it "Has a hidden field with the selected initiative type" do
@@ -92,7 +93,7 @@ describe "Initiative", type: :system do
         let!(:initiative) { create(:initiative, organization: organization) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
@@ -121,7 +122,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
@@ -147,10 +148,10 @@ describe "Initiative", type: :system do
       end
 
       context "when Promotal committee" do
-        let(:initiative) { build(:initiative) }
+        let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
@@ -167,7 +168,7 @@ describe "Initiative", type: :system do
 
         it "Offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
+            expect(page).to have_content("This kind of citizen initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
           end
         end
 
@@ -178,13 +179,22 @@ describe "Initiative", type: :system do
         it "Contains a button to continue with next step" do
           expect(page).to have_content("Continue")
         end
+
+        context "when minimum committee size is zero" do
+          let(:initiative_type_minimum_committee_members) { 0 }
+
+          it "skips to next step" do
+            expect(page).not_to have_content("Promoter committee")
+            expect(page).to have_content("Finish")
+          end
+        end
       end
 
       context "when Finish" do
         let(:initiative) { build(:initiative) }
 
         before do
-          find_button("Choose").click
+          find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)

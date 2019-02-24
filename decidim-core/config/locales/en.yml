@@ -153,34 +153,34 @@ en:
           help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
         announcement:
           accepted: |-
-            This emendation for the %{amendable_type} %{amendable_link} has been
+            This amendment for the %{amendable_type} %{amendable_link} has been
             accepted on <strong>%{announcement_date}</strong>.
           evaluating: |-
-            This is an emendation for the %{amendable_type} %{amendable_link}
+            This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
           rejected: |-
             This emendation for the %{amendable_type} %{amendable_link}
             was rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            This emendation for the %{amendable_type} %{amendable_link}
+            This amendment for the %{amendable_type} %{amendable_link}
             has been withdrawn by the author.
       new:
         amendment_author: Amendment author
         back: Back
         heading: Create your amendment
         help_text: You are modifying the %{model_name}
-        send: Send emendation
+        send: Send amendment
       rejected:
         error: An error ocurred when rejecting this emendation, please try again later
         success: The emendation has been rejected successfully
       promoted:
-          success: Emendation promoted successfully
-          error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
+        error: There's been errors when promoting the emendation
       review:
         back: Back
         heading: Review the amendment
         help_text: You are amending the %{model_name}
-        send: Accept emendation
+        send: Accept amendment
     anonymous_user: Anonymous
     application:
       collection:
@@ -389,25 +389,49 @@ en:
     events:
       amendments:
         amendment_created:
-          email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
-          email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-          notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
-          email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
-          email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-          notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
-          email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-          email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
-          email_subject: An emendation from %{emendation_author_nickname} has been promoted
-          notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
-          email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
-          email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-          notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          affected_user:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -480,6 +504,11 @@ en:
           email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> has been officialized.
+          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{nickname} has been officialized"
+          notification_title: The <a href="%{resource_path}">%{name} (%{nickname})</a>, who you are following, has been officialized.
     export_mailer:
       data_portability_export:
         click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
@@ -721,7 +750,7 @@ en:
       download:
         csv: Download data (csv)
       followers:
-        description: Number of user that follows in organization
+        description: Number of users that follow this participation space
         object: followers
         title: Followers
       participants:
@@ -763,7 +792,12 @@ en:
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
+        everything_followed: Everything I follow
+        newsletters: Newsletters
         newsletter_notifications: I want to receive newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There's been an error updating your notifications settings.
@@ -963,6 +997,15 @@ en:
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
+    user_interests:
+      show:
+        no_scopes: This organization doesn't have any scope yet!
+        my_interests: My interests
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
@@ -1168,6 +1211,7 @@ en:
         authorizations: Authorizations
         delete_my_account: Delete my account
         my_data: My data
+        my_interests: My interests
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Groups

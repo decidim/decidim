@@ -55,7 +55,7 @@ module Decidim
 
       def create_emendation!
         @emendation = Decidim.traceability.perform_action!(
-          :create,
+          "publish",
           form.amendable_type.constantize,
           form.current_user,
           visibility: "public-only"
@@ -76,16 +76,14 @@ module Decidim
         )
       end
 
-      def recipients
-        recipients = begin
+      def affected_users
+        @affected_users ||= begin
           if @amendable.is_a?(Decidim::Coauthorable)
             @amendable.authors
           else
             [@amendable.author]
           end
-        end
-        recipients += @amendable.followers
-        recipients.pluck(:id).uniq
+        end.uniq
       end
 
       def notify_amendable_authors_and_followers
@@ -93,7 +91,8 @@ module Decidim
           event: "decidim.events.amendments.amendment_created",
           event_class: Decidim::Amendable::AmendmentCreatedEvent,
           resource: @amendable,
-          recipient_ids: recipients,
+          affected_users: affected_users,
+          followers: @amendable.followers - affected_users,
           extra: {
             amendment_id: @amendment.id
           }

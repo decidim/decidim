@@ -19,20 +19,15 @@ module Decidim
         attribute :signature_end_date, Decidim::Attributes::LocalizedDate
         attribute :hashtag, String
         attribute :offline_votes, Integer
-
-        translatable_attribute :answer, String
-        attribute :answer_url, String
+        attribute :state, String
 
         validates :title, :description, presence: true
-        validates :signature_type, presence: true
+        validates :signature_type, presence: true, if: :signature_type_updatable?
         validates :signature_start_date, presence: true, if: ->(form) { form.context.initiative.published? }
         validates :signature_end_date, presence: true, if: ->(form) { form.context.initiative.published? }
         validates :signature_end_date, date: { after: :signature_start_date }, if: lambda { |form|
           form.signature_start_date.present? && form.signature_end_date.present?
         }
-
-        validates :answer, translatable_presence: true, if: ->(form) { form.context.initiative.accepted? }
-        validates :answer_url, presence: true, if: ->(form) { form.context.initiative.accepted? }
 
         validates :offline_votes,
                   numericality: {
@@ -43,6 +38,29 @@ module Decidim
         def map_model(model)
           self.type_id = model.type.id
           self.decidim_scope_id = model.scope.id
+        end
+
+        def signature_type_updatable?
+          @signature_type_updatable ||= begin
+                                          state ||= context.initiative.state
+                                          state == "validating" && context.current_user.admin? || state == "created"
+                                        end
+        end
+
+        def state_updatable?
+          false
+        end
+
+        def scoped_type_id
+          return unless type && decidim_scope_id
+
+          type.scopes.find_by!(decidim_scopes_id: decidim_scope_id).id
+        end
+
+        private
+
+        def type
+          @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
         end
       end
     end

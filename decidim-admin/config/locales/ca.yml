@@ -66,6 +66,7 @@ ca:
         show_statistics: Mostra estadístiques
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
+        user_groups_enabled: Activar els grups d'usuaris
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -91,12 +92,20 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         title: Títol
         weight: Pes
+      user_group_csv_verification:
+        file: Fitxer
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: L'URL de redirecció ha de ser SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Fitxer d'imatge no vàlid
+            official_img_footer:
+              allowed_file_content_types: Fitxer d'imatge no vàlid
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ ca:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
       component_permissions:
-        edit:
-          everyone: Tothom
-          submit: Desar permisos
-          title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
       components:
@@ -527,6 +532,12 @@ ca:
         new:
           create: Crear
           title: Nou usuari privat de l'espai participatiu.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Edita els permisos
+        update:
+          success: Els permisos s'han actualitzat correctament.
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -606,15 +617,18 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
-        impersonatable_users: Usuaris impersonables
-        impersonations: Suplantacions
-        participants: Participants
+        impersonatable_users: Usuaris manejables
+        impersonations: Gestió d'usuaris
+        participants: Usuaris
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
         user_groups: Grups d'usuaris
         users: Usuaris
       user_group:
+        csv_verify:
+          invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: El fitxer CSV s'ha carregat correctament, estem verificant que els grups d'usuaris coincideixin amb els criteris. Això pot trigar una estona.
         reject:
           invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.
           success: Grup d'usuaris rebutjat amb èxit
@@ -634,6 +648,12 @@ ca:
             pending: Pendent
             rejected: Rebutjat
             verified: Verificat
+          verify_via_csv: Verifica mitjançant CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups d'usuaris de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups d'usuaris que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          title: Penja el fitxer CSV
+          upload: Penja
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.
@@ -659,12 +679,16 @@ ca:
         hide: Amagar
         not_hidden: No ocult
         title: Accions
+        unhide: Tornar a mostrar
         unreport: Desfer denúncia
       admin:
         reportable:
           hide:
             invalid: Hi ha hagut un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
+          unhide:
+            invalid: Hi ha hagut un problema en tornar a mostrar el recurs.
+            success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: Hi ha hagut un problema cancel·lant la denúncia.
             success: Denúncia cancel·lada correctament.

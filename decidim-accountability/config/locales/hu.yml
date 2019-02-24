@@ -23,7 +23,7 @@ hu:
         entry_date: Dátum
     models:
       decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
-      decidim/accountability/result_progress_updated_event: Az eredmények eredményei frissítve
+      decidim/accountability/result_progress_updated_event: Az eredmények frissítve
   activerecord:
     models:
       decidim/accountability/result:
@@ -203,13 +203,13 @@ hu:
           email_subject: A %{proposal_title} frissítve lett
           notification_title: 'A(z) <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel ebben a(z) eredményben: <a href="%{resource_path}">%{resource_title}</a>.'
         result_progress_updated:
-          email_intro: 'A "%{resource_title}" eredmény, amely magában foglalja az "%{proposal_title}" javaslatot, most már %{progress}% -ban teljes. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést azért kapta, mert "%{proposal_title}" -t követ, és ez a javaslat szerepel az "%{resource_title}" eredményben. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: '%{resource_title} frissítés frissítése'
-          notification_title: Az eredmény <a href="%{resource_path}">%{resource_title}</a>, amely magában foglalja a <a href="%{proposal_path}">%{proposal_title}</a>javaslatot, most %{progress}%.
+          email_intro: 'A "%{resource_title}" eredmény, amely magában foglalja a "%{proposal_title}" javaslatot, most már %{progress}% -ban teljes. Láthatod ezt erről oldalról:'
+          email_outro: Ezt az értesítést azért kaptad, mert "%{proposal_title}" -t követed, és ez a javaslat szerepel a "%{resource_title}" eredményben. Leállíthatoa az értesítések fogadását követve az előző linket.
+          email_subject: '%{resource_title} frissítése'
+          notification_title: Az eredmény <a href="%{resource_path}">%{resource_title}</a>, amely magában foglalja a <a href="%{proposal_path}">%{proposal_title}</a>javaslatot, most %{progress}%-ban teljes.
     metrics:
       results:
-        description: Az elszámoltathatósági eredmények száma
+        description: A keletkezett eredmények száma
         object: eredmények
         title: Eredmények
     participatory_processes:

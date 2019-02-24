@@ -77,11 +77,6 @@ $datetime-bg: $primary;
   @extend .heading5;
 }
 
-.card__title--strong{
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 .card__header{
   margin-bottom: $card-padding / 2;
 
@@ -413,10 +408,6 @@ $datetime-bg: $primary;
 .card__link{
   color: $anchor-color;
 
-  @include breakpoint(small only){
-    word-break: break-all;
-  }
-
   &:hover{
     color: $anchor-color;
   }
@@ -445,6 +436,16 @@ $datetime-bg: $primary;
 
   @include breakpoint(medium){
     padding-left: $card-padding;
+  }
+
+  svg{
+    flex-basis: 15%;
+    flex-shrink: 0;
+  }
+
+  svg + div{
+    max-width: calc(85% - #{$global-margin});
+    overflow-wrap: break-word;
   }
 }
 

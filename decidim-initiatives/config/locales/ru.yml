@@ -84,10 +84,12 @@ ru:
           email_subject: Срок сбора подписей в поддержку почина продлен!
           notification_title: Срок сбора подписей в поддержку почина <a href="%{resource_path}">%{resource_title}</a> продлен.
         milestone_completed:
-          email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: Достигнута новая веха!
-          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
+          affected_user:
+            email_subject: Достигнута новая веха!
+          follower:
+            email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
+            email_subject: Достигнута новая веха!
+            notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
     initiatives:
       admin:
         committee_requests:
@@ -218,7 +220,6 @@ ru:
           more_information: "(Дополнительные сведения)"
         promotal_committee:
           back: Вернуться
-          individual_help_text: Для гражданских починов нужна рабочая группа по продвижению, состоящая как минимум из трех человек (удостоверяющих лиц). Вы должны поделиться следующей ссылкой с другими людьми, которые занимаются этим почином. Когда они получат эту ссылку, им нужно будет пройти указанные там шаги.
           more_information: "(Дополнительные сведения)"
         select_initiative_type:
           back: Вернуться

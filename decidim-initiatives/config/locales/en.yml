@@ -13,6 +13,7 @@ en:
           any: Mixed
           offline: Face to face
           online: OnLine
+        state: State
         title: Title
       initiative_author:
         address: Address
@@ -26,8 +27,20 @@ en:
         user: Committee member
       initiatives_type:
         banner_image: Banner image
+        collect_user_extra_fields: Collect user personal data on signature
         description: Description
+        document_number_authorization_handler: Authorization to verify document number on votes
+        extra_fields_legal_information: Legal information about the collection of personal data
+        minimum_committee_members: Minimum of committee members
+        online_signature_enabled: Online signature enabled
         title: Title
+        undo_online_signatures_enabled: Enable users to undo their online signatures
+        validate_sms_code_on_votes: Add SMS code validation step to signature process
+      initiatives_vote:
+        name_and_surname: Name and surname
+        document_number: Document number
+        date_of_birth: Date of birth
+        postal_code: Postal code
       organization_data:
         address: Address
         id_document: ID document
@@ -54,6 +67,7 @@ en:
         initiatives:
           fields:
             created_at: Created at
+            id: ID
             state: State
             supports_count: Supports
             title: Initiatives
@@ -67,6 +81,20 @@ en:
             created_at: Created at
             title: Initiative types
           name: Initiative type
+        initiatives_votes:
+          fields:
+            date_of_birth: Date of birth
+            document_number: Document number
+            hash: Hash
+            initiative_end_date: End date
+            initiative_id: Initiative ID
+            initiative_signatures_count: Number of signatures
+            initiative_start_date: Start date
+            initiative_title: Initiative title
+            name_and_surname: Name and surname
+            postal_code: Postal code
+            time_and_date: Time and date
+            timestamp: Timestamp
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types
@@ -78,10 +106,16 @@ en:
           email_subject: Initiative signatures end date extended!
           notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
-          email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-          email_subject: New milestone completed!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          follower:
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
     gamification:
       badges:
         initiatives:
@@ -102,7 +136,19 @@ en:
           page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
           title: What are initiatives?
     initiatives:
+      actions:
+        answer: Answer
       admin:
+        answers:
+          edit:
+            title: Answer for %{title}
+            answer: Answer
+          info_initiative:
+            created_at: Created at
+            description: Description
+            initiative_votes_count: Votes count
+            initiatives: Initiatives
+            state: State
         committee_requests:
           index:
             approve: Approve
@@ -119,6 +165,7 @@ en:
             accept: Accept initiative
             confirm: Are you sure?
             discard: Discard the initiative
+            export_pdf_signatures: Export PDF of signatures
             export_votes: Export supports
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
@@ -234,12 +281,13 @@ en:
           more_information: "(More information)"
         promotal_committee:
           back: Back
-          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           more_information: "(More information)"
         select_initiative_type:
           back: Back
+          choose_html: I want to create a <strong>%{title}</strong>
           more_information: "(More information)"
-          select: Choose
+          select: I want to promote this initiative
           select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
           continue: Continue
@@ -262,9 +310,29 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continue
+          help: Please, fill the following fields with your personal data to sign the initiative
+        finish:
+          back_to_initiative: Back to initiative
+        sms_phone_number:
+          continue: Send me an SMS
+          help: Fill the form with your verified phone number to request your verification code
+        sms_code:
+          continue: Check code and continue
+          help: Check the SMS received at your phone
       initiative_votes:
         create:
           error: There's been errors when signing the initiative.
+          invalid: The data provided to sign the initiative is not valid
+          success_html: Congratulations! The <strong> %{title}</strong> initiative has been signed correctly
+        personal_data:
+          invalid: Personal data is not consistent with data provided for authorization.
+        sms_code:
+          invalid: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+        sms_phone:
+          invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
         author:
           deleted: Deleted
@@ -300,7 +368,13 @@ en:
           random: Random
           recent: Most recent
         result:
-          initiative_accepted_reason: This initiative has been accepted because
+          answer_title:
+            accepted: This proposal has been accepted because
+            created: This proposal has been created
+            discarded: This proposal has been discarded because
+            published: This proposal is published because
+            rejected: This proposal has been rejected because
+            validating: This proposal is being evaluated
           initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
         show:
           any_vote_method: This citizen initiative collects online support as well as face to face.
@@ -320,6 +394,7 @@ en:
         vote_cabin:
           already_voted: Already signed
           supports_required: "%{total_supports} signatures required"
+          verification_required: Verify your identity to sign the initiative
           vote: Sign
           votes_blocked: Signing disabled
         votes_count:
@@ -352,6 +427,11 @@ en:
       unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: Actions
   layouts:
     decidim:
       admin:
@@ -371,6 +451,17 @@ en:
         title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Back
+        fill_personal_data: Complete your data
+        finish: Finish
+        finished: Initiative signature created
+        select_identity: Select identity
+        see_steps: see steps
+        sms_code: SMS code verification
+        sms_phone_number: Mobile phone number
+        step: Step %{current} of %{total}
+        title: Sign %{initiative_title}
       initiatives:
         initiative:
           check: Check it out

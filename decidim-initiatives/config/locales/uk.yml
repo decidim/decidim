@@ -84,10 +84,12 @@ uk:
           email_subject: Строк збору підписів на підтримку почину продовжено!
           notification_title: Строк збору підписів на підтримку почину <a href="%{resource_path}">%{resource_title}</a> продовжено.
         milestone_completed:
-          email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Досягнута нова віха!
-          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
+          affected_user:
+            email_subject: Досягнута нова віха!
+          follower:
+            email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
+            email_subject: Досягнута нова віха!
+            notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
     initiatives:
       admin:
         committee_requests:
@@ -218,7 +220,6 @@ uk:
           more_information: "(Додаткові відомості)"
         promotal_committee:
           back: Повернутись
-          individual_help_text: Громадські ініціативи потребують робочого гурту з просування, що складається з принаймні трьох людей (засвідчуючих осіб). Ви маєте поділитися наступним посиланням з іншими людьми, які є частиною цього почину. Коли вони отримають це посилання, їм треба буде пройти зазначені там кроки.
           more_information: "(Додаткові відомості)"
         select_initiative_type:
           back: Повернутись

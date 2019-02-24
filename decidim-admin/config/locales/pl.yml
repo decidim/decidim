@@ -66,6 +66,7 @@ pl:
         show_statistics: Pokaż statystyki
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
+        user_groups_enabled: Włącz grupy użytkowników
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod
@@ -91,12 +92,20 @@ pl:
         show_in_footer: Pokaż w stopce
         title: Tytuł
         weight: Waga
+      user_group_csv_verification:
+        file: Plik
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Identyfikator URI przekierowania musi być identyfikatorem URI protokołu SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Nieprawidłowy plik obrazu
+            official_img_footer:
+              allowed_file_content_types: Nieprawidłowy plik obrazu
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ pl:
           error: Podczas aktualizowania tej kategorii wystąpił błąd.
           success: Kategoria została zaktualizowana.
       component_permissions:
-        edit:
-          everyone: Każdy
-          submit: Zapisz uprawnienia
-          title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
       components:
@@ -527,6 +532,12 @@ pl:
         new:
           create: Stwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
+      resource_permissions:
+        edit:
+          submit: Zatwierdź
+          title: Edytuj uprawnienia
+        update:
+          success: Uprawnienia zostały pomyślnie zaktualizowane.
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -606,15 +617,18 @@ pl:
         areas: Obszary
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
-        impersonatable_users: Niekodowalni użytkownicy
-        impersonations: Impersonaty
-        participants: Uczestnicy
+        impersonatable_users: Zarządzaj użytkownikami
+        impersonations: Zarządzanie użytkownikami
+        participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
         user_groups: Grupy użytkowników
         users: Użytkownicy
       user_group:
+        csv_verify:
+          invalid: Wystąpił błąd podczas odczytu pliku CSV.
+          success: Plik CSV przesłany pomyślnie, weryfikujemy grupy użytkowników pasujące do kryteriów. To może zająć chwilę.
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
           success: Grupa użytkowników została odrzucona
@@ -634,6 +648,12 @@ pl:
             pending: W oczekiwaniu
             rejected: Odrzucone
             verified: Zweryfikowano
+          verify_via_csv: Zweryfikuj za pomocą CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Prześlij swój plik CSV. Musi mieć oficjalne wiadomości e-mail grup użytkowników w organizacji w pierwszej kolumnie pliku, bez nagłówków. Tylko grupy użytkowników, które potwierdziły swój adres e-mail i mają e-mail znajdujący się w pliku CSV, zostaną zweryfikowane.
+          title: Prześlij swój plik CSV
+          upload: Przekazać plik
       users:
         create:
           error: Podczas zapraszania tego użytkownika wystąpił błąd.
@@ -659,12 +679,16 @@ pl:
         hide: Ukryć
         not_hidden: Nie ukryty
         title: działania
+        unhide: Odkryj
         unreport: Brak oceny
       admin:
         reportable:
           hide:
             invalid: Wystąpił problem z ukryciem zasobu.
             success: Zasób został ukryty.
+          unhide:
+            invalid: Podczas odkrywania zasobu wystąpił problem.
+            success: Zasoby zostały pomyślnie odkryte.
           unreport:
             invalid: Wystąpił problem z niewykorzystaniem zasobów.
             success: Zasób został pomyślnie nieudokumentowany.

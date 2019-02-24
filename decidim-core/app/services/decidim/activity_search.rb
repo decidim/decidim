@@ -8,6 +8,16 @@ module Decidim
   # It will return any action for a given resource, except `create` on resources
   # that implement the `Decidim::Publicable` concern to avoid leaking private
   # data.
+  #
+  # Possible options:
+  #
+  # :organization - the `Decidim::Organization` to scope to search. Required.
+  # :user - an optional `Decidim::USer` that performed the activites
+  # :follows - a collection of `Decidim::Follow` resources. It will return any
+  #   activity affecting any of these resources, performed by any of them or
+  #   contained in any of them as spaces.
+  # :scopes - a collection of `Decidim::Scope`. It will return any activity that
+  #   took place in any of those scopes.
   class ActivitySearch < Searchlight::Search
     # Needed by Searchlight, this is the base query that will be used to
     # append other criteria to the search.
@@ -84,16 +94,23 @@ module Decidim
 
     def filter_follows(query)
       follows = options[:follows]
-      return query if follows.blank?
+      interesting_scopes = options[:scopes]
+      conditions = []
 
-      conditions = follows.group_by(&:decidim_followable_type).map do |type, grouped_follows|
-        Decidim::ActionLog.arel_table[:resource_type].eq(type).and(
-          Decidim::ActionLog.arel_table[:resource_id].in(grouped_follows.map(&:decidim_followable_id))
-        )
+      if follows.present?
+        conditions += follows.group_by(&:decidim_followable_type).map do |type, grouped_follows|
+          Decidim::ActionLog.arel_table[:resource_type].eq(type).and(
+            Decidim::ActionLog.arel_table[:resource_id].in(grouped_follows.map(&:decidim_followable_id))
+          )
+        end
+
+        conditions += followed_users_conditions(follows)
+        conditions += followed_spaces_conditions(follows)
       end
 
-      conditions += followed_users_conditions(follows)
-      conditions += followed_spaces_conditions(follows)
+      conditions += interesting_scopes_conditions(interesting_scopes)
+
+      return query if conditions.empty?
 
       chained_conditions = conditions.inject do |previous_condition, condition|
         next condition unless previous_condition
@@ -119,6 +136,12 @@ module Decidim
           Decidim::ActionLog.arel_table[:participatory_space_id].in(grouped_follows.map(&:decidim_followable_id))
         )
       end
+    end
+
+    def interesting_scopes_conditions(interesting_scopes)
+      return [] if interesting_scopes.blank?
+
+      [Decidim::ActionLog.arel_table[:decidim_scope_id].in(interesting_scopes.map(&:id))]
     end
 
     def participatory_space_classes

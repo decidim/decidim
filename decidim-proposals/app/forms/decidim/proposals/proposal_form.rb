@@ -13,6 +13,7 @@ module Decidim
       attribute :scope_id, Integer
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
+      attribute :suggested_hashtags, Array[String]
 
       validates :address, geocoding: true, if: ->(form) { Decidim.geocoder.present? && form.has_address? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
@@ -24,6 +25,12 @@ module Decidim
       validate :notify_missing_attachment_if_errored
 
       delegate :categories, to: :current_component
+
+      def map_model(model)
+        super
+
+        @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
+      end
 
       # Finds the Category from the category_id.
       #
@@ -50,6 +57,27 @@ module Decidim
         current_component.settings.geocoding_enabled? && has_address
       end
 
+      def extra_hashtags
+        @extra_hashtags ||= (component_automatic_hashtags + suggested_hashtags).uniq
+      end
+
+      def suggested_hashtags
+        downcased_suggested_hashtags = Array(@suggested_hashtags&.map(&:downcase)).to_set
+        component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
+      end
+
+      def suggested_hashtag_checked?(hashtag)
+        suggested_hashtags.member?(hashtag)
+      end
+
+      def component_automatic_hashtags
+        @component_automatic_hashtags ||= ordered_hashtag_list(current_component.current_settings.automatic_hashtags)
+      end
+
+      def component_suggested_hashtags
+        @component_suggested_hashtags ||= ordered_hashtag_list(current_component.current_settings.suggested_hashtags)
+      end
+
       private
 
       def scope_belongs_to_participatory_space_scope
@@ -62,6 +90,10 @@ module Decidim
       # this problem.
       def notify_missing_attachment_if_errored
         errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+      end
+
+      def ordered_hashtag_list(string)
+        string.to_s.split.reject(&:blank?).uniq.sort_by(&:parameterize)
       end
     end
   end

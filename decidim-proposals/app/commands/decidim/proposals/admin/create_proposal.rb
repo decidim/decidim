@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when a user creates a new proposal.
       class CreateProposal < Rectify::Command
+        include HashtagsMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -48,12 +50,9 @@ module Decidim
         end
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-
           {
-            title: parsed_title,
-            body: parsed_body,
+            title: title_with_hashtags,
+            body: body_with_hashtags,
             category: form.category,
             scope: form.scope,
             component: form.component,
@@ -102,7 +101,7 @@ module Decidim
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            recipient_ids: @proposal.participatory_space.followers.pluck(:id),
+            followers: @proposal.participatory_space.followers,
             extra: {
               participatory_space: true
             }

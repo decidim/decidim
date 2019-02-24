@@ -8,5 +8,7 @@
   <% end %>
   <%= user_profile_tab t("decidim.profiles.show.following"), profile_following_path(nickname: profile_holder.nickname) %>
   <%= user_profile_tab t("decidim.profiles.show.followers"), profile_followers_path(nickname: profile_holder.nickname) %>
-  <%= user_profile_tab t("decidim.profiles.show.groups"), profile_groups_path(nickname: profile_holder.nickname) %>
+  <% if user_groups_enabled? %>
+    <%= user_profile_tab t("decidim.profiles.show.groups"), profile_groups_path(nickname: profile_holder.nickname) %>
+  <% end %>
 </ul>

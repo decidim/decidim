@@ -5,8 +5,10 @@ module Decidim
     module Admin
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
+        include Decidim::ApplicationHelper
+
         helper Proposals::ApplicationHelper
-        helper_method :proposals, :query
+        helper_method :proposals, :query, :form_presenter
 
         def new
           enforce_permission_to :create, :proposal
@@ -104,6 +106,7 @@ module Decidim
 
         def update_proposals_category_response_successful(response)
           return if response[:successful].blank?
+
           I18n.t(
             "proposals.update_category.success",
             category: response[:category_name],
@@ -114,12 +117,17 @@ module Decidim
 
         def update_proposals_category_response_errored(response)
           return if response[:errored].blank?
+
           I18n.t(
             "proposals.update_category.invalid",
             category: response[:category_name],
             proposals: response[:errored].to_sentence,
             scope: "decidim.proposals.admin"
           )
+        end
+
+        def form_presenter
+          @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
         end
       end
     end

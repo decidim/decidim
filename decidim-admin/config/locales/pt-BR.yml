@@ -66,6 +66,7 @@ pt-BR:
         show_statistics: Exibir estatisticas
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
+        user_groups_enabled: Ativar grupos de usuários
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -91,12 +92,20 @@ pt-BR:
         show_in_footer: Mostrar no rodapé
         title: Título
         weight: Peso
+      user_group_csv_verification:
+        file: Arquivo
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Arquivo de imagem inválido
+            official_img_footer:
+              allowed_file_content_types: Arquivo de imagem inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -211,10 +220,6 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta categoria.
           success: Categoria atualizada com sucesso.
       component_permissions:
-        edit:
-          everyone: Todos
-          submit: Salvar permissões
-          title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
       components:
@@ -527,6 +532,12 @@ pt-BR:
         new:
           create: Criar
           title: Novo usuário particular do Espaço Participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permissões
+        update:
+          success: Permissões atualizadas com sucesso.
       scope_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
@@ -606,15 +617,18 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
-        impersonatable_users: Usuários impersonáveis
-        impersonations: Personagens
-        participants: Participantes
+        impersonatable_users: Usuários gerenciáveis
+        impersonations: Gerenciamento de usuários
+        participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Usuários
       user_group:
+        csv_verify:
+          invalid: Ocorreu um erro ao ler o arquivo CSV.
+          success: O arquivo CSV foi enviado com sucesso, estamos verificando os grupos de usuários que correspondem aos critérios. Isso pode demorar um pouco.
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
           success: Grupo de usuários rejeitado com sucesso
@@ -634,6 +648,12 @@ pt-BR:
             pending: Pendente
             rejected: Rejeitado
             verified: Verificado
+          verify_via_csv: Verificar via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Envie seu arquivo CSV. Deve ter os e-mails oficiais dos grupos de usuários em sua organização na primeira coluna do arquivo, sem cabeçalhos. Somente grupos de usuários que confirmaram seus e-mails e que tenham um e-mail aparecendo no arquivo CSV serão validados.
+          title: Envie seu arquivo CSV
+          upload: Envio
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.
@@ -659,12 +679,16 @@ pt-BR:
         hide: Ocultar
         not_hidden: Não oculto
         title: Ações
+        unhide: Mostrar
         unreport: Anular denúncia
       admin:
         reportable:
           hide:
             invalid: Ocorreu um problema ao ocultar o recurso.
             success: O recurso foi ocultado com sucesso.
+          unhide:
+            invalid: Houve um problema ao exibir o recurso.
+            success: Recurso com sucesso exibido.
           unreport:
             invalid: Tem havido um problema não relatando o recurso.
             success: O recurso não foi relatado com sucesso.

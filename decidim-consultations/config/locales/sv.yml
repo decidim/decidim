@@ -16,7 +16,7 @@ sv:
       question:
         banner_image: Banner image
         decidim_scope_id: Kommunala området
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: Webbplats för externt röstningssystem
         origin_scope: Omfattning
@@ -24,7 +24,7 @@ sv:
         origin_url: Ursprungsadress
         participatory_scope: Deltagande räckvidd
         promoter_group: Promotorgrupp
-        question_context: Sammanhang
+        question_context: Kontext
         reference: Referens
         scope: Kommunala området
         slug: URL slug
@@ -43,7 +43,7 @@ sv:
         other: samråd
       decidim/consultations/question:
         one: Fråga
-        other: frågor
+        other: Frågor
       decidim/consultations/response:
         one: Svar
         other: Svar
@@ -76,10 +76,8 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa ett nytt samråd.
           success: Samråd med framgångsrikt skapat.
-        destroy:
-          success: Samråd har tagits bort.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på detta samråd. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
           title: Allmän information
@@ -140,7 +138,7 @@ sv:
         destroy:
           success: Fråga med framgång raderad.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
@@ -160,7 +158,7 @@ sv:
           error: Ett fel uppstod när svaret togs bort.
           success: Svaret har tagits bort.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         new:
@@ -196,15 +194,15 @@ sv:
           one: "%{count} konsultation"
           other: "%{count} konsultationer"
       filters:
-        active: Aktiva
-        all: Allt
+        active: Aktiv
+        all: Alla
         finished: Färdiga
         search: Sök
-        state: stat
-        upcoming: kommande
+        state: Status
+        upcoming: Kommande
       filters_small_view:
         close_modal: Stäng fönstret
-        filter: Filtrera
+        filter: Filter
         filter_by: Filtrera efter
         unfold: Veckla ut
       highlighted_questions:
@@ -236,7 +234,7 @@ sv:
         title: Frågor för detta samråd
       show:
         badge_name:
-          finished: Färdiga
+          finished: Avslutad
           open: Öppen
           open_votes: Öppna röster
           published_results: Resultat publicerade
@@ -250,7 +248,7 @@ sv:
       participatory_spaces:
         consultations:
           contextual: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
-          page: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>ard i organisationen.</p>\n"
+          page: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation. Några exempel är att ändra organisationens namn eller logotyp som erbjuder flera alternativ, bestämma ja eller nej för att bli en del av en större organisation, validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat i organisationen.</p>\n"
           title: Vad är samråd?
     menu:
       consultations: samråd
@@ -265,9 +263,9 @@ sv:
         read_more: Läs mer
       statistics:
         assistants_count_title: assistenter
-        comments_count_title: kommentarer
-        meetings_count_title: möten
-        supports_count_title: stöder
+        comments_count_title: Kommentarer
+        meetings_count_title: Möten
+        supports_count_title: Stöder
       technical_info:
         technical_data: Teknisk data
       vote_button:
@@ -279,7 +277,7 @@ sv:
         contextual_help: Var god välj ett alternativ.
         title: 'Samråd: Frågestöd'
       vote_modal_confirm:
-        change: Byta
+        change: Ändra
         confirm: Bekräfta
         contextual_help: Vänligen bekräfta det valda alternativet.
         title: 'Samråd: bekräfta support'

@@ -46,6 +46,7 @@ module Decidim
           create_components_for(initiative)
           send_notification(initiative)
           add_author_as_follower(initiative)
+          add_author_as_committee_member(initiative)
         end
 
         initiative
@@ -95,7 +96,7 @@ module Decidim
           event: "decidim.events.initiatives.initiative_created",
           event_class: Decidim::Initiatives::CreateInitiativeEvent,
           resource: initiative,
-          recipient_ids: initiative.author.followers.pluck(:id)
+          followers: initiative.author.followers
         )
       end
 
@@ -108,6 +109,17 @@ module Decidim
                )
 
         Decidim::CreateFollow.new(form, current_user).call
+      end
+
+      def add_author_as_committee_member(initiative)
+        form = Decidim::Initiatives::CommitteeMemberForm
+               .from_params(initiative_id: initiative.id, user_id: initiative.decidim_author_id, state: "accepted")
+               .with_context(
+                 current_organization: initiative.organization,
+                 current_user: current_user
+               )
+
+        Decidim::Initiatives::SpawnCommitteeRequest.new(form, current_user).call
       end
     end
   end

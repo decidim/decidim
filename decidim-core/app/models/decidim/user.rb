@@ -156,6 +156,14 @@ module Decidim
       ImpersonationLog.active.where(user: self).exists?
     end
 
+    def interested_scopes_ids
+      extended_data["interested_scopes"] || []
+    end
+
+    def interested_scopes
+      @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
+    end
+
     protected
 
     # Overrides devise email required validation.
@@ -179,7 +187,7 @@ module Decidim
         event: "decidim.events.core.welcome_notification",
         event_class: WelcomeNotificationEvent,
         resource: self,
-        recipient_ids: [id]
+        affected_users: [self]
       )
     end
 

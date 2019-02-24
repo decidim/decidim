@@ -88,8 +88,6 @@ pl:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
           success: Zgromadzenie zostało utworzone.
-        destroy:
-          success: Zgromadzenie zostało pomyślnie usunięte.
         edit:
           update: Aktualizuj
         form:
@@ -265,6 +263,16 @@ pl:
         city_council: Rada Miejska
         others: Inni
         public: Publiczny
+      filter:
+        all: Wszystkie rodzaje złożeń
+        commission: Komisja
+        consultative_advisory: Konsultacyjne / doradcze
+        executive: Wykonawczy
+        government: Rząd
+        help: 'Pokazać:'
+        others: Inni
+        participatory: Uczestniczy
+        working_group: Grupa robocza
       index:
         title: Zespoły
       last_activity:
@@ -356,7 +364,7 @@ pl:
           reset_chart: Nastawić
         order_by_assemblies:
           assemblies:
-            one: "%{count} złożeń"
+            one: "%{count} montaż"
             few: "%{count} złożeń"
             many: "%{count} złożeń"
             other: "%{count} złożeń"

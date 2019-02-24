@@ -20,3 +20,5 @@ schema.json
 .yardoc
 .rspec-failures
 .rbenv-vars
+# Sublime Text 3 indexing file: .tags
+.tags

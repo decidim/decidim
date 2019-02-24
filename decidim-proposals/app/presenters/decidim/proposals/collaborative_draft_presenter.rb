@@ -18,9 +18,22 @@ module Decidim
                     end
       end
 
+      def collaborative_draft
+        __getobj__
+      end
+
       def collaborative_draft_path
-        draft = __getobj__
-        Decidim::ResourceLocatorPresenter.new(draft).path
+        Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+      end
+
+      def title(links: false, extras: true)
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.title)
+        renderer.render(links: links, extras: extras).html_safe
+      end
+
+      def body(links: false, extras: true)
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.body)
+        renderer.render(links: links, extras: extras).html_safe
       end
     end
   end

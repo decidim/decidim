@@ -50,7 +50,7 @@ fr:
       actions:
         confirm: Confirmer
         new_conference: Nouvelle conférence
-        send_diplomas: Envoyer des diplômes
+        send_diplomas: Envoyer des certificats de présence
       conference_copies:
         new:
           copy: Copie
@@ -105,8 +105,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle conférence.
           success: Conférence créée avec succès.
-        destroy:
-          success: Conférence supprimée avec succès.
         edit:
           update: Mettre à jour
         exports:
@@ -154,7 +152,7 @@ fr:
           conference_admins: Utilisateurs de la conférence
           conference_invites: Invite
           conference_speakers: Haut-parleurs
-          diploma: Diplôme
+          diploma: Certificat de participation
           info: Info
           media_links: Liens médias
           moderations: Modération
@@ -252,10 +250,10 @@ fr:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
         publish: "%{user_name} publication la %{resource_name} conférence"
-        send_conference_diplomas: "%{user_name} envoyer des diplômes aux %{resource_name} utilisateurs de la conférence"
+        send_conference_diplomas: "%{user_name} certificats de présence envoyés aux %{resource_name} participants à la conférence"
         unpublish: "%{user_name} non publié la %{resource_name} conférence"
         update: "%{user_name} mis à jour le %{resource_name} conférence"
-        update_diploma: "%{user_name} mis à jour la configuration du diplôme %{resource_name} conférence"
+        update_diploma: "%{user_name} mis à jour la configuration des certificats de participation pour %{resource_name} conférence"
       conference_speaker:
         create: "%{user_name} créé le %{resource_name} orateur dans la %{space_name} conférence"
         delete: "%{user_name} enlevé le %{resource_name} orateur de la %{space_name} conférence"
@@ -336,7 +334,7 @@ fr:
         diplomas:
           edit:
             save: sauvegarder
-            title: Diplôme
+            title: Certificat de participation
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
@@ -352,14 +350,14 @@ fr:
             title: Types d'inscription
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Vous trouverez le diplôme de la conférence <a href="%{url}">%{title}</a> dans les annexes.
+            diploma_html: Vous trouverez le certificat de participation à la conférence <a href="%{url}">%{title}</a> dans les pièces jointes.
           diploma_user:
             attendance_verified_by: Présence vérifiée par
             certificate_of_attendance: Certificat de participation
             certificate_of_attendance_description: Ceci certifie que <strong>%{user}</strong> a assisté et participé aux <strong>%{title}</strong> tenus au <strong>%{location}</strong> sur <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Il y a eu un problème lors de l'envoi des diplômes de la conférence.
-          success: Diplômes de conférence envoyés correctement
+          error: Il y a eu un problème lors de l'envoi des certificats de participation à la conférence.
+          success: Certificats de participation envoyés correctement
       conference:
         registration_confirm:
           cancel: Annuler
@@ -435,7 +433,7 @@ fr:
             subject: Invitation à participer à une conférence
         send_conference_diploma_mailer:
           diploma:
-            subject: Le diplôme de votre conférence a été envoyé
+            subject: Votre certificat de participation à la conférence a été envoyé.
       models:
         conference_invite:
           fields:
@@ -507,6 +505,10 @@ fr:
         votes_count: Votes
     events:
       conferences:
+        conference_registration_validation_pending:
+          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
+        conference_registration_confirmed:
+          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> a été confirmée.
         conference_registrations_over_percentage:
           email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
           email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
@@ -522,6 +524,11 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
+        upcoming_conference:
+          email_intro: 'La conférence "%{resource_title}" se déroule dans 2 jours. Vous pouvez lire la description de sa page:'
+          email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez le désabonner du lien précédent.
+          email_subject: La conférence "%{resource_title}" arrive!
+          notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> arrive dans 2 jours.
     log:
       value_types:
         conference_presenter:

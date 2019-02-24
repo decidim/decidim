@@ -86,13 +86,12 @@ module Decidim
 
         def send_notifications
           result.linked_resources(:proposals, "included_proposals").each do |proposal|
-            recipient_ids = proposal.follower_ids
-
             Decidim::EventsManager.publish(
               event: "decidim.events.accountability.result_progress_updated",
               event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
               resource: result,
-              recipient_ids: recipient_ids,
+              affected_users: proposal.notifiable_identities,
+              followers: proposal.followers - proposal.notifiable_identities,
               extra: {
                 progress: result.progress,
                 proposal_id: proposal.id

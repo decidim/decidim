@@ -74,7 +74,8 @@ module Decidim
             event: event,
             event_class: event_class,
             resource: proposal,
-            recipient_ids: proposal.followers.pluck(:id)
+            affected_users: proposal.notifiable_identities,
+            followers: proposal.followers - proposal.notifiable_identities
           )
         end
 

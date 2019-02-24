@@ -23,7 +23,7 @@ hu:
         origin_title: Kiindulópont
         origin_url: Kiindulópont URL
         participatory_scope: Részvétel hatásköre
-        promoter_group: Promóciós csoport
+        promoter_group: Kezdeményező csoport
         question_context: Kontextus
         reference: Hivatkozás
         scope: Helyhatósági terület
@@ -76,8 +76,6 @@ hu:
         create:
           error: Hiba történt az új konzultáció létrehozása során.
           success: Konzultáció létrehozása sikeres.
-        destroy:
-          success: Konzultáció törlése sikeres.
         edit:
           update: Frissítés
         form:
@@ -249,8 +247,8 @@ hu:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyen fel mindazoknak, akik egy szervezetet alkotnak, hívják a konzultációban való részvételt, szikrázzák és rendezik a vitát a válaszért vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteheti a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan szempontra vonatkozhatnak, amelyek egy szervezetet érintenek: néhány példa megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, döntve az Igen vagy a Nemet, hogy egy nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása tervet vagy munkacsoport eredményét, vagy meghatározza, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
-          page: "<p>konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyen fel mindazoknak, akik egy szervezetet alkotnak, hívják a konzultációban való részvételt, szikrázzák és rendezik a vitát a válaszért vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteheti a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan szempontra vonatkozhatnak, amelyek egy szervezetet érintenek: néhány példa megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, döntve az Igen vagy a Nemet, hogy egy nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása tervet vagy munkacsoport eredményét, vagy meghatározza, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>ard a szervezetben.</p>\n"
+          contextual: "<p>A konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generáljanak egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, igennel vagy nemmel döntve arról, hogy a szervezet egy megállapodást írjon alá, nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása kérdésében, vagy munkacsoport eredményét, vagy adott esetben meghatározni, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
+          page: "<p>konzultációk olyan teret jelentenek, amely lehetővé teszi, hogy egyértelmű kérdéseket tegyenek fel a szervezetet alkotó embereknek, hívjanak fel a konzultációban való részvételre, szikrázzanak és megrendeljék a vitát egy válasz ellen vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteszi a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte minden olyan aspektusra vonatkozhatnak, amely a szervezetet érinti: néhány példa megváltoztatja a több alternatívát kínáló szervezet nevét vagy logóját, úgy dönt, hogy igen vagy nem, hogy egy nagyobb szervezet részévé váljon, új stratégiai jóváhagyást vagy elutasítást kapjon vagy egy munkacsoport eredménye, vagy meghatározza, hogy a pozíciók maximálisan 1, 2 vagy 3 mandátumot kell-e maradniuk a szervezetben.</p>\n"
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk

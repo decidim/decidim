@@ -19,8 +19,9 @@ module Decidim
         attribute :position, Integer
         attribute :created_in_meeting, Boolean
         attribute :meeting_id, Integer
+        attribute :suggested_hashtags, Array[String]
 
-        validates :title, :body, presence: true, etiquette: true
+        validates :title, :body, presence: true
         validates :title, length: { maximum: 150 }
         validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
@@ -38,6 +39,8 @@ module Decidim
 
           self.category_id = model.categorization.decidim_category_id
           self.scope_id = model.decidim_scope_id
+
+          @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
         end
 
         alias component current_component
@@ -76,7 +79,29 @@ module Decidim
 
         def author
           return current_organization unless created_in_meeting?
+
           meeting_as_author
+        end
+
+        def extra_hashtags
+          @extra_hashtags ||= (component_automatic_hashtags + suggested_hashtags).uniq
+        end
+
+        def suggested_hashtags
+          downcased_suggested_hashtags = Array(@suggested_hashtags&.map(&:downcase)).to_set
+          component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
+        end
+
+        def suggested_hashtag_checked?(hashtag)
+          suggested_hashtags.member?(hashtag)
+        end
+
+        def component_automatic_hashtags
+          @component_automatic_hashtags ||= ordered_hashtag_list(current_component.current_settings.automatic_hashtags)
+        end
+
+        def component_suggested_hashtags
+          @component_suggested_hashtags ||= ordered_hashtag_list(current_component.current_settings.suggested_hashtags)
         end
 
         private
@@ -91,6 +116,10 @@ module Decidim
         # this problem.
         def notify_missing_attachment_if_errored
           errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+        end
+
+        def ordered_hashtag_list(string)
+          string.to_s.split.reject(&:blank?).uniq.sort_by(&:parameterize)
         end
       end
     end

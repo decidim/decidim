@@ -54,6 +54,8 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
+    settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
   end
 
   component.register_resource(:proposal) do |resource|
