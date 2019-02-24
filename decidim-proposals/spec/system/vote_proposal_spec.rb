@@ -283,7 +283,7 @@ describe "Vote Proposal", type: :system, slow: true do
       it "cannot be voted" do
         visit_component
 
-        choose "filter_state_rejected"
+        choose "Rejected", name: "filter[state]"
         page.find_link(rejected_proposal.title, wait: 30)
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
 

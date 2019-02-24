@@ -167,7 +167,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "filter_state_rejected"
+        choose "Rejected", name: "filter[state]"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
@@ -600,7 +600,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: :filter_category_id
+            select category.name[I18n.locale.to_s], from: "filter[category_id]"
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
@@ -671,7 +671,7 @@ describe "Proposals", type: :system do
 
       context "with 'all' type" do
         it "lists the filtered proposals" do
-          find('input[id="filter_type_all"]').click
+          find('input[name="filter[type]"][value="all"]').click
 
           expect(page).to have_css(".card.card--proposal", count: 2)
           expect(page).to have_content("2 PROPOSALS")

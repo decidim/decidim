@@ -25,7 +25,7 @@ describe "Explore meetings", type: :system do
       it "allows searching by text" do
         visit_component
         within ".filters" do
-          fill_in :filter_search_text, with: translated(meetings.first.title)
+          fill_in "filter[search_text]", with: translated(meetings.first.title)
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
@@ -165,7 +165,7 @@ describe "Explore meetings", type: :system do
         within "ul.tags.tags--meeting" do
           click_link translated(meeting.category.name)
         end
-        expect(page).to have_select("filter_category_id", selected: translated(meeting.category.name))
+        expect(page).to have_select("filter[category_id]", selected: translated(meeting.category.name))
       end
     end
 

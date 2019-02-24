@@ -134,7 +134,7 @@ describe "Explore debates", type: :system do
           visit_component
 
           within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: :filter_category_id
+            select category.name[I18n.locale.to_s], from: "filter[category_id]"
           end
 
           expect(page).to have_css(".card--debate", count: 1)
