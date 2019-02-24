@@ -94,6 +94,7 @@
 - **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-initiatives** Fix author duplicated appearance in some initiatives authors lists. [\#4885](https://github.com/decidim/decidim/pull/4885)
+- **decidim-core** Fix elements with non-unique ID on filtering pages [\#4897](https://github.com/decidim/decidim/pull/4897)
 
 **Removed**:
 
