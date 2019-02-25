@@ -289,7 +289,6 @@ describe "Proposals", type: :system do
       end
     end
 
-
     describe "default ordering" do
       it_behaves_like "a random proposal ordering"
     end
