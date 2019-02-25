@@ -79,5 +79,10 @@ module Decidim
         max_items: max_items
       }
     end
+
+    def organization_colors
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};" }.join
+      render partial: "layouts/decidim/organization_colors", locals: { css: css }
+    end
   end
 end

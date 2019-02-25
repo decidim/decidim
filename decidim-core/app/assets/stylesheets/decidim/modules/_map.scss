@@ -10,12 +10,12 @@
 }
 
 .map-info{
-  background: $primary;
+  background: var(--primary);
   border-radius: $global-radius;
 
   > div:first-child{ //Map styles container
     > div:first-child{ //Triangle
-      border-top-color: $primary !important;
+      border-top-color: var(--primary) !important;
     }
 
     > div:nth-child(2){
@@ -43,7 +43,7 @@
 
   .card__datetime{
     float: none;
-    border-color: $primary;
+    border-color: var(--primary);
     display: flex;
     flex-direction: column;
     justify-content: center;
