@@ -44,7 +44,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           expect(page).to have_css(".success.card__text--status", text: "OPEN")
         end
         within ".filters" do
-          expect(find_field("filter_state_open")).to be_checked
+          expect(find(:css, "input[name='filter[state]'][value='open']")).to be_checked
         end
       end
 
@@ -68,7 +68,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       it "shows category filters" do
         within ".filters" do
-          expect(page).to have_css("#filter_category_id")
+          expect(page).to have_css("select[name='filter[category_id]']")
         end
       end
     end
