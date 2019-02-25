@@ -444,6 +444,7 @@ en:
           components: Components
           information: Information
       initiative_creation_header:
+        back: Back
         fill_data: Create
         finish: Finish
         previous_form: Start

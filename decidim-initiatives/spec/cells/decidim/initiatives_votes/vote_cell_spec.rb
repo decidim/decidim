@@ -5,6 +5,8 @@ require "spec_helper"
 describe Decidim::InitiativesVotes::VoteCell, type: :cell do
   subject { cell("decidim/initiatives_votes/vote", vote).call }
 
+  controller Decidim::PagesController
+
   let(:vote) do
     create(:initiative_user_vote,
            initiative: create(:initiative, :with_user_extra_fields_collection),
