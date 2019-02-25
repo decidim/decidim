@@ -82,6 +82,10 @@ module Decidim
       def pending?
         @code == :pending
       end
+
+      def unauthorized?
+        @code == :unauthorized
+      end
     end
 
     class AuthorizationStatusCollection
@@ -101,6 +105,16 @@ module Decidim
         return true if statuses.blank?
 
         statuses.all?(&:ok?)
+      end
+
+      def global_code
+        return :ok if ok?
+
+        [:unauthorized, :pending].each do |code|
+          return code if statuses.any? { |status| status.code == code }
+        end
+
+        false
       end
 
       def status_for(handler_name)
