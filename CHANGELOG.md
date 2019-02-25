@@ -53,6 +53,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Hide comments on cards when deactivated on a component. [\#4904](https://github.com/decidim/decidim/pull/4904)
 - **decidim-core**: Fix AttachmentCreatedEvent email resource_url [#4880](https://github.com/decidim/decidim/pull/4880)
 - **decidim-proposals**: Add participatory texts file format support in admin. [#4819](https://github.com/decidim/decidim/pull/4819)
 - **decidim-proposals**: Fix collaborative draft attachment when attachments are enabled after collaborative draft creation [\#4877](https://github.com/decidim/decidim/pull/4877)
