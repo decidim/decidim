@@ -23,6 +23,10 @@ module Decidim
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
+        def map_model(model)
+          self.decidim_category_id = model.category.try(:id)
+        end
+
         def category
           return unless current_component
           @category ||= current_component.categories.find_by(id: decidim_category_id)
