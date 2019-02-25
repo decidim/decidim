@@ -21,6 +21,24 @@ describe "Explore meetings", type: :system do
       end
     end
 
+    context "when comments have been moderated" do
+      let(:meeting) { create(:meeting, component: component) }
+      let!(:comments) { create_list(:comment, 3, commentable: meeting) }
+      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+
+      it "displays unhidden comments count" do
+        visit_component
+
+        within("#meeting_#{meeting.id}") do
+          within(".card__status") do
+            within(".card-data__item:last-child") do
+              expect(page).to have_content(2)
+            end
+          end
+        end
+      end
+    end
+
     context "when filtering" do
       it "allows searching by text" do
         visit_component

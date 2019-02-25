@@ -272,6 +272,23 @@ describe "Proposals", type: :system do
       it_behaves_like "editable content for admins"
     end
 
+    context "when comments have been moderated" do
+      let(:proposal) { create(:proposal, component: component) }
+      let(:author) { create(:user, :confirmed, organization: component.organization) }
+      let!(:comments) { create_list(:comment, 3, commentable: proposal) }
+      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+
+      it "displays unhidden comments count" do
+        visit_component
+
+        within("#proposal_#{proposal.id}") do
+          within(".card-data__item:last-child") do
+            expect(page).to have_content(2)
+          end
+        end
+      end
+    end
+
     describe "default ordering" do
       it_behaves_like "a random proposal ordering"
     end
