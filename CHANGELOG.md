@@ -53,6 +53,7 @@
 
 **Fixed**:
 
+- **decidim-debates**: Fix stats display for debates when a debate has been moderated.[\#4903](https://github.com/decidim/decidim/pull/4903)
 - **decidim-core**: Fix AttachmentCreatedEvent email resource_url [#4880](https://github.com/decidim/decidim/pull/4880)
 - **decidim-proposals**: Add participatory texts file format support in admin. [#4819](https://github.com/decidim/decidim/pull/4819)
 - **decidim-proposals**: Fix collaborative draft attachment when attachments are enabled after collaborative draft creation [\#4877](https://github.com/decidim/decidim/pull/4877)
