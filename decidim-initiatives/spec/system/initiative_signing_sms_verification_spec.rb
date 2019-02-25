@@ -33,7 +33,9 @@ describe "Initiative signing", type: :system do
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: document_number
-      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago
+      select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
+      select "January", from: :initiatives_vote_date_of_birth_2i
+      select "1", from: :initiatives_vote_date_of_birth_3i
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"

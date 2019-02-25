@@ -313,6 +313,10 @@ en:
       initiative_signatures:
         fill_personal_data:
           continue: Continue
+          date_select:
+            day: Day
+            month: Month
+            year: Year
           help: Please, fill the following fields with your personal data to sign the initiative
         finish:
           back_to_initiative: Back to initiative
