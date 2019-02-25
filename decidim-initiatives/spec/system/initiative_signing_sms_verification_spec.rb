@@ -43,12 +43,8 @@ describe "Initiative signing", type: :system do
   context "when initiative type personal data collection is disabled" do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization: organization) }
 
-    it "The vote is created without wizard steps" do
-      expect(page).to have_no_content("initiative has been signed correctly")
-
-      within ".view-side" do
-        expect(page).to have_content(signature_text(1))
-      end
+    it "The sms step appears" do
+      expect(page).to have_content("MOBILE PHONE NUMBER")
     end
   end
 
