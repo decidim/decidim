@@ -128,9 +128,9 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("VERIFY YOUR ACCOUNT")
             end
-            click_button "Verify your identity"
+            click_button "Verify your account"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -190,9 +190,9 @@ describe "Initiative signing", type: :system do
 
             within ".view-side" do
               expect(page).to have_content(signature_text(0))
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("VERIFY YOUR ACCOUNT")
             end
-            click_button "Verify your identity"
+            click_button "Verify your account"
             expect(page).to have_content("Authorization required")
           end
         end
