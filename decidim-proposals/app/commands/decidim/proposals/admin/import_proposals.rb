@@ -35,7 +35,7 @@ module Decidim
 
             Decidim::Proposals::ProposalBuilder.copy(
               original_proposal,
-              author: form.current_organization,
+              author: proposal_author,
               action_user: form.current_user,
               extra_attributes: {
                 "component" => target_component
@@ -73,6 +73,10 @@ module Decidim
           original_proposal.linked_resources(:proposals, "copied_from_component").any? do |proposal|
             proposal.component == target_component
           end
+        end
+
+        def proposal_author
+          form.keep_authors ? nil : @form.current_organization
         end
       end
     end
