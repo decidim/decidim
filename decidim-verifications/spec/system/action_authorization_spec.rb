@@ -105,7 +105,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "prompts user to check her authorization status" do
-        expect(page).to have_content("Authorization has expired")
+        expect(page).to have_content("Authorization required")
         expect(page)
           .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Example authorization\"")
       end
@@ -192,7 +192,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "prompts user to check her authorization status" do
-        expect(page).to have_content("Authorization has expired")
+        expect(page).to have_content("Authorization required")
         expect(page)
           .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Dummy authorization workflow\"")
       end
