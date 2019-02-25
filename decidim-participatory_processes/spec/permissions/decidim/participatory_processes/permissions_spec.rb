@@ -233,14 +233,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     context "when user is a collaborator" do
       let(:user) { process_collaborator }
 
-      context "when action is :read" do
-        let(:action) do
-          { scope: :admin, action: :read, subject: :dummy }
-        end
-
-        it { is_expected.to eq true }
-      end
-
       context "when action is :preview" do
         let(:action) do
           { scope: :admin, action: :preview, subject: :dummy }
