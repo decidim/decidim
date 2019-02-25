@@ -1,0 +1,11 @@
+<div class="row collapse buttons__row">
+  <div class="column collapse">
+    <button type="button" name="button" class="button small compact hollow secondary button--nomargin expanded">
+      <%= link_to "#comments" do %>
+        <%= icon "comment-square", class: "icon--small", aria_label: t(".comments_count.count.other"), role: "img" %>
+        <%= stats.comments_count %>
+        <%= t(".comments_count.count", count: stats.comments_count) %>
+      <% end %>
+    </button>
+  </div>
+</div>

@@ -5,7 +5,7 @@
       userIdentitiesDialog = $('#user-identities'),
       refreshUrl;
 
-  $initiativeVotesCount.html('<%= j(render partial: "decidim/initiatives/initiatives/votes_count", locals: { initiative: current_initiative }) %>');
+  $initiativeVotesCount.html('<%= j(render partial: "decidim/initiatives/initiatives/progress_bar", locals: { initiative: current_initiative }) %>');
 
   // Update the identities dialog, if exists.
   if (userIdentitiesDialog.length) {

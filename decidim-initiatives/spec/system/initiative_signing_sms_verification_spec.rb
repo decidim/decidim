@@ -26,7 +26,7 @@ describe "Initiative signing", type: :system do
     allow(verification_form).to receive(:verification_metadata).and_return(verification_code: sms_code)
 
     within ".view-side" do
-      expect(page).to have_content("0\nSIGNATURE")
+      expect(page).to have_content(signature_text(0))
       click_on "Sign"
     end
 
@@ -47,7 +47,7 @@ describe "Initiative signing", type: :system do
       expect(page).to have_no_content("initiative has been signed correctly")
 
       within ".view-side" do
-        expect(page).to have_content("1\nSIGNATURE")
+        expect(page).to have_content(signature_text(1))
       end
     end
   end
@@ -62,7 +62,7 @@ describe "Initiative signing", type: :system do
           click_on "Back to initiative"
 
           within ".view-side" do
-            expect(page).to have_content("1\nSIGNATURE")
+            expect(page).to have_content(signature_text(1))
             expect(initiative.reload.initiative_votes_count).to eq(1)
           end
         end
@@ -130,7 +130,7 @@ describe "Initiative signing", type: :system do
                 expect(page).to have_content("initiative has been signed correctly")
                 click_on "Back to initiative"
 
-                expect(page).to have_content("1\nSIGNATURE")
+                expect(page).to have_content(signature_text(1))
                 expect(initiative.reload.initiative_votes_count).to eq(1)
               end
             end
@@ -149,4 +149,10 @@ end
 def fill_sms_code
   fill_in :confirmation_verification_code, with: form_sms_code
   click_button "Check code and continue"
+end
+
+def signature_text(number)
+  return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
+
+  "#{number}/#{initiative.supports_required}\nSIGNATURES"
 end
