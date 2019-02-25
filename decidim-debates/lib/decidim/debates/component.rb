@@ -26,7 +26,7 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.register_stat :debates_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Debates::Debate.where(component: components).count
+    Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 
   component.register_resource(:debate) do |resource|
