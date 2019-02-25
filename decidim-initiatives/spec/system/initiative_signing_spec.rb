@@ -74,10 +74,10 @@ describe "Initiative signing", type: :system do
         vote_initiative
 
         within ".view-side" do
-          expect(page).to have_content("1\nSIGNATURE")
+          expect(page).to have_content(signature_text(1))
           expect(page).to have_button("Already signed", disabled: true)
           click_button "Already signed", disabled: true
-          expect(page).to have_content("1\nSIGNATURE")
+          expect(page).to have_content(signature_text(1))
         end
       end
     end
@@ -91,7 +91,7 @@ describe "Initiative signing", type: :system do
         click_button user_group.name
 
         within ".view-side" do
-          expect(page).to have_content("0\nSIGNATURE")
+          expect(page).to have_content(signature_text(0))
         end
       end
     end
@@ -100,9 +100,9 @@ describe "Initiative signing", type: :system do
       vote_initiative
 
       within ".view-side" do
-        expect(page).to have_content("1\nSIGNATURE")
+        expect(page).to have_content(signature_text(1))
         click_button "Already signed"
-        expect(page).to have_content("0\nSIGNATURE")
+        expect(page).to have_content(signature_text(0))
       end
     end
   end
@@ -157,10 +157,10 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_content(signature_text(1))
               expect(page).to have_button("Already signed", disabled: true)
               click_button "Already signed", disabled: true
-              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_content(signature_text(1))
             end
           end
         end
@@ -189,7 +189,7 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("0\nSIGNATURE")
+              expect(page).to have_content(signature_text(0))
               expect(page).to have_content("VERIFY YOUR IDENTITY")
             end
             click_button "Verify your identity"
@@ -223,10 +223,10 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_content(signature_text(1))
               expect(page).to have_button("Already signed", disabled: true)
               click_button "Already signed", disabled: true
-              expect(page).to have_content("1\nSIGNATURE")
+              expect(page).to have_content(signature_text(1))
             end
           end
         end
@@ -260,7 +260,7 @@ describe "Initiative signing", type: :system do
         visit decidim_initiatives.initiative_path(initiative)
 
         within ".view-side" do
-          expect(page).to have_content("0\nSIGNATURE")
+          expect(page).to have_content(signature_text(0))
           click_on "Sign"
         end
         click_button "Continue"
@@ -269,7 +269,7 @@ describe "Initiative signing", type: :system do
 
         visit decidim_initiatives.initiative_path(initiative)
         within ".view-side" do
-          expect(page).to have_content("0\nSIGNATURE")
+          expect(page).to have_content(signature_text(0))
           click_on "Sign"
         end
       end
@@ -280,7 +280,7 @@ describe "Initiative signing", type: :system do
     visit decidim_initiatives.initiative_path(initiative)
 
     within ".view-side" do
-      expect(page).to have_content("0\nSIGNATURE")
+      expect(page).to have_content(signature_text(0))
       click_on "Sign"
     end
 
@@ -303,7 +303,13 @@ describe "Initiative signing", type: :system do
     end
 
     within ".view-side" do
-      expect(page).to have_content("1\nSIGNATURE")
+      expect(page).to have_content(signature_text(1))
     end
+  end
+
+  def signature_text(number)
+    return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
+
+    "#{number}/#{initiative.supports_required}\nSIGNATURES"
   end
 end

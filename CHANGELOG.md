@@ -33,6 +33,7 @@
 - **decidim-initiatives**: Add author of initiative to committee members on creation. [\#4861](https://github.com/decidim/decidim/pull/4861)
 - **decidim-initiatives**: Display state of initiative on edition form inside a disabled select. [\#4861](https://github.com/decidim/decidim/pull/4861)
 - **decidim-initiatives**: Allow users report comments on initiatives and admins moderate reports from initiative admin panel. [\#4878](https://github.com/decidim/decidim/pull/4878)
+- **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 
 **Changed**:
 
@@ -47,6 +48,8 @@
 - **decidim-initiatives**: Allow edition of type, scope and signature type of initiatives depending on state and user. [\#4861](https://github.com/decidim/decidim/pull/4861)
 - **decidim-initiatives**: Move edition of initiatives answer to a separated form in admin panel and shows answer in front if present for any state. [\#4881](https://github.com/decidim/decidim/pull/4881)
 - **decidim-initiatives**: Change initiative type selection step view to display options using tabs. [\#4884](https://github.com/decidim/decidim/pull/4884)
+- **decidim-initiatives**: Change design of column containing signatures progress and actions buttons in initiative show. [\#4887](https://github.com/decidim/decidim/pull/4887)
+- **decidim-initiatives**: Change initiative creation wizard layout. [\#4888](https://github.com/decidim/decidim/pull/4888)
 
 **Fixed**:
 
@@ -95,6 +98,7 @@
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-initiatives** Fix author duplicated appearance in some initiatives authors lists. [\#4885](https://github.com/decidim/decidim/pull/4885)
 - **decidim-core** Fix elements with non-unique ID on filtering pages [\#4897](https://github.com/decidim/decidim/pull/4897)
+- **decidim-debates** Correctly set the category in the admin debate form [\#4894](https://github.com/decidim/decidim/pull/4894)
 
 **Removed**:
 

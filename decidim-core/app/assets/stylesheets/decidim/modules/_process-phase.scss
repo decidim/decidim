@@ -88,11 +88,11 @@
 
   .phase-item--past{
     &::after{
-      background-color: $primary;
+      background-color: var(--primary);
     }
 
     span{
-      background-color: $primary;
+      background-color: var(--primary);
       opacity: 1;
     }
   }
@@ -105,7 +105,7 @@
       position: absolute;
       width: 0;
       border: 4px solid transparent;
-      border-top-color: $primary;
+      border-top-color: var(--primary);
       top: -8px;
       left: calc(50% - 1px);
       z-index: 2;
@@ -156,7 +156,7 @@
 
 .process-header__button{
   .button{
-    border-color: $primary;
+    border-color: var(--primary);
     text-transform: uppercase;
   }
 }
