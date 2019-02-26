@@ -246,7 +246,7 @@ fr:
         select_initiative_type:
           back: Retour
           more_information: "(Plus d'informations)"
-          select: Choisir
+          select: Sélectionner
           select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
