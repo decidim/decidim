@@ -250,10 +250,10 @@ fi:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
-        send_conference_diplomas: "%{user_name} lähetti %{resource_name} konferenssin osallistujan osallistumissertifikaatin"
+        send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
-        update_diploma: "%{user_name} päivitti %{resource_name} konferenssin osanototodistukset"
+        update_diploma: "%{user_name} päivitti läsnäolotodistusten asetuksia konferenssille %{resource_name}"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
@@ -350,14 +350,14 @@ fi:
             title: Ilmoittautumistyypit
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Liitteissä on konferenssin osallistumissertifikaatti <a href="%{url}">%{title}</a>.
+            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> läsnäolotodistuksen tämän viestin liitteistä.
           diploma_user:
             attendance_verified_by: Osallistuminen vahvistettu
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin läsnäolotodistuksia lähetettäessä on ollut ongelma.
-          success: Konferenssin osanototodistukset lähetetään oikein
+          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -433,7 +433,7 @@ fi:
             subject: Kutsu konferenssiin
         send_conference_diploma_mailer:
           diploma:
-            subject: Konferenssin osallistumistodistus on lähetetty
+            subject: Konferenssin läsnäolotodistukset on lähetetty
       models:
         conference_invite:
           fields:
