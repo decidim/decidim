@@ -15,7 +15,7 @@ fr:
         hero_image: Image de la page d'accueil
         local_area: Espace d'organisation
         meta_scope: Échelle
-        participatory_process_group_id: Groupe de processus
+        participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
         participatory_structure: Modalités
         promoted: Mise en avant
@@ -55,8 +55,8 @@ fr:
         one: Processus participatif
         other: Processus participatifs
       decidim/participatory_process_group:
-        one: Groupe de processus participatifs
-        other: Groupes de processus participatifs
+        one: Groupe de concertations
+        other: Groupes de concertations
       decidim/participatory_process_step:
         one: Étape
         other: Étapes
