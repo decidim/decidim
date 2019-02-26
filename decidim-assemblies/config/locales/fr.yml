@@ -35,7 +35,7 @@ fr:
         participatory_processes_ids: Concertations associées
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-il décidé
-        private_space: Espace privé
+        private_space: Assemblée privée
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
@@ -164,7 +164,7 @@ fr:
         assembly:
           fields:
             created_at: Créée le
-            private: Privé
+            private: Assemblée privée
             promoted: Mise en évidence
             published: Publiée
             title: Titre
