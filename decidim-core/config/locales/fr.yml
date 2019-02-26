@@ -706,7 +706,7 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -848,7 +848,7 @@ fr:
         read_more: Lire la suite
         standalone_pages: Des pages
         subheading: Naviguer à travers les pages d'aide de %{name}
-        title: Aidez-moi
+        title: Aide
         topics: Thématiques
       terms_and_conditions:
         accept:
@@ -965,7 +965,7 @@ fr:
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
       floating_help:
-        help: Aidez-moi
+        help: Aide
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
