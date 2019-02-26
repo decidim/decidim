@@ -100,13 +100,13 @@ fr:
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
             endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Activer le module de soutiens
+            endorsements_enabled: Activer le module de "Soutien"
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
-            votes_enabled: Activer le module de vote simple
+            votes_enabled: Activer le module de "Vote Simple"
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
-            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
+            votes_weight_enabled: Activer le module de vote "Pour/Contre/Abstention"
     events:
       proposal_created:
         email_subject: Nouvelle proposition de %{author_name}.
