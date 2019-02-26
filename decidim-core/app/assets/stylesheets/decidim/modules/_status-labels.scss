@@ -3,11 +3,11 @@
 }
 
 .label--highlight{
-  background-color: $secondary;
+  background-color: var(--secondary);
 }
 
 .label--admin{
-  background-color: $primary;
+  background-color: var(--primary);
 }
 
 .proposal-status,

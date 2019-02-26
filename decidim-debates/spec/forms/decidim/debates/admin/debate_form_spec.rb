@@ -100,4 +100,16 @@ describe Decidim::Debates::Admin::DebateForm do
 
     it { is_expected.not_to be_valid }
   end
+
+  describe "from model" do
+    subject { described_class.from_model(debate).with_context(context) }
+
+    let(:component) { create :debates_component }
+    let(:category) { create :category, participatory_space: component.participatory_space }
+    let(:debate) { create :debate, category: category, component: component }
+
+    it "sets the form category id correctly" do
+      expect(subject.decidim_category_id).to eq category.id
+    end
+  end
 end

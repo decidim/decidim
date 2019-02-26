@@ -18,9 +18,9 @@
         &:focus,
         &[aria-selected='true']{
           background: transparent;
-          color: $primary;
+          color: var(--primary);
           font-weight: 600;
-          border-bottom: 3px solid $primary;
+          border-bottom: 3px solid var(--primary);
         }
 
         &:hover{

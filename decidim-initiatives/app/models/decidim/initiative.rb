@@ -176,6 +176,7 @@ module Decidim
     delegate :banner_image, to: :type
 
     delegate :document_number_authorization_handler, to: :type
+    delegate :supports_required, to: :scoped_type
 
     def votes_enabled?
       published? &&
@@ -251,9 +252,14 @@ module Decidim
 
     # Public: Returns the percentage of required supports reached
     def percentage
-      percentage = supports_count * 100 / scoped_type.supports_required
-      percentage = 100 if percentage > 100
-      percentage
+      return 100 if supports_goal_reached?
+
+      supports_count * 100 / supports_required
+    end
+
+    # Public: Whether the supports required objective has been reached
+    def supports_goal_reached?
+      supports_count >= supports_required
     end
 
     # Public: Overrides slug attribute from participatory processes.

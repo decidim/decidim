@@ -20,14 +20,14 @@
       method: :delete,
       remote: true,
       data: { disable: true },
-      class: "card__button button expanded button--sc success"
+      class: "button expanded light button--sc success"
     ) %>
   <% else %>
     <% if signature_has_steps? %>
       <%= link_to(
         g.name,
         initiative_initiative_signatures_path(initiative_slug: current_initiative.slug, group_id: g.id),
-        class: "card__button button expanded button--sc"
+        class: "button expanded light button--sc"
       ) %>
     <% else %>
       <%= button_to(
@@ -35,7 +35,7 @@
         initiative_initiative_signatures_path(initiative_slug: current_initiative.slug, group_id: g.id),
         remote: true,
         data: { disable: true },
-        class: "card__button button expanded button--sc"
+        class: "button expanded light button--sc"
       ) %>
     <% end %>
   <% end %>

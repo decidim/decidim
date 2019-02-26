@@ -107,7 +107,9 @@ end
               <ul class="footer-nav">
                 <% if current_organization.static_pages.any? %>
                   <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
-                    <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(page_topic.pages.first) %></li>
+                    <% if page_topic.pages.any? %>
+                      <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(page_topic.pages.first) %></li>
+                    <% end %>
                   <% end %>
 
                   <% current_organization.static_pages.where(show_in_footer: true).each do |page| %>

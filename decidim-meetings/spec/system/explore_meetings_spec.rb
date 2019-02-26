@@ -21,11 +21,29 @@ describe "Explore meetings", type: :system do
       end
     end
 
+    context "when comments have been moderated" do
+      let(:meeting) { create(:meeting, component: component) }
+      let!(:comments) { create_list(:comment, 3, commentable: meeting) }
+      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+
+      it "displays unhidden comments count" do
+        visit_component
+
+        within("#meeting_#{meeting.id}") do
+          within(".card__status") do
+            within(".card-data__item:last-child") do
+              expect(page).to have_content(2)
+            end
+          end
+        end
+      end
+    end
+
     context "when filtering" do
       it "allows searching by text" do
         visit_component
         within ".filters" do
-          fill_in :filter_search_text, with: translated(meetings.first.title)
+          fill_in "filter[search_text]", with: translated(meetings.first.title)
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
@@ -165,7 +183,7 @@ describe "Explore meetings", type: :system do
         within "ul.tags.tags--meeting" do
           click_link translated(meeting.category.name)
         end
-        expect(page).to have_select("filter_category_id", selected: translated(meeting.category.name))
+        expect(page).to have_select("filter[category_id]", selected: translated(meeting.category.name))
       end
     end
 

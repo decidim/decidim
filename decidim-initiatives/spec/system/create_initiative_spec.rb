@@ -184,8 +184,10 @@ describe "Initiative", type: :system do
           let(:initiative_type_minimum_committee_members) { 0 }
 
           it "skips to next step" do
-            expect(page).not_to have_content("Promoter committee")
-            expect(page).to have_content("Finish")
+            within(".step--active") do
+              expect(page).not_to have_content("Promoter committee")
+              expect(page).to have_content("Finish")
+            end
           end
         end
       end

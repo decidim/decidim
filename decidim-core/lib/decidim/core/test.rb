@@ -38,3 +38,4 @@ require "decidim/core/test/shared_examples/amendable/amendment_created_event_exa
 require "decidim/core/test/shared_examples/amendable/amendment_accepted_event_examples"
 require "decidim/core/test/shared_examples/amendable/amendment_rejected_event_examples"
 require "decidim/core/test/shared_examples/amendable/amendment_promoted_event_examples"
+require "decidim/core/test/shared_examples/uncommentable_component_examples"

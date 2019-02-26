@@ -167,7 +167,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "filter_state_rejected"
+        choose "Rejected", name: "filter[state]"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
@@ -270,6 +270,23 @@ describe "Proposals", type: :system do
       end
 
       it_behaves_like "editable content for admins"
+    end
+
+    context "when comments have been moderated" do
+      let(:proposal) { create(:proposal, component: component) }
+      let(:author) { create(:user, :confirmed, organization: component.organization) }
+      let!(:comments) { create_list(:comment, 3, commentable: proposal) }
+      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+
+      it "displays unhidden comments count" do
+        visit_component
+
+        within("#proposal_#{proposal.id}") do
+          within(".card-data__item:last-child") do
+            expect(page).to have_content(2)
+          end
+        end
+      end
     end
 
     describe "default ordering" do
@@ -600,7 +617,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: :filter_category_id
+            select category.name[I18n.locale.to_s], from: "filter[category_id]"
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
@@ -659,6 +676,12 @@ describe "Proposals", type: :system do
       it_behaves_like "a paginated resource"
     end
 
+    context "when component is not commentable" do
+      let!(:ressources) { create_list(:proposal, 3, component: component) }
+
+      it_behaves_like "an uncommentable component"
+    end
+
     context "when amendments_enabled setting is enabled" do
       let!(:proposal) { create(:proposal, component: component, scope: scope) }
       let!(:emendation) { create(:proposal, component: component, scope: scope) }
@@ -671,7 +694,7 @@ describe "Proposals", type: :system do
 
       context "with 'all' type" do
         it "lists the filtered proposals" do
-          find('input[id="filter_type_all"]').click
+          find('input[name="filter[type]"][value="all"]').click
 
           expect(page).to have_css(".card.card--proposal", count: 2)
           expect(page).to have_content("2 PROPOSALS")

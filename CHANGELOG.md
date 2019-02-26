@@ -33,6 +33,7 @@
 - **decidim-initiatives**: Add author of initiative to committee members on creation. [\#4861](https://github.com/decidim/decidim/pull/4861)
 - **decidim-initiatives**: Display state of initiative on edition form inside a disabled select. [\#4861](https://github.com/decidim/decidim/pull/4861)
 - **decidim-initiatives**: Allow users report comments on initiatives and admins moderate reports from initiative admin panel. [\#4878](https://github.com/decidim/decidim/pull/4878)
+- **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 
 **Changed**:
 
@@ -47,9 +48,14 @@
 - **decidim-initiatives**: Allow edition of type, scope and signature type of initiatives depending on state and user. [\#4861](https://github.com/decidim/decidim/pull/4861)
 - **decidim-initiatives**: Move edition of initiatives answer to a separated form in admin panel and shows answer in front if present for any state. [\#4881](https://github.com/decidim/decidim/pull/4881)
 - **decidim-initiatives**: Change initiative type selection step view to display options using tabs. [\#4884](https://github.com/decidim/decidim/pull/4884)
+- **decidim-initiatives**: Change design of column containing signatures progress and actions buttons in initiative show. [\#4887](https://github.com/decidim/decidim/pull/4887)
+- **decidim-initiatives**: Change initiative creation wizard layout. [\#4888](https://github.com/decidim/decidim/pull/4888)
 
 **Fixed**:
 
+- **decidim-core**: Hide comments on cards when deactivated on a component. [\#4904](https://github.com/decidim/decidim/pull/4904)
+- **decidim-debates**: Fix stats display for debates when a debate has been moderated. [\#4903](https://github.com/decidim/decidim/pull/4903)
+- **decidim-core**: Fix comments count when a comment has been moderated [\#4901](https://github.com/decidim/decidim/pull/4901)
 - **decidim-core**: Fix AttachmentCreatedEvent email resource_url [#4880](https://github.com/decidim/decidim/pull/4880)
 - **decidim-proposals**: Add participatory texts file format support in admin. [#4819](https://github.com/decidim/decidim/pull/4819)
 - **decidim-proposals**: Fix collaborative draft attachment when attachments are enabled after collaborative draft creation [\#4877](https://github.com/decidim/decidim/pull/4877)
@@ -95,6 +101,9 @@
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-initiatives** Fix author duplicated appearance in some initiatives authors lists. [\#4885](https://github.com/decidim/decidim/pull/4885)
 - **decidim-meetings**, **decidim-forms**: Fix form to_param methods printing out empty IDs and causing an HTTP 400 exception [\#4896](https://github.com/decidim/decidim/pull/4896)
+- **decidim-core** Fix elements with non-unique ID on filtering pages [\#4897](https://github.com/decidim/decidim/pull/4897)
+- **decidim-debates** Correctly set the category in the admin debate form [\#4894](https://github.com/decidim/decidim/pull/4894)
+- **decidim-proposals**: Let admins keep orirignal authors when importing proposals from another component [\#4902](https://github.com/decidim/decidim/pull/4902)
 
 **Removed**:
 
