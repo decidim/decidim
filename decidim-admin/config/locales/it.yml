@@ -36,6 +36,7 @@ it:
         organization_url: URL dell'organizzazione
         redirect_uri: Reindirizza URI
       organization:
+        alert_color: Mettere in guardia
         badges_enabled: Abilita badge
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
@@ -62,11 +63,15 @@ it:
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
         omnipresent_banner_url: URL
+        primary_color: Primario
         reference_prefix: Prefisso
+        secondary_color: Secondario
         show_statistics: Mostra statistiche
+        success_color: Successo
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi di utenti
+        warning_color: avvertimento
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
@@ -506,6 +511,7 @@ it:
         edit:
           update: Modifica
         form:
+          colors_title: Colori dell'organizzazione
           cta_button_path_help: 'Puoi sovrascrivere dove il pulsante Call To Action nella home page è collegato. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante Chiamata all''azione è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata a azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
