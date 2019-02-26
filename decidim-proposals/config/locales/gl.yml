@@ -28,8 +28,15 @@ gl:
       proposals_copy:
         copy_proposals: Comprendo que isto importará todas as propostas do compoñente seleccionado ao actual e que esta acción non se pode revertir.
         origin_component_id: Componente para copiar as propostas de
+      proposals_import:
+        import_proposals: Propostas de importación
+        keep_authors: Mantén os autores orixinais
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ gl:
             save_draft: Gardar borrador
             title: TEXTO PARTICIPARIO PREVIEW
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
-            document_legend: 'Engada un documento inferior a 2 MB, cada sección até que se analizen 3 niveis de profundidade nas Propostas. Os formatos soportados son: Markdown'
+            document_legend: 'Engada un documento inferior a 2 MB, cada sección até que se analizen 3 niveis de profundidade nas Propostas. Os formatos soportados son: %{valid_mime_types}'
             title: AGREGAR DOCUMENTOS
             upload_document: Cargar documento
           publish:
