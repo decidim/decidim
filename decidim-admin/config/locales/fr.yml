@@ -68,12 +68,12 @@ fr:
         twitter_handler: Gestionnaire Twitter
         youtube_handler: Gestionnaire YouTube
       scope:
-        code: Code postal
+        code: Code
         name: Titre
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de filtres géographiques
-        scope_type_id: Type de filtre géographique
+        scope_type: Type de secteurs
+        scope_type_id: Type de secteur
       scope_type:
         name: Titre
         organization: Organisation
@@ -332,8 +332,8 @@ fr:
         newsletters: Newsletter
         oauth_applications: Applications OAuth
         participants: Participants
-        scope_types: Types de filtre géographique
-        scopes: Filtres géographiques
+        scope_types: Types de secteur
+        scopes: Secteurs
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -389,7 +389,7 @@ fr:
         scope:
           fields:
             name: Titre
-            scope_type: Type de filtres géographiques
+            scope_type: Type de secteurs
         scope_type:
           fields:
             name: Titre
@@ -571,19 +571,19 @@ fr:
           title: Nouvel utilisateur privé de l'espace participatif.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de filtres géographiques.
-          success: Type de filtres géographiques créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de secteurs.
+          success: Type de secteurs créé avec succès.
         destroy:
-          success: Le type de filtres géographiques a été supprimé avec succès
+          success: Le type de secteurs a été supprimé avec succès
         edit:
-          title: Modifier le type de filtres géographiques
+          title: Modifier le type de secteurs
           update: Mettre à jour
         new:
-          create: Créer un type de filtres géographiques
-          title: Nouveau filtre géographique
+          create: Créer un type de secteurs
+          title: Nouveau secteur
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de filtres géographiques.
-          success: Type de filtres géographiques mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce type de secteurs.
+          success: Type de secteurs mis à jour avec succès
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau filtre géographique.
