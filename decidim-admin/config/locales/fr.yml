@@ -314,7 +314,7 @@ fr:
           success: L'utilisateur représenté a été promu avec succès.
         promotions:
           new:
-            explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
+            explanation: Les utilisateurs représentés peuvent être promus en tant qu'utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application. L'utilisateur recevra un email pour accepter votre invitation.
             new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
       menu:
@@ -329,7 +329,7 @@ fr:
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
         navbar_links: Liens de navigation
-        newsletters: Bulletins d'information (newsletter)
+        newsletters: Newsletter
         oauth_applications: Applications OAuth
         participants: Participants
         scope_types: Types de filtre géographique
@@ -379,7 +379,7 @@ fr:
             progress: Avancement
             sent_at: Envoyé à
             subject: Objet
-          name: Bulletin d'information (newsletter)
+          name: Newsletter
         oauth_application:
           fields:
             created_at: Créée le
@@ -442,7 +442,7 @@ fr:
           weight: Poids de l'appareil
         new:
           create: Créer
-          title: Nouveau lien vers la barre de navigation
+          title: Nouveau lien dans la barre de navigation
         no_links: Aucun lien créé
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce lien.
