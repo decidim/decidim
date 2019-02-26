@@ -10,8 +10,8 @@ en:
         title: Actions
       admins:
         create:
-          error: There was an error when creating a new admin.
-          success: Admin created successfully
+          error: There was a problem creating a new admin.
+          success: Admin successfully created
         destroy:
           success: Admin successfully deleted
         edit:
@@ -23,8 +23,8 @@ en:
           create: Create
           title: New admin
         update:
-          error: There was an error when updating this admin.
-          success: Admin updated successfully
+          error: There was a problem updating this admin.
+          success: Admin successfully updated
       default_pages:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
@@ -50,23 +50,23 @@ en:
           name: Organization
       organizations:
         create:
-          error: There was an error when creating a new organization.
-          success: Organization created successfully.
+          error: There was a problem creating a new organization.
+          success: Organization successfully created.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
         index:
           title: Organizations
         new:
-          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organizations
+          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
         update:
-          error: There was an error when updating this organization.
-          success: Organization updated successfully.
+          error: There was a problem updating this organization.
+          success: Organization successfully updated.
         users_registration_mode:
           disabled: Access only can be done with external accounts
-          enabled: Allow users to register and login
-          existing: Don't allow users to register, but allow existing users to login
+          enabled: Allow participants to register and login
+          existing: Don't allow participants to register, but allow existing participants to login
       shared:
         notices:
           no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
