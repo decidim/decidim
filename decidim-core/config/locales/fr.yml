@@ -1247,7 +1247,7 @@ fr:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+            accept_until_format: "%B %d, %Y %I:%M:%p"
       time_of_day: "%H:%M"
   views:
     pagination:
