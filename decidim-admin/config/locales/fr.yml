@@ -419,7 +419,7 @@ fr:
             users_count: Nombre d'utilisateurs
       moderations:
         index:
-          title: Modérations
+          title: Modération
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -617,7 +617,7 @@ fr:
           success: Sujet mis à jour avec succès
       static_pages:
         actions:
-          view: Voir la page publique
+          view: Voir la page
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -703,7 +703,7 @@ fr:
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
-      view_public_page: Voir la page publique
+      view_public_page: Voir la page
     forms:
       errors:
         impersonate_user:
