@@ -56,8 +56,8 @@ fr:
         one: Soutien
         other: Soutiens
       decidim/proposals/proposal_note:
-        one: Note
-        other: Notes
+        one: Note interne
+        other: Notes internes
       decidim/proposals/proposal_vote:
         one: Voter
         other: Voter
@@ -298,7 +298,7 @@ fr:
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         participatory_texts: Textes participatifs
-        private_notes: Notes privées
+        private_notes: Notes internes
         title: Actions
       admin:
         actions:
@@ -340,13 +340,13 @@ fr:
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
-            error: Un problème est survenu lors de la création de cette note de proposition
-            success: Note de proposition créée avec succès
+            error: Un problème est survenu lors de la création de la note interne
+            success: Note interne créée avec succès
           form:
-            note: Remarque
-            submit: Soumettre
-          leave_your_note: Rédiger une note
-          title: Notes privées
+            note: Note interne
+            submit: Envoyer
+          leave_your_note: Rédiger une note interne
+          title: Notes internes
         proposals:
           answer:
             invalid: Il y a eu un problème concernant la réponse à cette proposition
@@ -411,7 +411,7 @@ fr:
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
-          create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a publié une note interne sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
@@ -569,7 +569,7 @@ fr:
             comments: Commentaires
             endorsements: Soutiens
             id: ID
-            notes: Notes
+            notes: Notes internes
             official_proposal: Proposition officielle
             published_at: Publiée à
             scope: Filtre géographique
