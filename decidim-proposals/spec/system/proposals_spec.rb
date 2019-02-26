@@ -208,7 +208,7 @@ describe "Proposals", type: :system do
 
         click_link proposal.title
 
-        expect(page).to have_content("Deleted user")
+        expect(page).to have_content("Deleted participant")
       end
     end
   end
