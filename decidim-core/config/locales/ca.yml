@@ -156,8 +156,7 @@ ca:
             Aquesta modificació per al %{amendable_type} %{amendable_link} ha estat
             acceptada a <strong>%{announcement_date}</strong>.
           evaluating: |-
-            S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}
-            .
+            S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}.
           rejected: |-
             Aquesta esmena del %{amendable_type} %{amendable_link}
             va ser rebutjada en <strong>%{announcement_date}</strong>.
@@ -501,7 +500,7 @@ ca:
           email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
         user_officialized:
-          email_intro: S'ha oficialitzat <a href="%{resource_url}">%{name} (%{nickname})</a>.
+          email_intro: S'ha oficialitzat a <a href="%{resource_url}">%{name} (%{nickname})</a>.
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{nickname} s'ha oficialitzat"
           notification_title: El <a href="%{resource_path}">%{name} (%{nickname})</a>, que sigueu, ha estat oficialitzat.
