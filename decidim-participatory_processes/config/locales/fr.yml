@@ -31,7 +31,7 @@ fr:
         title: Titre
       participatory_process_group:
         description: Description
-        hero_image: Image
+        hero_image: Image d'en-tête
         name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
