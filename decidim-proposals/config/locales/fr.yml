@@ -663,7 +663,7 @@ fr:
           send: Continuer
           title: Créer une proposition
         orders:
-          label: 'Classement des propositions par :'
+          label: 'Trier par :'
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
