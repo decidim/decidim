@@ -56,8 +56,8 @@ fr:
         one: Soutien
         other: Soutiens
       decidim/proposals/proposal_note:
-        one: Remarque
-        other: Remarques
+        one: Note
+        other: Notes
       decidim/proposals/proposal_vote:
         one: Voter
         other: Voter
@@ -345,7 +345,7 @@ fr:
           form:
             note: Remarque
             submit: Soumettre
-          leave_your_note: Laisser une remarque
+          leave_your_note: Rédiger une note
           title: Notes privées
         proposals:
           answer:
@@ -569,7 +569,7 @@ fr:
             comments: Commentaires
             endorsements: Soutiens
             id: ID
-            notes: Remarques
+            notes: Notes
             official_proposal: Proposition officielle
             published_at: Publiée à
             scope: Filtre géographique
