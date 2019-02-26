@@ -28,8 +28,15 @@ eu:
       proposals_copy:
         copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
         origin_component_id: Proposamenen kopia egiteko osagaia
+      proposals_import:
+        import_proposals: Inportatu proposamenak
+        keep_authors: Mantendu jatorrizko egileak
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Dokumentu mota baliogabea. Onartutako formatuak hauek dira: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ eu:
             save_draft: Aurreztu zirriborroa
             title: PREVIEW PARTICIPATORIO TEXT
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: ODT
             bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
-            document_legend: 'Gehitu dokumentua baino 2MB baino txikiagoa, atal bakoitza 3 maila sakonera proposamenetan aztertu arte. Formatu onartzen dira: Markdown'
+            document_legend: 'Gehitu dokumentua baino 2MB baino txikiagoa, atal bakoitza 3 mailatan sakonduko da proposamenetan. Formatu onartzen dira: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
           publish:
