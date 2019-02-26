@@ -6,7 +6,7 @@ fr:
         banner_image: Image de bannière
         consultations_ids: Consultations connexes
         copy_categories: Copier des catégories
-        copy_components: Copier des composants
+        copy_components: Copier des fonctionnalités
         copy_features: Fonctions de copie
         decidim_scope_id: Secteur
         description: La description
@@ -148,7 +148,7 @@ fr:
           attachment_files: Des dossiers
           attachments: Pièces jointes
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           conference_admins: Utilisateurs de la conférence
           conference_invites: Invite
           conference_speakers: Haut-parleurs
