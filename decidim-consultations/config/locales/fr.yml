@@ -19,9 +19,9 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
-        origin_scope: Périmètre
+        origin_scope: Filtre géographique
         origin_title: Origine
-        origin_url: URL d'origine
+        origin_url: URL de l'origine
         participatory_scope: Objectif
         promoter_group: Organisateur
         question_context: Contexte
