@@ -191,11 +191,11 @@ module Decidim
         allow! if permission_action.subject == :moderation
       end
 
-      # Collaborators can read/preview everything inside their process.
+      # Collaborators can only preview their own processes.
       def collaborator_action?
         return unless can_manage_process?(role: :collaborator)
 
-        allow! if permission_action.action == :read || permission_action.action == :preview
+        allow! if permission_action.action == :preview
       end
 
       # Process admins can eprform everything *inside* that process. They cannot
