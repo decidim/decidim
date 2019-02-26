@@ -224,7 +224,6 @@ uk:
         select_initiative_type:
           back: Повернутись
           more_information: "(Додаткові відомості)"
-          select: Обрати
           select_initiative_type_help: Громадські почини - це засіб, за допомогою якого громадяни можуть втрутитися в те, щоб міська рада вжила заходів для забезпечення спільних потреб, які відносяться до сфери міських повноважень. Який почин ви бажаєте зробити?
         share_committee_link:
           continue: Продовжити
@@ -289,7 +288,6 @@ uk:
           random: Довільно
           recent: Найновіші
         result:
-          initiative_accepted_reason: Цей почин був прийнятий, тому що
           initiative_rejected_reason: Цей почин був відхилений через недостатню підтримку.
         show:
           any_vote_method: Цей громадський почин збирає онлайн-підтримку, а також підтримку на особистих зустрічах.
@@ -301,11 +299,6 @@ uk:
           few: " підписи"
           many: " підписів"
           other: " підписів"
-        statistics:
-          assistants_count_title: Помічників
-          comments_count_title: Коментарів
-          meetings_count_title: Зустрічей
-          supports_count_title: Підписів
         supports:
           title: Перелік підписів
         vote_cabin:
