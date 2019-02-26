@@ -158,7 +158,7 @@ fr:
           categories: Catégories
           components: Composants
           info: Information
-          moderations: Modérations
+          moderations: Modération
           private_users: Utilisateurs privés
       models:
         assembly:
@@ -200,7 +200,7 @@ fr:
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
-        create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
+        create: "%{user_name} a ajouté le membre %{resource_name} dans l'assemblée %{space_name}"
         delete: "%{user_name} enlevé le membre %{resource_name} de l'assemblée %{space_name}"
         update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
       assembly_user_role:
