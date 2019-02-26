@@ -69,7 +69,7 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        new: New
+        new: Nouveau
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
         new_process_user_role: Nouvel utilisateur de la concertation
@@ -89,7 +89,7 @@ fr:
           categories: Catégories
           components: Fonctionnalités
           info: Information
-          moderations: Modérations
+          moderations: Modération
           private_users: Utilisateurs privés
           process_admins: Administrateurs de la concertation
           steps: Étapes
