@@ -333,7 +333,7 @@ fr:
             slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
         diplomas:
           edit:
-            save: sauvegarder
+            save: Sauvegarder
             title: Diplôme
         invite_join_conference_mailer:
           invite:
