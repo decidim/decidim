@@ -216,7 +216,7 @@ fr:
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
-            select_parent_assembly: Sélectionner l'assemblage parent
+            select_parent_assembly: Sélectionner l'assemblée parente
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
@@ -286,7 +286,7 @@ fr:
         children: Assemblées
         closing_date: Date de clôture
         composition: Composition
-        created_by: Créé par
+        created_by: Créée par
         creation_date: Date de création
         developer_group: Groupe initiateur
         duration: Durée
@@ -298,9 +298,9 @@ fr:
           'true': visible par les non-membres
         local_area: Zone d'organisation
         participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_structure: Comment est-ce décidé
         private_space: Ceci est une assemblée privée
-        purpose_of_action: But de l'action
+        purpose_of_action: Objectif de l'action
         read_less: Voir moins
         read_more: Voir la suite
         related_participatory_processes: Concertations associées
@@ -342,9 +342,9 @@ fr:
       assemblies: Assemblées
     metrics:
       assemblies:
-        description: Nombre d'assemblages créés
+        description: Nombre d'assemblées créées
         object: assemblées
-        title: Assemblages
+        title: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide
@@ -359,7 +359,7 @@ fr:
           reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblées"
+            one: "%{count} assemblée"
             other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
