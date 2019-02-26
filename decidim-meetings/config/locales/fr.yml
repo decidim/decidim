@@ -161,7 +161,7 @@ fr:
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
-        title: Actions
+        title: Titre
       admin:
         agenda:
           agenda_item:
@@ -252,12 +252,12 @@ fr:
             description: Description
             down: Vers le bas
             remove: Retirer
-            service: Service
+            service: Information pratique
             title: Titre
             up: Vers le haut
           services:
             add_service: Ajouter un service
-            services: Services
+            services: Informations pratiques
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
