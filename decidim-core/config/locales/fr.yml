@@ -825,7 +825,7 @@ fr:
           headline: Participation aux chiffres
         statistics:
           answers_count: Enquêtes terminées
-          assemblies_count: Agora
+          assemblies_count: Assemblées
           comments_count: Commentaires
           conferences_count: Conférences
           debates_count: Débats
@@ -1187,7 +1187,7 @@ fr:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
       user_menu:
-        admin_dashboard: Tableau de bord des administrateurs
+        admin_dashboard: Tableau de bord
         conversations: Conversations
         notifications: Notifications
         profile: Mon compte
