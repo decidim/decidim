@@ -10,7 +10,7 @@ fr:
         update: "%{user_name} a mis à jour la page %{resource_name} dans %{space_name}"
     components:
       pages:
-        name: Page
+        name: Titre
         settings:
           global:
             announcement: Message d'annonce
