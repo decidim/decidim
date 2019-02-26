@@ -68,7 +68,7 @@ fr:
         twitter_handler: Gestionnaire Twitter
         youtube_handler: Gestionnaire YouTube
       scope:
-        code: Code
+        code: Code postal
         name: Titre
         organization: Organisation
         parent_id: Parent
