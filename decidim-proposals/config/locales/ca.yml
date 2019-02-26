@@ -28,8 +28,15 @@ ca:
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
         origin_component_id: Component des d'on importar les propostes
+      proposals_import:
+        import_proposals: Importa propostes
+        keep_authors: Manteniu els autors originals
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ ca:
             save_draft: Desa l'esborrany
             title: PREVISUALITZAR EL TEXT PARTICIPATIU
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Increïble
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
-            document_legend: 'Afegeix un document de menys de 2MB, cadascuna de les seccions fins que s''analitzin 3 nivells en Propostes. Els formats suportats són: Markdown'
+            document_legend: 'Afegiu un document de menys de 2 MB, cadascuna de les seccions fins a 3 nivells de profunditat s''analitzaran a Propostes. Els formats suportats són: %{valid_mime_types}'
             title: AGREGAR DOCUMENT
             upload_document: Penja el document
           publish:
