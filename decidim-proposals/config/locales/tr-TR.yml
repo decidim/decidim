@@ -28,8 +28,15 @@ tr:
       proposals_copy:
         copy_proposals: Bunun, tüm önerileri seçilen bileşenden geçerli olana aktardığını ve bu işlemin geri alınamayacağını anlıyorum.
         origin_component_id: Teklifleri kopyalamak için bileşen
+      proposals_import:
+        import_proposals: Teklifleri içe aktar
+        keep_authors: Orijinal yazarları sakla
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Geçersiz doküman tipi Kabul edilen formatlar: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ tr:
             save_draft: Taslağı kaydet
             title: ÖNEMLİ KATILIMCI METİN
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: odt
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
-            document_legend: '2MB''dan daha az bir belge ekleyin, her bölüm 3 seviye derinlik Tekliflere ayrıştırılır. Desteklenen biçimler: Markdown'
+            document_legend: '2 MB''tan küçük bir belge ekleyin, her bölüm 3 seviye derinliğinde Teklifler''e ayrıştırılıncaya kadar Gösterilen biçimler: %{valid_mime_types}'
             title: BELGE EKLE
             upload_document: Belge yükle
           publish:
