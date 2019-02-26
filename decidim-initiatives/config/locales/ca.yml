@@ -13,6 +13,7 @@ ca:
           any: Mixta
           offline: Presencial
           online: En línia
+        state: Estat
         title: Títol
       initiative_author:
         address: Adreça
@@ -135,7 +136,19 @@ ca:
           page: "<p>Una iniciativa és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>\n<p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>\n"
           title: Què són les iniciatives?
     initiatives:
+      actions:
+        answer: Resposta
       admin:
+        answers:
+          edit:
+            title: Resposta per %{title}
+            answer: Resposta
+          info_initiative:
+            created_at: Creat a
+            description: Descripció
+            initiative_votes_count: Recompte de vots
+            initiatives: Iniciatives
+            state: Estat
         committee_requests:
           index:
             approve: Aprova
@@ -272,8 +285,9 @@ ca:
           more_information: "(Més informació)"
         select_initiative_type:
           back: Enrere
+          choose_html: Vull crear un <strong>%{title}</strong>
           more_information: "(Més informació)"
-          select: Tria
+          select: Vull promoure aquesta iniciativa
           select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general que es troben dins dels àmbits de la jurisdicció municipal. Quina iniciativa vols llançar?
         share_committee_link:
           continue: Continua
@@ -347,6 +361,11 @@ ca:
           unfold: Desplegar
         index_header:
           new_initiative: Nova iniciativa
+        interactions:
+          comments_count:
+            count:
+              one: Comentari
+              other: Comentaris
         orders:
           label: 'Ordena iniciatives per:'
           most_commented: Els més comentats
@@ -354,21 +373,23 @@ ca:
           random: Aleatori
           recent: Més recent
         result:
-          initiative_accepted_reason: Aquesta iniciativa s'ha acceptat perquè
+          answer_title:
+            accepted: Aquesta proposta s'ha acceptat perquè
+            created: Aquesta proposta s'ha creat
+            discarded: Aquesta proposta s'ha descartat perquè
+            published: Aquesta proposta es publica perquè
+            rejected: Aquesta proposta ha estat rebutjada perquè
+            validating: S'està avaluant aquesta proposta
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de suports.
         show:
           any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
+          follow_description: Rebeu una notificació quan hi hagi notícies en aquesta iniciativa
           offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
         signature_identities:
           select_identity: Selecciona l'identificador d'usuari
         signatures_count:
           one: " signatura"
           other: " signatures"
-        statistics:
-          assistants_count_title: Assistents
-          comments_count_title: Comentaris
-          meetings_count_title: Trobades
-          supports_count_title: Signatures
         supports:
           title: Llistat de signatures
         vote_cabin:
@@ -381,6 +402,8 @@ ca:
           count:
             one: SIGNATURA
             other: SIGNATURES
+          most_popular_initiative: Iniciativa més popular
+          need_more_votes: Necessiteu més signatures
       initiatives_mailer:
         creation_subject: S'ha creat la teva iniciativa ciutadana '%{title}'
         initiative_link:
@@ -421,6 +444,7 @@ ca:
           components: Components
           information: Informació
       initiative_creation_header:
+        back: esquena
         fill_data: Crear
         finish: Acaba
         previous_form: Començar
