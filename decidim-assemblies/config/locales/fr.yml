@@ -58,7 +58,7 @@ fr:
         designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
-        position: Statut
+        position: Rôle
       assembly_user_role:
         email: E-mail
         name: Nom 
@@ -174,7 +174,7 @@ fr:
             ceased_date: Date de radiation
             designation_date: Date de désignation
             full_name: Nom et prénom
-            position: Statut
+            position: Rôle
           name: Membre
           positions:
             other: Autre
@@ -226,7 +226,7 @@ fr:
           form:
             existing_user: Utilisateur existant
             non_user: Utilisateur inconnu
-            select_a_position: Sélectionnez un statut
+            select_a_position: Sélectionnez un rôle
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
           index:
