@@ -14,14 +14,14 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Lieu d'organisation
-        meta_scope: Secteur géographique
+        meta_scope: Secteur
         participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
         participatory_structure: Modalités de participation
         promoted: Mise en avant
         published_at: Publiée à
-        scope_id: Filtre géographique
-        scopes_enabled: Filtres géographiques activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -350,10 +350,10 @@ fr:
         developer_group: Organisateur
         end_date: Date de fin
         local_area: Lieu d'organisation
-        participatory_scope: Objectifs
+        participatory_scope: Objectif
         participatory_structure: Modalités de participation
         private_space: Ceci est une concertation privée
-        scope: Filtre géographique
+        scope: Secteur
         start_date: Date de début
         target: Participants
         unspecified: Non précisé
