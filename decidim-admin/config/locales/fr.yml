@@ -87,10 +87,10 @@ fr:
         title: Titre
         weight: Poids
       static_page_topic:
-        description: La description
+        description: Description
         show_in_footer: Afficher dans le pied de page
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -324,7 +324,7 @@ fr:
         area_types: Types de zone d'application
         areas: Zones d'application
         configuration: Configuration
-        dashboard: Tableau de bord
+        dashboard: Journal d'administration
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -602,19 +602,19 @@ fr:
           success: Filtre géographique mis à jour avec succès
       static_page_topics:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau sujet.
-          success: Sujet créé avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle thématique.
+          success: Thématique créée avec succès.
         destroy:
-          success: Sujet détruit avec succès
+          success: Thématique supprimée avec succès
         edit:
-          title: Modifier le sujet
-          update: Mettre à jour le sujet
+          title: Modifier la thématique
+          update: Mettre à jour la thématique
         new:
-          create: Créer un sujet
-          title: Nouveau sujet
+          create: Créer une thématique
+          title: Nouvelle thématique
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce sujet.
-          success: Sujet mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette thématique.
+          success: Thématique mise à jour avec succès
       static_pages:
         actions:
           view: Voir la page
@@ -635,10 +635,10 @@ fr:
           create: Créer une page
           title: Nouvelle page
         topic:
-          destroy: Supprimer le sujet
-          edit: Modifier le sujet
-          empty: Il n'y a pas de page sous ce sujet
-          without_topic: Pages sans sujet
+          destroy: Supprimer la thématique
+          edit: Modifier la thématique
+          empty: Il n'y a pas de page dans cette thématique
+          without_topic: Pages sans thématique
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès
@@ -647,7 +647,7 @@ fr:
         area_types: Types de zone d'application
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
-        dashboard: Tableau de bord
+        dashboard: Journal d'administration
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs gérés
