@@ -40,7 +40,7 @@ fr:
         destroy: Supprimer
         edit: Modifier
         new: Nouveau %{name}
-        title: Actions
+        title: Titre
       admin:
         debates:
           create:
