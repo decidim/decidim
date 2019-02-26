@@ -87,8 +87,8 @@ fr:
           index:
             title: Etats d'avancement
           new:
-            create: Créer un état
-            title: Nouvel état
+            create: Créer un statut
+            title: Nouveau statut
           update:
             invalid: Un problème est survenu lors de la mise à jour de cet état
             success: Etat mis à jour avec succès
