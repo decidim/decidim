@@ -500,6 +500,11 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> har blivit officiellt.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: "%{nickname} har blivit officiellt"
+          notification_title: <a href="%{resource_path}">%{name} (%{nickname})</a>, som du följer, har blivit officiell.
     export_mailer:
       data_portability_export:
         click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig fram till %{date}.
