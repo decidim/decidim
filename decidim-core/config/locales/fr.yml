@@ -822,7 +822,7 @@ fr:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
         metrics:
-          headline: Participation aux chiffres
+          headline: Participation en chiffres
         statistics:
           answers_count: Enquêtes terminées
           assemblies_count: Assemblées
@@ -830,7 +830,7 @@ fr:
           conferences_count: Conférences
           debates_count: Débats
           endorsements_count: Soutiens
-          headline: État actuel de %{organization}
+          headline: '%{organization} en chiffres'
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
