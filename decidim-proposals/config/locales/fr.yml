@@ -483,7 +483,7 @@ fr:
           published: Publiée
           related_to: Liées à
           search: Rechercher
-          state: État
+          state: Statut
           withdrawn: Retirée
         filters_small_view:
           close_modal: Fermer la fenêtre
@@ -534,7 +534,7 @@ fr:
           version_history: voir l'historique des versions de cette proposition
           withdraw: retirer la proposition collaborative
         states:
-          open: Ouvrir
+          open: Ouverte
           published: Publiée
           withdrawn: Retirée
         update:
@@ -573,7 +573,7 @@ fr:
             official_proposal: Proposition officielle
             published_at: Publiée à
             scope: Filtre géographique
-            state: État
+            state: Statut
             title: Titre
             votes: Votes
       new:
@@ -643,7 +643,7 @@ fr:
           origin: Auteurs
           related_to: Liées à
           search: Rechercher
-          state: État
+          state: Statut
           voted: Afficher uniquement les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
