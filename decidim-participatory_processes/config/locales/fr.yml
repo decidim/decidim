@@ -313,7 +313,7 @@ fr:
         home:
           highlighted_processes:
             active_processes: Concertations actives
-            active_step: Étape active
+            active_step: Étape actuelle
             more_information: Plus d'informations
             participate: Participer
             see_all_processes: Voir toutes les concertations
