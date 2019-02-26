@@ -36,6 +36,7 @@ nl:
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
       organization:
+        alert_color: alarm
         badges_enabled: Schakel badges in
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
@@ -62,11 +63,15 @@ nl:
         omnipresent_banner_short_description: Korte omschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        primary_color: primair
         reference_prefix: Referentievoorvoegsel
+        secondary_color: Tweede
         show_statistics: Toon statistieken
+        success_color: Succes
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Schakel gebruikersgroepen in
+        warning_color: Waarschuwing
         youtube_handler: YouTube gebruikersnaam
       scope:
         code: Code
@@ -506,6 +511,7 @@ nl:
         edit:
           update: Bijwerken
         form:
+          colors_title: Organisatie kleuren
           cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
