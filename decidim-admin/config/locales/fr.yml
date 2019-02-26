@@ -85,7 +85,7 @@ fr:
         show_in_footer: Afficher dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       static_page_topic:
         description: Description
         show_in_footer: Afficher dans le pied de page
@@ -372,7 +372,7 @@ fr:
           fields:
             link: Lien
             title: Titre
-            weight: Poids de l'appareil
+            weight: Rang d'affichage
         newsletter:
           fields:
             created_at: Créée le
@@ -439,7 +439,7 @@ fr:
           new_tab: Ouvrir dans un nouvel onglet
           same_tab: Ouvrir dans le même onglet
           title: Titre
-          weight: Poids de l'appareil
+          weight: Rang d'affichage
         new:
           create: Créer
           title: Nouveau lien dans la barre de navigation
