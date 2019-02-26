@@ -420,17 +420,17 @@ fr:
         withdrawn: Retirée
       application_helper:
         filter_origin_values:
-          all: Tous
-          citizens: Citoyens
-          meetings: Réunions
-          official: Officiel
+          all: Toutes
+          citizens: Utilisateurs
+          meetings: Elaborées en réunion publique
+          official: Administrateurs
           user_groups: Groupes d'utilisateurs
         filter_state_values:
           accepted: Accepté
           all: Tous
-          evaluating: Évaluer les
-          except_rejected: Tous sauf rejetés
-          rejected: Rejeté
+          evaluating: En cours d'évaluation
+          except_rejected: Toutes sauf non retenues
+          rejected: Non retenue
         filter_type_values:
           all: Tous
           amendments: Modifications
@@ -440,7 +440,7 @@ fr:
           publish:
             error: Il y a eu des erreurs lors de la publication de la proposition collaborative.
             irreversible_action_modal:
-              body: Après avoir publié la proposition collaborative, elle ne sera plus modifiable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir publié la proposition collaborative, elle ne sera plus modifiable. La proposition n'acceptera pas de nouveaux collaborateurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
@@ -449,7 +449,7 @@ fr:
           withdraw:
             error: Il y a eu des erreurs en fermant la proposition collaborative.
             irreversible_action_modal:
-              body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir fermé le brouillon, le brouillon ne sera plus modifiable. Le projet n'acceptera pas de nouveaux collaborateurs ou contributions.
               cancel: Annuler
               ok: Retirer la proposition collaborative
               title: L'action suivante est irréversible
