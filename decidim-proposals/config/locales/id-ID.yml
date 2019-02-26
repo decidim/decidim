@@ -28,8 +28,15 @@ id:
       proposals_copy:
         copy_proposals: Saya memahami bahwa ini akan mengimpor semua proposal dari komponen yang dipilih ke komponen saat ini dan bahwa tindakan ini tidak dapat dibatalkan.
         origin_component_id: Komponen untuk menyalin proposal dari
+      proposals_import:
+        import_proposals: Impor proposal
+        keep_authors: Simpan penulis asli
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Jenis dokumen tidak valid. Format yang diterima adalah: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -298,8 +305,11 @@ id:
             save_draft: Menyimpan konsep
             title: TEKNIK PREVIEW TEKNIKAL
           new_import:
+            accepted_mime_types:
+              md: Penurunan harga
+              odt: Ganjil
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
-            document_legend: 'Tambahkan dokumen yang lebih kecil dari 2MB, setiap bagian hingga 3 level akan diolah menjadi Proposal. Format yang ditawar adalah: Penurunan harga'
+            document_legend: 'Tambahkan dokumen yang kurang dari 2MB, setiap bagian hingga 3 level akan diuraikan menjadi Proposal. Format yang didukung adalah: %{valid_mime_types}'
             title: TAMBAHKAN DOKUMEN
             upload_document: Unggah dokumen
           publish:
