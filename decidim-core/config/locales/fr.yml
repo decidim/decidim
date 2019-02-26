@@ -846,7 +846,7 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Des pages
+        standalone_pages: Autres
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aide
         topics: Thématiques
