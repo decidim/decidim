@@ -141,10 +141,10 @@ fi:
       admin:
         answers:
           edit:
-            title: Vastaa kohtaan %{title}
+            title: Vastaus kohteelle %{title}
             answer: Vastaus
           info_initiative:
-            created_at: Luotu osoitteessa
+            created_at: Luonnin ajankohta
             description: Kuvaus
             initiative_votes_count: Äänten määrä
             initiatives: aloitteita
