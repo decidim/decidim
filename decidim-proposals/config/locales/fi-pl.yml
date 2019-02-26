@@ -28,8 +28,15 @@ fi-pl:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
+      proposals_import:
+        import_proposals: Tuontiehdotukset
+        keep_authors: Säilytä alkuperäiset tekijät
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ fi-pl:
             save_draft: Tallenna luonnos
             title: ESIKATSELE EHDOTUSAINEISTOA
           new_import:
+            accepted_mime_types:
+              md: hinnanalennus
+              odt: odt
             bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
-            document_legend: 'Lisää tiedosto, joka on pienempi kuin 2 MB. Jokaisesta osiosta aineiston kolmannelle tasolle asti luodaan uusi ehdotus. Tuetut tiedostomuodot ovat: Markdown'
+            document_legend: 'Lisää alle 2 Mt: n kokoinen asiakirja, jokainen osa kunnes 3 tasoa syvennetään ehdotuksiin. Suportoidut tiedostomuodot ovat: %{valid_mime_types}'
             title: LISÄÄ AINEISTO
             upload_document: Lataa aineisto
           publish:
