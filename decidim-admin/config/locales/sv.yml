@@ -36,6 +36,7 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
+        alert_color: Varna
         badges_enabled: Aktivera märken
         cta_button_path: Knappsökväg till Uppmaning till Handing
         cta_button_text: Knapptext för Uppmaning till Handling
@@ -62,11 +63,15 @@ sv:
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        primary_color: Primär
         reference_prefix: Referensprefix
+        secondary_color: Sekundär
         show_statistics: Visa statistik
+        success_color: Framgång
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera användargrupper
+        warning_color: Varning
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -506,6 +511,7 @@ sv:
         edit:
           update: Uppdatera
         form:
+          colors_title: Organisationens färger
           cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
           header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
