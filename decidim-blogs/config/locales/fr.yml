@@ -14,7 +14,7 @@ fr:
         destroy: Supprimer
         edit: Modifier
         new: Nouvel article
-        title: Actions
+        title: Titre
       admin:
         models:
           components:
