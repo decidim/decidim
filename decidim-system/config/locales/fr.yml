@@ -31,7 +31,7 @@ fr:
           title: Titre par défaut pour %{page}
       menu:
         admins: Administrateurs
-        dashboard: Tableau de bord
+        dashboard: Journal d'administration
         organizations: Organisations
       models:
         admin:
@@ -72,4 +72,4 @@ fr:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
           our_getting_started_guide: Notre guide de démarrage
       titles:
-        dashboard: Tableau de bord
+        dashboard: Journal d'administration
