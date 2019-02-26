@@ -263,10 +263,10 @@ fr:
         export_as: "%{name} en format %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       help_sections:
-        error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
+        error: Une erreur s'est produite lors de la mise à jour des messages d'aide
         form:
-          save: sauvegarder
-        success: Les sections d'aide ont été mises à jour avec succès
+          save: Sauvegarder
+        success: Les messages d'aide ont été mis à jour avec succès
       impersonatable_users:
         index:
           filter:
@@ -325,10 +325,10 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Journal d'administration
-        help_sections: Sections d'aide
+        help_sections: Messages d'aide contextuels
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
-        navbar_links: Liens de navigation
+        navbar_links: Barre de navigation secondaire
         newsletters: Newsletter
         oauth_applications: Applications OAuth
         participants: Participants
@@ -432,7 +432,7 @@ fr:
         destroy:
           success: Lien détruit avec succès
         edit:
-          title: Modifier le lien de la barre de navigation
+          title: Modifier le lien de la barre de navigation secondaire
           update: Mise à jour
         form:
           link: Lien
@@ -442,7 +442,7 @@ fr:
           weight: Rang d'affichage
         new:
           create: Créer
-          title: Nouveau lien dans la barre de navigation
+          title: Nouveau lien dans la barre de navigation secondaire
         no_links: Aucun lien créé
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce lien.
@@ -651,7 +651,7 @@ fr:
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs gérés
-        navbar_links: Liens Navbar
+        navbar_links: Barre de navigation secondaire
         participants: Participants
         scope_types: Types de filtres géographiques
         scopes: Filtres géographiques
