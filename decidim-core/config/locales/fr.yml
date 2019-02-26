@@ -674,7 +674,7 @@ fr:
           content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
           title: Que puis-je faire en %{organization}?
         description: En savoir plus sur %{organization}
-        title: Aide générale
+        title: Rubrique d'aide
     last_activities:
       activities:
         no_activities_warning: Aucune activité
@@ -849,7 +849,7 @@ fr:
         standalone_pages: Des pages
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
-        topics: Les sujets
+        topics: Thématiques
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -988,7 +988,7 @@ fr:
       show:
         my_interests: Mes intérêts
         no_scopes: Cette organisation n'a pas encore de filtres géographiques !
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
+        select_your_interests: Sélectionnez les thématiques qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
