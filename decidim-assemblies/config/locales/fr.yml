@@ -77,7 +77,7 @@ fr:
   decidim:
     admin:
       actions:
-        new_assembly: Nouvel assemblée
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -109,7 +109,7 @@ fr:
       assembly_members:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
-          success: Membre créé avec succès pour cette assemblée.
+          success: Membre ajouté avec succès pour cette assemblée.
         destroy:
           success: Membre supprimé avec succès pour cette assemblée.
         edit:
