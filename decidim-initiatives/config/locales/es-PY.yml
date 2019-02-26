@@ -13,6 +13,7 @@ es-PY:
           any: Mezclado
           offline: Cara a cara
           online: En línea
+        state: Estado
         title: Título
       initiative_author:
         address: Dirección
@@ -135,7 +136,19 @@ es-PY:
           page: "<p>Una iniciativa es una propuesta que puede ser promovida por cualquiera por iniciativa propia (independientemente de otros canales o espacios de participación) a través de la recopilación de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar una regulación, iniciar un proyecto). , cambiar el nombre de un departamento o una calle, etc.).</p> <p>Los promotores de una iniciativa pueden definir sus objetivos, obtener apoyo, debatir, difundir y definir puntos de encuentro donde se pueden recopilar firmas de los asistentes o debates abiertos a otros participantes.</p> <p>Ejemplos: una iniciativa puede recopilar firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o área de la organización. Durante el proceso de recolección de firmas, más personas pueden sumarse a esta demanda y llevarla adelante en la organización.</p>\n"
           title: '¿Qué son las iniciativas?'
     initiatives:
+      actions:
+        answer: Responder
       admin:
+        answers:
+          edit:
+            title: Respuesta para %{title}
+            answer: Responder
+          info_initiative:
+            created_at: Creado en
+            description: Descripción
+            initiative_votes_count: Los votos cuentan
+            initiatives: Iniciativas
+            state: Estado
         committee_requests:
           index:
             approve: Aprobar
@@ -272,8 +285,9 @@ es-PY:
           more_information: "(Más información)"
         select_initiative_type:
           back: Volver
+          choose_html: Quiero crear un <strong>%{title}</strong>
           more_information: "(Más información)"
-          select: Escoger
+          select: Quiero promover esta iniciativa.
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
@@ -347,6 +361,11 @@ es-PY:
           unfold: Desplegar
         index_header:
           new_initiative: Nueva iniciativa
+        interactions:
+          comments_count:
+            count:
+              one: Comentario
+              other: Comentarios
         orders:
           label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
@@ -354,21 +373,23 @@ es-PY:
           random: Aleatorio
           recent: Más reciente
         result:
-          initiative_accepted_reason: Esta iniciativa ha sido aceptada porque
+          answer_title:
+            accepted: Esta propuesta ha sido aceptada porque
+            created: Esta propuesta ha sido creada.
+            discarded: Esta propuesta ha sido descartada porque.
+            published: Esta propuesta se publica porque
+            rejected: Esta propuesta ha sido rechazada porque
+            validating: Esta propuesta está siendo evaluada.
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
+          follow_description: Recibir una notificación cuando haya novedades en esta iniciativa.
           offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
         signature_identities:
           select_identity: Selecciona un identificador de usuario
         signatures_count:
           one: " firma"
           other: " firmas"
-        statistics:
-          assistants_count_title: Asistentes
-          comments_count_title: Comentarios
-          meetings_count_title: Reuniones
-          supports_count_title: Firmas
         supports:
           title: Listado de firmas
         vote_cabin:
@@ -381,6 +402,8 @@ es-PY:
           count:
             one: FIRMA
             other: FIRMAS
+          most_popular_initiative: Iniciativa mas popular
+          need_more_votes: Necesito mas firmas
       initiatives_mailer:
         creation_subject: Su iniciativa ciudadana '%{title}' ha sido creada
         initiative_link:
@@ -421,6 +444,7 @@ es-PY:
           components: Componentes
           information: Información
       initiative_creation_header:
+        back: Espalda
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar
