@@ -58,15 +58,15 @@ en:
         one: Note
         other: Notes
       decidim/proposals/proposal_vote:
-        one: Vote
-        other: Votes
+        one: Support
+        other: Supports
   decidim:
     components:
       proposals:
         actions:
           create: Create
           endorse: Endorse
-          vote: Vote
+          vote: Support
           withdraw: Withdraw
         name: Proposals
         settings:
@@ -78,21 +78,21 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
-            minimum_votes_per_user: Minimum votes per user
+            minimum_votes_per_user: Minimum supports per user
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_length: Maximum proposal body length
-            proposal_limit: Proposal limit per user
+            proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
             threshold_per_proposal: Threshold per proposal
-            vote_limit: Vote limit per user
+            vote_limit: Support limit per participant
           step:
             announcement: Announcement
             automatic_hashtags: Hashtags added to all proposals
@@ -101,10 +101,10 @@ en:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
-            suggested_hashtags: Hashtags suggested to users for new proposals
-            votes_blocked: Voting blocked
-            votes_enabled: Voting enabled
-            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+            suggested_hashtags: Hashtags suggested to participants for new proposals
+            votes_blocked: Supports blocked
+            votes_enabled: Supports enabled
+            votes_hidden: Supports hidden (if supports are enabled, checking this will hide the number of supports)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -186,7 +186,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         proposal_rejected:
@@ -201,15 +201,15 @@ en:
             email_subject: A proposal you're following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
         proposal_update_category:
-          email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out:'
+          email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out in this page:'
           email_outro: You have received this notification because you are the author of the proposal.
           email_subject: The %{resource_title} proposal category has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
         voting_enabled:
-          email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
+          email_intro: 'You can support proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Proposals voting has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Proposal support has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">supporting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -217,51 +217,51 @@ en:
             - Choose the participation space of your interest with submission for proposals enabled
             - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
-          description_another: This user has gotten %{score} proposals accepted.
+          description_another: This participant had %{score} accepted proposals.
           description_own: You got %{score} proposals accepted.
           name: Accepted proposals
           next_level_in: Get %{score} more proposals accepted to reach the next level!
-          unearned_another: This user hasn't gotten any proposals accepted yet.
+          unearned_another: This participant has not yet had any accepted proposals.
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
             - Browse and spend some time reading other people's proposals
             - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
-          description_another: This user has given support to %{score} proposals.
+          description_another: This participant has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
           name: Proposal supports
           next_level_in: Give support to %{score} more proposals to reach the next level!
-          unearned_another: This user hasn't given support to any proposals yet.
+          unearned_another: This participant hasn't given support to any proposals yet.
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
             - Choose the participation space of your interest with submission for proposals enabled
             - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
-          description_another: This user has created %{score} proposals.
+          description_another: This participant has created %{score} proposals.
           description_own: You have created %{score} proposals.
           name: Proposals
           next_level_in: Create %{score} more proposals to reach the next level!
-          unearned_another: This user hasn't created any proposals yet.
+          unearned_another: This participant hasn't created any proposals yet.
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
-        description: Number of proposals accepted by users
+        description: Number of proposals accepted
         object: proposals
-        title: Accepted Proposals
+        title: Accepted proposals
       endorsements:
-        description: Number of endorsements generated in proposals
+        description: Number of endorsements to proposals
         object: endorsements
         title: Endorsements
       proposals:
-        description: Number of proposals generated
+        description: Number of proposals
         object: proposals
         title: Proposals
       votes:
-        description: Number of votes generated in proposals by users
-        object: votes
-        title: Votes
+        description: Number of supports to proposals
+        object: supports
+        title: Supports
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -289,33 +289,26 @@ en:
             name: Proposal
         participatory_texts:
           bulk-actions:
-            are_you_sure: Are you sure to discard the whole participatory text draft?
             import_doc: Import document
-            discard_all: Discard all
           import:
             invalid: The form is invalid!
-            success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+            success: Congratulations, the following sections have been converted to proposals. Now you can review and adjust them before publishing.
           index:
-            info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+            info_1: The following sections have been converted to proposals. Now you can review and adjust them before publishing.
             publish_document: Publish document
-            save_draft: Save draft
             title: PREVIEW PARTICIPATORY TEXT
           new_import:
             bottom_hint: "(You will be able to preview and sort document sections)"
-            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: Markdown'
+            document_legend: 'Add a document of less than 2MB, each section (up to 3 levels deep) will be parsed into Proposals. Suported formats are: Markdown'
             title: ADD DOCUMENT
             upload_document: Upload document
           publish:
             invalid: Could not publish proposals
             success: All proposals have been published
-          discard:
-            success: All Participatory text drafts have been discarded.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsection:</em> %{title}"
-          update:
-             success: Participatory text updated successfully.
         proposal_answers:
           edit:
             accepted: Accepted
@@ -325,7 +318,7 @@ en:
             title: Answer for proposal %{title}
         proposal_notes:
           create:
-            error: There's been a problem creating this proposal note
+            error: There was a problem creating this proposal note
             success: Proposal note successfully created
           form:
             note: Note
@@ -369,26 +362,26 @@ en:
             success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
         proposals_imports:
           create:
-            invalid: There's been a problem importing the proposals
+            invalid: There was a problem importing the proposals
             success: "%{number} proposals successfully imported"
           new:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
-            select_states: Check the states of the proposals to import
+            select_states: Check the status of the proposals to import
         proposals_merges:
           create:
-            invalid: There was an error merging the selected proposals.
+            invalid: There was a problem merging the selected proposals.
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: There was an error spliting the selected proposals.
+            invalid: There was a problem spliting the selected proposals.
             success: Successfully splitted the proposals into new ones.
         shared:
           info_proposal:
             body: Body
             created_at: Creation date
-            proposal_votes_count: Votes count
+            proposal_votes_count: Supports count
             proposals: Proposals
       admin_log:
         proposal:
@@ -409,7 +402,7 @@ en:
           citizens: Citizens
           meetings: Meetings
           official: Official
-          user_groups: User groups
+          user_groups: Groups
         filter_state_values:
           accepted: Accepted
           all: All
@@ -423,7 +416,7 @@ en:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: There's been errors when publishing the collaborative draft.
+            error: There was a problem publishing the collaborative draft.
             irreversible_action_modal:
               body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
               cancel: Cancel
@@ -432,7 +425,7 @@ en:
             success: Collaborative draft published successfully as a proposal.
           view_collaborative_draft: View Collaborative Draft
           withdraw:
-            error: There's been errors closing the collaborative draft.
+            error: There was a problem closing the collaborative draft.
             irreversible_action_modal:
               body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
               cancel: Cancel
@@ -449,9 +442,9 @@ en:
         count:
           drafts_count:
             one: "%{count} collaborative draft"
-            other: "%{count} collaborative draft"
+            other: "%{count} collaborative drafts"
         create:
-          error: There's been a problem creating this collaborative drafts
+          error: There was a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
         edit:
           attachment_legend: "(Optional) Add an attachment"
@@ -468,7 +461,7 @@ en:
           published: Published
           related_to: Related to
           search: Search
-          state: State
+          state: Status
           withdrawn: Withdrawn
         filters_small_view:
           close_modal: Close modal
@@ -487,23 +480,23 @@ en:
           recent: Recent
         requests:
           accepted_request:
-            error: Could not be accepted as a collaborator, try again later.
+            error: Could not be accepted as a collaborator, please try again later.
             success: "@%{user} has been accepted as a collaborator successfully"
           access_requested:
-            error: Your request could not be completed, try again later.
-            success: Your request to collaborate has been sent successfully
+            error: Your request could not be completed, please try again later.
+            success: Your request to collaborate has been successfully sent
           collaboration_requests:
             accept_request: Accept
             reject_request: Reject
             title: Collaboration requests
           rejected_request:
-            error: Could not be rejected as a collaborator, try again later.
-            success: "@%{user} has been rejected as a collaborator successfully"
+            error: Could not be rejected as a collaborator, please try again later.
+            success: "@%{user} has been successfully rejected as a collaborator"
         show:
           back: Back
           edit: Edit collaborative draft
           final_proposal: final proposal
-          final_proposal_help_text: This draft is finished. You can see the final finished proposal
+          final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
             one: and %{count} more person
             other: and %{count} more people
@@ -523,8 +516,8 @@ en:
           published: Published
           withdrawn: Withdrawn
         update:
-          error: There's been errors when saving the collaborative draft.
-          success: Collaborative draft updated successfully.
+          error: There was a problem saving the collaborative draft.
+          success: Collaborative draft successfully updated.
         wizard_aside:
           back: Back
           info: You are creating a <strong>collaborative draft</strong>.
@@ -535,10 +528,10 @@ en:
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
       create:
-        error: There's been errors when saving the proposal.
-        success: Proposal created successfully. Saved as a Draft.
+        error: There was a problem saving the proposal.
+        success: Proposal successfully created. Saved as a Draft.
       destroy_draft:
-        error: There's been errors deleting the proposal draft.
+        error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
       last_activity:
         new_proposal_at_html: "<span>New proposal at %{link}</span>"
@@ -558,7 +551,7 @@ en:
             official_proposal: Official proposal
             published_at: Published at
             scope: Scope
-            state: State
+            state: Status
             title: Title
             votes: Votes
       new:
@@ -572,7 +565,7 @@ en:
           endorse: Endorse
       proposal_endorsements:
         create:
-          error: There's been errors when endorsing the proposal.
+          error: There was a problem endorsing the proposal.
         identities:
           done: Done
           select_identity: Select identity
@@ -584,7 +577,7 @@ en:
           endorse: Endorse
       proposal_votes:
         create:
-          error: There's been errors when voting the proposal.
+          error: There was a problem supporting the proposal.
       proposals:
         compare:
           mine_is_different: My proposal is different
@@ -619,8 +612,8 @@ en:
           origin: Origin
           related_to: Related to
           search: Search
-          state: State
-          voted: Voted
+          state: Status
+          voted: Supported
           amendment_type: Type
         filters_small_view:
           close_modal: Close modal
@@ -634,14 +627,14 @@ en:
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
-            one: vote
-            other: votes
+            one: support
+            other: supports
         new:
           send: Continue
           title: Create Your Proposal
         orders:
           label: 'Order proposals by:'
-          most_voted: Most voted
+          most_voted: Most supported
           random: Random
           recent: Recent
         participatory_texts:
@@ -673,40 +666,40 @@ en:
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
-          withdraw_confirmation: Are you sure to withdraw this proposal?
+          withdraw_confirmation: Are you sure you want to withdraw this proposal?
           withdraw_proposal: Withdraw proposal
         tags:
           changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
           filed_as: Filed as
         vote_button:
-          already_voted: Already voted
-          already_voted_hover: Unvote
-          maximum_votes_reached: Vote limit reached
-          no_votes_remaining: No votes remaining
-          vote: Vote
-          votes_blocked: Voting disabled
+          already_voted: Already supported
+          already_voted_hover: Withdraw support
+          maximum_votes_reached: Support limit reached
+          no_votes_remaining: No supports remaining
+          vote: Support
+          votes_blocked: Supports disabled
         votes_count:
           count:
-            one: VOTE
-            other: VOTES
+            one: SUPPORT
+            other: SUPPORTS
           most_popular_proposal: Most popular proposal
-          need_more_votes: Need more votes
+          need_more_votes: Need more supports
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} votes among different proposals.
+            description: You must distribute a minimum of %{votes} supports among different proposals.
             given_enough_votes: You've given enough supports.
-            supports_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
+            supports_remaining: You have to support %{remaining_votes} more proposals for your supports to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
             description: In order to be validated proposals need to reach %{limit} supports
-          title: 'Voting is subject to the following rules:'
+          title: 'Supports are subject to the following rules:'
           vote_limit:
-            description: You can vote up to %{limit} proposals.
+            description: You can support up to %{limit} proposals.
             left: Remaining
-            votes: Votes
+            votes: Supports
         wizard_aside:
           back: Back
           info: You are creating a <strong>proposal</strong>.
@@ -718,14 +711,14 @@ en:
           step_4: Publish your proposal
           step_of: Step %{current_step_num} of %{total_steps}
       publish:
-        error: There's been errors when publishing the proposal.
-        success: Proposal published successfully.
+        error: There was a problem publishing the proposal.
+        success: Proposal successfully published.
       update:
-        error: There's been errors when saving the proposal.
-        success: Proposal updated successfully.
+        error: There was a problem saving the proposal.
+        success: Proposal successfully updated.
       update_draft:
-        error: There's been errors when saving the proposal draft.
-        success: Proposal draft updated successfully.
+        error: There was a problem saving the collaborative draft.
+        success: Proposal draft successfully updated.
       versions:
         changes_at_title: Changes at "%{title}"
         index:
