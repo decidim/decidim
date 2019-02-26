@@ -28,8 +28,15 @@ de:
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
+      proposals_import:
+        import_proposals: Vorschläge importieren
+        keep_authors: Behalten Sie die ursprünglichen Autoren
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -300,8 +307,11 @@ de:
             save_draft: Entwurf speichern
             title: VORSCHAU TEILNEHMERTEXT
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
-            document_legend: 'Fügen Sie ein Dokument mit weniger als 2 MB hinzu, wobei jeder Abschnitt bis zu 3 Ebenen tief in Vorschläge zerlegt wird. Unterstützte Formate sind: Markdown'
+            document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2 MB ist. Jeder Abschnitt wird so lange in 3 bis 3 Ebenen tief in die Vorschläge geparst. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
           publish:
