@@ -48,7 +48,7 @@ fr:
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Texte du bouton d'action
-        highlighted_content_banner_action_url: URL du bouton d'action
+        highlighted_content_banner_action_url: URL du bouton d'appel à l'action
         highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
         highlighted_content_banner_image: Bannière de contenu mis en valeur
         highlighted_content_banner_short_description: Brève description
@@ -537,7 +537,7 @@ fr:
           url: URL
           youtube: YouTube
         update:
-          error: Erreur lors de la mise à jour de cette organisation.
+          error: Erreur lors de la mise à jour de l'organisation.
           success: Organisation mise à jour avec succès.
       organization_appearance:
         edit:
@@ -552,8 +552,8 @@ fr:
           omnipresent_banner_appearance_title: Modifier la bannière permanente
       organization_homepage:
         edit:
-          active_content_blocks: Blocs de contenu actif
-          inactive_content_blocks: Blocs de contenu inactif
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
