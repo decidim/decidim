@@ -104,6 +104,7 @@
 - **decidim-core** Fix elements with non-unique ID on filtering pages [\#4897](https://github.com/decidim/decidim/pull/4897)
 - **decidim-debates** Correctly set the category in the admin debate form [\#4894](https://github.com/decidim/decidim/pull/4894)
 - **decidim-proposals**: Let admins keep orirignal authors when importing proposals from another component [\#4902](https://github.com/decidim/decidim/pull/4902)
+- **decidim-proposals**: Don't let users vote/follow withdrawn proposals [\#4909](https://github.com/decidim/decidim/pull/4909)
 
 **Removed**:
 
