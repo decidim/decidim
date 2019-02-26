@@ -154,7 +154,7 @@ ca:
         announcement:
           accepted: |-
             Aquesta modificació per al %{amendable_type} %{amendable_link} ha estat
-            acceptades en <strong>%{announcement_date}</strong>.
+            acceptada a <strong>%{announcement_date}</strong>.
           evaluating: |-
             S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}
             .
