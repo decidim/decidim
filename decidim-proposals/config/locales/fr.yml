@@ -28,8 +28,15 @@ fr:
       proposals_copy:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
+      proposals_import:
+        import_proposals: Propositions d'importation
+        keep_authors: Gardez les auteurs originaux
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Type de document invalide. Les formats acceptés sont: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ fr:
             save_draft: Enregistrer le brouillon
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
+            accepted_mime_types:
+              md: Réduction
+              odt: Odt
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
-            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée dans Propositions. Les formats supportés sont: Markdown'
+            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
             title: AJOUTER UN DOCUMENT
             upload_document: Télécharger le document
           publish:
