@@ -440,7 +440,7 @@ fr:
             email: E-mail
             name: prénom
             registration_type: Type d'inscription
-            sent_at: Envoyé à
+            sent_at: Envoyée à
             status: Statut
           status:
             accepted: Accepté (%{at})
