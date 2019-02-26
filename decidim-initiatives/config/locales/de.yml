@@ -13,6 +13,7 @@ de:
           any: Gemischt
           offline: Angesicht zu Angesicht
           online: Online
+        state: Zustand
         title: Titel
       initiative_author:
         address: Adresse
@@ -135,7 +136,19 @@ de:
           page: "<p>Eine Initiative ist ein Vorschlag, der von jedermann aus eigener Initiative (unabhängig von anderen Kanälen oder Beteiligungsräumen) durch die Sammlung von (digitalen) Unterschriften für die Organisation zur Durchführung einer bestimmten Aktion (Änderung einer Verordnung, Initiierung eines Projekts) gefördert werden kann , ändern Sie den Namen einer Abteilung oder einer Straße usw.).</p> <p>Die Initiatoren einer Initiative können ihre Ziele festlegen, Unterstützung sammeln, diskutieren, verbreiten und Treffpunkte definieren, an denen Unterschriften der Teilnehmer oder Debatten gesammelt werden können, die für andere Teilnehmer offen sind.</p> <p>Beispiele: Eine Initiative kann Unterschriften sammeln, um eine Konsultation unter allen Mitarbeitern einer Organisation einzuberufen, eine Versammlung zu gründen oder einzuberufen oder einen Prozess zur Aufstockung des Budgets für ein Gebiet oder einen Bereich der Organisation einzuleiten. Während des Sammelns von Unterschriften können mehr Personen zu diesem Bedarf beitragen und ihn in der Organisation vorantreiben.</p>\n"
           title: Was sind Initiativen?
     initiatives:
+      actions:
+        answer: Antworten
       admin:
+        answers:
+          edit:
+            title: Antwort für %{title}
+            answer: Antworten
+          info_initiative:
+            created_at: Hergestellt in
+            description: Beschreibung
+            initiative_votes_count: Stimmen zählen
+            initiatives: Initiativen
+            state: Zustand
         committee_requests:
           index:
             approve: Genehmigen
@@ -272,8 +285,9 @@ de:
           more_information: "(Mehr Informationen)"
         select_initiative_type:
           back: Zurück
+          choose_html: Ich möchte eine <strong>%{title}</strong>erstellen
           more_information: "(Mehr Informationen)"
-          select: Wählen
+          select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürgerschaft eingreifen kann, so dass der Stadtrat Maßnahmen zur Verteidigung des allgemeinen Interesses ergreifen kann, die in Bereichen der kommunalen Gerichtsbarkeit liegen. Welche Initiative möchten Sie starten?
         share_committee_link:
           continue: Fortsetzen
@@ -347,6 +361,11 @@ de:
           unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
+        interactions:
+          comments_count:
+            count:
+              one: Kommentar
+              other: Bemerkungen
         orders:
           label: 'Initiativen sortieren nach:'
           most_commented: Am meisten kommentiert
@@ -354,21 +373,23 @@ de:
           random: Zufällig
           recent: Neueste
         result:
-          initiative_accepted_reason: Diese Initiative wurde angenommen, weil
+          answer_title:
+            accepted: Dieser Vorschlag wurde angenommen, weil
+            created: Dieser Vorschlag wurde erstellt
+            discarded: Dieser Vorschlag wurde verworfen, weil
+            published: Dieser Vorschlag wird veröffentlicht, weil
+            rejected: Dieser Vorschlag wurde abgelehnt, weil
+            validating: Dieser Vorschlag wird geprüft
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
           any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
+          follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
           offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
         signature_identities:
           select_identity: Wählen Sie die Benutzerkennung aus
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
-        statistics:
-          assistants_count_title: Assistenten
-          comments_count_title: Bemerkungen
-          meetings_count_title: Meetings
-          supports_count_title: Unterschriften
         supports:
           title: Auflistung der Signaturen
         vote_cabin:
@@ -381,6 +402,8 @@ de:
           count:
             one: UNTERSCHRIFT
             other: Unterschriften
+          most_popular_initiative: Populärste Initiative
+          need_more_votes: Benötigen Sie mehr Unterschriften
       initiatives_mailer:
         creation_subject: Ihre Bürgerinitiative '%{title}' wurde erstellt
         initiative_link:
@@ -421,6 +444,7 @@ de:
           components: Komponenten
           information: Information
       initiative_creation_header:
+        back: Zurück
         fill_data: Erstellen
         finish: Fertig
         previous_form: Anfang
