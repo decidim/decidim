@@ -57,7 +57,7 @@ fr:
             id: IDENTIFIANT
             state: État
             supports_count: Soutiens
-            title: Initiatives
+            title: Titre
         initiatives_type_scope:
           fields:
             scope: Filtre géographique
