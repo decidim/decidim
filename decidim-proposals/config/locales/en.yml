@@ -28,6 +28,9 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_component_id: Component to copy the proposals from
+      proposals_import:
+        import_proposals: Import proposals
+        keep_authors: Keep original authors
     errors:
       models:
         participatory_text:
