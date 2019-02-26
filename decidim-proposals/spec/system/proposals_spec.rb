@@ -676,6 +676,12 @@ describe "Proposals", type: :system do
       it_behaves_like "a paginated resource"
     end
 
+    context "when component is not commentable" do
+      let!(:ressources) { create_list(:proposal, 3, component: component) }
+
+      it_behaves_like "an uncommentable component"
+    end
+
     context "when amendments_enabled setting is enabled" do
       let!(:proposal) { create(:proposal, component: component, scope: scope) }
       let!(:emendation) { create(:proposal, component: component, scope: scope) }
