@@ -335,8 +335,8 @@ fr:
           votes_blocked: Signatures désactivées
         votes_count:
           count:
-            one: SIGNATURE
-            other: SIGNATURES
+            one: Signature
+            other: Signatures
       initiatives_mailer:
         creation_subject: Votre initiative '%{title}' a été créée
         initiative_link:
