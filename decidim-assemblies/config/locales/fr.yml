@@ -16,7 +16,7 @@ fr:
         created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application
-        decidim_scope_id: Filtre géographique
+        decidim_scope_id: Secteur
         description: Description
         developer_group: Groupe initiateur
         domain: Domaine
@@ -30,17 +30,17 @@ fr:
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
         local_area: Lieu d'organisation
-        meta_scope: Secteur géographique
+        meta_scope: Secteur
         parent_id: Assemblée parentale
         participatory_processes_ids: Concertations associées
-        participatory_scope: Ce qui est décidé
+        participatory_scope: Objectif
         participatory_structure: Comment est-il décidé
         private_space: Assemblée privée
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
-        scope_id: Filtre géographique
-        scopes_enabled: Filtres géographiques activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -297,14 +297,14 @@ fr:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
         local_area: Lieu d'organisation
-        participatory_scope: Ce qui est décidé
+        participatory_scope: Modalités de participation
         participatory_structure: Comment est-ce décidé
         private_space: Ceci est une assemblée privée
         purpose_of_action: Objectif de l'action
         read_less: Voir moins
         read_more: Voir la suite
         related_participatory_processes: Concertations associées
-        scope: Filtre géographique
+        scope: Secteur
         social_networks: Réseaux sociaux
         target: Qui participe
       statistics:
