@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assemblées connexes
+        assemblies_ids: Assemblées associées
         banner_image: Image de bannière
         consultations_ids: Consultations connexes
         copy_categories: Copier des catégories
@@ -483,7 +483,7 @@ fr:
         details: Détails
         introduction: introduction
         objectives: Objectifs
-        related_assemblies: Assemblées connexes
+        related_assemblies: Assemblées associées
         related_consultations: Consultations connexes
         related_participatory_processes: Processus participatifs associés
       statistics:
