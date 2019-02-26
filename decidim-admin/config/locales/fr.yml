@@ -586,20 +586,20 @@ fr:
           success: Type de secteurs mis à jour avec succès
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau filtre géographique.
-          success: Filtre géographique créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau secteur.
+          success: Secteur créé avec succès.
         destroy:
-          success: Filtre géographique supprimé avec succès
+          success: Secteur supprimé avec succès
         edit:
-          title: Modifier le filtre géographique
+          title: Modifier le secteur
           update: Mettre à jour
         new:
-          create: Créer un filtre géographique
-          title: Nouveau filtre géographique
-        no_scopes: Pas de filtre géographique à ce niveau.
+          create: Créer un secteur
+          title: Nouveau secteur
+        no_scopes: Pas de secteur à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce filtre géographique.
-          success: Filtre géographique mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce secteur.
+          success: Secteur mis à jour avec succès
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle thématique.
@@ -653,8 +653,8 @@ fr:
         managed_users: Utilisateurs gérés
         navbar_links: Barre de navigation secondaire
         participants: Participants
-        scope_types: Types de filtres géographiques
-        scopes: Filtres géographiques
+        scope_types: Types de secteurs
+        scopes: Secteurs
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
