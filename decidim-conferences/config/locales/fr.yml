@@ -8,15 +8,15 @@ fr:
         copy_categories: Copier des catégories
         copy_components: Copier des composants
         copy_features: Fonctions de copie
-        decidim_scope_id: Filtre géographique
+        decidim_scope_id: Secteur
         description: La description
         hashtag: Hashtag
         hero_image: Image de la maison
         participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
-        scope_id: Filtre géographique
-        scopes_enabled: Scopes activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Brève description
         show_statistics: Montrez les statistiques
         slogan: Slogan
