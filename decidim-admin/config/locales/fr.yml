@@ -377,7 +377,7 @@ fr:
           fields:
             created_at: Créée le
             progress: Avancement
-            sent_at: Envoyé à
+            sent_at: Envoyée à
             subject: Objet
           name: Newsletter
         oauth_application:
@@ -450,7 +450,7 @@ fr:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
+          success: Newsletter créée avec succès. N'oubliez pas de la relire avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
@@ -475,7 +475,7 @@ fr:
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
-          success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
+          success: Newsletter mise à jour avec succès. N'oubliez pas de la relire avant de l'envoyer.
       oauth_application:
         new: Nouvelle application Oauth
       oauth_applications:
