@@ -46,6 +46,9 @@ fi-pl:
             - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
             - Sinä merkitset kirjeen lähetetyksi.
             - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
+      csv_census:
+        explanation: Hanki tarkistus käyttämällä organisaation väestönlaskentaa
+        name: Organisaation väestönlaskenta
       direct: Suoraan
       help: Ohjeet
       id_documents:
@@ -65,6 +68,7 @@ fi-pl:
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
+            csv_census: Vahvista organisaation väestönlaskentaa vastaan
             dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
             dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
@@ -76,6 +80,33 @@ fi-pl:
           authorize_with: Vahvista palvelulla %{authorizer}
         skip_verification: Voit ohittaa tämän nyt ja %{link}
         start_exploring: aloittaa palveluun tutustumisen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Laskennan tuonnissa tapahtui virhe.
+              success: '%{count} kohdetta onnistuneesti tuonut (%{errors} virhe)'
+            destroy_all:
+              success: Kaikki laskentatiedot on poistettu
+          destroy:
+            confirm: Poista kaikki väestölaskelmat ei voi peruuttaa. Oletko varma, että haluat jatkaa?
+            title: Poista kaikki väestötiedot
+          index:
+            data: Yhteensä on %{count} tallennetta. Viimeisin latauspäivä oli %{due_date}
+            empty: Laskentatietoja ei ole. Tuo alla oleva lomake käyttämällä sitä CSV-tiedoston avulla.
+            title: Nykyiset väestötiedot
+          instructions:
+            body: Tätä varten sinun on annettava järjestelmänhallinta ja lisättävä csv_census-valtuutukset organisaatioon
+            title: Sinun täytyy aktivoida tämän organisaation csv-väestö
+          new:
+            info: 'On oltava tiedosto, jossa on CSV-muotoinen yksi sarake: sähköposti'
+            file: .csv-tiedosto sähköpostitiedoilla
+            submit: Lataa tiedosto
+            title: Lataa uusi väestölaskenta
+        authorizations:
+          new:
+            error: Emme voineet vahvistaa tiliäsi tai et ole organisaation laskennassa.
+            success: Tilisi on vahvistettu onnistuneesti.
       dummy_authorization:
         extra_explanation:
           one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
