@@ -4,7 +4,7 @@ fr:
       collaborative_draft:
         body: Corps de texte
         category_id: Catégorie
-        decidim_scope_id: Filtre géographique
+        decidim_scope_id: Secteur
         has_address: Est associée à un lieu
         state: État
         title: Titre
@@ -17,7 +17,7 @@ fr:
         body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
-        scope_id: Filtre géographique
+        scope_id: Secteur
         state: État
         suggested_hashtags: Suggestions de hashtags
         title: Titre
@@ -572,7 +572,7 @@ fr:
             notes: Notes internes
             official_proposal: Proposition officielle
             published_at: Publiée à
-            scope: Filtre géographique
+            scope: Secteur
             state: Statut
             title: Titre
             votes: Votes
