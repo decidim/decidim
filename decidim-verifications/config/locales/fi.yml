@@ -89,23 +89,23 @@ fi:
             destroy_all:
               success: Kaikki rekisteritiedot on poistettu
           destroy:
-            confirm: Rekisteritietojen poistamista ei voi jälkikäteen peruuttaa. Oletko varma, että haluat jatkaa?
+            confirm: Rekisteritietojen poistamista ei voi jälkikäteen peruuttaa. Haluatko varmasti jatkaa?
             title: Poista kaikki rekisteritiedot
           index:
             data: Yhteensä %{count} tietuetta ladattu. Viimeisin latauspäivä oli %{due_date}
             empty: Rekisteritietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi rekisteritiedot järjestelmään CSV-tiedostosta.
             title: Nykyiset rekisteritiedot
           instructions:
-            body: Tätä varten sinun on annettava järjestelmänhallinta ja lisättävä csv_census-valtuutukset organisaatioon
+            body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
             title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
           new:
             info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
-            file: .csv-tiedosto sähköpostitiedoilla
+            file: sähköpostiosoitteet sisältävä .csv-tiedosto
             submit: Lataa tiedosto
             title: Lataa uusi rekisteri
         authorizations:
           new:
-            error: Emme voineet vahvistaa tiliäsi tai et ole organisaation rekisterissä.
+            error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
             success: Tilisi on vahvistettu onnistuneesti.
       dummy_authorization:
         extra_explanation:
