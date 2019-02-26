@@ -85,7 +85,7 @@ fi:
           census:
             create:
               error: Laskennan tuonnissa tapahtui virhe.
-              success: '%{count} kohdetta onnistuneesti tuonut (%{errors} virhe)'
+              success: Onnistuneesti tuotu %{count} kohdetta (%{errors} virheellistä)
             destroy_all:
               success: Kaikki laskentatiedot on poistettu
           destroy:
