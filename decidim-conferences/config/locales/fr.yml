@@ -451,7 +451,7 @@ fr:
             email: E-mail
             name: prénom
             registration_type: Type d'inscription
-            state: Etat
+            state: Statut
             states:
               confirmed: Confirmé
               pending: en attendant
