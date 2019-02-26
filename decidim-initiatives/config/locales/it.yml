@@ -13,6 +13,7 @@ it:
           any: Misto
           offline: Faccia a faccia
           online: In linea
+        state: Stato
         title: Titolo
       initiative_author:
         address: Indirizzo
@@ -135,7 +136,19 @@ it:
           page: "<p>Un'iniziativa è una proposta che può essere promossa da chiunque di propria iniziativa (indipendentemente da altri canali o spazi di partecipazione) attraverso la raccolta di firme (digitali) per l'organizzazione per svolgere un'azione specifica (modificare un regolamento, avviare un progetto , cambia il nome di un reparto o di una strada, ecc.).</p> <p>I promotori di un'iniziativa possono definire i propri obiettivi, raccogliere supporto, discutere, diffonderlo e definire i punti di incontro in cui raccogliere le firme dai partecipanti o dai dibattiti aperti agli altri partecipanti.</p> <p>Esempi: un'iniziativa può raccogliere firme per convocare una consultazione tra tutte le persone di un'organizzazione, o per creare o convocare un'assemblea, o per avviare un processo di aumento del budget per un territorio o un'area dell'organizzazione. Durante il processo di raccolta delle firme, più persone possono aggiungere a questa domanda e portarla avanti nell'organizzazione.</p>\n"
           title: Quali sono le iniziative?
     initiatives:
+      actions:
+        answer: Risposta
       admin:
+        answers:
+          edit:
+            title: Rispondi per %{title}
+            answer: Risposta
+          info_initiative:
+            created_at: Creato a
+            description: Descrizione
+            initiative_votes_count: Contare i voti
+            initiatives: iniziative
+            state: Stato
         committee_requests:
           index:
             approve: Approvare
@@ -272,8 +285,9 @@ it:
           more_information: "(Maggiori informazioni)"
         select_initiative_type:
           back: Indietro
+          choose_html: Voglio creare uno <strong>%{title}</strong>
           more_information: "(Maggiori informazioni)"
-          select: Scegliere
+          select: Voglio promuovere questa iniziativa
           select_initiative_type_help: Le iniziative dei cittadini sono un mezzo attraverso il quale la cittadinanza può intervenire in modo che il Consiglio comunale possa intraprendere azioni in difesa dell'interesse generale che rientrano nei campi di giurisdizione municipale. Quale iniziativa vuoi lanciare?
         share_committee_link:
           continue: Continua
@@ -347,6 +361,11 @@ it:
           unfold: spiegare
         index_header:
           new_initiative: Nuova iniziativa
+        interactions:
+          comments_count:
+            count:
+              one: Commento
+              other: Commenti
         orders:
           label: 'Ordina le iniziative per:'
           most_commented: Più commentato
@@ -354,21 +373,23 @@ it:
           random: Casuale
           recent: Piu recente
         result:
-          initiative_accepted_reason: Questa iniziativa è stata accettata perché
+          answer_title:
+            accepted: Questa proposta è stata accettata perché
+            created: Questa proposta è stata creata
+            discarded: Questa proposta è stata scartata perché
+            published: Questa proposta è pubblicata perché
+            rejected: Questa proposta è stata respinta perché
+            validating: Questa proposta è in corso di valutazione
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della sua mancanza di supporti.
         show:
           any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
+          follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
         signature_identities:
           select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
           one: " firma"
           other: " firme"
-        statistics:
-          assistants_count_title: assistenti
-          comments_count_title: Commenti
-          meetings_count_title: incontri
-          supports_count_title: firme
         supports:
           title: Elenco delle firme
         vote_cabin:
@@ -381,6 +402,8 @@ it:
           count:
             one: FIRMA
             other: FIRME
+          most_popular_initiative: Iniziativa più popolare
+          need_more_votes: Hai bisogno di più firme
       initiatives_mailer:
         creation_subject: La tua iniziativa cittadina '%{title}' è stata creata
         initiative_link:
@@ -421,6 +444,7 @@ it:
           components: componenti
           information: Informazione
       initiative_creation_header:
+        back: Indietro
         fill_data: Creare
         finish: finire
         previous_form: Inizio
