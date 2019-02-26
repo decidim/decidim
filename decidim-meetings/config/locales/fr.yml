@@ -389,7 +389,7 @@ fr:
           fields:
             email: E-mail
             name: Titre
-            sent_at: Envoyé à
+            sent_at: Envoyée à
             status: Statut
           status:
             accepted: Accepté (%{at})
