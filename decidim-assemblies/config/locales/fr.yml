@@ -29,7 +29,7 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'organisation
+        local_area: Lieu d'organisation
         meta_scope: Secteur géographique
         parent_id: Assemblée parentale
         participatory_processes_ids: Concertations associées
@@ -296,7 +296,7 @@ fr:
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Zone d'organisation
+        local_area: Lieu d'organisation
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-ce décidé
         private_space: Ceci est une assemblée privée
