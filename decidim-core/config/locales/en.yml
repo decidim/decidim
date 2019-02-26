@@ -30,7 +30,7 @@ en:
       decidim/user:
         current_password: Current password
         email: Email
-        name: Username
+        name: Nickname
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
@@ -39,11 +39,11 @@ en:
         one: Amendment
         other: Amendments
       decidim/user:
-        one: No users
-        other: Users
+        one: No participants
+        other: Participants
       decidim/user_group:
-        one: User group
-        other: User groups
+        one: Group
+        other: Groups
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -63,7 +63,7 @@ en:
         file_no_exists: File does not exist
         invalid_token: The provided token is invalid.
         no_token: No token provided
-        notice: Your data is currently in progress. You'll receive an email when it's complete.
+        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -73,15 +73,15 @@ en:
           title: Delete my account
         explanation: Please, fill in the reason you want to delete your account (optional).
       destroy:
-        error: There's been an error deleting your account.
-        success: Your account was deleted successfully.
+        error: There was a problem deleting your account.
+        success: Your account was successfully deleted.
       show:
         change_password: Change password
         update_account: Update account
       update:
-        error: There's been an error updating your account.
-        success: Your account was updated successfully.
-        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+        error: There was a problem updating your account.
+        success: Your account was successfully updated.
+        success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"
@@ -107,8 +107,8 @@ en:
       organization:
         update: "%{user_name} updated the organization settings"
       participatory_space_private_user:
-        create: "%{user_name} invited %{resource_name} to be a private user"
-        delete: "%{user_name} removed the user %{resource_name} as a private user"
+        create: "%{user_name} invited %{resource_name} to be a private participant"
+        delete: "%{user_name} removed the participant %{resource_name} as a private participant"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
@@ -121,30 +121,30 @@ en:
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
       user:
-        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
-        officialize: "%{user_name} officialized the user %{resource_name}"
-        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
-        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
+        invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the participant %{resource_name}"
+        remove_from_admin: "%{user_name} removed the participant %{resource_name} with role: %{role}"
+        unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
-        reject: "%{user_name} rejected the %{resource_name} user group verification"
-        verify: "%{user_name} verified the %{resource_name} user group"
-        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+        reject: "%{user_name} rejected the %{resource_name} group verification"
+        verify: "%{user_name} verified the group %{resource_name}"
+        verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
     amendments:
       accepted:
-        error: An error ocurred accepting the emendation, please try again later.
-        success: This emendation has been accepted successfully.
+        error: There was a problem accepting the amendment, please try again later.
+        success: This amendment has been successfully accepted.
       amendable:
         amended_by: Amended by
         button: Amend %{model_name}
-        promote_button: Promote to %{model_name}
-        error: There has been an error amending this resource.
+        promote_button: Publish as a new %{model_name}
+        error: There was a problem amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        promote_help_text: You can publish this amendment as an independent %{model_name}
         no_amenders: There are no amenders
         no_amendments: There are no amendments
         section_heading: Amendments (%{count})
       created:
-        error: An error ocurred creating this amendment, try again later
+        error: An error ocurred creating this amendment, please try again later
         success: The amendment has been created successfully
       emendation:
         actions:
@@ -159,8 +159,7 @@ en:
             This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
           rejected: |-
-            This emendation for the %{amendable_type} %{amendable_link}
-            was rejected on <strong>%{announcement_date}</strong>.
+            This amendment for the %{amendable_type} %{amendable_link} has been rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
             This amendment for the %{amendable_type} %{amendable_link}
             has been withdrawn by the author.
@@ -171,11 +170,11 @@ en:
         help_text: You are modifying the %{model_name}
         send: Send amendment
       rejected:
-        error: An error ocurred when rejecting this emendation, please try again later
-        success: The emendation has been rejected successfully
+        error: There was a problem rejecting this amendment, please try again later
+        success: The amendment has been successfully rejected
       promoted:
-        success: Emendation promoted successfully
-        error: There's been errors when promoting the emendation
+        success: The amendment has been successfully published as a new proposal
+        error: There was a problem publishing the amendment as a new proposal
       review:
         back: Back
         heading: Review the amendment
@@ -190,7 +189,7 @@ en:
       documents:
         related_documents: Related documents
       photos:
-        related_photos: Related photos
+        related_photos: Related images
     author:
       comments:
         one: comment
@@ -210,7 +209,7 @@ en:
       dummy_authorization_workflow:
         name: Dummy authorization workflow
       errors:
-        duplicate_authorization: A user is already authorized with the same data.
+        duplicate_authorization: A participant is already authorized with the same data.
       expired_at: Expired at %{timestamp}
       expires_at: Expires at %{timestamp}
       foo_authorization:
@@ -318,7 +317,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your short, unique identifier in %{organization}
+          nickname_help: Your alias (@nickname) in %{organization}
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -327,7 +326,7 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your short, unique identifier in %{organization}
+          nickname_help: Your alias (@nickname) in %{organization}
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -342,7 +341,7 @@ en:
           are_you_new?: New to the platform?
           register: Create an account
           sign_in_disabled: You can access with an external account
-          sign_up_disabled: Sign up is disabled, you can use an existing user to access
+          sign_up_disabled: Sign up is disabled, you can use an existing account to access
       shared:
         newsletter_modal:
           buttons:
@@ -373,7 +372,7 @@ en:
           publish_content: Publish content for you
           see_email: See your email
           see_name: See your name
-          see_username: See your username
+          see_username: See your nickname
           this_application_will_be_able_to: 'This application will be able to:'
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
@@ -390,48 +389,48 @@ en:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: New amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new amendment</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: New amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new amendment</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: An amendment from %{emendation_author_nickname} has been published as a new proposal
+            notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been published as a new proposal by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: An amendment from %{emendation_author_nickname} has been published as a new proposal
+            notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been published as a new proposal by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -451,15 +450,15 @@ en:
         email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Great job! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_intro: Congratulations! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
           email_subject: 'You''ve earned a new badge: %{badge_name}!'
-          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+          notification_title: Congratulations! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_intro: Congratulations! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: You have received this notification because you made activity on our website.
           email_subject: You've reached level %{current_level} on the %{badge_name} badge!
-          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+          notification_title: Congratulations! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
@@ -504,11 +503,6 @@ en:
           email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> has been officialized.
-          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
-          email_subject: "%{nickname} has been officialized"
-          notification_title: The <a href="%{resource_path}">%{name} (%{nickname})</a>, who you are following, has been officialized.
     export_mailer:
       data_portability_export:
         click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
@@ -540,10 +534,10 @@ en:
     follows:
       create:
         button: Follow
-        error: There has been an error following this resource.
+        error: There was a problem following this resource.
       destroy:
         button: Stop following
-        error: There has been an error unfollowing this resource.
+        error: There was a problem unfollowing this resource.
     forms:
       current_file: Current file
       current_image: Current image
@@ -558,21 +552,21 @@ en:
           conditions:
             - Come here often
           description: This badge is granted when you visit the platform in a regular way. We like having you around here!
-          description_another: This user has connected for %{score} consecutive days at some point.
+          description_another: This participant has connected for %{score} consecutive days at some point.
           description_own: You have connected for %{score} consecutive days at some point.
           name: Continuity
           next_level_in: Connect for %{score} consecutive days to get to the next level!
-          unearned_another: This user hasn't signed in for more than one consecutive day.
+          unearned_another: This participant hasn't signed in for more than one consecutive day.
           unearned_own: You haven't connected for more than one consecutive day.
         followers:
           conditions:
             - Being active and following other people will surely make other people follow you.
           description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
-          description_another: This user has %{score} followers.
-          description_own: "%{score} users are following you."
+          description_another: This participant has %{score} followers.
+          description_own: "%{score} people are following you."
           name: Followers
-          next_level_in: Get %{score} more users to follow you to reach the next level!
-          unearned_another: This user doesn't have any followers yet.
+          next_level_in: Get %{score} more people to follow you to reach the next level!
+          unearned_another: This participant doesn't have any followers yet.
           unearned_own: You've got no followers yet.
         index:
           badge_title: "%{name} badge"
@@ -585,67 +579,67 @@ en:
             - Customize, if you want, the message you are sending
             - You’ll level up by sending invitations and getting them registered.
           description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This user has invited %{score} users.
-          description_own: You have invited %{score} users.
+          description_another: This participant has invited %{score} people.
+          description_own: You have invited %{score} people.
           name: Invitations
-          next_level_in: Invite %{score} more users to reach the next level!
-          unearned_another: This user hasn't invited any user yet.
-          unearned_own: You have invited no users yet.
+          next_level_in: Invite %{score} more people to reach the next level!
+          unearned_another: This participant has not yet invited anyone.
+          unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     group_admins:
       actions:
-        are_you_sure: Are you sure? This won't remove the user from the group.
+        are_you_sure: Are you sure? This won't remove the participant from the group.
         demote_admin: Remove admin
       demote:
-        error: There was an error removing this user from the admins list
-        success: User removed from admin successfully
+        error: There was a problem removing this participant from the admins list
+        success: Participant successfully removed from admin
       index:
         current_admins: 'Current admins:'
         manage_admins: Manage admins
     group_invites:
       accept:
-        error: There was an error accepting this invitation
-        success: Invitation accepted successfully
+        error: There was a problem accepting this invitation
+        success: Invitation successfully accepted
       accept_invitation: Accept
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
         invite: Invite
-        invite_user: Invite a user
+        invite_user: Invite a participant
       invite:
-        error: There was an error inviting this user
-        success: User invited successfully
+        error: There was a problem inviting this participant
+        success: Participant successfully invited
       reject:
-        error: There was an error rejecting this invitation
-        success: Invitation rejected successfully
+        error: There was a problem rejecting this invitation
+        success: Invitation successfully rejected
       reject_invitation: Reject
     group_members:
       accept:
-        error: There was an error accepting this join request
-        success: Join request accepted successfully
+        error: There was a problem accepting this join request
+        success: Join request successfully accepted
       actions:
         are_you_sure: Are you sure?
         promote_to_admin: Make admin
-        remove_from_group: Remove user
+        remove_from_group: Remove participant
       index:
         current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
       promote:
-        error: There was an error promoting this user
-        success: User promoted successfully
+        error: There was a problem promoting this participant
+        success: Participant promoted successfully
       reject:
-        error: There was an error rejecting this join request
-        success: Join request rejected successfully
+        error: There was a problem rejecting this join request
+        success: Join request successfully rejected
       remove:
-        error: There was an error removing this user from the group
-        success: User removed from the group successfully
+        error: There was a problem removing this participant from the group
+        success: Participant successfully removed from the group
     groups:
       actions:
         are_you_sure: Are you sure?
       create:
-        error: There has been a problem creating the group
-        success: Group created successfully
+        error: There was a problem creating the group
+        success: Group successfully created
       edit:
         edit_user_group: Edit group
         update_user_group: Update group
@@ -654,14 +648,14 @@ en:
         email_help: Email of your organization, association, collective, group, etc.
         fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
         name_help: Name of your organization, association, collective, group, etc.
-        nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        nickname_help: Nickname of your organization, association, collective, group, etc. Do not use spaces nor accents.
         phone_help: Do not use dashes nor spaces
       join:
-        error: There has been a problem joining the group
-        success: Join request created successfully. An admin will review your request before accepting you to the group.
+        error: There was a problem joining the group
+        success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
-        error: There has been a problem leaving the group
-        success: Group left successfully.
+        error: There was a problem leaving the group
+        success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
         accept_request: Accept
@@ -676,8 +670,8 @@ en:
         creator: Creator
         member: Member
       update:
-        error: There has been a problem updating the group
-        success: Group updated successfully
+        error: There was a problem updating the group
+        success: Group successfully updated
     help:
       main_topic:
         default_page:
@@ -712,9 +706,9 @@ en:
         scope_type_presenter:
           not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
-      expired_session: The current impersonation session has expired.
+      expired_session: The current administration session of a participant has expired.
     members:
-      no_members: This user groups doesn't have any member yet.
+      no_members: This group doesn't have any members yet.
     menu:
       help: Help
       home: Home
@@ -750,17 +744,17 @@ en:
       download:
         csv: Download data (csv)
       followers:
-        description: Number of users that follow this participation space
+        description: Number of participants that follow this participation space
         object: followers
         title: Followers
       participants:
-        description: Number of active user in organization
+        description: Number of active participants in organization
         object: participants
         title: Participants
       users:
-        description: Number of user in organization
-        object: users
-        title: Users
+        description: Number of participants in organization
+        object: participants
+        title: Participants
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
@@ -769,7 +763,7 @@ en:
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
-        error: There's been an error unsubscribing
+        error: There was a problem unsubscribing
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
@@ -777,7 +771,7 @@ en:
       unathorized: Sorry, this link is no longer available
       update:
         error: Something wrong happened
-        success: Newsletter settings updated successfully
+        success: Newsletter settings successfully updated
     newsletters_opt_in_mailer:
       notify:
         body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
@@ -800,8 +794,8 @@ en:
         send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
-        error: There's been an error updating your notifications settings.
-        success: Your notifications settings were updated successfully.
+        error: There was a problem updating your notifications settings.
+        success: Your notifications settings were successfully updated.
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
@@ -866,7 +860,7 @@ en:
           link: Show all statistics
       terms_and_conditions:
         accept:
-          error: There's been an error while accepting the terms and conditions.
+          error: There was a problem accepting the terms and conditions.
           success: Great! You have accepted the terms and conditions.
         form:
           agreement: I agree this terms
@@ -885,10 +879,10 @@ en:
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
     profile:
-      deleted: Deleted user
+      deleted: Participant deleted
       view: View
     profiles:
-      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
+      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
         activity: Activity
@@ -909,7 +903,7 @@ en:
         edit_profile: Edit profile
         edit_user_group: Edit group profile
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
-        invite_user: Invite user
+        invite_user: Invite participant
         join_user_group: Request to join group
         leave_user_group: Leave group
         manage_user_group_admins: Manage admins
@@ -993,10 +987,10 @@ en:
         share: Share
         share_link: Share link
       version_author:
-        deleted: Deleted user
+        deleted: Deleted participant
     user_activity:
       index:
-        no_activities_warning: This user hasn't had any activity yet.
+        no_activities_warning: This participant hasn't had any activity yet.
     user_interests:
       show:
         no_scopes: This organization doesn't have any scope yet!
@@ -1004,7 +998,7 @@ en:
         select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:
-        error: There was an error while updating your interests.
+        error: There was a problem updating your interests.
         success: Your interests have been successfully updated.
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
@@ -1029,7 +1023,7 @@ en:
     invitations:
       edit:
         header: Finish creating your account
-        nickname_help: Your unique identifier in %{organization}.
+        nickname_help: Your nickname in %{organization}.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
       invitation_removed: Your invitation was removed.
@@ -1045,7 +1039,7 @@ en:
       confirmation_instructions:
         action: Confirm my account
         greeting: Welcome %{recipient}!
-        instruction: 'You can confirm your account email through the link below:'
+        instruction: 'You can confirm your email account through the link below:'
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
@@ -1060,10 +1054,10 @@ en:
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
-        invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
+        invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
-        someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
+        someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
         subject: You've been invited to manage %{organization}
@@ -1105,10 +1099,10 @@ en:
       no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
       send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
-      updated: Your password has been changed successfully. You are now signed in.
-      updated_not_active: Your password has been changed successfully.
+      updated: Your password has been successfully changed. You are now signed in.
+      updated_not_active: Your password has been successfully changed.
     registrations:
-      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
+      destroyed: Your account has been successfully cancelled. We hope to see you again soon.
       edit:
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
@@ -1125,7 +1119,7 @@ en:
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
       signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
       update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
-      updated: Your account has been updated successfully.
+      updated: Your account has been successfully updated.
     sessions:
       already_signed_out: Signed out successfully.
       new:
@@ -1149,7 +1143,7 @@ en:
         resend_unlock_instructions: Resend unlock instructions
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
-      unlocked: Your account has been unlocked successfully. Please sign in to continue.
+      unlocked: Your account has been successfully unlocked. Please sign in to continue.
   doorkeeper:
     scopes:
       public: Your public information.
@@ -1195,7 +1189,7 @@ en:
         sign_up: Sign Up
       impersonation_warning:
         close_session: Close session
-        description_html: You are impersonating the user <b>%{user_name}</b>.
+        description_html: You are managing the participant <b>%{user_name}</b>.
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Mark all as read
@@ -1213,7 +1207,7 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
-        title: User settings
+        title: Participant settings
         user_groups: Groups
       widget:
         see_more: See more
