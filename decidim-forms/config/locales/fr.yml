@@ -29,7 +29,7 @@ fr:
             remove: Retirer
             statement: Déclaration
           edit:
-            save: sauvegarder
+            save: Sauvegarder
             title: Titre
           form:
             add_question: Ajouter une question
