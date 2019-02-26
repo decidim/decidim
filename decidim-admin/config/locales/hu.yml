@@ -36,6 +36,7 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
+        alert_color: Éber
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
@@ -62,11 +63,15 @@ hu:
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
+        primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
+        secondary_color: Másodlagos
         show_statistics: Statisztikák megjelenítése
+        success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
         user_groups_enabled: Felhasználói csoportok engedélyezése
+        warning_color: Figyelem
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -506,6 +511,7 @@ hu:
         edit:
           update: Frissítés
         form:
+          colors_title: Szervezet színei
           cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
