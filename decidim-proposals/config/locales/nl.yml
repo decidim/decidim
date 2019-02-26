@@ -28,8 +28,15 @@ nl:
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
+      proposals_import:
+        import_proposals: Voorstellen importeren
+        keep_authors: Houd originele auteurs
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ nl:
             save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: odt
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
-            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Voorgestelde formaten zijn: Markdown'
+            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Gestuurde indelingen zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Upload document
           publish:
