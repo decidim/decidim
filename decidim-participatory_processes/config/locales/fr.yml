@@ -13,7 +13,7 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Espace d'organisation
+        local_area: Lieu d'organisation
         meta_scope: Secteur géographique
         participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
@@ -349,7 +349,7 @@ fr:
       show:
         developer_group: Organisateur
         end_date: Date de fin
-        local_area: Espace d'organisation
+        local_area: Lieu d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités de participation
         private_space: Ceci est une concertation privée
