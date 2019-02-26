@@ -110,12 +110,12 @@ fr:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
-        create: "%{user_name} a créé le filtre géographique %{resource_name}"
-        create_with_parent: "%{user_name} a créé le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
-        delete: "%{user_name} a supprimé le filtre géographique %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
-        update: "%{user_name} a mis à jour le filtre géographique %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
+        create: "%{user_name} a créé le secteur %{resource_name}"
+        create_with_parent: "%{user_name} a créé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        delete: "%{user_name} a supprimé le secteur %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        update: "%{user_name} a mis à jour le secteur %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -698,9 +698,9 @@ fr:
         area_type_presenter:
           not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le filtre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de filtres géographiques n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de secteurs n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
@@ -923,8 +923,8 @@ fr:
         cancel: Annuler
         choose: Sélectionner
         title: Sélectionnez %{field}
-      prompt: Sélectionnez un filtre géographique
-      scopes: Filtres géographiques
+      prompt: Sélectionnez un secteur
+      scopes: Secteurs
     search:
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
@@ -987,7 +987,7 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de filtres géographiques !
+        no_scopes: Cette organisation n'a pas encore de secteurs !
         select_your_interests: Sélectionnez les thématiques qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
