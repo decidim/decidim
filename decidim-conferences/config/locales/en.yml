@@ -12,8 +12,8 @@ en:
         description: Description
         hashtag: Hashtag
         hero_image: Home image
-        participatory_processes_ids: Related Participatory processes
-        promoted: Promoted
+        participatory_processes_ids: Related participatory processes
+        promoted: Highlighted
         published_at: Published at
         scope_id: Scope
         scopes_enabled: Scopes enabled
@@ -58,21 +58,21 @@ en:
           title: Duplicate conference
       conference_publications:
         create:
-          error: There was an error publishing this conference.
-          success: Conference published successfully.
+          error: There was a problem publishing this conference.
+          success: Conference successfully published.
         destroy:
-          error: There was an error unpublishing this conference.
-          success: Conference unpublished successfully.
+          error: There was a problem unpublishing this conference.
+          success: Conference successfully unpublished.
       conference_registration:
         confirm:
-          error: There was an error when confirm this conference registration.
-          success: Conference registration confirmed successfully.
+          error: There was a problem confirming this conference registration.
+          success: Conference registration successfully confirmed.
       conference_speakers:
         create:
-          error: There was an error adding a speaker for this conference.
-          success: Speaker created successfully for this conference.
+          error: There was a problem adding a speaker to this conference.
+          success: Conference speaker successfully created.
         destroy:
-          success: Speaker deleted successfully for this conference.
+          success: Conference speaker successfully deleted.
         edit:
           title: Update conference speaker.
           update: Update
@@ -82,29 +82,29 @@ en:
           create: Create
           title: New conference speaker.
         update:
-          error: There was an error updating the speaker for this conference.
-          success: Speaker updated successfully for this conference.
+          error: There was a problem updating this conference speaker.
+          success: Conference speaker successfully updated.
       conference_user_roles:
         create:
-          error: There was an error adding a user for this conference.
-          success: User added successfully to this conference.
+          error: There was a problem adding an admin to this conference.
+          success: Conference admin successfully added.
         destroy:
-          success: User removed successfully from this conference.
+          success: Conference admin successfully removed.
         edit:
-          title: Update conference user.
+          title: Update conference admin.
           update: Update
         index:
-          conference_admins_title: conference users
+          conference_admins_title: conference admins
         new:
           create: Create
-          title: New conference user.
+          title: New conference admin.
         update:
-          error: There was an error updated a user for this conference.
-          success: User updated successfully for this conference.
+          error: There was a problem updating this conference admin.
+          success: Conference admin successfully updated.
       conferences:
         create:
-          error: There was an error creating a new conference.
-          success: Conference created successfully.
+          error: There was a problem creating this conference.
+          success: Conference successfully created.
         edit:
           update: Update
         exports:
@@ -118,18 +118,18 @@ en:
           create: Create
           title: Conference
         update:
-          error: There was an error when updating this conference.
-          success: Conference updated successfully.
+          error: There was a problem updating this conference.
+          success: Conference successfully updated.
       conferences_copies:
         create:
-          error: There was an error when duplicating this conference.
-          success: Conference duplicated successfully.
+          error: There was a problem duplicating this conference.
+          success: Conference successfully duplicated.
       media_links:
         create:
-          error: There was an error creating a new media link.
-          success: Media Link created successfully.
+          error: There was a problem creating a new media link.
+          success: Media Link successfully created.
         destroy:
-          success: Media Link deleted successfully.
+          success: Media Link successfully deleted.
         edit:
           title: Update media link.
           update: Update
@@ -139,8 +139,8 @@ en:
           create: Create
           title: Media Link
         update:
-          error: There was an error when updating this media link.
-          success: Media Link updated successfully.
+          error: There was a problem updating this media link.
+          success: Media Link successfully updated.
       menu:
         conferences: Conferences
         conferences_submenu:
@@ -149,7 +149,7 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          conference_admins: Conference users
+          conference_admins: Conference admins
           conference_invites: Invites
           conference_speakers: Speakers
           diploma: Certificate of Attendance
@@ -164,7 +164,7 @@ en:
         conference:
           fields:
             created_at: Created at
-            promoted: Promoted
+            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:
@@ -178,7 +178,7 @@ en:
             email: Email
             name: Name
             role: Role
-          name: Conference User
+          name: Conference Admin
           roles:
             admin: Administrator
             collaborator: Collaborator
@@ -209,10 +209,10 @@ en:
           name: Registration type
       partners:
         create:
-          error: There was an error adding a partner for this conference.
-          success: Partner added successfully to this conference.
+          error: There was a problem adding a partner for this conference.
+          success: Conference partner successfully added.
         destroy:
-          success: Partner removed successfully from this conference.
+          success: Conference partner successfully removed.
         edit:
           title: Update partner.
           update: Update
@@ -220,21 +220,21 @@ en:
           create: Create
           title: New partner
         update:
-          error: There was an error updated a partner for this conference.
-          success: Partner updated successfully for this conference.
+          error: There was a problem updating a partner for this conference.
+          success: Conference partner successfully updated.
       registration_type_publications:
         create:
-          error: There was an error publishing this registration type.
-          success: Registration type published successfully.
+          error: There was a problem publishing this registration type.
+          success: Registration type successfully published.
         destroy:
-          error: There was an error unpublishing this registration type.
-          success: Registration type unpublished successfully.
+          error: There was a problem unpublishing this registration type.
+          success: Registration type successfully unpublished.
       registration_types:
         create:
-          error: There was an error adding a registration type for this conference.
-          success: Registration type added successfully to this conference.
+          error: There was a problem adding a registration type for this conference.
+          success: Conference registration type successfully added.
         destroy:
-          success: Registration type removed successfully from this conference.
+          success: Conference registration type successfully removed.
         edit:
           title: Update registration type.
           update: Update
@@ -242,8 +242,8 @@ en:
           create: Create
           title: New registration type
         update:
-          error: There was an error updated a registration type for this conference.
-          success: Registration type updated successfully for this conference.
+          error: There was a problem updating a registration type for this conference.
+          success: Conference registration type successfully updated.
       titles:
         conferences: Conferences
     admin_log:
@@ -260,14 +260,14 @@ en:
         update: "%{user_name} updated the %{resource_name} speaker in the %{space_name} conference"
       conference_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+        delete: "%{user_name} removed the admin %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
       conferences:
         conference_registration:
           confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
         partner:
           create: "%{user_name} created %{resource_name} to the %{space_name} conference"
-          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+          delete: "%{user_name} removed the admin %{resource_name} from the %{space_name} conference"
           update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
         registration_type:
           create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
@@ -291,14 +291,14 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
           create:
-            error: There's been a problem while inviting the user to join the conference.
-            success: User successfully invited to join the conference.
+            error: There was a problem inviting the participant to join the conference.
+            success: Participant successfully invited to join the conference.
           form:
             attendee_type: Attendee type
-            existing_user: Existing user
-            invite_explanation: The user will be invited to join the conference and to the organization as well.
-            non_user: Non existing user
-            select_user: Select user
+            existing_user: Existing participant
+            invite_explanation: The participant will be invited to join the conference and to the organization as well.
+            non_user: Non existing participant
+            select_user: Select participant
           index:
             filter:
               accepted: Accepted
@@ -306,22 +306,22 @@ en:
               rejected: Rejected
               sent: Sent
             filter_by: Filter by
-            invite_attendee: Invite Attendee
+            invite_attendee: Invite participant
             invites: Invites
             search: Search
           new:
-            explanation: The user will be invited to join a conference. If the email is not registered they will be invited to the organization as well.
+            explanation: The participant will be invited to join a conference. If her email is not registered she will be invited to the organization as well.
             invite: Invite
-            new_invite: Invite user
+            new_invite: Invite participant
         conference_registrations:
           index:
             registrations: Registrations
         conference_speakers:
           form:
-            existing_user: Existing user
-            non_user: Non user
-            select_user: Select user
-            user_type: User type
+            existing_user: Existing participant
+            non_user: Non participant
+            select_user: Select participant
+            user_type: Participant type
           index:
             search: Search
         conferences:
@@ -364,7 +364,7 @@ en:
           confirm: Confirm
         show:
           free: Free
-          going: Going
+          going: Attending
           no_slots_available: No slots available
           registration: Registration
       conference_program:
@@ -384,17 +384,17 @@ en:
         pending_validation:
           confirmation_pending: You will receive the confirmation shortly
           details: 'You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:'
-          pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending to be confirmed.
+          pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending confirmation.
       conference_registrations:
         create:
-          invalid: There's been a problem joining this conference.
-          success: You have joined the conference successfully.
+          invalid: There was a problem joining this conference.
+          success: You have successfully joined the conference.
         decline_invitation:
-          invalid: There's been a problem declining the invitation.
-          success: You have declined the invitation successfully.
+          invalid: There was a problem declining the invitation.
+          success: You have successfully declined the invitation.
         destroy:
-          invalid: There's been a problem leaving this conference.
-          success: You have left the conference successfully.
+          invalid: There was a problem leaving this conference.
+          success: You have successfully left the conference.
       conference_speaker:
         go_to_twitter: Go to Twitter
         more_info: more info
@@ -427,7 +427,7 @@ en:
           confirmation:
             subject: Your conference's registration has been confirmed
           pending_validation:
-            subject: Your conference's registration is pending to be confirmed
+            subject: Your conference's registration is pending confirmation
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
@@ -451,7 +451,7 @@ en:
             email: Email
             name: Name
             registration_type: Registration type
-            state: State
+            state: Status
             states:
               confirmed: Confirmed
               pending: Pending
@@ -463,10 +463,10 @@ en:
       photo:
         show:
           close_modal: Close modal
-          photo: Photo
+          photo: Image
       photos_list:
         show:
-          related_photos: Photos
+          related_photos: Images
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
@@ -483,9 +483,9 @@ en:
         details: Details
         introduction: Introduction
         objectives: Objectives
-        related_assemblies: Related Assemblies
+        related_assemblies: Related assemblies
         related_consultations: Related Consultations
-        related_participatory_processes: Related Participatory Processes
+        related_participatory_processes: Related participatory processes
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -494,7 +494,7 @@ en:
         endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
-        orders_count: Votes
+        orders_count: Supports
         pages_count: Pages
         posts_count: Posts
         projects_count: Projects
@@ -502,7 +502,7 @@ en:
         results_count: Results
         surveys_count: Surveys
         users_count: Participants
-        votes_count: Votes
+        votes_count: Supports
     events:
       conferences:
         conference_registration_validation_pending:
@@ -554,7 +554,7 @@ en:
         conference:
           take_part: Take part
         index:
-          promoted_conferences: Promoted conferences
+          promoted_conferences: Highlighted conferences
         order_by_conferences:
           conferences:
             one: "%{count} conference"
