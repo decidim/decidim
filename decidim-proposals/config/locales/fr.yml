@@ -370,8 +370,8 @@ fr:
             merge_button: Fusionner
             select_component: Sélectionnez un composant
             selected: choisi
-            split: Propositions fractionnées
-            split_button: Divisé
+            split: Fractionner la proposition
+            split_button: Diviser
             title: Propositions
             update: Mettre à jour
           new:
