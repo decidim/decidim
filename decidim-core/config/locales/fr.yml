@@ -330,7 +330,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
-          newsletter_title: Autorisation de contact
+          newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_in: S'identifier
           sign_up: S'inscrire
@@ -355,7 +355,7 @@ fr:
             uncheck: Non merci, je m'informerai autrement
           notice: |-
             La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
-          title: La newsletter
+          title: Newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -753,7 +753,7 @@ fr:
         title: Utilisateurs
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        note: Vous avez reçu cet email parce que vous êtes abonné à la newsletter de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
@@ -767,24 +767,24 @@ fr:
       unathorized: Désolé, ce lien n'est plus disponible
       update:
         error: Désolé, un problème est survenu
-        success: Paramètres de newsletter mis à jour avec succès
+        success: Abonnement à la newsletter mis à jour avec succès
     newsletters_opt_in_mailer:
       notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les actualités de %{organization_name}.
         body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
-        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
-        button: Oui, je veux continuer à recevoir des informations pertinentes
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les actualités de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
-        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+        subject: Voulez-vous continuer à recevoir des actualités de %{organization_name} ?
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
-        newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
-        newsletters: Bulletins d'information
+        newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
+        newsletters: Newsletter
         own_activity: Ma propre activité, par exemple lorsque quelqu'un commente ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
         send_notifications_by_email: Envoyer des notifications par e-mail
