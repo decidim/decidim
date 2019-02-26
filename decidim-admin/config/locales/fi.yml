@@ -36,7 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
-        alert_color: hälytys
+        alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
@@ -63,11 +63,11 @@ fi:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
-        primary_color: ensisijainen
+        primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
-        secondary_color: toissijainen
+        secondary_color: Toissijainen
         show_statistics: Näytä tilastot
-        success_color: Menestys
+        success_color: Onnistuminen
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
