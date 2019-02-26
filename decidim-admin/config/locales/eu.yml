@@ -36,6 +36,7 @@ eu:
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
       organization:
+        alert_color: Alerta
         badges_enabled: Gaitu txapak
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
@@ -62,11 +63,15 @@ eu:
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
         omnipresent_banner_url: URL
+        primary_color: Lehen
         reference_prefix: Erreferentzia-aurrizkia
+        secondary_color: Bigarren
         show_statistics: Erakutsi estatistikak
+        success_color: Arrakasta
         tos_version: Zerbitzu-baldintzak bertsioa
         twitter_handler: Twitter kudeatzailea
         user_groups_enabled: Gaitu erabiltzaileen taldeak
+        warning_color: Abisua
         youtube_handler: YouTube kudeatzailea
       scope:
         code: Kodea
@@ -506,6 +511,7 @@ eu:
         edit:
           update: Eguneratu
         form:
+          colors_title: Antolaketa koloreak
           cta_button_path_help: 'Orrialde nagusira deitzeko dei-botoirako esteka gainidatzi dezakezu. Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
           header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
