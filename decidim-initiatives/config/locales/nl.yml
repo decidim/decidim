@@ -13,6 +13,7 @@ nl:
           any: Gemengd
           offline: Face to face
           online: Online
+        state: Staat
         title: Titel
       initiative_author:
         address: Adres
@@ -135,7 +136,19 @@ nl:
           page: "<p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan worden gepromoot door middel van het verzamelen van (digitale) handtekeningen voor de organisatie om een ​​specifieke actie uit te voeren (een verordening wijzigen, een project initiëren , verander de naam van een afdeling of een straat, enz.).</p> <p>De initiatiefnemers van een initiatief kunnen hun doelstellingen definiëren, steun verzamelen, debatteren, verspreiden en vergaderingspunten definiëren waar handtekeningen kunnen worden verzameld bij de deelnemers of debatten kunnen worden geopend voor andere deelnemers.</p> <p>Voorbeelden: een initiatief kan handtekeningen verzamelen om een ​​raadpleging bijeen te roepen onder alle mensen van een organisatie, of om een ​​vergadering te creëren of bijeen te roepen, of om een ​​proces van budgetverhoging op te zetten voor een territorium of een deel van de organisatie. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen aan deze vraag toevoegen en deze verder brengen in de organisatie.</p>\n"
           title: Wat zijn initiatieven?
     initiatives:
+      actions:
+        answer: Antwoord
       admin:
+        answers:
+          edit:
+            title: Antwoord voor %{title}
+            answer: Antwoord
+          info_initiative:
+            created_at: Gemaakt bij
+            description: Omschrijving
+            initiative_votes_count: Stemmen tellen
+            initiatives: initiatieven
+            state: Staat
         committee_requests:
           index:
             approve: Goedkeuren
@@ -272,8 +285,9 @@ nl:
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
+          choose_html: Ik wil een <strong>%{title}</strong>
           more_information: "(Meer informatie)"
-          select: Kiezen
+          select: Ik wil dit initiatief promoten
           select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee het burgerschap kan ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
           continue: Doorgaan met
@@ -347,6 +361,11 @@ nl:
           unfold: Uitvouwen
         index_header:
           new_initiative: Nieuw initiatief
+        interactions:
+          comments_count:
+            count:
+              one: Commentaar
+              other: Comments
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meest gereageerd
@@ -354,21 +373,23 @@ nl:
           random: Willekeurig
           recent: Meest recente
         result:
-          initiative_accepted_reason: Dit initiatief is geaccepteerd omdat
+          answer_title:
+            accepted: Dit voorstel is geaccepteerd omdat
+            created: Dit voorstel is gemaakt
+            discarded: Dit voorstel is genegeerd omdat
+            published: Dit voorstel is gepubliceerd omdat
+            rejected: Dit voorstel is afgewezen omdat
+            validating: Dit voorstel wordt beoordeeld
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan ondersteuning.
         show:
           any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
+          follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
           offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
         signature_identities:
           select_identity: Selecteer gebruikers-ID
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"
-        statistics:
-          assistants_count_title: assistenten
-          comments_count_title: Reacties
-          meetings_count_title: Events
-          supports_count_title: handtekeningen
         supports:
           title: Lijst van handtekeningen
         vote_cabin:
@@ -381,6 +402,8 @@ nl:
           count:
             one: HANDTEKENING
             other: HANDTEKENINGEN
+          most_popular_initiative: Meest populaire initiatief
+          need_more_votes: Meer handtekeningen nodig
       initiatives_mailer:
         creation_subject: Je burgerinitiatief '%{title}' is gemaakt
         initiative_link:
@@ -421,6 +444,7 @@ nl:
           components: Onderdelen
           information: Informatie
       initiative_creation_header:
+        back: Terug
         fill_data: creëren
         finish: Voltooien
         previous_form: Begin
