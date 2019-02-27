@@ -313,6 +313,10 @@ nl:
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met
+          date_select:
+            day: Dag
+            month: Maand
+            year: Jaar
           help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
         finish:
           back_to_initiative: Terug naar initiatief
@@ -395,7 +399,7 @@ nl:
         vote_cabin:
           already_voted: Al getekend
           supports_required: "%{total_supports} handtekeningen vereist"
-          verification_required: Verifieer uw identiteit om het initiatief te ondertekenen
+          verification_required: Verifieer uw account om het initiatief te ondertekenen
           vote: Teken
           votes_blocked: Ondertekenen uitgeschakeld
         votes_count:
