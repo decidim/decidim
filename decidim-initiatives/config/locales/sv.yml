@@ -313,6 +313,10 @@ sv:
       initiative_signatures:
         fill_personal_data:
           continue: Fortsätta
+          date_select:
+            day: Dag
+            month: Månad
+            year: År
           help: Vänligen fyll i följande fält med dina personuppgifter för att underteckna initiativet
         finish:
           back_to_initiative: Tillbaka till initiativet
@@ -395,7 +399,7 @@ sv:
         vote_cabin:
           already_voted: Redan undertecknad
           supports_required: "%{total_supports} signaturer krävs"
-          verification_required: Verifiera din identitet för att underteckna initiativet
+          verification_required: Verifiera ditt konto för att underteckna initiativet
           vote: Signera
           votes_blocked: Signering inaktiverad
         votes_count:
