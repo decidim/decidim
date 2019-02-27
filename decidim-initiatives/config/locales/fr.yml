@@ -313,6 +313,10 @@ fr:
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
+          date_select:
+            day: journée
+            month: Mois
+            year: Année
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
         finish:
           back_to_initiative: Retour à l'initiative
@@ -395,7 +399,7 @@ fr:
         vote_cabin:
           already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"
-          verification_required: Vérifiez votre identité pour signer l'initiative
+          verification_required: Vérifiez votre compte pour signer l'initiative
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
