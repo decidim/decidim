@@ -313,6 +313,10 @@ pt-BR:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
+          date_select:
+            day: Dia
+            month: Mês
+            year: Ano
           help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
         finish:
           back_to_initiative: De volta à iniciativa
@@ -395,7 +399,7 @@ pt-BR:
         vote_cabin:
           already_voted: Já assinadas
           supports_required: "São necessárias %{total_supports} assinaturas"
-          verification_required: Verifique sua identidade para assinar a iniciativa
+          verification_required: Confirme sua conta para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:
