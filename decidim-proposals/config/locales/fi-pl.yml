@@ -29,8 +29,8 @@ fi-pl:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
       proposals_import:
-        import_proposals: Tuontiehdotukset
-        keep_authors: Säilytä alkuperäiset tekijät
+        import_proposals: Tuo ehdotuksia
+        keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
         participatory_text:
@@ -311,10 +311,10 @@ fi-pl:
             title: ESIKATSELE EHDOTUSAINEISTOA
           new_import:
             accepted_mime_types:
-              md: hinnanalennus
-              odt: odt
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
-            document_legend: 'Lisää alle 2 Mt: n kokoinen asiakirja, jokainen osa kunnes 3 tasoa syvennetään ehdotuksiin. Suportoidut tiedostomuodot ovat: %{valid_mime_types}'
+            document_legend: 'Lisää alle 2 Mt:n kokoinen tiedosto, josta jokainen osio kolmannelle tasolle saakka lisätään uusiksi ehdotuksiksi. Tuetut tiedostomuodot ovat: %{valid_mime_types}'
             title: LISÄÄ AINEISTO
             upload_document: Lataa aineisto
           publish:
