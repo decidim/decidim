@@ -313,6 +313,10 @@ it:
       initiative_signatures:
         fill_personal_data:
           continue: Continua
+          date_select:
+            day: Giorno
+            month: Mese
+            year: Anno
           help: Per favore, compila i seguenti campi con i tuoi dati personali per firmare l'iniziativa
         finish:
           back_to_initiative: Ritorno all'iniziativa
@@ -395,7 +399,7 @@ it:
         vote_cabin:
           already_voted: Già firmato
           supports_required: "%{total_supports} firme richieste"
-          verification_required: Verifica la tua identità per firmare l'iniziativa
+          verification_required: Verifica il tuo account per firmare l'iniziativa
           vote: Cartello
           votes_blocked: Firma disabilitata
         votes_count:
