@@ -313,6 +313,10 @@ es-MX:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
+          date_select:
+            day: Día
+            month: Mes
+            year: Año
           help: Por favor, rellene los siguientes campos con sus datos personales para firmar la iniciativa.
         finish:
           back_to_initiative: Volver a la iniciativa
@@ -395,7 +399,7 @@ es-MX:
         vote_cabin:
           already_voted: Ha sido firmado
           supports_required: "Se requieren %{total_supports} firmas"
-          verification_required: Verifica tu identidad para firmar la iniciativa.
+          verification_required: Verifica tu cuenta para firmar la iniciativa.
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
