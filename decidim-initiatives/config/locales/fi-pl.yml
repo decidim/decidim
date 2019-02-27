@@ -141,14 +141,14 @@ fi-pl:
       admin:
         answers:
           edit:
-            title: Vastaa kohtaan %{title}
+            title: Vastaus kohteelle %{title}
             answer: Vastaus
           info_initiative:
-            created_at: Luotu osoitteessa
+            created_at: Luonnin ajankohta
             description: Kuvaus
             initiative_votes_count: Äänten määrä
-            initiatives: aloitteita
-            state: Osavaltio
+            initiatives: Aloitteet
+            state: Tila
         committee_requests:
           index:
             approve: Hyväksy
@@ -285,9 +285,9 @@ fi-pl:
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
-          choose_html: Haluan luoda <strong>%{title}</strong>
+          choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
           more_information: "(Lisää tietoa)"
-          select: Haluan edistää tätä aloitetta
+          select: Haluan tukea tätä aloitetta
           select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaiset voivat osallistua viralliseen päätöksentekoon. Päättävät elimet, kuten kaupungin- tai kunnanvaltuusto, voivat tehdä toimenpiteitä, jotka vaikuttavat kansalaisten edun mukaisesti lainsäädäntöön. Millaisen aloitteen sinä haluat laatia?
         share_committee_link:
           continue: Jatka
@@ -313,6 +313,10 @@ fi-pl:
       initiative_signatures:
         fill_personal_data:
           continue: Jatka
+          date_select:
+            day: Päivä
+            month: Kuukausi
+            year: vuosi
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
         finish:
           back_to_initiative: Takaisin aloitteeseen
@@ -365,7 +369,7 @@ fi-pl:
           comments_count:
             count:
               one: Kommentti
-              other: Kommentit
+              other: Kommenttia
         orders:
           label: 'Lajittele aloitteita:'
           most_commented: Eniten kommentoidut
@@ -376,14 +380,14 @@ fi-pl:
           answer_title:
             accepted: Tämä ehdotus on hyväksytty, koska
             created: Tämä ehdotus on luotu
-            discarded: Tämä ehdotus on hylätty, koska
-            published: Tämä ehdotus julkaistaan, koska
+            discarded: Tämä ehdotus jätetään huomiotta, koska
+            published: Tämä ehdotus on julkaistu, koska
             rejected: Tämä ehdotus on hylätty, koska
             validating: Tätä ehdotusta arvioidaan
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
           any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja palvelun ulkopuolella.
-          follow_description: Vastaanota ilmoitus, kun tässä aloitteessa on uutisia
+          follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
           offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan palvelun ulkopuolella.
         signature_identities:
           select_identity: Valitse käyttäjätunniste
@@ -395,7 +399,7 @@ fi-pl:
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
-          verification_required: Vahvista henkilöllisyytesi allekirjoittaaksesi aloite
+          verification_required: Vahvista tilisi allekirjoittamaan aloite
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
@@ -403,7 +407,7 @@ fi-pl:
             one: ALLEKIRJOITUS
             other: ALLEKIRJOITUSTA
           most_popular_initiative: Suosituin aloite
-          need_more_votes: Tarvitset lisää allekirjoituksia
+          need_more_votes: Tarvitsee lisää allekirjoituksia
       initiatives_mailer:
         creation_subject: Kansalaisaloitteesi "%{title}" on luotu
         initiative_link:
