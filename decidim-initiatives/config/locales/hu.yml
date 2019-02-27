@@ -313,6 +313,10 @@ hu:
       initiative_signatures:
         fill_personal_data:
           continue: Tovább
+          date_select:
+            day: Nap
+            month: Hónap
+            year: Év
           help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
         finish:
           back_to_initiative: Vissza a kezdeményezéshez
@@ -395,7 +399,7 @@ hu:
         vote_cabin:
           already_voted: Már aláírtad
           supports_required: "%{total_supports} aláírás szükséges"
-          verification_required: Személyazonosságod ellenőrzésére vagy szükség a kezdeményezés aláírásához
+          verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
