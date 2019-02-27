@@ -55,7 +55,7 @@ module Decidim
           if current_user.admin?
             attrs[:signature_start_date] = form.signature_start_date
             attrs[:signature_end_date] = form.signature_end_date
-            attrs[:offline_votes] = form.offline_votes
+            attrs[:offline_votes] = form.offline_votes if form.offline_votes
             attrs[:state] = form.state if form.state
 
             if initiative.published?
