@@ -196,7 +196,7 @@ fr:
       filters:
         active: Actives
         all: Tout
-        finished: Passées
+        finished: Archivées
         search: Rechercher
         state: État
         upcoming: À venir
