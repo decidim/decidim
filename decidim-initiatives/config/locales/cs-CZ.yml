@@ -319,6 +319,10 @@ cs:
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovat
+          date_select:
+            day: Den
+            month: Měsíc
+            year: Rok
           help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
         finish:
           back_to_initiative: Zpět na iniciativu
@@ -409,7 +413,7 @@ cs:
         vote_cabin:
           already_voted: Již jste podepsal
           supports_required: "Vyžaduje se %{total_supports} podpisů"
-          verification_required: Ověřte svou totožnost a podepište její iniciativu
+          verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
         votes_count:
