@@ -295,13 +295,13 @@ fr:
         html_content: Contenu HTML
         name: Bloc HTML
       last_activity:
-        name: Dernière Activité
-        title: Dernière Activité
+        name: Activités récentes
+        title: Activités récentes
         view_all: Voir tout
       metrics:
-        name: Historique de la participation sur %{organization}
+        name: Historique des statistiques de participation
       stats:
-        name: Statistiques de l'organisation
+        name: Statistiques de la participation en cours
       sub_hero:
         name: Bannière en dessous de l'image principale ("hero")
     core:
@@ -680,7 +680,7 @@ fr:
         no_activities_warning: Aucune activité
       all: Tous les types d'activité
       index:
-        last_activity: Dernière Activité
+        last_activity: Activités récentes
         resource_type: Type de contenu
     log:
       base_presenter:
@@ -830,7 +830,7 @@ fr:
           conferences_count: Conférences
           debates_count: Débats
           endorsements_count: Soutiens
-          headline: L'activité en chiffres sur %{organization}
+          headline: La participation en cours sur %{organization}
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
