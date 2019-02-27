@@ -313,6 +313,10 @@ tr:
       initiative_signatures:
         fill_personal_data:
           continue: Devam et
+          date_select:
+            day: Gün
+            month: Ay
+            year: Yıl
           help: Lütfen girişimi imzalamak için aşağıdaki alanları kişisel verilerinizle doldurun
         finish:
           back_to_initiative: Girişime geri dön
@@ -395,7 +399,7 @@ tr:
         vote_cabin:
           already_voted: Zaten imzalanmış
           supports_required: "%{total_supports} imza gerekli"
-          verification_required: Girişimi imzalamak için kimliğinizi doğrulayın
+          verification_required: Girişimi imzalamak için hesabınızı doğrulayın
           vote: İşaret
           votes_blocked: İmzalama devre dışı
         votes_count:
