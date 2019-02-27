@@ -316,7 +316,7 @@ fr:
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
-        export_calendar: Calendrier d'exportation
+        export_calendar: Ajouter à votre calendrier
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_events:
