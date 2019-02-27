@@ -313,6 +313,10 @@ de:
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
+          date_select:
+            day: Tag
+            month: Monat
+            year: Jahr
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
         finish:
           back_to_initiative: Zurück zur Initiative
@@ -395,7 +399,7 @@ de:
         vote_cabin:
           already_voted: Schon unterschrieben
           supports_required: "%{total_supports} Signaturen erforderlich"
-          verification_required: Bestätigen Sie Ihre Identität, um die Initiative zu unterzeichnen
+          verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterzeichnen
           vote: Schild
           votes_blocked: Die Anmeldung ist deaktiviert
         votes_count:
