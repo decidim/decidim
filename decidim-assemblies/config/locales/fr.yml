@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       assembly:
-        area_id: Zone d'application
+        area_id: Périmètre d'assemblée
         assembly_type: Type d'assemblée
         assembly_type_other: Autre type d'assemblée
         banner_image: Image d'en-tête
@@ -15,7 +15,7 @@ fr:
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
-        decidim_area_id: Zone d'application
+        decidim_area_id: Périmètre d'assemblée
         decidim_scope_id: Secteur
         description: Description
         developer_group: Groupe initiateur
@@ -60,7 +60,7 @@ fr:
         gender: Genre
         position: Rôle
       assembly_user_role:
-        email: E-mail
+        email: email
         name: Nom 
         role: Fonction
   activerecord:
@@ -183,7 +183,7 @@ fr:
             vice_president: Vice président
         assembly_user_role:
           fields:
-            email: E-mail
+            email: email
             name: Nom
             role: Fonction
           name: Utilisateur de l'assemblée
@@ -214,7 +214,7 @@ fr:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
-            select_an_area: Sélectionnez une zone d'application
+            select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionner l'assemblée parente
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
@@ -281,7 +281,7 @@ fr:
           member_of:
             member_of: Membre de
       show:
-        area: Zone d'application
+        area: Périmètre d'assemblée
         assembly_type: Type d'assemblée
         children: Assemblées
         closing_date: Date de clôture
