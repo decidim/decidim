@@ -50,6 +50,7 @@
 - **decidim-initiatives**: Change initiative type selection step view to display options using tabs. [\#4884](https://github.com/decidim/decidim/pull/4884)
 - **decidim-initiatives**: Change design of column containing signatures progress and actions buttons in initiative show. [\#4887](https://github.com/decidim/decidim/pull/4887)
 - **decidim-initiatives**: Change initiative creation wizard layout. [\#4888](https://github.com/decidim/decidim/pull/4888)
+- **decidim-initiatives**: Make changes related with initiatives signature and permissions ux. [\#4906](https://github.com/decidim/decidim/pull/4906)
 
 **Fixed**:
 

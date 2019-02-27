@@ -33,7 +33,7 @@ module Decidim
           return unless current_initiative
 
           initiative_type = current_initiative.scoped_type.type
-          initiative_type.collect_user_extra_fields?
+          initiative_type.collect_user_extra_fields? || initiative_type.validate_sms_code_on_votes?
         end
 
         private
