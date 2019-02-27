@@ -91,12 +91,6 @@ module Decidim
         commentable? && !component.current_settings.comments_blocked
       end
 
-      #WORKING HERE
-      def user_can_comment?(user)
-        # can_participate_in_space?(user) && can_participate_in_meeting?(user)
-        true
-      end
-
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         component.settings.resources_permissions_enabled

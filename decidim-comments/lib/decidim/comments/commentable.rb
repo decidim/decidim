@@ -39,11 +39,6 @@ module Decidim
           self.class.name
         end
 
-        # Public: Wheter de user can comment or not.
-        def user_can_comment?(_user)
-          true
-        end
-
         # Public: Defines which users will receive a notification when a comment is created.
         # This method can be overridden at each resource model to include or exclude
         # other users, eg. admins.
