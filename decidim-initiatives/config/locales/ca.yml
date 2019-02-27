@@ -313,6 +313,10 @@ ca:
       initiative_signatures:
         fill_personal_data:
           continue: Continua
+          date_select:
+            day: Dia
+            month: Mes
+            year: Curs
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa
         finish:
           back_to_initiative: Torna a la iniciativa
@@ -395,7 +399,7 @@ ca:
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "%{total_supports} suports obligatoris"
-          verification_required: Verifica la teva identitat per signar la iniciativa
+          verification_required: Verifiqueu el vostre compte per signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
