@@ -310,6 +310,10 @@ id:
       initiative_signatures:
         fill_personal_data:
           continue: Terus
+          date_select:
+            day: Hari
+            month: Bulan
+            year: Tahun
           help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
         finish:
           back_to_initiative: Kembali ke inisiatif
@@ -388,7 +392,7 @@ id:
         vote_cabin:
           already_voted: Sudah ditandatangani
           supports_required: "%{total_supports} tanda tangan diperlukan"
-          verification_required: Verifikasi identitas Anda untuk menandatangani inisiatif
+          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:
