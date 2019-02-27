@@ -7,17 +7,17 @@ cs:
         details: Další komentáře
       user:
         about: O
-        email: Tvůj e-mail
-        name: Tvé jméno
+        email: Váš email
+        name: Vaše jméno
         nickname: Přezdívka
         password: Heslo
         password_confirmation: Potvrzení hesla
         personal_url: Osobní adresa URL
-        remove_avatar: Odstranit avatar
+        remove_avatar: Odstranit avatara
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní součást
-      decidim/demoted_membership: Již není administrátor skupiny
+      decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
       decidim/gamification/level_up_event: Vy jste vyrovnali
       decidim/join_request_accepted_event: Připojit žádost přijatou
