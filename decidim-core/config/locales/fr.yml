@@ -988,7 +988,7 @@ fr:
       show:
         my_interests: Mes intérêts
         no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les thématiques qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
+        select_your_interests: Sélectionnez les thématiques qui vous intéressent pour recevoir les événements associés dans l'onglet "Calendrier" de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
