@@ -313,6 +313,10 @@ eu:
       initiative_signatures:
         fill_personal_data:
           continue: Jarraitu
+          date_select:
+            day: eguna
+            month: hilabetea
+            year: Urtea
           help: Mesedez, bete zure datu pertsonalak ondorengo eremuak ekimena sinatzeko
         finish:
           back_to_initiative: Ekimenera itzuli
@@ -395,7 +399,7 @@ eu:
         vote_cabin:
           already_voted: Dagoeneko sinatuta
           supports_required: "%{total_supports} sinadura beharrezkoa da"
-          verification_required: Egiaztatu zure identitatea ekimena sinatzeko
+          verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
