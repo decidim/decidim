@@ -319,6 +319,10 @@ pl:
       initiative_signatures:
         fill_personal_data:
           continue: dalej
+          date_select:
+            day: Dzień
+            month: Miesiąc
+            year: Rok
           help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę
         finish:
           back_to_initiative: Powrót do inicjatywy
@@ -409,7 +413,7 @@ pl:
         vote_cabin:
           already_voted: Już podpisane
           supports_required: "Wymagane %{total_supports} podpisów"
-          verification_required: Zweryfikuj swoją tożsamość, aby podpisać inicjatywę
+          verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
