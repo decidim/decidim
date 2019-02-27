@@ -50,6 +50,7 @@
 - **decidim-initiatives**: Change initiative type selection step view to display options using tabs. [\#4884](https://github.com/decidim/decidim/pull/4884)
 - **decidim-initiatives**: Change design of column containing signatures progress and actions buttons in initiative show. [\#4887](https://github.com/decidim/decidim/pull/4887)
 - **decidim-initiatives**: Change initiative creation wizard layout. [\#4888](https://github.com/decidim/decidim/pull/4888)
+- **decidim-initiatives**: Make changes related with initiatives signature and permissions ux. [\#4906](https://github.com/decidim/decidim/pull/4906)
 
 **Fixed**:
 
@@ -105,6 +106,7 @@
 - **decidim-debates** Correctly set the category in the admin debate form [\#4894](https://github.com/decidim/decidim/pull/4894)
 - **decidim-proposals**: Let admins keep orirignal authors when importing proposals from another component [\#4902](https://github.com/decidim/decidim/pull/4902)
 - **decidim-proposals**: Don't let users vote/follow withdrawn proposals [\#4909](https://github.com/decidim/decidim/pull/4909)
+- **decidim-participatory_processes**: Fix collaborator permissions so they can't `:read` anything [\#4899](https://github.com/decidim/decidim/pull/4899)
 
 **Removed**:
 

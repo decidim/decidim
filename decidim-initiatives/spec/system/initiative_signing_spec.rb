@@ -128,9 +128,9 @@ describe "Initiative signing", type: :system do
             visit decidim_initiatives.initiative_path(initiative)
 
             within ".view-side" do
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("VERIFY YOUR ACCOUNT")
             end
-            click_button "Verify your identity"
+            click_button "Verify your account"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -190,9 +190,9 @@ describe "Initiative signing", type: :system do
 
             within ".view-side" do
               expect(page).to have_content(signature_text(0))
-              expect(page).to have_content("VERIFY YOUR IDENTITY")
+              expect(page).to have_content("VERIFY YOUR ACCOUNT")
             end
-            click_button "Verify your identity"
+            click_button "Verify your account"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -293,7 +293,9 @@ describe "Initiative signing", type: :system do
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: "012345678A"
-      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago
+      select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
+      select "January", from: :initiatives_vote_date_of_birth_2i
+      select "1", from: :initiatives_vote_date_of_birth_3i
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"

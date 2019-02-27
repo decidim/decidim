@@ -71,6 +71,8 @@ module Decidim
       end
 
       context "when GET show first step" do
+        let(:initiative) { initiative_with_user_extra_fields }
+
         context "and Authorized user" do
           it "can get first step" do
             sign_in initiative.author, scope: :user
@@ -96,11 +98,9 @@ module Decidim
 
       context "when GET initiative_signatures" do
         context "and initiative without user extra fields required" do
-          it "action is forbidden" do
+          it "action is unavailable" do
             sign_in initiative_without_user_extra_fields.author, scope: :user
-            get :show, params: { initiative_slug: initiative_without_user_extra_fields.slug, id: :fill_personal_data }
-            expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(:found)
+            expect { get :show, params: { initiative_slug: initiative_without_user_extra_fields.slug, id: :fill_personal_data } }.to raise_error(Wicked::Wizard::InvalidStepError)
           end
         end
       end
