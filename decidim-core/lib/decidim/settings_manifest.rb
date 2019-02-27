@@ -67,6 +67,10 @@ module Decidim
       @schema
     end
 
+    def required_attributes_for_authorization
+      attributes.select { |_, attribute| attribute.required_for_authorization? }
+    end
+
     # Semi-private: Attributes are an abstraction used by SettingsManifest
     # to encapsulate behavior related to each individual settings field. Shouldn't
     # be used from the outside.
@@ -87,6 +91,7 @@ module Decidim
       attribute :translated, Boolean, default: false
       attribute :editor, Boolean, default: false
       attribute :required, Boolean, default: true
+      attribute :required_for_authorization, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
 
