@@ -43,7 +43,7 @@ fr:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Cet email a déjà été invité
+              already_invited: Une invitation a déjà été envoyée à cet email
     models:
       decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
@@ -387,7 +387,7 @@ fr:
       models:
         invite:
           fields:
-            email: E-mail
+            email: email
             name: Titre
             sent_at: Envoyée à
             status: Statut
