@@ -29,7 +29,7 @@ fr:
     attributes:
       decidim/user:
         current_password: Mot de passe actuel
-        email: E-mail
+        email: email
         name: Nom d'utilisateur
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -84,9 +84,9 @@ fr:
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
     admin_log:
       area:
-        create: "%{user_name} a créé la zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
@@ -371,7 +371,7 @@ fr:
           see_username: Voir votre pseudonyme
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
-          update_profile: Mettre à jour votre profil
+          update_profile: Mettre à jour
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
       internal_server_error:
@@ -694,9 +694,9 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
           not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
@@ -878,13 +878,13 @@ fr:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
-        activity: Votre activité
+        activity: Mon activité
         badges: Badges
         followers: Abonnés
         following: Abonnements
         groups: Groupes
         members: Membres
-        timeline: Centre d'intérêts
+        timeline: Centres d'intérêts
         view_full_profile: Voir le profil complet
       sidebar:
         badges:
@@ -893,7 +893,7 @@ fr:
       user:
         confirmation_instructions_sent: Envoi des instructions de confirmation par courriel
         create_user_group: Créer un groupe
-        edit_profile: Mettre à jour le profil
+        edit_profile: Mettre à jour
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
@@ -988,7 +988,7 @@ fr:
       show:
         my_interests: Mes intérêts
         no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les thématiques qui vous intéressent. Toutes les activités associées apparaîtront dans l'onglet "Centre d'intérêts" de votre profil.
+        select_your_interests: Sélectionnez les thématiques qui vous intéressent. Toutes les activités associées apparaîtront dans l'onglet "Centres d'intérêts" de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
