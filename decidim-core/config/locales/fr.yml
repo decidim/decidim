@@ -254,7 +254,7 @@ fr:
           title: Non autorisé
         unconfirmed:
           confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau:'
-          explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
+          explanation_html: Vous n'avez pas l'autorisation d'effectuer cette action. Vous devez d'abord confirmer votre email <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
     collapsible_list:
@@ -787,7 +787,7 @@ fr:
         newsletters: Newsletter
         own_activity: Ma propre activité, par exemple lorsque quelqu'un commente ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
-        send_notifications_by_email: Envoyer des notifications par e-mail
+        send_notifications_by_email: Envoyer des notifications par email
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -891,7 +891,7 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
-        confirmation_instructions_sent: Envoi des instructions de confirmation par courriel
+        confirmation_instructions_sent: Envoi des instructions de confirmation par email
         create_user_group: Créer un groupe
         edit_profile: Mettre à jour
         edit_user_group: Modifier le profil du groupe
@@ -901,7 +901,7 @@ fr:
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courriel
+        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par email
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -998,11 +998,11 @@ fr:
       default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
-      confirmed: Votre adresse e-mail a été confirmée avec succès.
+      confirmed: Votre adresse email a été confirmée avec succès.
       new:
         resend_confirmation_instructions: Renvoyer les instructions de confirmation
-      send_instructions: Vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
-      send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
+      send_instructions: Vous recevrez un email avec les instructions pour confirmer votre adresse d'ici quelques minutes.
+      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un message avec les instructions pour confirmer votre adresse dans quelques minutes.
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
@@ -1036,16 +1036,16 @@ fr:
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient}!
-        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
-        subject: Courriel modifié
+        message: Nous vous contactons pour vous informer que votre adresse email a été modifiée à %{email}.
+        subject: Email modifié
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         decline: Refuser l'invitation
         hello: Bonjour %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
-          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
+          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet email.<br />
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus puis défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -1068,7 +1068,7 @@ fr:
         action: Changer mon mot de passe
         greeting: Bonjour %{recipient}!
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
-        instruction_2: Si vous ne l'avez pas demandé, veuillez ignorer cet email.
+        instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer cet email.
         instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
@@ -1089,9 +1089,9 @@ fr:
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
-      no_token: Vous ne pouvez pas accéder à cette page sans provenir d'un courrier électronique de réinitialisation de mot de passe. Si vous venez d'un courrier électronique de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète fournie.
-      send_instructions: Vous recevrez un e-mail avec des instructions pour réinitialiser votre mot de passe en quelques minutes.
-      send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un lien de récupération de mot de passe à votre adresse e-mail dans quelques minutes.
+      no_token: Vous ne pouvez pas accéder à cette page sans passer par le lien de réinitialisation de mot de passe. Si vous venez de cliquer sur le lien dans email de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète qui vous a été fournie.
+      send_instructions: Vous recevrez un email avec des instructions pour réinitialiser votre mot de passe d'ici quelques minutes.
+      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un lien de récupération de mot de passe dans votre boîte de réception d'ici quelques minutes.
       updated: Votre mot de passe a été changé avec succès. Vous êtes maintenant inscrit.
       updated_not_active: Votre mot de passe a été changé avec succès.
     registrations:
@@ -1099,7 +1099,7 @@ fr:
       edit:
         are_you_sure: Êtes-vous sûr?
         cancel_my_account: Annuler mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
+        currently_waiting_confirmation_for_email: 'En attente de confirmation pour : %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
         unhappy: Malheureux?
@@ -1110,8 +1110,8 @@ fr:
       signed_up: Bienvenue ! Vous vous êtes inscrit avec succès.
       signed_up_but_inactive: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte n'est pas encore activé.
       signed_up_but_locked: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte est verrouillé.
-      signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse e-mail. Veuillez suivre le lien pour activer votre compte.
-      update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
+      signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse email. Veuillez suivre le lien pour activer votre compte.
+      update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse email. Veuillez confirmer adresse suivant le lien de confirmation que vous avez reçu.
       updated: Votre compte a été mis à jour avec succès.
     sessions:
       already_signed_out: Signé avec succès.
@@ -1134,8 +1134,8 @@ fr:
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déverrouillage
-      send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte en quelques minutes.
-      send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer en quelques minutes.
+      send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte d'ici quelques minutes.
+      send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer d'ici quelques minutes.
       unlocked: Votre compte a été débloqué avec succès. Veuillez vous connecter pour continuer.
   doorkeeper:
     scopes:
@@ -1219,7 +1219,7 @@ fr:
   social_share_button:
     delicious: Delicious
     douban: Douban
-    email: E-mail
+    email: email
     facebook: Facebook
     google_bookmark: Google
     google_plus: Google+
