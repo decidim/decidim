@@ -427,12 +427,12 @@ fr:
           user_groups: Groupes d'utilisateurs
         filter_state_values:
           accepted: Accepté
-          all: Tous
+          all: Toutes
           evaluating: En cours d'évaluation
           except_rejected: Toutes sauf non retenues
           rejected: Non retenue
         filter_type_values:
-          all: Tous
+          all: Toutes
           amendments: Modifications
           proposals: Propositions
       collaborative_drafts:
