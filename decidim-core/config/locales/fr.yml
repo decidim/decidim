@@ -299,7 +299,7 @@ fr:
         title: Dernière Activité
         view_all: Voir tout
       metrics:
-        name: Mesures d'organisation
+        name: Historique de la participation sur %{organization}
       stats:
         name: Statistiques de l'organisation
       sub_hero:
@@ -822,7 +822,7 @@ fr:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
         metrics:
-          headline: Participation en chiffres
+          headline: Historique de la participation sur %{organization}
         statistics:
           answers_count: Enquêtes terminées
           assemblies_count: Assemblées
@@ -830,7 +830,7 @@ fr:
           conferences_count: Conférences
           debates_count: Débats
           endorsements_count: Soutiens
-          headline: '%{organization} en chiffres'
+          headline: L'activité en chiffres sur %{organization}
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
