@@ -46,6 +46,9 @@ en:
             - You send the letter to their address with the verification code.
             - You mark the letter as sent.
             - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+      csv_census:
+        explanation: Get verified using the organization's census
+        name: Organization's census
       direct: Direct
       help: Help
       id_documents:
@@ -65,6 +68,7 @@ en:
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
+            csv_census: Verify against the organization's census
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document
@@ -76,6 +80,33 @@ en:
           authorize_with: Verify with %{authorizer}
         skip_verification: You can skip this for now and %{link}
         start_exploring: start exploring
+      csv_census:
+        admin:
+          census:
+            create:
+              error: There was an error importing census.
+              success: Successfully imported %{count} items (%{errors} errors)
+            destroy_all:
+              success: All census data have been deleted
+          destroy:
+            confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            title: Delete all census data
+          index:
+            data: There are %{count} records loaded in total. Last upload date was on %{due_date}
+            empty: There are no census data. Use the form below to import it using a CSV file.
+            title: Current census data
+          instructions:
+            body: To do this you must enter system administration and add the csv_census authorizations to the organization
+            title: You need to activate the csv census for this organization
+          new:
+            info: 'Must be a file with CSV format with one column: email'
+            file: .csv file with emails data
+            submit: Upload file
+            title: Upload a new census
+        authorizations:
+          new:
+            error: We could not verify your account or you are not in the organization's census.
+            success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
           one: Participation is restricted to participants with the postal code %{postal_codes}.
