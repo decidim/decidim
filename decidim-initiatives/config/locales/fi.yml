@@ -313,6 +313,10 @@ fi:
       initiative_signatures:
         fill_personal_data:
           continue: Jatka
+          date_select:
+            day: Päivä
+            month: Kuukausi
+            year: vuosi
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
         finish:
           back_to_initiative: Takaisin aloitteeseen
@@ -395,7 +399,7 @@ fi:
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
-          verification_required: Vahvista henkilöllisyytesi allekirjoittaaksesi aloite
+          verification_required: Vahvista tilisi allekirjoittamaan aloite
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
