@@ -28,8 +28,15 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_component_id: Component to copy the proposals from
+      proposals_import:
+        import_proposals: Import proposals
+        keep_authors: Keep original authors
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Invalid document type. Accepted formats are: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,7 +310,11 @@ en:
             save_draft: Save draft
             title: PREVIEW PARTICIPATORY TEXT
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(You will be able to preview and sort document sections)"
+            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Upload document
           publish:
