@@ -313,6 +313,10 @@ gl:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
+          date_select:
+            day: Día
+            month: Mes
+            year: Ano
           help: Complete os seguintes campos cos seus datos persoais para asinar a iniciativa
         finish:
           back_to_initiative: Volver á iniciativa
@@ -395,7 +399,7 @@ gl:
         vote_cabin:
           already_voted: Xa está asinado
           supports_required: "Requírense as %{total_supports} firmas"
-          verification_required: Comprobe a súa identidade para asinar a iniciativa
+          verification_required: Verifica a túa conta para asinar a iniciativa
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:
