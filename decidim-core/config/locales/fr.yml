@@ -1002,7 +1002,7 @@ fr:
       new:
         resend_confirmation_instructions: Renvoyer les instructions de confirmation
       send_instructions: Vous recevrez un email avec les instructions pour confirmer votre adresse d'ici quelques minutes.
-      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un message avec les instructions pour confirmer votre adresse dans quelques minutes.
+      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un message avec les instructions pour confirmer votre adresse d'ici quelques minutes.
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
