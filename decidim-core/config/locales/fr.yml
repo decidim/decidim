@@ -878,13 +878,13 @@ fr:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
-        activity: Activité
+        activity: Votre activité
         badges: Badges
         followers: Abonnés
-        following: Est abonné à
+        following: Abonnements
         groups: Groupes
         members: Membres
-        timeline: Chronologie
+        timeline: Centre d'intérêts
         view_full_profile: Voir le profil complet
       sidebar:
         badges:
@@ -988,7 +988,7 @@ fr:
       show:
         my_interests: Mes intérêts
         no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les thématiques qui vous intéressent pour recevoir les événements associés dans l'onglet "Calendrier" de votre profil.
+        select_your_interests: Sélectionnez les thématiques qui vous intéressent. Toutes les activités associées apparaîtront dans l'onglet "Centre d'intérêts" de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
@@ -1191,7 +1191,7 @@ fr:
         conversations: Conversations
         notifications: Notifications
         profile: Mon compte
-        public_profile: Mon profil public
+        public_profile: Mon profil
         sign_out: Déconnexion
       user_profile:
         account: Compte
