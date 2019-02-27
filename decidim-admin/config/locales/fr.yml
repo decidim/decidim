@@ -2,8 +2,8 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type échelle géographique
-        name: Dénomination
+        area_type: Type de périmètre d'assemblée
+        name: Titre
         organization: Organisation
       area_type:
         name: Titre
@@ -131,35 +131,35 @@ fr:
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
-          success: Le type de zone d'application a été créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de zone d'application a bien été supprimé.
+          success: Le type de périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier le type de zone d'application
+          title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer un type de zone d'application
-          title: Nouveau type de zone d'application
+          create: Créer un type de périmètre d'assemblée
+          title: Nouveau type de périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
-          success: Le type de zone d'application a été mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
-          success: Zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Périmètre d'assemblée créé avec succès.
         destroy:
-          success: La zone d'application a bien été supprimée
+          success: Le périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier la zone d'application
+          title: Modifier le périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer une zone d'application
-          title: Nouvelle zone d'application
-        no_areas: Aucune zone d'application
+          create: Créer un périmètre d'assemblée
+          title: Nouveau périmètre d'assemblée
+        no_areas: Aucun périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'application mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'assemblée.
+          success: Périmètre d'assemblée mis à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -261,7 +261,7 @@ fr:
           welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
         export_as: "%{name} en format %{export_format}"
-        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+        notice: Votre exportation est en cours. Vous recevrez un email quand elle sera terminée.
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des messages d'aide
         form:
@@ -321,8 +321,8 @@ fr:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zone d'application
-        areas: Zones d'application
+        area_types: Types de périmètre d'assemblée
+        areas: Périmètres d'assemblée
         configuration: Configuration
         dashboard: Journal d'administration
         help_sections: Messages d'aide contextuels
@@ -341,7 +341,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type de zone d'application
+            area_type: Type de périmètre d'assemblée
             name: Titre
         area_type:
           fields:
@@ -401,7 +401,7 @@ fr:
         user:
           fields:
             created_at: Date de création
-            email: E-mail
+            email: email
             last_sign_in_at: Date de la dernière connexion
             name: Nom
             role: Rôle
@@ -644,8 +644,8 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types de zone d'application
-        areas: Zones d'application
+        area_types: Types de périmètre d'assemblée
+        areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Journal d'administration
         impersonatable_users: Utilisateurs représentés
@@ -686,7 +686,7 @@ fr:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Téléchargez votre fichier CSV. Il doit contenir les courriels officiels des groupes d'utilisateurs de votre organisation dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs qui ont confirmé leur courriel et qui ont un courriel apparaissant dans le fichier CSV seront validés.
+          explanation: Téléchargez votre fichier CSV. Il doit contenir les emails officiels des groupes d'utilisateurs de votre organisation dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs qui ont confirmé leur email et qui ont un email apparaissant dans le fichier CSV seront validés.
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
@@ -697,7 +697,7 @@ fr:
           error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
           success: L'utilisateur n'est plus un administrateur.
         form:
-          email: E-mail
+          email: email
           name: Nom
           role: Rôle
         new:
