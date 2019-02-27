@@ -43,7 +43,7 @@ fr:
         start_date: Date de début
         title: Titre
       participatory_process_user_role:
-        email: E-mail
+        email: email
         name: Nom
         role: Rôle
     models:
@@ -114,7 +114,7 @@ fr:
           name: Étape de la concertation
         participatory_process_user_role:
           fields:
-            email: E-mail
+            email: email
             name: Nom
             role: Rôle
           name: Utilisateur de la concertation
