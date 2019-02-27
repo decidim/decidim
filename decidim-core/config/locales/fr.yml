@@ -918,7 +918,7 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
-      global: Aucun
+      global: Tous les secteurs
       picker:
         cancel: Annuler
         choose: Sélectionner
