@@ -74,7 +74,7 @@ module Decidim
 
           PublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
-              redirect_to decidim_admin_initiatives.initiatives_path
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
         end
@@ -85,7 +85,7 @@ module Decidim
 
           UnpublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
-              redirect_to decidim_admin_initiatives.initiatives_path
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
         end
@@ -94,21 +94,21 @@ module Decidim
         def discard
           enforce_permission_to :discard, :initiative, initiative: current_initiative
           current_initiative.discarded!
-          redirect_to decidim_admin_initiatives.initiatives_path
+          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
         end
 
         # POST /admin/initiatives/:id/accept
         def accept
           enforce_permission_to :accept, :initiative, initiative: current_initiative
           current_initiative.accepted!
-          redirect_to decidim_admin_initiatives.initiatives_path
+          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
         end
 
         # DELETE /admin/initiatives/:id/reject
         def reject
           enforce_permission_to :reject, :initiative, initiative: current_initiative
           current_initiative.rejected!
-          redirect_to decidim_admin_initiatives.initiatives_path
+          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
         end
 
         # GET /admin/initiatives/:id/send_to_technical_validation
