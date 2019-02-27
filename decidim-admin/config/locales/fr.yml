@@ -37,8 +37,8 @@ fr:
         redirect_uri: Rediriger l'URI
       organization:
         badges_enabled: Activer les Badges
-        cta_button_path: Chemin du bouton d'action
-        cta_button_text: Texte du bouton d'action
+        cta_button_path: Chemin du bouton d'appel à l'action
+        cta_button_text: Texte du bouton d'appel à l'action
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
@@ -46,8 +46,8 @@ fr:
         favicon: Favicon
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
-        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
-        highlighted_content_banner_action_title: Texte du bouton d'action
+        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'appel à l'action
+        highlighted_content_banner_action_title: Texte du bouton d'appel à l'action
         highlighted_content_banner_action_url: URL du bouton d'appel à l'action
         highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
         highlighted_content_banner_image: Bannière de contenu mis en valeur
@@ -432,7 +432,7 @@ fr:
         destroy:
           success: Lien détruit avec succès
         edit:
-          title: Modifier le lien de la barre de navigation secondaire
+          title: Modifier le lien dans la barre de navigation secondaire
           update: Mise à jour
         form:
           link: Lien
