@@ -57,8 +57,8 @@ fr:
         one: Rencontre
         other: Rencontres
       decidim/meetings/minutes:
-        one: Compte rendu
-        other: Comptes rendus
+        one: Retranscription
+        other: Retranscriptions
       decidim/meetings/registration:
         one: Inscription
         other: Inscriptions
@@ -263,13 +263,13 @@ fr:
             success: Rencontre mise à jour avec succès
         minutes:
           create:
-            invalid: Un problème est survenu lors de la création de ce compte rendu
-            success: Compte rendu créé avec succès
+            invalid: Un problème est survenu lors de la création de cette retranscription
+            success: Retranscription créée avec succès
           edit:
             update: Mettre à jour
           new:
             create: Créer
-            title: Créer un compte rendu
+            title: Créer une retranscription
           update:
             invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
             success: Compte rendu mis à jour avec succès
