@@ -52,7 +52,7 @@ module Decidim
 
       field :userCanComment, !types.Boolean, "Check if the current user can comment" do
         resolve lambda { |obj, _args, ctx|
-          obj.user_can_comment?(ctx[:current_user])
+          obj.commentable.user_can_comment?(ctx[:current_user])
         }
       end
     end

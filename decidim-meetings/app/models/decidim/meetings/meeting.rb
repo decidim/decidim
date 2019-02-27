@@ -93,7 +93,8 @@ module Decidim
 
       #WORKING HERE
       def user_can_comment?(user)
-        false
+        # can_participate_in_space?(user) && can_participate_in_meeting?(user)
+        true
       end
 
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
