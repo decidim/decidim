@@ -323,8 +323,8 @@ fr:
         filters:
           counters:
             active:
-              one: 1 concertation active
-              other: "%{count} concertations actives"
+              one: 1 concertation en cours
+              other: "%{count} concertations en cours"
             all:
               one: 1 concertation
               other: "%{count} concertations"
@@ -337,11 +337,11 @@ fr:
           explanations:
             no_active: Aucune concertation active
             no_active_nor_upcoming: Aucune concertation active ni à venir
-            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations en cours ni à venir. Voici une liste des concertations archivées.
           names:
             active: Actifs
             all: Tous
-            past: Passés
+            past: Archivées
             upcoming: À venir
           see: Voir
         index:
