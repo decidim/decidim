@@ -136,7 +136,19 @@ en:
           page: "<p>An <strong>initiative</strong> is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
           title: What are initiatives?
     initiatives:
+      actions:
+        answer: Answer
       admin:
+        answers:
+          edit:
+            title: Answer for %{title}
+            answer: Answer
+          info_initiative:
+            created_at: Created at
+            description: Description
+            initiative_votes_count: Votes count
+            initiatives: Initiatives
+            state: State
         committee_requests:
           index:
             approve: Approve
@@ -273,7 +285,9 @@ en:
           more_information: "(More information)"
         select_initiative_type:
           back: Back
+          choose_html: I want to create a <strong>%{title}</strong>
           more_information: "(More information)"
+          select: I want to promote this initiative
           select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
           continue: Continue
@@ -351,6 +365,11 @@ en:
           unfold: Unfold
         index_header:
           new_initiative: New initiative
+        interactions:
+          comments_count:
+            count:
+              one: Comment
+              other: Comment
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
@@ -358,9 +377,17 @@ en:
           random: Random
           recent: Most recent
         result:
+          answer_title:
+            accepted: This proposal has been accepted because
+            created: This proposal has been created
+            discarded: This proposal has been discarded because
+            published: This proposal is published because
+            rejected: This proposal has been rejected because
+            validating: This proposal is being evaluated
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This citizen initiative collects both online and in-person signatures.
+          follow_description: Receive a notification when there are news in this initiative
           offline_method: This citizen initiative only collects in-person signatures.
         signature_identities:
           select_identity: Select participant identifier
@@ -379,6 +406,8 @@ en:
           count:
             one: SIGNATURE
             other: SIGNATURES
+          most_popular_initiative: Most popular initiative
+          need_more_votes: Need more signatures
       initiatives_mailer:
         creation_subject: Your initiative '%{title}' has been created
         initiative_link:
@@ -419,6 +448,7 @@ en:
           components: Components
           information: Information
       initiative_creation_header:
+        back: Back
         fill_data: Create
         finish: Finish
         previous_form: Start
