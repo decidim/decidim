@@ -37,7 +37,7 @@ fr:
         admin:
           fields:
             created_at: Créé le
-            email: Courriel
+            email: email
           name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
