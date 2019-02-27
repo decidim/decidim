@@ -28,17 +28,33 @@
 }
 
 .button{
-  @include button(false, var(--primary), var(--primary), white, solid);
+  background-color: var(--primary);
+
+  &:hover,
+  &:focus{
+    background-color: var(--primary);
+    filter: brightness(120%);
+  }
 
   &.hollow{
-    @include button(false, var(--primary), var(--primary), white, hollow);
+    background-color: transparent;
+    color: var(--secondary);
+    border-color: var(--primary);
   }
 
   &.secondary{
-    @include button(false, var(--secondary), var(--secondary), white, solid);
+    background-color: var(--secondary);
+
+    &:hover,
+    &:focus{
+      background-color: var(--secondary);
+      filter: brightness(120%);
+    }
 
     &.hollow{
-      @include button(false, var(--secondary), var(--secondary), white, hollow);
+      background-color: transparent;
+      color: var(--secondary);
+      border-color: var(--secondary);
     }
   }
 }
