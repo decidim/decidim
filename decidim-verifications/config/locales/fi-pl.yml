@@ -47,8 +47,8 @@ fi-pl:
             - Sinä merkitset kirjeen lähetetyksi.
             - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
       csv_census:
-        explanation: Hanki tarkistus käyttämällä organisaation väestönlaskentaa
-        name: Organisaation väestönlaskenta
+        explanation: Varmenna käyttäjätilisi organisaation rekisteritietojen avulla
+        name: Organisaation rekisteritiedot
       direct: Suoraan
       help: Ohjeet
       id_documents:
@@ -68,7 +68,7 @@ fi-pl:
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
-            csv_census: Vahvista organisaation väestönlaskentaa vastaan
+            csv_census: Vahvista organisaation rekisteritietojen avulla
             dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
             dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
@@ -84,28 +84,28 @@ fi-pl:
         admin:
           census:
             create:
-              error: Laskennan tuonnissa tapahtui virhe.
-              success: '%{count} kohdetta onnistuneesti tuonut (%{errors} virhe)'
+              error: Rekisteritietojen tuonnissa tapahtui virhe.
+              success: Onnistuneesti tuotu %{count} kohdetta (%{errors} virheellistä)
             destroy_all:
-              success: Kaikki laskentatiedot on poistettu
+              success: Kaikki rekisteritiedot on poistettu
           destroy:
-            confirm: Poista kaikki väestölaskelmat ei voi peruuttaa. Oletko varma, että haluat jatkaa?
-            title: Poista kaikki väestötiedot
+            confirm: Rekisteritietojen poistamista ei voi jälkikäteen peruuttaa. Haluatko varmasti jatkaa?
+            title: Poista kaikki rekisteritiedot
           index:
-            data: Yhteensä on %{count} tallennetta. Viimeisin latauspäivä oli %{due_date}
-            empty: Laskentatietoja ei ole. Tuo alla oleva lomake käyttämällä sitä CSV-tiedoston avulla.
-            title: Nykyiset väestötiedot
+            data: Yhteensä %{count} tietuetta ladattu. Viimeisin latauspäivä oli %{due_date}
+            empty: Rekisteritietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi rekisteritiedot järjestelmään CSV-tiedostosta.
+            title: Nykyiset rekisteritiedot
           instructions:
-            body: Tätä varten sinun on annettava järjestelmänhallinta ja lisättävä csv_census-valtuutukset organisaatioon
-            title: Sinun täytyy aktivoida tämän organisaation csv-väestö
+            body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
+            title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
           new:
-            info: 'On oltava tiedosto, jossa on CSV-muotoinen yksi sarake: sähköposti'
-            file: .csv-tiedosto sähköpostitiedoilla
+            info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
+            file: sähköpostiosoitteet sisältävä .csv-tiedosto
             submit: Lataa tiedosto
-            title: Lataa uusi väestölaskenta
+            title: Lataa uusi rekisteri
         authorizations:
           new:
-            error: Emme voineet vahvistaa tiliäsi tai et ole organisaation laskennassa.
+            error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
             success: Tilisi on vahvistettu onnistuneesti.
       dummy_authorization:
         extra_explanation:
