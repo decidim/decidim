@@ -50,7 +50,7 @@ fr:
         show:
           view: Voir
         sidebar_blog:
-          comments: commentaires
+          comments: Commentaires
           most_commented_posts: Articles les plus commentés
       read_more: Voir la suite
     components:
