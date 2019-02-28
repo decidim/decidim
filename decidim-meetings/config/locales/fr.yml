@@ -91,13 +91,10 @@ fr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Votre réunion "%{resource_title}" était terminée. Vous pouvez lire les conclusions sur sa page :'
-            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
-            email_subject: La réunion "%{resource_title}" est close
-            notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> était close.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
+            email_intro: 'Votre rencontre "%{resource_title}" est terminée. Vous pouvez lire les conclusions de sa page:'
+            email_outro: Vous avez reçu cette notification parce que vous avez organisé la rencontre "%{resource_title}".
+            email_subject: La rencontre "%{resource_title}" est terminée
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
           follower:
             email_intro: 'La rencontre "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
@@ -157,7 +154,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        minutes: Retranscription
+        minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -194,7 +191,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
-          meetings: Réunions
+          meetings: Des réunions
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
@@ -358,8 +355,8 @@ fr:
           filter_by: Filtrer par
           unfold: Voir la suite
         meeting_minutes:
-          meeting_minutes: Retranscription de la rencontre
-          related_information: Retranscription média
+          meeting_minutes: Comptes rendus des rencontres
+          related_information: Informations liées
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
@@ -376,8 +373,8 @@ fr:
           organizations: Organisations participantes
           registration_code_help_text: Votre code d'enregistrement
           registration_state:
-            validated: VALIDÉE
-            validation_pending: VALIDATION EN ATTENTE
+            validated: Validé
+            validation_pending: EN ATTENTE DE VALIDATION
           remaining_slots:
             one: "%{count} emplacement disponible"
             other: "%{count} places disponibles"

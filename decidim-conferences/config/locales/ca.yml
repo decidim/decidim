@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -44,14 +43,14 @@ ca:
         one: Ponent de la conferència
         other: Ponents de la conferència
       decidim/conference_user_role:
-        one: Funció d'usuari de la conferència
-        other: Funció d'usuari de la conferència
+        one: Rol d'usuari de la conferència
+        other: Rols d'usuari de la conferència
   decidim:
     admin:
       actions:
         confirm: Confirmar
         new_conference: Nova conferència
-        send_diplomas: Enviar diplomes
+        send_diplomas: Enviar certificats d'assistència
       conference_copies:
         new:
           copy: Copiar
@@ -153,7 +152,7 @@ ca:
           conference_admins: Usuaris de la conferència
           conference_invites: Convida
           conference_speakers: Ponents
-          diploma: Diploma
+          diploma: Certificat d'assistència
           info: Info
           media_links: Enllaços multimedia
           moderations: Moderacions
@@ -251,10 +250,10 @@ ca:
       conference:
         create: "%{user_name} ha creat la conferènica %{resource_name}"
         publish: "%{user_name} ha publicat la conferència %{resource_name}"
-        send_conference_diplomas: "%{user_name} envieu els títols als %{resource_name} usuaris de la conferència"
+        send_conference_diplomas: "%{user_name} ha enviat els certificats d'assistència als assistents de la conferència %{resource_name}"
         unpublish: "%{user_name} no publicada la conferència %{resource_name}"
         update: "%{user_name} actualitzem la conferència %{resource_name}"
-        update_diploma: "%{user_name} va actualitzar el títol de configuració %{resource_name} conferència"
+        update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per la conferència %{resource_name}"
       conference_speaker:
         create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
         delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
@@ -276,9 +275,9 @@ ca:
           unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la conferència %{space_name}"
           update: "%{user_name} ha actualitzat el tipus de registre %{resource_name} a la conferència %{space_name}"
       media_link:
-        create: "%{user_name} crear l'enllaç %{resource_name} mitjans de comunicació a la %{space_name} conferències"
-        delete: "%{user_name} eliminar l'enllaç %{resource_name} de la %{space_name} conferències"
-        update: "%{user_name} actualitzar l'enllaç %{resource_name} mitjans a la %{space_name} conferència"
+        create: "%{user_name} ha creat l'enllaç de mitjans de comunicació %{resource_name} per a la conferència %{space_name}"
+        delete: "%{user_name} ha eliminat l'enllaç de mitjans de comunicació %{resource_name} per a la conferència %{space_name}"
+        update: "%{user_name} ha actualitzat l'enllaç de mitjans de comunicació %{resource_name} per a la conferència %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -335,12 +334,12 @@ ca:
         diplomas:
           edit:
             save: Desa
-            title: Diploma
+            title: Certificat d'assitència
         invite_join_conference_mailer:
           invite:
             decline: Rebutjar la invitació '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l'%{application}. Pots rebutjar-la o acceptar-la a través dels enllaços a continuació."
-            registration: Registre per a '%{conference_title}'
+            registration: Inscripció a '%{conference_title}'
         partners:
           index:
             title: Col·laboradors
@@ -351,23 +350,23 @@ ca:
             title: Tipus de registre
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Trobareu el diploma de la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+            diploma_html: Trobaràs el certificat d'assistència a la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
             certificate_of_attendance: Certificat d'assistència
-            certificate_of_attendance_description: Es tracta de certificar que <strong>%{user}</strong> ha assistit i ha participat en el <strong>%{title}</strong> celebrat al <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Hi ha hagut un problema en enviar els diplomes de la conferència.
-          success: Diplomes de la conferència enviats correctament
+          error: Hi ha hagut un problema en enviar els certificats d'assistència de la conferència.
+          success: Certificats d'assistència de la conferència enviats correctament
       conference:
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
         show:
-          free: Gratuït
+          free: Entrada lliure
           going: Assistiré
           no_slots_available: No hi ha places disponibles
-          registration: Registre
+          registration: Inscripció
       conference_program:
         program_meeting:
           content: Contingut
@@ -412,10 +411,10 @@ ca:
           speakers: Ponents
       conferences:
         partners:
-          collaborators: Socis
+          collaborators: Col·laboradors
           main_promotors: Organitzadors
         show:
-          login_as: Heu iniciat la sessió com a %{name} <%{email}>
+          login_as: Has iniciat la sessió com a %{name} <%{email}>
           make_conference_registration: 'Fes la teva inscripció a la conferència:'
           register: Registre
       content_blocks:
@@ -434,7 +433,7 @@ ca:
             subject: Invitació per participar a una conferència
         send_conference_diploma_mailer:
           diploma:
-            subject: S'ha enviat el diploma de la vostra conferència
+            subject: S'ha enviat el teu certificat d'assistència a la conferència
       models:
         conference_invite:
           fields:
@@ -471,15 +470,15 @@ ca:
       registration_types:
         index:
           choose_an_option: 'Trieu l''opció de registre:'
-          login_as: Heu iniciat la sessió com a %{name} <%{email}>
+          login_as: Has iniciat la sessió com a %{name} <%{email}>
           register: Registre
           title: Tipus de registre
       shared:
         conference_user_login:
           already_account: Ja tens un compte a Decidim?
           new_user: Nou usuari?
-          sign_in: Inicieu sessió per registrar-se a la conferència
-          sign_up: Creeu un compte per decidir registrar-se a la conferència
+          sign_in: Inicia sessió per inscriure't a la conferència
+          sign_up: Crea un compte per inscriure't a la conferència
       show:
         details: Detalls
         introduction: Introducció
@@ -506,10 +505,10 @@ ca:
         votes_count: Vots
     events:
       conferences:
-        conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: El registre de la conferència <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
+        conference_registration_confirmed:
+          notification_title: S'ha confirmat el teu registre a la conferència <a href="%{resource_url}">%{resource_title}</a>.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la conferència "%{resource_title}" ocupen més del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets administrador de la conferència.
@@ -526,10 +525,10 @@ ca:
           email_subject: S'han activat les inscripcions per a la conferència "%{resource_title}".
           notification_title: S'han activat les inscripcions per a la conferència <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'La conferència "%{resource_title}" es durà a terme en 2 dies. Podeu llegir-ne la descripció des de la pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar-la de seguir clicant a l'enllaç anterior.
+          email_subject: La conferència "%{resource_title}" està a punt de començar!
+          notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> començarà en 2 dies.
     log:
       value_types:
         conference_presenter:

@@ -778,6 +778,9 @@ ru:
         greetings: Здравствуйте,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>!
         hello: Здравствуйте!
         subject: Вы хотите продолжать получать новости о %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Вы получили это сообщение, потому что подписались на уведомление по электронной почте на %{organization_name}. Вы можете изменить настройки на своей <a href="%{link}"> странице уведомлений </a>.
     notifications:
       no_notifications: Пока нет уведомлений.
     notifications_settings:

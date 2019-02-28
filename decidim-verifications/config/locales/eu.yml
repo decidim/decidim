@@ -1,11 +1,10 @@
----
 eu:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Metodo erabilgarriak
         offline: Offline
-        offline_explanation: Instructions for offline verification
+        offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
         online: Online
       id_document_information:
         document_number: Dokumentuaren zenbakia (letra batekin)
@@ -16,7 +15,7 @@ eu:
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       offline_confirmation:
-        email: User email
+        email: Erabiltzailearen helbide elektronikoa
       postal_letter_address:
         full_address: Helbide osoa
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ eu:
         authorization_workflows: egiaztapen
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} identitate dokumentuen egiaztapen konfigurazioa eguneratu du"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} egiaztatua %{resource_name} Lineako identitate dokumentuen egiaztapena erabiliz"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
-          - Kargatutako irudian dagoen informazio hau bete behar duzu.
-          - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
-          - Informazio hori argi eta garbi ikusi ez baduzu edo egiaztatu ezin baduzu, eskaera ukatu egin dezakezu eta erabiltzaileak konpondu ahal izango du.
+            - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
+            - Kargatutako irudian dagoen informazio hau bete behar duzu.
+            - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
+            - Informazio hori argi eta garbi ikusi ez baduzu edo egiaztatu ezin baduzu, eskaera ukatu egin dezakezu eta erabiltzaileak konpondu ahal izango du.
         postal_letter:
           help:
-          - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
-          - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
-          - Bidalitako mezua markatzen du.
-          - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
+            - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
+            - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
+            - Bidalitako mezua markatzen du.
+            - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
       direct: Zuzeneko
       help: Laguntza
       id_documents:
@@ -85,11 +84,11 @@ eu:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Nortasun agirien konfigurazioa
+              update: eguneratzearen
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Errore bat gertatu da konfigurazioa eguneratzean.
+              success: Konfigurazioa behar bezala eguneratu da
           confirmations:
             create:
               error: Egiaztapena ez dator bat. Berriro saiatu edo ezeztatu egiaztapena erabiltzaileak hura aldatzeko
@@ -100,16 +99,16 @@ eu:
               verify: Ziurtatu
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Egiaztapena ez dator bat. Saiatu berriro edo esan erabiltzaileak hura aldatzeko
+              success: Erabiltzaileak behar bezala egiaztatu du
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Utzi
+              introduce_user_data: Erabiltzailearen helbide elektronikoa eta dokumentuaren datuak sartu
+              verify: Ziurtatu
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: config
+              offline_verification: Lineaz kanpoko egiaztapena
               title: Zain dauden egiaztapenak
               verification_number: 'Egiaztapena # %{n}'
           rejections:
@@ -117,17 +116,17 @@ eu:
               success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: "Hautatu nola egiaztatu nahi duzun:"
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Egiaztatu zure identifikazio dokumentua
           create:
             error: Arazo bat izan da dokumentua kargatzean
             success: Dokumentua behar bezala kargatu da
           edit:
             being_reviewed: Zure dokumentuak berrikusten ari gara. Handik gutxira, egiaztatu egingo zara
-            offline: Use offline verification
-            online: Use online verification
+            offline: Erabili lineaz kanpoko egiaztapena
+            online: Erabili lineako egiaztapena
             rejection_clarity: Ziurtatu informazioa kargatutako irudian ikusgai dagoela
             rejection_correctness: Egiaztatu informazioa zuzena dela
             rejection_notice: Arazo bat izan da zure egiaztapenarekin. Saiatu berriro mesedez

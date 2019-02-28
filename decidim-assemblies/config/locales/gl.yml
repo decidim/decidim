@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ gl:
         others: Outros
         public: Público
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Todo
+        commission: Comisión
+        consultative_advisory: Consultivo / asesor
+        executive: Executivo
+        government: Goberno
+        label: 'Amosar:'
+        others: Outros
+        participatory: Participativa
+        placeholder: Filtrar por tipo
+        working_group: Grupo de traballo
       index:
         title: Asembleas
       last_activity:
@@ -360,8 +359,8 @@ gl:
           reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
-            one: "%{count} asembleas"
-            other: "%{count} asembleas"
+            one: "Asemblea %{count}"
+            other: "Asembleas %{count}"
         promoted_assembly:
           more_info: Máis información
           take_part: Tomar parte en

@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -37,8 +36,8 @@ eu:
         remember_me: Gogoratu
     models:
       decidim/amendment:
-        one: Amendment
-        other: Amendments
+        one: zuzenketa
+        other: Aldaketak
       decidim/user:
         one: Ez dago erabiltzailerik
         other: erabiltzaileak
@@ -46,8 +45,8 @@ eu:
         one: Erabiltzaile taldea
         other: Erabiltzaile taldeak
   booleans:
-    'false': Ez
-    'true': Bai
+    'false': 'Ez'
+    'true': 'Bai'
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
@@ -129,59 +128,59 @@ eu:
       user_group:
         reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
         verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
-        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+        verify_via_csv: "%{user_name} egiaztatu du %{resource_name} erabiltzaile talde CSV fitxategi baten bidez"
     amendments:
       accepted:
-        error: An error ocurred accepting the emendation, please try again later.
-        success: This emendation has been accepted successfully.
+        error: Errore bat gertatu da aldatzea onartzea, mesedez saiatu berriro geroago.
+        success: Eskaera hau arrakastaz onartu da.
       amendable:
-        amended_by: Amended by
-        button: Amend %{model_name}
-        error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
-        promote_button: Promote to %{model_name}
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
-        section_heading: Amendments (%{count})
+        amended_by: Aldatua
+        button: Aldatu %{model_name}
+        promote_button: '%{model_name}suspertzea'
+        error: Errore bat gertatu da baliabidea aldatzen.
+        help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
+        promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
+        no_amenders: Ez dago murrizketarik
+        no_amendments: Ez dago zuzenketarik
+        section_heading: Aldaketak (%{count})
       created:
-        error: An error ocurred creating this amendment, try again later
-        success: The amendment has been created successfully
+        error: Errore bat gertatu da aldaketa hau sortzean, saiatu berriro geroago
+        success: Aldaketa zuzen sortu da
       emendation:
         actions:
-          button_accept: Accept
-          button_reject: Reject
-          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+          button_accept: Onartu
+          button_reject: Ukatu
+          help_text: Aldaketak berrikustea eta aldaketa hori onartzea edo arbuiatzea. Jakinarazpen bat bere egileei bidaliko zaie.
         announcement:
           accepted: |-
-            This emendation for the %{amendable_type} %{amendable_link} has been
-            accepted on <strong>%{announcement_date}</strong>.
+            %{amendable_type} %{amendable_link} aldatze hau
+            <strong>%{announcement_date}</strong>onartu da.
           evaluating: |-
-            This is an emendation for the %{amendable_type} %{amendable_link}
-            is being evaluated.
+            Hau %{amendable_type} %{amendable_link}
+            aldaketaren ebaluazioa da.
           rejected: |-
-            This emendation for the %{amendable_type} %{amendable_link}
-            was rejected on <strong>%{announcement_date}</strong>.
+            %{amendable_type} %{amendable_link}
+            aldatze hau <strong>%{announcement_date}</strong>baztertu egin zen.
           withdrawn: |-
-            This emendation for the %{amendable_type} %{amendable_link}
-            has been withdrawn by the author.
+            %{amendable_type} %{amendable_link}
+            aldirako aldaketa hori egilearen arabera kendu da.
       new:
-        amendment_author: Amendment author
+        amendment_author: Egile aldaketa
         back: Back
-        heading: Create your amendment
-        help_text: You are modifying the %{model_name}
-        send: Send emendation
-      promoted:
-        error: There's been errors when promoting the emendation
-        success: Emendation promoted successfully
+        heading: Sortu zure aldaketa
+        help_text: '%{model_name}aldatzen ari zara'
+        send: Bidali aldatzea
       rejected:
-        error: An error ocurred when rejecting this emendation, please try again later
-        success: The emendation has been rejected successfully
+        error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
+        success: Aldaketa ongi baztertu da
+      promoted:
+        success: Emendazioa arrakastaz sustatu da
+        error: Akatsak izan dira emendifikazioa sustatzen denean
       review:
         back: Back
-        heading: Review the amendment
-        help_text: You are amending the %{model_name}
-        send: Accept emendation
+        heading: Aldaketa berrikustea
+        help_text: '%{model_name}aldatzen ari zara'
+        send: Onartu aldatzea
     anonymous_user: Anonimoa
     application:
       collection:
@@ -212,8 +211,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
-      expired_at: "%{timestamp} iraungita dago"
-      expires_at: "%{timestamp} iraungitzen da"
+      expired_at: '%{timestamp} iraungita dago'
+      expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
         fields:
           bar: Bar
@@ -268,7 +267,7 @@ eu:
         name: Dummy osagaia
         settings:
           global:
-            amendments_enabled: Amendments enabled
+            amendments_enabled: Emendakinak gaituta
             comments_enabled: Iruzkinak gaituta
             dummy_global_attribute_1: Dummy Atributua 1
             dummy_global_attribute_2: Dummy Attribute 2
@@ -385,67 +384,67 @@ eu:
         title: Ez dugu aurkitu bilatzen duzun orria!
     events:
       amendments:
-        amendment_accepted:
-          affected_user:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
           affected_user:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
+            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
+          follower:
+            email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
+            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{resource_title} eguneratzea"
+          email_subject: '%{resource_title} eguneratzea'
           notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: "%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:"
+          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{participatory_space_title} eguneratze bat"
+          email_subject: '%{participatory_space_title} eguneratze bat'
           notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-        email_subject: "%{resource_title} eguneratzea"
+        email_subject: '%{resource_title} eguneratzea'
       gamification:
         badge_earned:
           email_intro: Lan handia! <a href="%{resource_path}">%{badge_name} txapela irabazi duzu</a> ( %{current_level}maila).
@@ -466,12 +465,12 @@ eu:
         invited_to_group:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak gonbidatu zaitu.
           email_outro: Jakinarazpen hau jaso duzu talde honetara gonbidatuta zaudelako. Egiaztatu Taldeak fitxan zure profilean onartzeko.
-          email_subject: "%{user_group_name} taldean sartzeko gonbidatu zaituzte!"
+          email_subject: '%{user_group_name} taldean sartzeko gonbidatu zaituzte!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Taldeak orrialdeko</a> zure profilean onartzeko!
         join_request_accepted:
           email_intro: Zorionak! <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak zure eskaera onartu du.
           email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
-          email_subject: "%{user_group_name} taldean onartu duzu!"
+          email_subject: '%{user_group_name} taldean onartu duzu!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean onartu zaituzte.
         join_request_created:
           email_intro: Norbaitek %{user_group_name} taldean parte hartzeko eskatu du. <a href="%{resource_url}">taldeko kideen</a>orrialdea onartu edo ukatu dezakezu.
@@ -481,7 +480,7 @@ eu:
         join_request_rejected:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure eskaera ukatu egin du.
           email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
-          email_subject: "%{user_group_name} taldera sartzeko eskaera baztertu egin da!"
+          email_subject: '%{user_group_name} taldera sartzeko eskaera baztertu egin da!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldera sartzeko eskaera baztertu egin da.
         promoted_to_admin:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak talde horren administrazio-eskubideak eman dizkizu.
@@ -491,7 +490,7 @@ eu:
         removed_from_group:
           email_intro: Taldeak <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak kendu egin zaitu.
           email_outro: Jakinarazpen hori jaso duzu talde horretako kide zarelako.
-          email_subject: "%{user_group_name} taldetik kendu duzu!"
+          email_subject: '%{user_group_name} taldetik kendu duzu!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -548,7 +547,7 @@ eu:
       badges:
         continuity:
           conditions:
-          - Zatoz hemen sarritan
+            - Zatoz hemen sarritan
           description: Txartela hau modu erregularrean bisitatzen duzunean ematen da. Gustatzen zait hemen!
           description_another: Erabiltzaile honek une batez %{score} egunez konektatua dago.
           description_own: Zenbait puntutan eguneko %{score} egunetarako konektatuta zaude.
@@ -558,7 +557,7 @@ eu:
           unearned_own: Ez duzu egun bat baino gehiagoz konektaturik.
         followers:
           conditions:
-          - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
+            - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Idazmahaia jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare sozial eta politikoa da, zure weba plataforman beste pertsona batzuekin komunikatzeko ehundu.
           description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} erabiltzaile jarraitzen zaituzte."
@@ -573,18 +572,18 @@ eu:
           title: Badges
         invitations:
           conditions:
-          - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
-          - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
-          - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
+            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
+            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
+            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
           description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
           description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
-          description_own: "%{score} erabiltzaile gonbidatu dituzu."
+          description_own: '%{score} erabiltzaile gonbidatu dituzu.'
           name: Gonbidapenak
           next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
           unearned_own: Erabiltzaile ez da gonbidatu oraindik.
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
-      level: "%{level}maila"
+      level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
     group_admins:
       actions:
@@ -721,7 +720,7 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
-          subject: "%{sender}-tik mezu berriak dituzu"
+          subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
@@ -740,7 +739,7 @@ eu:
           error: Mezua ez da bidali. Saiatu berriro geroago
     metrics:
       download:
-        csv: Download data (csv)
+        csv: Deskargatu datuak (csv)
       followers:
         description: Antolakuntzan jarraitzen duen erabiltzaile kopurua
         object: jarraitzaile
@@ -778,24 +777,27 @@ eu:
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
-        subject: "%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?"
+        subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
+    notification_mailer:
+      shared:
+        note: Mezu hau jaso duzu jakinarazpenean harpidetuta zaudelako% {organization_name} helbidean. Zure ezarpenak alda ditzakezu <a href="%{link}"> jakinarazpenen orrian </a>.
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
-        everything_followed: Everything I follow
+        everything_followed: Jarraitzen dudan guztia
+        newsletters: Buletinak
         newsletter_notifications: Buletinak jaso nahi ditut
-        newsletters: Newsletters
-        own_activity: My own activity, like when someone comments in my proposal or mentions me
-        receive_notifications_about: I want to get notifications about
-        send_notifications_by_email: Send notifications by email
+        own_activity: Nire jarduera, norbaiti nire proposamena iruzkindu edo aipatzen dudanean
+        receive_notifications_about: Jakinarazpenak jaso nahi ditut
+        send_notifications_by_email: Bidali jakinarazpenak posta elektronikoz
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
     open_data:
-      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
+      not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
     own_user_groups:
       index:
         pending: Zain
@@ -832,7 +834,7 @@ eu:
           conferences_count: Jardunaldiak
           debates_count: Eztabaidak
           endorsements_count: Oniritziak
-          headline: "%{organization} erakundearen egungo egoera"
+          headline: '%{organization} erakundearen egungo egoera'
           meetings_count: Bilerak
           orders_count: Euskarriak
           pages_count: Orriak
@@ -852,6 +854,10 @@ eu:
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
         topics: Gaiak
+      participatory_space:
+        metrics:
+          headline: Zifretan parte hartzea
+          link: Erakutsi estatistiken guztiak
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
@@ -876,7 +882,6 @@ eu:
       deleted: Erabiltzailea ezabatua
       view: ikusi
     profiles:
-      default_officialization_text: Texto de oficialización por defecto
       default_officialization_text_for_user_groups: Erabiltzaile talde hau publikoki egiaztatua dago, bere izena benetako izenarekin lotzeko egiaztatu da
       default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
@@ -893,17 +898,17 @@ eu:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
           title: Badges
       user:
-        confirmation_instructions_sent: Email confirmation instructions sent
+        confirmation_instructions_sent: Posta elektroniko bidezko berrespena bidalitako argibideak
         create_user_group: Sortu taldea
         edit_profile: Editatu profila
         edit_user_group: Editatu taldearen profila
-        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        fill_in_email_to_confirm_it: Mesedez, bete zure taldearen posta elektronikoa berresteko
         invite_user: Gonbidatu erabiltzailea
         join_user_group: Talde batzeko eskaera
         leave_user_group: Utzi taldea
         manage_user_group_admins: Kudeatu kudeatzaileak
         manage_user_group_users: Kudeatu kideak
-        resend_email_confirmation_instructions: Resend email confirmation instructions
+        resend_email_confirmation_instructions: Berrikusi posta elektronikoaren berrespena jarraibideak
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -920,7 +925,7 @@ eu:
         error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     scopes:
-      global: Global scope
+      global: Esparru orokorra
       picker:
         cancel: Utzi
         choose: Aukeratu
@@ -988,13 +993,13 @@ eu:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
     user_interests:
       show:
-        my_interests: My interests
-        no_scopes: This organization doesn't have any scope yet!
-        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
-        update_my_interests: Update my interests
+        no_scopes: Antolakuntza honek ez du inongo esparrurik!
+        my_interests: Nire interesak
+        select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko Timeline fitxan erlazionatutako gertaerak jasotzeko.
+        update_my_interests: Eguneratu nire interesak
       update:
-        error: There was an error while updating your interests.
-        success: Your interests have been successfully updated.
+        error: Errore bat gertatu da zure interesak eguneratzean.
+        success: Zure interesak ondo eguneratu dira.
     welcome_notification:
       default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
       default_subject: Eskerrik asko sartzeko {{organization}}!
@@ -1008,11 +1013,11 @@ eu:
     failure:
       already_authenticated: Saioa hasi zara.
       inactive: Zure kontua ez dago oraindik aktibatuta.
-      invalid: "%{authentication_keys} edo pasahitza baliogabea."
+      invalid: '%{authentication_keys} edo pasahitza baliogabea.'
       invited: Gonbidapen bat dago zain, onartu zure kontua sortzerakoan.
       last_attempt: Zure kontua blokeatuta dago aurretik zure saiakera gehiago duzu.
       locked: Zure kontua blokeatuta dago.
-      not_found_in_database: "%{authentication_keys} edo pasahitza baliogabea."
+      not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
       timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
       unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
     invitations:
@@ -1081,7 +1086,7 @@ eu:
         subject: Desblokeatu argibideak
     omniauth_callbacks:
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
-      success: "%{kind} kontutik behar bezala egiaztatua."
+      success: '%{kind} kontutik behar bezala egiaztatua.'
     passwords:
       edit:
         change_my_password: Aldatu nire pasahitza
@@ -1145,7 +1150,7 @@ eu:
   errors:
     messages:
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
-      confirmation_period_expired: "%{period}barruan baieztatu behar da, eskatu beste bat"
+      confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
       content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
@@ -1175,7 +1180,7 @@ eu:
       edit_link:
         edit: Editatu
       footer:
-        download_open_data: Download Open Data files
+        download_open_data: Deskargatu Open Data fitxategiak
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:
         close_menu: Itxi menua
@@ -1200,7 +1205,7 @@ eu:
         authorizations: Baimenak
         delete_my_account: Ezabatu nire kontua
         my_data: Nire datuak
-        my_interests: My interests
+        my_interests: Nire interesak
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Taldeak

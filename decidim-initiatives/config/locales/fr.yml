@@ -54,7 +54,7 @@ fr:
         initiatives:
           fields:
             created_at: Créé à
-            id: IDENTIFIANT
+            id: ID
             state: État
             supports_count: Soutiens
             title: Titre
@@ -80,19 +80,15 @@ fr:
           notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           affected_user:
-            email_intro: Votre initiative %{resource_title} a atteint le %{percentage}% des signatures !
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de l'initiative %{resource_title}.
-            email_subject: Nouveau jalon franchi !
-            notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint le %{percentage}% des signatures.
-          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Nouvelle étape franchie !
+            email_intro: Votre initiative %{resource_title} a réalisé le %{percentage}% de signatures!
+            email_outro: Vous avez reçu cette notification car vous êtes l'auteur de l'initiative %{resource_title}.
+            email_subject: Nouvelle étape franchie !
+            notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
           follower:
-            email_intro: L'initiative %{resource_title} a atteint le %{percentage}% des signatures !
+            email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
             email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouveau jalon franchi !
-            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint le %{percentage}% des signatures.
-          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+            email_subject: Nouvelle étape franchie !
+            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

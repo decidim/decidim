@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ ca:
         others: Altres
         public: Públic
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Tots
+        commission: Comissió
+        consultative_advisory: Consultiva/Assessora
+        executive: Executiu
+        government: Govern
+        label: 'Mostrar:'
+        others: Altres
+        participatory: Participatiu
+        placeholder: Filtrar per tipus
+        working_group: Grup de treball
       index:
         title: Assemblees
       last_activity:
@@ -332,8 +331,8 @@ ca:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Una assemblea és un grup de membres d'una organització que es reuneixen periòdicament per prendre decisions sobre una àrea o àmbit específic de l'organització.</p> <p>assemblees celebren reunions, algunes són privades i algunes estan obertes. Si estan oberts, és possible participar-hi (per exemple: assistir si la capacitat ho permet, afegir punts a l'agenda o fer comentaris sobre les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: una assemblea general (que es reuneix un cop l'any per definir les principals línies d'actuació de l'organització i els seus òrgans executius per vot), un consell assessor d'igualtat (que es reuneix cada dos mesos per formular propostes sobre com millorar les relacions de gènere a l'organització), una comissió d'avaluació (que es reuneix cada mes per supervisar un procés) o un organisme de garantia (que recull incidents, abusos o propostes per millorar els procediments de presa de decisions) són tots exemples d'assemblees.</p>\n"
-          page: "<p>Una assemblea és un grup de membres d'una organització que es reuneixen periòdicament per prendre decisions sobre una àrea o àmbit específic de l'organització.</p> <p>assemblees celebren reunions, algunes són privades i algunes estan obertes. Si estan oberts, és possible participar-hi (per exemple: assistir si la capacitat ho permet, afegir punts a l'agenda o fer comentaris sobre les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: una assemblea general (que es reuneix un cop l'any per definir les principals línies d'actuació de l'organització i els seus òrgans executius per vot), un consell assessor d'igualtat (que es reuneix cada dos mesos per formular propostes sobre com millorar les relacions de gènere a l'organització), una comissió d'avaluació (que es reuneix cada mes per supervisar un procés) o un organisme de garantia (que recull incidents, abusos o propostes per millorar els procediments de presa de decisions) són tots exemples d'assemblees.</p>\n"
+          contextual: "<p>Una assemblea és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
+          page: "<p>Una assemblea és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
           title: Què són les assemblees?
     log:
       value_types:
@@ -343,7 +342,7 @@ ca:
       assemblies: Assemblees
     metrics:
       assemblies:
-        description: Nombre d'acoblats creats
+        description: Nombre d'assemblees creades
         object: assemblees
         title: Assemblees
   errors:
@@ -360,8 +359,8 @@ ca:
           reset_chart: Restablir
         order_by_assemblies:
           assemblies:
-            one: "%{count} muntats"
-            other: "%{count} muntats"
+            one: "%{count} assemblea"
+            other: "%{count} assemblees"
         promoted_assembly:
           more_info: Més informació
           take_part: Participa

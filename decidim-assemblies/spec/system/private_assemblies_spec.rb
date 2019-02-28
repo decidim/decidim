@@ -23,8 +23,8 @@ describe "Private Assemblies", type: :system do
         end
 
         it "lists all the assemblies" do
-          within "#assemblies-grid" do
-            within "#assemblies-grid h2" do
+          within "#parent-assemblies" do
+            within "#parent-assemblies h2" do
               expect(page).to have_content("2")
             end
 
@@ -44,8 +44,8 @@ describe "Private Assemblies", type: :system do
         end
 
         it "lists all the assemblies" do
-          within "#assemblies-grid" do
-            within "#assemblies-grid h2" do
+          within "#parent-assemblies" do
+            within "#parent-assemblies h2" do
               expect(page).to have_content("2")
             end
 
@@ -68,8 +68,8 @@ describe "Private Assemblies", type: :system do
         end
 
         it "lists only the not private assembly" do
-          within "#assemblies-grid" do
-            within "#assemblies-grid h2" do
+          within "#parent-assemblies" do
+            within "#parent-assemblies h2" do
               expect(page).to have_content("1")
             end
 
@@ -89,8 +89,8 @@ describe "Private Assemblies", type: :system do
         end
 
         it "lists only the not private assembly" do
-          within "#assemblies-grid" do
-            within "#assemblies-grid h2" do
+          within "#parent-assemblies" do
+            within "#parent-assemblies h2" do
               expect(page).to have_content("1")
             end
 
@@ -109,8 +109,8 @@ describe "Private Assemblies", type: :system do
           end
 
           it "lists private assemblies" do
-            within "#assemblies-grid" do
-              within "#assemblies-grid h2" do
+            within "#parent-assemblies" do
+              within "#parent-assemblies h2" do
                 expect(page).to have_content("2")
               end
 
@@ -137,8 +137,8 @@ describe "Private Assemblies", type: :system do
         end
 
         it "lists private assemblies" do
-          within "#assemblies-grid" do
-            within "#assemblies-grid h2" do
+          within "#parent-assemblies" do
+            within "#parent-assemblies h2" do
               expect(page).to have_content("2")
             end
 

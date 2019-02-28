@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -55,7 +54,7 @@ es:
         initiatives:
           fields:
             created_at: Creado en
-            id: ID
+            id: CARNÉ DE IDENTIDAD
             state: Estado
             supports_count: Apoyos
             title: Iniciativas
@@ -75,50 +74,46 @@ es:
     events:
       initiatives:
         initiative_extended:
-          email_intro: "¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!"
+          email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "¡Ampliado el términio de recogida de firmas para esta iniciativa!"
+          email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
           notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
           affected_user:
-            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
-            email_subject: New milestone completed!
-            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: "¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!"
-          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "¡Nuevo hito completado!"
+            email_intro: '¡Tu iniciativa %{resource_title} ha conseguido el %{percentage}% de firmas!'
+            email_outro: Has recibido esta notificación porque eres el autor de la iniciativa %{resource_title}.
+            email_subject: '¡Nuevo hito completado!'
+            notification_title: Tu iniciativa <a href="%{resource_path}">%{resource_title}</a> ha conseguido el %{percentage}% de firmas.
           follower:
-            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-            email_subject: New milestone completed!
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
+            email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
+            email_outro: Has recibido esta notificación porque estás siguiendo a %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_subject: '¡Nuevo hito completado!'
+            notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
     gamification:
       badges:
         initiatives:
           conditions:
-          - Ir al espacio de participación de Iniciativas
-          - Sigue los pasos para crear una nueva iniciativa.
+            - Ir al espacio de participación de Iniciativas
+            - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
-          next_level_in: "¡Publica %{score} iniciativas más para llegar al siguiente nivel!"
+          next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
           unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
           unearned_own: Aún no tienes ninguna iniciativa publicada.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Una iniciativa es una propuesta que puede ser promovida por cualquiera por iniciativa propia (independientemente de otros canales o espacios de participación) a través de la recopilación de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar una regulación, iniciar un proyecto). , cambiar el nombre de un departamento o una calle, etc.).</p> <p>Los promotores de una iniciativa pueden definir sus objetivos, obtener apoyo, debatir, difundir y definir puntos de encuentro donde se pueden recopilar firmas de los asistentes o debates abiertos a otros participantes.</p> <p>Ejemplos: una iniciativa puede recopilar firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o área de la organización. Durante el proceso de recolección de firmas, más personas pueden sumarse a esta demanda y llevarla adelante en la organización.</p>\n"
-          page: "<p>Una iniciativa es una propuesta que puede ser promovida por cualquiera por iniciativa propia (independientemente de otros canales o espacios de participación) a través de la recopilación de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar una regulación, iniciar un proyecto). , cambiar el nombre de un departamento o una calle, etc.).</p> <p>Los promotores de una iniciativa pueden definir sus objetivos, obtener apoyo, debatir, difundir y definir puntos de encuentro donde se pueden recopilar firmas de los asistentes o debates abiertos a otros participantes.</p> <p>Ejemplos: una iniciativa puede recopilar firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o área de la organización. Durante el proceso de recolección de firmas, más personas pueden sumarse a esta demanda y llevarla adelante en la organización.</p>\n"
-          title: "¿Qué son las iniciativas?"
+          contextual: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
+          page: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
+          title: '¿Qué son las iniciativas?'
     initiatives:
       admin:
         committee_requests:
           index:
             approve: Aprobar
-            confirm_revoke: "¿Estás seguro?"
+            confirm_revoke: '¿Estás seguro?'
             invite_to_committee_help: Comparte este enlace para invitar a otros usuarios al comité de promoción
             no_members_yet: No hay miembros en el comité promotor
             revoke: Revocar
@@ -129,7 +124,7 @@ es:
         initiatives:
           edit:
             accept: Aceptar iniciativa
-            confirm: "¿Estás seguro?"
+            confirm: '¿Estás seguro?'
             discard: Descartar la iniciativa
             export_votes: Soportes de exportación
             reject: Rechazar la iniciativa
@@ -165,7 +160,7 @@ es:
             success: El alcance ha sido eliminado con éxito
           edit:
             back: Volver
-            confirm_destroy: "¿Estás seguro?"
+            confirm_destroy: '¿Estás seguro?'
             destroy: Borrar
             title: Editar alcance del tipo de iniciativa
             update: Actualizar
@@ -183,7 +178,7 @@ es:
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente
           edit:
-            confirm_destroy: "¿Estás seguro?"
+            confirm_destroy: '¿Estás seguro?'
             destroy: Borrar
             update: Actualizar
           form:
@@ -229,7 +224,7 @@ es:
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
-          callout_text: "¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito."
+          callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
@@ -242,7 +237,7 @@ es:
         previous_form:
           back: Volver
           continue: Continuar
-          help: "¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta."
+          help: '¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta.'
           more_information: "(Más información)"
         promotal_committee:
           back: Volver
@@ -316,7 +311,7 @@ es:
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
-          offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
+          offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
         signature_identities:
           select_identity: Selecciona un identificador de usuario
         signatures_count:
@@ -331,7 +326,7 @@ es:
           title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
-          supports_required: Se requieren %{total_supports} firmas
+          supports_required: "Se requieren %{total_supports} firmas"
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
@@ -361,7 +356,7 @@ es:
       states:
         accepted: Aceptado
         expired: Caducado
-      unavailable_scope: Unavailable scope
+      unavailable_scope: Alcance no disponible
     menu:
       initiatives: Iniciativas
   layouts:
@@ -388,4 +383,4 @@ es:
           check: Échale un vistazo
           check_and_support: Compruébalo y firma
         no_initiatives_yet:
-          no_initiatives_yet: "¡No hay iniciativas todavía!"
+          no_initiatives_yet: '¡No hay iniciativas todavía!'

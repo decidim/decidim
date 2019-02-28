@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -259,16 +258,16 @@ fi:
         others: Muut
         public: Julkinen
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Kaikki
+        commission: Komitea
+        consultative_advisory: Konsultti/neuvonantaja
+        executive: Johtaja
+        government: Hallinto
+        label: 'Näytä:'
+        others: Muut
+        participatory: Osallistava
+        placeholder: Suodata tyypin mukaan
+        working_group: Työryhmä
       index:
         title: Ryhmät
       last_activity:
@@ -309,21 +308,21 @@ fi:
         social_networks: Sosiaalinen media
         target: Kuka osallistuu
       statistics:
-        answers_count: Vastaukset
-        assemblies_count: Ryhmiä
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
+        answers_count: Vastausta
+        assemblies_count: Ryhmää
+        comments_count: Kommenttia
+        debates_count: Keskustelua
+        endorsements_count: Suositusta
         headline: Tilastot
-        meetings_count: Tapaamisia
-        orders_count: Ääniä
-        pages_count: Sivuja
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
+        meetings_count: Tapaamista
+        orders_count: Ääntä
+        pages_count: Sivua
+        projects_count: Suunnitelmaa
+        proposals_count: Ehdotusta
+        results_count: Tulosta
+        surveys_count: Kyselyä
+        users_count: Osallistujaa
+        votes_count: Ääntä
     assembly_members:
       assembly_member:
         designated_on: Nimetty

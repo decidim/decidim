@@ -1,12 +1,11 @@
----
 pt:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Métodos disponíveis
+        offline: desligada
+        offline_explanation: Instruções para verificação off-line
+        online: Conectados
       id_document_information:
         document_number: Número do documento (com letra)
         document_type: Tipo do documento
@@ -16,7 +15,7 @@ pt:
         user: Do utilizador
         verification_attachment: Cópia digitalizada do seu documento
       offline_confirmation:
-        email: User email
+        email: E-mail do usuário
       postal_letter_address:
         full_address: Endereço completo
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ pt:
         authorization_workflows: Verificações
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} atualizou a configuração de verificação de documentos de identidade"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando uma verificação de documentos de identidade off-line"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
-          - Você preencher as informações presentes na imagem carregada.
-          - A informação deve corresponder ao que o usuário preenchido.
-          - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
+            - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
+            - Você preencher as informações presentes na imagem carregada.
+            - A informação deve corresponder ao que o usuário preenchido.
+            - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
         postal_letter:
           help:
-          - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
-          - Você envia a carta para seu endereço com o código de verificação.
-          - Você marca a carta como enviada.
-          - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+            - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
+            - Você envia a carta para seu endereço com o código de verificação.
+            - Você marca a carta como enviada.
+            - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
       direct: Direto
       help: Socorro
       id_documents:
@@ -85,11 +84,11 @@ pt:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Configuração de documentos de identidade
+              update: Atualizar
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Houve um erro ao atualizar a configuração.
+              success: Configuração atualizada com sucesso
           confirmations:
             create:
               error: A verificação não corresponde. Tente novamente ou rejeite a verificação para que o usuário possa corrigi-la
@@ -100,16 +99,16 @@ pt:
               verify: Verificar
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: A verificação não corresponde. Tente novamente ou diga ao usuário para alterá-lo
+              success: Usuário verificado com sucesso
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Cancelar
+              introduce_user_data: Introduzir o email do usuário e os dados do documento
+              verify: Verificar
           pending_authorizations:
             index:
               config: Config
-              offline_verification: Offline verification
+              offline_verification: Verificação off-line
               title: Verificações pendentes
               verification_number: 'Verificação # %{n}'
           rejections:
@@ -117,17 +116,17 @@ pt:
               success: Verificação rejeitada. O usuário será solicitado a alterar seus documentos
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
-            online: Online
-            title: Verify yourself using your identity document
+            choose_a_type: "Por favor, selecione como deseja ser verificado:"
+            offline: desligada
+            online: Conectados
+            title: Confirme-se usando seu documento de identidade
           create:
             error: Ocorreu um problema ao carregar seu documento
             success: Documento carregado com sucesso
           edit:
             being_reviewed: Estamos revisando seus documentos. Você será verificado em breve
-            offline: Use offline verification
-            online: Use online verification
+            offline: Use a verificação off-line
+            online: Use a verificação on-line
             rejection_clarity: Verifique se a informação está claramente visível na imagem carregada
             rejection_correctness: Verifique se as informações inseridas estão corretas
             rejection_notice: Ocorreu um problema com sua verificação. Por favor, tente novamente

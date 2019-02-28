@@ -67,6 +67,7 @@ en:
         show_statistics: Show statistics
         tos_version: Terms of service version
         twitter_handler: Twitter handler
+        user_groups_enabled: Enable user groups
         youtube_handler: YouTube handler
       scope:
         code: Code
@@ -649,11 +650,11 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        impersonatable_users: Impersonatable users
-        impersonations: Impersonations
+        impersonatable_users: Manageable users
+        impersonations: Users management
         managed_users: Managed users
         navbar_links: Navbar links
-        participants: Participants
+        participants: Users
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages

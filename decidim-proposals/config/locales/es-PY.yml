@@ -1,4 +1,3 @@
----
 es-PY:
   activemodel:
     attributes:
@@ -11,16 +10,15 @@ es-PY:
         title: Título
         user_group_id: Crear borrador colaborativo como
       proposal:
-        address: Address
         answer: Respuesta
         answered_at: Respondido
-        automatic_hashtags: Hashtags automatically added
+        automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
         has_address: Tiene dirección
         scope_id: Ámbito
         state: Estado
-        suggested_hashtags: Suggested hashtags
+        suggested_hashtags: Hashtags sugeridos
         title: Título
         user_group_id: Crear propuesta como
       proposal_answer:
@@ -73,7 +71,7 @@ es-PY:
         name: Propuestas
         settings:
           global:
-            amendments_enabled: Amendments enabled
+            amendments_enabled: Enmiendas habilitadas
             announcement: Anuncio
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
@@ -97,26 +95,17 @@ es-PY:
             vote_limit: Límite de voto por usuario
           step:
             announcement: Anuncio
-            automatic_hashtags: Hashtags added to all proposals
+            automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Creación de propuesta habilitada
             endorsements_blocked: Adhesiones bloqueados
             endorsements_enabled: Adhesiones habilitados
             proposal_answering_enabled: Contestación de propuesta habilitada
-            suggested_hashtags: Hashtags suggested to users for new proposals
+            suggested_hashtags: Hashtags sugeridos a los usuarios para nuevas propuestas.
             votes_blocked: Votación bloqueada
             votes_enabled: Votación habilitada
             votes_hidden: Votos ocultos (si los votos están habilitados, marcar esto ocultará el número de votos)
-            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
-      proposal_created:
-        email_subject: Nouvelle proposition de %{author_name}.
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptado para acceder como contribuidor del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
@@ -149,30 +138,26 @@ es-PY:
           email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: "¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
+          email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: "¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
+          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal has been accepted
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
-          email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-          email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Una propuesta que estás siguiendo ha sido aceptada
+            email_intro: 'Su propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
+            email_subject: Su propuesta ha sido aceptada.
+            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
           follower:
-            email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been accepted
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
+            email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_subject: Una propuesta que estás siguiendo ha sido aceptada
+            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, a quien está siguiendo, acaba de respaldar la propuesta "%{resource_title}" y creemos que puede ser interesante para usted. Échale un vistazo y contribuye:'
           email_outro: Recibió esta notificación porque está siguiendo %{endorser_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -180,22 +165,18 @@ es-PY:
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido reivindicada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal is being evaluated
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
-          email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
-          email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Una propuesta que estás siguiendo está siendo evaluada
+            email_intro: 'Su propuesta "%{resource_title}" está siendo evaluada. Puedes buscar una respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
+            email_subject: Tu propuesta esta siendo evaluada
+            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
           follower:
-            email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following is being evaluated
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
+            email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_subject: Una propuesta que estás siguiendo está siendo evaluada
+            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
           email_intro: Su propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
-          email_outro: You have received this notification because you are an author of "%{resource_title}".
+          email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
           email_subject: Su propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Su propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
         proposal_published:
@@ -210,26 +191,22 @@ es-PY:
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal been rejected
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
-          email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-          email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Una propuesta que estás siguiendo ha sido rechazada
+            email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
+            email_subject: Su propuesta ha sido rechazada
+            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
-            email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been rejected
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
+            email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_subject: Una propuesta que estás siguiendo ha sido rechazada
+            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
           email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: "¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
+          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -237,35 +214,35 @@ es-PY:
       badges:
         accepted_proposals:
           conditions:
-          - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
-          - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
+            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
           description: Este distintivo se otorga cuando usted participa activamente con nuevas propuestas y se aceptan.
-          description_another: "%{score} propuestas de este usuario han sido aceptadas."
-          description_own: "%{score} de tus propuestas han sido aceptadas."
+          description_another: '%{score} propuestas de este usuario han sido aceptadas.'
+          description_own: '%{score} de tus propuestas han sido aceptadas.'
           name: Propuestas aceptadas
-          next_level_in: "¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!"
+          next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-          - Navega y pasa un tiempo leyendo las propuestas de otras personas.
-          - Da soporte a las propuestas que te gusten o encuentres interesantes.
+            - Navega y pasa un tiempo leyendo las propuestas de otras personas.
+            - Da soporte a las propuestas que te gusten o encuentres interesantes.
           description: Este distintivo se otorga cuando apoyas las propuestas de otras personas.
           description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
-          next_level_in: "¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!"
+          next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-          - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
-          - Crear una nueva propuesta
+            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+            - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
-          next_level_in: "¡Crea %{score} propuestas más para alcanzar el siguiente nivel!"
+          next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
@@ -433,9 +410,9 @@ es-PY:
           except_rejected: Todos excepto rechazados
           rejected: Rechazado
         filter_type_values:
-          all: All
-          amendments: Amendments
-          proposals: Proposals
+          all: Todos
+          amendments: Enmiendas
+          proposals: Propuestas
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -457,7 +434,7 @@ es-PY:
             success: Borrador colaborativo retirado con éxito.
         compare:
           mine_is_different: Mi borrador colaborativo es diferente
-          no_similars_found: "¡Enhorabuena! No se encontraron borradores colaborativos similares"
+          no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
           title: Borradores colaborativos similares
         complete:
           send: Enviar
@@ -470,14 +447,14 @@ es-PY:
           error: Ha habido un problema al crear este borradores colaborativo
           success: Borrador colaborativo creado con éxito.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Volver
           select_a_category: Por favor seleccione una categoría
           send: Enviar
           title: Editar borrador colaborativo
         filters:
           all: Todas
-          amendment: Amendments
+          amendment: Enmiendas
           category: Categoría
           category_prompt: Aviso de categoría
           open: Abierto
@@ -580,9 +557,9 @@ es-PY:
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
       participatory_text_proposal:
-        alternative_title: There are no participatory texts at the moment
+        alternative_title: No hay textos participativos por el momento
         buttons:
-          amend: Amend
+          amend: Enmendar
           comment: Comentario
           comments: Comentarios
           endorse: Endosar
@@ -604,7 +581,7 @@ es-PY:
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
-          no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
+          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
           send: Enviar
@@ -613,32 +590,23 @@ es-PY:
           proposals_count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
-        dynamic_map_instructions:
-          primary: You can move the point on the map.
-          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
-          address: Address (don't forget to specify the city)
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
-          not_geocoded: Not geocoded
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
         edit_draft:
           discard: Descartar este borrador
-          discard_confirmation: "¿Estás seguro que quieres descartar este borrador de propuesta?"
+          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
           title: Editar borrador de propuesta
-        edit_form_fields:
-          address: Address
-          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:
           comments: Comentarios
         filters:
           activity: Actividad
-          amendment_type: Type
           category: Categoría
           category_prompt: Selecciona una categoría
           origin: Origen
@@ -646,6 +614,7 @@ es-PY:
           search: Buscar
           state: Estado
           voted: Votado
+          amendment_type: Tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -673,18 +642,13 @@ es-PY:
             document_index: Índice de documentos
           view_index:
             see_index: Ver índice
-        placeholder:
-          address: 32 rue des cascades 75020 Paris
         preview:
-          address: 'Address: %{address}'
           modify: Modificar la propuesta
-          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
-          update_pos: Update the position
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta
@@ -702,7 +666,7 @@ es-PY:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: "¿Seguro que quieres retirar esta propuesta?"
+          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
@@ -714,18 +678,12 @@ es-PY:
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
           votes_blocked: Votación desactivada
-        vote_weight:
-          maximum_votes_reached: Maximum votes reached
-          no_votes_remaining: No votes remaining
-          votes_blocked: Votes blocked
         votes_count:
           count:
             one: APOYO
             other: APOYOS
           most_popular_proposal: La propuesta más popular
           need_more_votes: Necesita más votos
-        votes_weight:
-          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
@@ -767,7 +725,7 @@ es-PY:
           title: Versiones
         stats:
           back_to_collaborative_draft: Volver al borrador colaborativo
-          back_to_proposal: Go back to proposal
+          back_to_proposal: Volver a propuesta
           number_of_versions: Versiones
           show_all_versions: Mostrar todas las versiones
           version_author: Autor de la versión

@@ -778,6 +778,9 @@ uk:
         greetings: Добридень,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>!
         hello: Вітаємо,
         subject: Бажаєте продовжити отримувати свіжі новини про %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Ви отримали це повідомлення, оскільки ви підписалися на сповіщення електронною поштою на% {organization_name}. Ви можете змінити свої налаштування на сторінці <a href="%{link}"> сповіщень </a>.
     notifications:
       no_notifications: Ще немає сповіщень.
     notifications_settings:

@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -92,26 +91,22 @@ fi:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'Tapahtuma "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Tapahtuma "%{resource_title}" suljettiin
+            email_intro: 'Tapahtumasi "%{resource_title}" on suljettu. Voit lukea johtopäätökset täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet järjestänyt tapahtuman "%{resource_title}".
+            email_subject: Tapahtuma "%{resource_title}" suljettiin
+            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+            email_intro: 'Tapahtuma "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+            email_subject: Tapahtuma "%{resource_title}" suljettiin
+            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
           email_intro: Tapahtuma "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi tapahtuma lisätty kohteeseen %{participatory_space_title}
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
@@ -141,7 +136,7 @@ fi:
       badges:
         attended_meetings:
           conditions:
-          - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
           description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
           description_own: Olet osallistunut %{score} tapahtumaan.
@@ -195,13 +190,13 @@ fi:
             invalid: Tämän esityslistan päivityksessä esiintyi ongelma
             success: Esityslista päivitettiin onnistuneesti
         exports:
-          meetings: Meetings
+          meetings: Tapahtumat
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
           invite:
             decline: Hylkää kutsu
             invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
-            join: Liity tapahtumaan "%{meeting_title}"
+            join: Ilmoittaudu tapahtumaan "%{meeting_title}"
         invites:
           create:
             error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
@@ -370,15 +365,15 @@ fi:
         show:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
-          going: Osallistumassa
-          join: Liity tapahtumaan
+          going: Ilmoittautunut
+          join: Ilmoittaudu tapahtumaan
           meeting_report: Tapahtumaraportti
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
-          registration_code_help_text: Your registration code
+          registration_code_help_text: Ilmoittautumiskoodisi
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: VAHVISTETTU
+            validation_pending: ODOTTAA VAHVISTUSTA
           remaining_slots:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"

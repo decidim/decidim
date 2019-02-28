@@ -96,7 +96,7 @@ sv:
       comments:
         description: Antal kommentarer som genereras av användare
         object: kommentarer
-        title: kommentarer
+        title: Kommentarer
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

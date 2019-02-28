@@ -58,22 +58,6 @@ describe "Admin edits proposals", type: :system do
         expect(page).to have_content("not authorized")
       end
     end
-
-    context "when updating with wrong data" do
-      let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
-
-      it "returns an error message" do
-        visit_component_admin
-
-        find("a.action-icon--edit-proposal").click
-        expect(page).to have_content "UPDATE PROPOSAL"
-
-        fill_in "Body", with: "A"
-        click_button "Update"
-
-        expect(page).to have_content("is using too many capital letters (over 25% of the text), is too short (under 15 characters)")
-      end
-    end
   end
 
   describe "editing a non-official proposal" do

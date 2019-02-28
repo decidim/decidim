@@ -1,12 +1,11 @@
----
 sv:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Tillgängliga metoder
+        offline: Off-line
+        offline_explanation: Instruktioner för offline verifiering
+        online: Uppkopplad
       id_document_information:
         document_number: Dokumentnummer (med bokstav)
         document_type: Typ av dokumentet
@@ -16,7 +15,7 @@ sv:
         user: Användare
         verification_attachment: Skannad kopia av ditt dokument
       offline_confirmation:
-        email: User email
+        email: Användar-e-post
       postal_letter_address:
         full_address: Fullständig adress
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ sv:
         authorization_workflows: Verifieringar
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} uppdaterade konfiguration av identitetshandlingar"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verifierad %{resource_name} hjälp av en offline ID-dokument verifiering"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
-          - Du fyller i informationen som finns i den uppladdade bilden.
-          - Informationen ska matcha vad användaren fyllt i.
-          - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
+            - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
+            - Du fyller i informationen som finns i den uppladdade bilden.
+            - Informationen ska matcha vad användaren fyllt i.
+            - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
         postal_letter:
           help:
-          - Användare begär en verifieringskod som ska skickas till deras adress.
-          - Du skickar brevet till deras adress med verifieringskoden.
-          - Du markerar brevet som skickat.
-          - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
+            - Användare begär en verifieringskod som ska skickas till deras adress.
+            - Du skickar brevet till deras adress med verifieringskoden.
+            - Du markerar brevet som skickat.
+            - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
       direct: Direkt
       help: Hjälp
       id_documents:
@@ -85,11 +84,11 @@ sv:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Konfiguration av identitetsdokument
+              update: Uppdatering
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Det uppstod ett fel vid uppdatering av konfigurationen.
+              success: Konfigurationen har uppdaterats
           confirmations:
             create:
               error: Verifieringen matchar inte. Försök igen eller avvisa verifieringen så att användaren kan ändra den
@@ -100,16 +99,16 @@ sv:
               verify: Verifiera
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Verifieringen matchar inte. Försök igen eller berätta för användaren att ändra den
+              success: Användaren har verifierats
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Annullera
+              introduce_user_data: Presentation av användar-e-post och dokumentdata
+              verify: Kontrollera
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: config
+              offline_verification: Offline verifiering
               title: Pågående verifieringar
               verification_number: 'Verifiering #%{n}'
           rejections:
@@ -117,17 +116,17 @@ sv:
               success: Verifieringen avvisades. Användaren kommer att uppmanas att ändra sina dokument
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
-            online: Online
-            title: Verify yourself using your identity document
+            choose_a_type: "Var god välj hur du vill verifieras:"
+            offline: Off-line
+            online: Uppkopplad
+            title: Verifiera dig själv med ditt identitetsdokument
           create:
             error: Det gick inte att ladda upp dokumentet
             success: Dokumentet har laddats upp
           edit:
             being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
-            offline: Use offline verification
-            online: Use online verification
+            offline: Använd offline verifiering
+            online: Använd online verifiering
             rejection_clarity: Se till att informationen syns tydligt i den uppladdade bilden
             rejection_correctness: Se till att informationen som angivits är korrekt
             rejection_notice: Det uppstod ett problem med din verifiering. Var god försök igen

@@ -1,12 +1,11 @@
----
 ca:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Mètodes disponibles
+        offline: Sense connexió
+        offline_explanation: Instruccions per a la verificació sense connexió
+        online: En línia
       id_document_information:
         document_number: Número de document (amb lletra)
         document_type: Tipus del document
@@ -16,7 +15,7 @@ ca:
         user: Usuari
         verification_attachment: Còpia escanejada del teu document
       offline_confirmation:
-        email: User email
+        email: Correu electrònic d'usuari
       postal_letter_address:
         full_address: Adreça completa
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ ca:
         authorization_workflows: Verificacions
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} ha actualitzat la configuració de verificació mitjançant documents d'identitat"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant la verificació presencial mitjançant documents d'identitat"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
-          - Emplenes la informació que es mostra a la imatge penjada.
-          - La informació ha de coincidir amb el que hagi omplert l'usuari.
-          - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
+            - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
+            - Emplenes la informació que es mostra a la imatge penjada.
+            - La informació ha de coincidir amb el que hagi omplert l'usuari.
+            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-          - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-          - Envies la carta a la seva adreça amb el codi de verificació.
-          - Marques la carta com a enviada.
-          - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
+            - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Envies la carta a la seva adreça amb el codi de verificació.
+            - Marques la carta com a enviada.
+            - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
       direct: Directe
       help: Ajuda
       id_documents:
@@ -85,11 +84,11 @@ ca:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Configuració dels documents d'identitat
+              update: Actualitzar
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: S'ha produït un error en actualitzar la configuració.
+              success: La configuració s'ha actualitzat correctament
           confirmations:
             create:
               error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
@@ -100,34 +99,34 @@ ca:
               verify: Verificar
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: La verificació no coincideix. Torna-ho a provar o digue-li a l'usuari que la modifiqui
+              success: S'ha verificat l'usuari correctament
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Cancel · lar
+              introduce_user_data: Introdueix el correu electrònic de l'usuari i les dades del document
+              verify: Verificar
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
-              title: Verificacions pendents
+              config: Configuració
+              offline_verification: Verificació presencial
+              title: Verificacions online pendents
               verification_number: 'Verificació #%{n}'
           rejections:
             create:
               success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
+            choose_a_type: "Si us plau selecciona com et vols verificar:"
+            offline: Presencial
             online: Online
-            title: Verify yourself using your identity document
+            title: Verifica't utilitzant el teu document d'identitat
           create:
             error: S'ha produït un problema en penjar el document
             success: Document penjat correctament
           edit:
             being_reviewed: Estem revisant els teus documents. Et verificarem aviat
-            offline: Use offline verification
-            online: Use online verification
+            offline: Utilitzar la verificació presencial
+            online: Utilitzar la verificació online
             rejection_clarity: Assegura't que la informació sigui visible a la imatge carregada
             rejection_correctness: Assegura't que la informació introduïda sigui correcta
             rejection_notice: S'ha produït un problema amb la teva verificació. Siusplau torna-ho a provar

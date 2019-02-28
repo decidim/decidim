@@ -10,4 +10,11 @@ module Decidim
   module Accountability
     autoload :ResultSerializer, "decidim/accountability/result_serializer"
   end
+  module ContentParsers
+    autoload :ResultParser, "decidim/content_parsers/result_parser"
+  end
+
+  module ContentRenderers
+    autoload :ResultRenderer, "decidim/content_renderers/result_renderer"
+  end
 end

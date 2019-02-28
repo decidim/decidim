@@ -3,6 +3,26 @@
 
 ## 0.12.2 - OSP specific changes:
 
+**Added**:
+
+- **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for images in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Changed**:
+
+- **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Fixed**:
+
+- **decidim-proposals**: Fix attachments not being inherited from collaborative draft when published as proposal. [\#4815](https://github.com/decidim/decidim/pull/4815)
+- **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
+- **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
+
+## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
+
 **Upgrade notes**:
 
 - **decidim-budgets**: Re-introduce vote on budget by number of project. This feature has not been fully tested. See [\#265](https://github.com/OpenSourcePolitics/decidim/pull/265)
@@ -40,6 +60,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Fixed**:
 
+- **decidim-core**: Fix comments count when a comment has been moderated [\#349](https://github.com/OpenSourcePolitics/decidim/pull/349)
 - **decidim-participatory_processes**: Fix participatory processes pagination[\#351](https://github.com/OpenSourcePolitics/decidim/pull/351)
 - **decidim-core**: Fix newsletter notification modal [\#342](https://github.com/OpenSourcePolitics/decidim/pull/342)
 - **decidim-proposals**: Fix responsive car preview for proposals[\#325](https://github.com/OpenSourcePolitics/decidim/pull/325)
@@ -62,12 +83,14 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Backported**:
 
+**decidim-proposals**: Fix collaborative draft attachment when attachments are enabled after collaborative draft creation [\#503](https://github.com/OpenSourcePolitics/decidim/pull/503)
 - **decidim-core**: Don't send emails to deleted users [\#364](https://github.com/OpenSourcePolitics/decidim/pull/364)
 - **decidim-core**: Fix notifications sending when there's no component. [\#348](https://github.com/opensourcepolitics/decidim/pull/348)
 - **decidim-surveys**: Allow deleting surveys components when there are no answers [#211](https://github.com/OpenSourcePolitics/decidim/pull/211)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
+- **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.15-stable)
@@ -90,6 +113,46 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-core**: Fix tabs with inputs with invalid characters [\#4561](https://github.com/decidim/decidim/pull/4561)
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
+
+**Added**:
+
+- **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4817](https://github.com/decidim/decidim/pull/4817)
+- **decidim-proposals**: In participatory texts it is better to render Article cards open by default. [\#4817](https://github.com/decidim/decidim/pull/4817)
+- **decidim-proposals**: Allow to persist participatory text drafts before publishing. [\#4817](https://github.com/decidim/decidim/pull/4817)
+- **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals**: Add Participatory Text support for images in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Changed**:
+
+- **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
+
+**Fixed**:
+
+- **decidim-assemblies**: Fix parent assemblies children_count counter (add migration) [\#4855](https://github.com/decidim/decidim/pull/4855/)
+- **decidim-assemblies**: Fix parent assemblies children_count counter [\#4847](https://github.com/decidim/decidim/pull/4847/)
+- **decidim-proposals**: Fix Proposals Last Activity feed. [\#4836](https://github.com/decidim/decidim/pull/4836)
+- **decidim-proposals**: Fix attachments not being inherited from collaborative draft when published as proposal. [\#4815](https://github.com/decidim/decidim/pull/4815)
+- **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
+- **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
+- **decidim-initiatives**: Better admin initiative search [\#4845](https://github.com/decidim/decidim/pull/4845)
+- **decidim-meetings**: Order meetings at admin [\#4844](https://github.com/decidim/decidim/pull/4844)
+- **decidim-proposals** Fix proposals search indexes [\#4857](https://github.com/decidim/decidim/pull/4857)
+- **decidim-proposals** Remove etiquette validation from proposals admin [\#4856](https://github.com/decidim/decidim/pull/4856)
+- **decidim-proposals** Fix recent proposals order [\#4854](https://github.com/decidim/decidim/pull/4854)
+- **decidim-core**: Fix user activities list [\#4853](https://github.com/decidim/decidim/pull/4853)
+- **decidim-comments** Fix author display in comments [\#4851](https://github.com/decidim/decidim/pull/4851)
+- **decidim-debates** Allow HTML content at debates page [\#4850](https://github.com/decidim/decidim/pull/4850)
+- **decidim-proposals**: Fix proposal activity cell rendering. [\#4848](https://github.com/decidim/decidim/pull/4848)
+- **decidim-forms**: Fix free text fields exporting. [\#4846](https://github.com/decidim/decidim/pull/4846)
+- **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
+- **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
+- **decidim-core**: Fix process filters [\#4872](https://github.com/decidim/decidim/pull/4872)
+
+
+## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
 
 **Upgrade notes**:
 
@@ -569,6 +632,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Let users select their interests (scopes). They will see relevant activity in the Timeline tab in their profile [\#4621](https://github.com/decidim/decidim/pull/4621)
 - **decidim-initiatives**: Add `Decidim::HasReference` concern to initiatives model, display reference in front and id in admin [\#4665](https://github.com/decidim/decidim/pull/4665)
 - **decidim-core**: Let users choose what kind of notifications they want to erceive [\#4663](https://github.com/decidim/decidim/pull/4663)
+- **decidim-core**: User groups can now be disabled per organization. [\#4681](https://github.com/decidim/decidim/pull/4681/)
 
 **Changed**:
 
@@ -637,6 +701,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 **Removed**:
 
 - **decidim-core**: Remove invite friends by email. [\#4434](https://github.com/decidim/decidim/pull/4434)
+- **decidim-core**: Place `CurrentOrganization` middleware before `WardenManager`. [\#4721](https://github.com/decidim/decidim/pull/4721)
 - **decidim-meetings**: Fix meetings form when only one locale is available [\#4623](https://github.com/decidim/decidim/pull/4623)
 - **decidim-participatory_processes**: Fix admin cannot access public view of private processes by default [\#4591](https://github.com/decidim/decidim/pull/4591)
 - **decidim-proposals** Index admin-created proposals. [\#4601](https://github.com/decidim/decidim/pull/4601)
@@ -693,6 +758,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Update Ransack to work with Rails 5.2.2 [\#4682](https://github.com/decidim/decidim/pull/4682)
 - **decidim-core**: Fix background-size on home page [\#4678](https://github.com/decidim/decidim/pull/4678)
 - **decidim-meetings**: Filter meeting by end time instead of start time [\#4701](https://github.com/decidim/decidim/pull/4701)
+- **decidim-core**: MetricResolver filtering corrected comparison between symbol and string [\#4736](https://github.com/decidim/decidim/pull/4736)
 
 **Removed**:
 

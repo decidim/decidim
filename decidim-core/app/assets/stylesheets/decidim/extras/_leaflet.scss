@@ -1,4 +1,6 @@
 .leaflet-container{
+  z-index: 0;
+
   .map-info{
     border: 1px solid $primary;
 

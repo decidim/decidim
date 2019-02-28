@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -67,6 +66,7 @@ sv:
         show_statistics: Visa statistik
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
+        user_groups_enabled: Aktivera användargrupper
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -93,7 +93,7 @@ sv:
         title: Titel
         weight: Vikt
       user_group_csv_verification:
-        file: File
+        file: Fil
     errors:
       models:
         oauth_application:
@@ -102,10 +102,10 @@ sv:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
         organization:
           attributes:
-            official_img_footer:
-              allowed_file_content_types: Invalid image file
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Ogiltig bildfil
+            official_img_footer:
+              allowed_file_content_types: Ogiltig bildfil
   activerecord:
     attributes:
       decidim/static_page:
@@ -119,7 +119,7 @@ sv:
         organization_name: Organisations namn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
-        site: Hemsida
+        site: Webbplats
   decidim:
     admin:
       actions:
@@ -127,6 +127,7 @@ sv:
         browse: Bläddra
         export: Exportera
         manage: Hantera
+        new: Ny %{name}
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
@@ -271,14 +272,14 @@ sv:
       impersonatable_users:
         index:
           filter:
-            all: Allt
+            all: Alla
             managed: Managed
             not_managed: Inte hanterad
           filter_by: Filtrera efter
           impersonate: Uppträd som
           impersonate_new_managed_user: Impersonera ny hanterad användare
           managed: Managed
-          name: namn
+          name: Namn
           needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
           not_managed: Inte hanterad
           promote: Främja
@@ -294,7 +295,7 @@ sv:
           success: Den hanterade användaren har skapats.
         form:
           authorization_method: Auktoriseringsmetod
-          name: namn
+          name: Namn
           reason: Anledning
         new:
           impersonate: Uppträd som
@@ -305,11 +306,6 @@ sv:
         logs_list:
           no_logs_yet: Det finns inga loggar än
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Det har inträffat ett fel som främjar den hanterade användaren.
           success: Den hanterade användaren har framgångsrikt marknadsförts.
@@ -329,7 +325,6 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: impersonations
-        navbar_links: Navbar links
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
         participants: Deltagarna
@@ -367,13 +362,6 @@ sv:
             reason: Anledning
             started_at: Börjat vid
             user: Användare
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Skapad vid
@@ -384,7 +372,8 @@ sv:
         oauth_application:
           fields:
             created_at: Skapad vid
-            name: namn
+            name: Namn
+          name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagande utrymme privat användare
         scope:
@@ -409,6 +398,7 @@ sv:
             roles:
               admin: Admin
               user_manager: Användarhanteraren
+          name: Användare
         user_group:
           fields:
             actions: Handlingar
@@ -426,28 +416,6 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Offensiv
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -477,8 +445,6 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Det har uppstått ett fel vid skapandet av den här applikationen.
@@ -557,7 +523,7 @@ sv:
           inactive_content_blocks: Inaktiva innehållsblock
       organization_homepage_content_blocks:
         edit:
-          update: Uppdatering
+          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
@@ -651,20 +617,16 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Impersonatable användare
         impersonations: impersonations
-        managed_users: Managed users
-        navbar_links: Navbar links
         participants: Deltagarna
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
         user_groups: Användargrupper
         users: Användare
-      user:
-        new: New
       user_group:
         csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
+          invalid: Det gick inte att läsa CSV-filen.
+          success: CSV-filen laddades upp, vi verifierar användargrupperna som matchar kriterierna. Det kan ta ett tag.
         reject:
           invalid: Det uppstod ett fel när du avvisade den här användargruppen.
           success: Användargruppen avvisades framgångsrikt
@@ -681,15 +643,15 @@ sv:
           filter_by: Filtrera efter
           search: Sök
           state:
-            pending: Avvaktan
+            pending: Väntande
             rejected: avvisade
             verified: Verifierad
-          verify_via_csv: Verify via CSV
+          verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
+          explanation: Ladda upp din CSV-fil. Den måste ha de officiella e-postmeddelandena för användargrupperna i din organisation i den första kolumnen i filen, utan rubriker. Endast användargrupper som har bekräftat sitt e-postmeddelande och som har ett e-postmeddelande som visas i CSV-filen kommer att valideras.
+          title: Ladda upp din CSV-fil
+          upload: Ladda upp
       users:
         create:
           error: Det uppstod ett fel vid inbjudan till den här användaren.

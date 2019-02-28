@@ -1,11 +1,10 @@
----
 de:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Verfügbare Methoden
         offline: Offline
-        offline_explanation: Instructions for offline verification
+        offline_explanation: Anweisungen zur Offline-Verifizierung
         online: Online
       id_document_information:
         document_number: Dokumentennummer (mit Buchstaben)
@@ -16,7 +15,7 @@ de:
         user: Benutzer
         verification_attachment: Gescannte Kopie Ihres Dokuments
       offline_confirmation:
-        email: User email
+        email: Benutzer Email
       postal_letter_address:
         full_address: Vollständige Adresse
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ de:
         authorization_workflows: Überprüfungen
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} hat die Überprüfungskonfiguration für Identitätsdokumente aktualisiert"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verifiziert %{resource_name} über eine Offline-Verifizierung von Identitätsdokumenten"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
-          - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
-          - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
-          - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
+            - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
+            - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
+            - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
+            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
         postal_letter:
           help:
-          - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
-          - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
-          - Sie markieren den Brief als gesendet.
-          - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+            - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
+            - Sie markieren den Brief als gesendet.
+            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
       direct: Direkte
       help: Hilfe
       id_documents:
@@ -85,11 +84,11 @@ de:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Konfiguration der Identitätsdokumente
+              update: Aktualisieren
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Beim Aktualisieren der Konfiguration ist ein Fehler aufgetreten.
+              success: Konfiguration erfolgreich aktualisiert
           confirmations:
             create:
               error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Benutzer sie ändern kann
@@ -100,16 +99,16 @@ de:
               verify: Überprüfen
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Die Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Benutzer mit, es zu ändern
+              success: Benutzer erfolgreich verifiziert
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Stornieren
+              introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
+              verify: Überprüfen
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: Konfig
+              offline_verification: Offline-Überprüfung
               title: Ausstehende Überprüfungen
               verification_number: 'Überprüfung #%{n}'
           rejections:
@@ -117,17 +116,17 @@ de:
               success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: "Bitte wählen Sie aus, wie Sie verifiziert werden möchten:"
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Überprüfen Sie sich anhand Ihres Ausweisdokuments
           create:
             error: Beim Hochladen Ihres Dokuments ist ein Problem aufgetreten
             success: Dokument erfolgreich hochgeladen
           edit:
             being_reviewed: Wir überprüfen Ihre Dokumente. Sie werden in Kürze bestätigt
-            offline: Use offline verification
-            online: Use online verification
+            offline: Offline-Bestätigung verwenden
+            online: Online-Bestätigung verwenden
             rejection_clarity: Stellen Sie sicher, dass die Informationen im hochgeladenen Bild deutlich sichtbar sind
             rejection_correctness: Stellen Sie sicher, dass die eingegebenen Informationen korrekt sind
             rejection_notice: Bei der Überprüfung ist ein Problem aufgetreten. Bitte versuche es erneut

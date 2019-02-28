@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -45,13 +44,13 @@ es:
         other: Ponentes
       decidim/conference_user_role:
         one: Rol de usuario conferencia
-        other: Rol de usuario conferencia
+        other: Roles de usuario conferencia
   decidim:
     admin:
       actions:
         confirm: Confirmar
         new_conference: Nueva conferencia
-        send_diplomas: Enviar diplomas
+        send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
           copy: Copiar
@@ -153,7 +152,7 @@ es:
           conference_admins: Usuarios de la conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
-          diploma: Diploma
+          diploma: Certificado de asistencia
           info: Información
           media_links: Enlaces multimedia
           moderations: Moderaciones
@@ -251,10 +250,10 @@ es:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
-        send_conference_diplomas: "%{user_name} enviar diplomas a los %{resource_name} usuarios de la conferencia."
+        send_conference_diplomas: "%{user_name} envió certificados de asistencia a los asistentes de la conferencia %{resource_name}"
         unpublish: "%{user_name} ha despublicado la conferencia %{resource_name}"
         update: "%{user_name} ha actualizado la conferencia %{resource_name}"
-        update_diploma: "%{user_name} actualizó la configuración de diploma %{resource_name} conferencia"
+        update_diploma: "%{user_name} actualizó la configuración de certificados de asistencia para la conferencia %{resource_name}"
       conference_speaker:
         create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
@@ -276,9 +275,9 @@ es:
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
       media_link:
-        create: "%{user_name} creó el enlace %{resource_name} media en la conferencia %{space_name}"
-        delete: "%{user_name} eliminó el %{resource_name} enlace de medios de la conferencia %{space_name}"
-        update: "%{user_name} actualizado el enlace de %{resource_name} media en la conferencia %{space_name}"
+        create: "%{user_name} creó el enlace a medios %{resource_name} en la conferencia %{space_name}"
+        delete: "%{user_name} eliminó el enlace a medios %{resource_name} de la conferencia %{space_name}"
+        update: "%{user_name} actualizó el enlace a medios %{resource_name} de la conferencia %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -334,13 +333,13 @@ es:
             slug_help: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         diplomas:
           edit:
-            save: Salvar
-            title: Diploma
+            save: Guardar
+            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
-            registration: Registro para '%{conference_title}'
+            registration: Inscripción para '%{conference_title}'
         partners:
           index:
             title: Colaboradores
@@ -351,23 +350,23 @@ es:
             title: Tipos de inscripción
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Encontrará el diploma para la conferencia <a href="%{url}">%{title}</a> en los anexos.
+            diploma_html: Encontrarás el certificado de asistencia a la conferencia <a href="%{url}">%{title}</a> en los anexos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
             certificate_of_attendance: Certificado de asistencia
-            certificate_of_attendance_description: Esto es para certificar que <strong>%{user}</strong> ha asistido y participado en los <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en los encuentros <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Ha habido un problema al enviar los diplomas de la conferencia.
-          success: Diplomas de Conferencia enviados correctamente
+          error: Ha habido un problema al enviar los certificados de la conferencia.
+          success: Certificados de asistencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
         show:
-          free: Gratis
+          free: Entrada libre
           going: Asistiré
           no_slots_available: No hay plazas disponibles
-          registration: Registro
+          registration: Inscripción
       conference_program:
         program_meeting:
           content: Contenido
@@ -412,7 +411,7 @@ es:
           speakers: Ponentes
       conferences:
         partners:
-          collaborators: Fogonadura
+          collaborators: Colaboradores
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
@@ -434,7 +433,7 @@ es:
             subject: Invitación para unirse a una conferencia
         send_conference_diploma_mailer:
           diploma:
-            subject: El diploma de su conferencia ha sido enviado.
+            subject: El certificado de asistencia ha sido enviado
       models:
         conference_invite:
           fields:
@@ -476,10 +475,10 @@ es:
           title: Tipos de inscripción
       shared:
         conference_user_login:
-          already_account: "¿Ya tienes una cuenta en decidim?"
-          new_user: "¿Eres nuevo?"
-          sign_in: Inicie sesión para registrarse para la conferencia
-          sign_up: Crear una cuenta en decidim para registrarse para la conferencia
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Eres nuevo?'
+          sign_in: Inicia sesión para inscribirte en la conferencia
+          sign_up: Crea una cuenta de usuario para inscribirte en la conferencia
       show:
         details: Detalles
         introduction: Introducción
@@ -506,10 +505,10 @@ es:
         votes_count: Votos
     events:
       conferences:
-        conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: Su inscripción para la conferencia <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
+        conference_registration_confirmed:
+          notification_title: Su registro para la conferencia <a href="%{resource_url}">%{resource_title}</a> ha sido confirmado.
         conference_registrations_over_percentage:
           email_intro: Las plazas ocupadas para la conferencia "%{resource_title}" superan el %{percentage}%.
           email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la conferencia.
@@ -526,10 +525,10 @@ es:
           email_subject: Se han habilitado las inscripciones a la conferencia "%{resource_title}".
           notification_title: Se han habilitado las inscripciones a la conferencia <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'La conferencia "%{resource_title}" se lleva a cabo en 2 días. Puedes leer la descripción de su página:'
+          email_outro: Ha recibido esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: '¡Se acerca la conferencia "%{resource_title}"!'
+          notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> llegará en 2 días.
     log:
       value_types:
         conference_presenter:

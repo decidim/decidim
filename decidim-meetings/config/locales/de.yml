@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -92,26 +91,22 @@ de:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie das Treffen "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
-          email_subject: Das "%{resource_title}" Meeting wurde geschlossen
+            email_intro: 'Ihre Besprechung "%{resource_title}" wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" organisiert haben.
+            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
+            notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
+            email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
+            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
+            notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
         meeting_created:
           email_intro: Das Meeting "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Neues Meeting wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Das Meeting <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Ihre Anmeldung zum Meeting <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Die "%{resource_title}" Sitzung belegte Slots sind über %{percentage}%.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
@@ -141,7 +136,7 @@ de:
       badges:
         attended_meetings:
           conditions:
-          - Registrieren Sie sich in den Meetings, an denen Sie teilnehmen möchten
+            - Registrieren Sie sich in den Meetings, an denen Sie teilnehmen möchten
           description: Dieses Abzeichen wird gewährt, wenn Sie mehrere persönliche Treffen besuchen.
           description_another: Dieser Benutzer hat an %{score} Meetings teilgenommen.
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
@@ -195,7 +190,7 @@ de:
             invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
-          meetings: Meetings
+          meetings: Treffen
           registrations: Anmeldungen
         invite_join_meeting_mailer:
           invite:
@@ -375,13 +370,13 @@ de:
           meeting_report: Gesprächsprotokoll
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
-          registration_code_help_text: Your registration code
+          registration_code_help_text: Ihr Registrierungscode
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: GÜLTIG
+            validation_pending: Validierung ausstehend
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
-            other: Noch %{count} Slots
+            other: "Noch %{count} Slots"
           view: Aussicht
       meetings_map:
         view_meeting: Besprechung anzeigen
@@ -435,7 +430,6 @@ de:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen
-        see_all: See all (%{count})
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen

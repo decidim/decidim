@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -67,6 +66,7 @@ hu:
         show_statistics: Statisztikák megjelenítése
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
+        user_groups_enabled: Felhasználói csoportok engedélyezése
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -93,7 +93,7 @@ hu:
         title: Cím
         weight: Súly
       user_group_csv_verification:
-        file: File
+        file: Fájl
     errors:
       models:
         oauth_application:
@@ -102,10 +102,10 @@ hu:
               must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
         organization:
           attributes:
-            official_img_footer:
-              allowed_file_content_types: Invalid image file
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Érvénytelen képfájl
+            official_img_footer:
+              allowed_file_content_types: Érvénytelen képfájl
   activerecord:
     attributes:
       decidim/static_page:
@@ -127,6 +127,7 @@ hu:
         browse: Böngészés
         export: Exportálás
         manage: Kezelés
+        new: Új %{name}
         permissions: Engedélyek
         reject: Elutasít
         verify: Ellenőrzés
@@ -247,7 +248,7 @@ hu:
             type: Elem típusa
         new:
           add: Elem hozzáadása
-          title: "%{name} nevű elem hozzáadása"
+          title: '%{name} nevű elem hozzáadása'
         publish:
           success: Az elem közzététele sikeres volt.
         title: Elemek
@@ -264,10 +265,10 @@ hu:
         export_as: "%{name} mint %{export_format}"
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       help_sections:
-        error: Hiba történt a súgóelemek frissítésében
+        error: Hiba történt a súgószakaszok frissítésekor
         form:
           save: Mentés
-        success: A súgóelemek sikeresen frissültek
+        success: A súgó szakaszok sikeresen frissültek
       impersonatable_users:
         index:
           filter:
@@ -305,11 +306,6 @@ hu:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Hiba történt a felügyelt felhasználó előléptetése során.
           success: A felügyelt felhasználó előléptetése sikeres.
@@ -326,13 +322,12 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
-        help_sections: Segítségrészek
+        help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
-        navbar_links: Navbar links
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
-        participants: résztvevők
+        participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -367,13 +362,6 @@ hu:
             reason: Indok
             started_at: 'Kezdődik:'
             user: Felhasználó
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -385,6 +373,7 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
+          name: OAuth alkalmazás
         participatory_space_private_user:
           name: Részvételi tér privát felhasználó
         scope:
@@ -409,6 +398,7 @@ hu:
             roles:
               admin: Admin
               user_manager: Felhasználói menedzser
+          name: Felhasználó
         user_group:
           fields:
             actions: Műveletek
@@ -426,28 +416,6 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
@@ -477,8 +445,6 @@ hu:
         update:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Hiba történt az alkalmazás létrehozása során.
@@ -651,20 +617,16 @@ hu:
         dashboard: Vezérlőpult
         impersonatable_users: Felhatalmazható felhasználók
         impersonations: Felhatalmazások
-        managed_users: Managed users
-        navbar_links: Navbar links
-        participants: résztvevők
+        participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
         users: Felhasználók
-      user:
-        new: New
       user_group:
         csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
+          invalid: Hiba történt a CSV fájl olvasásában.
+          success: A CSV-fájl sikeresen fel lett töltve, ellenőrizzük a kritériumoknak megfelelő felhasználói csoportokat. Ez eltarthat egy ideig.
         reject:
           invalid: Hiba történt a felhasználói csoport elutasításakor.
           success: Felhasználói csoport elutasítva
@@ -684,12 +646,12 @@ hu:
             pending: Függőben
             rejected: Elutasítva
             verified: Megerősítve
-          verify_via_csv: Verify via CSV
+          verify_via_csv: Ellenőrizze a CSV használatát
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
+          explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
+          title: Töltse fel a CSV fájlját
+          upload: Feltöltés
       users:
         create:
           error: Hiba történt a felhasználó meghívása során.

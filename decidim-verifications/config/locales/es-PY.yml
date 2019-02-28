@@ -1,12 +1,11 @@
----
 es-PY:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Metodos disponibles
+        offline: Desconectado
+        offline_explanation: Instrucciones para la verificación fuera de línea
+        online: En línea
       id_document_information:
         document_number: Número de documento (con letra)
         document_type: Tipo de documento
@@ -16,7 +15,7 @@ es-PY:
         user: Usuario
         verification_attachment: Copia escaneada de tu documento
       offline_confirmation:
-        email: User email
+        email: Email del usuario
       postal_letter_address:
         full_address: Dirección completa
       postal_letter_confirmation:
@@ -30,23 +29,23 @@ es-PY:
         authorization_workflows: Verificaciones
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} ha actualizado la configuración de verificación mediante documentos de identidad"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} ha verificado %{resource_name} utilizando una verificación presencial mediante documentos de identidad"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
-          - Rellenas la información presente en la imagen subida.
-          - La información debe coincidir con lo que el usuario envió.
-          - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+            - Rellenas la información presente en la imagen subida.
+            - La información debe coincidir con lo que el usuario envió.
+            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
         postal_letter:
           help:
-          - Los usuarios solicitan que se envíe un código de verificación a su dirección.
-          - Envías la carta a su dirección con el código de verificación.
-          - Marcas la carta como enviada.
-          - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+            - Envías la carta a su dirección con el código de verificación.
+            - Marcas la carta como enviada.
+            - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
       direct: Directo
       help: Ayuda
       id_documents:
@@ -85,11 +84,11 @@ es-PY:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Configuración de documentos de identidad
+              update: Actualizar
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Se ha producido un error al actualizar la configuración.
+              success: Configuración actualizada correctamente
           confirmations:
             create:
               error: La verificación no coincide. Inténtalo de nuevo o rechaza la verificación para que el usuario pueda modificarla
@@ -100,16 +99,16 @@ es-PY:
               verify: Verificar
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
+              success: Usuario verificado correctamente
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Cancelar
+              introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
+              verify: Verificar
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
+              config: Configurar
+              offline_verification: Verificación presencial
               title: Verificaciones pendientes
               verification_number: 'Verificación #%{n}'
           rejections:
@@ -117,17 +116,17 @@ es-PY:
               success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
+            choose_a_type: "Por favor selecciona como quieres ser verificado:"
+            offline: Presencial
             online: Online
-            title: Verify yourself using your identity document
+            title: Verifícate utilizando tu documento de identidad
           create:
             error: Hubo un problema al subir tu documento
             success: El documento se ha subido correctamente
           edit:
             being_reviewed: Estamos revisando tus documentos. Serás verificado en breve
-            offline: Use offline verification
-            online: Use online verification
+            offline: Utiliza la verificación presencial
+            online: Utiliza la verificación online
             rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen subida
             rejection_correctness: Asegúrate de que la información ingresada sea correcta
             rejection_notice: Hubo un problema con tu verificación. Inténtalo de nuevo
@@ -159,7 +158,7 @@ es-PY:
         authorizations:
           create:
             error: Hubo un problema con su petición
-            success: "¡Gracias! Te enviaremos un código de verificación a tu dirección"
+            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
             title: Introduce el código de verificación que recibiste
@@ -174,7 +173,7 @@ es-PY:
         authorizations:
           create:
             error: Hubo un problema con tu solicitud
-            success: "¡Gracias! Hemos enviado un SMS a tu teléfono."
+            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           edit:
             send: Confirmar
             title: Introduce el código de verificación que has recibido

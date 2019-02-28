@@ -1,4 +1,3 @@
----
 it:
   activemodel:
     attributes:
@@ -37,8 +36,8 @@ it:
         remember_me: Ricordare password
     models:
       decidim/amendment:
-        one: Amendment
-        other: Amendments
+        one: Emendamento
+        other: Modifiche
       decidim/user:
         one: Nessun utente
         other: utenti
@@ -47,7 +46,7 @@ it:
         other: Gruppi di utenti
   booleans:
     'false': 'No'
-    'true': Si
+    'true': 'Si'
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
@@ -129,59 +128,59 @@ it:
       user_group:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
-        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+        verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
     amendments:
       accepted:
-        error: An error ocurred accepting the emendation, please try again later.
-        success: This emendation has been accepted successfully.
+        error: Si è verificato un errore nell'accettare l'emendamento, riprova più tardi.
+        success: Questa emendamento è stata accettata con successo.
       amendable:
-        amended_by: Amended by
-        button: Amend %{model_name}
-        error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
-        promote_button: Promote to %{model_name}
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
-        section_heading: Amendments (%{count})
+        amended_by: Modificato da
+        button: Modificare %{model_name}
+        promote_button: Promuovi a %{model_name}
+        error: Si è verificato un errore durante la modifica di questa risorsa.
+        help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
+        promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
+        no_amenders: Non ci sono emendatori
+        no_amendments: Non ci sono emendamenti
+        section_heading: Emendamenti (%{count})
       created:
-        error: An error ocurred creating this amendment, try again later
-        success: The amendment has been created successfully
+        error: Si è verificato un errore durante la creazione di questo emendamento, riprovare più tardi
+        success: L'emendamento è stato creato con successo
       emendation:
         actions:
-          button_accept: Accept
-          button_reject: Reject
-          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+          button_accept: Accettare
+          button_reject: Rifiutare
+          help_text: Esaminare le modifiche e accettare o rifiutare questo emendamento. Una notifica verrà inviata al suo autore (s).
         announcement:
           accepted: |-
-            This emendation for the %{amendable_type} %{amendable_link} has been
-            accepted on <strong>%{announcement_date}</strong>.
+            Questa emendazione per lo %{amendable_type} %{amendable_link} è stata
+            accettata su <strong>%{announcement_date}</strong>.
           evaluating: |-
-            This is an emendation for the %{amendable_type} %{amendable_link}
-            is being evaluated.
+            Questa è una emendazione per lo %{amendable_type} %{amendable_link}
+            è in fase di valutazione.
           rejected: |-
-            This emendation for the %{amendable_type} %{amendable_link}
-            was rejected on <strong>%{announcement_date}</strong>.
+            Questa emendazione per lo %{amendable_type} %{amendable_link}
+            stata respinta su <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            This emendation for the %{amendable_type} %{amendable_link}
-            has been withdrawn by the author.
+            Questa emendazione per lo %{amendable_type} %{amendable_link}
+            è stata ritirata dall'autore.
       new:
-        amendment_author: Amendment author
-        back: Back
-        heading: Create your amendment
-        help_text: You are modifying the %{model_name}
-        send: Send emendation
-      promoted:
-        error: There's been errors when promoting the emendation
-        success: Emendation promoted successfully
+        amendment_author: Autore dell'autore
+        back: Indietro
+        heading: Crea il tuo emendamento
+        help_text: Stai modificando lo %{model_name}
+        send: Invia emendation
       rejected:
-        error: An error ocurred when rejecting this emendation, please try again later
-        success: The emendation has been rejected successfully
+        error: Si è verificato un errore durante il rifiuto di questa modifica, riprova più tardi
+        success: L'emendamento è stato respinto con successo
+      promoted:
+        success: Emendation promossa con successo
+        error: Ci sono stati errori nel promuovere l'emendamento
       review:
-        back: Back
-        heading: Review the amendment
-        help_text: You are amending the %{model_name}
-        send: Accept emendation
+        back: Indietro
+        heading: Rivedi l'emendamento
+        help_text: Stai modificando lo %{model_name}
+        send: Accetta l'emendamento
     anonymous_user: Anonimo
     application:
       collection:
@@ -268,7 +267,7 @@ it:
         name: Dummy Component
         settings:
           global:
-            amendments_enabled: Amendments enabled
+            amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
@@ -385,50 +384,50 @@ it:
         title: La pagina che stai cercando non è stata trovata
     events:
       amendments:
-        amendment_accepted:
-          affected_user:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
           affected_user:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Una nuova emendazione è stata creata per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
+            email_subject: Un nuovo emendamento per %{amendable_title} da %{emendation_author_nickname}
+            notification_title: Un <a href="%{emendation_path}">nuovo emendation</a> è stato creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_intro: 'Una nuova emendazione è stata creata per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_subject: Un nuovo emendamento per %{amendable_title} da %{emendation_author_nickname}
+            notification_title: Un <a href="%{emendation_path}">nuovo emendation</a> è stato creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Un''emissione è stata rifiutata per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
+            email_subject: Un emendamento respinto per %{amendable_title} %{emendation_author_nickname}
+            notification_title: Il <a href="%{emendation_path}">emendation</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stata rifiutata per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Un''emissione è stata rifiutata per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_subject: Un emendamento respinto per %{amendable_title} %{emendation_author_nickname}
+            notification_title: Il <a href="%{emendation_path}">emendation</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stata rifiutata per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a un indipendente %{amendable_type}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
+            email_subject: È stata promossa un'emendamento da %{emendation_author_nickname}
+            notification_title: Un'emendamento rifiutato <a href="%{emendation_path}"></a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} è stato promosso da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a un indipendente %{amendable_type}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_subject: È stata promossa un'emendamento da %{emendation_author_nickname}
+            notification_title: Un'emendamento rifiutato <a href="%{emendation_path}"></a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} è stato promosso da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
+            email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
+            notification_title: Il <a href="%{emendation_path}">emendation</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
+            notification_title: Il <a href="%{emendation_path}">emendation</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Un nuovo documento è stato aggiunto a %{resource_title}. Puoi vederlo da questa pagina:'
@@ -548,7 +547,7 @@ it:
       badges:
         continuity:
           conditions:
-          - Vieni qui spesso
+            - Vieni qui spesso
           description: Questo badge è concesso quando visiti la piattaforma in modo regolare. Ci piace averti qui intorno!
           description_another: Questo utente si è connesso per %{score} giorni consecutivi ad un certo punto.
           description_own: Hai collegato per %{score} giorni consecutivi ad un certo punto.
@@ -558,7 +557,7 @@ it:
           unearned_own: Non ti sei connesso per più di un giorno consecutivo.
         followers:
           conditions:
-          - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
+            - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
           description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
@@ -573,9 +572,9 @@ it:
           title: badge
         invitations:
           conditions:
-          - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
-          - Personalizza, se vuoi, il messaggio che stai inviando
-          - Aumenterai di livello inviando inviti e registrandoli.
+            - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
+            - Personalizza, se vuoi, il messaggio che stai inviando
+            - Aumenterai di livello inviando inviti e registrandoli.
           description: Questo badge è concesso quando hai invitato alcune persone e hanno trascorso un po 'di tempo per registrarsi in %{organization_name} e diventare partecipanti. Grazie per aver reso %{organization_name} conoscere agli altri e contribuendo ad ampliare la comunità!
           description_another: Questo utente ha invitato %{score} utenti.
           description_own: Hai invitato %{score} utenti.
@@ -740,7 +739,7 @@ it:
           error: Messaggio non inviato. Riprova più tardi
     metrics:
       download:
-        csv: Download data (csv)
+        csv: Scarica dati (csv)
       followers:
         description: Numero di utenti che segue nell'organizzazione
         object: seguaci
@@ -779,23 +778,26 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Hai ricevuto questo messaggio perché sei iscritto alla notifica via email su% {organization_name}. Puoi modificare le impostazioni sulla <a href="%{link}"> pagina delle notifiche </a>.
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
-        everything_followed: Everything I follow
-        newsletter_notifications: Voglio ricevere le newsletter
+        everything_followed: Tutto ciò che seguo
         newsletters: Newsletters
-        own_activity: My own activity, like when someone comments in my proposal or mentions me
-        receive_notifications_about: I want to get notifications about
-        send_notifications_by_email: Send notifications by email
+        newsletter_notifications: Voglio ricevere le newsletter
+        own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
+        receive_notifications_about: Voglio ricevere le notifiche
+        send_notifications_by_email: Invia notifiche via email
         update_notifications_settings: Salva le modifiche
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
         success: OK, le impostazioni per le notifiche sono state modificate.
     open_data:
-      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
+      not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
     own_user_groups:
       index:
         pending: In sospeso
@@ -852,6 +854,10 @@ it:
         subheading: Navigare attraverso le pagine di aiuto di %{name}
         title: Aiuto
         topics: Temi
+      participatory_space:
+        metrics:
+          headline: Partecipazione in cifre
+          link: Mostra tutte le statistiche
       terms_and_conditions:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
@@ -876,7 +882,6 @@ it:
       deleted: Utente eliminato
       view: vista
     profiles:
-      default_officialization_text: Texto de oficialización por defecto
       default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
       default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
@@ -893,17 +898,17 @@ it:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
           title: badge
       user:
-        confirmation_instructions_sent: Email confirmation instructions sent
+        confirmation_instructions_sent: Istruzioni di conferma via email inviate
         create_user_group: Creare un gruppo
         edit_profile: Modifica Profilo
         edit_user_group: Modifica il profilo del gruppo
-        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        fill_in_email_to_confirm_it: Per favore, inserisci l'email del tuo gruppo per confermarlo
         invite_user: Invita utente
         join_user_group: Richiesta di iscrizione al gruppo
         leave_user_group: Lascia il gruppo
         manage_user_group_admins: Gestisci amministratori
         manage_user_group_users: Gestisci i membri
-        resend_email_confirmation_instructions: Resend email confirmation instructions
+        resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
       hide:
         hello: Ciao %{name},
@@ -920,7 +925,7 @@ it:
         error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
     scopes:
-      global: Global scope
+      global: Ambito globale
       picker:
         cancel: Annulla
         choose: Selezionare
@@ -988,13 +993,13 @@ it:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
     user_interests:
       show:
-        my_interests: My interests
-        no_scopes: This organization doesn't have any scope yet!
-        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
-        update_my_interests: Update my interests
+        no_scopes: Questa organizzazione non ha ancora alcun scopo!
+        my_interests: I miei interessi
+        select_your_interests: Seleziona gli argomenti a cui sei interessato per ricevere eventi correlati a loro nella scheda Cronologia del profilo.
+        update_my_interests: Aggiorna i miei interessi
       update:
-        error: There was an error while updating your interests.
-        success: Your interests have been successfully updated.
+        error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
+        success: I tuoi interessi sono stati aggiornati con successo.
     welcome_notification:
       default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
       default_subject: Grazie per esserti iscritto a {{organization}}!
@@ -1008,11 +1013,11 @@ it:
     failure:
       already_authenticated: Sei già iscritto.
       inactive: Il tuo account non è ancora attivato.
-      invalid: "%{authentication_keys} o password non validi."
+      invalid: '%{authentication_keys} o password non validi.'
       invited: Hai un invito in sospeso, accettalo per completare la creazione del tuo account.
       last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
       locked: Il tuo account è bloccato.
-      not_found_in_database: "%{authentication_keys} o password non validi."
+      not_found_in_database: '%{authentication_keys} o password non validi.'
       timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
       unauthenticated: È necessario accedere o registrarsi prima di continuare.
     invitations:
@@ -1175,7 +1180,7 @@ it:
       edit_link:
         edit: modificare
       footer:
-        download_open_data: Download Open Data files
+        download_open_data: Scarica i file Open Data
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
         close_menu: Chiudere menu
@@ -1200,7 +1205,7 @@ it:
         authorizations: Authorizzazioni
         delete_my_account: Cancella il mio account
         my_data: I miei dati
-        my_interests: My interests
+        my_interests: I miei interessi
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: gruppi

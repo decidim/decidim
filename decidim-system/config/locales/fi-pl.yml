@@ -1,0 +1,75 @@
+fi-pl:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Haluatko varmasti poistaa tämän?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi
+        save: Tallenna
+        title: Toiminnot
+      admins:
+        create:
+          error: Uuden hallinnoijan luonnissa tapahtui virhe.
+          success: Hallinnoija luotu onnistuneesti
+        destroy:
+          success: Hallinnoija poistettu onnistuneesti
+        edit:
+          title: Muokkaa hallinnoijaa
+          update: Päivitä
+        index:
+          title: Hallinnoijat
+        new:
+          create: Luo
+          title: Uusi hallinnoija
+        update:
+          error: Hallinnoijan päivityksessä tapahtui virhe.
+          success: Hallinnoija päivitetty onnistuneesti
+      default_pages:
+        placeholders:
+          content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
+          title: Oletusotsikko sivulle %{page}
+      menu:
+        admins: Hallinnoijat
+        dashboard: Hallintapaneeli
+        organizations: Organisaatiot
+      models:
+        admin:
+          fields:
+            created_at: Luotu
+            email: Sähköposti
+          name: Hallinnoija
+          validations:
+            email_uniqueness: toinen hallinnointikäyttäjä on jo olemassa samalla sähköpostilla
+        organization:
+          actions:
+            save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
+          fields:
+            created_at: Luotu
+            name: Nimi
+          name: Organisaatio
+      organizations:
+        create:
+          error: Uuden organisaation luonnissa tapahtui virhe.
+          success: Organisaatio luotu onnistuneesti.
+        edit:
+          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+        index:
+          title: Organisaatiot
+        new:
+          reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
+          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          title: Uusi organisaatio
+        update:
+          error: Organisaation päivityksessä tapahtui virhe.
+          success: Organisaatio päivitetty onnistuneesti.
+        users_registration_mode:
+          disabled: Pääsy alustalle ainoastaan ulkoisilla tileillä
+          enabled: Salli rekisteröityminen ja sisäänkirjautuminen käyttäjille
+          existing: Älä salli käyttäjien rekisteröitymistä, mutta salli olemassaolevien käyttäjien kirjautuminen
+      shared:
+        notices:
+          no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
+          our_getting_started_guide: aloitusoppaamme
+      titles:
+        dashboard: Hallintapaneeli

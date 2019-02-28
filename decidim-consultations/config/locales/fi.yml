@@ -49,8 +49,8 @@ fi:
         one: Vastaus
         other: Vastaukset
       decidim/consultations/vote:
-        one: Äänestys
-        other: Äänestys
+        one: Ääni
+        other: Äänet
   decidim:
     admin:
       actions:
@@ -256,17 +256,17 @@ fi:
     pages:
       home:
         statistics:
-          consultations_count: Kuulemiset
+          consultations_count: Kuulemisia
     questions:
       results:
         title: Tulokset
       show:
         read_more: Lue lisää
       statistics:
-        assistants_count_title: Avustajat
-        comments_count_title: Kommentit
-        meetings_count_title: Tapaamiset
-        supports_count_title: Kannatukset
+        assistants_count_title: Avustajaa
+        comments_count_title: Kommenttia
+        meetings_count_title: Tapaamista
+        supports_count_title: Kannatusta
       technical_info:
         technical_data: Tekniset tiedot
       vote_button:

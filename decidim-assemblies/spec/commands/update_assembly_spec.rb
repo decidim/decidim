@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim::Assemblies
   describe Admin::UpdateAssembly do
     describe "call" do
-      let(:my_assembly) { create :assembly }
+      let(:organization) { create(:organization) }
+      let(:my_assembly) { create :assembly, organization: organization }
       let(:user) { create :user, :admin, :confirmed, organization: my_assembly.organization }
 
       let(:participatory_processes) do
@@ -42,7 +43,6 @@ module Decidim::Assemblies
             scopes_enabled: my_assembly.scopes_enabled,
             scope: my_assembly.scope,
             area: my_assembly.area,
-            parent: nil,
             errors: my_assembly.errors,
             show_statistics: my_assembly.show_statistics,
             participatory_processes_ids: participatory_processes.map(&:id),
@@ -162,6 +162,30 @@ module Decidim::Assemblies
             my_assembly.reload
 
             expect(my_assembly.banner_image).to be_present
+          end
+        end
+
+        context "when updating the parent assembly" do
+          let!(:parent_assembly) { create :assembly, organization: organization }
+
+          it "increments the parent's children_count counter correctly" do
+            form.parent_id = parent_assembly.id
+
+            command.call
+            my_assembly.reload
+            parent_assembly.reload
+
+            expect(my_assembly.parent).to eq(parent_assembly)
+            expect(parent_assembly.children_count).to eq(parent_assembly.children.count)
+          end
+
+          it "decrements the parent's children_count counter correctly" do
+            command.call
+            my_assembly.reload
+            parent_assembly.reload
+
+            expect(my_assembly.parent).to be(nil)
+            expect(parent_assembly.children_count).to eq(parent_assembly.children.count)
           end
         end
       end

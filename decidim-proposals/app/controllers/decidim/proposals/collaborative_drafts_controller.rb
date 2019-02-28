@@ -96,6 +96,7 @@ module Decidim
         enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
+        @form.attachment = form(AttachmentForm).from_model(@collaborative_draft.attachments.first)
       end
 
       def update

@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -92,26 +91,22 @@ es:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            email_intro: 'Tu reunión "%{resource_title}" fue cerrada. Puedes leer las conclusiones desde su página:'
+            email_outro: Ha recibido esta notificación porque organizó la reunión "%{resource_title}".
+            email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+            email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
+            email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Se ha cerrado el encuentro "%{resource_title}"
+            notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_created:
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Nuevo encuentro añadido a %{participatory_space_title}
           notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Su inscripción para la reunión <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Su código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
           email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
@@ -123,9 +118,9 @@ es:
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
         registration_code_validated:
-          email_intro: Su código de registro "%{registration_code}" para la reunión "%{resource_title}" ha sido validado.
+          email_intro: Tu código de inscripción "%{registration_code}" en el encuentro "%{resource_title}" ha sido validado.
           email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
-          email_subject: Su código de registro "%{registration_code}" para la reunión "%{resource_title}" ha sido validado
+          email_subject: Tu código de inscripción "%{registration_code}" en el encuentro "%{resource_title}" ha sido validado
           notification_title: Su código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
         registrations_enabled:
           email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
@@ -141,12 +136,12 @@ es:
       badges:
         attended_meetings:
           conditions:
-          - Regístrate en los encuentros a los que quieres asistir
+            - Regístrate en los encuentros a los que quieres asistir
           description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
           description_another: Este usuario asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.
           name: Encuentros a los que has asistido
-          next_level_in: "¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!"
+          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha asistido a ningún encunetro.
           unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
@@ -155,7 +150,7 @@ es:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
-        confirm_destroy: "¿Está seguro de que quiere eliminar este encuentro?"
+        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
         minutes: Acta
@@ -195,7 +190,7 @@ es:
             invalid: Ha habido un problema al actualizar el orden del día
             success: Orden del día actualizado correctamente
         exports:
-          meetings: Meetings
+          meetings: Reuniones
           registrations: Inscripciones
         invite_join_meeting_mailer:
           invite:
@@ -287,8 +282,8 @@ es:
             invites: Invitaciones
             registration_form: Formulario de inscripción
             registrations_count:
-              one: Ha habido %{count} registro.
-              other: Ha habido %{count} registros.
+              one: Ha habido %{count} inscripción.
+              other: Ha habido %{count} inscripciones.
             reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
           update:
@@ -375,13 +370,13 @@ es:
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
-          registration_code_help_text: Your registration code
+          registration_code_help_text: Tu codigo de registro
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: Validado
+            validation_pending: VALIDACIÓN PENDIENTE
           remaining_slots:
-            one: Queda %{count} ranuras
-            other: "%{count} ranuras restantes"
+            one: "Queda %{count} plaza"
+            other: "%{count} plazas restantes"
           view: Ver
       meetings_map:
         view_meeting: Ver encuentro
@@ -424,7 +419,7 @@ es:
         transparent: Transparente
     metrics:
       meetings:
-        description: Número de reuniones creadas
+        description: Número de encuentros creados
         object: encuentros
         title: Encuentros
     participatory_processes:

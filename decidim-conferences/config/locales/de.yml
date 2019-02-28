@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -506,10 +505,10 @@ de:
         votes_count: Stimmen
     events:
       conferences:
-        conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> steht noch aus.
+        conference_registration_confirmed:
+          notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt.
         conference_registrations_over_percentage:
           email_intro: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
@@ -526,10 +525,10 @@ de:
           email_subject: Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht.
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz hat Registrierungen ermöglicht.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'Die "%{resource_title}" -Konferenz findet in 2 Tagen statt. Sie können die Beschreibung von ihrer Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
+          email_subject: Die "%{resource_title}" -Konferenz kommt!
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz kommt in 2 Tagen.
     log:
       value_types:
         conference_presenter:

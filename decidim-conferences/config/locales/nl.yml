@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -506,10 +505,10 @@ nl:
         votes_count: stemmen
     events:
       conferences:
-        conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is in afwachting van bevestiging.
+        conference_registration_confirmed:
+          notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is bevestigd.
         conference_registrations_over_percentage:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
           email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de conferentie.
@@ -526,10 +525,10 @@ nl:
           email_subject: De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties mogelijk gemaakt.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. U kunt de beschrijving van zijn pagina lezen:'
+          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De "%{resource_title}" -conferentie komt eraan!
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie komt over 2 dagen.
     log:
       value_types:
         conference_presenter:

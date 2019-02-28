@@ -1,0 +1,60 @@
+cs:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Průzkum skončil
+      decidim/surveys/opened_survey_event: Průzkum začal
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Průzkum
+        few: Průzkumy
+        many: Průzkumy
+        other: Průzkumy
+      decidim/surveys/survey_answer:
+        one: Odpovědět
+        few: Odpovědi
+        many: Odpovědi
+        other: Odpovědi
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Odpovědět
+        name: Průzkum
+        settings:
+          global:
+            announcement: Oznámení
+          step:
+            allow_answers: Povolte odpovědi
+            announcement: Oznámení
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Průzkum %{resource_title} v %{participatory_space_title} byl uzavřen.
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Průzkum skončil v roce %{participatory_space_title}
+          notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> skončil.
+        survey_opened:
+          email_intro: 'Průzkum %{resource_title} v %{participatory_space_title} je nyní otevřený. Můžete se na ní podílet:'
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Nový průzkum v %{participatory_space_title}
+          notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> je nyní otevřený.
+    metrics:
+      survey_answers:
+        description: Počet průzkumů, které uživatelé zodpověděli
+        object: odpovědi na průzkumy
+        title: Odpovědi na průzkumy
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Zjištění uživatelských odpovědí
+        surveys:
+          update:
+            invalid: Při ukládání průzkumu došlo k chybám.
+            success: Průzkum byl úspěšně uložen.
+      last_activity:
+        new_survey_at_html: "<span>Nový průzkum na %{link}</span>"
+      surveys:
+        answer:
+          invalid: Při odpovědi na průzkum došlo k chybám.
+          success: Průzkum úspěšně odpověděl.

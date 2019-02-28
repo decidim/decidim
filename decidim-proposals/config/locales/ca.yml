@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -11,16 +10,15 @@ ca:
         title: Títol
         user_group_id: Crea un esborrany de col·laboració com a
       proposal:
-        address: Address
         answer: Resposta
         answered_at: Respost el
-        automatic_hashtags: Hashtags automatically added
+        automatic_hashtags: Etiquetes afegides automàticament
         body: Cos
         category_id: Categoria
         has_address: Té adreça
         scope_id: Àmbit
         state: Estat
-        suggested_hashtags: Suggested hashtags
+        suggested_hashtags: Etiquetes suggerides
         title: Títol
         user_group_id: Crea una proposta com a
       proposal_answer:
@@ -73,7 +71,7 @@ ca:
         name: Propostes
         settings:
           global:
-            amendments_enabled: Amendments enabled
+            amendments_enabled: Esmenes habilitades
             announcement: Anunci
             attachments_allowed: Permetre arxius adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
@@ -97,36 +95,27 @@ ca:
             vote_limit: Límit de suports per usuari
           step:
             announcement: Anunci
-            automatic_hashtags: Hashtags added to all proposals
+            automatic_hashtags: Etiquetes afegides a totes les propostes
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
-            suggested_hashtags: Hashtags suggested to users for new proposals
+            suggested_hashtags: Etiquetes suggerides als usuaris per a noves propostes
             votes_blocked: Suports deshabilitats
             votes_enabled: Recollida de suport habilitada
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
-            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
-      proposal_created:
-        email_subject: Nouvelle proposition de %{author_name}.
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: S'ha acceptat %{requester_name} per accedir com a contribuidor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: S'ha acceptat %{requester_name} per accedir com a contribuidor del %{resource_title}.
+          email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidor del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: S'ha rebutjat %{requester_name} per accedir com a contribuidor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'S''ha rebutjat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: S'ha rebutjat %{requester_name} per accedir com a col·laborador de l'esborrany col·lanoratiu %{resource_title}.
+          email_subject: "S'ha rebutjat %{requester_name} per accedir com a col·laborador de l'esborrany col·lanoratiu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdor. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
@@ -160,48 +149,40 @@ ca:
           notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal has been accepted
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
-          email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-          email_subject: Una proposta que segueixes ha estat acceptada
+            email_intro: 'S''ha acceptat la teva proposta "%{resource_title}". Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de "%{resource_title}".
+            email_subject: S'ha acceptat la teva proposta
+            notification_title: S'ha acceptat la teva proposta <a href="%{resource_path}">%{resource_title}</a>.
           follower:
-            email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been accepted
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
-          notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+            email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+            email_subject: Una proposta que segueixes ha estat acceptada
+            notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, qui sigueu, acaba d''aprovar la proposta "%{resource_title}" i creiem que pot ser interessant per a vostè. Consulta i contribueix:'
+          email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''aprovar la proposta "%{resource_title}" i creiem que pot ser interessant per tu. Consulta i contribueix:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal is being evaluated
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
-          email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-          email_subject: S'està avaluant una proposta que segueixes
+            email_intro: 'La teva proposta "%{resource_title}" s''està avaluant actualment. Pots consultar la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de "%{resource_title}".
+            email_subject: S'està avaluant la teva proposta
+            notification_title: S'està avaluant la teva proposta <a href="%{resource_path}">%{resource_title}</a>.
           follower:
-            email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following is being evaluated
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
-          notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+            email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+            email_subject: S'està avaluant una proposta que segueixes
+            notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
           email_intro: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
-          email_outro: You have received this notification because you are an author of "%{resource_title}".
+          email_outro: Has rebut aquesta notificació perquè ets autor/a de "%{resource_title}".
           email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
           notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, a qui sigueu, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
+          email_intro: '%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta "%{resource_title}" per %{author_nickname}
+          email_subject: Nova proposta "%{resource_title}" de %{author_nickname}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
@@ -210,19 +191,15 @@ ca:
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal been rejected
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
-          email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-          email_subject: S'ha rebutjat una proposta que segueixes
+            email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de "%{resource_title}".
+            email_subject: La teva proposta ha estat rebutjada
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha estat rebutjada.
           follower:
-            email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been rejected
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
-          notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+            email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+            email_subject: S'ha rebutjat una proposta que segueixes
+            notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
           email_intro: 'Un administrador ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autor de la proposta.
@@ -237,8 +214,8 @@ ca:
       badges:
         accepted_proposals:
           conditions:
-          - Tria l'espai de participació del teu interès amb la creació de propostes activada
-          - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
+            - Tria l'espai de participació del teu interès amb la creació de propostes activada
+            - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes i s'accepten.
           description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
           description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
@@ -248,8 +225,8 @@ ca:
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
-          - Navega i passa un temps llegint les propostes d'altres persones
-          - Dóna suport a les propostes que desitgis o troba'n d'interessants
+            - Navega i passa un temps llegint les propostes d'altres persones
+            - Dóna suport a les propostes que desitgis o troba'n d'interessants
           description: Aquest distintiu es concedeix quan dones suport a propostes d'altres persones.
           description_another: Aquest usuari ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
@@ -259,8 +236,8 @@ ca:
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
-          - Tria un espai de participació del teu interès amb la creació de propostes activada
-          - Crea una proposta nova
+            - Tria un espai de participació del teu interès amb la creació de propostes activada
+            - Crea una proposta nova
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
           description_another: Aquest usuari ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
@@ -274,17 +251,17 @@ ca:
         object: propostes
         title: Propostes acceptades
       endorsements:
-        description: Nombre de reconeixements generats en propostes
-        object: aprovacions
-        title: Aprovacions
+        description: Nombre d'adhesions generades a les propostes
+        object: adhesions
+        title: Adhesions
       proposals:
         description: Nombre de propostes generades
         object: propostes
         title: Propostes
       votes:
-        description: Nombre de vots generats en les propostes dels usuaris
-        object: vots
-        title: Vots
+        description: Nombre de suports generats pels usuaris a les propostes
+        object: suports
+        title: Suports
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -360,9 +337,9 @@ ca:
             update: Actualització
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-            created_in_meeting: Aquesta proposta prové d'una reunió
+            created_in_meeting: Aquesta proposta prové d'una trobada
             select_a_category: Selecciona una categoria
-            select_a_meeting: Seleccioneu una reunió
+            select_a_meeting: Selecciona una trobada
           index:
             actions: Accions
             cancel: Cancel·lar
@@ -423,19 +400,19 @@ ca:
         filter_origin_values:
           all: Tots
           citizens: Ciutadania
-          meetings: Reunions
+          meetings: Trobades
           official: Oficial
           user_groups: Grups d'usuaris
         filter_state_values:
           accepted: Acceptat
           all: Tots
-          evaluating: Avaluació
+          evaluating: En avaluació
           except_rejected: Totes menys rebutjades
           rejected: Rebutjat
         filter_type_values:
-          all: All
-          amendments: Amendments
-          proposals: Proposals
+          all: Tots
+          amendments: Modificacions
+          proposals: Propostes
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -470,14 +447,14 @@ ca:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
           back: Tornar
           select_a_category: Selecciona una categoria
           send: Enviar
           title: Edita l'esborrany col·laboratiu
         filters:
           all: Tots
-          amendment: Amendments
+          amendment: Modificacions
           category: Categoria
           category_prompt: Indicació de categoria
           open: Obert
@@ -504,7 +481,7 @@ ca:
         requests:
           accepted_request:
             error: No s'ha pogut acceptar com a contribuïdor, torna-ho a provar més tard.
-            success: S'ha acceptat amb èxit @%{user} com a contribuïdor
+            success: "S'ha acceptat amb èxit @%{user} com a contribuïdor"
           access_requested:
             error: No s'ha pogut completar la teva sol·licitud, torna-ho a provar més tard.
             success: La teva sol·licitud de contribució s'ha enviat correctament
@@ -580,12 +557,12 @@ ca:
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
       participatory_text_proposal:
-        alternative_title: There are no participatory texts at the moment
+        alternative_title: Ara mateix no hi ha cap text participatiu
         buttons:
-          amend: Amend
+          amend: Esmena
           comment: Comentari
           comments: Comentaris
-          endorse: Endossar
+          endorse: Adherir-se
       proposal_endorsements:
         create:
           error: Hi ha hagut errors en adherir-te a la proposta.
@@ -613,14 +590,9 @@ ca:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostes"
-        dynamic_map_instructions:
-          primary: You can move the point on the map.
-          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
-          address: Address (don't forget to specify the city)
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
-          not_geocoded: Not geocoded
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Editar proposta
@@ -629,16 +601,12 @@ ca:
           discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
           title: Edició l'esborrany de proposta
-        edit_form_fields:
-          address: Address
-          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Adherir-se
         endorsements_card_row:
           comments: Comentaris
         filters:
           activity: Activitat
-          amendment_type: Type
           category: Categoria
           category_prompt: Selecciona una categoria
           origin: Origen
@@ -646,6 +614,7 @@ ca:
           search: Cerca
           state: Estat
           voted: Has donat suport
+          amendment_type: Escriu
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -673,18 +642,13 @@ ca:
             document_index: Índex del document
           view_index:
             see_index: Veure índex
-        placeholder:
-          address: 32 rue des cascades 75020 Paris
         preview:
-          address: 'Address: %{address}'
           modify: Modifica la proposta
-          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: Podràs editar aquesta proposta durant el primer minut després de publicar la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
-          update_pos: Update the position
         proposal:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
@@ -714,23 +678,17 @@ ca:
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
           votes_blocked: Recollida de suports desactivada
-        vote_weight:
-          maximum_votes_reached: Maximum votes reached
-          no_votes_remaining: No votes remaining
-          votes_blocked: Votes blocked
         votes_count:
           count:
             one: SUPORT
             other: SUPORTS
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més vots
-        votes_weight:
-          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
-            description: Heu de distribuir un mínim de %{votes} vots entre diferents propostes.
+            description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
           proposal_limit:
@@ -767,7 +725,7 @@ ca:
           title: Versions
         stats:
           back_to_collaborative_draft: Torna a l'esborrany col·laboratiu
-          back_to_proposal: Go back to proposal
+          back_to_proposal: Torna a la proposta
           number_of_versions: Versions
           show_all_versions: Mostra totes les versions
           version_author: Autor de la versió

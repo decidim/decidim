@@ -1,4 +1,3 @@
----
 ru:
   activemodel:
     attributes:
@@ -36,19 +35,19 @@ ru:
   activerecord:
     models:
       decidim/initiative:
+        one: Почин
         few: Почина
         many: Починов
-        one: Почин
         other: Починов
       decidim/initiative_comittee:
+        one: Рабочая группа
         few: Рабочих группы
         many: Рабочих групп
-        one: Рабочая группа
         other: Рабочих групп
       decidim/initiative_vote:
+        one: Подпись
         few: Подписи
         many: Подписей
-        one: Подпись
         other: Подписей
   decidim:
     admin:
@@ -61,7 +60,6 @@ ru:
         initiatives:
           fields:
             created_at: 'Создано:'
-            id: ID
             state: Cостояние
             supports_count: Выражений поддержки
             title: Почины
@@ -87,36 +85,11 @@ ru:
           notification_title: Срок сбора подписей в поддержку почина <a href="%{resource_path}">%{resource_title}</a> продлен.
         milestone_completed:
           affected_user:
-            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
-            email_subject: New milestone completed!
-            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: Достигнута новая веха!
+            email_subject: Достигнута новая веха!
           follower:
-            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-            email_subject: New milestone completed!
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
-    gamification:
-      badges:
-        initiatives:
-          conditions: '["Go to the participation space of Intiatives", "Follow the steps to create a new initiative"]'
-          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
-          description_another: This user has gotten %{score} initiatives published.
-          description_own: You've got %{score} initiatives published.
-          name: Published initiatives
-          next_level_in: Get %{score} more initiatives published to reach the next level!
-          unearned_another: This user hasn't gotten any initiatives published yet.
-          unearned_own: You got no initiatives published yet.
-    help:
-      participatory_spaces:
-        initiatives:
-          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
-          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
-          title: What are initiatives?
+            email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
+            email_subject: Достигнута новая веха!
+            notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
     initiatives:
       admin:
         committee_requests:
@@ -127,9 +100,6 @@ ru:
             no_members_yet: В рабочей группе по продвижению нет ни одного члена
             revoke: Отозвать
             title: Члены рабочей группы
-        content_blocks:
-          highlighted_initiatives:
-            max_results: Maximum amount of elements to show
         initiatives:
           edit:
             accept: Принять почин
@@ -286,15 +256,15 @@ ru:
           deleted: Удален
         author_list:
           hidden_authors_count:
+            one: и еще 1 человек
             few: и еще %{count} людей
             many: и еще %{count} человек
-            one: и еще 1 человек
             other: и еще %{count} человек
         count:
           title:
+            one: "%{count} почин"
             few: "%{count} почина"
             many: "%{count} починов"
-            one: "%{count} почин"
             other: "%{count} починов"
         filters:
           any: Любые
@@ -328,9 +298,9 @@ ru:
         signature_identities:
           select_identity: Выберите псевдоним участника
         signatures_count:
+          one: " подпись"
           few: " подписи"
           many: " подписей"
-          one: " подпись"
           other: " подписей"
         statistics:
           assistants_count_title: Помощников
@@ -341,14 +311,14 @@ ru:
           title: Список подписей
         vote_cabin:
           already_voted: Уже подписали
-          supports_required: Требуется %{total_supports} подписей
+          supports_required: "Требуется %{total_supports} подписей"
           vote: Подписать
           votes_blocked: Подписание отключено
         votes_count:
           count:
+            one: ПОДПИСЬ
             few: ПОДПИСИ
             many: ПОДПИСЕЙ
-            one: ПОДПИСЬ
             other: ПОДПИСЕЙ
       initiatives_mailer:
         creation_subject: Ваш гражданский почин '%{title}' был создан
@@ -363,8 +333,6 @@ ru:
         status_change_for: Состояние почина %{title} изменилось
         technical_validation_body_for: Почин %{title} запросил техническую проверку.
         technical_validation_for: Почин %{title} запросил техническую проверку.
-      last_activity:
-        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:
@@ -373,7 +341,6 @@ ru:
       states:
         accepted: Принятые
         expired: Истекшие
-      unavailable_scope: Unavailable scope
     menu:
       initiatives: Почины
   layouts:
@@ -391,8 +358,6 @@ ru:
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
         show_similar_initiatives: Сравнить
-        step: Step %{current} of %{total}
-        title: Create new initiative
       initiative_header:
         initiative_menu_item: Почин
       initiatives:
