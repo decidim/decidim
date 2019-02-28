@@ -5,7 +5,7 @@
     "react",
     "stage-2"
   ],
-  "plugins": ["transform-decorators-legacy"],
+  "plugins": ["transform-object-assign","transform-decorators-legacy"],
   "env": {
     "test": {
       "plugins": [
