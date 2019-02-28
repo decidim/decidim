@@ -4,7 +4,7 @@ fr:
       collaborative_draft:
         body: Corps de texte
         category_id: Catégorie
-        decidim_scope_id: Filtre géographique
+        decidim_scope_id: Secteur
         has_address: Est associée à un lieu
         state: État
         title: Titre
@@ -17,7 +17,7 @@ fr:
         body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
-        scope_id: Filtre géographique
+        scope_id: Secteur
         state: État
         suggested_hashtags: Suggestions de hashtags
         title: Titre
@@ -56,8 +56,8 @@ fr:
         one: Soutien
         other: Soutiens
       decidim/proposals/proposal_note:
-        one: Remarque
-        other: Remarques
+        one: Note interne
+        other: Notes internes
       decidim/proposals/proposal_vote:
         one: Voter
         other: Voter
@@ -100,20 +100,20 @@ fr:
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
             endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Activer le module de soutiens
+            endorsements_enabled: Activer le module de "Soutien"
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
-            votes_enabled: Activer le module de vote simple
+            votes_enabled: Activer le module de "Vote Simple"
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
-            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
+            votes_weight_enabled: Activer le module de vote "Pour/Contre/Abstention"
     events:
       proposal_created:
         email_subject: Nouvelle proposition de %{author_name}.
         moderation:
-          email_intro: Email intro
+          email_intro: Introduction de l'email
           email_subject: Objet de l'email
-          moderation_url: Url de la modération
+          moderation_url: URL de la modération
         notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
         url: 'lien vers le commentaire : %{resource_url}'
       proposals:
@@ -298,7 +298,7 @@ fr:
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         participatory_texts: Textes participatifs
-        private_notes: Notes privées
+        private_notes: Notes internes
         title: Actions
       admin:
         actions:
@@ -340,13 +340,13 @@ fr:
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
-            error: Un problème est survenu lors de la création de cette note de proposition
-            success: Note de proposition créée avec succès
+            error: Un problème est survenu lors de la création de la note interne
+            success: Note interne créée avec succès
           form:
-            note: Remarque
-            submit: Soumettre
-          leave_your_note: Laisser une remarque
-          title: Notes privées
+            note: Note interne
+            submit: Envoyer
+          leave_your_note: Rédiger une note interne
+          title: Notes internes
         proposals:
           answer:
             invalid: Il y a eu un problème concernant la réponse à cette proposition
@@ -370,8 +370,8 @@ fr:
             merge_button: Fusionner
             select_component: Sélectionnez un composant
             selected: choisi
-            split: Propositions fractionnées
-            split_button: Divisé
+            split: Fractionner la proposition
+            split_button: Diviser
             title: Propositions
             update: Mettre à jour
           new:
@@ -411,7 +411,7 @@ fr:
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
-          create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a publié une note interne sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
@@ -420,27 +420,27 @@ fr:
         withdrawn: Retirée
       application_helper:
         filter_origin_values:
-          all: Tous
-          citizens: Citoyens
-          meetings: Réunions
-          official: Officiel
+          all: Toutes
+          citizens: Utilisateurs
+          meetings: Elaborées en réunion publique
+          official: Administrateurs
           user_groups: Groupes d'utilisateurs
         filter_state_values:
-          accepted: Accepté
-          all: Tous
-          evaluating: Évaluer les
-          except_rejected: Tous sauf rejetés
-          rejected: Rejeté
+          accepted: Retenue
+          all: Toutes
+          evaluating: En cours d'évaluation
+          except_rejected: Toutes sauf non retenues
+          rejected: Non retenue
         filter_type_values:
-          all: Tous
-          amendments: Modifications
+          all: Toutes
+          amendments: Amendements
           proposals: Propositions
       collaborative_drafts:
         collaborative_draft:
           publish:
             error: Il y a eu des erreurs lors de la publication de la proposition collaborative.
             irreversible_action_modal:
-              body: Après avoir publié la proposition collaborative, elle ne sera plus modifiable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir publié la proposition collaborative, elle ne sera plus modifiable. La proposition n'acceptera pas de nouveaux collaborateurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
@@ -449,7 +449,7 @@ fr:
           withdraw:
             error: Il y a eu des erreurs en fermant la proposition collaborative.
             irreversible_action_modal:
-              body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir fermé le brouillon, le brouillon ne sera plus modifiable. Le projet n'acceptera pas de nouveaux collaborateurs ou contributions.
               cancel: Annuler
               ok: Retirer la proposition collaborative
               title: L'action suivante est irréversible
@@ -479,11 +479,11 @@ fr:
           amendment: Amendements
           category: Catégorie
           category_prompt: Catégories
-          open: Ouvrir
+          open: Ouverte
           published: Publiée
           related_to: Liées à
           search: Rechercher
-          state: État
+          state: Statut
           withdrawn: Retirée
         filters_small_view:
           close_modal: Fermer la fenêtre
@@ -529,12 +529,12 @@ fr:
           published_proposal: proposition publiée
           request_access: Demander à collaborer
           requested_access: Demande de collaboration envoyée
-          see_other_versions: voir d'autres versions
+          see_other_versions: voir les autres versions
           version: Version %{number}
           version_history: voir l'historique des versions de cette proposition
           withdraw: retirer la proposition collaborative
         states:
-          open: Ouvrir
+          open: Ouverte
           published: Publiée
           withdrawn: Retirée
         update:
@@ -569,11 +569,11 @@ fr:
             comments: Commentaires
             endorsements: Soutiens
             id: ID
-            notes: Remarques
+            notes: Notes internes
             official_proposal: Proposition officielle
             published_at: Publiée à
-            scope: Filtre géographique
-            state: État
+            scope: Secteur
+            state: Statut
             title: Titre
             votes: Votes
       new:
@@ -643,7 +643,7 @@ fr:
           origin: Auteurs
           related_to: Liées à
           search: Rechercher
-          state: État
+          state: Statut
           voted: Afficher uniquement les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -663,7 +663,7 @@ fr:
           send: Continuer
           title: Créer une proposition
         orders:
-          label: 'Classement des propositions par :'
+          label: 'Trier par :'
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes

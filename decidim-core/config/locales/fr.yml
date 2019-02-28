@@ -29,7 +29,7 @@ fr:
     attributes:
       decidim/user:
         current_password: Mot de passe actuel
-        email: E-mail
+        email: email
         name: Nom d'utilisateur
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -81,12 +81,12 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
-        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
+        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse.
     admin_log:
       area:
-        create: "%{user_name} a créé la zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
@@ -110,12 +110,12 @@ fr:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
-        create: "%{user_name} a créé le filtre géographique %{resource_name}"
-        create_with_parent: "%{user_name} a créé le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
-        delete: "%{user_name} a supprimé le filtre géographique %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
-        update: "%{user_name} a mis à jour le filtre géographique %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le filtre géographique %{resource_name} à l'intérieur du filtre géographique %{parent_scope}"
+        create: "%{user_name} a créé le secteur %{resource_name}"
+        create_with_parent: "%{user_name} a créé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        delete: "%{user_name} a supprimé le secteur %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        update: "%{user_name} a mis à jour le secteur %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -197,8 +197,8 @@ fr:
         related_photos: Photos associées
     author:
       comments:
-        one: commentaire
-        other: commentaires
+        one: Commentaire
+        other: Commentaires
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -254,7 +254,7 @@ fr:
           title: Non autorisé
         unconfirmed:
           confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau:'
-          explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
+          explanation_html: Vous n'avez pas l'autorisation d'effectuer cette action. Vous devez d'abord confirmer votre email <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
     collapsible_list:
@@ -284,7 +284,7 @@ fr:
     contact: Contact
     content_blocks:
       footer_sub_hero:
-        name: Bannière sous-héros footer
+        name: Section "Bienvenue sur la plateforme" (.footer_sub_hero)
       hero:
         name: Image principale (hero)
       highlighted_content_banner:
@@ -295,13 +295,13 @@ fr:
         html_content: Contenu HTML
         name: Bloc HTML
       last_activity:
-        name: Dernière Activité
-        title: Dernière Activité
+        name: Activités récentes
+        title: Activités récentes
         view_all: Voir tout
       metrics:
-        name: Mesures d'organisation
+        name: Historique des statistiques de participation
       stats:
-        name: Statistiques de l'organisation
+        name: Statistiques de la participation en cours
       sub_hero:
         name: Bannière en dessous de l'image principale ("hero")
     core:
@@ -330,7 +330,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
-          newsletter_title: Autorisation de contact
+          newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_in: S'identifier
           sign_up: S'inscrire
@@ -355,7 +355,7 @@ fr:
             uncheck: Non merci, je m'informerai autrement
           notice: |-
             La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
-          title: La newsletter
+          title: Newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -371,7 +371,7 @@ fr:
           see_username: Voir votre pseudonyme
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
-          update_profile: Mettre à jour votre profil
+          update_profile: Mettre à jour
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
       internal_server_error:
@@ -674,13 +674,13 @@ fr:
           content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
           title: Que puis-je faire en %{organization}?
         description: En savoir plus sur %{organization}
-        title: Aide générale
+        title: Rubrique d'aide
     last_activities:
       activities:
         no_activities_warning: Aucune activité
       all: Tous les types d'activité
       index:
-        last_activity: Dernière Activité
+        last_activity: Activités récentes
         resource_type: Type de contenu
     log:
       base_presenter:
@@ -694,19 +694,19 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le filtre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de filtres géographiques n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de secteurs n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -753,7 +753,7 @@ fr:
         title: Utilisateurs
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        note: Vous avez reçu cet email parce que vous êtes abonné à la newsletter de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
@@ -767,27 +767,27 @@ fr:
       unathorized: Désolé, ce lien n'est plus disponible
       update:
         error: Désolé, un problème est survenu
-        success: Paramètres de newsletter mis à jour avec succès
+        success: Abonnement à la newsletter mis à jour avec succès
     newsletters_opt_in_mailer:
       notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les actualités de %{organization_name}.
         body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
-        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
-        button: Oui, je veux continuer à recevoir des informations pertinentes
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les actualités de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
-        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+        subject: Voulez-vous continuer à recevoir des actualités de %{organization_name} ?
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
-        newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
-        newsletters: Bulletins d'information
+        newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
+        newsletters: Newsletter
         own_activity: Ma propre activité, par exemple lorsque quelqu'un commente ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
-        send_notifications_by_email: Envoyer des notifications par e-mail
+        send_notifications_by_email: Envoyer des notifications par email
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -822,15 +822,15 @@ fr:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
         metrics:
-          headline: Participation aux chiffres
+          headline: Historique de la participation sur %{organization}
         statistics:
           answers_count: Enquêtes terminées
-          assemblies_count: Agora
+          assemblies_count: Assemblées
           comments_count: Commentaires
           conferences_count: Conférences
           debates_count: Débats
           endorsements_count: Soutiens
-          headline: État actuel de %{organization}
+          headline: La participation en cours sur %{organization}
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
@@ -846,10 +846,10 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Des pages
+        standalone_pages: Autres
         subheading: Naviguer à travers les pages d'aide de %{name}
-        title: Aidez-moi
-        topics: Les sujets
+        title: Aide
+        topics: Thématiques
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -878,22 +878,22 @@ fr:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
-        activity: Activité
+        activity: Mon activité
         badges: Badges
         followers: Abonnés
-        following: Est abonné à
+        following: Abonnements
         groups: Groupes
         members: Membres
-        timeline: Chronologie
+        timeline: Centres d'intérêts
         view_full_profile: Voir le profil complet
       sidebar:
         badges:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
-        confirmation_instructions_sent: Envoi des instructions de confirmation par courriel
+        confirmation_instructions_sent: Envoi des instructions de confirmation par email
         create_user_group: Créer un groupe
-        edit_profile: Mettre à jour le profil
+        edit_profile: Mettre à jour
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
@@ -901,7 +901,7 @@ fr:
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courriel
+        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par email
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -918,13 +918,13 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
-      global: Aucun
+      global: Tous les secteurs
       picker:
         cancel: Annuler
         choose: Sélectionner
         title: Sélectionnez %{field}
-      prompt: Sélectionnez un filtre géographique
-      scopes: Filtres géographiques
+      prompt: Sélectionnez un secteur
+      scopes: Secteurs
     search:
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
@@ -965,7 +965,7 @@ fr:
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
       floating_help:
-        help: Aidez-moi
+        help: Aide
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
@@ -987,22 +987,22 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de filtres géographiques !
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
+        no_scopes: Cette organisation n'a pas encore de secteurs !
+        select_your_interests: Sélectionnez les thématiques qui vous intéressent. Toutes les activités associées apparaîtront dans l'onglet "Centres d'intérêts" de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
         success: Vos intérêts ont été mis à jour avec succès.
     welcome_notification:
-      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue !</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
-      confirmed: Votre adresse e-mail a été confirmée avec succès.
+      confirmed: Votre adresse email a été confirmée avec succès.
       new:
         resend_confirmation_instructions: Renvoyer les instructions de confirmation
-      send_instructions: Vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
-      send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
+      send_instructions: Vous recevrez un email avec les instructions pour confirmer votre adresse d'ici quelques minutes.
+      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un message avec les instructions pour confirmer votre adresse d'ici quelques minutes.
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
@@ -1031,21 +1031,21 @@ fr:
     mailer:
       confirmation_instructions:
         action: Confirmer mon compte
-        greeting: Bienvenue %{recipient}!
+        greeting: Bienvenue %{recipient} !
         instruction: 'Vous pouvez confirmer votre compte email par le lien ci-dessous:'
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient}!
-        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
-        subject: Courriel modifié
+        message: Nous vous contactons pour vous informer que votre adresse email a été modifiée à %{email}.
+        subject: Email modifié
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         decline: Refuser l'invitation
         hello: Bonjour %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
-          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
+          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet email.<br />
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus puis défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -1068,7 +1068,7 @@ fr:
         action: Changer mon mot de passe
         greeting: Bonjour %{recipient}!
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
-        instruction_2: Si vous ne l'avez pas demandé, veuillez ignorer cet email.
+        instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer cet email.
         instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
@@ -1089,9 +1089,9 @@ fr:
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
-      no_token: Vous ne pouvez pas accéder à cette page sans provenir d'un courrier électronique de réinitialisation de mot de passe. Si vous venez d'un courrier électronique de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète fournie.
-      send_instructions: Vous recevrez un e-mail avec des instructions pour réinitialiser votre mot de passe en quelques minutes.
-      send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un lien de récupération de mot de passe à votre adresse e-mail dans quelques minutes.
+      no_token: Vous ne pouvez pas accéder à cette page sans passer par le lien de réinitialisation de mot de passe. Si vous venez de cliquer sur le lien dans email de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète qui vous a été fournie.
+      send_instructions: Vous recevrez un email avec des instructions pour réinitialiser votre mot de passe d'ici quelques minutes.
+      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un lien de récupération de mot de passe dans votre boîte de réception d'ici quelques minutes.
       updated: Votre mot de passe a été changé avec succès. Vous êtes maintenant inscrit.
       updated_not_active: Votre mot de passe a été changé avec succès.
     registrations:
@@ -1099,7 +1099,7 @@ fr:
       edit:
         are_you_sure: Êtes-vous sûr?
         cancel_my_account: Annuler mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
+        currently_waiting_confirmation_for_email: 'En attente de confirmation pour : %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
         unhappy: Malheureux?
@@ -1107,11 +1107,11 @@ fr:
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
         sign_up: S'inscrire
-      signed_up: Bienvenue! Vous vous êtes inscrit avec succès.
+      signed_up: Bienvenue ! Vous vous êtes inscrit avec succès.
       signed_up_but_inactive: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte n'est pas encore activé.
       signed_up_but_locked: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte est verrouillé.
-      signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse e-mail. Veuillez suivre le lien pour activer votre compte.
-      update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
+      signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse email. Veuillez suivre le lien pour activer votre compte.
+      update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse email. Veuillez confirmer adresse suivant le lien de confirmation que vous avez reçu.
       updated: Votre compte a été mis à jour avec succès.
     sessions:
       already_signed_out: Signé avec succès.
@@ -1134,8 +1134,8 @@ fr:
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déverrouillage
-      send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte en quelques minutes.
-      send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer en quelques minutes.
+      send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte d'ici quelques minutes.
+      send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer d'ici quelques minutes.
       unlocked: Votre compte a été débloqué avec succès. Veuillez vous connecter pour continuer.
   doorkeeper:
     scopes:
@@ -1173,8 +1173,8 @@ fr:
       edit_link:
         edit: Modifier
       footer:
-        download_open_data: Télécharger Fichiers de données ouverts
-        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        download_open_data: Télécharger les fichiers de données ouverts
+        made_with_open_source: 'Site réalisé par <a target="_blank" href="https://www.opensourcepolitics.eu">Open Source Politics</a> grâce à <a target="_blank" href="https://opensourcepolitics.eu/#decidim">Decidim, le logiciel libre</a> de <a target="_blank" href="https://www.opensourcepolitics.eu">démocratie participative</a>.'
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -1187,11 +1187,11 @@ fr:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
       user_menu:
-        admin_dashboard: Tableau de bord des administrateurs
+        admin_dashboard: Tableau de bord
         conversations: Conversations
         notifications: Notifications
         profile: Mon compte
-        public_profile: Mon profil public
+        public_profile: Mon profil
         sign_out: Déconnexion
       user_profile:
         account: Compte
@@ -1219,9 +1219,9 @@ fr:
   social_share_button:
     delicious: Delicious
     douban: Douban
-    email: E-mail
+    email: email
     facebook: Facebook
-    google_bookmark: Google Bookmark
+    google_bookmark: Google
     google_plus: Google+
     hacker_news: Hacker News
     linkedin: LinkedIn
@@ -1247,7 +1247,7 @@ fr:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+            accept_until_format: "%B %d, %Y %I:%M:%p"
       time_of_day: "%H:%M"
   views:
     pagination:

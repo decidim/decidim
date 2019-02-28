@@ -5,7 +5,7 @@ fr:
         body: Répondre
       question:
         max_choices: Nombre maximum de choix
-        question_type: Type
+        question_type: Type de question
       questionnaire_question:
         mandatory: Obligatoire
     errors:
@@ -29,7 +29,7 @@ fr:
             remove: Retirer
             statement: Déclaration
           edit:
-            save: sauvegarder
+            save: Sauvegarder
             title: Titre
           form:
             add_question: Ajouter une question
@@ -42,7 +42,7 @@ fr:
             question: Question
             remove: Retirer
             statement: Déclaration
-            up: Up
+            up: Vers le haut
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Questionnaires sauvegardés avec succès.

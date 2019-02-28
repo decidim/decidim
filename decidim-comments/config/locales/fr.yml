@@ -94,7 +94,7 @@ fr:
     metrics:
       comments:
         description: Nombre de commentaires générés par les utilisateurs
-        object: commentaires
+        object: Commentaires
         title: commentaires
   errors:
     messages:

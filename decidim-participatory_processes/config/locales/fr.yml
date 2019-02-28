@@ -13,15 +13,15 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Espace d'organisation
-        meta_scope: Échelle
-        participatory_process_group_id: Groupe de processus
+        local_area: Lieu d'organisation
+        meta_scope: Secteur
+        participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
-        participatory_structure: Modalités
+        participatory_structure: Modalités de participation
         promoted: Mise en avant
         published_at: Publiée à
-        scope_id: Filtre géographique
-        scopes_enabled: Filtres géographiques activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -31,7 +31,7 @@ fr:
         title: Titre
       participatory_process_group:
         description: Description
-        hero_image: Image
+        hero_image: Image d'en-tête
         name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
@@ -43,7 +43,7 @@ fr:
         start_date: Date de début
         title: Titre
       participatory_process_user_role:
-        email: E-mail
+        email: email
         name: Nom
         role: Rôle
     models:
@@ -69,7 +69,7 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        new: New
+        new: Nouveau
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
         new_process_user_role: Nouvel utilisateur de la concertation
@@ -89,7 +89,7 @@ fr:
           categories: Catégories
           components: Fonctionnalités
           info: Information
-          moderations: Modérations
+          moderations: Modération
           private_users: Utilisateurs privés
           process_admins: Administrateurs de la concertation
           steps: Étapes
@@ -114,7 +114,7 @@ fr:
           name: Étape de la concertation
         participatory_process_user_role:
           fields:
-            email: E-mail
+            email: email
             name: Nom
             role: Rôle
           name: Utilisateur de la concertation
@@ -274,7 +274,7 @@ fr:
     pages:
       participatory_space:
         metrics:
-          headline: Participation in figures
+          headline: La participation en chiffres
           link: Afficher toutes les statistiques
     participatory_process_groups:
       show:
@@ -313,7 +313,7 @@ fr:
         home:
           highlighted_processes:
             active_processes: Concertations actives
-            active_step: Étape active
+            active_step: 'Étape actuelle :'
             more_information: Plus d'informations
             participate: Participer
             see_all_processes: Voir toutes les concertations
@@ -323,25 +323,25 @@ fr:
         filters:
           counters:
             active:
-              one: 1 concertation active
-              other: "%{count} concertations actives"
+              one: 1 concertation en cours
+              other: "%{count} concertations en cours"
             all:
               one: 1 concertation
               other: "%{count} concertations"
             past:
-              one: 1 concertation passée
-              other: "%{count} concertations passées"
+              one: 1 concertation archivée
+              other: "%{count} concertations archivées"
             upcoming:
               one: 1 concertation à venir
               other: "%{count} concertations à venir"
           explanations:
             no_active: Aucune concertation active
             no_active_nor_upcoming: Aucune concertation active ni à venir
-            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations en cours ni à venir. Voici une liste des concertations archivées.
           names:
             active: Actifs
-            all: Tous
-            past: Passés
+            all: Toutes
+            past: Archivées
             upcoming: À venir
           see: Voir
         index:
@@ -349,11 +349,11 @@ fr:
       show:
         developer_group: Organisateur
         end_date: Date de fin
-        local_area: Espace d'organisation
-        participatory_scope: Objectifs
-        participatory_structure: Modalités
+        local_area: Lieu d'organisation
+        participatory_scope: Objectif
+        participatory_structure: Modalités de participation
         private_space: Ceci est une concertation privée
-        scope: Filtre géographique
+        scope: Secteur
         start_date: Date de début
         target: Participants
         unspecified: Non précisé

@@ -4,7 +4,7 @@ fr:
       result:
         decidim_accountability_status_id: Statut
         decidim_category_id: Catégorie
-        decidim_scope_id: Filtre géographique (concertation)
+        decidim_scope_id: Secteur (concertation)
         description: Description
         end_date: Date de fin
         progress: Avancement
@@ -87,8 +87,8 @@ fr:
           index:
             title: Etats d'avancement
           new:
-            create: Créer un état
-            title: Nouvel état
+            create: Créer un statut
+            title: Nouveau statut
           update:
             invalid: Un problème est survenu lors de la mise à jour de cet état
             success: Etat mis à jour avec succès
@@ -144,7 +144,7 @@ fr:
             other: "%{count} réalisations"
         filters:
           all: Tous
-          scopes: Filtres géographiques (concertation)
+          scopes: Secteurs (concertation)
         home:
           categories_label: Catégories
           subcategories_label: Sous-catégories

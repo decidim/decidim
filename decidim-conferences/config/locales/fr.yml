@@ -2,21 +2,21 @@ fr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assemblées connexes
+        assemblies_ids: Assemblées associées
         banner_image: Image de bannière
         consultations_ids: Consultations connexes
         copy_categories: Copier des catégories
-        copy_components: Copier des composants
+        copy_components: Copier des fonctionnalités
         copy_features: Fonctions de copie
-        decidim_scope_id: Filtre géographique
+        decidim_scope_id: Secteur
         description: La description
         hashtag: Hashtag
         hero_image: Image de la maison
         participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
-        scope_id: Filtre géographique
-        scopes_enabled: Scopes activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Brève description
         show_statistics: Montrez les statistiques
         slogan: Slogan
@@ -25,7 +25,7 @@ fr:
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
-        email: E-mail
+        email: email
         name: Rôle
         role: Rôle
     errors:
@@ -33,7 +33,7 @@ fr:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Cet email a déjà été invité
+              already_invited: Une invitation a déjà été envoyée à cet email
   activerecord:
     models:
       decidim/conference:
@@ -148,7 +148,7 @@ fr:
           attachment_files: Des dossiers
           attachments: Pièces jointes
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           conference_admins: Utilisateurs de la conférence
           conference_invites: Invite
           conference_speakers: Haut-parleurs
@@ -175,7 +175,7 @@ fr:
           name: Conférencier
         conference_user_role:
           fields:
-            email: E-mail
+            email: email
             name: prénom
             role: Rôle
           name: Utilisateur de la conférence
@@ -205,7 +205,7 @@ fr:
             price: Prix
             registrations_count: Nombre d'inscriptions
             title: Titre
-            weight: Poids
+            weight: Rang d'affichage
           name: Type d'inscription
       partners:
         create:
@@ -310,7 +310,7 @@ fr:
             invites: Invite
             search: Chercher
           new:
-            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités à l'organisation.
+            explanation: L'utilisateur sera invité à participer à une conférence. Si l'email n'est pas enregistré, ils seront également invités à l'organisation.
             invite: Inviter
             new_invite: Inviter un utilisateur
         conference_registrations:
@@ -333,7 +333,7 @@ fr:
             slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
         diplomas:
           edit:
-            save: sauvegarder
+            save: Sauvegarder
             title: Diplôme
         invite_join_conference_mailer:
           invite:
@@ -437,10 +437,10 @@ fr:
       models:
         conference_invite:
           fields:
-            email: E-mail
+            email: email
             name: prénom
             registration_type: Type d'inscription
-            sent_at: Envoyé à
+            sent_at: Envoyée à
             status: Statut
           status:
             accepted: Accepté (%{at})
@@ -448,10 +448,10 @@ fr:
             sent: Envoyé
         conference_registration:
           fields:
-            email: E-mail
+            email: email
             name: prénom
             registration_type: Type d'inscription
-            state: Etat
+            state: Statut
             states:
               confirmed: Confirmé
               pending: en attendant
@@ -476,14 +476,14 @@ fr:
       shared:
         conference_user_login:
           already_account: Avez-vous déjà un compte dans decidim?
-          new_user: Nouvel utilisateur?
+          new_user: Nouvel utilisateur ?
           sign_in: Connectez-vous pour vous inscrire à la conférence
           sign_up: Créez un compte dans decidim pour vous inscrire à la conférence
       show:
         details: Détails
         introduction: introduction
         objectives: Objectifs
-        related_assemblies: Assemblées connexes
+        related_assemblies: Assemblées associées
         related_consultations: Consultations connexes
         related_participatory_processes: Processus participatifs associés
       statistics:

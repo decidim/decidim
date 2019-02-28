@@ -2,8 +2,8 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type échelle géographique
-        name: Dénomination
+        area_type: Type de périmètre d'assemblée
+        name: Titre
         organization: Organisation
       area_type:
         name: Titre
@@ -37,8 +37,8 @@ fr:
         redirect_uri: Rediriger l'URI
       organization:
         badges_enabled: Activer les Badges
-        cta_button_path: Chemin du bouton d'action
-        cta_button_text: Texte du bouton d'action
+        cta_button_path: Chemin du bouton d'appel à l'action
+        cta_button_text: Texte du bouton d'appel à l'action
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
@@ -46,9 +46,9 @@ fr:
         favicon: Favicon
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
-        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
-        highlighted_content_banner_action_title: Texte du bouton d'action
-        highlighted_content_banner_action_url: URL du bouton d'action
+        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'appel à l'action
+        highlighted_content_banner_action_title: Texte du bouton d'appel à l'action
+        highlighted_content_banner_action_url: URL du bouton d'appel à l'action
         highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
         highlighted_content_banner_image: Bannière de contenu mis en valeur
         highlighted_content_banner_short_description: Brève description
@@ -73,8 +73,8 @@ fr:
         name: Titre
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de filtres géographiques
-        scope_type_id: Type de filtre géographique
+        scope_type: Type de secteurs
+        scope_type_id: Type de secteur
       scope_type:
         name: Titre
         organization: Organisation
@@ -86,12 +86,12 @@ fr:
         show_in_footer: Afficher dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       static_page_topic:
-        description: La description
+        description: Description
         show_in_footer: Afficher dans le pied de page
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -126,42 +126,42 @@ fr:
         add: Ajouter
         browse: Parcourir
         export: Exporter
-        manage: Gérer
+        manage: Modifier
         new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
-          success: Le type de zone d'application a été créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de zone d'application a bien été supprimé.
+          success: Le type de périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier le type de zone d'application
+          title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer un type de zone d'application
-          title: Nouveau type de zone d'application
+          create: Créer un type de périmètre d'assemblée
+          title: Nouveau type de périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
-          success: Le type de zone d'application a été mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
-          success: Zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Périmètre d'assemblée créé avec succès.
         destroy:
-          success: La zone d'application a bien été supprimée
+          success: Le périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier la zone d'application
+          title: Modifier le périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer une zone d'application
-          title: Nouvelle zone d'application
-        no_areas: Aucune zone d'application
+          create: Créer un périmètre d'assemblée
+          title: Nouveau périmètre d'assemblée
+        no_areas: Aucun périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'application mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'assemblée.
+          success: Périmètre d'assemblée mis à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -263,12 +263,12 @@ fr:
           welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
         export_as: "%{name} en format %{export_format}"
-        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+        notice: Votre exportation est en cours. Vous recevrez un email quand elle sera terminée.
       help_sections:
-        error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
+        error: Une erreur s'est produite lors de la mise à jour des messages d'aide
         form:
-          save: sauvegarder
-        success: Les sections d'aide ont été mises à jour avec succès
+          save: Sauvegarder
+        success: Les messages d'aide ont été mis à jour avec succès
       impersonatable_users:
         index:
           filter:
@@ -316,27 +316,26 @@ fr:
           success: L'utilisateur représenté a été promu avec succès.
         promotions:
           new:
-            explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
+            explanation: Les utilisateurs représentés peuvent être promus en tant qu'utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application. L'utilisateur recevra un email pour accepter votre invitation.
             new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
       menu:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zone d'application
-        areas: Zones d'application
+        area_types: Types de périmètre d'assemblée
+        areas: Périmètres d'assemblée
         configuration: Configuration
-        dashboard: Tableau de bord
-        help_sections: Sections d'aide
+        dashboard: Journal d'administration
+        help_sections: Messages d'aide contextuels
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
-        navbar_links: Liens de navigation
-        newsletters: Bulletins d'information (newsletter)
-        navbar_links: Navbar links
+        navbar_links: Barre de navigation secondaire
+        newsletters: Newsletter
         oauth_applications: Applications OAuth
         participants: Participants
-        scope_types: Types de filtre géographique
-        scopes: Filtres géographiques
+        scope_types: Types de secteur
+        scopes: Secteurs
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -344,7 +343,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type de zone d'application
+            area_type: Type de périmètre d'assemblée
             name: Titre
         area_type:
           fields:
@@ -375,14 +374,14 @@ fr:
           fields:
             link: Lien
             title: Titre
-            weight: Poids de l'appareil
+            weight: Rang d'affichage
         newsletter:
           fields:
             created_at: Créée le
             progress: Avancement
-            sent_at: Envoyé à
+            sent_at: Envoyée à
             subject: Objet
-          name: Bulletin d'information (newsletter)
+          name: Newsletter
         oauth_application:
           fields:
             created_at: Créée le
@@ -393,7 +392,7 @@ fr:
         scope:
           fields:
             name: Titre
-            scope_type: Type de filtres géographiques
+            scope_type: Type de secteurs
         scope_type:
           fields:
             name: Titre
@@ -405,7 +404,7 @@ fr:
         user:
           fields:
             created_at: Date de création
-            email: E-mail
+            email: email
             last_sign_in_at: Date de la dernière connexion
             name: Nom
             role: Rôle
@@ -424,7 +423,7 @@ fr:
             users_count: Nombre d'utilisateurs
       moderations:
         index:
-          title: Modérations
+          title: Modération
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -437,17 +436,17 @@ fr:
         destroy:
           success: Lien détruit avec succès
         edit:
-          title: Modifier le lien de la barre de navigation
+          title: Modifier le lien dans la barre de navigation secondaire
           update: Mise à jour
         form:
           link: Lien
           new_tab: Ouvrir dans un nouvel onglet
           same_tab: Ouvrir dans le même onglet
           title: Titre
-          weight: Poids de l'appareil
+          weight: Rang d'affichage
         new:
           create: Créer
-          title: Nouveau lien vers la barre de navigation
+          title: Nouveau lien dans la barre de navigation secondaire
         no_links: Aucun lien créé
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce lien.
@@ -455,7 +454,7 @@ fr:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
+          success: Newsletter créée avec succès. N'oubliez pas de la relire avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
@@ -480,7 +479,7 @@ fr:
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
-          success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
+          success: Newsletter mise à jour avec succès. N'oubliez pas de la relire avant de l'envoyer.
       oauth_application:
         new: Nouvelle application Oauth
       oauth_applications:
@@ -542,7 +541,7 @@ fr:
           url: URL
           youtube: YouTube
         update:
-          error: Erreur lors de la mise à jour de cette organisation.
+          error: Erreur lors de la mise à jour de l'organisation.
           success: Organisation mise à jour avec succès.
       organization_appearance:
         edit:
@@ -557,8 +556,8 @@ fr:
           omnipresent_banner_appearance_title: Modifier la bannière permanente
       organization_homepage:
         edit:
-          active_content_blocks: Blocs de contenu actif
-          inactive_content_blocks: Blocs de contenu inactif
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
@@ -576,53 +575,53 @@ fr:
           title: Nouvel utilisateur privé de l'espace participatif.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de filtres géographiques.
-          success: Type de filtres géographiques créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de secteurs.
+          success: Type de secteurs créé avec succès.
         destroy:
-          success: Le type de filtres géographiques a été supprimé avec succès
+          success: Le type de secteurs a été supprimé avec succès
         edit:
-          title: Modifier le type de filtres géographiques
+          title: Modifier le type de secteurs
           update: Mettre à jour
         new:
-          create: Créer un type de filtres géographiques
-          title: Nouveau filtre géographique
+          create: Créer un type de secteurs
+          title: Nouveau secteur
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de filtres géographiques.
-          success: Type de filtres géographiques mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce type de secteurs.
+          success: Type de secteurs mis à jour avec succès
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau filtre géographique.
-          success: Filtre géographique créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau secteur.
+          success: Secteur créé avec succès.
         destroy:
-          success: Filtre géographique supprimé avec succès
+          success: Secteur supprimé avec succès
         edit:
-          title: Modifier le filtre géographique
+          title: Modifier le secteur
           update: Mettre à jour
         new:
-          create: Créer un filtre géographique
-          title: Nouveau filtre géographique
-        no_scopes: Pas de filtre géographique à ce niveau.
+          create: Créer un secteur
+          title: Nouveau secteur
+        no_scopes: Pas de secteur à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce filtre géographique.
-          success: Filtre géographique mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce secteur.
+          success: Secteur mis à jour avec succès
       static_page_topics:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau sujet.
-          success: Sujet créé avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle thématique.
+          success: Thématique créée avec succès.
         destroy:
-          success: Sujet détruit avec succès
+          success: Thématique supprimée avec succès
         edit:
-          title: Modifier le sujet
-          update: Mettre à jour le sujet
+          title: Modifier la thématique
+          update: Mettre à jour la thématique
         new:
-          create: Créer un sujet
-          title: Nouveau sujet
+          create: Créer une thématique
+          title: Nouvelle thématique
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce sujet.
-          success: Sujet mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette thématique.
+          success: Thématique mise à jour avec succès
       static_pages:
         actions:
-          view: Voir la page publique
+          view: Voir la page
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -640,24 +639,26 @@ fr:
           create: Créer une page
           title: Nouvelle page
         topic:
-          destroy: Supprimer le sujet
-          edit: Modifier le sujet
-          empty: Il n'y a pas de page sous ce sujet
-          without_topic: Pages sans sujet
+          destroy: Supprimer la thématique
+          edit: Modifier la thématique
+          empty: Il n'y a pas de page dans cette thématique
+          without_topic: Pages sans thématique
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types de zone d'application
-        areas: Zones d'application
+        area_types: Types de périmètre d'assemblée
+        areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
-        dashboard: Tableau de bord
+        dashboard: Journal d'administration
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
+        managed_users: Utilisateurs gérés
+        navbar_links: Barre de navigation secondaire
         participants: Participants
-        scope_types: Types de filtres géographiques
-        scopes: Filtres géographiques
+        scope_types: Types de secteurs
+        scopes: Secteurs
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -689,7 +690,7 @@ fr:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
+          explanation: Téléchargez votre fichier CSV. Il doit contenir les emails officiels des groupes d'utilisateurs de votre organisation dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs qui ont confirmé leur email et qui ont un email apparaissant dans le fichier CSV seront validés.
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
@@ -700,13 +701,13 @@ fr:
           error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
           success: L'utilisateur n'est plus un administrateur.
         form:
-          email: E-mail
+          email: email
           name: Nom
           role: Rôle
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
-      view_public_page: Voir la page publique
+      view_public_page: Voir la page
     forms:
       errors:
         impersonate_user:

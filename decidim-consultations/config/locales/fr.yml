@@ -3,7 +3,7 @@ fr:
     attributes:
       consultation:
         banner_image: Image de la bannière
-        decidim_highlighted_scope_id: Périmètre mis en avant
+        decidim_highlighted_scope_id: Secteur mis en avant
         description: Description
         end_voting_date: Le vote prend fin le
         introductory_image: Image d'introduction
@@ -15,18 +15,18 @@ fr:
         title: Titre
       question:
         banner_image: Image de la bannière
-        decidim_scope_id: Filtre thématique
+        decidim_scope_id: Secteur
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
-        origin_scope: Périmètre
+        origin_scope: Secteur
         origin_title: Origine
-        origin_url: URL d'origine
+        origin_url: URL de l'origine
         participatory_scope: Objectif
         promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
-        scope: Filtre thématique
+        scope: Secteur
         slug: Identifiant
         subtitle: Sous-titre
         title: Titre
@@ -196,7 +196,7 @@ fr:
       filters:
         active: Actives
         all: Tout
-        finished: Passées
+        finished: Archivées
         search: Rechercher
         state: État
         upcoming: À venir

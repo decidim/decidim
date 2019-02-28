@@ -15,7 +15,7 @@ fr:
         user: Utilisateur
         verification_attachment: Copie scannée du document
       offline_confirmation:
-        email: Courriel de l'utilisateur
+        email: email de l'utilisateur
       postal_letter_address:
         full_address: Adresse complète
       postal_letter_confirmation:
@@ -61,7 +61,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création de l'autorisation.
           success: Vous avez été autorisé avec succès.
-          unconfirmed: Vous devez confirmer votre email pour vous autoriser.
+          unconfirmed: Vous devez confirmer votre email d'abord.
         first_login:
           actions:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
@@ -103,7 +103,7 @@ fr:
               success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
-              introduce_user_data: Introduire le courriel de l'utilisateur et les données du document
+              introduce_user_data: Renseignez l'email de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:

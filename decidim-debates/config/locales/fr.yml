@@ -40,7 +40,7 @@ fr:
         destroy: Supprimer
         edit: Modifier
         new: Nouveau %{name}
-        title: Actions
+        title: Titre
       admin:
         debates:
           create:
@@ -60,7 +60,7 @@ fr:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
         exports:
-          comments: commentaires
+          comments: Commentaires
           debates: débats
         models:
           debate:
