@@ -63,6 +63,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#200](https://github.com/OpenSourcePolitics/decidim/pull/200)
 - **decidim-core**: Fix test consistency [#222](https://github.com/OpenSourcePolitics/decidim/pull/222)
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
+- **decidim-comments**: Comments not displayed with IE [#432](https://github.com/OpenSourcePolitics/decidim/issues/432)
 
 **Backported**:
 
@@ -73,6 +74,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
 - **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
+- **decidim-core**: Use org default locale as fallback on emails [#4892](https://github.com/decidim/decidim/pull/4892)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 
