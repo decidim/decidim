@@ -40,7 +40,9 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Fixed**:
 
-- **decidim-core**: Hide comments on cards when deactivated on a component. [\#357](https://github.com/OpenSourcePolitics/decidim/pull/357)
+- **decidim-proposals**: Fix stats display.[\#356](https://github.com/OpenSourcePolitics/decidim/pull/356)
+- **decidim-debates**: Fix stats display.[\#356](https://github.com/OpenSourcePolitics/decidim/pull/356)
+- **decidim-debates**: Fix stats display.[\#356](https://github.com/OpenSourcePolitics/decidim/pull/356)
 - **decidim-core**: Fix comments count when a comment has been moderated [\#349](https://github.com/OpenSourcePolitics/decidim/pull/349)
 - **decidim-participatory_processes**: Fix participatory processes pagination[\#351](https://github.com/OpenSourcePolitics/decidim/pull/351)
 - **decidim-core**: Fix newsletter notification modal [\#342](https://github.com/OpenSourcePolitics/decidim/pull/342)
