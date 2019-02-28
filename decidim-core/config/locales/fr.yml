@@ -197,8 +197,8 @@ fr:
         related_photos: Photos associées
     author:
       comments:
-        one: commentaire
-        other: commentaires
+        one: Commentaire
+        other: Commentaires
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
