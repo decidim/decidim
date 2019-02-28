@@ -16,7 +16,7 @@ module Decidim
       end
 
       def action_btn(process, locale)
-        if process.active_step&.action_btn_text
+        if translated_in_current_locale(promoted_process.active_step&.action_btn_text)
           translated_attribute(process.active_step.action_btn_text)
         else
           locale

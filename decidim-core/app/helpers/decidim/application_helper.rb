@@ -25,6 +25,12 @@ module Decidim
       Truncato.truncate(text, options)
     end
 
+    def translated_in_current_locale(attribute)
+      return if attribute.nil?
+
+      attribute[I18n.locale.to_s].present?
+    end
+
     def present(object)
       presenter = "#{object.class.name}Presenter".constantize.new(object)
 

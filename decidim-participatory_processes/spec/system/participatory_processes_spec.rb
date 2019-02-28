@@ -235,7 +235,7 @@ describe "Participatory Processes", type: :system do
           end
 
           context "with action button" do
-            let(:action_btn_text) { "SEE" }
+            let(:action_btn_text) { { en: "SEE", ca: "", es: "" } }
             let!(:active_step) do
               create(:participatory_process_step,
                      :active,
@@ -257,8 +257,33 @@ describe "Participatory Processes", type: :system do
               end
             end
 
+            context "when action btn is blank in current locale" do
+              let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                  within ".card__footer .card__button" do
+                    expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            context "when action btn is blank in another locale" do
+              let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                  within ".card__footer .card__button" do
+                    expect(page).to have_content("HEY!")
+                  end
+                end
+              end
+            end
+
             it "display custom button" do
-              active_step.action_btn_text = "SEE"
               visit decidim_participatory_processes.participatory_processes_path
               within find("#processes-grid .column", text: translated(promoted_process.title)) do
                 within ".card__footer .card__button" do
@@ -281,7 +306,7 @@ describe "Participatory Processes", type: :system do
           end
 
           context "with action button" do
-            let(:action_btn_text) { "SEE" }
+            let(:action_btn_text) { { en: "SEE", ca: "SEE", es: "SEE" } }
             let!(:active_step) do
               create(:participatory_process_step,
                      :active,
@@ -307,6 +332,32 @@ describe "Participatory Processes", type: :system do
                 within find("#highlighted-processes .card--full .card--full__image") do
                   within ".button" do
                     expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            context "when action btn is blank in current locale" do
+              let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#highlighted-processes .card--full .card--full__image") do
+                  within ".button" do
+                    expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            context "when action btn is blank in another locale" do
+              let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#highlighted-processes .card--full .card--full__image") do
+                  within ".button" do
+                    expect(page).to have_content("HEY!")
                   end
                 end
               end
