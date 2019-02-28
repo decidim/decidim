@@ -529,7 +529,7 @@ fr:
           published_proposal: proposition publiée
           request_access: Demander à collaborer
           requested_access: Demande de collaboration envoyée
-          see_other_versions: voir d'autres versions
+          see_other_versions: voir les autres versions
           version: Version %{number}
           version_history: voir l'historique des versions de cette proposition
           withdraw: retirer la proposition collaborative
