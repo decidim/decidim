@@ -1,11 +1,10 @@
----
 fr:
   activemodel:
     attributes:
       survey_answer:
         body: Réponse
-        choices: Les choix
-        selected_choices: La réponse à la question
+        choices: Choix
+        selected_choices: Réponse à la question
       survey_question:
         mandatory: La réponse à la question est obligatoire
         max_choices: Nombre de choix maximum

@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -42,8 +41,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': Non
-    'true': Oui
+    'false': 'Non'
+    'true': 'Oui'
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -162,8 +161,8 @@ fr:
     components:
       dummy:
         actions:
-          bar: Bar
-          foo: Foo
+          bar: Seuil
+          foo: Truc
         name: Composant factice
         settings:
           global:
@@ -256,7 +255,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       feature_published_event:
@@ -564,16 +563,13 @@ fr:
         nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
-      invitation_token_invalid: Le jeton d'invitation fourni n'est pas valide.
-      send_instructions: Un email d'invitation a étét envoyé à %{email}.
-      updated: Votre mot de passe a été défini avec succès. Vous êtes maintenant connecté.
-      updated_not_active: Votre mot de passe a été défini avec succès.
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         hello: Bonjour %{email},
-        ignore: Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
+        ignore: |-
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: 'Vous avez été invité-e à participer sur la plateforme de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous :'
@@ -583,8 +579,6 @@ fr:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
-      invite_friend:
-        subject: Vous avez été invité à %{organization}
       invite_private_user:
         subject: Vous avez été invité à une assemblée privée sur %{organization}
       organization_admin_invitation_instructions:
@@ -657,7 +651,7 @@ fr:
     google_bookmark: Google Bookmark
     google_plus: Google+
     hacker_news: Hacker News
-    linkedin: Linkedin
+    linkedin: LinkedIn
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit

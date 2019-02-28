@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -72,10 +71,10 @@ fr:
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
         budget_excess:
-          close: Закрити
-          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
-          ok: Гаразд
-          title: Перевищено граничний бюджет
+          close: Fermer
+          description: L'ajout de ce projet dépassera le budget maximum et ne peut donc pas être ajouté pour le moment. Vous pouvez supprimer certains des projets que vous avez précédemment choisi d'ajouter.
+          ok: OK
+          title: Limite de budget dépassée
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
           assigned: 'Affecté à :'
@@ -130,9 +129,8 @@ fr:
         project:
           add: Ajouter
           count:
-            one: "%{count} vote"
+            one: '%{count} vote'
             other: "%{count} votes"
-            zero: "%{count} vote"
           remove: Supprimer
           view: Voir
         project_budget_button:
@@ -171,7 +169,7 @@ fr:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposal: Propositions inspirant le projet
+        project_proposal: 'Propositions inspirant le projet'
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total

@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -61,9 +60,7 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: 'Nom
-
-'
+        name: Nom 
         role: Fonction
   activerecord:
     models:
@@ -253,7 +250,7 @@ fr:
       created_by:
         city_council: Conseil municipal
         others: Autres
-        public: Public
+        public: Publique
       index:
         title: Assemblées
       pages:

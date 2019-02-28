@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -92,9 +91,9 @@ fr:
       proposal_created:
         email_subject: Nouvelle proposition de %{author_name}.
         moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
+          email_intro: Introduction de l'email
+          email_subject: Objet de l'email
+          moderation_url: URL de la modération
         notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
         url: 'url de commentaire : %{resource_url}'
       proposals:
@@ -291,15 +290,12 @@ fr:
           proposals_count:
             one: 1 proposition
             other: "%{count} propositions"
-            zero: "%{count} proposition"
         dynamic_map_instructions:
           primary: Vous pouvez déplacer le point sur la carte.
           secondary: N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.
         edit:
-          address: Adresse (n'oubliez pas de préciser la ville)
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
-          not_geocoded: Non géocodé
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
@@ -350,8 +346,6 @@ fr:
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
-        placeholder:
-          address: 32 rue des cascades 75020 Paris
         preview:
           address: 'Adresse : %{address}'
           modify: Modifier la proposition

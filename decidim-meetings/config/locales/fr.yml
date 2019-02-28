@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -303,7 +302,7 @@ fr:
           organizations: Organisations participantes
           remaining_slots:
             one: Il reste 1 place
-            other: Il reste %{count} places
+            other: "Il reste %{count} places"
           view: Voir
       models:
         meeting:

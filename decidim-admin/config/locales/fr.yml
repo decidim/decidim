@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -145,7 +144,6 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
-        new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
@@ -380,7 +378,7 @@ fr:
             started_at: Commencé le
             user: Utilisateur
         managed_user:
-          name: Name
+          name: Nom
         navbar_link:
           fields:
             link: Lien
@@ -468,7 +466,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
+          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser
@@ -547,7 +545,7 @@ fr:
           instagram: Instagram
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.

@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -115,12 +114,14 @@ fr:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Bonjour, un nouveau débat a été créé sur l''espace participatif %{space_title}, consultez-le et contribuez :'
+            email_intro: |-
+              Bonjour, un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez :
             email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
             email_subject: Nouveau débat sur %{space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :'
+            email_intro: |-
+              Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :
             email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
             email_subject: Nouveau débat par %{author_nickname}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.

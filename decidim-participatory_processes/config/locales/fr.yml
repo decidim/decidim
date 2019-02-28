@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -19,7 +18,7 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
         participatory_structure: Modalités
-        private_space: Espace privé
+        private_space: Concertation privée
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Secteur
@@ -70,6 +69,7 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
+        new: Nouveau
         participatory_process:
           new: Nouvelle concertation
         preview: Aperçu
@@ -155,7 +155,7 @@ fr:
           action_btn_text_help: Par défaut, le texte du bouton d'action est "Participer"
           error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
           success: Étape de la concertation créée avec succès.
-        default_title: Introduction
+        default_title: Présentation
         destroy:
           error:
             active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
