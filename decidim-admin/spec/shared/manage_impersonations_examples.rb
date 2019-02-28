@@ -26,7 +26,7 @@ shared_examples "manage impersonations examples" do
     before do
       navigate_to_impersonations_page
 
-      click_link "Impersonate new managed user"
+      click_link "Manage new participant"
 
       fill_in_the_impersonation_form(document_number, name: "Rigoberto")
     end
@@ -50,7 +50,7 @@ shared_examples "manage impersonations examples" do
 
   shared_examples_for "impersonating a user" do
     it "can impersonate the user filling in the correct authorization" do
-      expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
+      expect(page).to have_content("You are managing the participant #{impersonated_user.name}")
       expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
 
@@ -135,7 +135,7 @@ shared_examples "manage impersonations examples" do
 
     it "does not offer authorization handler selection" do
       navigate_to_impersonations_page
-      click_link "Impersonate new managed user"
+      click_link "Manage new participant"
 
       expect(page).not_to have_select("Authorization method")
     end
@@ -151,7 +151,7 @@ shared_examples "manage impersonations examples" do
     it "allows selecting the preferred authorization handler" do
       navigate_to_impersonations_page
 
-      click_link "Impersonate new managed user"
+      click_link "Manage new participant"
       expect(page).to have_select("Authorization method")
       expect(page).to have_field("Document number").and have_no_field("Passport number")
 
@@ -195,7 +195,7 @@ shared_examples "manage impersonations examples" do
 
         context "and no reason is provided" do
           it "prevents submissions and shows an error" do
-            expect(page).to have_content("You need to provide a reason when impersonating a non managed user")
+            expect(page).to have_content("You need to provide a reason when managing a non managed participant")
           end
         end
 

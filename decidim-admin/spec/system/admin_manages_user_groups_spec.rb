@@ -15,8 +15,8 @@ describe "Admin manages user groups", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.root_path
-    click_link "Users"
-    click_link "User groups"
+    click_link "Participants"
+    click_link "Groups"
   end
 
   it "verifies a user group" do
@@ -24,7 +24,7 @@ describe "Admin manages user groups", type: :system do
       click_link "Verify"
     end
 
-    expect(page).to have_content("verified successfully")
+    expect(page).to have_content("successfully verified")
 
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
       expect(page).to have_content("Verified")
@@ -36,7 +36,7 @@ describe "Admin manages user groups", type: :system do
       click_link "Reject"
     end
 
-    expect(page).to have_content("rejected successfully")
+    expect(page).to have_content("successfully rejected")
 
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
       expect(page).to have_content("Rejected")
