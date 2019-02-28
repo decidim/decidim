@@ -99,10 +99,10 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" est terminée
           follower:
-            email_intro: 'La réunion "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez la réunion "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
-            email_subject: La réunion "%{resource_title}" est close
-            notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> était close.
+            email_intro: 'La rencontre "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
+            email_subject: La rencontre "%{resource_title}" est close
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> était close.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
@@ -110,7 +110,7 @@ fr:
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Votre inscription à la réunion <a href="%{resource_url}">%{resource_title}</a> a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
+          notification_title: Votre inscription à la rencontre <a href="%{resource_url}">%{resource_title}</a> a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
