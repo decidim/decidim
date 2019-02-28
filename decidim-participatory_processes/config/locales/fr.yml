@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -18,6 +19,7 @@ fr:
         participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
         participatory_structure: Modalités de participation
+        private_space: Concertation privée
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Secteur
@@ -206,8 +208,8 @@ fr:
           not_published: Non publiée
           private: Privée
           promoted:
-            'false': 'Non'
-            'true': 'Oui'
+            'false': Non
+            'true': Oui
           public: Publique
           published: Publiée
         new:

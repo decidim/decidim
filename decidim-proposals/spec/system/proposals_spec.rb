@@ -272,6 +272,23 @@ describe "Proposals", type: :system do
       it_behaves_like "editable content for admins"
     end
 
+    context "when comments have been moderated" do
+      let(:proposal) { create(:proposal, component: component) }
+      let(:author) { create(:user, :confirmed, organization: component.organization) }
+      let!(:comments) { create_list(:comment, 3, commentable: proposal) }
+      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+
+      it "displays unhidden comments count" do
+        visit_component
+
+        within("#proposal_#{proposal.id}") do
+          within(".card-data__item:last-child") do
+            expect(page).to have_content(2)
+          end
+        end
+      end
+    end
+
     describe "default ordering" do
       it_behaves_like "a random proposal ordering"
     end
@@ -701,6 +718,25 @@ describe "Proposals", type: :system do
           expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("AMENDMENT", count: 1)
         end
+      end
+    end
+  end
+
+  context "when component is not commentable" do
+    let!(:proposals) { create_list(:proposal, 3, component: component) }
+    let!(:component) do
+      create(:component,
+             manifest: manifest,
+             participatory_space: participatory_space)
+    end
+
+    it "doesn't displays comments count" do
+      component.update!(settings: { comments_enabled: false })
+
+      visit_component
+
+      proposals.each do |proposal|
+        expect(page).not_to have_link(resource_locator(proposal).path)
       end
     end
   end

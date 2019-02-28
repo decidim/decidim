@@ -263,6 +263,32 @@ describe "Participatory Processes", type: :system do
               end
             end
 
+            context "when action btn is blank in current locale" do
+              let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                  within ".card__footer .card__button" do
+                    expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            context "when action btn is blank in another locale" do
+              let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                  within ".card__footer .card__button" do
+                    expect(page).to have_content("HEY!")
+                  end
+                end
+              end
+            end
+
             it "display custom button" do
               active_step.cta_text = "SEE"
               visit decidim_participatory_processes.participatory_processes_path
@@ -313,6 +339,32 @@ describe "Participatory Processes", type: :system do
                 within find("#highlighted-processes .card--full .card--full__image") do
                   within ".button" do
                     expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            context "when action btn is blank in current locale" do
+              let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#highlighted-processes .card--full .card--full__image") do
+                  within ".button" do
+                    expect(page).to have_content("TAKE PART")
+                  end
+                end
+              end
+            end
+
+            context "when action btn is blank in another locale" do
+              let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
+
+              it "display default button" do
+                visit decidim_participatory_processes.participatory_processes_path
+                within find("#highlighted-processes .card--full .card--full__image") do
+                  within ".button" do
+                    expect(page).to have_content("HEY!")
                   end
                 end
               end

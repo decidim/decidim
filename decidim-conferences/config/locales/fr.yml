@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -505,10 +506,10 @@ fr:
         votes_count: Votes
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registration_confirmed:
           notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> a été confirmée.
+        conference_registration_validation_pending:
+          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registrations_over_percentage:
           email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
           email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
