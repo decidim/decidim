@@ -53,4 +53,4 @@ fr:
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
-          success: Votre réponse à l'enquête a bien été enregistrée.
+          success: Votre participation à l'enquête a bien été enregistrée.
