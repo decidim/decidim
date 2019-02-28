@@ -109,6 +109,7 @@
 - **decidim-proposals**: Let admins keep orirignal authors when importing proposals from another component [\#4902](https://github.com/decidim/decidim/pull/4902)
 - **decidim-proposals**: Don't let users vote/follow withdrawn proposals [\#4909](https://github.com/decidim/decidim/pull/4909)
 - **decidim-participatory_processes**: Fix collaborator permissions so they can't `:read` anything [\#4899](https://github.com/decidim/decidim/pull/4899)
+- **decidim-initiatives** Add some small fixes in admin panel of initiatives [\#4912](https://github.com/decidim/decidim/pull/4912)
 
 **Removed**:
 
