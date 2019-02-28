@@ -71,6 +71,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 
 **Fixed**:
 
+- **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
 - **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events [#4895](https://github.com/decidim/decidim/pull/4895)
 - **decidim-core**: Hide comments on cards when deactivated on a component. [\#4904](https://github.com/decidim/decidim/pull/4904)
 - **decidim-debates**: Fix stats display for debates when a debate has been moderated. [\#4903](https://github.com/decidim/decidim/pull/4903)
