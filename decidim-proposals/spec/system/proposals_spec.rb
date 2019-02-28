@@ -660,4 +660,23 @@ describe "Proposals", type: :system do
       it_behaves_like "a paginated resource"
     end
   end
+
+  context "when component is not commentable" do
+    let!(:proposals) { create_list(:proposal, 3, component: component) }
+    let!(:component) do
+      create(:component,
+             manifest: manifest,
+             participatory_space: participatory_space)
+    end
+
+    it "doesn't displays comments count" do
+      component.update!(settings: { comments_enabled: false })
+
+      visit_component
+
+      proposals.each do |proposal|
+        expect(page).not_to have_link(resource_locator(proposal).path)
+      end
+    end
+  end
 end
