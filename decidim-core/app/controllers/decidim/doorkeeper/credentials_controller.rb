@@ -31,7 +31,7 @@ module Decidim
         avatar_url = current_resource_owner.avatar_url
         return unless avatar_url
 
-        unless (%r{^https?://}).match? avatar_url
+        unless %r{^https?://}.match? avatar_url
           request_uri = URI.parse(request.url)
           request_uri.path = avatar_url
           request_uri.query = nil
