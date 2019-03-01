@@ -34,7 +34,7 @@ describe Decidim::ParticipatoryProcessStepChangedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The dates for the #{resource_title} step at #{participatory_space_title} have been updated. You can see it from this page:")
+        .to eq("The dates for the #{resource_title} phase at #{participatory_space_title} have been updated. You can see it from this page:")
     end
   end
 
@@ -48,7 +48,7 @@ describe Decidim::ParticipatoryProcessStepChangedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("The dates for the <a href=\"#{resource_path}\">#{resource_title}</a> step at <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a> have been updated.")
+        .to eq("The dates for the <a href=\"#{resource_path}\">#{resource_title}</a> phase at <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a> have been updated.")
     end
   end
 end
