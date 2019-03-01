@@ -266,7 +266,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
-            expect(page).to have_content("There was a problem answering the survey")
+            expect(page).to have_content("There was a problem answering")
           end
 
           expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
@@ -312,7 +312,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
-            expect(page).to have_content("There was a problem answering the survey")
+            expect(page).to have_content("There was a problem answering")
           end
 
           expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
@@ -410,7 +410,7 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_button "Submit" }
 
         within ".alert.flash" do
-          expect(page).to have_content("There was a problem answering the survey")
+          expect(page).to have_content("There was a problem answering")
         end
 
         expect(page).to have_content("are too many")
