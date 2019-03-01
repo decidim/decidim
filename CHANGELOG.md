@@ -19,6 +19,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
 - **decidim-meetings**: Change title to description in meetings admin form. [\#4484](https://github.com/decidim/decidim/pull/4484)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4547](https://github.com/decidim/decidim/pull/4547)
 - **decidim-proposals**: Fix vote-rerendering on a proposal's page [\#4558](https://github.com/decidim/decidim/pull/4558)
