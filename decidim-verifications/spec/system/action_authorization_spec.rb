@@ -82,14 +82,14 @@ describe "Action Authorization", type: :system do
       it "prompts user to authorize" do
         expect(page).to have_content("Authorization required")
         expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
-        expect(page).to have_content("Participation is restricted to users with any of the following postal codes: 1234, 4567.")
+        expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
       end
 
       it "redirects to authorization when modal clicked" do
         click_link "Authorize with \"Example authorization\""
 
         expect(page).to have_selector("h1", text: "Verify with Example authorization")
-        expect(page).to have_content("Participation is restricted to users with any of the following postal codes: 1234, 4567.")
+        expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
       end
     end
 

@@ -41,27 +41,27 @@ describe "Identity document offline review", type: :system do
   it "allows the user to verify an identity document" do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
 
-    expect(page).to have_content("User successfully verified")
+    expect(page).to have_content("Participant successfully verified")
   end
 
   it "shows an error when there's no authorization for the given email" do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnt.exist")
 
     expect(page).to have_content("Verification doesn't match")
-    expect(page).to have_content("INTRODUCE THE USER EMAIL AND THE DOCUMENT DATA")
+    expect(page).to have_content("INTRODUCE THE PARTICIPANT EMAIL AND THE DOCUMENT DATA")
   end
 
   it "shows an error when information doesn't match" do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification doesn't match")
-    expect(page).to have_content("INTRODUCE THE USER EMAIL AND THE DOCUMENT DATA")
+    expect(page).to have_content("INTRODUCE THE PARTICIPANT EMAIL AND THE DOCUMENT DATA")
   end
 
   private
 
   def submit_verification_form(doc_type:, doc_number:, user_email: user.email)
-    fill_in "User email", with: user_email
+    fill_in "Participant email", with: user_email
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
 
