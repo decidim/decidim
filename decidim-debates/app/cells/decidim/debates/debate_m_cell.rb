@@ -22,6 +22,7 @@ module Decidim
       end
 
       def debate_date
+        return unless start_date && end_date
         return render(:multiple_dates) if spans_multiple_dates?
         render(:single_date)
       end
@@ -35,10 +36,12 @@ module Decidim
       end
 
       def start_date
+        return unless model.start_time
         model.start_time.to_date
       end
 
       def end_date
+        return unless model.end_time
         model.end_time.to_date
       end
     end
