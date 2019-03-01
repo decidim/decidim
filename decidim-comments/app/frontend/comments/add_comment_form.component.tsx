@@ -26,6 +26,7 @@ interface AddCommentFormProps {
   submitButtonClassName?: string;
   autoFocus?: boolean;
   arguable?: boolean;
+  userCanComment?: boolean;
   addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
   orderBy: string;
@@ -48,6 +49,7 @@ export const MAX_LENGTH = 1000;
 export class AddCommentForm extends React.Component<AddCommentFormProps, AddCommentFormState> {
   public static defaultProps = {
     showTitle: true,
+    userCanComment: true,
     submitButtonClassName: "button button--sc",
     arguable: false,
     autoFocus: false
@@ -127,10 +129,10 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The add comment form on an empty element.
    */
   private _renderForm() {
-    const { session, submitButtonClassName, commentable: { id, type } } = this.props;
+    const { session, submitButtonClassName, userCanComment, commentable: { id, type } } = this.props;
     const { disabled, remainingCharacterCount } = this.state;
 
-    if (session) {
+    if (session && userCanComment) {
       return (
         <form onSubmit={this.addComment}>
           {this._renderCommentAs()}

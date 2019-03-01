@@ -46,6 +46,11 @@ module Decidim
         def users_to_notify_on_comment_created
           Decidim::User.none
         end
+
+        # Public: Whether the object can have new comments or not.
+        def can_participate?(_user)
+          true
+        end
       end
     end
   end
