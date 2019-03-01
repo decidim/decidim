@@ -237,7 +237,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           it "renders an flash informing about the request" do
             expect(page).to have_css(".flash.callout.success")
             within ".flash.callout.success" do
-              expect(page).to have_content("Your request to collaborate has been sent successfully")
+              expect(page).to have_content("Your request to collaborate has been successfully sent")
             end
           end
 

@@ -16,14 +16,14 @@ shared_examples "amendment promoted event" do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("An emendation from #{emendation_author_nickname} has been promoted")
+      expect(subject.email_subject).to eq("An amendment from #{emendation_author_nickname} has been published as a new proposal")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("An emendation rejected for #{amendable_title} has been promoted to an independent #{amendable_type}. You can see it from this page:")
+        .to eq("A rejected amendment for #{amendable_title} has been published as a new #{amendable_type}. You can see it from this page:")
     end
   end
 
@@ -37,7 +37,7 @@ shared_examples "amendment promoted event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("A <a href=\"#{emendation_path}\">rejected emendation</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type} has been promoted by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a>.") # rubocop:disable Metrics/LineLength
+        .to include("A <a href=\"#{emendation_path}\">rejected amendment</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type} has been published as a new proposal by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a>.") # rubocop:disable Metrics/LineLength
     end
   end
 end

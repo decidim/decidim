@@ -208,7 +208,7 @@ describe "Proposals", type: :system do
 
         click_link proposal.title
 
-        expect(page).to have_content("Deleted participant")
+        expect(page).to have_content("Participant deleted")
       end
     end
   end
@@ -312,13 +312,13 @@ describe "Proposals", type: :system do
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
-        expect(page).to have_selector("a", text: "Most voted")
+        expect(page).to have_selector("a", text: "Most supported")
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
       end
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
-        expect(page).to have_button("Voting disabled", disabled: true, count: 2)
+        expect(page).to have_button("Supports disabled", disabled: true, count: 2)
         expect(page).to have_no_link("View proposal")
       end
     end
@@ -340,7 +340,7 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Voting disabled", disabled: true)
+        expect(page).to have_no_button("Supports disabled", disabled: true)
         expect(page).to have_no_button("Vote")
         expect(page).to have_link("View proposal", count: 2)
       end
@@ -533,7 +533,7 @@ describe "Proposals", type: :system do
             visit_component
 
             within "form.new_filter" do
-              expect(page).to have_content(/State/i)
+              expect(page).to have_content(/Status/i)
             end
           end
 
@@ -585,7 +585,7 @@ describe "Proposals", type: :system do
             visit_component
 
             within "form.new_filter" do
-              expect(page).to have_no_content(/State/i)
+              expect(page).to have_no_content(/Status/i)
             end
           end
         end
@@ -600,7 +600,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/State/i)
+            expect(page).to have_no_content(/Status/i)
           end
         end
       end
@@ -643,7 +643,7 @@ describe "Proposals", type: :system do
         within ".order-by" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
           page.find("a", text: "Random").click
-          click_link "Most voted"
+          click_link "Most supported"
         end
 
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)

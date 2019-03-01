@@ -153,7 +153,7 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success", text: "This emendation has been accepted successfully.")
+              expect(page).to have_css(".callout.success", text: "This amendment has been successfully accepted.")
             end
 
             it "is changed the state of the emendation" do
@@ -168,7 +168,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is shown the Success Callout" do
-            expect(page).to have_css(".callout.success", text: "The emendation has been rejected successfully")
+            expect(page).to have_css(".callout.success", text: "The amendment has been successfully rejected")
           end
 
           it "is changed the state of the emendation" do
@@ -193,7 +193,7 @@ describe "Amend Proposal", type: :system do
         end
 
         it "is shown the promote button" do
-          expect(page).to have_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_content("PUBLISH AS A NEW PROPOSAL")
         end
 
         context "when the user clicks on the promote button" do
@@ -202,7 +202,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is shown the Success Callout" do
-            expect(page).to have_content("Emendation promoted successfully")
+            expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
@@ -211,7 +211,7 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is NOT shown the promote button" do
-              expect(page).not_to have_content("PROMOTE TO PROPOSAL")
+              expect(page).not_to have_content("PUBLISH AS A NEW PROPOSAL")
             end
           end
         end
