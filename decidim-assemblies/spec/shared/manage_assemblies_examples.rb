@@ -91,7 +91,7 @@ shared_examples "manage assemblies" do
 
     it "publishes the assembly" do
       click_link "Publish"
-      expect(page).to have_content("published successfully")
+      expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
@@ -109,7 +109,7 @@ shared_examples "manage assemblies" do
 
     it "unpublishes the assembly" do
       click_link "Unpublish"
-      expect(page).to have_content("unpublished successfully")
+      expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
