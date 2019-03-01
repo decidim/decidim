@@ -34,14 +34,14 @@ describe Decidim::Initiatives::ExtendInitiativeEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The signatures end date for the initiative #{resource_title} has been extended!")
+        .to eq("The signatures end date for the initiative #{resource_title} have been extended!")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The signatures end date for the <a href=\"#{resource_path}\">#{resource_title}</a> initiative has been extended")
+        .to include("The signatures end date for the <a href=\"#{resource_path}\">#{resource_title}</a> initiative have been extended")
     end
   end
 end

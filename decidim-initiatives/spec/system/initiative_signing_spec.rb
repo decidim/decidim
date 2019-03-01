@@ -34,7 +34,7 @@ describe "Initiative signing", type: :system do
     end
 
     context "when online signatures are enabled for site" do
-      context "when initative type only allows face to face signatures" do
+      context "when initative type only allows In-person signatures" do
         let(:initiative) { create(:initiative, :published, organization: organization, signature_type: "offline") }
 
         it "voting disabled message is shown" do
@@ -300,7 +300,7 @@ describe "Initiative signing", type: :system do
 
       click_button "Continue"
 
-      expect(page).to have_content("initiative has been signed correctly")
+      expect(page).to have_content("initiative has been successfully signed")
       click_on "Back to initiative"
     end
 

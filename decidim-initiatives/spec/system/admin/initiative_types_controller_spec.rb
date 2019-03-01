@@ -62,7 +62,7 @@ describe "InitiativeTypesController", type: :system do
       )
 
       uncheck "Online signature enabled"
-      uncheck "Enable users to undo their online signatures"
+      uncheck "Enable participants to undo their online signatures"
 
       click_button "Update"
 

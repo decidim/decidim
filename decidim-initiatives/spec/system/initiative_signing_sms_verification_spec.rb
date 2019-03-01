@@ -56,7 +56,7 @@ describe "Initiative signing", type: :system do
         let(:authorizations) { [] }
 
         it "The vote is created" do
-          expect(page).to have_content("initiative has been signed correctly")
+          expect(page).to have_content("initiative has been successfully signed")
           click_on "Back to initiative"
 
           within ".view-side" do
@@ -125,7 +125,7 @@ describe "Initiative signing", type: :system do
               it "the vote is created" do
                 fill_sms_code
 
-                expect(page).to have_content("initiative has been signed correctly")
+                expect(page).to have_content("initiative has been successfully signed")
                 click_on "Back to initiative"
 
                 expect(page).to have_content(signature_text(1))
