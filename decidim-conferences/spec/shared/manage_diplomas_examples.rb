@@ -52,7 +52,7 @@ shared_examples "manage diplomas" do
 
         it "is successfully created" do
           click_link "Send certificates of attendance"
-          expect(page).to have_admin_callout("correctly")
+          expect(page).to have_admin_callout("successfully")
         end
       end
 
