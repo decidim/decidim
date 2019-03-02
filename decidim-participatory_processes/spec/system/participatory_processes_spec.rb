@@ -312,7 +312,7 @@ describe "Participatory Processes", type: :system do
             end
           end
 
-          context "with action button" do
+          context "with cta button" do
             let(:cta_text) { "SEE" }
             let!(:active_step) do
               create(:participatory_process_step,
@@ -331,7 +331,7 @@ describe "Participatory Processes", type: :system do
               end
             end
 
-            context "when action btn is nil" do
+            context "when cta btn is nil" do
               let(:cta_text) { nil }
 
               it "display default button" do
@@ -344,7 +344,7 @@ describe "Participatory Processes", type: :system do
               end
             end
 
-            context "when action btn is blank in current locale" do
+            context "when cta btn is blank in en" do
               let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
 
               it "display default button" do
@@ -357,7 +357,7 @@ describe "Participatory Processes", type: :system do
               end
             end
 
-            context "when action btn is blank in another locale" do
+            context "when cta btn is blank in ca" do
               let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
 
               it "display default button" do
