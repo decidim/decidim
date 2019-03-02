@@ -16,7 +16,7 @@ module Decidim
       end
 
       def cta(process, locale)
-        if process.active_step&.cta_text
+        if translated_in_current_locale(process.active_step&.cta_text)
           translated_attribute(process.active_step.cta_text)
         else
           locale

@@ -157,6 +157,20 @@ describe "Explore debates", type: :system do
         expect(page).to have_no_content(translated(debate.title))
       end
     end
+
+    context "when component is not commentable" do
+      let(:debates) { create_list(:debate, 3, component: current_component) }
+
+      it "doesn't displays comments count" do
+        current_component.update!(settings: { comments_enabled: false })
+
+        page.visit main_component_path(current_component)
+
+        debates.each do |debate|
+          expect(page).not_to have_link(resource_locator(debate).path)
+        end
+      end
+    end
   end
 
   describe "show" do

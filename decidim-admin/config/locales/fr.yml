@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -102,9 +103,9 @@ fr:
               must_be_ssl: L'URI de redirection doit être un URI SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Fichier image invalide
             official_img_footer:
+              allowed_file_content_types: Fichier image invalide
+            official_img_header:
               allowed_file_content_types: Fichier image invalide
   activerecord:
     attributes:
@@ -127,7 +128,6 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Modifier
-        new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
@@ -459,7 +459,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
+          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser

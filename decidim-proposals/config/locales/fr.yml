@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -173,7 +174,7 @@ fr:
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est acceptée.
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :'
+          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: "%{endorser_nickname} a soutenu une nouvelle proposition"
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -198,7 +199,7 @@ fr:
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans les commentaires de cet espace</a>.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :'
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :"
           email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
           email_subject: Nouvelle proposition de %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -236,19 +237,19 @@ fr:
       badges:
         accepted_proposals:
           conditions:
-            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-            - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
+          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+          - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
-          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
-          description_own: '%{score} de vos propositions ont été acceptées.'
+          description_another: "%{score} des propositions de cet utilisateur ont été acceptées."
+          description_own: "%{score} de vos propositions ont été acceptées."
           name: Propositions acceptées
           next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
           unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
           unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           conditions:
-            - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - Soutenez les propositions que vous aimez ou trouvez intéressantes
+          - Parcourir et passer du temps à lire les propositions d'autres personnes
+          - Soutenez les propositions que vous aimez ou trouvez intéressantes
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
@@ -258,8 +259,8 @@ fr:
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           conditions:
-            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-            - Créer une nouvelle proposition
+          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+          - Créer une nouvelle proposition
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions.
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
@@ -311,13 +312,18 @@ fr:
             name: Proposition
         participatory_texts:
           bulk-actions:
+            are_you_sure: Êtes-vous sûr de vouloir rejeter l'ensemble du projet de texte participatif ?
+            discard_all: Rejeter
             import_doc: Importer un document
+          discard:
+            success: Tous les projets de textes participatifs ont été rejetés.
           import:
             invalid: Le formulaire est invalide!
             success: Félicitations, les sections suivantes ont été analysées à partir du document importé. Elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
           index:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
+            save_draft: Sauvegarder le brouillon
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections du document)"
@@ -331,6 +337,8 @@ fr:
             article: "<em>article</em>"
             section: "<em>Section :</em> <strong>%{title}</strong>"
             sub-section: "<em>Sous-section:</em> %{title}"
+          update:
+            success: Texte participatif mis à jour avec succès.
         proposal_answers:
           edit:
             accepted: Retenue
@@ -610,7 +618,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: "1 proposition"
+            one: 1 proposition
             other: "%{count} propositions"
         dynamic_map_instructions:
           primary: Vous pouvez déplacer le point sur la carte.

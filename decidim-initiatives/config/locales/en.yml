@@ -85,15 +85,11 @@ en:
             email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
             email_subject: New milestone completed!
             notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Досягнута нова віха!
           follower:
             email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
             email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
     gamification:
       badges:
         initiatives:

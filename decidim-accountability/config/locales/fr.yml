@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -163,7 +164,7 @@ fr:
             last_edited_by: Dernière édition par
             last_updated_at: Dernière mise à jour à
             meetings: Réunions
-            number_of_versions: Versions
+            number_of_versions: Nombre de versions
             proposals: Propositions
             show_all_versions: Afficher toutes les versions
             version_author: Auteur de la version

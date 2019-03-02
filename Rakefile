@@ -63,7 +63,7 @@ end
 
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
-  system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
+  system({ "ENFORCED_LOCALES" => "en,fr,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
 end
 
 load "decidim-dev/lib/tasks/generators.rake"

@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -36,16 +37,16 @@ fr:
       admin:
         id_documents:
           help:
-            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
-            - Vous remplissez les informations présentes dans l'image téléchargée.
-            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
+          - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+          - Vous remplissez les informations présentes dans l'image téléchargée.
+          - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+          - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
-            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
-            - Vous envoyez la lettre à leur adresse avec le code de vérification.
-            - Vous marquez la lettre comme envoyée.
-            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+          - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+          - Vous envoyez la lettre à leur adresse avec le code de vérification.
+          - Vous marquez la lettre comme envoyée.
+          - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
       direct: Direct
       help: Texte d'aide
       id_documents:

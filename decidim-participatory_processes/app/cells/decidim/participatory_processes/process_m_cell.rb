@@ -38,7 +38,7 @@ module Decidim
       end
 
       def step_cta_text
-        if model.active_step&.cta_text
+        if translated_in_current_locale(model.active_step&.cta_text)
           translated_attribute(model.active_step.cta_text)
         else
           t("participatory_processes.participatory_process.take_part", scope: "layouts.decidim")
