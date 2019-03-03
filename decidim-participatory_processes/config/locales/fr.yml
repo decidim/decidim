@@ -281,7 +281,7 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 concertation pour %{group}
+          one: "%{count} concertation pour %{group}"
           other: "%{count} concertations pour %{group}"
         title: Groupes de concertations
     participatory_process_steps:
@@ -325,16 +325,16 @@ fr:
         filters:
           counters:
             active:
-              one: 1 concertation en cours
+              one: "%{count} concertation en cours"
               other: "%{count} concertations en cours"
             all:
-              one: 1 concertation
+              one: "%{count} concertation"
               other: "%{count} concertations"
             past:
-              one: 1 concertation archivée
+              one: "%{count} concertation archivée"
               other: "%{count} concertations archivées"
             upcoming:
-              one: 1 concertation à venir
+              one: "%{count} concertation à venir"
               other: "%{count} concertations à venir"
           explanations:
             no_active: Aucune concertation active

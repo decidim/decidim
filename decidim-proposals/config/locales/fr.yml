@@ -618,7 +618,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: 1 proposition
+            one: "%{count} proposition"
             other: "%{count} propositions"
         dynamic_map_instructions:
           primary: Vous pouvez déplacer le point sur la carte.
