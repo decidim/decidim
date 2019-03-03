@@ -6,7 +6,8 @@ module Decidim
       include Decidim::Events::CoauthorEvent
 
       def resource_text
-        resource.body
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(resource.body)
+        renderer.render
       end
 
       private
