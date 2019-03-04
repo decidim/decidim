@@ -22,9 +22,16 @@ ru:
       decidim/user:
         current_password: Текущий пароль
         email: Эл. адрес
+        name: Имя участника
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
+    models:
+      decidim/user_group:
+        one: Группа участников
+        few: Группы участников
+        many: Групп участников
+        other: Групп участников
   booleans:
     'false': 'Нет'
     'true': 'Да'
@@ -41,6 +48,7 @@ ru:
         file_no_exists: Файла не существует
         invalid_token: Предоставленный токен недействителен.
         no_token: Не предоставлен токен
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       delete:
         alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
         confirm:
@@ -49,9 +57,16 @@ ru:
           question: Вы действительно хотите удалить свою учетную запись?
           title: Удалить мою учетную запись
         explanation: Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).
+      destroy:
+        error: При попытке удалить вашу учетную запись произошла ошибка.
+        success: Ваша учетная запись была успешно удалена.
       show:
         change_password: Поменять пароль
         update_account: Обновить учетную запись
+      update:
+        error: При попытке обновить вашу учетную запись произошла ошибка.
+        success: Ваша учетная запись была успешно обновлена.
+        success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
     admin_log:
       area:
         create: "%{user_name} добавил участок %{resource_name}"
@@ -87,6 +102,14 @@ ru:
         create: "%{user_name} создал статическую страницу %{resource_name}"
         delete: "%{user_name} удалил статическую страницу %{resource_name}"
         update: "%{user_name} обновил статическую страницу %{resource_name}"
+      user:
+        invite: "%{user_name} пригласил участника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} предоставил служебный статус участнику %{resource_name}"
+        remove_from_admin: "%{user_name} удалил участника %{resource_name} с ролью: %{role}"
+        unofficialize: "%{user_name} отменил служебный статус участника %{resource_name}"
+      user_group:
+        reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
+        verify: "%{user_name} подтвердил группу участников %{resource_name}"
     anonymous_user: Анонимный
     application:
       collection:
@@ -97,6 +120,8 @@ ru:
           other: Документов
       documents:
         related_documents: Сопутствующие документы
+      photos:
+        related_photos: Сопутствующие фотографии
     author:
       comments:
         one: комментарий
@@ -117,6 +142,8 @@ ru:
         name: Пример подтверждения личности
       dummy_authorization_workflow:
         name: Пример пути подтверждения личности
+      errors:
+        duplicate_authorization: С теми же данными уже подтвердил свою личность другой участник.
       expired_at: Срок действия истек %{timestamp}
       expires_at: Срок действия истекает в %{timestamp}
       foo_authorization:
@@ -199,6 +226,7 @@ ru:
           email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
+          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
@@ -207,6 +235,7 @@ ru:
           already_have_an_account?: У вас уже есть учетная запись?
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
+          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
@@ -241,6 +270,7 @@ ru:
           publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
           see_name: Видеть ваше имя
+          see_username: Видеть ваше имя участника
           this_application_will_be_able_to: 'Это приложение сможет:'
           this_application_will_not_be_able_to: 'Это приложение не сможет:'
           update_profile: Обновить свой профиль
@@ -309,8 +339,10 @@ ru:
     follows:
       create:
         button: Следить
+        error: При попытке начать следить за этим ресурсом произошла ошибка.
       destroy:
         button: Перестать следить
+        error: При попытке перестать следить за этим ресурсом произошла ошибка.
     forms:
       current_file: Текущий файл
       current_image: Текущее изображение
@@ -337,6 +369,8 @@ ru:
           not_found: 'Охват не найден в базе данных (ID: %{id})'
         scope_type_presenter:
           not_found: 'Вид охвата не найден в базе данных (ID: %{id})'
+    managed_users:
+      expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
     messaging:
@@ -371,6 +405,7 @@ ru:
     newsletters:
       unsubscribe:
         check_subscription: Если вы хотите изменить свои предпочтения, вы можете сделать это на <a href="%{link}" target="_blank">странице настроек</a>
+        error: При попытке отменить подписку произошла ошибка
         success: Вы успешно отменили подписку.
         token_error: Срок действия ссылки истек.
         unsubscribe: Отписаться
@@ -378,6 +413,7 @@ ru:
       unathorized: К сожалению, эта ссылка больше не доступна
       update:
         error: Что-то пошло не так
+        success: Настройки рассылки успешно обновлены
     newsletters_opt_in_mailer:
       notify:
         body_1: Обработка персональных данных и их защита становятся все более важными для всех нас. По новому "Общему положению о защите данных" от 25 мая 2018 года люди получают возможность управлять своими личными данными. Поэтому нам нужно ваше согласие, чтобы продолжить отправлять вам свежие новости о деятельности %{organization_name}.
@@ -394,6 +430,9 @@ ru:
         email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
         newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
+      update:
+        error: При попытке обновить настройки уведомлений произошла ошибка.
+        success: Ваши настройки уведомлений были успешно обновлены.
     own_user_groups:
       index:
         pending: В ожидании
@@ -439,6 +478,7 @@ ru:
           register: Зарегистрироваться
       terms_and_conditions:
         accept:
+          error: При принятии условий участия произошла ошибка.
           success: Прекрасно! Вы приняли условия участия.
         form:
           agreement: Я согласен с этими условиями
@@ -457,6 +497,7 @@ ru:
     participatory_space_private_users:
       not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
+      deleted: Удаленный участник
       view: Посмотреть
     profiles:
       default_officialization_text_for_users: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
@@ -524,10 +565,13 @@ ru:
         close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
+      version_author:
+        deleted: Удаленный участник
   devise:
     invitations:
       edit:
         header: Завершите создание своей учетной записи
+        nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
         subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
     mailer:
@@ -539,8 +583,10 @@ ru:
         ignore: |-
           Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
+        invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
+        someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
@@ -587,6 +633,7 @@ ru:
         sign_up: Зарегистрироваться
       impersonation_warning:
         close_session: Закрыть сеанс
+        description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
         expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
         mark_all_as_read: Отметить все как прочитанные
@@ -603,6 +650,7 @@ ru:
         delete_my_account: Удалить мою учетную запись
         my_data: Мои данные
         notifications_settings: Настройки уведомлений
+        title: Настройки участника
       widget:
         see_more: Читать подробнее
   locale:
