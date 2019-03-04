@@ -69,7 +69,6 @@ ru:
             destroy: Отменить жеребьевку
             title: Отмена жеребьевки
           create:
-            error: При попытке создать новую жеребьевку произошла ошибка.
             success: Жеребьевка успешно создана
           destroy:
             error: Невозможно отменить жеребьевку.
@@ -90,7 +89,6 @@ ru:
           show:
             selected_proposals: Предложения, выбранные для жеребьевки
           update:
-            error: При попытке обновить эту жеребьевку произошла ошибка.
             success: Жеребьевка успешно обновлена
       admin_log:
         sortition:
@@ -111,7 +109,6 @@ ru:
           category: Категория
           category_prompt: Выберите категорию
           search: Поиск
-          state: Cостояние
         filters_small_view:
           close_modal: Закрыть окошко
           filter: Отобрать
@@ -130,7 +127,6 @@ ru:
             many: выбранных предложений
             other: выбранных предложений
         show:
-          algorithm: Код алгоритма жеребьевки
           any_category: из всех категорий
           cancelled: Отмененная жеребьевка
           candidate_proposal_ids: Порядок и названия предложений для жеребьевки
@@ -151,10 +147,6 @@ ru:
             many: предложений выбрано
             other: предложений выбрано
           view: Посмотреть
-        sortition_author:
-          deleted: Удаленный участник
-        sortition_cancel_author:
-          deleted: Удаленный участник
         sortitions_count:
           count:
             one: 1 жеребьевка
