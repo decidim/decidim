@@ -40,10 +40,6 @@ tr:
             base:
               too_many_minutes: Öğelerin süresi toplantı süresini %{count} dakika aşar.
               too_many_minutes_child: Öğenin childs'ın süresi, "%{parent_title}" ajanda maddesini %{count} dakika aşar.
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Bu e-posta zaten davet edildi
     models:
       decidim/meetings/close_meeting_event: Toplantı kapalı
       decidim/meetings/create_meeting_event: Toplantı
@@ -65,9 +61,6 @@ tr:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Bu toplantıyı tekrarlayan hata oluştu.
-          success: Kopyalanmış toplantı başarıyla yapıldı.
         new:
           copy: kopya
           select: Çoğaltmak istediğiniz verileri seçin
@@ -108,10 +101,7 @@ tr:
         meeting_registration_confirmed:
           notification_title: Toplantı için kaydınız <a href="%{resource_url}">%{resource_title}</a> onaylandı. Kayıt kodunuz %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" toplantısı işgal edilen yuvalar% %{percentage}üzerindedir.'
           email_outro: Bu bildirimi, toplantının katılımcı alanının yöneticisi olduğunuz için aldınız.
-          email_subject: '"%{resource_title}" toplantısıyla dolu toplantı alanları% %{percentage}üzerindedir'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantı işgal yuvaları% %{percentage}üzerindedir.
         meeting_updated:
           email_intro: '"%{resource_title}" toplantısı güncellendi. Yeni sürümü kendi sayfasından okuyabilirsiniz:'
           email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
@@ -135,14 +125,10 @@ tr:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Katılmak istediğiniz toplantılara kayıt olun
           description: Yüz yüze yapılan toplantılara katıldığınızda bu rozet verilir.
-          description_another: Bu kullanıcı %{score} toplantıya katıldı.
           description_own: '%{score} toplantıya katıldınız.'
           name: Katıldığı toplantılar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} toplantıya katılın!
-          unearned_another: Bu kullanıcı henüz bir toplantıya katılmadı.
           unearned_own: Henüz bir toplantıya katılmadın.
     meetings:
       actions:
@@ -161,19 +147,15 @@ tr:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Gündem maddesi ekle
             agenda_item: Gündem maddesi
-            agenda_item_children: Ajanda Öğesi Childs
             down: Aşağı
             remove: Kaldır
             up: yukarı
           agenda_item_child:
-            agenda_item_child: Gündem Maddesi Çocuk
             down: Aşağı
             remove: Kaldır
             up: yukarı
           create:
-            invalid: Bu gündemi oluştururken bir sorun oluştu
             success: Ajanda başarıyla oluşturuldu
           edit:
             title: Gündemi düzenle
@@ -187,7 +169,6 @@ tr:
             create: yaratmak
             title: Yeni gündem
           update:
-            invalid: Bu gündemi güncellerken bir sorun oluştu
             success: Ajanda başarıyla güncellendi
         exports:
           meetings: Toplantılar
@@ -198,16 +179,9 @@ tr:
             invited_you_to_join_a_meeting: "%{invited_by} sizi %{application}bir toplantıya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
             join: '''%{meeting_title}'' toplantısına katıl'
         invites:
-          create:
-            error: Kullanıcıyı toplantıya katılmaya davet ederken bir sorun oluştu.
-            success: Kullanıcı toplantıya katılmaya başarıyla davet edildi.
           form:
             attendee_type: Katılımcı Tipi
-            existing_user: Mevcut kullanıcı
             invite: Davet et
-            invite_explanation: Kullanıcı toplantıya ve organizasyona da davet edilecektir.
-            non_user: Mevcut olmayan kullanıcı
-            select_user: Kullanıcı seç
           index:
             filter:
               accepted: Kabul edilmiş
@@ -228,10 +202,8 @@ tr:
             select_organizer: Organizatör seç
         meetings:
           close:
-            invalid: Bu toplantıyı kapatırken bir sorun oluştu
             success: Toplantı başarıyla kapatıldı
           create:
-            invalid: Bu toplantıyı oluştururken bir sorun oluştu
             success: Toplantı başarıyla oluşturuldu
           destroy:
             success: Toplantı başarıyla silindi
@@ -255,11 +227,9 @@ tr:
             add_service: Servis ekle
             services: Hizmetler
           update:
-            invalid: Bu toplantı güncellenirken bir sorun oluştu
             success: Toplantı başarıyla güncellendi
         minutes:
           create:
-            invalid: Bu dakika oluştururken bir sorun oluştu
             success: Dakika başarıyla oluşturuldu
           edit:
             update: Güncelleştirme
@@ -267,7 +237,6 @@ tr:
             create: yaratmak
             title: Dakika oluşturun
           update:
-            invalid: Bu dakika güncellenirken bir sorun oluştu
             success: Dakika başarıyla güncellendi
         models:
           meeting:
@@ -279,7 +248,6 @@ tr:
             validate_registration_code: Kayıt kodunu doğrula
           form:
             available_slots_help: Mevcut sınırsız yuvaya sahipseniz 0'a bırakın.
-            invites: Davetler
             registration_form: Kayıt formu
             registrations_count:
               one: '%{count} kayıt oldu.'
@@ -287,7 +255,6 @@ tr:
             reserved_slots_help: Ayrılmış yuvalarınız yoksa 0'a bırakın
             reserved_slots_less_than: Daha az ya da buna eşit olmalıdır %{count}
           update:
-            invalid: Kayıt ayarları kaydedilirken bir sorun oluştu.
             success: Toplantı kayıtları ayarları başarıyla kaydedildi.
           validate_registration_code:
             invalid: Bu kayıt kodu geçersiz.
@@ -406,13 +373,10 @@ tr:
           registration_code: Kayıt kodunuz %{code}.
       registrations:
         create:
-          invalid: Bu toplantıya katılırken bir sorun oluştu.
           success: Toplantıya başarılı bir şekilde katıldınız.
         decline_invitation:
-          invalid: Davetin reddedilmesiyle ilgili bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
         destroy:
-          invalid: Bu buluşmadan bir sorun çıktı.
           success: Toplantıdan başarıyla ayrıldınız.
       types:
         private_meeting: Özel toplantı
