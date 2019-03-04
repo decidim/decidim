@@ -65,7 +65,6 @@ nl:
             destroy: Annuleer de loting
             title: Annulatie van de loting
           create:
-            error: Er is een fout opgetreden bij het maken van een nieuwe loting.
             success: Loting succesvol aangemaakt
           destroy:
             error: De sortering kan niet worden geannuleerd.
@@ -86,7 +85,6 @@ nl:
           show:
             selected_proposals: Voorstellen geselecteerd voor trekking
           update:
-            error: Er is een fout opgetreden bij het bijwerken van de sortering.
             success: Sortering succesvol bijgewerkt
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ nl:
           category: Categorie
           category_prompt: Selecteer een categorie
           search: Zoeken
-          state: Staat
         filters_small_view:
           close_modal: Venster sluiten
           filter: Sorteer
@@ -122,7 +119,6 @@ nl:
             one: geselecteerd voorstel
             other: geselecteerde voorstellen
         show:
-          algorithm: De algoritme-code van de sortering
           any_category: alle categorieën
           cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
@@ -141,10 +137,6 @@ nl:
             one: 1 voorstel geselecteerd
             other: '%{count} voorstellen geselecteerd'
           view: Uitzicht
-        sortition_author:
-          deleted: Verwijder gebruiker
-        sortition_cancel_author:
-          deleted: Verwijderde gebruiker
         sortitions_count:
           count:
             one: 1 sortering
