@@ -79,7 +79,7 @@ pl:
             statuses: Statusy
         statuses:
           create:
-            invalid: Podczas tworzenia tego stanu wystąpił problem
+            invalid: Podczas tworzenia tego statusu wystąpił problem
             success: Status został pomyślnie utworzony
           destroy:
             success: Status został pomyślnie usunięty
@@ -92,7 +92,7 @@ pl:
             create: Utwórz stan
             title: Nowy status
           update:
-            invalid: Wystąpił problem z aktualizacją tego stanu
+            invalid: Podczas aktualizowania tego stanu wystąpił problem
             success: Stan został zaktualizowany
         timeline_entries:
           create:
