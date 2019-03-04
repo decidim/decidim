@@ -69,7 +69,7 @@ tr:
             created_at: Düzenlendi
             id: İD
             state: Belirtmek, bildirmek
-            supports_count: Destekler
+            supports_count: İmzalar
             title: Girişimler
         initiatives_type_scope:
           fields:
