@@ -35,7 +35,6 @@ pl:
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
-            creation_enabled: Utworzenie debaty przez użytkowników
     debates:
       actions:
         confirm_destroy: Jesteś pewny?
@@ -45,11 +44,6 @@ pl:
         title: działania
       admin:
         debates:
-          create:
-            invalid: Podczas tworzenia debaty wystąpił problem.
-            success: Debatę utworzono pomyślnie.
-          destroy:
-            success: Debata została pomyślnie usunięta.
           edit:
             title: Edytuj debatę
             update: Zaktualizuj debatę
@@ -58,9 +52,6 @@ pl:
           new:
             create: Stwórz debatę
             title: Nowa debata
-          update:
-            invalid: Wystąpił problem podczas aktualizowania tej debaty.
-            success: Debata zaktualizowana pomyślnie.
         models:
           debate:
             name: Debata
@@ -75,9 +66,6 @@ pl:
             few: "%{count} debat"
             many: "%{count} debaty"
             other: "%{count} debat"
-        create:
-          invalid: Podczas tworzenia debaty wystąpił problem.
-          success: Debatę utworzono pomyślnie.
         debate:
           participate: Uczestniczyć
         filters:
@@ -131,7 +119,6 @@ pl:
             email_subject: Nowa debata "%{resource_title}" o %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> utworzyło debatę <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'Tworzenie debaty nie jest już aktywne w %{participatory_space_title}. Nadal możesz uczestniczyć w otwartych debatach na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Tworzenie debaty zostało wyłączone w %{participatory_space_title}
           notification_title: Tworzenie debat jest teraz wyłączone w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -146,11 +133,9 @@ pl:
           conditions:
             - Wybierz otwartą debatę, w której możesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w różnych debatach, pozostawiając komentarze.
-          description_another: Ten użytkownik uczestniczył w %{score} debatach.
           description_own: Brałeś udział w %{score} debatach.
           name: Debaty
           next_level_in: Weź udział w %{score} kolejnych debatach, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
           unearned_own: Brałeś już udział w jakichkolwiek debatach.
     metrics:
       debates:
