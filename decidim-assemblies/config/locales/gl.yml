@@ -36,7 +36,7 @@ gl:
         participatory_scope: O que se decide
         participatory_structure: Como se decide
         private_space: Espazo privado
-        promoted: Promocionado
+        promoted: Destacado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
         scope_id: Alcance
@@ -80,7 +80,7 @@ gl:
         new_assembly: Nova montaxe
       assemblies:
         create:
-          error: Produciuse un erro ao crear un novo conxunto.
+          error: Houbo un problema ao crear unha nova montaxe.
           success: Asemblea creada con éxito.
         edit:
           update: Actualización
@@ -95,12 +95,12 @@ gl:
           create: Crear
           title: Nova montaxe
         update:
-          error: Produciuse un erro ao actualizar este conxunto.
-          success: Asemblea actualizouse con éxito.
+          error: Produciuse un problema ao actualizar este conxunto.
+          success: A montaxe actualizouse correctamente.
       assemblies_copies:
         create:
-          error: Produciuse un erro ao duplicar este conxunto.
-          success: Asemblea duplicouse con éxito.
+          error: Produciuse un problema ao duplicar este conxunto.
+          success: A montaxe duplicouse con éxito.
       assembly_copies:
         new:
           copy: Copiar
@@ -108,10 +108,10 @@ gl:
           title: Conxunto duplicado
       assembly_members:
         create:
-          error: Produciuse un erro ao engadir un membro para este conxunto.
+          error: Produciuse un problema ao engadir un membro para este conxunto.
           success: Membro creado con éxito para este conxunto.
         destroy:
-          success: O membro eliminouse con éxito por este conxunto.
+          success: O membro eliminouse correctamente para este conxunto.
         edit:
           title: Actualiza o membro da montaxe.
           update: Actualización
@@ -121,36 +121,36 @@ gl:
           create: Crear
           title: Novo membro da montaxe.
         update:
-          error: Produciuse un erro ao actualizar o membro para este conxunto.
-          success: Membro actualizado correctamente para este conxunto.
+          error: Produciuse un problema ao actualizar o membro para este conxunto.
+          success: O membro actualizouse correctamente para este conxunto.
       assembly_publications:
         create:
-          error: Produciuse un erro ao publicar esta asemblea.
-          success: Asemblea publicouse con éxito.
+          error: Produciuse un problema ao publicar esta montaxe.
+          success: A montaxe publicouse con éxito.
         destroy:
-          error: Produciuse un erro ao publicar esta asemblea.
-          success: Asemblea non publicada con éxito.
+          error: Produciuse un problema ao publicar esta asemblea.
+          success: A montaxe foi inédita sen éxito.
       assembly_user_roles:
         create:
-          error: Produciuse un erro engadindo un usuario a este conxunto.
-          success: O usuario engadiuse con éxito a esta montaxe.
+          error: Houbo un problema ao engadir un administrador para este conxunto.
+          success: O administrador engadiuse con éxito a este conxunto.
         destroy:
-          success: O usuario eliminouse con éxito deste conxunto.
+          success: O administrador eliminouse con éxito deste conxunto.
         edit:
-          title: Actualiza o usuario de montaxe.
+          title: Actualizar o administrador da montaxe.
           update: Actualización
         index:
-          assembly_admins_title: Usuarios da asemblea
+          assembly_admins_title: Administradores da asemblea
         new:
           create: Crear
-          title: Novo usuario de montaxe.
+          title: Novo administrador de montaxe.
         update:
-          error: Houbo un erro actualizado por un usuario para este conxunto.
-          success: O usuario actualizouse con éxito para este conxunto.
+          error: Houbo un problema ao actualizar un administrador para este conxunto.
+          success: Administrador actualizado correctamente para este conxunto.
       menu:
         assemblies: Asembleas
         assemblies_submenu:
-          assembly_admins: Usuarios da asemblea
+          assembly_admins: Administradores da asemblea
           assembly_members: Membros
           attachment_collections: Carpetas
           attachment_files: Arquivos
@@ -186,7 +186,7 @@ gl:
             email: Correo electrónico
             name: Nome
             role: Rol
-          name: Usuario da asemblea
+          name: Administrador da montaxe
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -205,7 +205,7 @@ gl:
         update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
-        delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
+        delete: "%{user_name} eliminou o participante %{resource_name} do conxunto %{space_name}"
         update: "%{user_name} cambiou o papel de %{resource_name} na xuntanza %{space_name}"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ gl:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuario existente
-            non_user: Non usuario
+            existing_user: Participante existente
+            non_user: Non participante
             select_a_position: Seleccione unha posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
+            select_user: Selecciona un participante
+            user_type: Tipo de participante
           index:
             filter:
               all: Todo
@@ -314,14 +314,14 @@ gl:
         endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
-        orders_count: Votos
+        orders_count: Soporta
         pages_count: Páxinas
         projects_count: Proxectos
         proposals_count: Propostas
         results_count: Resultados
         surveys_count: Enquisas
         users_count: Participantes
-        votes_count: Votos
+        votes_count: Soporta
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -330,8 +330,8 @@ gl:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
-          page: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          contextual: "<p>Unha <strong>montaxe</strong> é un grupo de membros dunha organización que se reúnen periodicamente para tomar decisións sobre unha área específica ou extensión da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          page: "<p>Unha <strong>montaxe</strong> é un grupo de membros dunha organización que se reúnen periodicamente para tomar decisións sobre unha área específica ou extensión da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
           title: Que son asembleas?
     log:
       value_types:
