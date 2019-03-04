@@ -58,23 +58,8 @@ ca:
         new_response: Nova resposta
         publish_results: Publica els resultats
         unpublish_results: Despublicar resultats
-      consultation_publications:
-        create:
-          error: S'ha produït un error en publicar aquesta consulta.
-          success: S'ha publicat la consulta amb èxit.
-        destroy:
-          error: S'ha produït un error en publicar aquesta consulta.
-          success: La consulta no s'ha publicat correctament.
-      consultation_results_publications:
-        create:
-          error: S'ha produït un error en publicar els resultats d'aquesta consulta.
-          success: Els resultats de la consulta s'han publicat correctament.
-        destroy:
-          error: S'ha produït un error en publicar els resultats d'aquesta consulta.
-          success: Els resultats de la consulta no s'han publicat correctament.
       consultations:
         create:
-          error: S'ha produït un error en crear una nova consulta.
           success: S'ha creat la consulta amb èxit.
         edit:
           update: Actualització
@@ -88,7 +73,6 @@ ca:
           create: Crear
           title: Nova consulta
         update:
-          error: S'ha produït un error en actualitzar aquesta consulta.
           success: La consulta s'ha actualitzat correctament.
       menu:
         consultations: Consultes
@@ -124,16 +108,8 @@ ca:
           name:
             one: Resposta
             other: Respostes
-      question_publications:
-        create:
-          error: S'ha produït un error en publicar aquesta pregunta.
-          success: La pregunta s'ha publicat correctament.
-        destroy:
-          error: S'ha produït un error en publicar aquesta pregunta.
-          success: Pregunta despublicada amb èxit.
       questions:
         create:
-          error: S'ha produït un error en crear una pregunta nova.
           success: S'ha creat una pregunta correctament.
         destroy:
           success: S'ha eliminat la pregunta correctament.
@@ -147,15 +123,10 @@ ca:
         new:
           create: Crear
           title: Nova pregunta
-        update:
-          error: S'ha produït un error en actualitzar aquesta pregunta.
-          success: La pregunta s'ha actualitzat correctament.
       responses:
         create:
-          error: S'ha produït un error en crear una resposta nova.
           success: La resposta s'ha creat correctament.
         destroy:
-          error: S'ha produït un error en eliminar la resposta.
           success: La resposta s'ha eliminat correctament.
         edit:
           update: Actualitza
@@ -164,9 +135,6 @@ ca:
         new:
           create: Crea
           title: Nova resposta
-        update:
-          error: S'ha produït un error en actualitzar aquesta resposta.
-          success: La resposta s'ha actualitzat correctament.
       titles:
         consultations: Consultes
         questions: Preguntes
@@ -198,7 +166,6 @@ ca:
         all: Tots
         finished: Acabat
         search: Cerca
-        state: Estat
         upcoming: Proper
       filters_small_view:
         close_modal: Tanca la finestra
@@ -227,9 +194,6 @@ ca:
         votes_out_of:
           one: vot d'un total de
           other: vots d'un total de
-      question_votes:
-        create:
-          error: Hi ha hagut errors en votar la pregunta
       regular_questions:
         title: Preguntes per a aquesta consulta
       show:
@@ -247,8 +211,6 @@ ca:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Les consultes són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes pot versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
-          page: "<p>consultes són un espai que li permet fer una pregunta clara a totes les persones que formen una organització, fer una crida per participar a la consulta, fer xocar i ordenar el debat a favor o en contra d'una resposta. Quan arribi la data de consulta, podeu votar i publicar els resultats dels vots.</p> <p>Exemples: les consultes poden ser gairebé qualsevol aspecte que afecti a una organització: alguns exemples modifiquen el nom o el logotip de l'organització que ofereix diverses alternatives, que decideixen que Sí o No formen part d'una organització més gran, validant o rebutjant un nou estratègic pla o el resultat d'un grup de treball, o definir si les posicions han de romandre com a màxim 1, 2 o 3 mandats a l'organització.</p>\n"
           title: Què són les consultes?
     menu:
       consultations: Consultes
@@ -265,22 +227,18 @@ ca:
         assistants_count_title: Assistents
         comments_count_title: Comentaris
         meetings_count_title: Reunions
-        supports_count_title: Suports
       technical_info:
         technical_data: Dades tècniques
       vote_button:
         already_voted: Ja he votat
-        already_voted_hover: Revoca el suport
         starting_from: A partir de %{date}
         vote: Votació
       vote_modal:
         contextual_help: Selecciona una opció.
-        title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
         change: Canvia
         confirm: Confirma
         contextual_help: Confirmeu l'opció seleccionada.
-        title: 'Consulta: confirma el suport'
   layouts:
     decidim:
       admin:
