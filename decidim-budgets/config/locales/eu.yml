@@ -140,11 +140,11 @@ eu:
             votes_enabled: Botoak gaituta
     orders:
       checkout:
-        error: Arazo bat izan da zure botoa prozesatzean
-        success: Zure botoa ongi onartu da
+        error: Errorea gertatu da zure botoa prozesatzean
+        success: Zure botoa ongi bideratu da
       destroy:
-        error: Arazo bat izan da zure botoa baliogabetzeko
-        success: Zure botoa behar bezala bertan behera utzi da
+        error: Errorea gertatu da zure botoa ezeztatzean
+        success: Zure botua zuzen ezeztatu da
     resource_links:
       included_proposals:
         project_proposal: 'Proiektu honetan jasotako proposamenak:'
