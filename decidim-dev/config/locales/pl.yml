@@ -17,12 +17,9 @@ pl:
         test:
           conditions:
             - Użyj środowiska testowego dla decidim.
-          description: Użytkownicy otrzymują tę odznakę, tworząc testy.
-          description_another: Ten użytkownik utworzył %{score} testów.
           description_own: Stworzyłeś %{score} testów.
           name: Testy
           next_level_in: Stwórz %{score} dodatkowych testów, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych testów.
           unearned_own: Nie stworzyłeś jeszcze żadnych testów.
     pages:
       home:
