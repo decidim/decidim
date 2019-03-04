@@ -51,7 +51,7 @@ fr:
             name: Élément de chronologie
         results:
           create:
-            invalid: Un problème est survenu lors de la création de cette réalisation
+            invalid: Un problème est survenu lors de la création de ce résultat
             success: Réalisation créée avec succès
           destroy:
             success: Réalisation supprimée avec succès
@@ -70,14 +70,14 @@ fr:
             current_selection: Sélection actuelle
             select: Sélectionner
           update:
-            invalid: Un problème est survenu lors de la mise à jour de cette réalisation
+            invalid: Un problème est survenu lors de la mise à jour de ce résultat.
             success: Réalisation mise à jour avec succès
         shared:
           subnav:
             statuses: Statuts
         statuses:
           create:
-            invalid: Un problème est survenu lors de la création de ce statut
+            invalid: Un problème est survenu lors de la création de ce statut.
             success: Statut créé avec succès
           destroy:
             success: Statut supprimé avec succès
@@ -90,11 +90,11 @@ fr:
             create: Créer un statut
             title: Nouveau statut
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce statut
+            invalid: Un problème est survenu lors de la mise à jour de ce statut.
             success: Statut mis à jour avec succès
         timeline_entries:
           create:
-            invalid: Un problème est survenu lors de la création de cette entrée
+            invalid: Un problème est survenu lors de la création de cette entrée.
             success: Entrée créée avec succès
           destroy:
             success: Entrée supprimée avec succès
@@ -107,7 +107,7 @@ fr:
             create: Créer une entrée
             title: Nouvelle entrée
           update:
-            invalid: Un problème est survenu lors de la mise à jour de cette entrée
+            invalid: Un problème est survenu lors de la mise à jour de cette entrée.
             success: Entrée mise à jour avec succès
       admin_log:
         result:
