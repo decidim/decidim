@@ -37,20 +37,8 @@ ca:
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
     metrics:
       survey_answers:
-        description: Nombre d'enquestes contestades pels usuaris
         object: respostes a enquestes
         title: Respostes a enquestes
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Respostes dels usuaris
-        surveys:
-          update:
-            invalid: Hi ha hagut errors en desar l'enquesta.
-            success: Enquesta desada correctament.
       last_activity:
         new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
-      surveys:
-        answer:
-          invalid: Hi ha hagut errors en respondre a l'enquesta.
-          success: Enquesta resposta correctament.
