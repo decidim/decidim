@@ -27,6 +27,3 @@ cs:
           edit:
             save: Aktualizace
             title: Upravit stránku
-          update:
-            invalid: Při ukládání stránky došlo k chybám.
-            success: Stránka byla úspěšně uložena.
