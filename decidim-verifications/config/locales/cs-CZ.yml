@@ -208,8 +208,13 @@ cs:
             error: Při vašem požadavku došlo k potížím
             success: Dík! Do telefonu jsme poslali SMS.
           edit:
+            confirm_destroy: Opravdu chcete obnovit ověřovací kód?
+            destroy: Obnovit ověřovací kód
             send: Potvrdit
+            resend: Nezískal jste ověřovací kód?
             title: Zadejte ověřovací kód, který jste obdrželi
+          destroy:
+            success: Ověřovací kód úspěšně resetovat. Opět zadejte své telefonní číslo.
           new:
             send: Pošlete mi SMS
             title: Požádejte o ověřovací kód

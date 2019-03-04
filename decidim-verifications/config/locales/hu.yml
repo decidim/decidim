@@ -206,8 +206,13 @@ hu:
             error: Probléma volt a kéréssel
             success: Kösz! SMS-t küldtünk telefonjára.
           edit:
+            confirm_destroy: Biztosan vissza szeretné állítani az ellenőrző kódot?
+            destroy: Ellenőrző kód visszaállítása
             send: Megerősítés
+            resend: Nem kapta meg az ellenőrző kódot?
             title: Vigye be a kapott ellenőrző kódot
+          destroy:
+            success: A hitelesítési kód sikeresen visszaáll. Kérjük, írja be újra a telefonszámát.
           new:
             send: Küldj nekem SMS-t
             title: Kérjen ellenőrző kódot

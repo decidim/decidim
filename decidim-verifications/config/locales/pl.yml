@@ -208,8 +208,13 @@ pl:
             error: Był problem z Twoją prośbą
             success: Dzięki! Wysłaliśmy SMS-a na Twój telefon.
           edit:
+            confirm_destroy: Czy na pewno chcesz zresetować kod weryfikacyjny?
+            destroy: Zresetuj kod weryfikacyjny
             send: Potwierdzać
+            resend: Nie otrzymałeś kodu weryfikacyjnego?
             title: Wprowadź kod weryfikacyjny, który otrzymałeś
+          destroy:
+            success: Kod weryfikacyjny został pomyślnie zresetowany. Wprowadź ponownie swój numer telefonu.
           new:
             send: Wyślij mi SMS-a
             title: Poproś o kod weryfikacyjny

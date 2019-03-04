@@ -206,8 +206,13 @@ it:
             error: c'è stato un problema con la tua richiesta
             success: Grazie! Abbiamo inviato un SMS al tuo telefono.
           edit:
+            confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
+            destroy: Reimposta il codice di verifica
             send: Confermare
+            resend: Non hai ricevuto il codice di verifica?
             title: Inserisci il codice di verifica che hai ricevuto
+          destroy:
+            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           new:
             send: Mandami un sms
             title: Richiedi il tuo codice di verifica

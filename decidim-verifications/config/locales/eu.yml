@@ -206,8 +206,13 @@ eu:
             error: Arazo bat izan da eskaera zurekin
             success: Eskerrik asko! SMS bat bidali dizugu telefonoan.
           edit:
+            confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
+            destroy: Berrezarri egiaztapen-kodea
             send: Berretsi
+            resend: Ez al duzu egiaztapen-kodea jaso?
             title: Jasotako egiaztapen-kodea sartu
+          destroy:
+            success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           new:
             send: Bidal iezadazu SMS bat
             title: Eskatu egiaztapen-kodea
