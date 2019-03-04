@@ -37,20 +37,8 @@ pt-BR:
           notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
     metrics:
       survey_answers:
-        description: Número de pesquisas respondidas por usuários
         object: respostas para pesquisas
         title: Respostas para pesquisas
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Avalie as respostas dos usuários
-        surveys:
-          update:
-            invalid: Houve erros ao salvar a pesquisa.
-            success: Pesquisa salva com sucesso.
       last_activity:
         new_survey_at_html: "<span>Nova pesquisa em %{link}</span>"
-      surveys:
-        answer:
-          invalid: Houve erros ao responder a pesquisa.
-          success: Pesquisa respondida com sucesso.
