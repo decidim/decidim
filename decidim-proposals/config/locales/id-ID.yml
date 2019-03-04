@@ -62,12 +62,15 @@ id:
         other: Endorsemen
       decidim/proposals/proposal_note:
         other: Catatan
+      decidim/proposals/proposal_vote:
+        other: Suara
   decidim:
     components:
       proposals:
         actions:
           create: Membuat
           endorse: Mengesahkan
+          vote: Memilih
           withdraw: Menarik
         name: Proposal
         settings:
@@ -79,18 +82,21 @@ id:
             collaborative_drafts_enabled: Draf kolaboratif diaktifkan
             comments_enabled: Komentar diaktifkan
             geocoding_enabled: Geocoding diaktifkan
+            minimum_votes_per_user: Suara minimum per pengguna
             new_proposal_help_text: Teks bantuan proposal baru
             official_proposals_enabled: Proposal resmi diaktifkan
             participatory_texts_enabled: Teks partisipatif diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
             proposal_edit_before_minutes: Proposal dapat diedit oleh penulis sebelum ini banyak menit berlalu
             proposal_length: Panjang badan proposal maksimum
+            proposal_limit: Batas proposal per pengguna
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
             proposal_wizard_step_2_help_text: Proposal wizard "Bandingkan" langkah bantuan teks
             proposal_wizard_step_3_help_text: Panduan proposal, selesaikan langkah bantuan teks
             proposal_wizard_step_4_help_text: Panduan proposal "Publikasikan" langkah bantuan teks
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
             threshold_per_proposal: Ambang batas per proposal
+            vote_limit: Batas suara per pengguna
           step:
             announcement: Pengumuman
             automatic_hashtags: Hashtag ditambahkan ke semua proposal
@@ -99,6 +105,10 @@ id:
             endorsements_blocked: Pengesahan dicekal
             endorsements_enabled: Pengesahan diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
+            suggested_hashtags: Hashtag disarankan kepada pengguna untuk proposal baru
+            votes_blocked: Voting diblokir
+            votes_enabled: Voting diaktifkan
+            votes_hidden: Memberi suara tersembunyi (jika suara diaktifkan, memeriksa ini akan menyembunyikan jumlah suara)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -180,6 +190,7 @@ id:
           notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> diterbitkan oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Proposal baru "%{resource_title}" ditambahkan ke %{participatory_space_title}
           notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
         proposal_rejected:
@@ -194,11 +205,15 @@ id:
             email_subject: Proposal yang Anda ikuti telah ditolak
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
         proposal_update_category:
+          email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
           email_subject: Kategori proposal %{resource_title} telah diperbarui
           notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
         voting_enabled:
+          email_intro: 'Anda dapat memilih proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Proposal voting telah dimulai untuk %{participatory_space_title}
+          notification_title: Anda sekarang dapat memulai <a href="%{resource_path}">proposal voting</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -206,37 +221,51 @@ id:
             - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
             - Cobalah membuat proposal yang bisa dilakukan. Dengan cara ini mereka lebih mungkin diterima.
           description: Lencana ini diberikan ketika Anda secara aktif berpartisipasi dengan proposal baru dan ini diterima.
+          description_another: Pengguna ini telah menerima %{score} proposal.
           description_own: Anda mendapat %{score} proposal diterima.
           name: Proposal yang diterima
           next_level_in: Dapatkan %{score} proposal lagi diterima untuk mencapai level berikutnya!
+          unearned_another: Pengguna ini belum menerima proposal apa pun.
           unearned_own: Anda belum menerima proposal.
         proposal_votes:
           conditions:
             - Jelajahi dan habiskan waktu untuk membaca proposal orang lain
             - Berikan dukungan pada proposal yang Anda sukai atau temukan menarik
           description: Lencana ini diberikan saat Anda mendukung proposal orang lain.
+          description_another: Pengguna ini telah memberikan dukungan untuk %{score} proposal.
           description_own: Anda telah memberikan dukungan untuk %{score} proposal.
           name: Dukungan proposal
           next_level_in: Berikan dukungan untuk %{score} lebih banyak proposal untuk mencapai level berikutnya!
+          unearned_another: Pengguna ini belum memberikan dukungan untuk proposal apa pun.
           unearned_own: Anda telah memberi dukungan untuk belum ada proposal.
         proposals:
           conditions:
             - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
             - Buat proposal baru
           description: Lencana ini diberikan ketika Anda secara aktif berpartisipasi dengan proposal baru.
+          description_another: Pengguna ini telah membuat %{score} proposal.
           description_own: Anda telah membuat %{score} proposal.
           name: Proposal
           next_level_in: Buat %{score} proposal lagi untuk mencapai level berikutnya!
+          unearned_another: Pengguna ini belum membuat proposal apa pun.
           unearned_own: Anda belum membuat proposal.
     metrics:
       accepted_proposals:
+        description: Jumlah proposal yang diterima oleh pengguna
         object: proposal
+        title: Proposal yang Diterima
       endorsements:
+        description: Jumlah dukungan yang dihasilkan dalam proposal
         object: dukungan
         title: Endorsemen
       proposals:
+        description: Jumlah proposal yang dihasilkan
         object: proposal
         title: Proposal
+      votes:
+        description: Jumlah suara yang dihasilkan dalam proposal oleh pengguna
+        object: suara
+        title: Suara
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -269,7 +298,9 @@ id:
             discard_all: Buang semua
           import:
             invalid: Formulirnya tidak valid!
+            success: Selamat, bagian berikut telah diuraikan dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
           index:
+            info_1: Bagian berikut telah diurai dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
             publish_document: Publikasikan dokumen
             save_draft: Menyimpan konsep
             title: TEKNIK PREVIEW TEKNIKAL
@@ -284,10 +315,14 @@ id:
           publish:
             invalid: Tidak dapat memublikasikan proposal
             success: Semua proposal telah dipublikasikan
+          discard:
+            success: Semua konsep teks Partisipatif telah dibuang.
           sections:
             article: "<em>Pasal</em>"
             section: "<em>Bagian:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sub-bagian:</em> %{title}"
+          update:
+            success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
           edit:
             accepted: Diterima
@@ -297,6 +332,7 @@ id:
             title: Jawaban untuk proposal %{title}
         proposal_notes:
           create:
+            error: Ada masalah saat membuat catatan proposal ini
             success: Catatan proposal berhasil dibuat
           form:
             note: Catatan
@@ -340,21 +376,26 @@ id:
             success: 'Proposal berhasil diperbarui ke kategori %{category} : %{proposals}.'
         proposals_imports:
           create:
+            invalid: Ada masalah saat mengimpor proposal
             success: "%{number} proposal berhasil diimpor"
           new:
             create: Mengimpor proposal
             no_components: Tidak ada komponen proposal lain dalam ruang partisipatif ini untuk mengimpor proposal dari.
             select_component: Silakan pilih komponen
+            select_states: Periksa status proposal untuk diimpor
         proposals_merges:
           create:
+            invalid: Terjadi kesalahan saat menggabungkan proposal yang dipilih.
             success: Berhasil menggabungkan proposal menjadi proposal baru.
         proposals_splits:
           create:
+            invalid: Terjadi kesalahan saat membagi proposal yang dipilih.
             success: Berhasil membagi proposal menjadi proposal baru.
         shared:
           info_proposal:
             body: Tubuh
             created_at: Tanggal pembuatan
+            proposal_votes_count: Suara menghitung
             proposals: Proposal
       admin_log:
         proposal:
@@ -375,6 +416,7 @@ id:
           citizens: Warga
           meetings: Rapat
           official: Resmi
+          user_groups: Grup Pengguna
         filter_state_values:
           accepted: Diterima
           all: Semua
@@ -388,6 +430,7 @@ id:
       collaborative_drafts:
         collaborative_draft:
           publish:
+            error: Ada kesalahan saat memublikasikan draf kolaboratif.
             irreversible_action_modal:
               body: Setelah menerbitkan draf sebagai proposal, draf tidak akan dapat diedit lagi. Proposal tidak akan menerima penulis atau kontribusi baru.
               cancel: Membatalkan
@@ -396,6 +439,7 @@ id:
             success: Draf kolaboratif berhasil diterbitkan sebagai proposal.
           view_collaborative_draft: Lihat Draf Kolaborasi
           withdraw:
+            error: Terjadi kesalahan saat menutup draf kolaboratif.
             irreversible_action_modal:
               body: Setelah menutup draf, draf tidak akan dapat diedit lagi. Draf tidak akan menerima penulis atau kontribusi baru.
               cancel: Membatalkan
@@ -413,6 +457,7 @@ id:
           drafts_count:
             other: "%{count} draf kolaboratif"
         create:
+          error: Ada masalah saat membuat draf kolaboratif ini
           success: Draf kolaboratif berhasil dibuat.
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
@@ -429,6 +474,7 @@ id:
           published: Diterbitkan
           related_to: Berhubungan dengan
           search: Pencarian
+          state: Negara
           withdrawn: Ditarik
         filters_small_view:
           close_modal: Tutup modal
@@ -447,15 +493,23 @@ id:
           recent: Baru
         requests:
           accepted_request:
+            error: Tidak dapat diterima sebagai kolaborator, coba lagi nanti.
             success: "@%{user} telah diterima sebagai kolaborator dengan sukses"
+          access_requested:
+            error: Permintaan Anda tidak dapat diselesaikan, coba lagi nanti.
+            success: Permintaan Anda untuk berkolaborasi telah berhasil dikirim
           collaboration_requests:
             accept_request: Menerima
             reject_request: Menolak
             title: Permintaan kolaborasi
+          rejected_request:
+            error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
+            success: "@%{user} telah ditolak sebagai kolaborator dengan sukses"
         show:
           back: Kembali
           edit: Edit draf kolaboratif
           final_proposal: proposal terakhir
+          final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
           info-message: Ini adalah <strong>draf kolaboratif</strong> untuk proposal. Ini berarti Anda dapat membantu penulisnya untuk membentuk proposal menggunakan bagian komentar di bawah ini atau meningkatkannya secara langsung dengan meminta akses untuk mengeditnya. Setelah penulis memberi Anda akses, Anda akan dapat membuat perubahan pada draf ini.
@@ -473,6 +527,9 @@ id:
           open: Buka
           published: Diterbitkan
           withdrawn: Ditarik
+        update:
+          error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
+          success: Draf kolaboratif berhasil diperbarui.
         wizard_aside:
           back: Kembali
           info: Anda membuat <strong>draf kolaboratif</strong>.
@@ -482,7 +539,11 @@ id:
           step_2: Bandingkan dengan draf kolaboratif
           step_3: Selesaikan draf kolaboratif Anda
           step_of: Langkah %{current_step_num} dari %{total_steps}
+      create:
+        error: Sudah ada kesalahan saat menyimpan proposal.
+        success: Proposal berhasil dibuat. Disimpan sebagai Draf.
       destroy_draft:
+        error: Terjadi kesalahan saat menghapus draf proposal.
         success: Proposal proposal berhasil dihapus.
       last_activity:
         new_proposal_at_html: "<span>Proposal baru pada %{link}</span>"
@@ -502,6 +563,7 @@ id:
             official_proposal: Proposal resmi
             published_at: Diterbitkan di
             scope: Cakupan
+            state: Negara
             title: Judul
             votes: Suara
       new:
@@ -514,6 +576,8 @@ id:
           comments: Komentar
           endorse: Mengesahkan
       proposal_endorsements:
+        create:
+          error: Sudah ada kesalahan saat mendukung proposal.
         identities:
           done: Selesai
           select_identity: Pilih identitas
@@ -523,6 +587,9 @@ id:
           endorse: Mengesahkan
         render_endorsements_button_card_part:
           endorse: Mengesahkan
+      proposal_votes:
+        create:
+          error: Ada kesalahan saat memilih proposal.
       proposals:
         compare:
           mine_is_different: Proposal saya berbeda
@@ -556,6 +623,8 @@ id:
           origin: Asal
           related_to: Berhubungan dengan
           search: Pencarian
+          state: Negara
+          voted: Dipilih
           amendment_type: Mengetik
         filters_small_view:
           close_modal: Tutup modal
@@ -567,11 +636,15 @@ id:
           new_proposal: Proposal baru
           see_all_withdrawn: Lihat semua proposal yang ditarik
           view_proposal: Lihat proposal
+        linked_proposals:
+          proposal_votes:
+            other: suara
         new:
           send: Terus
           title: Buat Proposal Anda
         orders:
           label: 'Memesan proposal dengan:'
+          most_voted: Sebagian besar memilih
           random: Acak
           recent: Baru
         participatory_texts:
@@ -601,23 +674,39 @@ id:
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
           report: Melaporkan
           withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
+          withdraw_confirmation: Apakah Anda yakin untuk membatalkan proposal ini?
           withdraw_proposal: Tarik proposal
         tags:
           changed_from: "(diubah dari <u>%{previous_category}</u> oleh administrator)"
           filed_as: Diarsipkan sebagai
+        vote_button:
+          already_voted: Sudah memilih
+          already_voted_hover: Batalkan suara
+          maximum_votes_reached: Batas suara tercapai
+          no_votes_remaining: Tidak ada suara yang tersisa
+          vote: Memilih
+          votes_blocked: Voting dinonaktifkan
         votes_count:
+          count:
+            other: SUARA
           most_popular_proposal: Proposal paling populer
+          need_more_votes: Butuh lebih banyak suara
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Setiap proposal dapat mengumpulkan lebih dari %{limit} dukungan
           minimum_votes_per_user:
+            description: Anda harus mendistribusikan minimal %{votes} suara di antara proposal yang berbeda.
             given_enough_votes: Anda telah memberikan dukungan yang cukup.
+            supports_remaining: Anda harus memilih %{remaining_votes} proposal lagi agar suara Anda dipertimbangkan.
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
           threshold_per_proposal:
             description: Agar proposal yang divalidasi harus mencapai %{limit} dukungan
+          title: 'Voting tunduk pada aturan berikut:'
           vote_limit:
+            description: Anda dapat memilih hingga %{limit} proposal.
             left: Sisa
+            votes: Suara
         wizard_aside:
           back: Kembali
           info: Anda membuat <strong>proposal</strong>.
@@ -628,6 +717,15 @@ id:
           step_3: Lengkap
           step_4: Publikasikan proposal Anda
           step_of: Langkah %{current_step_num} dari %{total_steps}
+      publish:
+        error: Sudah ada kesalahan saat memublikasikan proposal.
+        success: Proposal berhasil diterbitkan.
+      update:
+        error: Sudah ada kesalahan saat menyimpan proposal.
+        success: Proposal berhasil diperbarui.
+      update_draft:
+        error: Ada kesalahan saat menyimpan draf proposal.
+        success: Proposal proposal berhasil diperbarui.
       versions:
         changes_at_title: Perubahan pada "%{title}"
         index:
