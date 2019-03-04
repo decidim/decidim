@@ -25,7 +25,6 @@ uk:
             name: Допис
         posts:
           create:
-            invalid: При спробі додати цей допис сталася помилка
             success: Допис успішно додано
           destroy:
             success: Допис успішно видалено
@@ -36,9 +35,6 @@ uk:
           new:
             create: Створити
             title: Створити допис
-          update:
-            invalid: При спробі збереження цього допису сталися помилки.
-            success: Допис успішно збережено
       models:
         post:
           fields:
