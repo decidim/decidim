@@ -289,13 +289,16 @@ pt:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Tem certeza de descartar todo o rascunho do texto participativo?
             import_doc: Documento de importação
+            discard_all: Descartar tudo
           import:
             invalid: O formulário é inválido!
             success: Parabéns, as seções a seguir foram analisadas do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
           index:
             info_1: As seções a seguir foram analisadas a partir do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
             publish_document: Publicar documento
+            save_draft: Salvar rascunho
             title: PREVIEW TEXTO PARTICIPATIVO
           new_import:
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
@@ -305,10 +308,14 @@ pt:
           publish:
             invalid: Não foi possível publicar propostas
             success: Todas as propostas foram publicadas
+          discard:
+            success: Todos os rascunhos de texto participativos foram descartados.
           sections:
             article: "<em>Artigo</em>"
             section: "<em>Seção:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsecção:</em> %{title}"
+          update:
+            success: Texto participativo atualizado com sucesso.
         proposal_answers:
           edit:
             accepted: Aceitaram
