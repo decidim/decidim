@@ -9,9 +9,6 @@ it:
         save: Salva
         title: Azioni
       admins:
-        create:
-          error: C'è stato un errore durante la creazione del nuovo utente con profilo Admin.
-          success: L'utente Admin è stato creato.
         destroy:
           success: Amministratore eliminato con successo
         edit:
@@ -22,9 +19,6 @@ it:
         new:
           create: Crea
           title: Nuovo Amministratore
-        update:
-          error: E' successo un errore durante la modifica di questo utente Admin.
-          success: Admin modificato con successo
       default_pages:
         placeholders:
           content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} sul pannello di amministrazione.
@@ -49,24 +43,15 @@ it:
             name: Nome
           name: Organizzazione
       organizations:
-        create:
-          error: C'è stato un errore durante la creazione di una nuova organizzazione.
-          success: OK, è stata aggiunta la nuova organizzazione.
         edit:
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
         index:
           title: Organizzazioni
         new:
-          reference_prefix_hint: Il prefisso di riferimento è utilizzato solamente per identificare le risorse in tutte le organizzazioni
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
-        update:
-          error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
-          success: OK, l'Organizzazione è stata aggiornata.
         users_registration_mode:
           disabled: L'accesso può essere fatto solo con account esterni
-          enabled: Permetti agli utenti di registrarsi e accedere
-          existing: Non consentire agli utenti di registrarsi, ma consentire agli utenti esistenti di accedere
       shared:
         notices:
           no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.
