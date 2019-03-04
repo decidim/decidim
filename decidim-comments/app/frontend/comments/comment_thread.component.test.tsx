@@ -50,9 +50,9 @@ describe("<CommentThread />", () => {
         comment.author.deleted = true;
       });
 
-      it("should render a h6 comment-thread__title with 'Deleted user'", () => {
+      it("should render a h6 comment-thread__title with 'Deleted participant'", () => {
         const wrapper = shallow(<CommentThread comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
-        expect(wrapper.find("h6.comment-thread__title").text()).toContain("Conversation with Deleted user");
+        expect(wrapper.find("h6.comment-thread__title").text()).toContain("Conversation with Deleted participant");
       });
     });
   });
