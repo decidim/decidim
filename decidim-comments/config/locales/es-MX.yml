@@ -18,9 +18,6 @@ es-MX:
       comments: Comentarios
       last_activity:
         new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
-      votes:
-        create:
-          error: Ha habido errores al votar el comentario.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_url}">regístrate</a> para añadir tu comentario.
@@ -41,7 +38,6 @@ es-MX:
         alignment:
           against: En contra
           in_favor: A favor
-        deleted_user: Usuario eliminado
         reply: Respuesta
         report:
           action: Denunciar
@@ -91,7 +87,6 @@ es-MX:
           notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Número de comentarios generados por los usuarios
         object: comentarios
         title: Comentarios
   errors:
