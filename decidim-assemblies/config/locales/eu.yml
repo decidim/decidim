@@ -32,11 +32,11 @@ eu:
         local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
         parent_id: Gurasoen muntaia
-        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
+        participatory_processes_ids: Partaidetza prozesu erlazionatuak
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
         private_space: Espazio pribatua
-        promoted: Nabarmendua
+        promoted: nabarmendu
         published_at: Argitaratu at
         purpose_of_action: Ekintza xedea
         scope_id: Esparrua
@@ -80,7 +80,7 @@ eu:
         new_assembly: Batzar berria
       assemblies:
         create:
-          error: Errorea gertatu da batzar berri bat sortzean.
+          error: Arazo bat izan da muntaia berri bat sortzeko.
           success: Batzarra zuzen sortu da.
         edit:
           update: Eguneratu
@@ -95,12 +95,12 @@ eu:
           create: Sortu
           title: Batzar berria
         update:
-          error: Errorea gertatu da batzar hau eguneratzean.
-          success: Batzarra zuzen eguneratu da.
+          error: Arazo bat izan da muntaia hau eguneratzean.
+          success: Batzar ondo eguneratu da.
       assemblies_copies:
         create:
-          error: Errorea gertatu da batzar hau kopiatzean.
-          success: Batzarra zuzen bikoiztu da.
+          error: Arazo bat izan da muntaia hau bikoiztea.
+          success: Muntatzeak behar bezala bikoiztu egin du.
       assembly_copies:
         new:
           copy: Kopiatu
@@ -108,10 +108,10 @@ eu:
           title: Kopiatu batzarra
       assembly_members:
         create:
-          error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
-          success: Batzar hau arrakastaz sortu da.
+          error: Arazo bat izan da kidea duen kide bat gehitzeko.
+          success: Batzar hau behar bezala sortu da.
         destroy:
-          success: Kidea muntaia honekin batera ezabatu da.
+          success: Kidea ondo ezabatu da muntaiarako.
         edit:
           title: Eguneratu muntaia kidea.
           update: eguneratzearen
@@ -121,36 +121,36 @@ eu:
           create: Sortu
           title: Batzar berria kide.
         update:
-          error: Errore bat gertatu da kidea bistaratzeko muntaia honetarako.
-          success: Batzar hau behar bezala eguneratu da.
+          error: Arazo bat izan da kidea bazkide hau eguneratzeko.
+          success: Batzar hau eguneratu da zuzenki.
       assembly_publications:
         create:
-          error: Errorea gertatu da batzar hau bikoiztean.
-          success: Batzarra ongi argitaratu da.
+          error: Arazo bat izan da muntaia hau argitaratzean.
+          success: Batzar ondo argitaratu da.
         destroy:
-          error: Errorea gertatu da batzar hau desargitaratzean.
-          success: Batzarra ongi desargitaratu da.
+          error: Arazo bat izan da muntaia hau argitaratzea.
+          success: Batzar ondo argitaratu da.
       assembly_user_roles:
         create:
-          error: Errore bat gertatu da muntaketa honen erabiltzaile bat gehitzean.
-          success: Erabiltzaileak muntaiarekin arrakastaz gehitu du.
+          error: Arazo bat izan da administratzaile bat gehitzea muntaia honetarako.
+          success: Administrazioa behar bezala gehitu da muntaiarako.
         destroy:
-          success: Erabiltzailea behar bezala kendu da muntaia honetatik.
+          success: Administratzailea behar bezala kendu da muntaia honetatik.
         edit:
-          title: Eguneratu muntaia erabiltzailea.
+          title: Eguneratu muntaia kudeatzailea.
           update: eguneratzearen
         index:
-          assembly_admins_title: Batzar erabiltzaileak
+          assembly_admins_title: Batzar administratzaileak
         new:
           create: Sortu
-          title: Erabiltzaile muntaia berria.
+          title: Batzar berria admin.
         update:
-          error: Errore bat gertatu da muntaketa honetarako erabiltzailea.
-          success: Erabiltzaileari behar bezala eguneratu da muntaia honetarako.
+          error: Arazo bat izan da muntaia honen administratzaile bat eguneratzean.
+          success: Administratzaileak behar bezala eguneratu dira muntaia honetarako.
       menu:
         assemblies: Biltzarrak
         assemblies_submenu:
-          assembly_admins: Batzar erabiltzaileak
+          assembly_admins: Batzar administratzaileak
           assembly_members: Bazkideek
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
@@ -186,7 +186,7 @@ eu:
             email: Emaila
             name: izena
             role: Role
-          name: Batzar Erabiltzailea
+          name: Batzar kudeatzailea
           roles:
             admin: Administrator
             collaborator: Kolaboratzaile
@@ -205,7 +205,7 @@ eu:
         update: "%{user_name} eguneratu %{resource_name} kide %{space_name} muntaia"
       assembly_user_role:
         create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
-        delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
+        delete: "%{user_name} parte-hartzailea %{resource_name} kendu du %{space_name} muntaiarik"
         update: "%{user_name} %{resource_name} %{space_name} muntaiarako rola aldatu da"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ eu:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         assembly_members:
           form:
-            existing_user: Erabiltzaile existentea
-            non_user: Erabiltzailea ez
+            existing_user: Parte-hartzaile existentea
+            non_user: Ez parte hartzailea
             select_a_position: Aukeratu posizio bat
-            select_user: Aukeratu erabiltzaile bat
-            user_type: Erabiltzaile mota
+            select_user: Aukeratu partaide bat
+            user_type: Parte-hartzaile mota
           index:
             filter:
               all: guztiak
@@ -314,14 +314,14 @@ eu:
         endorsements_count: Oniritziak
         headline: Jarduera
         meetings_count: Topaketak
-        orders_count: Euskarriak
+        orders_count: euskarri
         pages_count: Orriak
         projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
-        votes_count: Euskarriak
+        votes_count: euskarri
     assembly_members:
       assembly_member:
         designated_on: Izendatuta
@@ -330,8 +330,8 @@ eu:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Batzar bat erakunde bateko kideen taldea da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Ireki ezkero, haiekin parte har dezakete (esate baterako: gaitasuna ahalbidetzen duen tokian parte hartzera, agenda puntuak gehituz edo organo horri egindako proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta organo exekutiboak boto bidez), berdintasun aholku-kontseiluak (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu bat kontrolatzeko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
-          page: "<p>Batzar bat erakunde bateko kideen taldea da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Ireki ezkero, haiekin parte har dezakete (esate baterako: gaitasuna ahalbidetzen duen tokian parte hartzera, agenda puntuak gehituz edo organo horri egindako proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta organo exekutiboak boto bidez), berdintasun aholku-kontseiluak (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu bat kontrolatzeko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
+          contextual: "<p> <strong>Batzar bat</strong> erakundeko kideen talde bat da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Horiek irekita badituzte, hauen parte hartzea posible da (esate baterako: edukiera ahalbidetzen duen tokian parte hartzea, agenda agregatzeko puntuak edo organo horren proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta boto-organo exekutiboak zehazteko), berdintasun aholku-kontseilua (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu baten jarraipena egiteko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozesuak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
+          page: "<p> <strong>Batzar bat</strong> erakundeko kideen talde bat da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Horiek irekita badituzte, hauen parte hartzea posible da (esate baterako: edukiera ahalbidetzen duen tokian parte hartzea, agenda agregatzeko puntuak edo organo horren proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta boto-organo exekutiboak zehazteko), berdintasun aholku-kontseilua (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu baten jarraipena egiteko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozesuak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
           title: Zer dira batzarrak?
     log:
       value_types:
