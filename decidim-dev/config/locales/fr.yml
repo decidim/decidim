@@ -17,9 +17,12 @@ fr:
         test:
           conditions:
             - Utilisez un environnement de test pour decidim.
+          description: Les utilisateurs obtiennent ce badge en créant des tests.
+          description_another: Cet utilisateur a créé %{score} tests.
           description_own: Vous avez créé %{score} tests.
           name: Tests
           next_level_in: Créez %{score} autres tests pour atteindre le niveau suivant !
+          unearned_another: Cet utilisateur n'a pas encore créé de test.
           unearned_own: Vous n'avez créé aucun test pour le moment.
     pages:
       home:
