@@ -25,6 +25,3 @@ nl:
           edit:
             save: Bijwerken
             title: Pagina bewerken
-          update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
-            success: Pagina is succesvol opgeslagen.
