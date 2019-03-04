@@ -12,10 +12,7 @@ ca:
       id_document_upload:
         document_number: Número de document (amb lletra)
         document_type: Tipus del teu document
-        user: Usuari
         verification_attachment: Còpia escanejada del teu document
-      offline_confirmation:
-        email: Correu electrònic d'usuari
       postal_letter_address:
         full_address: Adreça completa
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ ca:
             - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-            - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Participants request a verification code to be sent to their address.
             - Envies la carta a la seva adreça amb el codi de verificació.
             - Marques la carta com a enviada.
-            - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Es verifica mitjançant el cens de l'organització
         name: Cens de l'organització
@@ -62,7 +59,6 @@ ca:
     verifications:
       authorizations:
         create:
-          error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzat amb èxit.
           unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
         first_login:
@@ -107,10 +103,6 @@ ca:
           new:
             error: No hem pogut verificar el vostre compte o no esteu al cens de l'organització.
             success: El vostre compte s'ha verificat correctament.
-      dummy_authorization:
-        extra_explanation:
-          one: La participació està restringida als usuaris amb el codi postal %{postal_codes}.
-          other: 'La participació està restringida als usuaris amb algun dels següents codis postals: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ ca:
               title: Configuració dels documents d'identitat
               update: Actualitzar
             update:
-              error: S'ha produït un error en actualitzar la configuració.
               success: La configuració s'ha actualitzat correctament
           confirmations:
-            create:
-              error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
-              success: S'ha verificat l'usuari correctament
             new:
               introduce_user_data: Introdueix les dades de la imatge
               reject: Rebutjar
               verify: Verificar
           offline_confirmations:
-            create:
-              error: La verificació no coincideix. Torna-ho a provar o digue-li a l'usuari que la modifiqui
-              success: S'ha verificat l'usuari correctament
             new:
               cancel: Cancel · lar
-              introduce_user_data: Introdueix el correu electrònic de l'usuari i les dades del document
               verify: Verificar
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ ca:
               offline_verification: Verificació presencial
               title: Verificacions online pendents
               verification_number: 'Verificació #%{n}'
-          rejections:
-            create:
-              success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
         authorizations:
           choose:
             choose_a_type: "Si us plau selecciona com et vols verificar:"
@@ -153,7 +134,6 @@ ca:
             title: Verifica't utilitzant el teu document d'identitat
           create:
             error: S'ha produït un problema en penjar el document
-            success: Document penjat correctament
           edit:
             being_reviewed: Estem revisant els teus documents. Et verificarem aviat
             offline: Utilitzar la verificació presencial
@@ -167,7 +147,6 @@ ca:
             title: Penja el document d'identitat
           update:
             error: S'ha produït un problema en tornar a carregar el document
-            success: El document s'ha tornat a carregar correctament
         dni: DNI
         nie: NIE
         passport: Passaport
@@ -180,7 +159,6 @@ ca:
               mark_as_sent: Marca com a enviada
               not_yet_sent: Encara no s'ha enviat
               title: Verificacions en curs
-              username: Nom d'usuari
               verification_code: Codi de verificació
           postages:
             create:
