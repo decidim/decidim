@@ -61,23 +61,8 @@ uk:
         new_response: Додати відповідь
         publish_results: Оприлюднити підсумки
         unpublish_results: Скасувати оприлюднення підсумків
-      consultation_publications:
-        create:
-          error: Під час оприлюднення цієї консультації сталася помилка.
-          success: Консультацію успішно оприлюднено.
-        destroy:
-          error: Під час скасування оприлюднення цієї консультації сталася помилка.
-          success: Оприлюднення консультації успішно скасовано.
-      consultation_results_publications:
-        create:
-          error: Під час оприлюднення підсумків цієї консультації сталася помилка.
-          success: Підсумки консультації успішно оприлюднено.
-        destroy:
-          error: Під час скасування оприлюднення підсумків цієї консультації сталася помилка.
-          success: Оприлюднення підсумків консультації успішно скасовано.
       consultations:
         create:
-          error: При спробі створити нову консультацію сталася помилка.
           success: Консультацію успішно створено.
         edit:
           update: Оновити
@@ -91,7 +76,6 @@ uk:
           create: Створити
           title: Додати консультацію
         update:
-          error: При спробі оновити цю консультацію сталася помилка.
           success: Консультацію успішно оновлено.
       menu:
         consultations: Консультації
@@ -133,16 +117,8 @@ uk:
             few: Відповіді
             many: Відповідей
             other: Відповідей
-      question_publications:
-        create:
-          error: Під час оприлюднення цього питання сталася помилка.
-          success: Питання успішно оприлюднено.
-        destroy:
-          error: Під час скасування оприлюднення цього питання сталася помилка.
-          success: Оприлюднення питання успішно скасовано.
       questions:
         create:
-          error: При спробі додати нове питання сталася помилка.
           success: Питання успішно додано.
         destroy:
           success: Питання успішно видалено.
@@ -156,15 +132,10 @@ uk:
         new:
           create: Додати
           title: Додати питання
-        update:
-          error: При спробі оновити це питання сталася помилка.
-          success: Питання успішно оновлено.
       responses:
         create:
-          error: При спробі створити нову відповідь сталася помилка.
           success: Відповідь успішно створено.
         destroy:
-          error: При спробі видалити відповідь сталася помилка.
           success: Відповідь успішно видалено.
         edit:
           update: Оновити
@@ -173,9 +144,6 @@ uk:
         new:
           create: Створити
           title: Додати відповідь
-        update:
-          error: При спробі оновити цю відповідь сталася помилка.
-          success: Відповідь успішно оновлено.
       titles:
         consultations: Консультації
         questions: Питання
@@ -202,7 +170,6 @@ uk:
         all: Усі
         finished: Завершені
         search: Шукати
-        state: Стан
         upcoming: Прийдешні
       filters_small_view:
         close_modal: Закрити вікно
@@ -225,9 +192,6 @@ uk:
           few: голоси з
           many: голосів з
           other: голосів з
-      question_votes:
-        create:
-          error: При голосуванні щодо питання сталися помилки
       regular_questions:
         title: Питання цієї консультації
       show:
@@ -257,22 +221,18 @@ uk:
         assistants_count_title: Помічників
         comments_count_title: Коментарів
         meetings_count_title: Зустрічей
-        supports_count_title: Проявів підтримки
       technical_info:
         technical_data: Технічні відомості
       vote_button:
         already_voted: Вже проголосували
-        already_voted_hover: Відкликати підтримку
         starting_from: Починаючи з %{date}
         vote: Голосувати
       vote_modal:
         contextual_help: Будь ласка, оберіть варіант.
-        title: 'Консультація: підтримка питання'
       vote_modal_confirm:
         change: Змінити
         confirm: Підтвердити
         contextual_help: Будь ласка, підтвердьте обраний варіант.
-        title: 'Консультація: підтвердьте підтримку'
   layouts:
     decidim:
       admin:
