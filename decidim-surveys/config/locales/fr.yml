@@ -37,20 +37,8 @@ fr:
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     metrics:
       survey_answers:
-        description: Nombre d'enquêtes auxquelles ont répondu les utilisateurs
         object: réponses aux enquêtes
         title: Réponses aux enquêtes
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Réponses des participants à l'enquête
-        surveys:
-          update:
-            invalid: Erreurs lors de la sauvegarde de l'enquête.
-            success: Enquête enregistrée avec succès.
       last_activity:
         new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
-      surveys:
-        answer:
-          invalid: Votre réponse à l'enquête comporte des erreurs.
-          success: Votre réponse à l'enquête a bien été enregistrée.
