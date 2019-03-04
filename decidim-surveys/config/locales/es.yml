@@ -37,20 +37,8 @@ es:
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     metrics:
       survey_answers:
-        description: Número de encuestas respondidas por los usuarios
         object: respuestas a encuestas
         title: Respuestas a encuestas
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Respuestas de los usuarios de la encuesta
-        surveys:
-          update:
-            invalid: Se han producido errores al guardar la encuesta.
-            success: Encuesta guardada correctamente.
       last_activity:
         new_survey_at_html: "<span>Nueva encuesta en %{link}</span>"
-      surveys:
-        answer:
-          invalid: Se han producido errores al responder a la encuesta.
-          success: La encuesta ha sido respondida con éxito.
