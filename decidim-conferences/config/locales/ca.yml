@@ -12,8 +12,6 @@ ca:
         description: Descripció
         hashtag: Etiqueta
         hero_image: Imatge d'inici
-        participatory_processes_ids: Processos participatius relacionats
-        promoted: Destacada
         published_at: Publicat a
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
@@ -56,23 +54,7 @@ ca:
           copy: Copiar
           select: Selecciona quines dades vols duplicar
           title: Conferència duplicada
-      conference_publications:
-        create:
-          error: S'ha produït un error en publicar aquesta conferència.
-          success: La conferència s'ha publicat correctament.
-        destroy:
-          error: S'ha produït un error en publicar aquesta conferència.
-          success: La conferència no s'ha publicat correctament.
-      conference_registration:
-        confirm:
-          error: S'ha produït un error en confirmar aquest registre de la conferència.
-          success: El registre de la conferència s'ha confirmat amb èxit.
       conference_speakers:
-        create:
-          error: S'ha produït un error en afegir un ponent per a aquesta conferència.
-          success: Ponent creat amb èxit per a aquesta conferència.
-        destroy:
-          success: El ponent s'ha eliminat correctament per a aquesta conferència.
         edit:
           title: Actualitza el ponent de la conferència.
           update: Actualitzar
@@ -81,30 +63,12 @@ ca:
         new:
           create: Crear
           title: Nou ponent de la conferència.
-        update:
-          error: S'ha produït un error en actualitzar el ponent d'aquesta conferència.
-          success: Ponent actualitzat amb èxit per a aquesta conferència.
       conference_user_roles:
-        create:
-          error: S'ha produït un error en afegir un usuari a aquesta conferència.
-          success: L'usuari s'ha afegit amb èxit a aquesta conferència.
-        destroy:
-          success: L'usuari s'ha eliminat correctament d'aquesta conferència.
         edit:
-          title: Actualitza l'usuari de la conferència.
           update: Actualitzar
-        index:
-          conference_admins_title: usuaris de conferències
         new:
           create: Crear
-          title: Nou usuari de la conferència.
-        update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquesta conferència.
-          success: L'usuari s'ha actualitzat amb èxit per a aquesta conferència.
       conferences:
-        create:
-          error: S'ha produït un error en crear una nova conferència.
-          success: La conferència s'ha creat correctament.
         edit:
           update: Actualitzar
         exports:
@@ -117,19 +81,7 @@ ca:
         new:
           create: Crear
           title: Conferència
-        update:
-          error: S'ha produït un error en actualitzar aquesta conferència.
-          success: S'ha actualitzat la conferència amb èxit.
-      conferences_copies:
-        create:
-          error: S'ha produït un error en duplicar aquesta conferència.
-          success: La conferència s'ha duplicat correctament.
       media_links:
-        create:
-          error: S'ha produït un error en crear un nou enllaç multimèdia.
-          success: Enllaç multimèdia creat correctament.
-        destroy:
-          success: S'ha eliminat correctament l'enllaç de multimèdia.
         edit:
           title: Actualitza l'enllaç multimèdia.
           update: Actualitzar
@@ -138,9 +90,6 @@ ca:
         new:
           create: Crear
           title: Enllaç multimèdia
-        update:
-          error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
-          success: Enllaç multimèdia actualitzat correctament.
       menu:
         conferences: Conferències
         conferences_submenu:
@@ -149,7 +98,7 @@ ca:
           attachments: Fitxers adjunts
           categories: Categoríes
           components: Components
-          conference_admins: Usuaris de la conferència
+          conference_admins: Administradors de conferències
           conference_invites: Convida
           conference_speakers: Ponents
           diploma: Certificat d'assistència
@@ -164,7 +113,6 @@ ca:
         conference:
           fields:
             created_at: Creat a
-            promoted: Destacada
             published: Publicada
             title: Títol
         conference_speaker:
@@ -178,7 +126,6 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de la conferència
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -208,42 +155,19 @@ ca:
             weight: Pes
           name: Tipus de registre
       partners:
-        create:
-          error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
-          success: El col·laborador s'ha afegit correctament a aquesta jornada.
-        destroy:
-          success: Col·laborador eliminat correctament d'aquesta jornada.
         edit:
           title: Actualitzar col·laborador.
           update: Actualitzar
         new:
           create: Crear
           title: Nou col·laborador
-        update:
-          error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
-          success: Col·laborador actualitzat correctament per a aquesta jornada.
-      registration_type_publications:
-        create:
-          error: S'ha produït un error en publicar aquest tipus de registre.
-          success: El tipus de registre s'ha publicat correctament.
-        destroy:
-          error: S'ha produït un error en publicar aquest tipus d'inscripció.
-          success: El tipus de registre no s'ha publicat correctament.
       registration_types:
-        create:
-          error: S'ha produït un error en afegir un tipus de registre per a aquesta conferència.
-          success: El tipus de registre s'ha afegit amb èxit a aquesta conferència.
-        destroy:
-          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta conferència.
         edit:
           title: Actualitzar el tipus de registre.
           update: Actualitzar
         new:
           create: Crear
           title: Nou tipus de registre
-        update:
-          error: S'ha produït un error en actualitzar un tipus de registre per a aquesta conferència.
-          success: El tipus de registre s'ha actualitzat amb èxit per a aquesta conferència.
       titles:
         conferences: Conferències
     admin_log:
@@ -260,14 +184,12 @@ ca:
         update: "%{user_name} va actualitzar el ponent %{resource_name} a la conferència %{space_name}"
       conference_user_role:
         create: "%{user_name} ha estat convidat com a %{resource_name} per la conferència %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
         update: "%{user_name} ha canviat el rol d' %{resource_name} a la conferència %{space_name}"
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmat un registre per a la conferència %{resource_name}"
         partner:
           create: "%{user_name} ha creat %{resource_name} a la conferència %{space_name}"
-          delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
           update: "%{user_name} ha actualitzat %{resource_name} a la conferència %{space_name}"
         registration_type:
           create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} per a la conferència %{space_name}"
@@ -290,15 +212,8 @@ ca:
           form:
             slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         conference_invites:
-          create:
-            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la conferència.
-            success: S'ha convidat a l'usuari a participar a la conferència.
           form:
             attendee_type: Tipus d'assistent
-            existing_user: Usuari existent
-            invite_explanation: L'usuari també serà convidat a participar a la conferència i a l'organització.
-            non_user: Usuari no existent
-            select_user: Seleccioneu l'usuari
           index:
             filter:
               accepted: Acceptat
@@ -306,22 +221,14 @@ ca:
               rejected: Rebutjada
               sent: Enviat
             filter_by: Filtra per
-            invite_attendee: Convida l'assistent
             invites: Convida
             search: Cercar
           new:
-            explanation: L'usuari serà convidat a participar en una conferència. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
             invite: Convidar
-            new_invite: Convida l'usuari
         conference_registrations:
           index:
             registrations: Inscripcions
         conference_speakers:
-          form:
-            existing_user: Usuari existent
-            non_user: No usuari
-            select_user: Seleccioneu l'usuari
-            user_type: Tipus d'usuari
           index:
             search: Cercar
         conferences:
@@ -355,16 +262,12 @@ ca:
             attendance_verified_by: Assistència verificada per
             certificate_of_attendance: Certificat d'assistència
             certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
-        send_diploma:
-          error: Hi ha hagut un problema en enviar els certificats d'assistència de la conferència.
-          success: Certificats d'assistència de la conferència enviats correctament
       conference:
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
         show:
           free: Entrada lliure
-          going: Assistiré
           no_slots_available: No hi ha places disponibles
           registration: Inscripció
       conference_program:
@@ -384,17 +287,6 @@ ca:
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
           details: 'T''has inscrit a %{registration_type} tipus amb un cost de %{price} i pots assistir als següents esdeveniments:'
-          pending_html: La teva inscripció a la conferència <a href="%{url}">%{title}</a> està pendent de ser confirmada.
-      conference_registrations:
-        create:
-          invalid: Hi ha hagut un problema en inscriure't a aquesta conferència.
-          success: T'has inscrit a la conferència amb èxit.
-        decline_invitation:
-          invalid: Hi ha hagut un problema al rebutjar la invitació.
-          success: Has rebutjat la invitació amb èxit.
-        destroy:
-          invalid: Hi ha hagut un problema en abandonar aquesta conferència.
-          success: Heu abandonat la conferència amb èxit.
       conference_speaker:
         go_to_twitter: Anar a Twitter
         more_info: més informació
@@ -426,8 +318,6 @@ ca:
         conference_registration_mailer:
           confirmation:
             subject: S'ha confirmat la teva inscripció a la conferència
-          pending_validation:
-            subject: La teva inscripció a la conferència està pendent de confirmació
         invite_join_conference_mailer:
           invite:
             subject: Invitació per participar a una conferència
@@ -451,7 +341,6 @@ ca:
             email: Correu electrònic
             name: Nom
             registration_type: Tipus de registre
-            state: Estat
             states:
               confirmed: Confirmat
               pending: Pendents
@@ -463,10 +352,6 @@ ca:
       photo:
         show:
           close_modal: Tanca el modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Fotografies
       registration_types:
         index:
           choose_an_option: 'Trieu l''opció de registre:'
@@ -483,9 +368,7 @@ ca:
         details: Detalls
         introduction: Introducció
         objectives: Objectius
-        related_assemblies: Assemblees relacionades
         related_consultations: Consultes relacionades
-        related_participatory_processes: Processos participatius relacionats
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
@@ -494,7 +377,6 @@ ca:
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades
-        orders_count: Vots
         pages_count: Pàgines
         posts_count: Publicacions
         projects_count: Projectes
@@ -502,7 +384,6 @@ ca:
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Vots
     events:
       conferences:
         conference_registration_validation_pending:
@@ -553,8 +434,6 @@ ca:
       conferences:
         conference:
           take_part: Formar part
-        index:
-          promoted_conferences: Conferències destacades
         order_by_conferences:
           conferences:
             one: "%{count} conferència"
