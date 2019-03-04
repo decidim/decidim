@@ -30,7 +30,6 @@ nl:
       decidim/user:
         current_password: Huidige wachtwoord
         email: E-mailadres
-        name: Gebruikersnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
@@ -38,12 +37,6 @@ nl:
       decidim/amendment:
         one: Amendement
         other: wijzigingen
-      decidim/user:
-        one: Geen gebruikers
-        other: gebruikers
-      decidim/user_group:
-        one: Gebruikersgroep
-        other: Gebruikersgroepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -63,7 +56,6 @@ nl:
         file_no_exists: Bestand bestaat niet
         invalid_token: Het geleverde token is ongeldig.
         no_token: Geen token verstrekt
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -72,16 +64,9 @@ nl:
           question: Weet u zeker dat u uw account wilt verwijderen?
           title: Verwijder mijn account
         explanation: Vul alstublieft de reden in waarom u uw account wilt verwijderen (optioneel).
-      destroy:
-        error: Er is een fout opgetreden bij het verwijderen van uw account.
-        success: Uw account is succesvol verwijderd.
       show:
         change_password: Wachtwoord wijzigen
         update_account: Account bijwerken
-      update:
-        error: Er is een fout opgetreden bij het bijwerken van uw account.
-        success: Uw account is bijgewerkt.
-        success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
       area:
         create: "%{user_name} heeft %{resource_name} aangemaakt"
@@ -106,9 +91,6 @@ nl:
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
-      participatory_space_private_user:
-        create: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
-        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd als privégebruiker"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -120,31 +102,15 @@ nl:
         create: "%{user_name} creëerde de %{resource_name} statische pagina"
         delete: "%{user_name} heeft de %{resource_name} statische pagina verwijderd"
         update: "%{user_name} heeft de %{resource_name} statische pagina bijgewerkt"
-      user:
-        invite: "%{user_name} nodigde de gebruiker %{resource_name} uit met rol: %{role}"
-        officialize: "%{user_name} heeft de gebruiker %{resource_name} gevalideerd"
-        remove_from_admin: "%{user_name} de gebruiker %{resource_name} verwijderd met rol: %{role}"
-        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} ingetrokken"
-      user_group:
-        reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
-        verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
-        verify_via_csv: "%{user_name} de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
     amendments:
-      accepted:
-        error: Er is een fout opgetreden bij het accepteren van de emendation. Probeer het later opnieuw.
-        success: Deze emendatie is met succes geaccepteerd.
       amendable:
         amended_by: Gewijzigd door
         button: Wijzigen %{model_name}
-        promote_button: Promoot tot %{model_name}
-        error: Er is een fout opgetreden bij het wijzigen van deze bron.
         help_text: Verbeter deze %{model_name} door zijn %{amendable_fields}
-        promote_help_text: U kunt deze emendatie promoten en publiceren als een onafhankelijke %{model_name}
         no_amenders: Er zijn geen amendementen
         no_amendments: Er zijn geen amendementen
         section_heading: Wijzigingen (%{count})
       created:
-        error: Er is een fout opgetreden bij het maken van dit amendement, probeer het later opnieuw
         success: Het amendement is met succes gemaakt
       emendation:
         actions:
@@ -158,9 +124,6 @@ nl:
           evaluating: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
-          rejected: |-
-            Deze emendatie voor de %{amendable_type} %{amendable_link}
-            werd afgewezen op <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
@@ -170,12 +133,6 @@ nl:
         heading: Maak uw amendement
         help_text: U wijzigt de %{model_name}
         send: Verzend amendement
-      rejected:
-        error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
-        success: De emendation is met succes afgewezen
-      promoted:
-        success: Emendation met succes gepromoot
-        error: Er zijn fouten opgetreden bij het promoten van de emendation
       review:
         back: Terug
         heading: Bekijk het amendement
@@ -189,8 +146,6 @@ nl:
           other: documenten
       documents:
         related_documents: Gerelateerde documenten
-      photos:
-        related_photos: Gerelateerde foto 's
     author:
       comments:
         one: commentaar
@@ -209,8 +164,6 @@ nl:
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
-      errors:
-        duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
       expired_at: Verstreken op %{timestamp}
       expires_at: Verloopt op %{timestamp}
       foo_authorization:
@@ -318,7 +271,6 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Jouw korte, unieke ID op %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
@@ -327,7 +279,6 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          nickname_help: Jouw korte, unieke ID op %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -342,7 +293,6 @@ nl:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
           sign_in_disabled: U hebt toegang met een extern account
-          sign_up_disabled: Aanmelden is uitgeschakeld, u kunt een bestaande gebruiker gebruiken om toegang te krijgen
       shared:
         newsletter_modal:
           buttons:
@@ -369,7 +319,6 @@ nl:
           publish_content: Publiceer inhoud voor jou
           see_email: Bekijk jouw e-mail
           see_name: Bekijk jouw naam
-          see_username: Bekijk je gebruikersnaam
           this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
@@ -386,48 +335,24 @@ nl:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een nieuw amendement voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: Een <a href="%{emendation_path}">nieuwe emendatie</a> is gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een nieuw amendement voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: Een <a href="%{emendation_path}">nieuwe emendatie</a> is gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgewezen voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgewezen voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een emendation van %{emendation_author_nickname} is gepromoot
-            notification_title: Een <a href="%{emendation_path}">afgewezen emendation</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} is gepromoot met <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een emendation van %{emendation_author_nickname} is gepromoot
-            notification_title: Een <a href="%{emendation_path}">afgewezen emendation</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} is gepromoot met <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">emendation</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
@@ -447,15 +372,11 @@ nl:
         email_subject: Een update voor %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
           email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: 'U heeft een nieuwe badge verdiend: %{badge_name}!'
-          notification_title: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
         level_up:
-          email_intro: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
           email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
-          notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw beheerdersrechten voor die groep verwijderd.
@@ -500,11 +421,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> is officieel.
-          email_outro: U hebt deze melding ontvangen omdat u %{nickname}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: "%{nickname} is officieel"
-          notification_title: De <a href="%{resource_path}">%{name} (%{nickname})</a>, die u volgt, is officieel.
     export_mailer:
       data_portability_export:
         click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> U hebt het bestand beschikbaar tot %{date}.
@@ -536,10 +452,8 @@ nl:
     follows:
       create:
         button: Volgen
-        error: Er is een fout opgetreden na deze bron.
       destroy:
         button: Stop met volgen
-        error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
       current_file: Huidig ​​bestand
       current_image: Huidige afbeelding
@@ -554,21 +468,15 @@ nl:
           conditions:
             - Kom hier vaker
           description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
-          description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
           description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
           name: Continuïteit
           next_level_in: Verbind %{score} opeenvolgende dagen om naar het volgende niveau te gaan!
-          unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
           unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
-          description_another: Deze gebruiker heeft %{score} volgers.
-          description_own: "%{score} gebruikers volgen u."
           name: Volgers
-          next_level_in: Ontvang nog %{score} extra gebruikers om je te volgen en het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen volgers.
           unearned_own: Je hebt nog geen volgers.
         index:
           badge_title: "%{name} badge"
@@ -581,67 +489,32 @@ nl:
             - Pas, als u wilt, het bericht aan dat u verzendt
             - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om je in %{organization_name} te registreren en deelnemers te worden. Dank u voor u %{organization_name} bekend bij anderen en het helpen om de community uit te breiden!
-          description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
-          description_own: Je hebt %{score} gebruikers uitgenodigd.
           name: Uitnodigingen
-          next_level_in: Nodig nog %{score} gebruikers uit om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen gebruiker uitgenodigd.
-          unearned_own: Je hebt nog geen gebruikers uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     group_admins:
       actions:
-        are_you_sure: Weet je het zeker? Hiermee wordt de gebruiker niet uit de groep verwijderd.
         demote_admin: Verwijder admin
-      demote:
-        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de beheerderslijst
-        success: Gebruiker is met succes van de beheerder verwijderd
       index:
         current_admins: 'Huidige beheerders:'
         manage_admins: Beheer beheerders
     group_invites:
-      accept:
-        error: Er is een fout opgetreden bij het accepteren van deze uitnodiging
-        success: Uitnodiging met succes geaccepteerd
       accept_invitation: Aanvaarden
       accept_or_reject_group_invitations: 'De volgende groepen hebben je uitgenodigd om mee te doen. Aanvaard of verwerp hun verzoeken:'
       index:
         invite: Nodig uit
-        invite_user: Nodig een gebruiker uit
-      invite:
-        error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker
-        success: Gebruiker met succes uitgenodigd
-      reject:
-        error: Er is een fout opgetreden bij het afwijzen van deze uitnodiging
-        success: Uitnodiging met succes afgewezen
       reject_invitation: afwijzen
     group_members:
-      accept:
-        error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Deelnemen aan een succesvol geaccepteerd verzoek
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
-        remove_from_group: Gebruiker verwijderen
       index:
         current_members_without_admins: 'Huidige leden (zonder beheerders):'
         manage_members: Leden beheren
-      promote:
-        error: Er is een fout opgetreden bij het promoten van deze gebruiker
-        success: Gebruiker met succes gepromoveerd
-      reject:
-        error: Er is een fout opgetreden bij het afwijzen van dit deelnameverzoek
-        success: Verzoek om samenvoeging succesvol afgewezen
-      remove:
-        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de groep
-        success: Gebruiker met succes uit de groep verwijderd
     groups:
       actions:
         are_you_sure: Weet je het zeker?
-      create:
-        error: Er is een probleem opgetreden bij het maken van de groep
-        success: Groep met succes gemaakt
       edit:
         edit_user_group: Groep bewerken
         update_user_group: Groep bijwerken
@@ -650,14 +523,7 @@ nl:
         email_help: E-mail van uw organisatie, vereniging, collectief, groep, etc.
         fill_in_for_verification: 'Vul deze velden in als u wilt dat uw groep wordt geverifieerd:'
         name_help: Naam van uw organisatie, vereniging, collectief, groep, etc.
-        nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
         phone_help: Gebruik geen streepjes of spaties
-      join:
-        error: Er is een probleem opgetreden bij de groep
-        success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
-      leave:
-        error: Er is een probleem met het verlaten van de groep
-        success: Groep met succes verlaten.
       members:
         accept_or_reject_join_requests: 'De volgende gebruikers hebben zich aangemeld om lid te worden van deze groep. Aanvaard of verwerp hun verzoeken:'
         accept_request: Aanvaarden
@@ -671,9 +537,6 @@ nl:
         admin: Beheerder
         creator: Schepper
         member: Lid
-      update:
-        error: Er is een probleem opgetreden bij het bijwerken van de groep
-        success: Groep succesvol geüpdatet
     help:
       main_topic:
         default_page:
@@ -707,10 +570,6 @@ nl:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
           not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
-    managed_users:
-      expired_session: De huidige naboots sessie is verlopen.
-    members:
-      no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
       help: Helpen
       home: Home
@@ -746,17 +605,11 @@ nl:
       download:
         csv: Gegevens downloaden (csv)
       followers:
-        description: Aantal gebruikers dat deze participatieruimte volgt
         object: volgelingen
         title: Volgers
       participants:
-        description: Aantal actieve gebruikers in de organisatie
         object: deelnemers
         title: Deelnemers
-      users:
-        description: Aantal gebruikers in de organisatie
-        object: gebruikers
-        title: gebruikers
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -765,7 +618,6 @@ nl:
     newsletters:
       unsubscribe:
         check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
-        error: Er is een fout opgetreden tijdens het uitschrijven.
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
@@ -773,7 +625,6 @@ nl:
       unathorized: Sorry, deze link is niet langer beschikbaar
       update:
         error: Er gebeurde iets verkeerds
-        success: Nieuwsbriefinstellingen succesvol bijgewerkt
     newsletters_opt_in_mailer:
       notify:
         body_1: De verwerking van persoonlijke gegevens en de bescherming ervan worden steeds belangrijker voor ons allemaal. Met de nieuwe Algemene Verordening Gegevensbescherming (GDPR) van 25 mei 2018 hebben individuen betere controle over hun persoonlijke gegevens. Om deze reden hebben we uw "OK" nodig om relevante informatie over de activiteiten van de %{organization_name}te blijven verzenden.
@@ -795,9 +646,6 @@ nl:
         receive_notifications_about: Ik wil meldingen ontvangen over
         send_notifications_by_email: Verstuur meldingen per e-mail
         update_notifications_settings: Wijzigingen opslaan
-      update:
-        error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
-        success: Uw notificatie instellingen zijn bijgewerkt.
     open_data:
       not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
     own_user_groups:
@@ -862,7 +710,6 @@ nl:
           link: Toon alle statistieken
       terms_and_conditions:
         accept:
-          error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
           success: Super goed! U hebt de algemene voorwaarden geaccepteerd.
         form:
           agreement: Ik ga akkoord met deze voorwaarden
@@ -881,10 +728,8 @@ nl:
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
-      deleted: Verwijderde gebruiker
       view: Uitzicht
     profiles:
-      default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         activity: Activiteit
@@ -905,7 +750,6 @@ nl:
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
         fill_in_email_to_confirm_it: Vul alstublieft het e-mailadres van uw groep in om dit te bevestigen
-        invite_user: Nodig gebruiker uit
         join_user_group: Verzoek om lid te worden van de groep
         leave_user_group: Verlaat groep
         manage_user_group_admins: Beheer beheerders
@@ -988,11 +832,6 @@ nl:
         close_window: Sluit venster
         share: Deel
         share_link: Link delen
-      version_author:
-        deleted: Verwijderde gebruiker
-    user_activity:
-      index:
-        no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.
     user_interests:
       show:
         no_scopes: Deze organisatie heeft nog geen bereik!
@@ -1000,7 +839,6 @@ nl:
         select_your_interests: Selecteer de onderwerpen waarin u geïnteresseerd bent om aan hen gerelateerde evenementen te ontvangen op het tabblad Tijdlijn van uw profiel.
         update_my_interests: Update mijn interesses
       update:
-        error: Er is een fout opgetreden bij het bijwerken van uw interesses.
         success: Uw interesses zijn succesvol bijgewerkt.
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
@@ -1025,7 +863,6 @@ nl:
     invitations:
       edit:
         header: Eindig met het maken van je account
-        nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
         subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
       invitation_removed: Je uitnodiging is verwijderd.
@@ -1041,7 +878,6 @@ nl:
       confirmation_instructions:
         action: Bevestig mijn account
         greeting: Welkom %{recipient}!
-        instruction: 'U kunt het e-mailadres van uw account bevestigen via de onderstaande link:'
         subject: Instructies ter bevestiging
       email_changed:
         greeting: Hallo %{recipient}!
@@ -1056,10 +892,8 @@ nl:
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
           Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan accepteren via onderstaande link.
         subject: Instructies voor de uitnodiging
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
@@ -1101,10 +935,7 @@ nl:
       no_token: U hebt geen toegang tot deze pagina zonder afkomstig te zijn van een e-mail voor het opnieuw instellen van uw wachtwoord. Als u wel een e-mail ontvangt voor het opnieuw instellen van uw wachtwoord, moet u ervoor zorgen dat u de volledige URL heeft gebruikt.
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het opnieuw instellen van uw wachtwoord.
       send_paranoid_instructions: Als uw e-mailadres in onze database staat, ontvangt u binnen enkele minuten een wachtwoordherstellink op uw e-mailadres.
-      updated: Je wachtwoord is met succes veranderd. U bent nu ingelogd.
-      updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
-      destroyed: Doei! Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
       edit:
         are_you_sure: Weet je het zeker?
         cancel_my_account: Annuleer mijn account
@@ -1121,7 +952,6 @@ nl:
       signed_up_but_locked: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is vergrendeld.
       signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar uw e-mailadres. Volg de link om uw account te activeren.
       update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
-      updated: Uw account is succesvol bijgewerkt.
     sessions:
       already_signed_out: Succesvol ondertekend.
       new:
@@ -1145,7 +975,6 @@ nl:
         resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het ontgrendelen van uw account.
       send_paranoid_instructions: Als uw account bestaat, ontvangt u een e-mail met instructies voor het ontgrendelen binnen een paar minuten.
-      unlocked: Uw account is succesvol ontgrendeld. Log alstublieft in om verder te gaan.
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
@@ -1191,7 +1020,6 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U boots de gebruiker <b>%{user_name}</b> na.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
@@ -1209,7 +1037,6 @@ nl:
         my_data: Mijn data
         my_interests: Mijn interesses
         notifications_settings: Notificatie instellingen
-        title: Gebruikersinstellingen
         user_groups: groepen
       widget:
         see_more: Zie meer
