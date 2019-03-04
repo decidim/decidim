@@ -31,7 +31,7 @@ fr:
             name: Projet
         projects:
           create:
-            invalid: Un problème est survenu lors de la création de ce projet
+            invalid: Il y a eu un problème lors de la création de ce projet
             success: Projet créé avec succès
           destroy:
             success: Projet supprimé avec succès
@@ -46,11 +46,11 @@ fr:
             create: Créer
             title: Nouveau projet
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce projet.
+            invalid: Il y a eu un problème lors de la mise à jour de ce projet
             success: Projet mis à jour avec succès
         proposals_imports:
           create:
-            invalid: Un problème est survenu lors de l'importation des propositions dans des projets.
+            invalid: Un problème est survenu lors de l'importation des propositions dans des projets
             success: "%{number} propositions importées avec succès dans des projets"
           new:
             create: Importer des propositions dans des projets
@@ -140,10 +140,10 @@ fr:
             votes_enabled: Votes activés
     orders:
       checkout:
-        error: Un problème est survenu lors du traitement de votre vote
-        success: Votre vote a été accepté avec succès
+        error: Une erreur s'est produite lors du traitement de votre vote
+        success: Votre vote a été enregistré avec succès
       destroy:
-        error: Un problème s'est produit lors de l'annulation de votre vote
+        error: Une erreur s'est produite lors de l'annulation de votre vote
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
