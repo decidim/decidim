@@ -65,7 +65,6 @@ fr:
             destroy: Annuler le tirage au sort
             title: Annulation du tirage au sort
           create:
-            error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
             success: Le tirage au sort a été créé avec succès
           destroy:
             error: Impossible d'annuler le tirage au sort.
@@ -86,7 +85,6 @@ fr:
           show:
             selected_proposals: Propositions sélectionnées pour le tirage au sort
           update:
-            error: Une erreur est survenue lors de la mise à jour du tirage au sort.
             success: Le tirage au sort a bien été mis à jour
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ fr:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           search: Rechercher
-          state: État
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -122,7 +119,6 @@ fr:
             one: proposition sélectionnée
             other: propositions sélectionnées
         show:
-          algorithm: Code de l'algorithme de tirage au sort
           any_category: toutes les catégories
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
@@ -141,10 +137,6 @@ fr:
             one: proposition sélectionnée
             other: '%{count} propositions sélectionnées'
           view: Voir
-        sortition_author:
-          deleted: Utilisateur supprimé
-        sortition_cancel_author:
-          deleted: Utilisateur supprimé
         sortitions_count:
           count:
             one: 1 tirage au sort
