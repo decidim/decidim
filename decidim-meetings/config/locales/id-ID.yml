@@ -40,10 +40,6 @@ id:
             base:
               too_many_minutes: Durasi barang melebihi durasi rapat dengan %{count} menit
               too_many_minutes_child: Durasi item anak melebihi item agenda "%{parent_title}" durasi induk %{count} menit
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Email ini sudah diundang
     models:
       decidim/meetings/close_meeting_event: Pertemuan tertutup
       decidim/meetings/create_meeting_event: Pertemuan
@@ -62,9 +58,6 @@ id:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Terjadi kesalahan saat menduplikasi rapat ini.
-          success: Pertemuan duplikat berhasil.
         new:
           copy: Salinan
           select: Pilih data mana yang ingin Anda gandakan
@@ -105,10 +98,7 @@ id:
         meeting_registration_confirmed:
           notification_title: Pendaftaran Anda untuk pertemuan <a href="%{resource_url}">%{resource_title}</a> telah dikonfirmasi. Kode registrasi Anda adalah %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Slot "%{resource_title}" yang ditempati slot lebih dari %{percentage}%.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah admin ruang partisipatif rapat.
-          email_subject: Slot "%{resource_title}" yang ditempati slot lebih dari %{percentage}%
-          notification_title: Slot pertemuan <a href="%{resource_path}">%{resource_title}</a> diduduki lebih dari %{percentage}%.
         meeting_updated:
           email_intro: 'Rapat "%{resource_title}" telah diperbarui. Anda dapat membaca versi baru dari halamannya:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
@@ -132,14 +122,10 @@ id:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Daftarkan dalam pertemuan yang ingin Anda hadiri
           description: Lencana ini diberikan ketika Anda menghadiri beberapa pertemuan tatap muka.
-          description_another: Pengguna ini telah menghadiri %{score} rapat.
           description_own: Anda telah menghadiri %{score} pertemuan.
           name: Menghadiri pertemuan
           next_level_in: Hadiri %{score} pertemuan lagi untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum menghadiri rapat apa pun.
           unearned_own: Anda belum menghadiri rapat apa pun.
     meetings:
       actions:
@@ -158,19 +144,15 @@ id:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Tambahkan anak item agenda
             agenda_item: Item Agenda
-            agenda_item_children: Item Agenda Anak-anak
             down: Turun
             remove: Menghapus
             up: Naik
           agenda_item_child:
-            agenda_item_child: Item Agenda Anak
             down: Turun
             remove: Menghapus
             up: Naik
           create:
-            invalid: Ada masalah saat membuat agenda ini
             success: Agenda berhasil dibuat
           edit:
             title: Edit agenda
@@ -184,7 +166,6 @@ id:
             create: Membuat
             title: Agenda baru
           update:
-            invalid: Terjadi masalah saat memperbarui agenda ini
             success: Agenda berhasil diperbarui
         exports:
           meetings: Rapat
@@ -195,16 +176,9 @@ id:
             invited_you_to_join_a_meeting: "%{invited_by} telah mengundang Anda untuk bergabung dalam rapat di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
             join: Bergabunglah dengan rapat '%{meeting_title}'
         invites:
-          create:
-            error: Ada masalah saat mengundang pengguna untuk bergabung dengan rapat.
-            success: Pengguna berhasil diundang untuk bergabung dengan rapat.
           form:
             attendee_type: Tipe penerima tamu
-            existing_user: Pengguna yang sudah ada
             invite: Undang
-            invite_explanation: Pengguna akan diundang untuk bergabung dengan rapat dan ke organisasi juga.
-            non_user: Pengguna tidak ada
-            select_user: Pilih pengguna
           index:
             filter:
               accepted: Diterima
@@ -225,10 +199,8 @@ id:
             select_organizer: Pilih penyelenggara
         meetings:
           close:
-            invalid: Terjadi masalah saat menutup rapat ini
             success: Rapat berhasil ditutup
           create:
-            invalid: Ada masalah saat membuat rapat ini
             success: Pertemuan berhasil dibuat
           destroy:
             success: Rapat berhasil dihapus
@@ -252,11 +224,9 @@ id:
             add_service: Tambahkan layanan
             services: Jasa
           update:
-            invalid: Terjadi masalah saat memperbarui rapat ini
             success: Rapat berhasil diperbarui
         minutes:
           create:
-            invalid: Terjadi masalah saat membuat menit ini
             success: Menit berhasil dibuat
           edit:
             update: Memperbarui
@@ -264,7 +234,6 @@ id:
             create: Membuat
             title: Buat menit
           update:
-            invalid: Terjadi masalah saat memperbarui menit ini
             success: Notulen berhasil diperbarui
         models:
           meeting:
@@ -276,14 +245,12 @@ id:
             validate_registration_code: Validasikan kode registrasi
           form:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
-            invites: Undangan
             registration_form: Formulir pendaftaran
             registrations_count:
               other: Ada %{count} pendaftaran.
             reserved_slots_help: Biarkan hingga 0 jika Anda tidak memiliki slot yang dipesan
             reserved_slots_less_than: Harus kurang dari atau sama dengan %{count}
           update:
-            invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
             success: Pengaturan pendaftaran rapat berhasil disimpan.
           validate_registration_code:
             invalid: Kode registrasi ini tidak valid.
@@ -401,13 +368,10 @@ id:
           registration_code: Kode registrasi Anda adalah %{code}.
       registrations:
         create:
-          invalid: Ada masalah saat bergabung dengan rapat ini.
           success: Anda telah berhasil bergabung dengan rapat.
         decline_invitation:
-          invalid: Terjadi masalah saat menolak undangan.
           success: Anda berhasil menolak undangan.
         destroy:
-          invalid: Ada masalah saat meninggalkan rapat ini.
           success: Anda telah berhasil menyelesaikan rapat.
       types:
         private_meeting: Pertemuan pribadi
