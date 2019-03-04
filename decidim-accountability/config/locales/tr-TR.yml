@@ -90,7 +90,7 @@ tr:
             create: Durum oluştur
             title: Yeni statü
           update:
-            invalid: Bu durumu güncellerken bir sorun oluştu
+            invalid: Bu durum güncellenirken bir sorun oluştu
             success: Durum başarıyla güncellendi
         timeline_entries:
           create:
