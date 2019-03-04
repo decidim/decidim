@@ -46,6 +46,9 @@ es-MX:
             - Envías la carta a su dirección con el código de verificación.
             - Marcas la carta como enviada.
             - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+      csv_census:
+        explanation: Verifíquese utilizando el censo de la organización.
+        name: Censo de la organización
       direct: Directo
       help: Ayuda
       id_documents:
@@ -65,6 +68,7 @@ es-MX:
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
+            csv_census: Verificar contra el censo de la organización.
             dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
             dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
             id_documents: Verifícate subiendo tu documento de identidad
@@ -76,6 +80,33 @@ es-MX:
           authorize_with: Verificar con %{authorizer}
         skip_verification: Puedes saltarte este paso por ahora y %{link}
         start_exploring: empezar a explorar
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Hubo un error al importar el censo.
+              success: '%{count} artículos importados exitosamente (%{errors} errores)'
+            destroy_all:
+              success: Todos los datos del censo han sido eliminados
+          destroy:
+            confirm: Eliminar todo el censo no se puede deshacer. Estás seguro de que quieres continuar?
+            title: Borrar todos los datos del censo
+          index:
+            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}
+            empty: No hay datos del censo. Utilice el siguiente formulario para importarlo usando un archivo CSV.
+            title: Datos actuales del censo
+          instructions:
+            body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
+            title: Necesitas activar el censo csv para esta organización.
+          new:
+            info: 'Debe ser un archivo con formato CSV con una columna: correo electrónico'
+            file: archivo .csv con datos de correos electrónicos
+            submit: Subir archivo
+            title: Subir un nuevo censo
+        authorizations:
+          new:
+            error: No pudimos verificar su cuenta o usted no está en el censo de la organización.
+            success: Su cuenta ha sido verificada con éxito.
       dummy_authorization:
         extra_explanation:
           one: La participación está restringida a usuarios con el código postal %{postal_codes}.

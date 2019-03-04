@@ -62,7 +62,7 @@ describe "Meeting registrations", type: :system do
 
         expect(page).to have_no_i18n_content(question.body)
 
-        expect(page).to have_content("The questionnaire is closed and cannot be answered")
+        expect(page).to have_content("The form is closed and cannot be answered")
       end
     end
   end
@@ -99,7 +99,7 @@ describe "Meeting registrations", type: :system do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("The questionnaire is closed and cannot be answered")
+          expect(page).to have_content("The form is closed and cannot be answered")
         end
       end
     end
@@ -127,7 +127,7 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_no_i18n_content(question.body)
 
-            expect(page).to have_content("Sign in with your account or sign up to answer the questionnaire")
+            expect(page).to have_content("Sign in with your account or sign up to answer the form")
           end
         end
       end
@@ -235,7 +235,7 @@ describe "Meeting registrations", type: :system do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("You have already answered this questionnaire.")
+          expect(page).to have_content("You have already answered this form.")
         end
       end
     end

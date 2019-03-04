@@ -46,6 +46,9 @@ cs:
             - Na adresu zasíláte dopis s ověřovacím kódem.
             - Označte písmeno jako odesláno.
             - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
+      csv_census:
+        explanation: Získejte ověření pomocí sčítání organizace
+        name: Sčítání organizace
       direct: Přímo
       help: Pomoc
       id_documents:
@@ -65,6 +68,7 @@ cs:
         first_login:
           actions:
             another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
+            csv_census: Ověřte sčítání organizace
             dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
             dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
             id_documents: Získejte ověření odesláním dokladu totožnosti
@@ -76,6 +80,33 @@ cs:
           authorize_with: Ověřte pomocí %{authorizer}
         skip_verification: Můžete to přeskočit nyní a %{link}
         start_exploring: začít zkoumat
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Při importu sčítání došlo k chybě.
+              success: Úspěšně importováno %{count} položek (%{errors} chyb)
+            destroy_all:
+              success: Všechna data sčítání byly smazány
+          destroy:
+            confirm: Odstranit veškeré sčítání nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
+            title: Smazat všechna data sčítání
+          index:
+            data: Celkem bylo načteno celkem %{count} záznamů. Poslední nahraje datum %{due_date}
+            empty: Neexistují údaje o sčítání. Pomocí níže uvedeného formuláře jej importujte pomocí souboru CSV.
+            title: Aktuální údaje o sčítání
+          instructions:
+            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění csv_census organizaci
+            title: Pro tuto organizaci musíte aktivovat csv sčítání
+          new:
+            info: 'Musí být soubor ve formátu CSV s jedním sloupcem: e-mail'
+            file: .csv soubor s daty e-mailů
+            submit: Nahrát soubor
+            title: Nahrajte nové sčítání
+        authorizations:
+          new:
+            error: Váš účet nebyl ověřen, nebo nejste v sčítání organizace.
+            success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
           one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.

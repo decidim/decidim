@@ -224,7 +224,6 @@ ru:
         select_initiative_type:
           back: Вернуться
           more_information: "(Дополнительные сведения)"
-          select: Выбрать
           select_initiative_type_help: Гражданские почины - это средство, с помощью которого граждане могут вмешиваться в то, чтобы Городской Совет предпринимал действия в защиту общих интересов, относящихся к сфере городских полномочий. Какой почин вы хотите запустить?
         share_committee_link:
           continue: Продолжить
@@ -289,7 +288,6 @@ ru:
           random: Произвольно
           recent: Самые последние
         result:
-          initiative_accepted_reason: Этот почин был принят, потому что
           initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
         show:
           any_vote_method: Эта гражданская инициатива собирает поддержку в онлайне, а также лицом к лицу.
@@ -301,11 +299,6 @@ ru:
           few: " подписи"
           many: " подписей"
           other: " подписей"
-        statistics:
-          assistants_count_title: Помощников
-          comments_count_title: Комментариев
-          meetings_count_title: Встреч
-          supports_count_title: Подписей
         supports:
           title: Список подписей
         vote_cabin:

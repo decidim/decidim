@@ -13,6 +13,7 @@ fr:
           any: Mixte
           offline: En présentiel
           online: En ligne
+        state: Etat
         title: Titre
       initiative_author:
         address: Adresse
@@ -135,7 +136,19 @@ fr:
           page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
           title: Quelles sont les initiatives?
     initiatives:
+      actions:
+        answer: Réponse
       admin:
+        answers:
+          edit:
+            title: Répondez pour %{title}
+            answer: Réponse
+          info_initiative:
+            created_at: Créé à
+            description: La description
+            initiative_votes_count: Les votes comptent
+            initiatives: Les initiatives
+            state: Etat
         committee_requests:
           index:
             approve: Approuver
@@ -272,8 +285,9 @@ fr:
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
+          choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: "(Plus d'informations)"
-          select: Choisir
+          select: Je veux promouvoir cette initiative
           select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
@@ -299,6 +313,10 @@ fr:
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
+          date_select:
+            day: journée
+            month: Mois
+            year: Année
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
         finish:
           back_to_initiative: Retour à l'initiative
@@ -347,6 +365,11 @@ fr:
           unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle initiative
+        interactions:
+          comments_count:
+            count:
+              one: Commentaire
+              other: commentaires
         orders:
           label: 'Trier les initiatives par :'
           most_commented: Les plus commentées
@@ -354,33 +377,37 @@ fr:
           random: Aléatoire
           recent: Les plus récentes
         result:
-          initiative_accepted_reason: Cette initiative a été acceptée parce que
+          answer_title:
+            accepted: Cette proposition a été acceptée car
+            created: Cette proposition a été créée
+            discarded: Cette proposition a été rejetée car
+            published: Cette proposition est publiée parce que
+            rejected: Cette proposition a été rejetée parce que
+            validating: Cette proposition est en cours d'évaluation
           initiative_rejected_reason: Cette initiative a été rejetée en raison du manque de soutien.
         show:
           any_vote_method: Cette initiative recueille le soutien en ligne ainsi qu'en présentiel.
+          follow_description: Recevoir une notification lorsqu'il y a des nouvelles dans cette initiative
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
           one: " signature"
           other: " signatures"
-        statistics:
-          assistants_count_title: Audience
-          comments_count_title: Commentaires
-          meetings_count_title: Rencontres
-          supports_count_title: Signatures
         supports:
           title: Liste des signatures
         vote_cabin:
           already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"
-          verification_required: Vérifiez votre identité pour signer l'initiative
+          verification_required: Vérifiez votre compte pour signer l'initiative
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
           count:
             one: SIGNATURE
             other: SIGNATURES
+          most_popular_initiative: Initiative la plus populaire
+          need_more_votes: Besoin de plus de signatures
       initiatives_mailer:
         creation_subject: Votre initiative '%{title}' a été créée
         initiative_link:
@@ -421,6 +448,7 @@ fr:
           components: Fonctionnalités
           information: Informations
       initiative_creation_header:
+        back: Retour
         fill_data: Créer
         finish: Fin
         previous_form: Début

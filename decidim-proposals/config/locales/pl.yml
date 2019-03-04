@@ -28,8 +28,15 @@ pl:
       proposals_copy:
         copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent do skopiowania propozycji z
+      proposals_import:
+        import_proposals: Importuj propozycje
+        keep_authors: Zachowaj oryginalnych autorów
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -313,8 +320,11 @@ pl:
             save_draft: Zapisz Projekt
             title: PREVIEW TEKST UCZESTNIKA
           new_import:
+            accepted_mime_types:
+              md: Obniżka cen
+              odt: Odt
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
-            document_legend: 'Dodaj dokument o wielkości mniejszej niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: Markdown'
+            document_legend: 'Dodaj dokument mniejszy niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: %{valid_mime_types}'
             title: DODAJ DOKUMENT
             upload_document: Prześlij dokument
           publish:

@@ -33,7 +33,7 @@ en:
             title: Title
           form:
             add_question: Add question
-            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
+            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
             any: Any
@@ -44,8 +44,8 @@ en:
             statement: Statement
             up: Up
           update:
-            invalid: There's been errors when saving the questionnaire.
-            success: Questionnaires saved successfully.
+            invalid: There was a problem saving the form.
+            success: Forms successfully saved.
       errors:
         answer:
           body: Body can't be blank
@@ -57,23 +57,23 @@ en:
         sorting: Sorting
       questionnaires:
         answer:
-          invalid: There's been errors when answering the questionnaire.
-          success: Questionnaire answered successfully.
+          invalid: There was a problem answering the form.
+          success: Form successfully answered.
         question:
           max_choices: 'Max choices: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
-            title: Answer the questionnaire
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
+            title: Answer the form
           are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           questionnaire_answered:
-            body: You have already answered this questionnaire.
+            body: You have already answered this form.
             title: Already answered
           questionnaire_closed:
-            body: The questionnaire is closed and cannot be answered.
-            title: Questionnaire closed
+            body: The form is closed and cannot be answered.
+            title: Form closed
           questionnaire_for_private_users:
-            body: The questionnaire is available only for private users
-            title: Questionnaire closed
+            body: The form is available only for private users
+            title: Form closed
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service

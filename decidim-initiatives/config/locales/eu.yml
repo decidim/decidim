@@ -13,6 +13,7 @@ eu:
           any: mistoa
           offline: Aurrez aurre
           online: OnLine
+        state: Estatu
         title: Izenburua
       initiative_author:
         address: Helbidea
@@ -135,7 +136,19 @@ eu:
           page: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
           title: Zer dira ekimenak?
     initiatives:
+      actions:
+        answer: Erantzuna
       admin:
+        answers:
+          edit:
+            title: '%{title}erantzun'
+            answer: Erantzuna
+          info_initiative:
+            created_at: Sortutako at
+            description: deskribapena
+            initiative_votes_count: Botoien zenbaketa
+            initiatives: Ekimenak
+            state: Estatu
         committee_requests:
           index:
             approve: Onartu
@@ -272,8 +285,9 @@ eu:
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
+          choose_html: <strong>%{title}</strong>bat sortu nahi dut
           more_information: "(Informazio gehiago)"
-          select: Aukeratu
+          select: Ekimen hau sustatu nahi dut
           select_initiative_type_help: Herritarren ekimenak herritarrek esku hartu ahal izateko bitartekoak dira, Udalak Udalaren jurisdikzioaren esparruan dauden interes orokorren defentsarako ekintzak burutzeko. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
           continue: Jarraitu
@@ -299,6 +313,10 @@ eu:
       initiative_signatures:
         fill_personal_data:
           continue: Jarraitu
+          date_select:
+            day: eguna
+            month: hilabetea
+            year: Urtea
           help: Mesedez, bete zure datu pertsonalak ondorengo eremuak ekimena sinatzeko
         finish:
           back_to_initiative: Ekimenera itzuli
@@ -347,6 +365,11 @@ eu:
           unfold: Zabaldu
         index_header:
           new_initiative: Ekimen berria
+        interactions:
+          comments_count:
+            count:
+              one: Iruzkina
+              other: Oharrak
         orders:
           label: 'Sortu ekintzak honela:'
           most_commented: Iruzkinik gehien
@@ -354,33 +377,37 @@ eu:
           random: Random
           recent: Berrienak
         result:
-          initiative_accepted_reason: Ekimen hau onartu egin delako
+          answer_title:
+            accepted: Proposamen hau onartu egin delako
+            created: Proposamen hau sortu da
+            discarded: Proposamen hau baztertu egin da
+            published: Proposamen hau argitaratzen delako
+            rejected: Proposamen hau baztertu egin delako
+            validating: Proposamen hau ebaluatzen ari da
           initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
           any_vote_method: Herritarren ekimen honek lineako laguntza eta aurrez aurre biltzen ditu.
+          follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
           offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
         signature_identities:
           select_identity: Hautatu erabiltzailearen identifikatzailea
         signatures_count:
           one: " sinadura"
           other: " sinadurak"
-        statistics:
-          assistants_count_title: laguntzaileak
-          comments_count_title: Oharrak
-          meetings_count_title: Bilerak
-          supports_count_title: sinadurak
         supports:
           title: Sinadura zerrenda
         vote_cabin:
           already_voted: Dagoeneko sinatuta
           supports_required: "%{total_supports} sinadura beharrezkoa da"
-          verification_required: Egiaztatu zure identitatea ekimena sinatzeko
+          verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
             one: SIGNATURE
             other: sinadurak
+          most_popular_initiative: Ekimen ezagunena
+          need_more_votes: Sinadura gehiago behar duzu
       initiatives_mailer:
         creation_subject: Zure herritarren ekimena '%{title}' sortu da
         initiative_link:
@@ -421,6 +448,7 @@ eu:
           components: Osagaiak
           information: informazioa
       initiative_creation_header:
+        back: Back
         fill_data: Sortu
         finish: Amaitu
         previous_form: start

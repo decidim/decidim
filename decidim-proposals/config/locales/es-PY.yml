@@ -28,8 +28,15 @@ es-PY:
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente para copiar las propuestas de
+      proposals_import:
+        import_proposals: Propuestas de importación
+        keep_authors: Mantener autores originales
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ es-PY:
             save_draft: Guardar borrador
             title: PREVIO TEXTO PARTICIPATIVO
           new_import:
+            accepted_mime_types:
+              md: Reducción
+              odt: Odt
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos admitidos son: Markdown.'
+            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:

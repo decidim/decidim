@@ -28,8 +28,15 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+      proposals_import:
+        import_proposals: Importa proposte
+        keep_authors: Mantieni gli autori originali
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ it:
             save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
+            accepted_mime_types:
+              md: riduione di prezzo
+              odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: Markdown'
+            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:

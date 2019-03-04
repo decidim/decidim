@@ -36,6 +36,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        alert_color: Alerta
         badges_enabled: Activa els distintius
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
@@ -62,11 +63,15 @@ ca:
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        primary_color: Primària
         reference_prefix: Prefix de referència
+        secondary_color: Secundària
         show_statistics: Mostra estadístiques
+        success_color: Èxit
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
         user_groups_enabled: Activar els grups d'usuaris
+        warning_color: Avís
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -506,6 +511,7 @@ ca:
         edit:
           update: Actualitzar
         form:
+          colors_title: Colors de l'organització
           cta_button_path_help: 'Pots sobreescriure a on enllaça el botó d''acció principal de la pàgina d''inici. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.

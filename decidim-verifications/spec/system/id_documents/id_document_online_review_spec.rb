@@ -37,7 +37,7 @@ describe "Identity document online review", type: :system do
   it "allows the user to verify an identity document" do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
 
-    expect(page).to have_content("User successfully verified")
+    expect(page).to have_content("Participant successfully verified")
     expect(page).to have_no_content("Verification #")
   end
 
@@ -52,7 +52,7 @@ describe "Identity document online review", type: :system do
     before { click_link "Reject" }
 
     it "dismisses the verification from the list" do
-      expect(page).to have_content("Verification rejected. User will be prompted to amend her documents")
+      expect(page).to have_content("Verification rejected. Participant will be prompted to amend her documents")
       expect(page).to have_no_content("Verification #")
     end
 
@@ -73,14 +73,14 @@ describe "Identity document online review", type: :system do
           doc_number: "XXXXXXXY",
           file_name: "dni.jpg"
         )
-        expect(page).to have_content("Document reuploaded successfully")
+        expect(page).to have_content("Document successfully reuploaded")
 
         relogin_as admin, scope: :user
         visit decidim_admin_id_documents.root_path
         click_link "Verification #1"
         expect(page).to have_css("img[src*='dni.jpg']")
         submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXY")
-        expect(page).to have_content("User successfully verified")
+        expect(page).to have_content("Participant successfully verified")
       end
 
       it "shows an informative message to the user" do

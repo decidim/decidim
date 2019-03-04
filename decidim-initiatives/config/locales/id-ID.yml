@@ -13,6 +13,7 @@ id:
           any: Campur aduk
           offline: Tatap muka
           online: On line
+        state: Negara
         title: Judul
       initiative_author:
         address: Alamat
@@ -132,7 +133,19 @@ id:
           page: "<p>Inisiatif adalah proposal yang dapat dipromosikan oleh siapa pun atas inisiatif mereka sendiri (terlepas dari saluran lain atau ruang partisipasi) melalui pengumpulan tanda tangan (digital) untuk organisasi untuk melakukan tindakan tertentu (memodifikasi peraturan, memulai proyek , ubah nama departemen atau jalan, dll.).</p> <p>Promotor suatu inisiatif dapat menentukan tujuannya, mengumpulkan dukungan, berdebat, menyebarluaskannya dan menentukan titik-titik pertemuan di mana tanda tangan dapat dikumpulkan dari peserta atau debat terbuka untuk peserta lain.</p> <p>Contoh: Suatu inisiatif dapat mengumpulkan tanda tangan untuk mengadakan konsultasi di antara semua orang dari suatu organisasi, atau untuk membuat atau mengadakan pertemuan, atau untuk memulai proses peningkatan anggaran untuk suatu wilayah atau wilayah organisasi. Selama proses pengumpulan tanda tangan, lebih banyak orang dapat menambah permintaan ini dan membawanya ke depan dalam organisasi.</p>\n"
           title: Apa inisiatifnya?
     initiatives:
+      actions:
+        answer: Menjawab
       admin:
+        answers:
+          edit:
+            title: Jawab untuk %{title}
+            answer: Menjawab
+          info_initiative:
+            created_at: Dibuat di
+            description: Deskripsi
+            initiative_votes_count: Votes dihitung
+            initiatives: Inisiatif
+            state: Negara
         committee_requests:
           index:
             approve: Menyetujui
@@ -269,8 +282,9 @@ id:
           more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
+          choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: "(Informasi lebih lanjut)"
-          select: Memilih
+          select: Saya ingin mempromosikan inisiatif ini
           select_initiative_type_help: Inisiatif warga adalah cara yang dapat dilakukan oleh kewarganegaraan sehingga Dewan Kota dapat melakukan tindakan untuk membela kepentingan umum yang berada di dalam wilayah yurisdiksi kota. Inisiatif apa yang ingin Anda luncurkan?
         share_committee_link:
           continue: Terus
@@ -296,6 +310,10 @@ id:
       initiative_signatures:
         fill_personal_data:
           continue: Terus
+          date_select:
+            day: Hari
+            month: Bulan
+            year: Tahun
           help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
         finish:
           back_to_initiative: Kembali ke inisiatif
@@ -342,6 +360,10 @@ id:
           unfold: Membuka
         index_header:
           new_initiative: Inisiatif baru
+        interactions:
+          comments_count:
+            count:
+              other: Komentar
         orders:
           label: 'Urutkan inisiatif dengan:'
           most_commented: Sebagian besar berkomentar
@@ -349,31 +371,35 @@ id:
           random: Acak
           recent: Terbaru
         result:
-          initiative_accepted_reason: Inisiatif ini telah diterima karena
+          answer_title:
+            accepted: Proposal ini telah diterima karena
+            created: Proposal ini telah dibuat
+            discarded: Proposal ini telah dibuang karena
+            published: Proposal ini diterbitkan karena
+            rejected: Proposal ini telah ditolak karena
+            validating: Proposal ini sedang dievaluasi
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         show:
           any_vote_method: Inisiatif warga ini mengumpulkan dukungan online serta tatap muka.
+          follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
           offline_method: Inisiatif warga ini hanya mengumpulkan dukungan tatap muka.
         signature_identities:
           select_identity: Pilih pengenal pengguna
         signatures_count:
           other: " tanda tangan"
-        statistics:
-          assistants_count_title: Asisten
-          comments_count_title: Komentar
-          meetings_count_title: Rapat
-          supports_count_title: Tanda tangan
         supports:
           title: Daftar tanda tangan
         vote_cabin:
           already_voted: Sudah ditandatangani
           supports_required: "%{total_supports} tanda tangan diperlukan"
-          verification_required: Verifikasi identitas Anda untuk menandatangani inisiatif
+          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:
           count:
             other: TANDATANGAN
+          most_popular_initiative: Inisiatif paling populer
+          need_more_votes: Perlu lebih banyak tanda tangan
       initiatives_mailer:
         creation_subject: Inisiatif warga Anda '%{title}' telah dibuat
         initiative_link:
@@ -414,6 +440,7 @@ id:
           components: Komponen
           information: Informasi
       initiative_creation_header:
+        back: Kembali
         fill_data: Membuat
         finish: Selesai
         previous_form: Mulai

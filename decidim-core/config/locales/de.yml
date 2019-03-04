@@ -500,6 +500,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: "%{nickname} hat ihr Profil aktualisiert"
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> wurde amtlich gemacht.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+          email_subject: "%{nickname} wurde amtlich gemacht"
+          notification_title: Die <a href="%{resource_path}">%{name} (%{nickname})</a>, der Sie folgen, wurde offiziell bestätigt.
     export_mailer:
       data_portability_export:
         click_button: Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.

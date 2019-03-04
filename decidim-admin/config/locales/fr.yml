@@ -36,6 +36,7 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
+        alert_color: Alerte
         badges_enabled: Activer les badges
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
@@ -62,11 +63,15 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        primary_color: Primaire
         reference_prefix: Préfixe de référence
+        secondary_color: Secondaire
         show_statistics: Montrer les statistiques
+        success_color: Succès
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        warning_color: Attention
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -506,6 +511,7 @@ fr:
         edit:
           update: Mettre à jour
         form:
+          colors_title: Couleurs de l'organisation
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.

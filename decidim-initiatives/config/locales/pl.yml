@@ -13,6 +13,7 @@ pl:
           any: Mieszany
           offline: Twarzą w twarz
           online: Online
+        state: Stan
         title: Tytuł
       initiative_author:
         address: Adres
@@ -141,7 +142,19 @@ pl:
           page: "<p>Inicjatywa jest propozycją, którą może promować każdy z własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) poprzez zbieranie (cyfrowych) podpisów dla organizacji w celu przeprowadzenia konkretnego działania (modyfikacja rozporządzenia, zainicjowanie projektu , zmień nazwę wydziału lub ulicy itp.).</p> <p>Organizatorzy inicjatywy mogą określić swoje cele, zebrać wsparcie, debatę, upowszechnić i określić miejsca spotkań, w których można zbierać podpisy od uczestników lub debaty otwarte dla innych uczestników.</p> <p>Przykłady: Inicjatywa może zbierać podpisy, aby zwoływać konsultacje wśród wszystkich osób w organizacji, tworzyć lub zwoływać zgromadzenie lub inicjować proces zwiększania budżetu dla terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów więcej osób może zwiększyć to zapotrzebowanie i przenieść je do przodu w organizacji.</p>\n"
           title: Jakie są inicjatywy?
     initiatives:
+      actions:
+        answer: Odpowiedź
       admin:
+        answers:
+          edit:
+            title: Odpowiedz na %{title}
+            answer: Odpowiedź
+          info_initiative:
+            created_at: Utworzono w
+            description: Opis
+            initiative_votes_count: Liczenie głosów
+            initiatives: Inicjatywy
+            state: Stan
         committee_requests:
           index:
             approve: Zatwierdzać
@@ -278,8 +291,9 @@ pl:
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Plecy
+          choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
-          select: Wybierać
+          select: Chcę promować tę inicjatywę
           select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatelstwo może interweniować, aby Rada Miejska mogła podejmować działania w obronie interesu ogólnego, które znajdują się na obszarach podlegających jurysdykcji gminnej. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: dalej
@@ -305,6 +319,10 @@ pl:
       initiative_signatures:
         fill_personal_data:
           continue: dalej
+          date_select:
+            day: Dzień
+            month: Miesiąc
+            year: Rok
           help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę
         finish:
           back_to_initiative: Powrót do inicjatywy
@@ -357,6 +375,13 @@ pl:
           unfold: Rozwijać się
         index_header:
           new_initiative: Nowa inicjatywa
+        interactions:
+          comments_count:
+            count:
+              one: Komentarz
+              few: Komentarze
+              many: Komentarze
+              other: Komentarze
         orders:
           label: 'Sortuj inicjatywy według:'
           most_commented: Najczęściej komentowane
@@ -364,10 +389,17 @@ pl:
           random: Losowy
           recent: Najnowszy
         result:
-          initiative_accepted_reason: Ta inicjatywa została przyjęta, ponieważ
+          answer_title:
+            accepted: Ta propozycja została zaakceptowana, ponieważ
+            created: Ta propozycja została utworzona
+            discarded: Ta propozycja została odrzucona, ponieważ
+            published: Ta propozycja została opublikowana, ponieważ
+            rejected: Ta propozycja została odrzucona, ponieważ
+            validating: Ta propozycja jest oceniana
           initiative_rejected_reason: Inicjatywa ta została odrzucona ze względu na brak wsparcia.
         show:
           any_vote_method: Ta inicjatywa obywatelska zbiera wsparcie online i twarzą w twarz.
+          follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości z tej inicjatywy
           offline_method: Ta inicjatywa obywatelska zbiera jedynie osobiste wsparcie.
         signature_identities:
           select_identity: Wybierz identyfikator użytkownika
@@ -376,17 +408,12 @@ pl:
           few: " podpisy"
           many: " podpisy"
           other: " podpisy"
-        statistics:
-          assistants_count_title: Asystenci
-          comments_count_title: Komentarze
-          meetings_count_title: Spotkania
-          supports_count_title: Podpisy
         supports:
           title: Lista podpisów
         vote_cabin:
           already_voted: Już podpisane
           supports_required: "Wymagane %{total_supports} podpisów"
-          verification_required: Zweryfikuj swoją tożsamość, aby podpisać inicjatywę
+          verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
@@ -395,6 +422,8 @@ pl:
             few: PODPISY
             many: PODPISY
             other: PODPISY
+          most_popular_initiative: Najbardziej popularna inicjatywa
+          need_more_votes: Potrzebujesz więcej podpisów
       initiatives_mailer:
         creation_subject: Twoja inicjatywa obywatelska "%{title}" została utworzona
         initiative_link:
@@ -435,6 +464,7 @@ pl:
           components: składniki
           information: Informacja
       initiative_creation_header:
+        back: Z powrotem
         fill_data: Stwórz
         finish: koniec
         previous_form: Początek

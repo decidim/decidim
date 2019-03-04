@@ -13,6 +13,7 @@ pt:
           any: Misturado
           offline: Cara a cara
           online: Conectados
+        state: Estado
         title: Título
       initiative_author:
         address: Endereço
@@ -135,7 +136,19 @@ pt:
           page: "<p>Uma iniciativa é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto , mude o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembléia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
           title: O que são iniciativas?
     initiatives:
+      actions:
+        answer: Responda
       admin:
+        answers:
+          edit:
+            title: Resposta para %{title}
+            answer: Responda
+          info_initiative:
+            created_at: Criado em
+            description: Descrição
+            initiative_votes_count: Contagem de votos
+            initiatives: Iniciativas
+            state: Estado
         committee_requests:
           index:
             approve: Aprovar
@@ -272,8 +285,9 @@ pt:
           more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
+          choose_html: Eu quero criar um <strong>%{title}</strong>
           more_information: "(Mais Informações)"
-          select: Escolher
+          select: Eu quero promover essa iniciativa
           select_initiative_type_help: As iniciativas cidadãs são um meio pelo qual a cidadania pode intervir para que a Câmara Municipal possa empreender ações em defesa do interesse geral que se encontram dentro dos campos de jurisdição municipal. Qual iniciativa você quer lançar?
         share_committee_link:
           continue: Continuar
@@ -299,6 +313,10 @@ pt:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
+          date_select:
+            day: Dia
+            month: Mês
+            year: Ano
           help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
         finish:
           back_to_initiative: De volta à iniciativa
@@ -347,6 +365,11 @@ pt:
           unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
+        interactions:
+          comments_count:
+            count:
+              one: Comente
+              other: Comentários
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: Mais comentado
@@ -354,33 +377,37 @@ pt:
           random: Aleatória
           recent: Mais recente
         result:
-          initiative_accepted_reason: Esta iniciativa foi aceita porque
+          answer_title:
+            accepted: Esta proposta foi aceita porque
+            created: Esta proposta foi criada
+            discarded: Esta proposta foi descartada porque
+            published: Esta proposta é publicada porque
+            rejected: Esta proposta foi rejeitada porque
+            validating: Esta proposta está sendo avaliada
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
           any_vote_method: Essa iniciativa cidadã coleta suporte on-line e também presencial.
+          follow_description: Receber uma notificação quando houver notícias nesta iniciativa
           offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
         signature_identities:
           select_identity: Selecione o identificador de usuários
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
-        statistics:
-          assistants_count_title: Assistentes
-          comments_count_title: Comentários
-          meetings_count_title: Reuniões
-          supports_count_title: Assinaturas
         supports:
           title: Listagem de assinaturas
         vote_cabin:
           already_voted: Já assinado
           supports_required: "%{total_supports} assinaturas exigidas"
-          verification_required: Verifique sua identidade para assinar a iniciativa
+          verification_required: Confirme sua conta para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:
           count:
             one: ASSINATURA
             other: ASSINATURAS
+          most_popular_initiative: Iniciativa mais popular
+          need_more_votes: Precisa de mais assinaturas
       initiatives_mailer:
         creation_subject: Sua iniciativa cidadã '%{title}' foi criada
         initiative_link:
@@ -421,6 +448,7 @@ pt:
           components: Componentes
           information: Em formação
       initiative_creation_header:
+        back: De volta
         fill_data: Crio
         finish: Terminar
         previous_form: Começar

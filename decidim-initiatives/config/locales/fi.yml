@@ -13,6 +13,7 @@ fi:
           any: Monikanavainen
           offline: Palvelun ulkopuolella
           online: Verkossa
+        state: Tila
         title: Otsikko
       initiative_author:
         address: Osoite
@@ -33,7 +34,7 @@ fi:
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
         title: Otsikko
-        undo_online_signatures_enabled: Salli käyttäjien peruuttaa online-allekirjoituksensa
+        undo_online_signatures_enabled: Salli käyttäjien peruuttaa verkossa tehdyt allekirjoitukset
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
       initiatives_vote:
         name_and_surname: Nimi ja sukunimi
@@ -135,7 +136,19 @@ fi:
           page: "<p>Aloite on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallisuustiloista riippumatta) kokoamalla (digitaaliset) allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys , alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukea, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn organisaation, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>"
           title: Mitkä ovat aloitteet?
     initiatives:
+      actions:
+        answer: Vastaus
       admin:
+        answers:
+          edit:
+            title: Vastaus kohteelle %{title}
+            answer: Vastaus
+          info_initiative:
+            created_at: Luonnin ajankohta
+            description: Kuvaus
+            initiative_votes_count: Äänten määrä
+            initiatives: Aloitteet
+            state: Tila
         committee_requests:
           index:
             approve: Hyväksy
@@ -272,8 +285,9 @@ fi:
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
+          choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
           more_information: "(Lisää tietoa)"
-          select: Valitse
+          select: Haluan tukea tätä aloitetta
           select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaiset voivat osallistua viralliseen päätöksentekoon. Päättävät elimet, kuten kaupungin- tai kunnanvaltuusto, voivat tehdä toimenpiteitä, jotka vaikuttavat kansalaisten edun mukaisesti lainsäädäntöön. Millaisen aloitteen sinä haluat laatia?
         share_committee_link:
           continue: Jatka
@@ -299,6 +313,10 @@ fi:
       initiative_signatures:
         fill_personal_data:
           continue: Jatka
+          date_select:
+            day: Päivä
+            month: Kuukausi
+            year: vuosi
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
         finish:
           back_to_initiative: Takaisin aloitteeseen
@@ -312,7 +330,7 @@ fi:
         create:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
           invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
-          success_html: Onnittelut! <strong> %{title}</strong> -aloite on allekirjoitettu oikein
+          success_html: Onnittelut! Aloite <strong>%{title}</strong> on onnistuneesti allekirjoitettu
         personal_data:
           invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
         sms_code:
@@ -347,6 +365,11 @@ fi:
           unfold: Avaa
         index_header:
           new_initiative: Uusi aloite
+        interactions:
+          comments_count:
+            count:
+              one: Kommentti
+              other: Kommenttia
         orders:
           label: 'Lajittele aloitteita:'
           most_commented: Eniten kommentoidut
@@ -354,33 +377,37 @@ fi:
           random: Satunnainen järjestys
           recent: Viimeisimmät
         result:
-          initiative_accepted_reason: Tämä aloite on hyväksytty, koska
+          answer_title:
+            accepted: Tämä ehdotus on hyväksytty, koska
+            created: Tämä ehdotus on luotu
+            discarded: Tämä ehdotus jätetään huomiotta, koska
+            published: Tämä ehdotus on julkaistu, koska
+            rejected: Tämä ehdotus on hylätty, koska
+            validating: Tätä ehdotusta arvioidaan
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
           any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja palvelun ulkopuolella.
+          follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
           offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan palvelun ulkopuolella.
         signature_identities:
           select_identity: Valitse käyttäjätunniste
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
-        statistics:
-          assistants_count_title: Avustajaa
-          comments_count_title: Kommenttia
-          meetings_count_title: Tapaamista
-          supports_count_title: Allekirjoitusta
         supports:
           title: Allekirjoitusten luettelo
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
-          verification_required: Vahvista henkilöllisyytesi allekirjoittaaksesi aloite
+          verification_required: Vahvista tilisi allekirjoittamaan aloite
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
           count:
             one: ALLEKIRJOITUS
             other: ALLEKIRJOITUSTA
+          most_popular_initiative: Suosituin aloite
+          need_more_votes: Tarvitsee lisää allekirjoituksia
       initiatives_mailer:
         creation_subject: Kansalaisaloitteesi "%{title}" on luotu
         initiative_link:
@@ -421,6 +448,7 @@ fi:
           components: Komponentit
           information: Tiedot
       initiative_creation_header:
+        back: Takaisin
         fill_data: Luo
         finish: Viimeistele
         previous_form: Alku
@@ -434,8 +462,8 @@ fi:
       initiative_signature_creation_header:
         back: Takaisin
         fill_personal_data: Täydennä tietosi
-        finish: Suorittaa loppuun
-        finished: Aloitteen allekirjoitus luotu
+        finish: Viimeistele
+        finished: Allekirjoitus luotu aloitteelle
         select_identity: Valitse identiteetti
         see_steps: katso vaiheet
         sms_code: Tekstiviestikoodin vahvistaminen

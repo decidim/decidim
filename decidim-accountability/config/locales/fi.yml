@@ -209,7 +209,7 @@ fi:
           notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
     metrics:
       results:
-        description: Saatujen tulosten lukumäärä
+        description: Luotujen tulosten lukumäärä
         object: tulokset
         title: Tulokset
     participatory_processes:

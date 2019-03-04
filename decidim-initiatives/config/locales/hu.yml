@@ -13,6 +13,7 @@ hu:
           any: Vegyes
           offline: Szemtől szembe
           online: Online
+        state: Állapot
         title: Cím
       initiative_author:
         address: Lakcím
@@ -135,7 +136,19 @@ hu:
           page: "<p>A kezdeményezés egy olyan javaslat, amelyet bármelyik saját kezdeményezésére (függetlenül más csatornáktól vagy részvételi helyektől függetlenül) támogathat a szervezet (digitális) aláírásának gyűjtése révén egy adott tevékenység végrehajtására (szabály módosítása, projekt kezdeményezése , megváltoztathatja az osztály vagy utcanév nevét stb.).</p> <p>A kezdeményezés támogatói meghatározhatják céljait, támogatást nyújthatnak, megvitathatják, terjeszthetik azt, és meghatározhatják azokat a találkozási pontokat, ahol az aláírások gyűjthetők a résztvevőkről vagy a többi résztvevők előtt megnyíló vitákról.</p> <p>Példák: egy kezdeményezés gyűjthetünk aláírásokat, hogy összehívja a konzultáció az egész nép közül egy szervezet, vagy hozzon létre, vagy hív egy összeállítást, illetve a folyamat elindítását egy költségvetés növelése egy terület vagy övezet a szervezet. Az aláírások gyűjtésének folyamata során több ember hozzá tud járulni ehhez a kereslethez, és továbbadhatja a szervezetben.</p>\n"
           title: Mi a kezdeményezés?
     initiatives:
+      actions:
+        answer: Válasz
       admin:
+        answers:
+          edit:
+            title: Válasz %{title}
+            answer: Válasz
+          info_initiative:
+            created_at: 'Létrehozva:'
+            description: Leírás
+            initiative_votes_count: Szavazatok száma
+            initiatives: kezdeményezések
+            state: Állapot
         committee_requests:
           index:
             approve: Jóváhagy
@@ -272,8 +285,9 @@ hu:
           more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
+          choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
           more_information: "(További információk)"
-          select: Válassz
+          select: Szeretném támogatni ezt a kezdeményezést
           select_initiative_type_help: A polgári kezdeményezés egy olyan eszköz, amellyel az állampolgárok beavatkozhatnak a képviselőtestület munkájába és kiharcolhatják az önkormányzat hatáskörébe tartozó célok elérését. Milyen kezdeményezést szeretnél indítani?
         share_committee_link:
           continue: Tovább
@@ -299,6 +313,10 @@ hu:
       initiative_signatures:
         fill_personal_data:
           continue: Tovább
+          date_select:
+            day: Nap
+            month: Hónap
+            year: Év
           help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
         finish:
           back_to_initiative: Vissza a kezdeményezéshez
@@ -347,6 +365,11 @@ hu:
           unfold: Kibont
         index_header:
           new_initiative: Új kezdeményezés
+        interactions:
+          comments_count:
+            count:
+              one: Megjegyzés
+              other: Hozzászólások
         orders:
           label: 'Kezdeményezések rendezése:'
           most_commented: Legtöbb hozzászólással
@@ -354,33 +377,37 @@ hu:
           random: Véletlenszerű
           recent: Legutóbbi
         result:
-          initiative_accepted_reason: A kezdeményezést azért fogadták el, mert
+          answer_title:
+            accepted: Ezt a javaslatot azért fogadták el, mert
+            created: Ez a javaslat létrejött
+            discarded: Ezt a javaslatot elvetették, mert
+            published: Ezt a javaslatot azért teszik közzé, mert
+            rejected: Ezt a javaslatot elutasították, mert
+            validating: Ezt a javaslatot értékelik
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
         show:
           any_vote_method: Az állampolgári kezdeményezés online és személyes támogatást igényel.
+          follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
           offline_method: Az állampolgári kezdeményezés csak személyesen támogatható.
         signature_identities:
           select_identity: Válassz felhasználói azonosítót
         signatures_count:
           one: " aláírás"
           other: " aláírások"
-        statistics:
-          assistants_count_title: Asszisztensek
-          comments_count_title: Hozzászólások
-          meetings_count_title: Találkozók
-          supports_count_title: Aláírások
         supports:
           title: Aláírások listája
         vote_cabin:
           already_voted: Már aláírtad
           supports_required: "%{total_supports} aláírás szükséges"
-          verification_required: Személyazonosságod ellenőrzésére vagy szükség a kezdeményezés aláírásához
+          verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
           count:
             one: ALÁÍRÁS
             other: ALÁÍRÁSOK
+          most_popular_initiative: Legnépszerűbb kezdeményezés
+          need_more_votes: Több aláírásra van szükség
       initiatives_mailer:
         creation_subject: A(z) "%{title}" állampolgári kezdeményezés létrejött
         initiative_link:
@@ -421,6 +448,7 @@ hu:
           components: Elemek
           information: Információ
       initiative_creation_header:
+        back: Hát
         fill_data: Létrehozás
         finish: Befejezés
         previous_form: Kezdés

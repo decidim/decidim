@@ -12,10 +12,10 @@ en:
       id_document_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
-        user: User
+        user: Participant
         verification_attachment: Scanned copy of your document
       offline_confirmation:
-        email: User email
+        email: Participant email
       postal_letter_address:
         full_address: Full address
       postal_letter_confirmation:
@@ -42,10 +42,10 @@ en:
             - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
-            - Users request a verification code to be sent to their address.
+            - Participants request a verification code to be sent to their address.
             - You send the letter to their address with the verification code.
             - You mark the letter as sent.
-            - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Get verified using the organization's census
         name: Organization's census
@@ -62,7 +62,7 @@ en:
     verifications:
       authorizations:
         create:
-          error: There was an error creating the authorization.
+          error: There was a problem creating the authorization.
           success: You've been successfully authorized.
           unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
@@ -109,8 +109,8 @@ en:
             success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to users with the postal code %{postal_codes}.
-          other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
+          one: Participation is restricted to participants with the postal code %{postal_codes}.
+          other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +118,23 @@ en:
               title: Identity documents configuration
               update: Update
             update:
-              error: There was an error updating the configuration.
+              error: There was a problem updating the configuration.
               success: Configuration successfully updated
           confirmations:
             create:
-              error: Verification doesn't match. Try again or reject the verification so the user can amend it
-              success: User successfully verified
+              error: Verification doesn't match. Please try again or reject the verification so the participant can amend it
+              success: Participant successfully verified
             new:
               introduce_user_data: Introduce the data in the picture
               reject: Reject
               verify: Verify
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Verification doesn't match. Please try again or tell the participant to amend it
+              success: Participant successfully verified
             new:
               cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
+              introduce_user_data: Introduce the participant email and the document data
               verify: Verify
           pending_authorizations:
             index:
@@ -144,7 +144,7 @@ en:
               verification_number: 'Verification #%{n}'
           rejections:
             create:
-              success: Verification rejected. User will be prompted to amend her documents
+              success: Verification rejected. Participant will be prompted to amend her documents
         authorizations:
           choose:
             choose_a_type: "Please select how you want to be verified:"
@@ -153,7 +153,7 @@ en:
             title: Verify yourself using your identity document
           create:
             error: There was a problem uploading your document
-            success: Document uploaded successfully
+            success: Document successfully uploaded
           edit:
             being_reviewed: We're reviewing your documents. You'll be verified shortly
             offline: Use offline verification
@@ -167,7 +167,7 @@ en:
             title: Upload your identity document
           update:
             error: There was a problem reuploading your document
-            success: Document reuploaded successfully
+            success: Document successfully reuploaded
         dni: DNI
         nie: NIE
         passport: Passport
@@ -180,7 +180,7 @@ en:
               mark_as_sent: Mark as sent
               not_yet_sent: Not yet sent
               title: Ongoing verifications
-              username: Username
+              username: Nickname
               verification_code: Verification code
           postages:
             create:

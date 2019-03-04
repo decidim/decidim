@@ -28,8 +28,15 @@ hu:
       proposals_copy:
         copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
+      proposals_import:
+        import_proposals: Import-javaslatok
+        keep_authors: Tartsa meg az eredeti szerzőket
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ hu:
             save_draft: Vázlat mentése
             title: RÉSZTVEVŐ SZÖVEG előnézete
           new_import:
+            accepted_mime_types:
+              md: Árleszállítás
+              odt: ODT
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adj hozzá egy dokumentumot, amely kisebb, mint 2 MB -minden egyes szakasz 3 szint mélységig javaslattá lesz alakítva. A támogatott formátum a szöveghez: Markdown'
+            document_legend: 'Adjon hozzá egy 2 MB-nál kisebb dokumentumot, mindegyik szekciót addig, amíg a 3 szint mélyen meg nem jelenik a Javaslatokba. A választott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:

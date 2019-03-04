@@ -28,8 +28,15 @@ sv:
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
+      proposals_import:
+        import_proposals: Importera förslag
+        keep_authors: Förvara originalförfattare
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -303,8 +310,11 @@ sv:
             save_draft: Spara utkast
             title: PREVIEW PARTICIPERY TEXT
           new_import:
+            accepted_mime_types:
+              md: Prissänkning
+              odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsgranska och sortera dokumentavsnitt)"
-            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: Markdown'
+            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: %{valid_mime_types}'
             title: ADD DOKUMENT
             upload_document: Ladda upp dokument
           publish:

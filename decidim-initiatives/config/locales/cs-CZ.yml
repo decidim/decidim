@@ -13,6 +13,7 @@ cs:
           any: Smíšený
           offline: Z očí do očí
           online: OnLine
+        state: Stát
         title: Titul
       initiative_author:
         address: Adresa
@@ -141,7 +142,19 @@ cs:
           page: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
           title: Co jsou iniciativy?
     initiatives:
+      actions:
+        answer: Odpovědět
       admin:
+        answers:
+          edit:
+            title: Odpověď na %{title}
+            answer: Odpovědět
+          info_initiative:
+            created_at: Vytvořeno u
+            description: Popis
+            initiative_votes_count: Počet hlasů
+            initiatives: Iniciativy
+            state: Stát
         committee_requests:
           index:
             approve: Schvalovat
@@ -278,8 +291,9 @@ cs:
           more_information: "(Více informací)"
         select_initiative_type:
           back: Zadní
+          choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: "(Více informací)"
-          select: Vybrat
+          select: Chci tuto iniciativu podpořit
           select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Která iniciativa chcete spustit?
         share_committee_link:
           continue: Pokračovat
@@ -305,6 +319,10 @@ cs:
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovat
+          date_select:
+            day: Den
+            month: Měsíc
+            year: Rok
           help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
         finish:
           back_to_initiative: Zpět na iniciativu
@@ -357,6 +375,13 @@ cs:
           unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
+        interactions:
+          comments_count:
+            count:
+              one: Komentář
+              few: Komentáře
+              many: Komentáře
+              other: Komentáře
         orders:
           label: 'Třídit iniciativy podle:'
           most_commented: Nejvíce komentované
@@ -364,10 +389,17 @@ cs:
           random: Náhodný
           recent: Nejnovější
         result:
-          initiative_accepted_reason: Tato iniciativa byla přijata proto, že
+          answer_title:
+            accepted: Tento návrh byl přijat, protože
+            created: Tento návrh byl vytvořen
+            discarded: Tento návrh byl zlikvidován, protože
+            published: Tento návrh je zveřejněn proto, že
+            rejected: Tento návrh byl zamítnut, protože
+            validating: Tento návrh se hodnotí
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
+          follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
           offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
         signature_identities:
           select_identity: Vyberte identifikátor uživatele
@@ -376,17 +408,12 @@ cs:
           few: " podpisy"
           many: " podpisy"
           other: " podpisy"
-        statistics:
-          assistants_count_title: Asistenti
-          comments_count_title: Komentáře
-          meetings_count_title: Setkání
-          supports_count_title: Podpisy
         supports:
           title: Výpis podpisů
         vote_cabin:
           already_voted: Již jste podepsal
           supports_required: "Vyžaduje se %{total_supports} podpisů"
-          verification_required: Ověřte svou totožnost a podepište její iniciativu
+          verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
         votes_count:
@@ -395,6 +422,8 @@ cs:
             few: PODPISY
             many: PODPISY
             other: PODPISY
+          most_popular_initiative: Nejoblíbenější iniciativa
+          need_more_votes: Potřebujete další podpisy
       initiatives_mailer:
         creation_subject: Vaše občanská iniciativa "%{title}" byla vytvořena
         initiative_link:
@@ -435,6 +464,7 @@ cs:
           components: Komponenty
           information: Informace
       initiative_creation_header:
+        back: Zadní
         fill_data: Vytvořit
         finish: Dokončit
         previous_form: Start

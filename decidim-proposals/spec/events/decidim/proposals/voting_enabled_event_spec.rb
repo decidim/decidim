@@ -18,14 +18,14 @@ module Decidim
 
       describe "email_subject" do
         it "is generated correctly" do
-          expect(subject.email_subject).to eq("Proposals voting has started for #{participatory_space.title["en"]}")
+          expect(subject.email_subject).to eq("Proposal support has started for #{participatory_space.title["en"]}")
         end
       end
 
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("You can vote proposals in #{participatory_space_title}! Start participating in this page:")
+            .to eq("You can support proposals in #{participatory_space_title}! Start participating in this page:")
         end
       end
 
@@ -39,7 +39,7 @@ module Decidim
       describe "notification_title" do
         it "is generated correctly" do
           expect(subject.notification_title)
-            .to eq("You can now start <a href=\"#{resource_path}\">voting proposals</a> in <a href=\"#{participatory_space_url}\">#{participatory_space.title["en"]}</a>")
+            .to eq("You can now start <a href=\"#{resource_path}\">supporting proposals</a> in <a href=\"#{participatory_space_url}\">#{participatory_space.title["en"]}</a>")
         end
       end
     end

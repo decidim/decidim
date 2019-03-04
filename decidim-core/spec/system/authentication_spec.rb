@@ -301,7 +301,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("password has been changed successfully")
+        expect(page).to have_content("Your password has been successfully changed")
         expect(page).to have_current_path "/"
       end
     end

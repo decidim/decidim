@@ -498,6 +498,11 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: "%{nickname} memperbarui profil mereka"
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> telah resmi.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{nickname}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+          email_subject: "%{nickname} telah resmi"
+          notification_title: <a href="%{resource_path}">%{name} (%{nickname})</a>, yang Anda ikuti, telah resmi.
     export_mailer:
       data_portability_export:
         click_button: Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.

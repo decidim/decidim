@@ -4,16 +4,16 @@ en:
       initiative:
         decidim_user_group_id: Author
         description: Description
-        offline_votes: Face-to-face supports
+        offline_votes: In-person signatures
         scope_id: Scope
         signature_end_date: End of signature collection period
         signature_start_date: Start of signature collection period
         signature_type: Signature collection type
         signature_type_values:
           any: Mixed
-          offline: Face to face
-          online: OnLine
-        state: State
+          offline: In-person
+          online: Online
+        state: Status
         title: Title
       initiative_author:
         address: Address
@@ -27,14 +27,14 @@ en:
         user: Committee member
       initiatives_type:
         banner_image: Banner image
-        collect_user_extra_fields: Collect user personal data on signature
+        collect_user_extra_fields: Collect participant personal data on signature
         description: Description
-        document_number_authorization_handler: Authorization to verify document number on votes
+        document_number_authorization_handler: Authorization to verify document number on signatures
         extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
         title: Title
-        undo_online_signatures_enabled: Enable users to undo their online signatures
+        undo_online_signatures_enabled: Enable participants to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
       initiatives_vote:
         name_and_surname: Name and surname
@@ -68,13 +68,13 @@ en:
           fields:
             created_at: Created at
             id: ID
-            state: State
-            supports_count: Supports
+            state: Status
+            supports_count: Signatures
             title: Initiatives
         initiatives_type_scope:
           fields:
             scope: Scope
-            supports_required: Supports required
+            supports_required: Signatures required
           name: Initiative type scope
         initiatives_types:
           fields:
@@ -101,10 +101,10 @@ en:
     events:
       initiatives:
         initiative_extended:
-          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
+          email_intro: The signatures end date for the initiative %{resource_title} have been extended!
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: Initiative signatures end date extended!
-          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
+          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative have been extended.
         milestone_completed:
           affected_user:
             email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
@@ -123,17 +123,17 @@ en:
             - Go to the participation space of Intiatives
             - Follow the steps to create a new initiative
           description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
-          description_another: This user has gotten %{score} initiatives published.
+          description_another: This participant has gotten %{score} initiatives published.
           description_own: You've got %{score} initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
-          unearned_another: This user hasn't gotten any initiatives published yet.
+          unearned_another: This participant hasn't gotten any initiatives published yet.
           unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
-          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          contextual: "<p>An <strong>initiative</strong> is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An <strong>initiative</strong> is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
           title: What are initiatives?
     initiatives:
       actions:
@@ -153,7 +153,7 @@ en:
           index:
             approve: Approve
             confirm_revoke: Are you sure?
-            invite_to_committee_help: Share this link to invite other users to the promotion committee
+            invite_to_committee_help: Share this link to invite other participants to the promoter committee
             no_members_yet: There are no members in the promoter committee
             revoke: Revoke
             title: Committee members
@@ -166,7 +166,7 @@ en:
             confirm: Are you sure?
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
-            export_votes: Export supports
+            export_votes: Export signatures
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
             success: The initiative has been sent to technical validation
@@ -191,7 +191,7 @@ en:
             print: Print
           update:
             error: An error has occurred
-            success: The citizen initiative has been successfully updated
+            success: The initiative has been successfully updated
         initiatives_type_scopes:
           create:
             error: An error has occurred
@@ -257,18 +257,18 @@ en:
         fill_data:
           back: Back
           continue: Continue
-          fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
+          fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
           initiative_type: Initiative type
           more_information: "(More information)"
           select_scope: Select a scope
         finish:
           back: Back
           back_to_initiatives: Back to initiatives
-          callout_text: Congratulations! Your citizen initiative has been created successfully.
+          callout_text: Congratulations! Your citizen initiative has been successfully created.
           go_to_my_initiatives: Go to my initiatives
           more_information: "(More information)"
         finish_help:
-          access_reminder: Remember that you will always be able to access your initiatives through the user menu.
+          access_reminder: Remember that you will always be able to access your initiatives through the participant menu.
           help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
           help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
           help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
@@ -294,7 +294,7 @@ en:
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
         show_similar_initiatives:
           back: Back
-          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
+          compare_help: If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.
           continue: My initiative is different
           more_information: "(More information)"
       events:
@@ -328,9 +328,9 @@ en:
           help: Check the SMS received at your phone
       initiative_votes:
         create:
-          error: There's been errors when signing the initiative.
+          error: There was a problem signing the initiative.
           invalid: The data provided to sign the initiative is not valid
-          success_html: Congratulations! The <strong> %{title}</strong> initiative has been signed correctly
+          success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed
         personal_data:
           invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
@@ -355,7 +355,7 @@ en:
           myself: My initiatives
           open: Open
           search: Search
-          state: State
+          state: Status
           type: Type
           type_prompt: Select a type
         filters_small_view:
@@ -369,7 +369,7 @@ en:
           comments_count:
             count:
               one: Comment
-              other: Comments
+              other: Comment
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
@@ -384,13 +384,13 @@ en:
             published: This proposal is published because
             rejected: This proposal has been rejected because
             validating: This proposal is being evaluated
-          initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
+          initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
-          any_vote_method: This citizen initiative collects online support as well as face to face.
+          any_vote_method: This citizen initiative collects both online and in-person signatures.
           follow_description: Receive a notification when there are news in this initiative
-          offline_method: This citizen initiative only collects face to face supports.
+          offline_method: This citizen initiative only collects in-person signatures.
         signature_identities:
-          select_identity: Select user identifier
+          select_identity: Select participant identifier
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -409,16 +409,16 @@ en:
           most_popular_initiative: Most popular initiative
           need_more_votes: Need more signatures
       initiatives_mailer:
-        creation_subject: Your citizen initiative '%{title}' has been created
+        creation_subject: Your initiative '%{title}' has been created
         initiative_link:
           check_initiative_details: You can see the initiative details
           here: here
         more_information: Here you have more information about the initiative creation process.
-        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
-        progress_report_for: 'Resume about the initiative: %{title}'
+        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required signatures.
+        progress_report_for: 'Summary about the initiative: %{title}'
         promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
-        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
-        status_change_for: The initiative %{title} has changed its state
+        status_change_body_for: 'The initiative %{title} has changed its status to: %{state}'
+        status_change_for: The initiative %{title} has changed its status
         technical_validation_body_for: The initiative %{title} has requested its technical validation.
         technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
@@ -437,7 +437,7 @@ en:
     resources:
       initiatives_type:
         actions:
-          vote: Vote
+          vote: Sign
           title: Actions
   layouts:
     decidim:

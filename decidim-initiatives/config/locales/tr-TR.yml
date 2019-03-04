@@ -13,6 +13,7 @@ tr:
           any: Karışık
           offline: Yüz yüze
           online: İnternet üzerinden
+        state: Belirtmek, bildirmek
         title: Başlık
       initiative_author:
         address: Adres
@@ -135,7 +136,19 @@ tr:
           page: "<p>Bir girişim belirli bir işlemi (bir yönetmelik değiştirmek yürütmek için organizasyon için (dijital) imza toplama yoluyla (bağımsız kanal veya katılım boşluklar diğerinin) kendi inisiyatifleriyle herkes tarafından teşvik edilebilir bir öneri bir proje başlatmak olduğunu , bir bölümün veya bir sokağın adını değiştirir vb.).</p> <p>Bir girişimin destekleyicileri hedeflerini tanımlayabilir, destek toplayabilir, tartışabilir, dağıtabilir ve katılımcılardan imzaların toplanabileceği buluşma noktalarını veya diğer katılımcılara açık tartışmaları tanımlayabilir.</p> <p>Örnekler: Bir inisiyatif, bir örgütün tüm halkı arasında bir istişare toplanması, bir meclis oluşturma veya toplanması ya da kuruluşun bir bölgesi veya bölgesi için bir bütçe artışı sürecinin başlatılması için imza toplayabilir. İmza toplama süreci boyunca, bu talebe daha fazla kişi katılabilir ve organizasyonda ileriye taşıyabilir.</p>\n"
           title: Girişimler nelerdir?
     initiatives:
+      actions:
+        answer: Cevap
       admin:
+        answers:
+          edit:
+            title: '%{title}cevabı'
+            answer: Cevap
+          info_initiative:
+            created_at: Adresinde düzenlendi
+            description: Açıklama
+            initiative_votes_count: Oy sayısı
+            initiatives: Girişimler
+            state: Belirtmek, bildirmek
         committee_requests:
           index:
             approve: onaylamak
@@ -272,8 +285,9 @@ tr:
           more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
+          choose_html: <strong>%{title}</strong>oluşturmak istiyorum
           more_information: "(Daha fazla bilgi)"
-          select: Seçmek
+          select: Bu girişimi teşvik etmek istiyorum
           select_initiative_type_help: Vatandaş girişimleri, vatandaşlığın müdahalede bulunabileceği bir araç olup, Belediye Meclisi'nin, belediyenin yetki alanı dahilindeki genel menfaatlerin savunulması için eylemde bulunabilmesi için. Hangi girişimi başlatmak istiyorsunuz?
         share_committee_link:
           continue: Devam et
@@ -299,6 +313,10 @@ tr:
       initiative_signatures:
         fill_personal_data:
           continue: Devam et
+          date_select:
+            day: Gün
+            month: Ay
+            year: Yıl
           help: Lütfen girişimi imzalamak için aşağıdaki alanları kişisel verilerinizle doldurun
         finish:
           back_to_initiative: Girişime geri dön
@@ -347,6 +365,11 @@ tr:
           unfold: açılmak
         index_header:
           new_initiative: Yeni girişim
+        interactions:
+          comments_count:
+            count:
+              one: Yorum Yap
+              other: Yorumlar
         orders:
           label: 'Girişimleri şuna göre sırala:'
           most_commented: En çok yorum yapılan
@@ -354,33 +377,37 @@ tr:
           random: rasgele
           recent: En yeni
         result:
-          initiative_accepted_reason: Bu girişim kabul edildi çünkü
+          answer_title:
+            accepted: Bu teklif kabul edildi çünkü
+            created: Bu teklif oluşturuldu
+            discarded: Bu teklif atıldı çünkü
+            published: Bu teklif yayınlandı çünkü
+            rejected: Bu teklif reddedildi, çünkü
+            validating: Bu teklif değerlendiriliyor
           initiative_rejected_reason: Bu girişim destek eksikliğinden dolayı reddedildi.
         show:
           any_vote_method: Bu vatandaş girişimi, yüz yüze olduğu kadar çevrimiçi destek toplar.
+          follow_description: Bu inisiyatifte haber olduğunda bir bildirim alın
           offline_method: Bu vatandaş girişimi sadece yüz yüze destekleri toplar.
         signature_identities:
           select_identity: Kullanıcı tanımlayıcıyı seç
         signatures_count:
           one: " imza"
           other: " imzalar"
-        statistics:
-          assistants_count_title: Yardımcıları
-          comments_count_title: Yorumlar
-          meetings_count_title: Toplantılar
-          supports_count_title: İmzalar
         supports:
           title: İmzaların listesi
         vote_cabin:
           already_voted: Zaten imzalanmış
           supports_required: "%{total_supports} imza gerekli"
-          verification_required: Girişimi imzalamak için kimliğinizi doğrulayın
+          verification_required: Girişimi imzalamak için hesabınızı doğrulayın
           vote: İşaret
           votes_blocked: İmzalama devre dışı
         votes_count:
           count:
             one: İMZA
             other: İMZALAR
+          most_popular_initiative: En popüler girişim
+          need_more_votes: Daha fazla imzaya ihtiyacım var
       initiatives_mailer:
         creation_subject: Vatandaş girişimi '%{title}' oluşturuldu
         initiative_link:
@@ -421,6 +448,7 @@ tr:
           components: Bileşenler
           information: Bilgi
       initiative_creation_header:
+        back: Geri
         fill_data: yaratmak
         finish: Bitiş
         previous_form: başla

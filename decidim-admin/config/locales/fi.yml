@@ -36,6 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
+        alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
@@ -62,11 +63,15 @@ fi:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
+        primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
+        secondary_color: Toissijainen
         show_statistics: Näytä tilastot
+        success_color: Onnistuminen
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        warning_color: Varoitus
         youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
@@ -506,6 +511,7 @@ fi:
         edit:
           update: Päivitä
         form:
+          colors_title: Organisaation värit
           cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
@@ -619,7 +625,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
-        participants: käyttäjät
+        participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut

@@ -17,7 +17,7 @@ describe "User group profile", type: :system do
   end
 
   it "does not show verification stuff" do
-    expect(page).to have_no_content("This user group is publicly verified")
+    expect(page).to have_no_content("This group is publicly verified")
   end
 
   context "and user group is verified" do
@@ -26,7 +26,7 @@ describe "User group profile", type: :system do
     end
 
     it "shows officialization status" do
-      expect(page).to have_content("This user group is publicly verified")
+      expect(page).to have_content("This group is publicly verified")
     end
   end
 
