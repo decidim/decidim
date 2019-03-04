@@ -69,7 +69,6 @@ pl:
             destroy: Anuluj sortowanie
             title: Anulowanie sortowania
           create:
-            error: Wystąpił błąd podczas tworzenia nowego sortowania.
             success: Utworzono pomyślne utworzenie grupy
           destroy:
             error: Nie można anulować sortowania.
@@ -90,7 +89,6 @@ pl:
           show:
             selected_proposals: Propozycje wybrane do losowania
           update:
-            error: Wystąpił błąd podczas aktualizacji sortowania.
             success: Sortowanie zostało pomyślnie zaktualizowane
       admin_log:
         sortition:
@@ -111,7 +109,6 @@ pl:
           category: Kategoria
           category_prompt: Wybierz kategorię
           search: Szukaj
-          state: Stan
         filters_small_view:
           close_modal: Zamknij modalne
           filter: Filtr
@@ -130,7 +127,6 @@ pl:
             many: wybrane propozycje
             other: wybrane propozycje
         show:
-          algorithm: Kod algorytmu rozdziału
           any_category: ze wszystkich kategorii
           cancelled: Anulowane sortowanie
           candidate_proposal_ids: Porządek i porządek sortowania
@@ -151,10 +147,6 @@ pl:
             many: '%{count} wybranych wniosków'
             other: '%{count} wybranych wniosków'
           view: Widok
-        sortition_author:
-          deleted: Usunięty użytkownik
-        sortition_cancel_author:
-          deleted: Usunięty użytkownik
         sortitions_count:
           count:
             one: 1 sortowanie
