@@ -37,20 +37,8 @@ it:
           notification_title: Il sondaggio <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
     metrics:
       survey_answers:
-        description: Numero di sondaggi rispondenti dagli utenti
         object: risposte ai sondaggi
         title: Risposte ai sondaggi
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Risposte degli utente al questionario
-        surveys:
-          update:
-            invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
-            success: Il questionario è stato salvato correttamente.
       last_activity:
         new_survey_at_html: "<span>Nuovo sondaggio al %{link}</span>"
-      surveys:
-        answer:
-          invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
-          success: Il questionario è stato salvato correttamente.
