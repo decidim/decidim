@@ -17,12 +17,9 @@ fi:
         test:
           conditions:
             - Käytä testiympäristöä Decidimille.
-          description: Käyttäjät saavat tämän kunniamerkin luomalla testejä.
-          description_another: Tämä käyttäjä on luonut %{score} testiä.
           description_own: Olet luonut %{score} testiä.
           name: Testit
           next_level_in: Luo vielä %{score} testiä seuraavan tason saavuttamiseksi!
-          unearned_another: Tämä käyttäjä ei ole vielä luonut testejä.
           unearned_own: Et ole vielä luonut testejä.
     pages:
       home:
