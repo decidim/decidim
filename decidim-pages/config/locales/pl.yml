@@ -27,6 +27,3 @@ pl:
           edit:
             save: Aktualizuj
             title: Edytuj stronę
-          update:
-            invalid: Podczas zapisywania strony wystąpiły błędy.
-            success: Strona została zapisana pomyślnie.
