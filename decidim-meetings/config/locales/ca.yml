@@ -40,10 +40,6 @@ ca:
             base:
               too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
               too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Aquest correu electrònic ja ha estat convidat
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -65,9 +61,6 @@ ca:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: S'ha produït un error en duplicar aquesta trobada.
-          success: Trobada duplicada amb èxit.
         new:
           copy: Copia
           select: Selecciona quines dades vols duplicar
@@ -108,10 +101,7 @@ ca:
         meeting_registration_confirmed:
           notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
-          email_subject: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%
-          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
         meeting_updated:
           email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
@@ -135,14 +125,10 @@ ca:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Inscriu-te a les reunions que vulguis assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
-          description_another: Aquest usuari ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
           name: Trobades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha assistit a cap reunió.
           unearned_own: Encara no has assistit a cap reunió.
     meetings:
       actions:
@@ -161,19 +147,15 @@ ca:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Afegir un sub-ítem a l'ordre del dia
             agenda_item: Punt de l'ordre del dia
-            agenda_item_children: Sub-ítems de l'ordre del dia
             down: Baixar
             remove: Eliminar
             up: Amunt
           agenda_item_child:
-            agenda_item_child: Sub-ítem de l'ordre del dia
             down: Baixar
             remove: Eliminar
             up: Pujar
           create:
-            invalid: Hi ha hagut un problema en crear aquesta agenda
             success: S'ha creat l'agenda correctament
           edit:
             title: Edita l'agenda
@@ -187,7 +169,6 @@ ca:
             create: Crear
             title: Nova agenda
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta agenda
             success: L'agenda s'ha actualitzat correctament
         exports:
           meetings: Trobades
@@ -198,16 +179,9 @@ ca:
             invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a unir-te a una reunió a l' %{application}. Pots rebutjar o acceptar la invitació a través dels enllaços a continuació."
             join: Uneix-te a la trobada '%{meeting_title}'
         invites:
-          create:
-            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
-            success: L'usuari s'ha convidat correctament a unir-se a la trobada.
           form:
             attendee_type: Tipus d'assistent
-            existing_user: Usuari existent
             invite: Convidar
-            invite_explanation: L'usuari serà convidat a participar a la trobada i també a l'organització.
-            non_user: Usuari no existent
-            select_user: Selecciona l'usuari
           index:
             filter:
               accepted: Acceptades
@@ -228,10 +202,8 @@ ca:
             select_organizer: Selecciona l'organitzador
         meetings:
           close:
-            invalid: Hi ha hagut un problema en tancar aquesta trobada
             success: Trobada tancada amb èxit
           create:
-            invalid: Hi ha hagut un problema en crear aquesta trobada
             success: Trobada creada amb èxit
           destroy:
             success: La trobada s'ha eliminat correctament
@@ -255,11 +227,9 @@ ca:
             add_service: Afegeix servei
             services: Serveis
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
         minutes:
           create:
-            invalid: Hi ha hagut un problema en crear aquesta acta
             success: S'ha creat l'acta amb èxit
           edit:
             update: Actualitza
@@ -267,7 +237,6 @@ ca:
             create: Crea
             title: Crea l'acta
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta acta
             success: L'acta s'ha actualitzat correctament
         models:
           meeting:
@@ -279,7 +248,6 @@ ca:
             validate_registration_code: Valida el codi de registre
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
-            invites: Invitacions
             registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut %{count} 1 inscripció.
@@ -287,7 +255,6 @@ ca:
             reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
-            invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
           validate_registration_code:
             invalid: Aquest codi de registre no és vàlid.
@@ -406,13 +373,10 @@ ca:
           registration_code: El teu codi de registre és %{code}.
       registrations:
         create:
-          invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
           success: T'has inscrit a la reunió amb èxit.
         decline_invitation:
-          invalid: Hi ha hagut un problema en declinar la invitació.
           success: Has declinat la invitació amb èxit.
         destroy:
-          invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
       types:
         private_meeting: Trobada privada
