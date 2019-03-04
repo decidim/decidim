@@ -9,9 +9,6 @@ pt-BR:
         save: Salvar
         title: Ações
       admins:
-        create:
-          error: Ocorreu um erro ao criar um novo administrador.
-          success: Admin criado com sucesso
         destroy:
           success: Admin eliminado com sucesso
         edit:
@@ -22,9 +19,6 @@ pt-BR:
         new:
           create: Criar
           title: Novo administrador
-        update:
-          error: Ocorreu um erro ao atualizar este administrador.
-          success: Admin atualizado com sucesso
       default_pages:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
@@ -49,24 +43,15 @@ pt-BR:
             name: Nome
           name: Organização
       organizations:
-        create:
-          error: Ocorreu um erro ao criar uma nova organização.
-          success: Organização criada com sucesso.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
         index:
           title: Organizações
         new:
-          reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações
           secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
-        update:
-          error: Ocorreu um erro ao atualizar essa organização.
-          success: Organização atualizada com sucesso.
         users_registration_mode:
           disabled: O acesso só pode ser feito com contas externas
-          enabled: Permitir que os usuários se registrem e efetuem login
-          existing: Não permitir que os usuários se registrem, mas permitir que usuários existentes façam login
       shared:
         notices:
           no_organization_warning_html: Você deve criar uma organização para começar. Certifique-se de ler %{guide} antes de prosseguir.
