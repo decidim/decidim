@@ -2,8 +2,8 @@
   <div class="column collapse small-4">
     <%= render partial: "decidim/proposals/proposals/vote_weight/button.html", locals: {
       proposal: @proposal,
-      from_proposals_list: false,
-      disabled: disabled,
+      from_proposals_list: from_proposals_list,
+      disabled: disabled || (proposal.voted_by?(current_user) && !proposal.weighted_by?(current_user, "up")),
       type: "up",
       weight: 1
     } %>
@@ -11,8 +11,8 @@
   <div class="column collapse small-4">
     <%= render partial: "decidim/proposals/proposals/vote_weight/button.html", locals: {
       proposal: @proposal,
-      from_proposals_list: false,
-      disabled: disabled,
+      from_proposals_list: from_proposals_list,
+      disabled: disabled || (proposal.voted_by?(current_user) && !proposal.weighted_by?(current_user, "neutral")),
       type: "neutral",
       weight: 0
     } %>
@@ -20,8 +20,8 @@
   <div class="column collapse small-4">
     <%= render partial: "decidim/proposals/proposals/vote_weight/button.html", locals: {
       proposal: @proposal,
-      from_proposals_list: false,
-      disabled: disabled,
+      from_proposals_list: from_proposals_list,
+      disabled: disabled || (proposal.voted_by?(current_user) && !proposal.weighted_by?(current_user, "down")),
       type: "down",
       weight: -1
     } %>

@@ -618,7 +618,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: 1 proposition
+            one: "%{count} proposition"
             other: "%{count} propositions"
         dynamic_map_instructions:
           primary: Vous pouvez déplacer le point sur la carte.
@@ -732,7 +732,11 @@ fr:
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
         votes_weight:
-          count: Compter
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes
