@@ -1,1 +1,60 @@
 tr:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Bunu silmek istediğinizden emin misiniz?
+        destroy: silmek
+        edit: Düzenle
+        new: Yeni
+        save: Kayıt etmek
+        title: Eylemler
+      admins:
+        destroy:
+          success: Yönetici başarıyla silindi
+        edit:
+          title: Yönetici düzenle
+          update: Güncelleştirme
+        index:
+          title: Yöneticiler
+        new:
+          create: yaratmak
+          title: Yeni yönetici
+      default_pages:
+        placeholders:
+          content: Lütfen yönetici panosundaki %{page} statik sayfaya anlamlı içerik ekleyin.
+          title: '%{page}için varsayılan başlık'
+      menu:
+        admins: Yöneticiler
+        dashboard: gösterge paneli
+        organizations: Organizasyonlar
+      models:
+        admin:
+          fields:
+            created_at: Adresinde düzenlendi
+            email: E-posta
+          name: yönetim
+          validations:
+            email_uniqueness: aynı e-postaya sahip başka bir yönetici zaten var
+        organization:
+          actions:
+            save_and_invite: Kuruluş oluşturun ve yöneticiyi davet edin
+          fields:
+            created_at: Adresinde düzenlendi
+            name: isim
+          name: organizasyon
+      organizations:
+        edit:
+          secondary_hosts_hint: Her birini yeni bir satıra girin
+        index:
+          title: Organizasyonlar
+        new:
+          secondary_hosts_hint: Her birini yeni bir satıra girin
+          title: Yeni organizasyon
+        users_registration_mode:
+          disabled: Erişim yalnızca harici hesaplarla yapılabilir
+      shared:
+        notices:
+          no_organization_warning_html: Başlamak için bir organizasyon oluşturmanız gerekir. Devam etmeden önce %{guide} okuduğunuzdan emin olun.
+          our_getting_started_guide: başlangıç kılavuzumuz
+      titles:
+        dashboard: gösterge paneli
