@@ -33,7 +33,6 @@ pt:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de debate por usuários habilitado
     debates:
       actions:
         confirm_destroy: Você tem certeza?
@@ -43,11 +42,6 @@ pt:
         title: Ações
       admin:
         debates:
-          create:
-            invalid: Houve um problema ao criar o debate.
-            success: Debate criado com sucesso.
-          destroy:
-            success: Debate excluído com sucesso.
           edit:
             title: Editar debate
             update: Atualização do debate
@@ -56,9 +50,6 @@ pt:
           new:
             create: Criar debate
             title: Novo debate
-          update:
-            invalid: Ocorreu um problema ao atualizar esse debate.
-            success: Debate atualizado com sucesso.
         models:
           debate:
             name: Debate
@@ -71,9 +62,6 @@ pt:
           debates_count:
             one: "%{count} debate"
             other: "%{count} debates"
-        create:
-          invalid: Houve um problema ao criar o debate.
-          success: Debate criado com sucesso.
         debate:
           participate: Participar
         filters:
@@ -127,7 +115,6 @@ pt:
             email_subject: Novo debate "%{resource_title}" por %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> criou o debate <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'A criação do debate não está mais ativa em %{participatory_space_title}. Você ainda pode participar de debates abertos nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Criação de debate desativada em %{participatory_space_title}
           notification_title: A criação do debate agora está desativada em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ pt:
           conditions:
             - Escolha um debate aberto para participar
           description: Este crachá é concedido quando você participa ativamente dos diferentes debates deixando seus comentários.
-          description_another: Este usuário participou em %{score} debates.
           description_own: Você participou de %{score} debates.
           name: Debates
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não participou de nenhum debate.
           unearned_own: Você participou de algum debate ainda.
     metrics:
       debates:
