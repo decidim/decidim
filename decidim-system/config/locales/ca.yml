@@ -9,6 +9,9 @@ ca:
         save: Desar
         title: Accions
       admins:
+        create:
+          error: S'ha produït un error en crear un nou administrador.
+          success: Administrador creat correctament
         destroy:
           success: S'ha eliminat correctament l'administrador
         edit:
@@ -19,6 +22,9 @@ ca:
         new:
           create: Crear
           title: Nou administrador
+        update:
+          error: S'ha produït un error en actualitzar aquest administrador.
+          success: L'administrador s'ha actualitzat correctament
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
@@ -43,15 +49,24 @@ ca:
             name: Nom
           name: Organització
       organizations:
+        create:
+          error: S'ha produït un error en crear una nova organització.
+          success: L'organització s'ha creat correctament.
         edit:
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
         index:
           title: Organitzacions
         new:
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de manera única recursos a totes les organitzacions
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
+        update:
+          error: S'ha produït un error en actualitzar aquesta organització.
+          success: L'organització s'ha actualitzat correctament.
         users_registration_mode:
           disabled: Només es port accedir amb comptes externs
+          enabled: Permetre als usuaris registrar-se i iniciar sessió
+          existing: No permetre que els usuaris es registrin, però permetre que els usuaris existents iniciïn sessió
       shared:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans.
