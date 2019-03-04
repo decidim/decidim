@@ -17,12 +17,9 @@ pt:
         test:
           conditions:
             - Use um ambiente de teste para decidim.
-          description: Os usuários obtêm esse selo criando testes.
-          description_another: Este usuário criou %{score} testes.
           description_own: Você criou %{score} testes.
           name: Testes
           next_level_in: Crie mais %{score} testes para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não criou nenhum teste.
           unearned_own: Você não criou testes ainda.
     pages:
       home:
