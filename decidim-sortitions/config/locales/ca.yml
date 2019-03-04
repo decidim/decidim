@@ -65,7 +65,6 @@ ca:
             destroy: Cancel·lar el sorteig
             title: Cancel·lació del sorteig
           create:
-            error: S'ha produït un error en crear un nou sorteig.
             success: El sorteig s'ha creat correctament
           destroy:
             error: No es pot cancel·lar el sorteig.
@@ -86,7 +85,6 @@ ca:
           show:
             selected_proposals: Propostes seleccionades per al sorteig
           update:
-            error: S'ha produït un error en actualitzar el sorteig.
             success: El sorteig s'ha actualitzat amb èxit
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ ca:
           category: Categoria
           category_prompt: Selecciona una categoria
           search: Cerca
-          state: Estat
         filters_small_view:
           close_modal: Tanca el modal
           filter: Filtre
@@ -122,7 +119,6 @@ ca:
             one: proposta seleccionada
             other: propostes seleccionades
         show:
-          algorithm: Codi d'algoritme del sorteig
           any_category: de totes les categories
           cancelled: Sorteig cancel·lat
           candidate_proposal_ids: Ordre i IDs de les propostes del sorteig
@@ -141,10 +137,6 @@ ca:
             one: 1 proposta seleccionada
             other: '%{count} propostes seleccionades'
           view: Veure
-        sortition_author:
-          deleted: Usuari eliminat
-        sortition_cancel_author:
-          deleted: Usuari eliminat
         sortitions_count:
           count:
             one: 1 sorteig
