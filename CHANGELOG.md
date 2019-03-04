@@ -50,6 +50,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-initiatives**: Allow users report comments on initiatives and admins moderate reports from initiative admin panel. [\#4878](https://github.com/decidim/decidim/pull/4878)
 - **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 - **decidim-verifications**: Allow definition of attributes in settings manifest to be required always on authorizations. [\#4911](https://github.com/decidim/decidim/pull/4911)
+- **decidim-verifications**: Allow resending SMS code. [\#4928](https://github.com/decidim/decidim/pull/4928)
 
 **Changed**:
 
