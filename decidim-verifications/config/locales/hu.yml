@@ -12,10 +12,7 @@ hu:
       id_document_upload:
         document_number: Dokumentum száma (betűvel)
         document_type: Dokumentumod típusa
-        user: Felhasználó
         verification_attachment: Dokumentumod szkennelt példánya
-      offline_confirmation:
-        email: Felhasználói e-mail
       postal_letter_address:
         full_address: Teljes lakcím
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ hu:
             - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - Participants request a verification code to be sent to their address.
             - A kódot tartalmazó levelet a lakcímükre küldöd el.
             - Levél elküldöttként megjelölve.
-            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Ellenőrizze a szervezet népszámlálásával
         name: A szervezet népszámlálása
@@ -62,7 +59,6 @@ hu:
     verifications:
       authorizations:
         create:
-          error: Hiba történt az engedélyezés létrehozása során.
           success: Az engedélyezésed sikeres volt.
           unconfirmed: Meg kell erősítened az e-mailedet, hogy engedélyezd magad.
         first_login:
@@ -107,10 +103,6 @@ hu:
           new:
             error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet népszámlálásában.
             success: Fiókját sikeresen ellenőrizték.
-      dummy_authorization:
-        extra_explanation:
-          one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
-          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ hu:
               title: Azonosító dokumentumok konfigurálása
               update: Frissítés
             update:
-              error: Hiba történt a konfiguráció frissítése során.
               success: A konfiguráció sikeresen frissült
           confirmations:
-            create:
-              error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
-              success: Felhasználó ellenőrzése sikeres
             new:
               introduce_user_data: Add meg a képen látható adatokat
               reject: Elutasít
               verify: Ellenőrzés
           offline_confirmations:
-            create:
-              error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
-              success: A felhasználó sikeresen ellenőrizve
             new:
               cancel: Mégse
-              introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
               verify: Ellenőrzés
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ hu:
               offline_verification: Offline ellenőrzés
               title: Folyamatban lévő ellenőrzések
               verification_number: 'Ellenőrzés #%{n}'
-          rejections:
-            create:
-              success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
           choose:
             choose_a_type: "Kérjük, adja meg, hogy miként szeretné ellenőrizni:"
@@ -153,7 +134,6 @@ hu:
             title: Ellenőrizze magát személyazonosító okmányával
           create:
             error: Hiba történt a dokumentum feltöltése során
-            success: Dokumentum feltöltése sikeres
           edit:
             being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
             offline: Az offline ellenőrzés használata
@@ -167,7 +147,6 @@ hu:
             title: Személyi igazolvány feltöltése
           update:
             error: Probléma volt a dokumentum újbóli feltöltésekor
-            success: Dokumentum újbóli feltöltése sikeres
         dni: Szig.
         nie: Lakcím kártya
         passport: Útlevél
@@ -180,7 +159,6 @@ hu:
               mark_as_sent: Megjelölés elküldöttként
               not_yet_sent: Még nincs elküldve
               title: Folyamatban lévő ellenőrzések
-              username: Felhasználónév
               verification_code: Ellenőrző kód
           postages:
             create:
