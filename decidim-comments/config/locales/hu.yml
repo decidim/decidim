@@ -18,9 +18,6 @@ hu:
       comments: Megjegyzések
       last_activity:
         new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
-      votes:
-        create:
-          error: Hiba történt a megjegyzésre való szavazáskor.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókodba</a> vagy <a href="%{sign_up_url}">iratkozz fel</a> megjegyzés küldéséhez.
@@ -41,7 +38,6 @@ hu:
         alignment:
           against: Ellenzem
           in_favor: Támogatom
-        deleted_user: Törölt felhasználó
         reply: Válasz
         report:
           action: Jelentés
@@ -91,7 +87,6 @@ hu:
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
     metrics:
       comments:
-        description: A felhasználók által generált megjegyzések száma
         object: Hozzászólások
         title: Hozzászólások
   errors:
