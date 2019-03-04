@@ -46,6 +46,9 @@ pl:
         email: Adres e-mail
         name: Nazwa
         role: Rola
+    models:
+      decidim/participatory_process_step_activated_event: Aktywowany krok
+      decidim/participatory_process_step_changed_event: Krok zmienił się
   activerecord:
     models:
       decidim/participatory_process:
@@ -58,6 +61,11 @@ pl:
         few: Uczestniczące grupy procesów
         many: Uczestniczące grupy procesów
         other: Uczestniczące grupy procesów
+      decidim/participatory_process_step:
+        one: Krok
+        few: Kroki
+        many: Kroki
+        other: Kroki
   decidim:
     admin:
       actions:
@@ -69,6 +77,8 @@ pl:
         edit: Edytuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesów
+        new_process_step: Nowy krok
+        new_process_user_role: Nowy użytkownik procesu
         preview: Podgląd
         publish: Opublikować
         resend_invitation: Wyślij ponownie zaproszenie
@@ -84,6 +94,9 @@ pl:
           components: składniki
           info: Informacje
           moderations: Modernizacje
+          private_users: Użytkownicy prywatni
+          process_admins: Użytkownicy procesu
+          steps: Kroki
       models:
         participatory_process:
           fields:
@@ -102,11 +115,13 @@ pl:
             end_date: Data zakończenia
             start_date: Data rozpoczęcia
             title: Tytuł
+          name: Udział w procesie uczestnictwa
         participatory_process_user_role:
           fields:
             email: Adres e-mail
             name: Nazwa
             role: Rola
+          name: Uczestniczy proces użytkownika
           roles:
             admin: Administrator
             collaborator: Współpracownik
@@ -121,24 +136,72 @@ pl:
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikat procesu partycypacyjnego
       participatory_process_groups:
+        destroy:
+          success: Uczestnicząca grupa procesów została pomyślnie usunięta.
         edit:
           title: Edytuj grupę procesów
           update: Aktualizuj
         new:
           create: Utwórz
           title: Nowa grupa procesów
+        update:
+          error: Podczas tej uczestniczącej grupy procesowej wystąpił błąd.
+          success: Uczestnicząca grupa procesowa została zaktualizowana.
+      participatory_process_publications:
+        create:
+          error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
+          success: Proces współuczestnictwa został opublikowany.
+        destroy:
+          error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
+          success: Proces uczestnictwa nie został pomyślnie opublikowany.
+      participatory_process_step_activations:
+        create:
+          error: Podczas aktywnego etapu procesu wystąpił błąd.
+          success: Uruchomiony został proces uczestnictwa.
       participatory_process_steps:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego etapu procesu partycypacyjnego.
+          success: Utworzono pomyślnie etap procesu uczestnictwa.
         default_title: Wprowadzenie
+        destroy:
+          error:
+            active_step: Nie można usunąć aktywnego kroku.
+            last_step: Nie można usunąć ostatniego etapu procesu.
+          success: Uczestniczy krok procesu został pomyślnie usunięty.
         edit:
+          title: Edytuj krok procesu partycypacyjnego
           update: Aktualizuj
+        index:
+          steps_title: Kroki
         new:
           create: Utwórz
+          title: Nowy krok procesu partycypacyjnego
+        ordering:
+          error: Wystąpił błąd podczas ponownego zamawiania tych uczestniczących etapów procesu.
+        update:
+          error: Podczas aktualizowania tego procesu uczestniczył błąd.
+          success: Uczęszczający krok procesu został pomyślnie zaktualizowany.
       participatory_process_user_roles:
+        create:
+          error: Wystąpił błąd podczas dodawania użytkownika do tego procesu uczestnictwa.
+          success: Użytkownik został pomyślnie dodany do tego procesu uczestnictwa.
+        destroy:
+          success: Użytkownik usunięty pomyślnie z tego procesu uczestnictwa.
         edit:
+          title: Zaktualizuj uczestniczącego użytkownika procesu.
           update: Aktualizuj
+        index:
+          process_admins_title: Uczestniczący użytkownicy procesu
         new:
           create: Utwórz
+          title: Nowy użytkownik procesu partycypacyjnego.
+        update:
+          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego procesu uczestnictwa.
+          success: Użytkownik zaktualizował się pomyślnie dla tego procesu partycypacyjnego.
       participatory_processes:
+        create:
+          error: Podczas tworzenia nowego procesu partycypacyjnego wystąpił błąd.
+          success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
         edit:
           update: Aktualizuj
         form:
@@ -151,23 +214,51 @@ pl:
         new:
           create: Utwórz
           title: Nowy proces partycypacji
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego procesu partycypacyjnego.
+          success: Proces uczestnictwa został zaktualizowany.
+      participatory_processes_copies:
+        create:
+          error: Podczas duplikowania tego procesu partycypacyjnego wystąpił błąd.
+          success: Proces uczestnictwa został pomyślnie powielony.
+      participatory_processes_group:
+        create:
+          error: Podczas tworzenia nowej partycypacyjnej grupy procesów wystąpił błąd.
+          success: Uczestnicząca grupa procesowa została pomyślnie utworzona.
       titles:
         participatory_process_groups: Uczestniczące grupy procesowe
         participatory_processes: Procesy partycypacyjne
+      users:
+        resend_invitation:
+          error: Wystąpił błąd ponownego wysłania zaproszenia.
+          success: Zaproszenie wysłane pomyślnie ponownie.
     admin_log:
       participatory_process:
         create: "%{user_name} stworzył %{resource_name} proces uczestnictwa"
         publish: "%{user_name} opublikował %{resource_name} proces uczestnictwa"
         unpublish: "%{user_name} niepublikowane %{resource_name} proces uczestnictwa"
         update: "%{user_name} zaktualizował %{resource_name} proces uczestnictwa"
+      participatory_process_step:
+        activate: "%{user_name} aktywował krok %{resource_name} w procesie uczestniczenia %{space_name}"
+        create: "%{user_name} utworzył krok %{resource_name} w procesie uczestniczenia %{space_name}"
+        delete: "%{user_name} usunął %{resource_name} krok w procesie uczestniczenia %{space_name}"
+        update: "%{user_name} zaktualizował %{resource_name} krok w procesie uczestniczenia %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} zaprosił użytkownika %{resource_name} do %{space_name} proces uczestnictwa"
+        delete: "%{user_name} usunięto użytkownika %{resource_name} z %{space_name} proces uczestnictwa"
+        update: "%{user_name} zmienił rolę użytkownika %{resource_name} w %{space_name} proces uczestnictwa"
     events:
       participatory_process:
         step_activated:
+          email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
+          email_intro: 'Daty dla kroku %{resource_title} na %{participatory_space_title} zostały zaktualizowane. Możesz go zobaczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Zmieniono daty <a href="%{resource_path}">%{resource_title}</a> kroku <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     help:
       participatory_spaces:
         participatory_processes:
@@ -183,7 +274,16 @@ pl:
         title: Procesy partycypacyjne
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 procesy dla %{group}
+          few: "%{count} procesów dla %{group}"
+          many: "%{count} procesów dla %{group}"
+          other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
+    participatory_process_steps:
+      index:
+        process_steps: Etapy procesu
+        title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
         content_blocks:
@@ -211,6 +311,7 @@ pl:
         home:
           highlighted_processes:
             active_processes: Aktywne procesy
+            active_step: Aktywny krok
             more_information: Więcej informacji
             participate: Uczestniczyć
             see_all_processes: Zobacz wszystkie procesy
@@ -269,6 +370,7 @@ pl:
         endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
+        orders_count: Głosowania
         pages_count: Strony
         processes_count: Procesy
         projects_count: Projekty
@@ -276,6 +378,7 @@ pl:
         results_count: Wyniki
         surveys_count: Ankiety
         users_count: Uczestnicy
+        votes_count: Głosowania
   layouts:
     decidim:
       participatory_process_groups:
@@ -284,14 +387,20 @@ pl:
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
+          active_step: Aktywny krok
           take_part: Wziąć udział
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
         participatory_process:
+          active_step: 'Aktualny krok:'
           take_part: Wziąć udział
         promoted_process:
+          active_step: 'Aktualny krok:'
           more_info: Więcej informacji
           take_part: Wziąć udział
+      process_header_steps:
+        step: Krok %{current} z %{total}
+        view_steps: Wyświetl kroki
       process_navigation:
         process_menu_item: Proces
