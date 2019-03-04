@@ -50,7 +50,7 @@ tr:
       actions:
         confirm: Onaylamak
         new_conference: Yeni konferans
-        send_diplomas: Diploma gönder
+        send_diplomas: Katılım sertifikaları gönder
       conference_copies:
         new:
           copy: kopya
@@ -152,7 +152,7 @@ tr:
           conference_admins: Konferans kullanıcıları
           conference_invites: Davetler
           conference_speakers: Hoparlörler
-          diploma: Diploma
+          diploma: Katılım sertifikası
           info: Bilgi
           media_links: Medya Bağlantıları
           moderations: Denetimler
@@ -250,10 +250,10 @@ tr:
       conference:
         create: "%{user_name} %{resource_name} konferansı oluşturdu"
         publish: "%{user_name} %{resource_name} konferansı yayınladı"
-        send_conference_diplomas: "%{user_name} ile diplomalarını göndermek %{resource_name} konferans kullanıcıları"
+        send_conference_diplomas: "%{user_name} %{resource_name} konferans katılımcısına katılım sertifikası gönderdi"
         unpublish: "%{user_name} %{resource_name} konferansı yayından kaldırıldı"
         update: "%{user_name} %{resource_name} konferansı güncelledi"
-        update_diploma: "%{user_name} diploma konfigürasyonu %{resource_name} konferansını güncelledi"
+        update_diploma: "%{user_name} %{resource_name} konferans için katılım konfigürasyon sertifikaları güncellendi"
       conference_speaker:
         create: "%{user_name} , %{space_name} konferansta %{resource_name} konuşmacıyı oluşturdu"
         delete: "%{user_name} %{space_name} konferanstan %{resource_name} konuşmacıyı kaldırdı"
@@ -334,7 +334,7 @@ tr:
         diplomas:
           edit:
             save: Kayıt etmek
-            title: Diploma
+            title: Katılım sertifikası
         invite_join_conference_mailer:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
@@ -350,7 +350,7 @@ tr:
             title: Kayıt türleri
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Eklerde konferansın diplomalarını <a href="%{url}">%{title}</a> bulabilirsiniz.
+            diploma_html: <a href="%{url}">%{title}</a> konferansına katılım belgesini ekte bulabilirsiniz.
           diploma_user:
             attendance_verified_by: Katılım onaylandı
             certificate_of_attendance: Katılım sertifikası
@@ -433,7 +433,7 @@ tr:
             subject: Bir konferansa katılma daveti
         send_conference_diploma_mailer:
           diploma:
-            subject: Konferansınızın diploması gönderildi
+            subject: Konferansa katılım sertifikanız gönderildi
       models:
         conference_invite:
           fields:
