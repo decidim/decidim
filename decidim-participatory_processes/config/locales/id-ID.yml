@@ -46,17 +46,12 @@ id:
         email: E-mail
         name: Nama
         role: Peran
-    models:
-      decidim/participatory_process_step_activated_event: Langkah diaktifkan
-      decidim/participatory_process_step_changed_event: Langkah berubah
   activerecord:
     models:
       decidim/participatory_process:
         other: Proses partisipatif
       decidim/participatory_process_group:
         other: Kelompok proses partisipatif
-      decidim/participatory_process_step:
-        other: Tangga
   decidim:
     admin:
       actions:
@@ -68,8 +63,6 @@ id:
         edit: Edit
         new_process: Proses baru
         new_process_group: Grup proses baru
-        new_process_step: Langkah baru
-        new_process_user_role: Pengguna proses baru
         preview: Preview
         publish: Menerbitkan
         resend_invitation: Mengirim kembali undangan
@@ -85,9 +78,6 @@ id:
           components: Komponen
           info: Info
           moderations: Moderasi
-          private_users: Pengguna Pribadi
-          process_admins: Memproses pengguna
-          steps: Tangga
       models:
         participatory_process:
           fields:
@@ -106,13 +96,11 @@ id:
             end_date: Tanggal akhir
             start_date: Mulai tanggal
             title: Judul
-          name: Langkah proses partisipatif
         participatory_process_user_role:
           fields:
             email: E-mail
             name: Nama
             role: Peran
-          name: Pengguna proses partisipatif
           roles:
             admin: Administrator
             collaborator: Kolaborator
@@ -127,72 +115,24 @@ id:
           select: Pilih data mana yang ingin Anda gandakan
           title: Proses partisipatif duplikat
       participatory_process_groups:
-        destroy:
-          success: Kelompok proses partisipatif berhasil dihapus.
         edit:
           title: Edit grup proses
           update: Memperbarui
         new:
           create: Membuat
           title: Grup proses baru
-        update:
-          error: Terjadi kesalahan saat memutakhirkan grup proses partisipatif ini.
-          success: Kelompok proses partisipatif berhasil diperbarui.
-      participatory_process_publications:
-        create:
-          error: Terjadi kesalahan saat mempublikasikan proses partisipatif ini.
-          success: Proses partisipatif berhasil diterbitkan.
-        destroy:
-          error: Terjadi kesalahan saat membatalkan publikasi proses partisipatif ini.
-          success: Proses partisipatif tidak berhasil dipublikasikan.
-      participatory_process_step_activations:
-        create:
-          error: Terjadi kesalahan saat mengaktifkan langkah proses partisipatif ini.
-          success: Langkah proses partisipatif berhasil diaktifkan.
       participatory_process_steps:
-        create:
-          error: Terjadi kesalahan saat membuat langkah proses partisipatif baru.
-          success: Langkah proses partisipatif berhasil dibuat.
         default_title: pengantar
-        destroy:
-          error:
-            active_step: Tidak dapat menghapus langkah aktif.
-            last_step: Tidak dapat menghapus langkah terakhir dari suatu proses.
-          success: Langkah proses partisipatif berhasil dihapus.
         edit:
-          title: Edit langkah proses partisipatif
           update: Memperbarui
-        index:
-          steps_title: Tangga
         new:
           create: Membuat
-          title: Langkah proses partisipatif baru
-        ordering:
-          error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
-        update:
-          error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
-          success: Langkah proses partisipatif berhasil diperbarui.
       participatory_process_user_roles:
-        create:
-          error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
-          success: Pengguna berhasil ditambahkan ke proses partisipatif ini.
-        destroy:
-          success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
-          title: Perbarui pengguna proses partisipatif.
           update: Memperbarui
-        index:
-          process_admins_title: Pengguna proses partisipatif
         new:
           create: Membuat
-          title: Pengguna proses partisipatif baru.
-        update:
-          error: Terjadi kesalahan saat memperbarui pengguna untuk proses partisipatif ini.
-          success: Pengguna berhasil diperbarui untuk proses partisipatif ini.
       participatory_processes:
-        create:
-          error: Terjadi kesalahan saat membuat proses partisipatif baru.
-          success: Proses partisipatif berhasil dibuat. Konfigurasikan sekarang langkahnya.
         edit:
           update: Memperbarui
         form:
@@ -205,51 +145,23 @@ id:
         new:
           create: Membuat
           title: Proses partisipatif baru
-        update:
-          error: Ada kesalahan saat memperbarui proses partisipatif ini.
-          success: Proses partisipatif berhasil diperbarui.
-      participatory_processes_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi proses partisipatif ini.
-          success: Proses partisipatif berhasil digandakan.
-      participatory_processes_group:
-        create:
-          error: Terjadi kesalahan saat membuat grup proses partisipatif baru.
-          success: Kelompok proses partisipatif berhasil dibuat.
       titles:
         participatory_process_groups: Kelompok proses partisipatif
         participatory_processes: Proses partisipatif
-      users:
-        resend_invitation:
-          error: Terjadi kesalahan saat mengirim ulang undangan.
-          success: Undangan berhasil dikirim.
     admin_log:
       participatory_process:
         create: "%{user_name} membuat proses %{resource_name} partisipatif"
         publish: "%{user_name} mempublikasikan %{resource_name} proses partisipatif"
         unpublish: "%{user_name} tidak mempublikasi %{resource_name} proses partisipatif"
         update: "%{user_name} memperbarui %{resource_name} proses partisipatif"
-      participatory_process_step:
-        activate: "%{user_name} mengaktifkan %{resource_name} langkah dalam %{space_name} proses partisipatif"
-        create: "%{user_name} membuat %{resource_name} langkah dalam %{space_name} proses partisipatif"
-        delete: "%{user_name} menghapus %{resource_name} langkah dalam %{space_name} proses partisipatif"
-        update: "%{user_name} memperbarui %{resource_name} langkah dalam %{space_name} proses partisipatif"
-      participatory_process_user_role:
-        create: "%{user_name} mengundang pengguna %{resource_name} ke %{space_name} proses partisipatif"
-        delete: "%{user_name} mengeluarkan pengguna %{resource_name} dari %{space_name} proses partisipatif"
-        update: "%{user_name} mengubah peran pengguna %{resource_name} dalam %{space_name} proses partisipatif"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Langkah %{resource_title} sekarang aktif untuk %{participatory_space_title}. Anda dapat melihatnya dari halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Pembaruan ke %{participatory_space_title}
-          notification_title: Langkah %{resource_title} sekarang aktif untuk <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Tanggal untuk %{resource_title} langkah pada %{participatory_space_title} telah diperbarui. Anda dapat melihatnya dari halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Pembaruan ke %{participatory_space_title}
-          notification_title: Tanggal untuk langkah <a href="%{resource_path}">%{resource_title}</a> pada <a href="%{participatory_space_url}">%{participatory_space_title}</a> telah diperbarui.
     help:
       participatory_spaces:
         participatory_processes:
@@ -265,13 +177,7 @@ id:
         title: Proses partisipatif
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          other: "%{count} proses untuk %{group}"
         title: Kelompok proses partisipatif
-    participatory_process_steps:
-      index:
-        process_steps: Langkah-langkah proses
-        title: Langkah-langkah proses partisipatif
     participatory_processes:
       admin:
         content_blocks:
@@ -299,7 +205,6 @@ id:
         home:
           highlighted_processes:
             active_processes: Proses aktif
-            active_step: Langkah aktif
             more_information: Informasi lebih lanjut
             participate: Ikut
             see_all_processes: Lihat semua proses
@@ -346,7 +251,6 @@ id:
         endorsements_count: Endorsemen
         headline: Aktivitas
         meetings_count: Rapat
-        orders_count: Suara
         pages_count: Halaman
         processes_count: Proses
         projects_count: Proyek
@@ -354,7 +258,6 @@ id:
         results_count: Hasil
         surveys_count: Survei
         users_count: Peserta
-        votes_count: Suara
   layouts:
     decidim:
       participatory_process_groups:
@@ -363,20 +266,14 @@ id:
           processes_count: 'Proses:'
       participatory_process_widgets:
         show:
-          active_step: Langkah aktif
           take_part: Ambil bagian
       participatory_processes:
         index:
           promoted_processes: Proses yang disorot
         participatory_process:
-          active_step: 'Langkah saat ini:'
           take_part: Ambil bagian
         promoted_process:
-          active_step: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian
-      process_header_steps:
-        step: Langkah %{current} dari %{total}
-        view_steps: Lihat langkah
       process_navigation:
         process_menu_item: Proses
