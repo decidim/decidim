@@ -4,16 +4,12 @@ sv:
       initiative:
         decidim_user_group_id: Författare
         description: Beskrivning
-        offline_votes: Ansikte mot ansikte stöd
         scope_id: Omfattning
         signature_end_date: Slutet på signaturuppsamlingsperioden
         signature_start_date: Början av signaturuppsamlingsperioden
         signature_type: Signaturuppsamlingstyp
         signature_type_values:
           any: Blandad
-          offline: Ansikte mot ansikte
-          online: Digitala
-        state: stat
         title: Titel
       initiative_author:
         address: Adress
@@ -27,14 +23,11 @@ sv:
         user: Kommittémedlem
       initiatives_type:
         banner_image: Banner image
-        collect_user_extra_fields: Samla användarens personuppgifter om signatur
         description: Beskrivning
-        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer vid omröstning
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta utskottets medlemmar
         online_signature_enabled: Online signatur aktiverad
         title: Titel
-        undo_online_signatures_enabled: Aktivera användarna att ångra sina online-signaturer
         validate_sms_code_on_votes: Lägg till SMS-kodvalideringssteg till signaturprocess
       initiatives_vote:
         name_and_surname: Namn och efternamn
@@ -68,13 +61,11 @@ sv:
           fields:
             created_at: Skapad vid
             id: ID
-            state: Status
-            supports_count: Stöder
+            supports_count: signaturer
             title: initiativ
         initiatives_type_scope:
           fields:
             scope: Omfattning
-            supports_required: Stöd krävs
           name: Typ av initiativ typ
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ sv:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Signaturens slutdatum för initiativet %{resource_title} har förlängts!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Initiativa signaturer slutdatum förlängt!
-          notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% av signaturerna!
@@ -123,17 +112,13 @@ sv:
             - Gå till Intiatives deltagande utrymme
             - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ, samarbetar med andra för att utföra dem.
-          description_another: Den här användaren har fått %{score} initiativ publicerade.
           description_own: Du har %{score} initiativ publicerade.
           name: Publicerade initiativ
           next_level_in: Få %{score} fler initiativ publicerade för att nå nästa nivå!
-          unearned_another: Den här användaren har inte fått några initiativ publicerade än.
           unearned_own: Du har ännu inte publicerat några initiativ.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Ett initiativ är ett förslag som kan främjas av någon på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) signaturer för organisationen att genomföra en specifik åtgärd (ändra en förordning, initiera ett projekt , ändra namn på en avdelning eller en gata, etc.).</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida och definiera mötespunkter där signaturer kan hämtas från deltagarna eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att sammankalla samråd med alla organisationer i en organisation eller att skapa eller sammankalla en sammansättning eller att initiera en budgethöjning för ett område eller område i organisationen. Under processen att samla signaturer kan fler människor lägga till denna efterfrågan och vidarebefordra den i organisationen.</p>\n"
-          page: "<p>Ett initiativ är ett förslag som kan främjas av någon på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) signaturer för organisationen att genomföra en specifik åtgärd (ändra en förordning, initiera ett projekt , ändra namn på en avdelning eller en gata, etc.).</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida och definiera mötespunkter där signaturer kan hämtas från deltagarna eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att sammankalla samråd med alla organisationer i en organisation eller att skapa eller sammankalla en sammansättning eller att initiera en budgethöjning för ett område eller område i organisationen. Under processen att samla signaturer kan fler människor lägga till denna efterfrågan och vidarebefordra den i organisationen.</p>\n"
           title: Vad är initiativ?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ sv:
           index:
             approve: Godkänna
             confirm_revoke: Är du säker?
-            invite_to_committee_help: Dela den här länken för att bjuda in andra användare till kampanjutskottet
             no_members_yet: Det finns inga medlemmar i promotorkommittén
             revoke: Återkalla
             title: kommittémedlemmar
@@ -166,7 +150,6 @@ sv:
             confirm: Är du säker?
             discard: Förkasta initiativet
             export_pdf_signatures: Exportera PDF av signaturer
-            export_votes: Exportstöd
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
             success: Initiativet har skickats till teknisk validering
@@ -191,7 +174,6 @@ sv:
             print: Skriva ut
           update:
             error: Ett fel har uppstått
-            success: Medborgarinitiativet har blivit uppdaterat
         initiatives_type_scopes:
           create:
             error: Ett fel har uppstått
@@ -257,18 +239,15 @@ sv:
         fill_data:
           back: Tillbaka
           continue: Fortsätta
-          fill_data_help: "<ul> <li>Ändra innehållet i ditt initiativ. Är din titel lätt att förstå? Är målet med ditt initiativ tydligt?</li> <li>Du måste välja typ av signatur. Personlig, online eller en kombination av båda</li> <li>Vilken är initiativets geografiska räckvidd? Stadsdel?</li> </ul>"
           initiative_type: Initiativtyp
           more_information: "(Mer information)"
           select_scope: Välj ett räckvidd
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          callout_text: Grattis! Ditt medborgarinitiativ har skapats framgångsrikt.
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
         finish_help:
-          access_reminder: Kom ihåg att du alltid kommer att kunna komma åt dina initiativ via användarmenyn.
           help_for_organizations: Om du är en förening måste du ladda upp protokollen från styrelsen för alla organisationer som bildar den främjande kommissionen
           help_in_person_signatures: Om du har valt att samla signaturerna personligen eller i kombination med online måste du ladda upp den information som krävs.
           help_text: Kom ihåg att för att korrekt bearbeta initiativet måste du komma åt administratörspanelen där du hittar användarmenyn, ladda upp den information som krävs och skicka den för bearbetning.
@@ -294,7 +273,6 @@ sv:
           invite_to_committee_help: Länk för att bjuda in personer som kommer att vara en del av promotorkommittén
         show_similar_initiatives:
           back: Tillbaka
-          compare_help: Om något av följande initiativ liknar din, uppmanar vi dig att stödja det. Ditt förslag kommer att ha fler möjligheter att få gjort.
           continue: Mitt initiativ är annorlunda
           more_information: "(Mer information)"
       events:
@@ -328,9 +306,7 @@ sv:
           help: Kontrollera det SMS som mottas i telefonen
       initiative_votes:
         create:
-          error: Det har varit fel när du undertecknade initiativet.
           invalid: Uppgifterna som lämnas för att underteckna initiativet är inte giltiga
-          success_html: grattis! <strong> %{title}</strong> initiativet har skrivits korrekt
         personal_data:
           invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
         sms_code:
@@ -355,7 +331,6 @@ sv:
           myself: Mina initiativ
           open: Öppet
           search: Sök
-          state: Status
           type: Typ
           type_prompt: Välj en typ
         filters_small_view:
@@ -384,13 +359,8 @@ sv:
             published: Detta förslag publiceras på grund av
             rejected: Detta förslag har avslagits eftersom
             validating: Detta förslag utvärderas
-          initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på stöd.
         show:
-          any_vote_method: Detta medborgarinitiativ samlar in online-support och ansikte mot ansikte.
           follow_description: Få en anmälan när det finns nyheter i detta initiativ
-          offline_method: Detta medborgarinitiativ samlar bara ansikte mot ansikte stöd.
-        signature_identities:
-          select_identity: Välj användaridentifierare
         signatures_count:
           one: " signatur"
           other: " signaturer"
@@ -409,16 +379,11 @@ sv:
           most_popular_initiative: Mest populära initiativ
           need_more_votes: Behöver du fler signaturer
       initiatives_mailer:
-        creation_subject: Ditt medborgarinitiativ "%{title}" har skapats
         initiative_link:
           check_initiative_details: Du kan se initiativets detaljer
           here: här
         more_information: Här har du mer information om initiativskapande processen.
-        progress_report_body_for: Initiativet %{title} har nått %{percentage}% av de nödvändiga stöden.
-        progress_report_for: 'Fortsätt om initiativet: %{title}'
         promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till promotorutskottet. Vidarebefordra följande länk för att bjuda in personer till promotorkommittén
-        status_change_body_for: 'Initiativet %{title} har ändrat sitt tillstånd till: %{state}'
-        status_change_for: Initiativet %{title} har ändrat sitt tillstånd
         technical_validation_body_for: Initiativet %{title} har begärt sin tekniska validering.
         technical_validation_for: Initiativet %{title} har begärt sin tekniska validering.
       last_activity:
@@ -437,7 +402,6 @@ sv:
     resources:
       initiatives_type:
         actions:
-          vote: Rösta
           title: Åtgärder
   layouts:
     decidim:
