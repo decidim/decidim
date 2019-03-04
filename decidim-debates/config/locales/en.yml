@@ -33,7 +33,6 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
-            creation_enabled: Debate creation by participants enabled
     debates:
       actions:
         confirm_destroy: Are you sure?
@@ -43,11 +42,6 @@ en:
         title: Actions
       admin:
         debates:
-          create:
-            invalid: There was a problem creating the debate.
-            success: Debate successfully created.
-          destroy:
-            success: Debate successfully deleted.
           edit:
             title: Edit debate
             update: Update debate
@@ -56,9 +50,6 @@ en:
           new:
             create: Create debate
             title: New debate
-          update:
-            invalid: There was a problem updating this debate.
-            success: Debate successfully updated.
         models:
           debate:
             name: Debate
@@ -71,9 +62,6 @@ en:
           debates_count:
             one: "%{count} debate"
             other: "%{count} debates"
-        create:
-          invalid: There was a problem creating the debate.
-          success: Debate successfully created.
         debate:
           participate: Participate
         filters:
@@ -127,7 +115,6 @@ en:
             email_subject: New debate "%{resource_title}" by %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
         creation_disabled:
-          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in open debates from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Debate creation disabled in %{participatory_space_title}
           notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ en:
           conditions:
             - Choose an open debate to take part in
           description: This badge is granted when you actively participate in the different debates by leaving your comments.
-          description_another: This participant has taken part in %{score} debates.
           description_own: You have participated in %{score} debates.
           name: Debates
           next_level_in: Participate in %{score} more debates to reach the next level!
-          unearned_another: This participant has not yet taken part in any debate.
           unearned_own: You haven't participated in any debates yet.
     metrics:
       debates:
