@@ -69,7 +69,6 @@ cs:
             destroy: Zrušit výběr
             title: Zrušení výběrového řízení
           create:
-            error: Při vytváření nového rozvržení došlo k chybě.
             success: Sorta byla úspěšně vytvořena
           destroy:
             error: Výběr nelze zrušit.
@@ -90,7 +89,6 @@ cs:
           show:
             selected_proposals: Návrhy vybrané pro kreslení
           update:
-            error: Při aktualizaci výběru došlo k chybě.
             success: Sortifikace byla úspěšně aktualizována
       admin_log:
         sortition:
@@ -111,7 +109,6 @@ cs:
           category: Kategorie
           category_prompt: Vyberte kategorii
           search: Vyhledávání
-          state: Stát
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
@@ -130,7 +127,6 @@ cs:
             many: vybrané návrhy
             other: vybrané návrhy
         show:
-          algorithm: Kód algoritmu Sortition
           any_category: ze všech kategorií
           cancelled: Zrušený výběr
           candidate_proposal_ids: Sortimentní objednávky a ID
@@ -151,10 +147,6 @@ cs:
             many: vybraných návrhů
             other: vybraných návrhů
           view: Pohled
-        sortition_author:
-          deleted: Vymazaný uživatel
-        sortition_cancel_author:
-          deleted: Vymazaný uživatel
         sortitions_count:
           count:
             one: 1 sortie
