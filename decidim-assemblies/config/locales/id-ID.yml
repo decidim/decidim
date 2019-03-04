@@ -32,11 +32,11 @@ id:
         local_area: Area organisasi
         meta_scope: Ruang lingkup metadata
         parent_id: Perakitan orang tua
-        participatory_processes_ids: Proses partisipatif terkait
+        participatory_processes_ids: Proses Partisipatif Terkait
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
         private_space: Ruang pribadi
-        promoted: Disorot
+        promoted: Dipromosikan
         published_at: Diterbitkan di
         purpose_of_action: Tujuan tindakan
         scope_id: Cakupan
@@ -77,7 +77,7 @@ id:
         new_assembly: Perakitan baru
       assemblies:
         create:
-          error: Terjadi masalah saat membuat majelis baru.
+          error: Ada kesalahan saat membuat perakitan baru.
           success: Majelis berhasil dibuat.
         edit:
           update: Memperbarui
@@ -92,12 +92,12 @@ id:
           create: Membuat
           title: Perakitan baru
         update:
-          error: Ada masalah saat memperbarui majelis ini.
+          error: Ada kesalahan saat memperbarui perakitan ini.
           success: Majelis berhasil diperbarui.
       assemblies_copies:
         create:
-          error: Terjadi masalah saat menduplikasi majelis ini.
-          success: Majelis berhasil diduplikasi.
+          error: Ada kesalahan saat menduplikasi majelis ini.
+          success: Majelis berhasil digandakan.
       assembly_copies:
         new:
           copy: Salinan
@@ -105,10 +105,10 @@ id:
           title: Rakitan duplikat
       assembly_members:
         create:
-          error: Terjadi masalah saat menambahkan anggota untuk majelis ini.
-          success: Anggota berhasil dibuat untuk majelis ini.
+          error: Terjadi kesalahan saat menambahkan anggota untuk majelis ini.
+          success: Anggota berhasil dibuat untuk perakitan ini.
         destroy:
-          success: Anggota berhasil dihapus untuk majelis ini.
+          success: Anggota berhasil dihapus untuk perakitan ini.
         edit:
           title: Perbarui anggota majelis.
           update: Memperbarui
@@ -118,36 +118,36 @@ id:
           create: Membuat
           title: Anggota majelis baru.
         update:
-          error: Terjadi masalah saat memperbarui anggota untuk majelis ini.
-          success: Anggota berhasil diperbarui untuk majelis ini.
+          error: Terjadi kesalahan saat memperbarui anggota untuk perakitan ini.
+          success: Anggota berhasil diperbarui untuk perakitan ini.
       assembly_publications:
         create:
-          error: Terjadi masalah saat menerbitkan majelis ini.
+          error: Terjadi kesalahan saat mempublikasikan perakitan ini.
           success: Majelis berhasil diterbitkan.
         destroy:
-          error: Terjadi masalah saat tidak menerbitkan majelis ini.
-          success: Majelis berhasil tidak diterbitkan.
+          error: Terjadi kesalahan saat membatalkan publikasi rakitan ini.
+          success: Majelis tidak berhasil diterbitkan.
       assembly_user_roles:
         create:
-          error: Terjadi masalah saat menambahkan admin untuk majelis ini.
-          success: Admin berhasil ditambahkan ke majelis ini.
+          error: Terjadi kesalahan saat menambahkan pengguna untuk perakitan ini.
+          success: Pengguna berhasil ditambahkan ke majelis ini.
         destroy:
-          success: Admin berhasil dihapus dari majelis ini.
+          success: Pengguna berhasil dihapus dari rakitan ini.
         edit:
-          title: Perbarui admin perakitan.
+          title: Perbarui pengguna perakitan.
           update: Memperbarui
         index:
-          assembly_admins_title: Admin majelis
+          assembly_admins_title: Pengguna majelis
         new:
           create: Membuat
-          title: Admin perakitan baru.
+          title: Pengguna perakitan baru.
         update:
-          error: Ada masalah saat memperbarui admin untuk majelis ini.
-          success: Admin berhasil diperbarui untuk majelis ini.
+          error: Terjadi kesalahan saat memperbarui pengguna untuk perakitan ini.
+          success: Pengguna berhasil diperbarui untuk perakitan ini.
       menu:
         assemblies: Assemblies
         assemblies_submenu:
-          assembly_admins: Admin majelis
+          assembly_admins: Pengguna majelis
           assembly_members: Anggota
           attachment_collections: Folder
           attachment_files: File
@@ -183,7 +183,7 @@ id:
             email: E-mail
             name: Nama
             role: Peran
-          name: Admin majelis
+          name: Pengguna Majelis
           roles:
             admin: Administrator
             collaborator: Kolaborator
@@ -202,7 +202,7 @@ id:
         update: "%{user_name} memperbarui %{resource_name} anggota dalam %{space_name} perakitan"
       assembly_user_role:
         create: "%{user_name} diundang %{resource_name} ke majelis %{space_name}"
-        delete: "%{user_name} menghapus peserta %{resource_name} dari %{space_name} majelis"
+        delete: "%{user_name} mengeluarkan pengguna %{resource_name} dari %{space_name} rakitan"
         update: "%{user_name} mengubah peran %{resource_name} dalam %{space_name} perakitan"
     assemblies:
       admin:
@@ -221,11 +221,11 @@ id:
             slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         assembly_members:
           form:
-            existing_user: Peserta yang ada
-            non_user: Bukan peserta
+            existing_user: Pengguna yang sudah ada
+            non_user: Non-pengguna
             select_a_position: Pilih posisi
-            select_user: Pilih satu peserta
-            user_type: Jenis peserta
+            select_user: Pilih seorang pengguna
+            user_type: Tipe Pengguna
           index:
             filter:
               all: Semua
@@ -311,14 +311,14 @@ id:
         endorsements_count: Endorsemen
         headline: Aktivitas
         meetings_count: Rapat
-        orders_count: Mendukung
+        orders_count: Suara
         pages_count: Halaman
         projects_count: Proyek
         proposals_count: Proposal
         results_count: Hasil
         surveys_count: Survei
         users_count: Peserta
-        votes_count: Mendukung
+        votes_count: Suara
     assembly_members:
       assembly_member:
         designated_on: Ditunjuk pada
@@ -327,8 +327,8 @@ id:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Sebuah <strong>perakitan</strong> adalah sekelompok anggota organisasi yang bertemu secara berkala untuk membuat keputusan tentang area tertentu atau ruang lingkup organisasi.</p> <p>Majelis mengadakan pertemuan, ada yang bersifat pribadi dan ada yang terbuka. Jika terbuka, dimungkinkan untuk berpartisipasi di dalamnya (misalnya: menghadiri jika kapasitas memungkinkan, menambahkan poin ke agenda, atau mengomentari proposal dan keputusan yang diambil oleh organ ini).</p> <p>Contoh: Majelis umum (yang bertemu setahun sekali untuk menentukan garis aksi utama organisasi serta badan eksekutifnya melalui pemungutan suara), dewan penasihat kesetaraan (yang bertemu setiap dua bulan untuk membuat proposal tentang bagaimana meningkatkan hubungan gender dalam organisasi), komisi evaluasi (yang bertemu setiap bulan untuk memantau suatu proses) atau badan penjamin (yang mengumpulkan insiden, pelanggaran atau proposal untuk memperbaiki prosedur pengambilan keputusan) adalah semua contoh majelis.</p>\n"
-          page: "<p>Sebuah <strong>perakitan</strong> adalah sekelompok anggota organisasi yang bertemu secara berkala untuk membuat keputusan tentang area tertentu atau ruang lingkup organisasi.</p> <p>Majelis mengadakan pertemuan, ada yang bersifat pribadi dan ada yang terbuka. Jika terbuka, dimungkinkan untuk berpartisipasi di dalamnya (misalnya: menghadiri jika kapasitas memungkinkan, menambahkan poin ke agenda, atau mengomentari proposal dan keputusan yang diambil oleh organ ini).</p> <p>Contoh: Majelis umum (yang bertemu setahun sekali untuk menentukan garis aksi utama organisasi serta badan eksekutifnya melalui pemungutan suara), dewan penasihat kesetaraan (yang bertemu setiap dua bulan untuk membuat proposal tentang bagaimana meningkatkan hubungan gender dalam organisasi), komisi evaluasi (yang bertemu setiap bulan untuk memantau suatu proses) atau badan penjamin (yang mengumpulkan insiden, pelanggaran atau proposal untuk memperbaiki prosedur pengambilan keputusan) adalah semua contoh majelis.</p>\n"
+          contextual: "<p>Sebuah perakitan adalah sekelompok anggota organisasi yang bertemu secara berkala untuk membuat keputusan tentang area tertentu atau ruang lingkup organisasi.</p> <p>Majelis mengadakan pertemuan, beberapa bersifat pribadi dan beberapa terbuka. Jika mereka terbuka, adalah mungkin untuk berpartisipasi di dalamnya (misalnya: menghadiri jika kapasitas memungkinkan, menambahkan poin ke agenda, atau mengomentari proposal dan keputusan yang diambil oleh organ ini).</p> <p>Contoh: Sebuah majelis umum (yang bertemu setahun sekali untuk menentukan garis-garis tindakan utama organisasi serta badan eksekutifnya melalui pemungutan suara), dewan penasihat persamaan (yang bertemu setiap dua bulan untuk membuat proposal tentang cara meningkatkan hubungan gender dalam organisasi), komisi evaluasi (yang bertemu setiap bulan untuk memantau suatu proses) atau badan jaminan (yang mengumpulkan insiden, pelanggaran atau proposal untuk memperbaiki prosedur pengambilan keputusan) adalah semua contoh majelis.</p>\n"
+          page: "<p>Sebuah perakitan adalah sekelompok anggota organisasi yang bertemu secara berkala untuk membuat keputusan tentang area tertentu atau ruang lingkup organisasi.</p> <p>Majelis mengadakan pertemuan, beberapa bersifat pribadi dan beberapa terbuka. Jika mereka terbuka, adalah mungkin untuk berpartisipasi di dalamnya (misalnya: menghadiri jika kapasitas memungkinkan, menambahkan poin ke agenda, atau mengomentari proposal dan keputusan yang diambil oleh organ ini).</p> <p>Contoh: Sebuah majelis umum (yang bertemu setahun sekali untuk menentukan garis-garis tindakan utama organisasi serta badan eksekutifnya melalui pemungutan suara), dewan penasihat persamaan (yang bertemu setiap dua bulan untuk membuat proposal tentang cara meningkatkan hubungan gender dalam organisasi), komisi evaluasi (yang bertemu setiap bulan untuk memantau suatu proses) atau badan jaminan (yang mengumpulkan insiden, pelanggaran atau proposal untuk memperbaiki prosedur pengambilan keputusan) adalah semua contoh majelis.</p>\n"
           title: Apa itu majelis?
     log:
       value_types:
