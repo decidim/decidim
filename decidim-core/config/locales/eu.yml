@@ -153,23 +153,23 @@ eu:
           help_text: Aldaketak berrikustea eta aldaketa hori onartzea edo arbuiatzea. Jakinarazpen bat bere egileei bidaliko zaie.
         announcement:
           accepted: |-
-            %{amendable_type} %{amendable_link} aldatze hau
-            <strong>%{announcement_date}</strong>onartu da.
+            For the Aldaketa hori %{amendable_type} %{amendable_link} izan da
+            onartu <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Hau %{amendable_type} %{amendable_link}
-            aldaketaren ebaluazioa da.
+            For the Aldaketa hori %{amendable_type} %{amendable_link}
+            ebaluatu dago.
           rejected: |-
             %{amendable_type} %{amendable_link}
             aldatze hau <strong>%{announcement_date}</strong>baztertu egin zen.
           withdrawn: |-
             %{amendable_type} %{amendable_link}
-            aldirako aldaketa hori egilearen arabera kendu da.
+            ren aldaketa hori egilearen arabera kendu da.
       new:
         amendment_author: Egile aldaketa
         back: Back
         heading: Sortu zure aldaketa
         help_text: '%{model_name}aldatzen ari zara'
-        send: Bidali aldatzea
+        send: Bidali aldaketa
       rejected:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
@@ -180,7 +180,7 @@ eu:
         back: Back
         heading: Aldaketa berrikustea
         help_text: '%{model_name}aldatzen ari zara'
-        send: Onartu aldatzea
+        send: Onartu aldaketa
     anonymous_user: Anonimoa
     application:
       collection:
