@@ -21,7 +21,7 @@ module Decidim
             on(:ok) do
               flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.sms")
               authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
-              redirect_to authorization_method.resume_authorization_path
+              redirect_to authorization_method.resume_authorization_path(redirect_url: params[:redirect_url])
             end
             on(:invalid) do
               flash.now[:alert] = t("authorizations.create.error", scope: "decidim.verifications.sms")
@@ -44,7 +44,12 @@ module Decidim
           ConfirmUserAuthorization.call(authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.sms")
-              redirect_to decidim_verifications.authorizations_path
+
+              if params[:redirect_url]
+                redirect_to params[:redirect_url]
+              else
+                redirect_to decidim_verifications.authorizations_path
+              end
             end
 
             on(:invalid) do
