@@ -61,7 +61,7 @@ uk:
           fields:
             created_at: 'Створено:'
             state: Стан
-            supports_count: Проявів підтримки
+            supports_count: Підписів
             title: Почини
         initiatives_type_scope:
           fields:
@@ -92,6 +92,9 @@ uk:
             notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
     initiatives:
       admin:
+        answers:
+          info_initiative:
+            state: Стан
         committee_requests:
           index:
             approve: Схвалити
