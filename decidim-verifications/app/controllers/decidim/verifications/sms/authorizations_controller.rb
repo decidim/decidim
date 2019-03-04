@@ -54,6 +54,15 @@ module Decidim
           end
         end
 
+        def destroy
+          enforce_permission_to :destroy, :authorization, authorization: authorization
+
+          authorization.destroy!
+          flash[:notice] = t("authorizations.destroy.success", scope: "decidim.verifications.sms")
+
+          redirect_to action: :new
+        end
+
         private
 
         def authorization

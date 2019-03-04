@@ -206,8 +206,13 @@ en:
             error: There was a problem with your request
             success: Thanks! We've sent an SMS to your phone.
           edit:
+            confirm_destroy: Are you sure you want to reset the verification code?
+            destroy: Reset verification code
             send: Confirm
+            resend: Didn't receive the verification code?
             title: Introduce the verification code you received
+          destroy:
+            success: Verification code sucessfully reset. Please re-enter your phone number.
           new:
             send: Send me an SMS
             title: Request your verification code
