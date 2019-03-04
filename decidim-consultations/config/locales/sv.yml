@@ -58,23 +58,8 @@ sv:
         new_response: Nytt svar
         publish_results: Publicera resultat
         unpublish_results: Uppdatera resultaten
-      consultation_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av detta samråd.
-          success: Samråd publicerades framgångsrikt.
-        destroy:
-          error: Ett fel uppstod vid publicering av detta samråd.
-          success: Konsultationen publicerades framgångsrikt.
-      consultation_results_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av resultaten för detta samråd.
-          success: Konsulteringsresultat publiceras framgångsrikt.
-        destroy:
-          error: Ett fel uppstod för att publicera resultaten för detta samråd.
-          success: Konsulteringsresultatet är opublicerat framgångsrikt.
       consultations:
         create:
-          error: Det uppstod ett fel vid att skapa ett nytt samråd.
           success: Samråd med framgångsrikt skapat.
         edit:
           update: Uppdatera
@@ -88,7 +73,6 @@ sv:
           create: Skapa
           title: Nytt samråd
         update:
-          error: Det uppstod ett fel vid uppdateringen av detta samråd.
           success: Samråd uppdaterades framgångsrikt.
       menu:
         consultations: samråd
@@ -124,16 +108,8 @@ sv:
           name:
             one: Svar
             other: Svar
-      question_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av denna fråga.
-          success: Fråga publicerad framgångsrikt.
-        destroy:
-          error: Ett fel uppstod vid publicering av denna fråga.
-          success: Fråga unpublished successfully.
       questions:
         create:
-          error: Ett fel uppstod med att skapa en ny fråga.
           success: Fråga med framgång skapad.
         destroy:
           success: Fråga med framgång raderad.
@@ -147,15 +123,10 @@ sv:
         new:
           create: Skapa
           title: Ny fråga
-        update:
-          error: Det uppstod ett fel vid uppdateringen av den här frågan.
-          success: Fråga uppdaterad framgångsrikt.
       responses:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt svar.
           success: Svar skapat.
         destroy:
-          error: Ett fel uppstod när svaret togs bort.
           success: Svaret har tagits bort.
         edit:
           update: Uppdatera
@@ -164,9 +135,6 @@ sv:
         new:
           create: Skapa
           title: Nytt svar
-        update:
-          error: Det uppstod ett fel vid uppdateringen av detta svar.
-          success: Svaret uppdaterades framgångsrikt.
       titles:
         consultations: samråd
         questions: frågor
@@ -198,7 +166,6 @@ sv:
         all: Alla
         finished: Färdiga
         search: Sök
-        state: Status
         upcoming: Kommande
       filters_small_view:
         close_modal: Stäng fönstret
@@ -227,9 +194,6 @@ sv:
         votes_out_of:
           one: rösta ut ur
           other: röster av
-      question_votes:
-        create:
-          error: Det har förekommit fel när man röstade frågan
       regular_questions:
         title: Frågor för detta samråd
       show:
@@ -247,8 +211,6 @@ sv:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
-          page: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation. Några exempel är att ändra organisationens namn eller logotyp som erbjuder flera alternativ, bestämma ja eller nej för att bli en del av en större organisation, validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat i organisationen.</p>\n"
           title: Vad är samråd?
     menu:
       consultations: samråd
@@ -265,22 +227,18 @@ sv:
         assistants_count_title: assistenter
         comments_count_title: Kommentarer
         meetings_count_title: Möten
-        supports_count_title: Stöder
       technical_info:
         technical_data: Teknisk data
       vote_button:
         already_voted: Redan röstade
-        already_voted_hover: Återkalla support
         starting_from: Börjar från %{date}
         vote: Rösta
       vote_modal:
         contextual_help: Var god välj ett alternativ.
-        title: 'Samråd: Frågestöd'
       vote_modal_confirm:
         change: Ändra
         confirm: Bekräfta
         contextual_help: Vänligen bekräfta det valda alternativet.
-        title: 'Samråd: bekräfta support'
   layouts:
     decidim:
       admin:
