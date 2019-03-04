@@ -52,7 +52,6 @@ uk:
             name: Запис на лінії часу
         results:
           create:
-            invalid: При спробі створити ці підсумки сталася помилка
             success: Підсумки успішно створено
           destroy:
             success: Підсумки успішно видалено
@@ -71,14 +70,12 @@ uk:
             current_selection: Поточний вибір
             select: Оберіть
           update:
-            invalid: При спробі оновити ці підсумки сталася помилка
             success: Підсумки успішно оновлено
         shared:
           subnav:
             statuses: Стани
         statuses:
           create:
-            invalid: При спробі створити цей стан сталася помилка
             success: Стан успішно створено
           destroy:
             success: Стан успішно видалено
@@ -91,11 +88,9 @@ uk:
             create: Створити стан
             title: Додати стан
           update:
-            invalid: При спробі оновити цей стан сталася помилка
             success: Стан успішно оновлено
         timeline_entries:
           create:
-            invalid: При спробі створити цей запис сталася помилка
             success: Запис успішно створено
           destroy:
             success: Запис успішно видалено
@@ -108,7 +103,6 @@ uk:
             create: Створити запис
             title: Додати запис
           update:
-            invalid: Під час оновлення цього запису сталася помилка
             success: Запис успішно оновлено
       admin_log:
         result:
