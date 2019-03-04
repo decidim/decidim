@@ -4,15 +4,12 @@ ru:
       initiative:
         decidim_user_group_id: Автор
         description: Описание
-        offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
         signature_end_date: Конец периода сбора подписей
         signature_start_date: Начало периода сбора подписей
         signature_type: Вид сбора подписей
         signature_type_values:
           any: Смешанный
-          offline: Лицом к лицу
-          online: Онлайн
         title: Заголовок
       initiative_author:
         address: Адрес
@@ -60,13 +57,11 @@ ru:
         initiatives:
           fields:
             created_at: 'Создано:'
-            state: Cостояние
-            supports_count: Выражений поддержки
+            supports_count: Подписей
             title: Почины
         initiatives_type_scope:
           fields:
             scope: Охват
-            supports_required: Сколько необходимо выражений поддержки
           name: Охват вида почина
         initiatives_types:
           fields:
@@ -79,10 +74,8 @@ ru:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Срок сбора подписей в поддержку почина %{resource_title} продлен!
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Срок сбора подписей в поддержку почина продлен!
-          notification_title: Срок сбора подписей в поддержку почина <a href="%{resource_path}">%{resource_title}</a> продлен.
         milestone_completed:
           affected_user:
             email_subject: Достигнута новая веха!
@@ -92,11 +85,13 @@ ru:
             notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
     initiatives:
       admin:
+        answers:
+          info_initiative:
+            state: Cостояние
         committee_requests:
           index:
             approve: Одобрить
             confirm_revoke: Вы уверены?
-            invite_to_committee_help: Поделитесь этой ссылкой, чтобы пригласить других участников в рабочую группу по продвижению
             no_members_yet: В рабочей группе по продвижению нет ни одного члена
             revoke: Отозвать
             title: Члены рабочей группы
@@ -105,7 +100,6 @@ ru:
             accept: Принять почин
             confirm: Вы уверены?
             discard: Отбросить почин
-            export_votes: Сохранить выражения поддержки в виде файла
             reject: Отклонить почин
             send_to_technical_validation: Отправить на техническую проверку
             success: Почин был направлен ​​на техническую проверку
@@ -130,7 +124,6 @@ ru:
             print: Распечатать
           update:
             error: Произошла ошибка
-            success: Гражданский почин успешно обновлен
         initiatives_type_scopes:
           create:
             error: Произошла ошибка
@@ -196,18 +189,15 @@ ru:
         fill_data:
           back: Вернуться
           continue: Продолжить
-          fill_data_help: "<ul> <li>Пересмотрите содержание своего почина. Легко ли понять название? Понятна ли цель вашего почина?</li> <li>Вы должны выбрать вид сбора подписей. Лично, онлайн или сочетание обоих</li> <li>Каков географический охват почина? Город, район?</li> </ul>"
           initiative_type: Вид почина
           more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
         finish:
           back: Вернуться
           back_to_initiatives: Вернуться к починам
-          callout_text: Поздравляем! Ваш гражданский почин был успешно создан.
           go_to_my_initiatives: Перейти к моим починам
           more_information: "(Дополнительные сведения)"
         finish_help:
-          access_reminder: Помните, что вы всегда можете получить доступ к своим починам через меню участника.
           help_for_organizations: Если вы являетесь ассоциацией организаций, вам нужно загрузить протоколы заседаний правления всех организаций, входящих в рабочую группу по продвижению
           help_in_person_signatures: Если вы выбрали сбор подписей на личных встречах или в сочетании со сбором онлайн, вам нужно будет загрузить требуемые для этого сведения.
           help_text: Помните, что для правильной обработки почина вы должны перейти к панели администрирования. Найдите там меню участника, загрузите требуемые сведения и отправьте их на обработку.
@@ -230,7 +220,6 @@ ru:
           invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
         show_similar_initiatives:
           back: Вернуться
-          compare_help: Если какой-либо из следующих починов похож на ваш, мы призываем вас поддержать его. У вашего предложения будет больше возможностей для воплощения в жизнь.
           continue: Мой почин другой
           more_information: "(Дополнительные сведения)"
       events:
@@ -246,9 +235,6 @@ ru:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Почины
-      initiative_votes:
-        create:
-          error: При попытке подписаться за этот почин произошли ошибки.
       initiatives:
         author:
           deleted: Удален
@@ -271,7 +257,6 @@ ru:
           myself: Мои почины
           open: Открыты
           search: Поиск
-          state: Cостояние
           type: Вид
           type_prompt: Выбрать вид
         filters_small_view:
@@ -287,13 +272,6 @@ ru:
           most_voted: С наибольшим количеством подписей
           random: Произвольно
           recent: Самые последние
-        result:
-          initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
-        show:
-          any_vote_method: Эта гражданская инициатива собирает поддержку в онлайне, а также лицом к лицу.
-          offline_method: Этот гражданский почин собирает выражения поддержки только на личных встречах.
-        signature_identities:
-          select_identity: Выберите псевдоним участника
         signatures_count:
           one: " подпись"
           few: " подписи"
@@ -313,16 +291,11 @@ ru:
             many: ПОДПИСЕЙ
             other: ПОДПИСЕЙ
       initiatives_mailer:
-        creation_subject: Ваш гражданский почин '%{title}' был создан
         initiative_link:
           check_initiative_details: Вы можете посмотреть сведения о почине
           here: здесь
         more_information: Вот дополнительные сведения о процессе создания почина.
-        progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
-        progress_report_for: 'Кратко о почине: %{title}'
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
-        status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
-        status_change_for: Состояние почина %{title} изменилось
         technical_validation_body_for: Почин %{title} запросил техническую проверку.
         technical_validation_for: Почин %{title} запросил техническую проверку.
       pages:
