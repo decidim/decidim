@@ -12,8 +12,6 @@ sv:
         description: Beskrivning
         hashtag: Hashtag
         hero_image: Hembild
-        participatory_processes_ids: Relaterade deltagande processer
-        promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
         scopes_enabled: Scopes aktiverade
@@ -56,23 +54,7 @@ sv:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
           title: Dubbelkonferens
-      conference_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av denna konferens.
-          success: Konferensen publiceras framgångsrikt.
-        destroy:
-          error: Ett fel uppstod vid publicering av denna konferens.
-          success: Konferensen publicerades framgångsrikt.
-      conference_registration:
-        confirm:
-          error: Ett fel uppstod vid bekräftelse av denna konferensregistrering.
-          success: Konferensregistrering bekräftades med framgång.
       conference_speakers:
-        create:
-          error: Det gick inte att lägga till en högtalare för den här konferensen.
-          success: Högtalare skapades framgångsrikt för denna konferens.
-        destroy:
-          success: Högtalaren raderades framgångsrikt för denna konferens.
         edit:
           title: Uppdatera konferenshögtalare.
           update: Uppdatera
@@ -81,30 +63,12 @@ sv:
         new:
           create: Skapa
           title: Ny konferenshögtalare.
-        update:
-          error: Det uppstod ett fel vid uppdatering av högtalaren för den här konferensen.
-          success: Högtalaren uppdaterades framgångsrikt för denna konferens.
       conference_user_roles:
-        create:
-          error: Det uppstod ett fel vid att lägga till en användare för den här konferensen.
-          success: Användaren läggs till med framgång till denna konferens.
-        destroy:
-          success: Användaren avlägsnades framgångsrikt från denna konferens.
         edit:
-          title: Uppdatera konferensanvändare.
           update: Uppdatera
-        index:
-          conference_admins_title: konferensanvändare
         new:
           create: Skapa
-          title: Ny konferensanvändare.
-        update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här konferensen.
-          success: Användaren uppdaterades framgångsrikt för denna konferens.
       conferences:
-        create:
-          error: Det uppstod ett fel vid att skapa en ny konferens.
-          success: Konferensen skapades framgångsrikt.
         edit:
           update: Uppdatera
         exports:
@@ -117,19 +81,7 @@ sv:
         new:
           create: Skapa
           title: Konferens
-        update:
-          error: Det uppstod ett fel vid uppdateringen av denna konferens.
-          success: Konferensen uppdaterades framgångsrikt.
-      conferences_copies:
-        create:
-          error: Det uppstod ett fel vid duplicering av den här konferensen.
-          success: Konferensen dupliceras framgångsrikt.
       media_links:
-        create:
-          error: Det uppstod ett fel vid skapandet av en ny medielänk.
-          success: Media Link skapades framgångsrikt.
-        destroy:
-          success: Media Link raderas framgångsrikt.
         edit:
           title: Uppdatera media länk.
           update: Uppdatera
@@ -138,9 +90,6 @@ sv:
         new:
           create: Skapa
           title: Media Link
-        update:
-          error: Det uppstod ett fel vid uppdateringen av den här mediekopplingen.
-          success: Media Link uppdaterad framgångsrikt.
       menu:
         conferences: konferenser
         conferences_submenu:
@@ -149,7 +98,7 @@ sv:
           attachments: bilagor
           categories: kategorier
           components: Komponenter
-          conference_admins: Konferensanvändare
+          conference_admins: Konferensadministratörer
           conference_invites: Inbjudningskort
           conference_speakers: högtalare
           diploma: Närvarointyg
@@ -164,7 +113,6 @@ sv:
         conference:
           fields:
             created_at: Skapad vid
-            promoted: främjas
             published: Publicerad
             title: Titel
         conference_speaker:
@@ -178,7 +126,6 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Konferensanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
@@ -208,42 +155,19 @@ sv:
             weight: Vikt
           name: Registreringstyp
       partners:
-        create:
-          error: Det gick inte att lägga till en partner för den här konferensen.
-          success: Partner lyckades till denna konferens framgångsrikt.
-        destroy:
-          success: Partner har tagits bort framgångsrikt från denna konferens.
         edit:
           title: Uppdatera partner.
           update: Uppdatera
         new:
           create: Skapa
           title: Ny partner
-        update:
-          error: Det uppstod ett fel som uppdaterade en partner för den här konferensen.
-          success: Partner uppdaterad framgångsrikt för denna konferens.
-      registration_type_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av denna registreringstyp.
-          success: Registreringstypen publicerades framgångsrikt.
-        destroy:
-          error: Ett fel uppstod vid publicering av denna registreringstyp.
-          success: Registreringstypen publicerades inte framgångsrikt.
       registration_types:
-        create:
-          error: Det gick inte att lägga till en registreringstyp för den här konferensen.
-          success: Registreringstypen har lagts till framgång på denna konferens.
-        destroy:
-          success: Registreringstypen har tagits bort framgångsrikt från denna konferens.
         edit:
           title: Uppdatera registreringstypen.
           update: Uppdatering
         new:
           create: Skapa
           title: Ny registreringstyp
-        update:
-          error: Det uppstod ett fel som uppdaterade en registreringstyp för den här konferensen.
-          success: Registreringstypen uppdaterades framgångsrikt för denna konferens.
       titles:
         conferences: konferenser
     admin_log:
@@ -260,14 +184,12 @@ sv:
         update: "%{user_name} uppdaterade %{resource_name} högtalare på %{space_name} konferensen"
       conference_user_role:
         create: "%{user_name} inbjudna %{resource_name} till %{space_name} konferens"
-        delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
         update: "%{user_name} ändrade rollen som %{resource_name} i %{space_name} konferensen"
       conferences:
         conference_registration:
           confirm: "%{user_name} bekräftade en konferensregistrering på %{resource_name} konferens"
         partner:
           create: "%{user_name} skapade %{resource_name} till %{space_name} konferensen"
-          delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
           update: "%{user_name} uppdaterad %{resource_name} på %{space_name} konferensen"
         registration_type:
           create: "%{user_name} skapade %{resource_name} registreringstyp i %{space_name} konferensen"
@@ -290,15 +212,8 @@ sv:
           form:
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på denna konferens. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
         conference_invites:
-          create:
-            error: Det har varit ett problem när du inbjuder användaren att gå med i konferensen.
-            success: Användaren framgångsrikt inbjuden att delta i konferensen.
           form:
             attendee_type: Deltagare typ
-            existing_user: Existerande användare
-            invite_explanation: Användaren kommer att bli inbjuden att ansluta sig till konferensen och till organisationen också.
-            non_user: Icke befintlig användare
-            select_user: Välj användare
           index:
             filter:
               accepted: Accepterad
@@ -306,22 +221,14 @@ sv:
               rejected: Avvisad
               sent: Skickad
             filter_by: Filtrera efter
-            invite_attendee: Bjud in deltagare
             invites: Inbjudningskort
             search: Sök
           new:
-            explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
             invite: Bjuda in
-            new_invite: Bjud in användare
         conference_registrations:
           index:
             registrations: registreringar
         conference_speakers:
-          form:
-            existing_user: Existerande användare
-            non_user: Icke-användare
-            select_user: Välj användare
-            user_type: Användartyp
           index:
             search: Sök
         conferences:
@@ -355,16 +262,12 @@ sv:
             attendance_verified_by: Närvaro verifierad av
             certificate_of_attendance: Närvarointyg
             certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och deltagit i <strong>%{title}</strong> hölls på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
-        send_diploma:
-          error: Det har varit ett problem när du skickade konferensbevis för närvaro.
-          success: Konferensbevis för deltagande skickas korrekt
       conference:
         registration_confirm:
           cancel: Avbryta
           confirm: Bekräfta
         show:
           free: Gratis
-          going: Gående
           no_slots_available: Inga slots tillgängliga
           registration: Registrering
       conference_program:
@@ -384,17 +287,6 @@ sv:
         pending_validation:
           confirmation_pending: Du kommer snart att få bekräftelsen
           details: 'Du har registrerat dig till %{registration_type} typ med en kostnad av %{price} och du kan delta i följande händelser:'
-          pending_html: Din registrering för konferensen <a href="%{url}">%{title}</a> väntar på att bekräftas.
-      conference_registrations:
-        create:
-          invalid: Det har varit ett problem att gå med i denna konferens.
-          success: Du har anslutit konferensen framgångsrikt.
-        decline_invitation:
-          invalid: Det har varit ett problem att minska inbjudan.
-          success: Du har avböjt inbjudan framgångsrikt.
-        destroy:
-          invalid: Det har varit ett problem att lämna denna konferens.
-          success: Du har lämnat konferensen framgångsrikt.
       conference_speaker:
         go_to_twitter: Gå till Twitter
         more_info: mer information
@@ -426,8 +318,6 @@ sv:
         conference_registration_mailer:
           confirmation:
             subject: Din konferenss registrering har bekräftats
-          pending_validation:
-            subject: Din konferensens registrering väntar på att bekräftas
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
@@ -451,7 +341,6 @@ sv:
             email: E-post
             name: Namn
             registration_type: Registreringstyp
-            state: Status
             states:
               confirmed: bekräftat
               pending: Avvaktan
@@ -463,10 +352,6 @@ sv:
       photo:
         show:
           close_modal: Stäng modal
-          photo: Bild
-      photos_list:
-        show:
-          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Välj ditt registreringsalternativ:'
@@ -483,9 +368,7 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: mål
-        related_assemblies: Relaterade församlingar
         related_consultations: Relaterade samråd
-        related_participatory_processes: Relaterade deltagande processer
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
@@ -494,7 +377,6 @@ sv:
         endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: Möten
-        orders_count: Röster
         pages_count: Sidor
         posts_count: inlägg
         projects_count: Projekt
@@ -502,7 +384,6 @@ sv:
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: Röster
     events:
       conferences:
         conference_registration_validation_pending:
@@ -553,8 +434,6 @@ sv:
       conferences:
         conference:
           take_part: Ta del
-        index:
-          promoted_conferences: Främjda konferenser
         order_by_conferences:
           conferences:
             one: "%{count} konferens"
