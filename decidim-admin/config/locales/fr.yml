@@ -70,7 +70,6 @@ fr:
         success_color: Succès
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
-        user_groups_enabled: Activer les groupes d'utilisateurs
         warning_color: Attention
         youtube_handler: Gestionnaire YouTube
       scope:
@@ -138,7 +137,6 @@ fr:
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
           success: Le type de zone d'application a été créé avec succès.
         destroy:
           success: Le type de zone d'application a bien été supprimé.
@@ -149,11 +147,9 @@ fr:
           create: Créer un type de zone d'application
           title: Nouveau type de zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
           success: Le type de zone d'application a été mis à jour avec succès.
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
           success: La zone d'application a bien été supprimée
@@ -165,11 +161,9 @@ fr:
           title: Nouvelle zone d'application
         no_areas: Aucune zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
           success: Zone d'application mise à jour avec succès
       attachment_collections:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau dossier.
           success: Le dossier a été créé avec succès.
         destroy:
           success: Dossier supprimé avec succès.
@@ -183,11 +177,9 @@ fr:
           create: Créer
           title: Nouveau dossier
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce dossier.
           success: Dossier mis à jour avec succès.
       attachments:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau document lié.
           success: Document lié créé avec succès.
         destroy:
           success: Document lié supprimé avec succès.
@@ -200,17 +192,14 @@ fr:
           create: Lier un document
           title: Nouveau document lié
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce document lié.
           success: Document lié mis à jour avec succès.
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
       categories:
         create:
-          error: Une erreur s'est produite lors de la création de cette catégorie.
           success: Catégorie créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
           success: Catégorie supprimée avec succès.
         edit:
           title: Modifier la catégorie
@@ -222,17 +211,14 @@ fr:
           create: Créer une catégorie
           title: Nouvelle catégorie
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       component_permissions:
         update:
           success: Autorisations mises à jour avec succès.
       components:
         create:
-          error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
           success: La fonctionnalité a été supprimée avec succès.
         edit:
           title: Modifier la fonctionnalité
@@ -256,7 +242,6 @@ fr:
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
         update:
-          error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
       dashboard:
         show:
@@ -266,7 +251,6 @@ fr:
         export_as: "%{name} en format %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       help_sections:
-        error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
           save: sauvegarder
         success: Les sections d'aide ont été mises à jour avec succès
@@ -278,7 +262,6 @@ fr:
             not_managed: Non géré
           filter_by: Filtrer par
           impersonate: Représenter
-          impersonate_new_managed_user: Représenter un nouvel utilisateur
           managed: Représenté
           name: Nom
           needs_authorization_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
@@ -289,31 +272,19 @@ fr:
           view_logs: Consultez les journaux d'activité
       impersonations:
         close_session:
-          error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
           success: La session de l'utilisateur que vous représentiez a été fermée avec succès.
-        create:
-          error: Une erreur a été commise en représentant l'identité de l'utilisateur.
-          success: L'utilisateur à représenter a été créé avec succès.
         form:
           authorization_method: Méthode d'autorisation
           name: Nom
           reason: Raison
         new:
           impersonate: Représenter
-          impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
-          impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
-          impersonate_new_managed_user: Représenter un nouvel utilisateur
       logs:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journal d'activité
       managed_users:
-        promotion:
-          error: Une erreur s'est produite lors de la promotion de l'utilisateur représenté.
-          success: L'utilisateur représenté a été promu avec succès.
         promotions:
           new:
-            explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
-            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
       menu:
         admin_log: Journal d'activité personnel
@@ -333,8 +304,6 @@ fr:
         scopes: Périmètres d’application
         settings: Paramètres
         static_pages: Pages
-        user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
       models:
         area:
           fields:
@@ -362,7 +331,6 @@ fr:
             expired_at: Expiré le
             reason: Raison
             started_at: Commencé le
-            user: Utilisateur
         newsletter:
           fields:
             created_at: Créée le
@@ -375,8 +343,6 @@ fr:
             created_at: Créée le
             name: Titre
           name: Application OAuth
-        participatory_space_private_user:
-          name: Utilisateur de l'espace participatif
         scope:
           fields:
             name: Titre
@@ -398,8 +364,6 @@ fr:
             role: Rôle
             roles:
               admin: Administrateur
-              user_manager: Représentant de l'utilisateur
-          name: Utilisateur
         user_group:
           fields:
             actions: Actions
@@ -408,7 +372,6 @@ fr:
             name: Nom
             phone: Téléphone
             state: État
-            users_count: Nombre d'utilisateurs
       moderations:
         index:
           title: Modérations
@@ -419,10 +382,8 @@ fr:
             spam: Spam
       newsletters:
         create:
-          error: Il y a eu une erreur lors de la création de cette newsletter.
           success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
         deliver:
-          error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
           error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
@@ -444,14 +405,11 @@ fr:
           preview: Aperçu
           subject: Objet
         update:
-          error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       oauth_applications:
         create:
-          error: Une erreur s'est produite lors de la création de cette application.
           success: Application créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de cette application.
           success: Application supprimée avec succès.
         edit:
           save: Sauvegarder
@@ -463,13 +421,8 @@ fr:
           save: Sauvegarder
           title: Nouvelle application
         update:
-          error: Une erreur est survenue lors de la mise à jour de cette application.
           success: Application mise à jour avec succès.
       officializations:
-        create:
-          success: Utilisateur validé avec succès
-        destroy:
-          success: Validation de l'utilisateur supprimée avec succès
         index:
           actions: Actions
           badge: Badge
@@ -491,7 +444,6 @@ fr:
         new:
           badge: Badge de validation
           officialize: Valider
-          title: Valider l'utilisateur "%{name}"
       organization:
         edit:
           title: Modifier l'organisation
@@ -505,7 +457,6 @@ fr:
           url: Url
           youtube: YouTube
         update:
-          error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
       organization_appearance:
         edit:
@@ -527,17 +478,8 @@ fr:
         edit:
           update: Mettre à jour
       participatory_space_private_users:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
-        index:
-          title: Utilisateur privé de l'espace participatif
         new:
           create: Créer
-          title: Nouvel utilisateur privé de l'espace participatif.
       resource_permissions:
         edit:
           submit: Soumettre
@@ -546,7 +488,6 @@ fr:
           success: Autorisations mises à jour avec succès.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
           success: Type de périmètre d'application créé avec succès.
         destroy:
           success: Le type de périmètre d'application a été supprimé avec succès
@@ -557,11 +498,9 @@ fr:
           create: Créer un type de périmètre d'application
           title: Nouveau périmètre d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
           success: Type de périmètre d'application mis à jour avec succès
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
         destroy:
           success: Périmètre d'application supprimé avec succès
@@ -573,11 +512,9 @@ fr:
           title: Nouveau périmètre d'application
         no_scopes: Pas de périmètre d'application à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
           success: Périmètre d'application mis à jour avec succès
       static_page_topics:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau sujet.
           success: Sujet créé avec succès.
         destroy:
           success: Sujet détruit avec succès
@@ -588,18 +525,15 @@ fr:
           create: Créer un sujet
           title: Nouveau sujet
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce sujet.
           success: Sujet mis à jour avec succès
       static_pages:
         actions:
           view: Voir la page publique
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
         destroy:
           success: La page a été détruite avec succès
         edit:
-          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         form:
@@ -615,7 +549,6 @@ fr:
           empty: Il n'y a pas de page sous ce sujet
           without_topic: Pages sans sujet
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
@@ -623,24 +556,9 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs gérables
-        impersonations: Gestion des utilisateurs
-        participants: Utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
         static_pages: Pages
-        user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
-      user_group:
-        csv_verify:
-          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
-        reject:
-          invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
-          success: Groupe d'utilisateurs refusé avec succès
-        verify:
-          invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
-          success: Groupe d'utilisateurs vérifié avec succès
       user_groups:
         index:
           filter:
@@ -657,28 +575,16 @@ fr:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
-        create:
-          error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
-          success: Utilisateur invité avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
-          success: L'utilisateur n'est plus un administrateur.
         form:
           email: Email
           name: Nom
           role: Rôle
         new:
           create: Inviter
-          title: Inviter l'utilisateur en tant qu'administrateur
       view_public_page: Voir la page publique
-    forms:
-      errors:
-        impersonate_user:
-          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
     moderations:
       actions:
         hidden: Masqués
@@ -690,13 +596,10 @@ fr:
       admin:
         reportable:
           hide:
-            invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
           unhide:
-            invalid: Il y a eu un problème pour découvrir la ressource.
             success: Ressource non cachée avec succès.
           unreport:
-            invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
             success: Le contenu n'est plus signalé.
       models:
         moderation:
@@ -717,5 +620,3 @@ fr:
           title: Newsletters
         settings:
           title: Paramètres
-        users:
-          title: Utilisateurs
