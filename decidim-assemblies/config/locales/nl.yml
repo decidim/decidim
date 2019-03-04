@@ -32,11 +32,9 @@ nl:
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
         parent_id: Montage van de ouders
-        participatory_processes_ids: Verwante burgerinspraken
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe is het besloten
         private_space: Prive ruimte
-        promoted: gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doel van actie
         scope_id: Scope
@@ -80,7 +78,6 @@ nl:
         new_assembly: Nieuwe vergadering
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
         edit:
           update: Bijwerken
@@ -94,24 +91,12 @@ nl:
         new:
           create: creëren
           title: Nieuwe bijeenkomst
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze bijeenkomt.
-          success: Bijeenkomst is succesvol bijgewerkt.
-      assemblies_copies:
-        create:
-          error: Er was een fout bij het dupliceren van deze bijeenkomt.
-          success: Bijeenkomst is succesvol gedupliceerd.
       assembly_copies:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
           title: Dupliceer bijeenkomst
       assembly_members:
-        create:
-          error: Er is een fout opgetreden bij het toevoegen van een lid voor deze assembly.
-          success: Lid is met succes voor deze assembly gemaakt.
-        destroy:
-          success: Lid is met succes verwijderd voor deze assembly.
         edit:
           title: Update assembly-lid.
           update: Bijwerken
@@ -120,37 +105,14 @@ nl:
         new:
           create: creëren
           title: Nieuw assemblagelid.
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van het lid voor deze assembly.
-          success: Lid is succesvol bijgewerkt voor deze assembly.
-      assembly_publications:
-        create:
-          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
-          success: Bijeenkomst is succesvol gepubliceerd.
-        destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
-          success: Bijeenkomt succesvol ongepubliceerd.
       assembly_user_roles:
-        create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
-          success: Gebruiker is succesvol toegevoegd aan deze assembly.
-        destroy:
-          success: Gebruiker is met succes van deze assembly verwijderd.
         edit:
-          title: Update event gebruiker.
           update: Bijwerken
-        index:
-          assembly_admins_title: Assemblage gebruikers
         new:
           create: Aanmaken
-          title: Nieuwe vergaderinggebruiker.
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
-          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
         assemblies: Events
         assemblies_submenu:
-          assembly_admins: Gebruikersbijeenkomst
           assembly_members: leden
           attachment_collections: folders
           attachment_files: bestanden
@@ -186,7 +148,6 @@ nl:
             email: E-mail
             name: Naam
             role: Rol
-          name: Vergaderinggebruiker
           roles:
             admin: Beheerder
             collaborator: Medewerker
@@ -205,7 +166,6 @@ nl:
         update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly bijgewerkt"
       assembly_user_role:
         create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
-        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
         update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} vergadering gewijzigd"
     assemblies:
       admin:
@@ -224,11 +184,7 @@ nl:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
-            existing_user: Bestaande gebruiker
-            non_user: Niet gebruiker
             select_a_position: Selecteer een positie
-            select_user: Selecteer een gebruiker
-            user_type: Gebruikerstype
           index:
             filter:
               all: Alle
@@ -314,14 +270,12 @@ nl:
         endorsements_count: Aanbevelingen
         headline: Activiteit
         meetings_count: Events
-        orders_count: Stemmen
         pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
         surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: Stemmen
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op
@@ -330,8 +284,6 @@ nl:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
-          page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
           title: Wat zijn vergaderingen?
     log:
       value_types:
