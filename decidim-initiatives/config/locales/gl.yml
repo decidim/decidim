@@ -4,16 +4,12 @@ gl:
       initiative:
         decidim_user_group_id: Autor
         description: Descrición
-        offline_votes: Soportes cara a cara
         scope_id: Alcance
         signature_end_date: Fin do período de recadación de sinaturas
         signature_start_date: Inicio do período de recollida de sinaturas
         signature_type: Tipo de recadación de sinatura
         signature_type_values:
           any: Mesturado
-          offline: Cara a cara
-          online: OnLine
-        state: Estado
         title: Título
       initiative_author:
         address: Enderezo
@@ -27,14 +23,11 @@ gl:
         user: Membro do comité
       initiatives_type:
         banner_image: Imaxe do banner
-        collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
-        document_number_authorization_handler: Autorización para verificar o número do documento nos votos
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais
         minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
         title: Título
-        undo_online_signatures_enabled: Habilita os usuarios para desfacer as súas sinaturas en liña
         validate_sms_code_on_votes: Engada o paso de validación do código SMS ao proceso de sinatura
       initiatives_vote:
         name_and_surname: Nome e apelidos
@@ -68,13 +61,11 @@ gl:
           fields:
             created_at: Creado en
             id: ID
-            state: Estado
-            supports_count: Soporta
+            supports_count: Sinaturas
             title: Iniciativas
         initiatives_type_scope:
           fields:
             scope: Alcance
-            supports_required: Soporte esixido
           name: Alcance do tipo de iniciativa
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ gl:
     events:
       initiatives:
         initiative_extended:
-          email_intro: A data de finalización das sinaturas para a iniciativa %{resource_title} estendeuse!
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Data de finalización da sinatura de iniciativas estendida!
-          notification_title: A data de finalización das sinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi prorrogada.
         milestone_completed:
           affected_user:
             email_intro: A túa iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
@@ -123,17 +112,13 @@ gl:
             - Ir ao espazo de participación de Intiatives
             - Segue os pasos para crear unha nova iniciativa
           description: Este distintivo concedeuse cando se lanzan novas iniciativas, se asocian con outras persoas para realizalas.
-          description_another: Este usuario obtivo %{score} iniciativas publicadas.
           description_own: Tes publicado %{score} iniciativas.
           name: Iniciativas publicadas
           next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non recibiu ningunha iniciativa publicada.
           unearned_own: Aínda non recibiu ningunha iniciativa publicada.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Unha iniciativa é unha proposta que pode ser promovida por calquera por propia iniciativa (independentemente doutras canles ou espazos de participación) a través da recollida de sinaturas (dixitais) para que a organización realice unha acción específica (modifique unha regulación, inicie un proxecto , cambie o nome dun departamento ou unha rúa, etc.).</p> <p>Os promotores dunha iniciativa poden definir os seus obxectivos, reunir apoio, debater, difundilos e definir puntos de encontro onde se recollan as sinaturas dos asistentes ou debates abertos a outros participantes.</p> <p>Exemplos: Unha iniciativa pode recoller firmas para convocar unha consulta entre todas as persoas dunha organización, ou crear ou convocar unha asemblea ou iniciar un proceso de aumento de orzamento para un territorio ou área da organización. Durante o proceso de recollida de sinaturas, máis persoas poden engadir a esta demanda e avanzar na organización.</p>\n"
-          page: "<p>Unha iniciativa é unha proposta que pode ser promovida por calquera por propia iniciativa (independentemente doutras canles ou espazos de participación) a través da recollida de sinaturas (dixitais) para que a organización realice unha acción específica (modifique unha regulación, inicie un proxecto , cambie o nome dun departamento ou unha rúa, etc.).</p> <p>Os promotores dunha iniciativa poden definir os seus obxectivos, reunir apoio, debater, difundilos e definir puntos de encontro onde se recollan as sinaturas dos asistentes ou debates abertos a outros participantes.</p> <p>Exemplos: Unha iniciativa pode recoller firmas para convocar unha consulta entre todas as persoas dunha organización, ou crear ou convocar unha asemblea ou iniciar un proceso de aumento de orzamento para un territorio ou área da organización. Durante o proceso de recollida de sinaturas, máis persoas poden engadir a esta demanda e avanzar na organización.</p>\n"
           title: Cales son as iniciativas?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ gl:
           index:
             approve: Aprobar
             confirm_revoke: Estás seguro?
-            invite_to_committee_help: Comparte esta ligazón para invitar outros usuarios á comisión de promoción
             no_members_yet: Non hai membros no comité promotor
             revoke: Revocar
             title: Membros do comité
@@ -166,7 +150,6 @@ gl:
             confirm: Estás seguro?
             discard: Descartar a iniciativa
             export_pdf_signatures: Exportar PDF de sinaturas
-            export_votes: Soporte de exportación
             reject: Rexeita a iniciativa
             send_to_technical_validation: Enviar á validación técnica
             success: A iniciativa foi enviada á validación técnica
@@ -191,7 +174,6 @@ gl:
             print: Imprimir
           update:
             error: Produciuse un erro
-            success: A iniciativa cidadá foi actualizada con éxito
         initiatives_type_scopes:
           create:
             error: Produciuse un erro
@@ -257,18 +239,15 @@ gl:
         fill_data:
           back: De volta
           continue: Continuar
-          fill_data_help: "<ul> <li>Revise o contido da túa iniciativa. ¿É fácil de entender o teu título? ¿Ten claro o obxectivo da túa iniciativa?</li> <li>Debes escoller o tipo de sinatura. En persoa, en liña ou unha combinación de ambos</li> <li>Cal é o ámbito xeográfico da iniciativa? Cidade, barrio?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:
           back: De volta
           back_to_initiatives: Volver a iniciativas
-          callout_text: Parabéns! A túa iniciativa cidadá creouse con éxito.
           go_to_my_initiatives: Vaia ás miñas iniciativas
           more_information: "(Máis información)"
         finish_help:
-          access_reminder: Lembre que sempre poderá acceder ás túas iniciativas a través do menú do usuario.
           help_for_organizations: Se es unha asociación terá que subir as actas do consello de administración de todas as organizacións que forman a Comisión de Promoción
           help_in_person_signatures: Se escolleu recoller as sinaturas en persoa ou combinadas con liña, terá que subir a información necesaria.
           help_text: Lembra que para procesar correctamente a iniciativa debes acceder ao panel de administración onde atoparás o menú de usuario, cargarás a información que necesitas e enviala para o seu procesamento.
@@ -294,7 +273,6 @@ gl:
           invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
         show_similar_initiatives:
           back: De volta
-          compare_help: Se algunha das seguintes iniciativas é similar á túa, recomendámosche que o soporte. A túa proposta terá máis posibilidades de facer.
           continue: A miña iniciativa é diferente
           more_information: "(Máis información)"
       events:
@@ -328,9 +306,7 @@ gl:
           help: Comprobe o SMS recibido no seu teléfono
       initiative_votes:
         create:
-          error: Houbo erros ao asinar a iniciativa.
           invalid: Os datos proporcionados para asinar a iniciativa non son válidos
-          success_html: Parabéns! A iniciativa <strong> %{title}</strong> asinouse correctamente
         personal_data:
           invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
         sms_code:
@@ -355,7 +331,6 @@ gl:
           myself: As miñas iniciativas
           open: Aberto
           search: Busca
-          state: Estado
           type: Tipo
           type_prompt: Selecciona un tipo
         filters_small_view:
@@ -384,13 +359,8 @@ gl:
             published: Esta proposta publícase porque
             rejected: Esta proposta foi rexeitada porque
             validating: Esta proposta está a ser avaliada
-          initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
         show:
-          any_vote_method: Esta iniciativa cidadá recolle soporte en liña e cara a cara.
           follow_description: Recibir unha notificación cando hai noticias nesta iniciativa
-          offline_method: Esta iniciativa cidadá só recolle apoios cara a cara.
-        signature_identities:
-          select_identity: Seleccione o identificador de usuario
         signatures_count:
           one: " sinatura"
           other: " sinaturas"
@@ -409,16 +379,11 @@ gl:
           most_popular_initiative: Iniciativa máis popular
           need_more_votes: Necesitas máis sinaturas
       initiatives_mailer:
-        creation_subject: Creouse a túa iniciativa cidadá "%{title}"
         initiative_link:
           check_initiative_details: Podes ver os detalles da iniciativa
           here: aquí
         more_information: Aquí tes máis información sobre o proceso de creación da iniciativa.
-        progress_report_body_for: A iniciativa %{title} alcanzou o %{percentage}% dos soportes necesarios.
-        progress_report_for: 'Resume sobre a iniciativa: %{title}'
         promotal_committee_help: Lembre que debes convidar polo menos a %{member_count} persoas ao comité promotor. Reenvía a seguinte ligazón para invitar persoas á comisión de promotores
-        status_change_body_for: 'A iniciativa %{title} cambiou o seu estado a: %{state}'
-        status_change_for: A iniciativa %{title} cambiou o seu estado
         technical_validation_body_for: A iniciativa %{title} solicitou a súa validación técnica.
         technical_validation_for: A iniciativa %{title} solicitou a súa validación técnica.
       last_activity:
@@ -437,7 +402,6 @@ gl:
     resources:
       initiatives_type:
         actions:
-          vote: Vota
           title: Accións
   layouts:
     decidim:
