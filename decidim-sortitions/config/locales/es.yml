@@ -65,7 +65,6 @@ es:
             destroy: Cancelar el sorteo
             title: Cancelar el sorteo
           create:
-            error: Se produjo un error al crear un nuevo sorteo.
             success: Sorteo creado con éxito.
           destroy:
             error: No se puede cancelar el sorteo.
@@ -86,7 +85,6 @@ es:
           show:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
-            error: Se produjo un error al actualizar el sorteo.
             success: Sorteo actualizado correctamente
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ es:
           category: Categoría
           category_prompt: Selecciona una categoría
           search: Buscar
-          state: Estado
         filters_small_view:
           close_modal: Cierre modal
           filter: Filtrar
@@ -122,7 +119,6 @@ es:
             one: propuesta seleccionada
             other: propuestas seleccionadas
         show:
-          algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías
           cancelled: Cancelación de la clasificación
           candidate_proposal_ids: Orden de propuestas de clasificación e ID
@@ -141,10 +137,6 @@ es:
             one: 1 propuesta seleccionada
             other: '%{count} propuestas seleccionadas'
           view: Ver
-        sortition_author:
-          deleted: Usuario eliminado
-        sortition_cancel_author:
-          deleted: Usuario eliminado
         sortitions_count:
           count:
             one: 1 sorteo
