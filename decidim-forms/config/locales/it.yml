@@ -33,7 +33,6 @@ it:
             title: Titolo
           form:
             add_question: Aggiungi domanda
-            already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
           question:
             add_answer_option: Aggiungi l'opzione di risposta
             any: Qualunque
@@ -43,9 +42,6 @@ it:
             remove: Rimuovere
             statement: dichiarazione
             up: Su
-          update:
-            invalid: Si sono verificati errori durante il salvataggio del questionario.
-            success: Questionari salvati correttamente.
       errors:
         answer:
           body: Il corpo non può essere vuoto
@@ -56,24 +52,11 @@ it:
         single_option: Opzione singola
         sorting: Ordinamento
       questionnaires:
-        answer:
-          invalid: Ci sono stati errori nel rispondere al questionario.
-          success: Il questionario ha risposto con successo.
         question:
           max_choices: 'Scelte massime: %{n}'
         show:
-          answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al questionario.
-            title: Rispondi al questionario
           are_you_sure: Questa azione non può essere annullata e non sarai in grado di modificare le tue risposte. Sei sicuro?
           questionnaire_answered:
-            body: Hai già risposto a questo questionario.
             title: Ho già risposto
-          questionnaire_closed:
-            body: Il questionario è chiuso e non è possibile rispondere.
-            title: Questionario chiuso
-          questionnaire_for_private_users:
-            body: Il questionario è disponibile solo per gli utenti privati
-            title: Questionario chiuso
           submit: Sottoscrivi
           tos_agreement: Partecipando accetti i suoi Termini di servizio
