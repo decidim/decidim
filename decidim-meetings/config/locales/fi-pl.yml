@@ -40,10 +40,6 @@ fi-pl:
             base:
               too_many_minutes: Kohteiden kesto ylittää tapahtuman keston %{count} minuutilla
               too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Tämä sähköposti on jo kutsuttu
     models:
       decidim/meetings/close_meeting_event: Tapahtuma suljettu
       decidim/meetings/create_meeting_event: Tapahtuma
@@ -65,9 +61,6 @@ fi-pl:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Tämän tapahtuman monistamisessa tapahtui virhe.
-          success: Tapahtuman monistaminen onnistui.
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat monistaa
@@ -108,10 +101,7 @@ fi-pl:
         meeting_registration_confirmed:
           notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
-          email_subject: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%
-          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
           email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
@@ -135,14 +125,10 @@ fi-pl:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
           description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
-          description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
           description_own: Olet osallistunut %{score} tapahtumaan.
           name: Tapahtumiin osallistuminen
           next_level_in: Osallistu %{score} uuteen tapahtumaan seuraavan tason saavuttamiseksi!
-          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapahtumaan.
           unearned_own: Et ole vielä osallistunut yhteenkään tapahtumaan.
     meetings:
       actions:
@@ -161,19 +147,15 @@ fi-pl:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Lisää esityslistan alakohta
             agenda_item: Esityslistan kohta
-            agenda_item_children: Esityslistan alakohdat
             down: Alas
             remove: Poista
             up: Ylös
           agenda_item_child:
-            agenda_item_child: Esityslistan alakohta
             down: Alas
             remove: Poista
             up: Ylös
           create:
-            invalid: Tämän esityslistan luomisessa esiintyi ongelma
             success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
@@ -187,7 +169,6 @@ fi-pl:
             create: Luo
             title: Uusi esityslista
           update:
-            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
             success: Esityslista päivitettiin onnistuneesti
         exports:
           meetings: Tapahtumat
@@ -198,16 +179,9 @@ fi-pl:
             invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
             join: Liity tapahtumaan "%{meeting_title}"
         invites:
-          create:
-            error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
-            success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
-            existing_user: Olemassa oleva käyttäjä
             invite: Kutsu
-            invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös organisaatioon.
-            non_user: Käyttäjää ei ole olemassa
-            select_user: Valitse käyttäjä
           index:
             filter:
               accepted: Hyväksytyt
@@ -228,10 +202,8 @@ fi-pl:
             select_organizer: Valitse järjestäjä
         meetings:
           close:
-            invalid: Tapahtuman sulkemisessa tapahtui virhe
             success: Tapahtuma onnistuneesti suljettu
           create:
-            invalid: Tapahtuman luonnissa esiintyi ongelma
             success: Tapahtuma onnistuneesti luotu
           destroy:
             success: Tapahtuma onnistuneesti luotu
@@ -255,11 +227,9 @@ fi-pl:
             add_service: Lisää palvelu
             services: Palvelut
           update:
-            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
             success: Tapahtuma luotiin onnistuneesti
         minutes:
           create:
-            invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
             success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivitä
@@ -267,7 +237,6 @@ fi-pl:
             create: Luo
             title: Luo pöytäkirja
           update:
-            invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
             success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
@@ -279,7 +248,6 @@ fi-pl:
             validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
-            invites: Kutsut
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
@@ -287,7 +255,6 @@ fi-pl:
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
-            invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
@@ -406,13 +373,10 @@ fi-pl:
           registration_code: Ilmoittautumiskoodisi on %{code}.
       registrations:
         create:
-          invalid: Tapahtumaan liittymisessä tapahtui virhe.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen tapahtuma
