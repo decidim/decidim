@@ -32,11 +32,9 @@ pl:
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         parent_id: Montaż rodziców
-        participatory_processes_ids: Powiązane procesy uczestnictwa
         participatory_scope: Co postanowiono
         participatory_structure: Jak to się decyduje
         private_space: Prywatna przestrzeń
-        promoted: Lansowany
         published_at: Opublikowano na
         purpose_of_action: Cel działania
         scope_id: Zakres
@@ -86,7 +84,6 @@ pl:
         new_assembly: Nowy montaż
       assemblies:
         create:
-          error: Podczas tworzenia nowego zestawu wystąpił błąd.
           success: Zgromadzenie zostało utworzone.
         edit:
           update: Aktualizuj
@@ -100,24 +97,12 @@ pl:
         new:
           create: Utwórz
           title: Nowy montaż
-        update:
-          error: Podczas aktualizowania tego zestawu wystąpił błąd.
-          success: Zgromadzenie zostało zaktualizowane.
-      assemblies_copies:
-        create:
-          error: Podczas duplikowania tego zestawu wystąpił błąd.
-          success: Złożenie zostało powielone.
       assembly_copies:
         new:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikat montażu
       assembly_members:
-        create:
-          error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
-          success: Członek utworzony pomyślnie dla tego zespołu.
-        destroy:
-          success: Członek usunięty pomyślnie dla tego zespołu.
         edit:
           title: Zaktualizuj element złożenia.
           update: Aktualizacja
@@ -126,37 +111,14 @@ pl:
         new:
           create: Stwórz
           title: Nowy członek zespołu.
-        update:
-          error: Wystąpił błąd podczas aktualizowania elementu dla tego zespołu.
-          success: Członek zaktualizowany pomyślnie dla tego zespołu.
-      assembly_publications:
-        create:
-          error: Podczas publikowania tego wystąpienia wystąpił błąd.
-          success: Zgromadzenie zostało opublikowane pomyślnie.
-        destroy:
-          error: Podczas publikowania tego wystąpienia wystąpił błąd.
-          success: Zgromadzenie nie zostało pomyślnie opublikowane.
       assembly_user_roles:
-        create:
-          error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
-          success: Użytkownik został pomyślnie dodany do tego zespołu.
-        destroy:
-          success: Użytkownik usunięty pomyślnie z tego zestawu.
         edit:
-          title: Zaktualizuj użytkownika złożenia.
           update: Aktualizacja
-        index:
-          assembly_admins_title: Użytkownicy montażu
         new:
           create: Stwórz
-          title: Nowy użytkownik złożenia.
-        update:
-          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego zespołu.
-          success: Użytkownik zaktualizowany pomyślnie dla tego zespołu.
       menu:
         assemblies: Zespoły
         assemblies_submenu:
-          assembly_admins: Użytkownicy montażu
           assembly_members: Członkowie
           attachment_collections: Lornetka składana
           attachment_files: Akta
@@ -192,7 +154,6 @@ pl:
             email: E-mail
             name: Nazwa
             role: Rola
-          name: Użytkownik złożenia
           roles:
             admin: Administrator
             collaborator: Współpracownik
@@ -211,7 +172,6 @@ pl:
         update: "%{user_name} zaktualizowało %{resource_name} członka w %{space_name} zestawie"
       assembly_user_role:
         create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
-        delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
         update: "%{user_name} zmienił rolę %{resource_name} w zespole %{space_name}"
     assemblies:
       admin:
@@ -230,11 +190,7 @@ pl:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
-            existing_user: Istniejący użytkownik
-            non_user: Brak użytkownika
             select_a_position: Wybierz pozycję
-            select_user: Wybierz użytkownika
-            user_type: Rodzaj użytkownika
           index:
             filter:
               all: Wszystko
@@ -320,14 +276,12 @@ pl:
         endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
-        orders_count: Głosowania
         pages_count: Strony
         projects_count: Projekty
         proposals_count: Propozycje
         results_count: Wyniki
         surveys_count: Ankiety
         users_count: Uczestnicy
-        votes_count: Głosowania
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
@@ -336,8 +290,6 @@ pl:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Zgromadzenie to grupa członków organizacji, którzy okresowo spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zgromadzenia organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to przepustowość, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
-          page: "<p>Zgromadzenie to grupa członków organizacji, którzy okresowo spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zgromadzenia organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to przepustowość, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
           title: Czym są zgromadzenia?
     log:
       value_types:
