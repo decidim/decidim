@@ -12,10 +12,7 @@ pl:
       id_document_upload:
         document_number: Numer dokumentu (z literą)
         document_type: Typ twojego dokumentu
-        user: Użytkownik
         verification_attachment: Zeskanowana kopia twojego dokumentu
-      offline_confirmation:
-        email: Adres e-mail użytkownika
       postal_letter_address:
         full_address: Pełny adres
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ pl:
             - Jeśli nie możesz wyraźnie zobaczyć tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to naprawić.
         postal_letter:
           help:
-            - Użytkownicy żądają kodu weryfikacyjnego, który zostanie wysłany na ich adres.
+            - Participants request a verification code to be sent to their address.
             - Wysyłasz list na adres z kodem weryfikacyjnym.
             - Oznacz list jako wysłany.
-            - Po oznaczeniu wysłanej litery użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Uzyskaj weryfikację za pomocą spisu przeprowadzonego przez organizację
         name: Spis organizacji
@@ -62,7 +59,6 @@ pl:
     verifications:
       authorizations:
         create:
-          error: Wystąpił błąd podczas tworzenia autoryzacji.
           success: Pomyślnie autoryzowano.
           unconfirmed: Aby się autoryzować, musisz potwierdzić swój adres e-mail.
         first_login:
@@ -107,12 +103,6 @@ pl:
           new:
             error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.
             success: Twoje konto zostało pomyślnie zweryfikowane.
-      dummy_authorization:
-        extra_explanation:
-          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
-          few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
-          many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
-          other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -120,23 +110,15 @@ pl:
               title: Konfiguracja dokumentów tożsamości
               update: Aktualizacja
             update:
-              error: Wystąpił błąd podczas aktualizowania konfiguracji.
               success: Konfiguracja została pomyślnie zaktualizowana
           confirmations:
-            create:
-              error: Weryfikacja nie pasuje. Spróbuj ponownie lub odrzuć weryfikację, aby użytkownik mógł ją poprawić
-              success: Użytkownik pomyślnie zweryfikowany
             new:
               introduce_user_data: Przedstaw dane w obrazie
               reject: Odrzucać
               verify: Zweryfikować
           offline_confirmations:
-            create:
-              error: Weryfikacja nie pasuje. Spróbuj ponownie lub powiedz użytkownikowi, aby to poprawił
-              success: Użytkownik pomyślnie zweryfikowany
             new:
               cancel: Anuluj
-              introduce_user_data: Przedstaw adres e-mail użytkownika i dane dokumentu
               verify: Zweryfikować
           pending_authorizations:
             index:
@@ -144,9 +126,6 @@ pl:
               offline_verification: Weryfikacja offline
               title: Oczekujące weryfikacje
               verification_number: 'Weryfikacja # %{n}'
-          rejections:
-            create:
-              success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o zmianę swoich dokumentów
         authorizations:
           choose:
             choose_a_type: "Wybierz sposób weryfikacji:"
@@ -155,7 +134,6 @@ pl:
             title: Zweryfikuj się, używając swojego dokumentu tożsamości
           create:
             error: Podczas przesyłania dokumentu wystąpił problem
-            success: Dokument przesłany pomyślnie
           edit:
             being_reviewed: Sprawdzamy Twoje dokumenty. Wkrótce zostaniesz zweryfikowany
             offline: Użyj weryfikacji offline
@@ -169,7 +147,6 @@ pl:
             title: Prześlij swój dokument tożsamości
           update:
             error: Podczas ponownego ładowania dokumentu wystąpił problem
-            success: Dokument został pomyślnie przesłany ponownie
         dni: DNI
         nie: NIE
         passport: Paszport
@@ -182,7 +159,6 @@ pl:
               mark_as_sent: Oznacz jako wysłany
               not_yet_sent: jeszcze nie wysłane
               title: Ciągłe weryfikacje
-              username: Nazwa Użytkownika
               verification_code: Kod weryfikacyjny
           postages:
             create:
