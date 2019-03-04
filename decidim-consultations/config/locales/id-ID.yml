@@ -54,23 +54,8 @@ id:
         new_response: Tanggapan baru
         publish_results: Publikasikan hasil
         unpublish_results: Jangan publikasikan hasil
-      consultation_publications:
-        create:
-          error: Terjadi kesalahan saat memublikasikan konsultasi ini.
-          success: Konsultasi berhasil dipublikasikan.
-        destroy:
-          error: Terjadi kesalahan saat membatalkan publikasi konsultasi ini.
-          success: Konsultasi tidak berhasil dipublikasikan.
-      consultation_results_publications:
-        create:
-          error: Terjadi kesalahan saat memublikasikan hasil untuk konsultasi ini.
-          success: Hasil konsultasi berhasil dipublikasikan.
-        destroy:
-          error: Ada kesalahan membatalkan publikasi hasil untuk konsultasi ini.
-          success: Hasil konsultasi tidak berhasil dipublikasikan.
       consultations:
         create:
-          error: Ada kesalahan saat membuat konsultasi baru.
           success: Konsultasi berhasil dibuat.
         edit:
           update: Memperbarui
@@ -84,7 +69,6 @@ id:
           create: Membuat
           title: Konsultasi baru
         update:
-          error: Ada kesalahan saat memperbarui konsultasi ini.
           success: Konsultasi berhasil diperbarui.
       menu:
         consultations: Konsultasi
@@ -117,16 +101,8 @@ id:
             title: Judul
           name:
             other: Tanggapan
-      question_publications:
-        create:
-          error: Terjadi kesalahan saat memublikasikan pertanyaan ini.
-          success: Pertanyaan berhasil diterbitkan.
-        destroy:
-          error: Terjadi kesalahan saat membatalkan publikasi pertanyaan ini.
-          success: Pertanyaan tidak berhasil diterbitkan.
       questions:
         create:
-          error: Ada kesalahan saat membuat pertanyaan baru.
           success: Pertanyaan berhasil dibuat.
         destroy:
           success: Pertanyaan berhasil dihapus.
@@ -140,15 +116,10 @@ id:
         new:
           create: Membuat
           title: Pertanyaan baru
-        update:
-          error: Ada kesalahan saat memperbarui pertanyaan ini.
-          success: Pertanyaan berhasil diperbarui.
       responses:
         create:
-          error: Ada kesalahan saat membuat tanggapan baru.
           success: Tanggapan berhasil dibuat.
         destroy:
-          error: Ada kesalahan saat menghapus respons.
           success: Tanggapan berhasil dihapus.
         edit:
           update: Memperbarui
@@ -157,9 +128,6 @@ id:
         new:
           create: Membuat
           title: Tanggapan baru
-        update:
-          error: Terjadi kesalahan saat memperbarui tanggapan ini.
-          success: Tanggapan berhasil diperbarui.
       titles:
         consultations: Konsultasi
         questions: Pertanyaan
@@ -190,7 +158,6 @@ id:
         all: Semua
         finished: Jadi
         search: Pencarian
-        state: Negara
         upcoming: Mendatang
       filters_small_view:
         close_modal: Tutup jendela
@@ -217,9 +184,6 @@ id:
         view_results: Lihat hasil
         votes_out_of:
           other: suara keluar
-      question_votes:
-        create:
-          error: Ada kesalahan saat memilih pertanyaan
       regular_questions:
         title: Pertanyaan untuk konsultasi ini
       show:
@@ -237,8 +201,6 @@ id:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas untuk semua orang yang membentuk sebuah organisasi, membuat panggilan untuk berpartisipasi dalam konsultasi, percikan dan memesan perdebatan untuk atau terhadap tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat.</p>\n"
-          page: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas kepada semua orang yang membentuk organisasi, melakukan panggilan untuk berpartisipasi dalam konsultasi, memicu dan memesan debat untuk atau melawan suatu tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat dalam organisasi.</p>\n"
           title: Apa itu konsultasi?
     menu:
       consultations: Konsultasi
@@ -255,22 +217,18 @@ id:
         assistants_count_title: Asisten
         comments_count_title: Komentar
         meetings_count_title: Rapat
-        supports_count_title: Mendukung
       technical_info:
         technical_data: Data teknis
       vote_button:
         already_voted: Sudah memilih
-        already_voted_hover: Cabut dukungan
         starting_from: Mulai dari %{date}
         vote: Memilih
       vote_modal:
         contextual_help: Silakan, pilih opsi.
-        title: 'Konsultasi: dukungan pertanyaan'
       vote_modal_confirm:
         change: Perubahan
         confirm: Memastikan
         contextual_help: Harap konfirmasikan opsi yang dipilih.
-        title: 'Konsultasi: konfirmasi dukungan'
   layouts:
     decidim:
       admin:
