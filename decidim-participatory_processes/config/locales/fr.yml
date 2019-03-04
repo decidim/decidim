@@ -46,9 +46,6 @@ fr:
         email: Email
         name: Nom
         role: Rôle
-    models:
-      decidim/participatory_process_step_activated_event: Étape activée
-      decidim/participatory_process_step_changed_event: Étape modifiée
   activerecord:
     models:
       decidim/participatory_process:
@@ -57,9 +54,6 @@ fr:
       decidim/participatory_process_group:
         one: Groupe de processus participatifs
         other: Groupes de processus participatifs
-      decidim/participatory_process_step:
-        one: Étape
-        other: Étapes
   decidim:
     admin:
       actions:
@@ -71,8 +65,6 @@ fr:
         edit: Modifier
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
-        new_process_step: Nouvelle étape
-        new_process_user_role: Nouvel utilisateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -88,9 +80,6 @@ fr:
           components: Fonctionnalités
           info: Information
           moderations: Modérations
-          private_users: Utilisateurs privés
-          process_admins: Administrateurs de la concertation
-          steps: Étapes
       models:
         participatory_process:
           fields:
@@ -109,13 +98,11 @@ fr:
             end_date: Date de fin
             start_date: Date de début
             title: Titre
-          name: Étape de la concertation
         participatory_process_user_role:
           fields:
             email: Email
             name: Nom
             role: Rôle
-          name: Utilisateur de la concertation
           roles:
             admin: Administrateur
             collaborator: Relecteur
@@ -130,72 +117,24 @@ fr:
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer la concertation
       participatory_process_groups:
-        destroy:
-          success: Groupe de concertations supprimé avec succès.
         edit:
           title: Modifier le groupe de concertations
           update: Mettre à jour
         new:
           create: Créer
           title: Nouveau groupe de concertation
-        update:
-          error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
-          success: Groupe de concertations mis à jour avec succès.
-      participatory_process_publications:
-        create:
-          error: Une erreur s'est produite lors de la publication de cette concertation.
-          success: Concertation publiée avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la publication de cette concertation.
-          success: Concertation dépubliée avec succès.
-      participatory_process_step_activations:
-        create:
-          error: Une erreur s'est produite lors de l'activation de cette étape de la concertation.
-          success: Étape de la concertation activée avec succès.
       participatory_process_steps:
-        create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
-          success: Étape de la concertation créée avec succès.
         default_title: Introduction
-        destroy:
-          error:
-            active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
-            last_step: Vous ne pouvez pas supprimer la dernière étape de la concertation.
-          success: L'étape de la concertation a été supprimée avec succès.
         edit:
-          title: Modifier l'étape de la concertation
           update: Mettre à jour
-        index:
-          steps_title: Étapes
         new:
           create: Créer
-          title: Nouvelle étape de la concertation
-        ordering:
-          error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
-          success: Étape de la concertation mise à jour avec succès.
       participatory_process_user_roles:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
-          success: Utilisateur ajouté avec succès à cette concertation.
-        destroy:
-          success: Utilisateur supprimé avec succès de cette concertation.
         edit:
-          title: Mettre à jour l'utilisateur de la concertation.
           update: Mettre à jour
-        index:
-          process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel utilisateur de la concertation.
-        update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
-          success: L'utilisateur a été mis à jour avec succès pour cette concertation.
       participatory_processes:
-        create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle concertation.
-          success: Concertation créée avec succès. Configurez maintenant ses étapes.
         edit:
           update: Mettre à jour
         form:
@@ -208,51 +147,23 @@ fr:
         new:
           create: Créer
           title: Nouvelle concertation
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette concertation.
-          success: Concertation mise à jour avec succès.
-      participatory_processes_copies:
-        create:
-          error: Une erreur s'est produite lors de la duplication de cette concertation.
-          success: Concertation dupliquée avec succès.
-      participatory_processes_group:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
-          success: Groupe de concertations créé avec succès.
       titles:
         participatory_process_groups: Groupes de concertations
         participatory_processes: Concertations
-      users:
-        resend_invitation:
-          error: Une erreur s'est produite lors de l'envoi de l’invitation.
-          success: Invitation renvoyée avec succès.
     admin_log:
       participatory_process:
         create: "%{user_name} a créé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
-      participatory_process_step:
-        activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
-        create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
-        delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
-        update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
-      participatory_process_user_role:
-        create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
-        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
-        update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans la concertation %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
           email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
-          notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
           email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
-          notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     help:
       participatory_spaces:
         participatory_processes:
@@ -268,14 +179,7 @@ fr:
         title: Processus participatifs
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 concertation pour %{group}
-          other: "%{count} concertations pour %{group}"
         title: Groupes de concertations
-    participatory_process_steps:
-      index:
-        process_steps: Étapes de la concertation
-        title: Étapes de la concertation
     participatory_processes:
       admin:
         content_blocks:
@@ -303,7 +207,6 @@ fr:
         home:
           highlighted_processes:
             active_processes: Concertations actives
-            active_step: Étape active
             more_information: Plus d'informations
             participate: Participer
             see_all_processes: Voir toutes les concertations
@@ -354,7 +257,6 @@ fr:
         endorsements_count: Soutiens
         headline: Activité
         meetings_count: Rencontres
-        orders_count: Votes
         pages_count: Pages
         processes_count: Concertations
         projects_count: Projets
@@ -362,7 +264,6 @@ fr:
         results_count: Réalisations
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
   layouts:
     decidim:
       participatory_process_groups:
@@ -371,20 +272,14 @@ fr:
           processes_count: 'Concertations :'
       participatory_process_widgets:
         show:
-          active_step: 'Étape actuelle :'
           take_part: Participer
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant
         participatory_process:
-          active_step: 'Étape actuelle :'
           take_part: Participer
         promoted_process:
-          active_step: 'Étape actuelle :'
           more_info: Plus d'informations
           take_part: Participer
-      process_header_steps:
-        step: Étape %{current} sur %{total}
-        view_steps: Voir les étapes
       process_navigation:
         process_menu_item: Présentation
