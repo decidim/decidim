@@ -37,20 +37,8 @@ en:
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     metrics:
       survey_answers:
-        description: Number of surveys answered by participants
         object: answers to surveys
         title: Answers to surveys
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Survey participant answers
-        surveys:
-          update:
-            invalid: There was a problem saving the survey.
-            success: Survey successfully saved.
       last_activity:
         new_survey_at_html: "<span>New survey at %{link}</span>"
-      surveys:
-        answer:
-          invalid: There was a problem answering the survey.
-          success: Survey successfully answered.
