@@ -4,16 +4,12 @@ de:
       initiative:
         decidim_user_group_id: Autor
         description: Beschreibung
-        offline_votes: Face-to-Face-Unterstützung
         scope_id: Umfang
         signature_end_date: Ende der Unterschriftensammlung
         signature_start_date: Beginn der Unterschriftensammlung
         signature_type: Signatursammeltyp
         signature_type_values:
           any: Gemischt
-          offline: Angesicht zu Angesicht
-          online: Online
-        state: Zustand
         title: Titel
       initiative_author:
         address: Adresse
@@ -27,14 +23,11 @@ de:
         user: Ausschussmitglied
       initiatives_type:
         banner_image: Bannerbild
-        collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         description: Beschreibung
-        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
         title: Titel
-        undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
       initiatives_vote:
         name_and_surname: Name und Nachname
@@ -68,13 +61,11 @@ de:
           fields:
             created_at: Hergestellt in
             id: ICH WÜRDE
-            state: Zustand
-            supports_count: Unterstützt
+            supports_count: Unterschriften
             title: Initiativen
         initiatives_type_scope:
           fields:
             scope: Umfang
-            supports_required: Unterstützungen erforderlich
           name: Typ der Initiative
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ de:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Das Enddatum der Signaturen für die Initiative %{resource_title} wurde verlängert!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Initiativsignaturendatum verlängert!
-          notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
         milestone_completed:
           affected_user:
             email_intro: Ihre Initiative %{resource_title} hat die %{percentage}% der Unterschriften erreicht!
@@ -123,17 +112,13 @@ de:
             - Gehe zum Teilnehmerbereich von Intiativen
             - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
-          description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Du hast %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
           unearned_own: Sie haben noch keine Initiativen veröffentlicht.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Eine Initiative ist ein Vorschlag, der von jedermann aus eigener Initiative (unabhängig von anderen Kanälen oder Beteiligungsräumen) durch die Sammlung von (digitalen) Unterschriften für die Organisation zur Durchführung einer bestimmten Aktion (Änderung einer Verordnung, Initiierung eines Projekts) gefördert werden kann , ändern Sie den Namen einer Abteilung oder einer Straße usw.).</p> <p>Die Initiatoren einer Initiative können ihre Ziele festlegen, Unterstützung sammeln, diskutieren, verbreiten und Treffpunkte definieren, an denen Unterschriften der Teilnehmer oder Debatten gesammelt werden können, die für andere Teilnehmer offen sind.</p> <p>Beispiele: Eine Initiative kann Unterschriften sammeln, um eine Konsultation unter allen Mitarbeitern einer Organisation einzuberufen, eine Versammlung zu gründen oder einzuberufen oder einen Prozess zur Aufstockung des Budgets für ein Gebiet oder einen Bereich der Organisation einzuleiten. Während des Sammelns von Unterschriften können mehr Personen zu diesem Bedarf beitragen und ihn in der Organisation vorantreiben.</p>\n"
-          page: "<p>Eine Initiative ist ein Vorschlag, der von jedermann aus eigener Initiative (unabhängig von anderen Kanälen oder Beteiligungsräumen) durch die Sammlung von (digitalen) Unterschriften für die Organisation zur Durchführung einer bestimmten Aktion (Änderung einer Verordnung, Initiierung eines Projekts) gefördert werden kann , ändern Sie den Namen einer Abteilung oder einer Straße usw.).</p> <p>Die Initiatoren einer Initiative können ihre Ziele festlegen, Unterstützung sammeln, diskutieren, verbreiten und Treffpunkte definieren, an denen Unterschriften der Teilnehmer oder Debatten gesammelt werden können, die für andere Teilnehmer offen sind.</p> <p>Beispiele: Eine Initiative kann Unterschriften sammeln, um eine Konsultation unter allen Mitarbeitern einer Organisation einzuberufen, eine Versammlung zu gründen oder einzuberufen oder einen Prozess zur Aufstockung des Budgets für ein Gebiet oder einen Bereich der Organisation einzuleiten. Während des Sammelns von Unterschriften können mehr Personen zu diesem Bedarf beitragen und ihn in der Organisation vorantreiben.</p>\n"
           title: Was sind Initiativen?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ de:
           index:
             approve: Genehmigen
             confirm_revoke: Bist du sicher?
-            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
             revoke: Widerrufen
             title: Ausschussmitglieder
@@ -166,7 +150,6 @@ de:
             confirm: Bist du sicher?
             discard: Verwerfen Sie die Initiative
             export_pdf_signatures: Exportieren von PDF-Signaturen
-            export_votes: Export unterstützt
             reject: Initiative ablehnen
             send_to_technical_validation: An technische Validierung senden
             success: Die Initiative wurde an die technische Validierung gesendet
@@ -191,7 +174,6 @@ de:
             print: Drucken
           update:
             error: Ein Fehler ist aufgetreten
-            success: Die Bürgerinitiative wurde erfolgreich aktualisiert
         initiatives_type_scopes:
           create:
             error: Ein Fehler ist aufgetreten
@@ -257,18 +239,15 @@ de:
         fill_data:
           back: Zurück
           continue: Fortsetzen
-          fill_data_help: "<ul> <li>Überarbeiten Sie den Inhalt Ihrer Initiative. Ist dein Titel leicht zu verstehen? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Welche geografische Reichweite hat die Initiative? Stadtteil?</li> </ul>"
           initiative_type: Art der Initiative
           more_information: "(Mehr Informationen)"
           select_scope: Wählen Sie einen Bereich aus
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
-          callout_text: Herzliche Glückwünsche! Ihre Bürgerinitiative wurde erfolgreich erstellt.
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Mehr Informationen)"
         finish_help:
-          access_reminder: Denken Sie daran, dass Sie immer über das Benutzermenü auf Ihre Initiativen zugreifen können.
           help_for_organizations: Wenn Sie eine Vereinigung sind, müssen Sie die Protokolle des Vorstands aller Organisationen hochladen, die die Förderkommission bilden
           help_in_person_signatures: Wenn Sie sich entschieden haben, die Unterschriften persönlich oder in Verbindung mit Online zu sammeln, müssen Sie die erforderlichen Informationen hochladen.
           help_text: Denken Sie daran, dass Sie zur ordnungsgemäßen Verarbeitung der Initiative auf das Administrationsfenster zugreifen müssen, in dem Sie das Benutzermenü finden, laden Sie die erforderlichen Informationen hoch und senden Sie sie zur Verarbeitung.
@@ -294,7 +273,6 @@ de:
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
         show_similar_initiatives:
           back: Zurück
-          compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
           continue: Meine Initiative ist anders
           more_information: "(Mehr Informationen)"
       events:
@@ -328,9 +306,7 @@ de:
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
       initiative_votes:
         create:
-          error: Beim Signieren der Initiative sind Fehler aufgetreten.
           invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_code:
@@ -355,7 +331,6 @@ de:
           myself: Meine Initiativen
           open: Öffnen
           search: Suche
-          state: Zustand
           type: Art
           type_prompt: Wählen Sie einen Typ aus
         filters_small_view:
@@ -384,13 +359,8 @@ de:
             published: Dieser Vorschlag wird veröffentlicht, weil
             rejected: Dieser Vorschlag wurde abgelehnt, weil
             validating: Dieser Vorschlag wird geprüft
-          initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
-          any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
           follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
-          offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
-        signature_identities:
-          select_identity: Wählen Sie die Benutzerkennung aus
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
@@ -409,16 +379,11 @@ de:
           most_popular_initiative: Populärste Initiative
           need_more_votes: Benötigen Sie mehr Unterschriften
       initiatives_mailer:
-        creation_subject: Ihre Bürgerinitiative '%{title}' wurde erstellt
         initiative_link:
           check_initiative_details: Sie können die Initiativendetails sehen
           here: Hier
         more_information: Hier finden Sie weitere Informationen zum Initiativstellungsprozess.
-        progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
-        progress_report_for: 'Resume über die Initiative: %{title}'
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
-        status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
-        status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
       last_activity:
@@ -437,7 +402,6 @@ de:
     resources:
       initiatives_type:
         actions:
-          vote: Abstimmung
           title: Aktionen
   layouts:
     decidim:
