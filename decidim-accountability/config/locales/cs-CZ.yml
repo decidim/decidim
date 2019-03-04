@@ -79,7 +79,7 @@ cs:
             statuses: Stavy
         statuses:
           create:
-            invalid: Při vytváření tohoto stavu došlo k problému
+            invalid: Při vytváření tohoto stavu došlo k potížím
             success: Stav byl úspěšně vytvořen
           destroy:
             success: Stav byl úspěšně smazán
@@ -96,7 +96,7 @@ cs:
             success: Stav byl úspěšně aktualizován
         timeline_entries:
           create:
-            invalid: Při vytváření této položky došlo k problému
+            invalid: Při vytváření této položky došlo k potížím
             success: Vstup byl úspěšně vytvořen
           destroy:
             success: Položka byla úspěšně smazána
@@ -109,7 +109,7 @@ cs:
             create: Vytvořte položku
             title: Nový záznam
           update:
-            invalid: Došlo k problému při aktualizaci této položky
+            invalid: Při aktualizaci této položky došlo k problému
             success: Zápis byl úspěšně aktualizován
       admin_log:
         result:
