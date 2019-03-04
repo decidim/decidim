@@ -69,7 +69,7 @@ fi-pl:
             created_at: Luontiaika
             id: ID
             state: Maakunta/osavaltio
-            supports_count: Kannatusten määrä
+            supports_count: Allekirjoituksia
             title: Aloitteet
         initiatives_type_scope:
           fields:
@@ -148,7 +148,7 @@ fi-pl:
             description: Kuvaus
             initiative_votes_count: Äänten määrä
             initiatives: Aloitteet
-            state: Tila
+            state: Maakunta/osavaltio
         committee_requests:
           index:
             approve: Hyväksy

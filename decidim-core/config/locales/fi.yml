@@ -500,11 +500,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: "%{nickname} päivitti profiiliaan"
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> on virallistettu.
-          email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
-          email_subject: "%{nickname} on virallistettu"
-          notification_title: Seuraamasi käyttäjä <a href="%{resource_path}">%{name} (%{nickname})</a> on virallistettu.
     export_mailer:
       data_portability_export:
         click_button: Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.

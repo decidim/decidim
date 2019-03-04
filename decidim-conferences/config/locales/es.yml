@@ -149,7 +149,7 @@ es:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          conference_admins: Usuarios de la conferencia
+          conference_admins: Administradores de conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia

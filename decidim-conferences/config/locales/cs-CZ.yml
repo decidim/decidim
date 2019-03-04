@@ -155,7 +155,7 @@ cs:
           attachments: Přílohy
           categories: Kategorie
           components: Komponenty
-          conference_admins: Uživatelé konference
+          conference_admins: Správci konferencí
           conference_invites: Pozvánky
           conference_speakers: Reproduktory
           diploma: Potvrzení o účasti

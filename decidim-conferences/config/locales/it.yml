@@ -149,7 +149,7 @@ it:
           attachments: allegati
           categories: categorie
           components: componenti
-          conference_admins: Utenti della conferenza
+          conference_admins: Amministratori della conferenza
           conference_invites: Inviti
           conference_speakers: Altoparlanti
           diploma: Certificato di partecipazione

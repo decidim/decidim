@@ -149,7 +149,7 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Components
-          conference_admins: Conferentie gebruikers
+          conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
           conference_speakers: sprekers
           diploma: Certificaat van aanwezigheid

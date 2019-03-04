@@ -69,7 +69,7 @@ it:
             created_at: Creato a
             id: ID
             state: Stato
-            supports_count: supporti
+            supports_count: firme
             title: iniziative
         initiatives_type_scope:
           fields:

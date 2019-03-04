@@ -146,7 +146,7 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          conference_admins: Pengguna konferensi
+          conference_admins: Admin konferensi
           conference_invites: Undangan
           conference_speakers: Pembicara
           diploma: Sertifikat kehadiran

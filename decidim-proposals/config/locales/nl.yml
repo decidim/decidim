@@ -631,7 +631,7 @@ nl:
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken
-          state: Status
+          state: staat
           voted: Gestemd
           amendment_type: Type
         filters_small_view:

@@ -499,11 +499,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> lett hivatalosan elfogadott.
-          email_outro: 'Ezt az értesítést megkapta, mert a következőt követi: %{nickname}. Az előző hivatkozás után leállíthatja az értesítések fogadását.'
-          email_subject: "%{nickname} -t hivatalosan megnevezték"
-          notification_title: A <a href="%{resource_path}">%{name} (%{nickname})</a>, akit Ön követ, hivatalosan hivatalba lépett.
     export_mailer:
       data_portability_export:
         click_button: 'Kattints a következő gombra az adatok letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.'

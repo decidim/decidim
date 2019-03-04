@@ -10,7 +10,7 @@
       <div class="columns large-6 medium-centered">
         <div class="card">
           <div class="card__content">
-            <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+            <%= decidim_form_for(@form, url: authorization_path(redirect_url: params[:redirect_url]), method: :put) do |form| %>
               <div class="field">
                 <%= form.text_field :verification_code %>
               </div>
@@ -19,6 +19,15 @@
                 <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
               </div>
             <% end %>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__content">
+            <div class="field">
+              <p><%= t(".resend") %></p>
+              <%= link_to t(".destroy"), decidim_sms.authorization_path, method: :delete, data: { confirm: t(".confirm_destroy") } %>
+            </div>
           </div>
         </div>
       </div>

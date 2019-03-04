@@ -69,7 +69,7 @@ nl:
             created_at: Aangemaakt op
             id: ID kaart
             state: Staat
-            supports_count: steunen
+            supports_count: handtekeningen
             title: initiatieven
         initiatives_type_scope:
           fields:

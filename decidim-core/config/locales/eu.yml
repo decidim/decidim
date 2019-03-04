@@ -500,11 +500,6 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> ofiziala izan da.
-          email_outro: Jakinarazpen hau jaso duzu %{nickname}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{nickname} ofiziala izan da"
-          notification_title: <a href="%{resource_path}">%{name} (%{nickname})</a>jarraitzen ari zarenak ofizializatu egin dira.
     export_mailer:
       data_portability_export:
         click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
