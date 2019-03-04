@@ -4,16 +4,12 @@ eu:
       initiative:
         decidim_user_group_id: Egilea
         description: deskribapena
-        offline_votes: Face-to-face euskarriak
         scope_id: esparrua
         signature_end_date: Sinadura bildumaren epea amaituta
         signature_start_date: Sinadura bildumaren aldiaren hasiera
         signature_type: Sinadura bilketa mota
         signature_type_values:
           any: mistoa
-          offline: Aurrez aurre
-          online: OnLine
-        state: Estatu
         title: Izenburua
       initiative_author:
         address: Helbidea
@@ -27,14 +23,11 @@ eu:
         user: Batzordeko kidea
       initiatives_type:
         banner_image: Banner irudia
-        collect_user_extra_fields: Bildu sinadura pertsonalaren datu pertsonalak
         description: deskribapena
-        document_number_authorization_handler: Botoen dokumentu zenbakia egiaztatzeko baimena
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoak
         online_signature_enabled: Sinadura elektronikoa gaituta dago
         title: Izenburua
-        undo_online_signatures_enabled: Gaitu erabiltzaileek beren sinadurak desegin ditzaten
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
       initiatives_vote:
         name_and_surname: Izena eta abizena
@@ -68,13 +61,11 @@ eu:
           fields:
             created_at: Sortutako at
             id: NAN
-            state: Estatu
-            supports_count: euskarri
+            supports_count: sinadurak
             title: Ekimenak
         initiatives_type_scope:
           fields:
             scope: esparrua
-            supports_required: Beharrezko euskarriak
           name: Initiative type scope
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ eu:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Sinatutako ekimenaren amaiera data %{resource_title} luzatu egin da!
           email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Ekimenaren sinadurak amaiera data luzatu da!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenaren amaierako data luzatu egin da.
         milestone_completed:
           affected_user:
             email_intro: Zure ekimena %{resource_title} sinadurak% %{percentage}lortu ditu!
@@ -123,17 +112,13 @@ eu:
             - Joan zaitez Intiatives-ko partaidetza eremura
             - Jarraitu urrats berriak ekimen berri bat sortzeko
           description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
-          description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
           description_own: Argitaratutako %{score} ekimen dituzu.
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
-          page: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
           title: Zer dira ekimenak?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ eu:
           index:
             approve: Onartu
             confirm_revoke: Ziur zaude?
-            invite_to_committee_help: Partekatu esteka hau beste erabiltzaileei sustapen batzordera gonbidatzeko
             no_members_yet: Ez dago bazkide promoziorako batzordean
             revoke: Baliogabetu
             title: Batzorde kideak
@@ -166,7 +150,6 @@ eu:
             confirm: Ziur zaude?
             discard: Ekimena baztertu
             export_pdf_signatures: Esportatu sinadurak PDF
-            export_votes: Esportatu euskarriak
             reject: Ezetsi ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
             success: Ekimena balioztatze teknikora bidali da
@@ -191,7 +174,6 @@ eu:
             print: Inprimatu
           update:
             error: akats bat gertatu da
-            success: Herritarren ekimena ondo eguneratu da
         initiatives_type_scopes:
           create:
             error: akats bat gertatu da
@@ -257,18 +239,15 @@ eu:
         fill_data:
           back: Back
           continue: Jarraitu
-          fill_data_help: "<ul> <li>Zure ekimenaren edukia berrikusi. Zure izenburua ulertzeko erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>pertsonalean, linean edo konbinazio batean. Zein da ekimenaren eremu geografikoa? Hiria, auzoa?</li> </ul>"
           initiative_type: Ekimen mota
           more_information: "(Informazio gehiago)"
           select_scope: Aukeratu esparrua
         finish:
           back: Back
           back_to_initiatives: Ekimenetara itzuli
-          callout_text: Zorionak! Herritarren ekimena ondo sortu da.
           go_to_my_initiatives: Joan nire ekimenei
           more_information: "(Informazio gehiago)"
         finish_help:
-          access_reminder: Gogoratu beti izango duzula zure ekimenak sartzeko erabiltzailearen menuan.
           help_for_organizations: Elkarte bat bazara, Promozio Batzordea osatzen duten erakunde guztien kudeaketa-batzordearen minutuak kargatu beharko dituzu
           help_in_person_signatures: Seinaleak pertsonan biltzeko edo linean konbinatuta hautatu baduzu, beharrezko informazioa kargatu beharko duzu.
           help_text: Gogoan izan ekimena behar bezala prozesatu ahal izateko, erabiltzaile-menua aurkituko duzuen administrazio-panelean sartzeko, beharrezkoa den informazioa kargatzeko eta prozesura bidaltzeko.
@@ -294,7 +273,6 @@ eu:
           invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
         show_similar_initiatives:
           back: Back
-          compare_help: Honako ekimen hauetako bat zurea bezalako antzeko baldin baduzu, onartzen duzu. Zure proposamenak aukera gehiago izango ditu.
           continue: Nire ekimena desberdina da
           more_information: "(Informazio gehiago)"
       events:
@@ -328,9 +306,7 @@ eu:
           help: Egiaztatu telefonoan jasotako SMSa
       initiative_votes:
         create:
-          error: Ekimena sinatu zenean akatsak izan dira.
           invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak
-          success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da
         personal_data:
           invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
         sms_code:
@@ -355,7 +331,6 @@ eu:
           myself: Nire ekimenak
           open: Open
           search: Search
-          state: Estatu
           type: Mota
           type_prompt: Aukeratu mota bat
         filters_small_view:
@@ -384,13 +359,8 @@ eu:
             published: Proposamen hau argitaratzen delako
             rejected: Proposamen hau baztertu egin delako
             validating: Proposamen hau ebaluatzen ari da
-          initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
-          any_vote_method: Herritarren ekimen honek lineako laguntza eta aurrez aurre biltzen ditu.
           follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
-          offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
-        signature_identities:
-          select_identity: Hautatu erabiltzailearen identifikatzailea
         signatures_count:
           one: " sinadura"
           other: " sinadurak"
@@ -409,16 +379,11 @@ eu:
           most_popular_initiative: Ekimen ezagunena
           need_more_votes: Sinadura gehiago behar duzu
       initiatives_mailer:
-        creation_subject: Zure herritarren ekimena '%{title}' sortu da
         initiative_link:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du.'
-        progress_report_for: 'Berrekin ekimenari buruz: %{title}'
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
-        status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
-        status_change_for: '%{title} ekimena bere egoera aldatu du'
         technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
         technical_validation_for: '%{title} ekimena balidazio teknikoa eskatu du.'
       last_activity:
@@ -437,7 +402,6 @@ eu:
     resources:
       initiatives_type:
         actions:
-          vote: Bozkatu
           title: Ekintzak
   layouts:
     decidim:
