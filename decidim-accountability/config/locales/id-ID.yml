@@ -50,7 +50,7 @@ id:
             name: Entri waktu
         results:
           create:
-            invalid: Terjadi masalah saat membuat hasil ini
+            invalid: Ada masalah saat membuat hasil ini
             success: Hasil berhasil dibuat
           destroy:
             success: Hasilnya berhasil dihapus
@@ -76,7 +76,7 @@ id:
             statuses: Status
         statuses:
           create:
-            invalid: Terjadi masalah saat membuat status ini
+            invalid: Ada masalah saat membuat status ini
             success: Status berhasil dibuat
           destroy:
             success: Status berhasil dihapus
@@ -89,7 +89,7 @@ id:
             create: Buat status
             title: Status baru
           update:
-            invalid: Terjadi masalah saat memperbarui status ini
+            invalid: Ada masalah saat memperbarui status ini
             success: Status berhasil diperbarui
         timeline_entries:
           create:
