@@ -33,7 +33,6 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: Felhasználók általi viták létrehozása engedélyezve
     debates:
       actions:
         confirm_destroy: Biztos vagy benne?
@@ -43,11 +42,6 @@ hu:
         title: Műveletek
       admin:
         debates:
-          create:
-            invalid: Probléma merült fel a vita létrehozása során.
-            success: Vita létrehozása sikeres.
-          destroy:
-            success: Vita törlése sikeres.
           edit:
             title: Vita szerkesztése
             update: Vita frissítése
@@ -56,9 +50,6 @@ hu:
           new:
             create: Vita létrehozása
             title: Új vita
-          update:
-            invalid: Probléma merült fel a vita frissítése során.
-            success: A vita sikeresen frissült.
         models:
           debate:
             name: Vita
@@ -71,9 +62,6 @@ hu:
           debates_count:
             one: "%{count} vita"
             other: "%{count} vita"
-        create:
-          invalid: Probléma merült fel a vita létrehozása során.
-          success: Vita létrehozása sikeres.
         debate:
           participate: Részvétel
         filters:
@@ -127,7 +115,6 @@ hu:
             email_subject: Új vitát hozott létre "%{resource_title}" címmel %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> létrehozta a <a href="%{resource_path}">%{resource_title}</a> vitát.
         creation_disabled:
-          email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Viták létrehozása letiltva itt: %{participatory_space_title}'
           notification_title: 'Viták létrehozása letiltva itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
@@ -142,11 +129,9 @@ hu:
           conditions:
             - Válasszon nyílt vitát, hogy részt vegyen
           description: Ezt a jelvényt akkor kapja meg, ha a különböző vitákban aktívan részt vesz az észrevételeinek elhagyásával.
-          description_another: Ez a felhasználó %{score} vitában vett részt.
           description_own: Vettél részt %{score} vitában.
           name: viták
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
-          unearned_another: Ez a felhasználó még nem vett részt vitában.
           unearned_own: Vannak résztvevők a vitákban.
     metrics:
       debates:
