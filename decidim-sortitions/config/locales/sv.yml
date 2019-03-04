@@ -65,7 +65,6 @@ sv:
             destroy: Avbryt tilldelningen
             title: Annullering av tilldelningen
           create:
-            error: Det uppstod ett fel vid skapandet av en ny tilldelning.
             success: Tilldelning skapad
           destroy:
             error: Kan inte avbryta tilldelningen.
@@ -86,7 +85,6 @@ sv:
           show:
             selected_proposals: Förslag utvalda för dragning
           update:
-            error: Det uppstod ett fel vid uppdateringen av tilldelningen.
             success: Tilldelning uppdaterad
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           search: Sök
-          state: Tillstånd
         filters_small_view:
           close_modal: Stäng modal
           filter: Filtrera
@@ -122,7 +119,6 @@ sv:
             one: valda förslaget
             other: utvalda förslag
         show:
-          algorithm: Tilldelningens algoritmkod
           any_category: från alla kategorier
           cancelled: Annullerad tilldelning
           candidate_proposal_ids: Tilldelningsförslagens ordning och ID
@@ -141,10 +137,6 @@ sv:
             one: 1 valt förslag
             other: '%{count} utvalda förslag'
           view: Visa
-        sortition_author:
-          deleted: Raderad användare
-        sortition_cancel_author:
-          deleted: Raderad användare
         sortitions_count:
           count:
             one: 1 tilldelning
