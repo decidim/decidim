@@ -30,7 +30,7 @@ cs:
       decidim/user:
         current_password: Aktuální heslo
         email: E-mailem
-        name: Přezdívka
+        name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
         remember_me: Zapamatuj si mě
@@ -41,15 +41,15 @@ cs:
         many: Změny
         other: Změny
       decidim/user:
-        one: Žádní účastníci
-        few: Účastníci
-        many: Účastníci
-        other: Účastníci
+        one: Žádní uživatelé
+        few: Uživatelé
+        many: Uživatelé
+        other: Uživatelé
       decidim/user_group:
-        one: Skupina
-        few: Skupiny
-        many: Skupiny
-        other: Skupiny
+        one: Uživatelská skupina
+        few: Skupiny uživatelů
+        many: Skupiny uživatelů
+        other: Skupiny uživatelů
   booleans:
     'false': 'Ne'
     'true': 'Ano'
@@ -69,7 +69,7 @@ cs:
         file_no_exists: Soubor neexistuje
         invalid_token: Zadaný token je neplatný.
         no_token: Žádný token není k dispozici
-        notice: Stažení vašich dat probíhá aktuálně. Po dokončení e-mailu obdržíte e-mail.
+        notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       delete:
         alert: Tuto akci nelze vrátit zpět. Pokud odstraníte svůj účet, nebudete se moci přihlásit.
         confirm:
@@ -79,13 +79,13 @@ cs:
           title: Smazat můj účet
         explanation: Zadejte prosím důvod, pro který chcete svůj účet smazat (nepovinné).
       destroy:
-        error: Při mazání účtu došlo k potížím.
-        success: Váš účet byl úspěšně smazán.
+        error: Při mazání účtu došlo k chybě.
+        success: Účet byl úspěšně smazán.
       show:
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:
-        error: Při aktualizaci účtu došlo k problému.
+        error: Při aktualizaci účtu došlo k chybě.
         success: Váš účet byl úspěšně aktualizován.
         success_with_email_confirmation: Váš účet byl úspěšně aktualizován. Obdržíte e-mail, který potvrdí vaši novou e-mailovou adresu.
     admin_log:
@@ -113,8 +113,8 @@ cs:
       organization:
         update: "%{user_name} aktualizovala nastavení organizace"
       participatory_space_private_user:
-        create: "%{user_name} pozval %{resource_name} aby byl soukromým účastníkem"
-        delete: "%{user_name} účastníka %{resource_name} odebral jako soukromého účastníka"
+        create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
+        delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořilo %{resource_name} rozsah"
         create_with_parent: "%{user_name} vytvořilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
@@ -127,30 +127,30 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
       user:
-        invite: "%{user_name} pozval účastníka %{resource_name} s rolí: %{role}"
-        officialize: "%{user_name} oficializoval účastníka %{resource_name}"
-        remove_from_admin: "%{user_name} odstranil účastníka %{resource_name} s rolí: %{role}"
-        unofficialize: "%{user_name} neoficiálně účastník %{resource_name}"
+        invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
+        officialize: "%{user_name} oficializoval uživatele %{resource_name}"
+        remove_from_admin: "%{user_name} odstranil uživatele %{resource_name} s rolí: %{role}"
+        unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
-        reject: "%{user_name} odmítl ověření skupiny %{resource_name}"
-        verify: "%{user_name} ověřila skupinu %{resource_name}"
-        verify_via_csv: "%{user_name} ověřila skupinu %{resource_name} pomocí souboru CSV"
+        reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
+        verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
+        verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
     amendments:
       accepted:
-        error: Při přijetí pozměňovacího návrhu došlo k problému, zkuste to prosím později.
-        success: Tento pozměňovací návrh byl úspěšně přijat.
+        error: Došlo k chybě při přijímání emendace, zkuste to prosím později.
+        success: Tato změna byla úspěšně přijata.
       amendable:
         amended_by: Pozměněno
         button: Změna %{model_name}
-        promote_button: Publikovat jako nové číslo %{model_name}
-        error: Došlo k problému změny tohoto zdroje.
+        promote_button: Propagujte na %{model_name}
+        error: Při změně tohoto zdroje došlo k chybě.
         help_text: Zlepšete tento %{model_name} změnou jeho %{amendable_fields}
-        promote_help_text: Tuto změnu můžete publikovat jako nezávislá %{model_name}
+        promote_help_text: Tuto změnu můžete propagovat a publikovat ji jako nezávislou %{model_name}
         no_amenders: Neexistují žádní novináři
         no_amendments: Neexistují žádné změny
         section_heading: Změny (%{count})
       created:
-        error: Při vytváření této změny došlo k chybě. Zkuste to prosím znovu později
+        error: Při vytváření této změny došlo k chybě, zkuste to znovu později
         success: Novela byla úspěšně vytvořena
       emendation:
         actions:
@@ -165,7 +165,8 @@ cs:
             Tato změna pro hodnocení %{amendable_type} %{amendable_link}
             se hodnotí.
           rejected: |-
-            Tato změna týkající se čísla %{amendable_type} %{amendable_link} byla zamítnuta dne <strong>%{announcement_date}</strong>.
+            Tato změna pro %{amendable_type} %{amendable_link}
+            byla zamítnuta na <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Tato změna pro číslo %{amendable_type} %{amendable_link}
             byla autorem stažena.
@@ -176,11 +177,11 @@ cs:
         help_text: Upravujete %{model_name}
         send: Odeslat změnu
       rejected:
-        error: Tento pozměňovací návrh byl zamítnut. Zkuste to prosím znovu později
-        success: Změna byla úspěšně zamítnuta
+        error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
+        success: Emenda byla úspěšně odmítnuta
       promoted:
-        success: Novela byla úspěšně zveřejněna jako nový návrh
-        error: Problém byl zveřejněn jako nový návrh
+        success: Úprava byla úspěšně podporována
+        error: Došlo k chybě při propagování emendace
       review:
         back: Zadní
         heading: Přezkoumejte pozměňovací návrh
@@ -197,7 +198,7 @@ cs:
       documents:
         related_documents: Související dokumenty
       photos:
-        related_photos: Související obrázky
+        related_photos: Související fotografie
     author:
       comments:
         one: komentář
@@ -219,7 +220,7 @@ cs:
       dummy_authorization_workflow:
         name: Pracovní postup autorizace autorských práv
       errors:
-        duplicate_authorization: Účastník je již oprávněn se stejnými údaji.
+        duplicate_authorization: Uživateli je již povoleno stejná data.
       expired_at: Platnost vypršela v roce %{timestamp}
       expires_at: Platnost vyprší na %{timestamp}
       foo_authorization:
@@ -329,7 +330,7 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Váš alias (@nickname) v %{organization}
+          nickname_help: Váš krátký jedinečný identifikátor v %{organization}
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace zaregistrujte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakýkoliv název.
@@ -338,7 +339,7 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Příjemný informační bulletin s příslušnými informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Váš alias (@nickname) v %{organization}
+          nickname_help: Váš krátký jedinečný identifikátor v %{organization}
           sign_in: Přihlásit se
           sign_up: Přihlásit se
           sign_up_as:
@@ -353,7 +354,7 @@ cs:
           are_you_new?: Nová platforma?
           register: Vytvořit účet
           sign_in_disabled: Máte přístup k externímu účtu
-          sign_up_disabled: Registrace je zakázána, pro přístup můžete použít stávající účet
+          sign_up_disabled: Registrace je zakázána, můžete k přístupu přistupovat k existujícímu uživateli
       shared:
         newsletter_modal:
           buttons:
@@ -384,7 +385,7 @@ cs:
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
-          see_username: Podívejte se na přezdívku
+          see_username: Zkontrolujte své uživatelské jméno
           this_application_will_be_able_to: 'Tato aplikace bude schopna:'
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
@@ -401,48 +402,48 @@ cs:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'Byla vytvořena nová změna pro %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Nová změna byla vytvořena pro hodnotu %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Nová změna pro %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">novela</a> byl vytvořen <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nová změna pro %{amendable_title} od %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">nová změna</a> byla vytvořena <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Byla vytvořena nová změna pro %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Nová změna byla vytvořena pro hodnotu %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Nová změna pro %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">novela</a> byl vytvořen <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nová změna pro %{amendable_title} od %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">nová změna</a> byla vytvořena <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'Změna byla zamítnuta za %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Změna byla zamítnuta za %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Změna byla zamítnuta pro %{amendable_title} od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Změna byla zamítnuta za %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Změna byla zamítnuta za %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Změna byla zamítnuta pro %{amendable_title} od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Odmítnutá změna pro číslo %{amendable_title} byla zveřejněna jako nová %{amendable_type}. Můžete ji vidět z této stránky:'
+            email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Změna z %{emendation_author_nickname} byla zveřejněna jako nový návrh
-            notification_title: <a href="%{emendation_path}">zamítnout změna</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} byl publikován jako nový návrh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Byla podporována změna od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">zamítnout korektura</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} byl podporován <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Odmítnutá změna pro číslo %{amendable_title} byla zveřejněna jako nová %{amendable_type}. Můžete ji vidět z této stránky:'
+            email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Změna z %{emendation_author_nickname} byla zveřejněna jako nový návrh
-            notification_title: <a href="%{emendation_path}">zamítnout změna</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} byl publikován jako nový návrh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Byla podporována změna od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">zamítnout korektura</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} byl podporován <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Změna byla přijata pro číslo %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Přijatá změna pro %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Změna byla přijata pro číslo %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Přijatá změna pro %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu %{resource_title}byl přidán nový dokument. Můžete ji vidět z této stránky:'
@@ -462,15 +463,15 @@ cs:
         email_subject: Aktualizace na %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gratulujeme! Získali jste <a href="%{resource_url}">%{badge_name} odznak</a> (úroveň %{current_level}).
+          email_intro: Dobrá práce! Získali jste <a href="%{resource_url}">%{badge_name} odznak</a> (úroveň %{current_level}).
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
           email_subject: 'Získali jste nový odznak: %{badge_name}!'
-          notification_title: Gratulujeme! Získali jste <a href="%{resource_path}">%{badge_name} odznak</a> (úroveň %{current_level}).
+          notification_title: Dobrá práce! Získali jste <a href="%{resource_path}">%{badge_name} odznak</a> (úroveň %{current_level}).
         level_up:
-          email_intro: Gratulujeme! Dosáhli jste úrovně %{current_level} na <a href="%{resource_url}">%{badge_name} odznaku</a>!
+          email_intro: Dobrá práce! Dosáhli jste úrovně %{current_level} na <a href="%{resource_url}">%{badge_name} odznaku</a>!
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
           email_subject: Dosáhli jste úrovně %{current_level} na %{badge_name} odznaku!
-          notification_title: Gratulujeme! Dosáhli jste úrovně %{current_level} na <a href="%{resource_path}">%{badge_name} odznaku</a>!
+          notification_title: Dobrá práce! Dosáhli jste úrovně %{current_level} na <a href="%{resource_path}">%{badge_name} odznaku</a>!
       groups:
         demoted_membership:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odebral vaše práva administrátora do této skupiny.
@@ -546,10 +547,10 @@ cs:
     follows:
       create:
         button: Následovat
-        error: Při sledování tohoto zdroje došlo k potížím.
+        error: Při sledování tohoto zdroje došlo k chybě.
       destroy:
         button: Zastavte následující
-        error: Při potížích s nepoužíváním tohoto zdroje došlo k potížím.
+        error: Při sledování tohoto zdroje došlo k chybě.
     forms:
       current_file: Aktuální soubor
       current_image: Aktuální obrázek
@@ -564,21 +565,21 @@ cs:
           conditions:
             - Přijďte sem často
           description: Tento odznak je udělen při pravidelné návštěvě platformy. Rádi bychom vás tu měli!
-          description_another: Tento účastník připojen na %{score} po sobě jdoucích dnů v určitém okamžiku.
+          description_another: Tento uživatel se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
           description_own: Připojili jste na %{score} po sobě jdoucích dnů v určitém okamžiku.
           name: Kontinuita
           next_level_in: Připojte se na %{score} po sobě jdoucích dní, abyste se dostali na další úroveň!
-          unearned_another: Tento účastník se nepřihlásil na více než jeden po sobě následující den.
+          unearned_another: Tento uživatel se nepřihlásil na více než jeden po sobě následující den.
           unearned_own: Nejste připojeni více než jeden po sobě následující den.
         followers:
           conditions:
             - Být aktivní a následovat jiné lidi jistě přimějí ostatní lidi, aby vás následovali.
           description: Tento odznak je udělen, když dosáhnete určitého počtu následovníků. %{organization_name} je společenská a politická síť, tkát váš web komunikovat s ostatními lidmi na platformě.
-          description_another: Tento účastník má %{score} následovníků.
-          description_own: "%{score} lidí vás sleduje."
+          description_another: Tento uživatel má %{score} následovníků.
+          description_own: "Uživatelé vás sledují %{score} uživatelů."
           name: Následovníci
-          next_level_in: Získat %{score} více lidí, aby vás sledovat, aby dostat do další úrovně!
-          unearned_another: Tento účastník zatím nemá žádných následovníků.
+          next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
+          unearned_another: Tento uživatel ještě nemá žádné sledujících.
           unearned_own: Už nemáte žádné následovníky.
         index:
           badge_title: "%{name} odznak"
@@ -591,67 +592,67 @@ cs:
             - Přizpůsobte, pokud chcete, zprávu, kterou posíláte
             - Vyrovnáváte tím, že posíláte pozvánky a získáte je.
           description: Tento odznak je udělen, když jste pozvali některé lidi a tráví čas, aby se zaregistrovali v %{organization_name} a stali se účastníky. Děkujeme za %{organization_name} je známo, že ostatní a pomáhá rozšířit komunitu!
-          description_another: Tento účastník pozval %{score} osob.
-          description_own: Pozvali jste %{score} lidí.
+          description_another: Tento uživatel pozval %{score} uživatelů.
+          description_own: Pozvali jste %{score} uživatelů.
           name: Pozvánky
-          next_level_in: Pozvat %{score} dalších lidí, aby se dostali na další úroveň!
-          unearned_another: Tento účastník dosud nikomu nepozval.
-          unearned_own: Nikoho jste ještě nepozvali.
+          next_level_in: Pozvat %{score} dalších uživatelů, abyste se dostali na další úroveň!
+          unearned_another: Tento uživatel zatím nepozval žádného uživatele.
+          unearned_own: Dosud jste nepozvali žádné uživatele.
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
     group_admins:
       actions:
-        are_you_sure: Jsi si jistá? Neodstraní účastníka ze skupiny.
+        are_you_sure: Jsi si jistá? Neodstraní uživatele ze skupiny.
         demote_admin: Odstranit admin
       demote:
-        error: Při odstraňování tohoto účastníka ze seznamu administrátorů došlo k problému
-        success: Účastník byl úspěšně odstraněn z administrátora
+        error: Při odebrání tohoto uživatele ze seznamu administrátorů došlo k chybě
+        success: Uživatel byl úspěšně odstraněn z administrátora
       index:
         current_admins: 'Aktuální administrátoři:'
         manage_admins: Správa administrátorů
     group_invites:
       accept:
-        error: Přijímání této pozvánky bylo potíže
+        error: Při přijetí této pozvánky došlo k chybě
         success: Pozvánka byla úspěšně přijata
       accept_invitation: Akceptovat
       accept_or_reject_group_invitations: 'Následující skupiny vás pozvaly, abyste se k nim připojili. Přijmout nebo odmítnout jejich požadavky:'
       index:
         invite: Pozvat
-        invite_user: Pozvěte účastníka
+        invite_user: Pozvat uživatele
       invite:
-        error: Došlo k potížím s pozváním tohoto účastníka
-        success: Úspěšný účastník byl pozván
+        error: Došlo k chybě při pozvání tohoto uživatele
+        success: Uživatel pozván úspěšně
       reject:
-        error: Při odmítnutí této výzvy došlo k problému
+        error: Došlo k chybě odmítnutí této pozvánky
         success: Pozvánka byla úspěšně zamítnuta
       reject_invitation: Odmítnout
     group_members:
       accept:
-        error: Při přijímání této žádosti o spojení došlo k problému
+        error: Při přijímání této žádosti o spojení došlo k chybě
         success: Připojit žádost úspěšně přijat
       actions:
         are_you_sure: Jsi si jistá?
         promote_to_admin: Udělat adminem
-        remove_from_group: Odstranit účastníka
+        remove_from_group: Odstranit uživatele
       index:
         current_members_without_admins: 'Aktuální členové (bez administrátorů):'
         manage_members: Správa členů
       promote:
-        error: Problém byl podpořen tímto účastníkem
-        success: Účastník úspěšně prosazován
+        error: Došlo k chybě při propagaci tohoto uživatele
+        success: Uživatel úspěšně povýšen
       reject:
-        error: Došlo k problému odmítnutí této žádosti o spojení
-        success: Požadavek na spojení úspěšně odmítnut
+        error: Při odebrání této žádosti o spojení došlo k chybě
+        success: Připojit žádost úspěšně odmítnu
       remove:
-        error: Při odstraňování tohoto účastníka ze skupiny došlo k potížím
-        success: Účastník byl úspěšně odstraněn ze skupiny
+        error: Při odebrání tohoto uživatele ze skupiny došlo k chybě
+        success: Uživatel byl ze skupiny úspěšně odstraněn
     groups:
       actions:
         are_you_sure: Jsi si jistá?
       create:
         error: Při vytváření skupiny došlo k potížím
-        success: Skupina úspěšně vytvořena
+        success: Skupina byla úspěšně vytvořena
       edit:
         edit_user_group: Upravit skupinu
         update_user_group: Aktualizovat skupinu
@@ -660,14 +661,14 @@ cs:
         email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
         fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
         name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
-        nickname_help: Přezdívka vaší organizace, sdružení, kolektivu, skupiny apod. Nepoužívejte mezeru ani diakritiku.
+        nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
         phone_help: Nepoužívejte pomlčky ani mezery
       join:
-        error: Do skupiny se objevil problém
-        success: Připojit úspěšně vytvořenou žádost. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
+        error: Do skupiny došlo k problému
+        success: Požadavek na spojení byl úspěšně vytvořen. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
       leave:
         error: Při opouštění skupiny došlo k problému
-        success: Skupina byla úspěšně opuštěna.
+        success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
         accept_request: Akceptovat
@@ -682,7 +683,7 @@ cs:
         creator: Tvůrce
         member: Člen
       update:
-        error: Při aktualizaci skupiny došlo k potížím
+        error: Při aktualizaci skupiny došlo k problému
         success: Skupina byla úspěšně aktualizována
     help:
       main_topic:
@@ -718,9 +719,9 @@ cs:
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
-      expired_session: Aktuální platnost administrace účastníka vypršela.
+      expired_session: Aktuální platnost sesouhlasení již vypršela.
     members:
-      no_members: Tato skupina zatím nemá žádné členy.
+      no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
       help: Pomoc
       home: Domov
@@ -756,17 +757,17 @@ cs:
       download:
         csv: Stáhnout data (csv)
       followers:
-        description: Počet účastníků, kteří se účastní tohoto prostoru účasti
+        description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
         title: Následovníci
       participants:
-        description: Počet aktivních účastníků v organizaci
+        description: Počet aktivních uživatelů v organizaci
         object: účastníků
         title: Účastníci
       users:
-        description: Počet účastníků v organizaci
-        object: účastníků
-        title: Účastníci
+        description: Počet uživatelů v organizaci
+        object: uživatelů
+        title: Uživatelé
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
@@ -775,7 +776,7 @@ cs:
     newsletters:
       unsubscribe:
         check_subscription: Chcete-li změnit nastavení, můžete tak učinit v <a href="%{link}" target="_blank">konfigurační stránce</a>
-        error: Došlo k potížím při odhlášení
+        error: Došlo k chybě při odhlášení
         success: Úspěšně jste odhlášeni.
         token_error: Platnost odkazu vypršela.
         unsubscribe: Odhlásit odběr
@@ -783,7 +784,7 @@ cs:
       unathorized: Je nám líto, tento odkaz již není k dispozici
       update:
         error: Něco se stalo
-        success: Nastavení bulletinu bylo úspěšně aktualizováno
+        success: Nastavení Newsletteru bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
         body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
@@ -806,7 +807,7 @@ cs:
         send_notifications_by_email: Poslat oznámení emailem
         update_notifications_settings: Uložit změny
       update:
-        error: Při aktualizaci nastavení oznámení došlo k problému.
+        error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
@@ -872,7 +873,7 @@ cs:
           link: Zobrazit všechny statistiky
       terms_and_conditions:
         accept:
-          error: Při přijetí těchto podmínek došlo k problému.
+          error: Při přijímání smluvních podmínek došlo k chybě.
           success: Skvělý! Souhlasíte s podmínkami.
         form:
           agreement: Souhlasím s těmito podmínkami
@@ -891,10 +892,10 @@ cs:
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
-      deleted: Účastník byl smazán
+      deleted: Vymazaný uživatel
       view: Pohled
     profiles:
-      default_officialization_text_for_user_groups: Tato skupina je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
+      default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
       default_officialization_text_for_users: Tento účastník je veřejně ověřen, jeho jméno nebo role byly ověřeny tak, aby odpovídaly jeho skutečnému jménu a roli
       show:
         activity: Aktivita
@@ -915,7 +916,7 @@ cs:
         edit_profile: Editovat profil
         edit_user_group: Upravit profil skupiny
         fill_in_email_to_confirm_it: Vyplňte e-mail své skupiny a potvrďte ji
-        invite_user: Pozvat účastníka
+        invite_user: Pozvat uživatele
         join_user_group: Žádost o připojení ke skupině
         leave_user_group: Opustit skupinu
         manage_user_group_admins: Správa administrátorů
@@ -1001,10 +1002,10 @@ cs:
         share: Podíl
         share_link: Sdílet odkaz
       version_author:
-        deleted: Odstraněný účastník
+        deleted: Vymazaný uživatel
     user_activity:
       index:
-        no_activities_warning: Tento účastník dosud nemá žádnou aktivitu.
+        no_activities_warning: Tento uživatel zatím nemá žádnou aktivitu.
     user_interests:
       show:
         no_scopes: Tato organizace ještě nemá prostor.
@@ -1012,7 +1013,7 @@ cs:
         select_your_interests: Zvolte témata, která vás zajímají, abyste mohli přijímat události, které s nimi souvisejí, na kartě Časová osa profilu.
         update_my_interests: Aktualizujte své zájmy
       update:
-        error: Při aktualizaci vašich zájmů došlo k problému.
+        error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
     welcome_notification:
       default_body: <p>Hi {{name}}, díky za připojení {{organization}} a vítám!</p><ul><li>Chcete-li získat rychlou představu o tom, co můžete udělat zde, podívejte se na sekci <a href="{{help_url}}">Nápověda</a> .</li><li>Jakmile jste si ji přečetli, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému blahu, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, otevřenou mysl spolupracovat a připojit se k jiným lidem.</li></ul>
@@ -1037,7 +1038,7 @@ cs:
     invitations:
       edit:
         header: Dokončete vytvoření účtu
-        nickname_help: Vaše přezdívka je %{organization}.
+        nickname_help: Váš jedinečný identifikátor v %{organization}.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
       invitation_removed: Vaše pozvánka byla odstraněna.
@@ -1053,7 +1054,7 @@ cs:
       confirmation_instructions:
         action: Potvrďte svůj účet
         greeting: Vítejte %{recipient}!
-        instruction: 'Váš e-mailový účet můžete potvrdit níže uvedeným odkazem:'
+        instruction: 'E-mail o účtu můžete potvrdit pomocí níže uvedeného odkazu:'
         subject: Pokyny pro potvrzení
       email_changed:
         greeting: Dobrý den %{recipient}!
@@ -1068,10 +1069,10 @@ cs:
           Pokud nechcete přijmout pozvánku, ignorujte tento e-mail.<br />
           Váš účet nebude vytvořen, dokud nevstoupíte do výše uvedeného odkazu a nastavíte přezdívku a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval jako administrátora z %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého účastníka %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
+        invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého uživatele %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         someone_invited_you: Někdo vás pozval na %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu.
         someone_invited_you_as_admin: Někdo Vás pozval jako administrátora %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
-        someone_invited_you_as_private_user: Někdo vás pozval jako soukromého účastníka %{application}, můžete jej přijmout prostřednictvím níže uvedeného odkazu.
+        someone_invited_you_as_private_user: Někdo vás pozval jako private_user %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
         subject: Pokyny k pozvánkám
       invite_admin:
         subject: Byl jste pozván na správu %{organization}
@@ -1116,7 +1117,7 @@ cs:
       updated: Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni.
       updated_not_active: Vaše heslo bylo úspěšně změněno.
     registrations:
-      destroyed: Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
+      destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
       edit:
         are_you_sure: Jsi si jistá?
         cancel_my_account: Zrušit můj účet
@@ -1133,7 +1134,7 @@ cs:
       signed_up_but_locked: Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet je uzamčen.
       signed_up_but_unconfirmed: Na vaši e-mailovou adresu byla odeslána zpráva s potvrzujícím odkazem. Klepnutím na odkaz aktivujte svůj účet.
       update_needs_confirmation: Účet jste úspěšně aktualizovali, ale musíme ověřit novou e-mailovou adresu. Zkontrolujte e-mail a potvrďte novou e-mailovou adresu.
-      updated: Váš účet byl úspěšně aktualizován.
+      updated: Účet byl úspěšně aktualizován.
     sessions:
       already_signed_out: Bylo úspěšně odhlášeno.
       new:
@@ -1159,7 +1160,7 @@ cs:
         resend_unlock_instructions: Obnovte pokyny k odemknutí
       send_instructions: Obdržíte e-mail s pokyny pro odemčení účtu během několika minut.
       send_paranoid_instructions: Pokud váš účet existuje, obdržíte e-mail s pokyny, jak jej odemknout během několika minut.
-      unlocked: Váš účet byl úspěšně odemčen. Chcete-li pokračovat, přihlaste se.
+      unlocked: Váš účet byl úspěšně odblokován. Chcete-li pokračovat, přihlaste se.
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
@@ -1207,7 +1208,7 @@ cs:
         sign_up: Přihlásit se
       impersonation_warning:
         close_session: Zavřete relaci
-        description_html: Spravujete účastníka <b>%{user_name}</b>.
+        description_html: Odsuzujete uživatele <b>%{user_name}</b>.
         expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
       notifications_dashboard:
         mark_all_as_read: označit vše jako přečtené
@@ -1225,7 +1226,7 @@ cs:
         my_data: Moje data
         my_interests: Mé zájmy
         notifications_settings: Nastavení oznámení
-        title: Nastavení účastníků
+        title: Uživatelské nastavení
         user_groups: Skupiny
       widget:
         see_more: Vidět víc
