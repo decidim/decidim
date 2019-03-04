@@ -70,7 +70,6 @@ en:
         success_color: Success
         tos_version: Terms of service version
         twitter_handler: Twitter handler
-        user_groups_enabled: Enable groups
         warning_color: Warning
         youtube_handler: YouTube handler
       scope:
@@ -138,7 +137,6 @@ en:
         verify: Verify
       area_types:
         create:
-          error: There was a problem creating a new area type.
           success: Area type created successfully.
         destroy:
           success: Area type successfully destroyed
@@ -149,11 +147,9 @@ en:
           create: Create area type
           title: New area type
         update:
-          error: There was a problem updating this area type.
           success: Area type updated successfully
       areas:
         create:
-          error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
           success: Area successfully destroyed
@@ -165,11 +161,9 @@ en:
           title: New area
         no_areas: No Areas
         update:
-          error: There was a problem updating this area.
           success: Area updated successfully
       attachment_collections:
         create:
-          error: There was a problem creating a new folder.
           success: Folder created successfully.
         destroy:
           success: Folder destroyed successfully.
@@ -183,11 +177,9 @@ en:
           create: Create
           title: New folder
         update:
-          error: There was a problem updating this folder.
           success: Folder updated successfully.
       attachments:
         create:
-          error: There was a problem creating a new attachment.
           success: Attachment created successfully.
         destroy:
           success: Attachment destroyed successfully.
@@ -200,17 +192,14 @@ en:
           create: Create attachment
           title: New attachment
         update:
-          error: There was a problem updating this attachment.
           success: Attachment updated successfully.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
       categories:
         create:
-          error: There was a problem creating this category.
           success: Category created successfully.
         destroy:
-          error: There was a problem deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
           success: Category deleted successfully.
         edit:
           title: Edit category
@@ -222,17 +211,14 @@ en:
           create: Create category
           title: New category
         update:
-          error: There was a problem updating this category.
           success: Category updated successfully.
       component_permissions:
         update:
           success: Permissions updated successfully.
       components:
         create:
-          error: There was a problem creating this component.
           success: Component created successfully.
         destroy:
-          error: There was a problem destroying this component.
           success: Component deleted successfully.
         edit:
           title: Edit component
@@ -256,7 +242,6 @@ en:
         unpublish:
           success: The component has been successfully unpublished.
         update:
-          error: There was a problem updating this component.
           success: The component was updated successfully.
       dashboard:
         show:
@@ -266,7 +251,6 @@ en:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
       help_sections:
-        error: There was a problem updating the help sections
         form:
           save: Save
         success: Help sections updated successfully
@@ -278,7 +262,6 @@ en:
             not_managed: Not managed
           filter_by: Filter by
           impersonate: Impersonate
-          impersonate_new_managed_user: Manage new participant
           managed: Managed
           name: Name
           needs_authorization_warning: You need at least one authorization enabled for this organization.
@@ -289,31 +272,19 @@ en:
           view_logs: View logs
       impersonations:
         close_session:
-          error: There was a problem closing the current participant management session.
           success: The current impersonation session has been successfully ended.
-        create:
-          error: There was a problem managing the participant.
-          success: The managed participant has been successfully created.
         form:
           authorization_method: Authorization method
           name: Name
           reason: Reason
         new:
           impersonate: Impersonate
-          impersonate_existing_managed_user: Manage participant "%{name}"
-          impersonate_existing_user: Manage participant "%{name}"
-          impersonate_new_managed_user: Manage new participant
       logs:
         logs_list:
           no_logs_yet: There are no logs yet
       managed_users:
-        promotion:
-          error: There was a problem promoting the managed participant.
-          success: The managed participant has been successfully promoted.
         promotions:
           new:
-            explanation: Managed participants can be promoted to standard participants. It means they will be invited to the application and you will not be able to manage them again. The invited participant will receive an email to accept your invitation.
-            new_managed_user_promotion: New managed participant promotion
             promote: Promote
       menu:
         admin_log: Admin activity log
@@ -333,8 +304,6 @@ en:
         scopes: Scopes
         settings: Settings
         static_pages: Pages
-        user_groups: Groups
-        users: Participants
       models:
         area:
           fields:
@@ -362,7 +331,6 @@ en:
             expired_at: Expired at
             reason: Reason
             started_at: Started at
-            user: Participant
         newsletter:
           fields:
             created_at: Created at
@@ -375,8 +343,6 @@ en:
             created_at: Created at
             name: Name
           name: OAuth application
-        participatory_space_private_user:
-          name: Participatory space private participant
         scope:
           fields:
             name: Name
@@ -398,8 +364,6 @@ en:
             role: Role
             roles:
               admin: Admin
-              user_manager: Participant manager
-          name: Participant
         user_group:
           fields:
             actions: Actions
@@ -408,7 +372,6 @@ en:
             name: Name
             phone: Phone
             state: State
-            users_count: Participants count
       moderations:
         index:
           title: Moderations
@@ -419,10 +382,8 @@ en:
             spam: Spam
       newsletters:
         create:
-          error: There was a problem creating this newsletter.
           success: Newsletter created successfully. Please, review it before sending.
         deliver:
-          error: There was a problem delivering this newsletter.
           success: Newsletter delivered successfully.
         destroy:
           error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
@@ -444,14 +405,11 @@ en:
           preview: Preview
           subject: Subject
         update:
-          error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
       oauth_applications:
         create:
-          error: There was a problem creating this application.
           success: Application created successfully.
         destroy:
-          error: There was a problem destroying this application.
           success: Application destroyed successfully.
         edit:
           save: Save
@@ -463,13 +421,8 @@ en:
           save: Save
           title: New application
         update:
-          error: There was a problem updating this application.
           success: Application updated successfully.
       officializations:
-        create:
-          success: Participant successfully officialized
-        destroy:
-          success: Participant successfully unofficialized
         index:
           actions: Actions
           badge: Badge
@@ -491,7 +444,6 @@ en:
         new:
           badge: Officialization badge
           officialize: Officialize
-          title: Officialize participant "%{name}"
       organization:
         edit:
           title: Edit organization
@@ -505,7 +457,6 @@ en:
           url: Url
           youtube: YouTube
         update:
-          error: There was a problem updating this organization.
           success: Organization updated successfully.
       organization_appearance:
         edit:
@@ -527,17 +478,8 @@ en:
         edit:
           update: Update
       participatory_space_private_users:
-        create:
-          error: There was a problem adding a private participant for this participatory space.
-          success: Participatory space private participant access successfully created.
-        destroy:
-          error: There was a problem deleting a private participant for this participatory space.
-          success: Participatory space private participant access successfully destroyed.
-        index:
-          title: Participatory space private participant
         new:
           create: Create
-          title: New Participatory Space private participant.
       resource_permissions:
         edit:
           submit: Submit
@@ -546,7 +488,6 @@ en:
           success: Permissions updated successfully.
       scope_types:
         create:
-          error: There was a problem creating a new scope type.
           success: Scope type created successfully.
         destroy:
           success: Scope type successfully destroyed
@@ -557,11 +498,9 @@ en:
           create: Create scope type
           title: New scope
         update:
-          error: There was a problem updating this scope type.
           success: Scope type updated successfully
       scopes:
         create:
-          error: There was a problem creating a new scope.
           success: Scope created successfully.
         destroy:
           success: Scope successfully destroyed
@@ -573,11 +512,9 @@ en:
           title: New scope
         no_scopes: No scopes at this level.
         update:
-          error: There was a problem updating this scope.
           success: Scope updated successfully
       static_page_topics:
         create:
-          error: There was a problem creating a new topic.
           success: Topic created successfully.
         destroy:
           success: Topic successfully destroyed
@@ -588,18 +525,15 @@ en:
           create: Create topic
           title: New topic
         update:
-          error: There was a problem updating this topic.
           success: Topic updated successfully
       static_pages:
         actions:
           view: View public page
         create:
-          error: There was a problem creating a new page.
           success: Page created successfully.
         destroy:
           success: Page successfully destroyed
         edit:
-          changed_notably_help: If checked, participants will be notified to accept the new terms and conditions.
           title: Edit page
           update: Update
         form:
@@ -615,7 +549,6 @@ en:
           empty: There's no page under this topic
           without_topic: Pages without topic
         update:
-          error: There was a problem updating this page.
           success: Page updated successfully
       titles:
         admin_log: Admin log
@@ -623,24 +556,9 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        impersonatable_users: Manageable participants
-        impersonations: Participants management
-        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
-        user_groups: Groups
-        users: Participants
-      user_group:
-        csv_verify:
-          invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the groups matching the criteria. This might take a while.
-        reject:
-          invalid: There was a problem rejecting this group.
-          success: Group successfully rejected
-        verify:
-          invalid: There was a problem verifying this group.
-          success: Group successfully verified
       user_groups:
         index:
           filter:
@@ -657,28 +575,16 @@ en:
           verify_via_csv: Verify via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
       users:
-        create:
-          error: There was a problem inviting this admin.
-          success: Participant successfully invited.
-        destroy:
-          error: There was a problem trying to delete this admin.
-          success: Participant is no longer an administrator.
         form:
           email: Email
           name: Name
           role: Role
         new:
           create: Invite
-          title: Invite participant as administrator
       view_public_page: View public page
-    forms:
-      errors:
-        impersonate_user:
-          reason: You need to provide a reason when managing a non managed participant
     moderations:
       actions:
         hidden: Hidden
@@ -690,13 +596,10 @@ en:
       admin:
         reportable:
           hide:
-            invalid: There was a problem hiding the resource.
             success: Resource successfully hidden.
           unhide:
-            invalid: There was a problem unhiding the resource.
             success: Resource successfully unhidden.
           unreport:
-            invalid: There was a problem unreporting the resource.
             success: Resource successfully unreported.
       models:
         moderation:
@@ -717,5 +620,3 @@ en:
           title: Newsletters
         settings:
           title: Settings
-        users:
-          title: Participants
