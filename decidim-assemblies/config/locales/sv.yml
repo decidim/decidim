@@ -32,11 +32,9 @@ sv:
         local_area: Organisationsområde
         meta_scope: Omfattning metadata
         parent_id: Föräldrasammankomst
-        participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
         private_space: Privat utrymme
-        promoted: Främjad
         published_at: Publicerad på
         purpose_of_action: Syfte med åtgärden
         scope_id: Omfattning
@@ -80,7 +78,6 @@ sv:
         new_assembly: Nytt möte
       assemblies:
         create:
-          error: Det uppstod ett fel när ett nytt möte skulle skapas.
           success: Mötet skapades framgångsrikt.
         edit:
           update: Uppdatera
@@ -94,24 +91,12 @@ sv:
         new:
           create: Skapa
           title: Nytt möte
-        update:
-          error: Det uppstod ett fel vid uppdateringen av detta möte.
-          success: Mötet uppdaterades framgångsrikt.
-      assemblies_copies:
-        create:
-          error: Det uppstod ett fel vid dupliceringen av detta möte.
-          success: Mötet duplicerades framgångsrikt.
       assembly_copies:
         new:
           copy: Kopiera
           select: Välj vilken data du skulle vilja duplicera
           title: Duplicera möte
       assembly_members:
-        create:
-          error: Det gick inte att lägga till en medlem för detta möte.
-          success: Medlem skapades framgångsrikt för detta möte.
-        destroy:
-          success: Medlem skapades framgångsrikt för detta möte.
         edit:
           title: Uppdatera mötesmedlem.
           update: Uppdatera
@@ -120,37 +105,14 @@ sv:
         new:
           create: Skapa
           title: Ny mötesmedlem.
-        update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för detta möte.
-          success: Medlem uppdaterad framgångsrikt för detta möte.
-      assembly_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av detta möte.
-          success: Mötet publicerades framgångsrikt.
-        destroy:
-          error: Ett fel uppstod vid publicering av detta möte.
-          success: Mötet avpublicerades framgångsrikt.
       assembly_user_roles:
-        create:
-          error: Ett fel uppstod när en användare skulle läggas till detta möte.
-          success: Användaren har lagts till med framgång till detta möte.
-        destroy:
-          success: Användaren avlägsnades framgångsrikt från detta möte.
         edit:
-          title: Uppdatera mötesanvändaren.
           update: Uppdatera
-        index:
-          assembly_admins_title: Sammanskomstanvändare
         new:
           create: Skapa
-          title: Ny sammankomstsanvändare.
-        update:
-          error: Det uppstod ett fel vid uppdatering av en användare för den här sammankomsten.
-          success: Användaren uppdaterades framgångsrikt för denna sammankomst.
       menu:
         assemblies: Sammankomst
         assemblies_submenu:
-          assembly_admins: Mötesanvändare
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
@@ -186,7 +148,6 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Mötesanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
@@ -205,7 +166,6 @@ sv:
         update: "%{user_name} uppdaterade %{resource_name} medlem i mötet %{space_name}"
       assembly_user_role:
         create: "%{user_name} inbjudna %{resource_name} till mötet %{space_name}"
-        delete: "%{user_name} tog bort användaren %{resource_name} från mötet %{space_name}"
         update: "%{user_name} ändrade rollen som %{resource_name} i mötet %{space_name}"
     assemblies:
       admin:
@@ -224,11 +184,7 @@ sv:
             slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'
         assembly_members:
           form:
-            existing_user: Existerande användare
-            non_user: Icke-användare
             select_a_position: Välj en position
-            select_user: Välj en användare
-            user_type: Användartyp
           index:
             filter:
               all: Allt
@@ -314,14 +270,12 @@ sv:
         endorsements_count: Påskrifter
         headline: Aktivitet
         meetings_count: Möten
-        orders_count: Röster
         pages_count: Sidor
         projects_count: Projekt
         proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: Röster
     assembly_members:
       assembly_member:
         designated_on: Betecknad den
@@ -330,8 +284,6 @@ sv:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
-          page: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
           title: Vad är sammansättningar?
     log:
       value_types:
