@@ -58,23 +58,8 @@ it:
         new_response: Nuova risposta
         publish_results: Pubblica risultati
         unpublish_results: Annulla pubblicazione dei risultati
-      consultation_publications:
-        create:
-          error: Si è verificato un errore durante la pubblicazione di questa consultazione.
-          success: Consultazione pubblicata con successo.
-        destroy:
-          error: Si è verificato un errore durante la pubblicazione di questa consultazione.
-          success: Consultazione non pubblicata con successo.
-      consultation_results_publications:
-        create:
-          error: Si è verificato un errore nella pubblicazione dei risultati per questa consultazione.
-          success: Risultati della consultazione pubblicati con successo.
-        destroy:
-          error: Si è verificato un errore durante la pubblicazione dei risultati per questa consultazione.
-          success: Risultati della consultazione non pubblicati con successo.
       consultations:
         create:
-          error: Si è verificato un errore durante la creazione di una nuova consultazione.
           success: Consultazione creata con successo.
         edit:
           update: Aggiornare
@@ -88,7 +73,6 @@ it:
           create: Creare
           title: Nuova consultazione
         update:
-          error: Si è verificato un errore durante l'aggiornamento di questa consultazione.
           success: Consultazione aggiornata con successo.
       menu:
         consultations: consultazioni
@@ -124,16 +108,8 @@ it:
           name:
             one: Risposta
             other: risposte
-      question_publications:
-        create:
-          error: Si è verificato un errore durante la pubblicazione di questa domanda.
-          success: Domanda pubblicata con successo.
-        destroy:
-          error: Si è verificato un errore durante la pubblicazione di questa domanda.
-          success: Domanda non pubblicata con successo.
       questions:
         create:
-          error: Si è verificato un errore durante la creazione di una nuova domanda.
           success: Domanda creata con successo.
         destroy:
           success: Domanda eliminata con successo.
@@ -147,15 +123,10 @@ it:
         new:
           create: Creare
           title: Nuova domanda
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questa domanda.
-          success: Domanda aggiornata correttamente.
       responses:
         create:
-          error: Si è verificato un errore durante la creazione di una nuova risposta.
           success: Risposta creata con successo.
         destroy:
-          error: Si è verificato un errore durante la rimozione della risposta.
           success: Risposta cancellata con successo.
         edit:
           update: Aggiornare
@@ -164,9 +135,6 @@ it:
         new:
           create: Creare
           title: Nuova risposta
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questa risposta.
-          success: Risposta aggiornata correttamente.
       titles:
         consultations: consultazioni
         questions: Domande
@@ -198,7 +166,6 @@ it:
         all: Tutti
         finished: Finito
         search: Ricerca
-        state: Stato
         upcoming: Prossime
       filters_small_view:
         close_modal: Chiudi la finestra
@@ -227,9 +194,6 @@ it:
         votes_out_of:
           one: votare fuori
           other: voti fuori
-      question_votes:
-        create:
-          error: Ci sono stati errori nel votare la domanda
       regular_questions:
         title: Domande per questa consultazione
       show:
@@ -247,8 +211,6 @@ it:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>consultazioni sono uno spazio che ti consente di porre una domanda chiara a tutte le persone che formano un'organizzazione, fare una chiamata per partecipare alla consultazione, accendere e ordinare il dibattito a favore o contro una risposta. Quando arriva la data della consultazione, puoi votare e pubblicare i risultati dei voti.</p> <p>Esempi: le consultazioni possono riguardare quasi tutti gli aspetti che riguardano un'organizzazione: alcuni esempi stanno cambiando il nome o il logo dell'organizzazione che offre diverse alternative, decidendo Sì o No per diventare parte di un'organizzazione più grande, convalidare o rifiutare una nuova strategia piano o il risultato di un gruppo di lavoro, o definire se le posizioni devono rimanere al massimo di 1, 2 o 3 mandati.</p>\n"
-          page: "<p>consultazioni sono uno spazio che ti permette di porre una domanda chiara a tutte le persone che formano un'organizzazione, fare una chiamata a partecipare alla consultazione, accendere e ordinare il dibattito a favore o contro una risposta. Quando arriva la data della consultazione, puoi votare e pubblicare i risultati dei voti.</p> <p>Esempi: le consultazioni possono riguardare quasi tutti gli aspetti che riguardano un'organizzazione: alcuni esempi stanno cambiando il nome o il logo dell'organizzazione che offre diverse alternative, decidendo Sì o No per diventare parte di un'organizzazione più grande, convalidare o rifiutare una nuova strategia piano o il risultato di un gruppo di lavoro, o definire se le posizioni dovrebbero rimanere al massimo di 1, 2 o 3 mandati nell'organizzazione.</p>\n"
           title: Quali sono le consultazioni?
     menu:
       consultations: consultazioni
@@ -265,22 +227,18 @@ it:
         assistants_count_title: assistenti
         comments_count_title: Commenti
         meetings_count_title: incontri
-        supports_count_title: supporti
       technical_info:
         technical_data: Dati tecnici
       vote_button:
         already_voted: Già votato
-        already_voted_hover: Revoca il supporto
         starting_from: A partire da %{date}
         vote: Votazione
       vote_modal:
         contextual_help: Per favore selezionate un'opzione.
-        title: 'Consultazione: domanda di supporto'
       vote_modal_confirm:
         change: Modificare
         confirm: Confermare
         contextual_help: Si prega di confermare l'opzione selezionata.
-        title: 'Consultazione: conferma il supporto'
   layouts:
     decidim:
       admin:
