@@ -37,8 +37,20 @@ sv:
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
     metrics:
       survey_answers:
+        description: Antal enkäter besvarade av användarna
         object: svar på undersökningar
         title: Svar på undersökningar
     surveys:
+      admin:
+        exports:
+          survey_user_answers: Enkäten användarsvar
+        surveys:
+          update:
+            invalid: Det har blivit fel när du sparat enkäten.
+            success: Enkäten sparades.
       last_activity:
         new_survey_at_html: "<span>Ny undersökning vid %{link}</span>"
+      surveys:
+        answer:
+          invalid: Det har blivit fel vid besvarandet av enkäten.
+          success: Enkäten besvarades.
