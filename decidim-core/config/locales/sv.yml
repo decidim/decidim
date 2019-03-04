@@ -30,6 +30,7 @@ sv:
       decidim/user:
         current_password: Nuvarande lösenord
         email: E-post
+        name: Användarnamn
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
@@ -37,6 +38,12 @@ sv:
       decidim/amendment:
         one: Ändring
         other: Tillägg
+      decidim/user:
+        one: Inga användare
+        other: användare
+      decidim/user_group:
+        one: Användargrupp
+        other: Användargrupper
   booleans:
     'false': 'Nej'
     'true': 'Ja'
@@ -56,6 +63,7 @@ sv:
         file_no_exists: Fil existerar inte
         invalid_token: Den angivna tecknet är ogiltigt.
         no_token: Inget tecken har tillhandahålls
+        notice: Dina uppgifter behandlas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
         alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte kunna logga in.
         confirm:
@@ -64,9 +72,16 @@ sv:
           question: Är du säker på att du vill ta bort ditt konto?
           title: Ta bort mitt konto
         explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
+      destroy:
+        error: Det har blivit ett fel vid radering av ditt konto.
+        success: Ditt konto har tagits bort.
       show:
         change_password: Ändra lösenord
         update_account: Uppdatera konto
+      update:
+        error: Det har uppstått ett fel när du uppdaterade ditt konto.
+        success: Ditt konto har uppdaterats.
+        success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-postmeddelande för att bekräfta din nya e-postadress.
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -91,6 +106,9 @@ sv:
         update: "%{user_name} uppdaterade OAuth-applikationen %{resource_name}"
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
+      participatory_space_private_user:
+        create: "%{user_name} bjöd in %{resource_name} att vara en privat användare"
+        delete: "%{user_name} avlägsnade användaren %{resource_name} som privat användare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
         create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
@@ -102,15 +120,31 @@ sv:
         create: "%{user_name} skapade statisk sida för %{resource_name}"
         delete: "%{user_name} raderade statisk sida för %{resource_name}"
         update: "%{user_name} uppdaterade statisk sida för %{resource_name}"
+      user:
+        invite: "%{user_name} bjudit in användaren %{resource_name} med rollen: %{role}"
+        officialize: "%{user_name} publicerade användaren %{resource_name}"
+        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med rollen: %{role}"
+        unofficialize: "%{user_name} gjorde användaren %{resource_name} inofficiell"
+      user_group:
+        reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
+        verify: "%{user_name} verifierade användargruppen %{resource_name}"
+        verify_via_csv: "%{user_name} verifierade %{resource_name} användargrupp via en CSV-fil"
     amendments:
+      accepted:
+        error: Ett fel uppstod när du accepterade emendationen, var god försök igen senare.
+        success: Denna utgåva har godkänts framgångsrikt.
       amendable:
         amended_by: Ändrad av
         button: Ändra %{model_name}
+        promote_button: Främja till %{model_name}
+        error: Det har inträffat ett fel vid ändring av denna resurs.
         help_text: Förbättra detta %{model_name} genom att ändra dess %{amendable_fields}
+        promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
         no_amenders: Det finns inga ändringsförslag
         no_amendments: Det finns inga ändringar
         section_heading: Ändringar (%{count})
       created:
+        error: Ett fel uppstod för att skapa detta ändringsförslag, försök igen senare
         success: Ändringen har skapats med framgång
       emendation:
         actions:
@@ -124,6 +158,9 @@ sv:
           evaluating: |-
             Detta ändringsförslag för %{amendable_type} %{amendable_link}
             utvärderas.
+          rejected: |-
+            Denna utgåva för %{amendable_type} %{amendable_link}
+            avvisades på <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Denna ändring för %{amendable_type} %{amendable_link}
             har dragits tillbaka av författaren.
@@ -133,6 +170,12 @@ sv:
         heading: Skapa ditt ändringsförslag
         help_text: Du ändrar %{model_name}
         send: Skicka ändringsförslag
+      rejected:
+        error: Ett fel uppstod när du avvisade den här utgåvan, var god försök igen senare
+        success: Emendationen har avvisats framgångsrikt
+      promoted:
+        success: Emendation främjas framgångsrikt
+        error: Det har varit fel när man främjar emendationen
       review:
         back: Tillbaka
         heading: Granska ändringen
@@ -146,6 +189,8 @@ sv:
           other: Dokument
       documents:
         related_documents: Relaterade dokument
+      photos:
+        related_photos: Relaterade bilder
     author:
       comments:
         one: kommentar
@@ -164,6 +209,8 @@ sv:
         name: Exempel godkännande
       dummy_authorization_workflow:
         name: Arbetsflöde för dummy-auktorisering
+      errors:
+        duplicate_authorization: En användare är redan behörig med samma data.
       expired_at: Förfallit vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
@@ -271,6 +318,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Färdigställ profil
+          nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara vilket namn som helst.
@@ -279,6 +327,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
+          nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
@@ -293,6 +342,7 @@ sv:
           are_you_new?: Ny på plattformen?
           register: Skapa ett konto
           sign_in_disabled: Du kan få tillgång till ett externt konto
+          sign_up_disabled: Anmälan är inaktiverad, du kan använda en befintlig användare för att komma åt
       shared:
         newsletter_modal:
           buttons:
@@ -319,6 +369,7 @@ sv:
           publish_content: Publicera innehåll för dig
           see_email: Se din email
           see_name: Se ditt namn
+          see_username: Se ditt användarnamn
           this_application_will_be_able_to: 'Denna ansökan kommer att kunna:'
           this_application_will_not_be_able_to: 'Den här applikationen kommer inte att kunna:'
           update_profile: Uppdatera din profil
@@ -335,24 +386,48 @@ sv:
       amendments:
         amendment_created:
           affected_user:
+            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
+            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
+            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
+            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
+            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
+            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
+            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
+            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
+            email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
+            email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
@@ -372,11 +447,15 @@ sv:
         email_subject: En uppdatering till %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
           email_outro: Du har fått det här meddelandet eftersom du hade aktivitet på vår hemsida.
           email_subject: 'Du har fått ett nytt emblem: %{badge_name}!'
+          notification_title: Bra jobbat! Du har intjänat <a href="%{resource_path}">%{badge_name} emblemet</a> (nivå %{current_level}).
         level_up:
+          email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_url}">%{badge_name} emblemet</a>!
           email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
           email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
+          notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
       groups:
         demoted_membership:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
@@ -452,8 +531,10 @@ sv:
     follows:
       create:
         button: Följ
+        error: Det har inträffat ett fel efter denna resurs.
       destroy:
         button: Sluta följa
+        error: Det har inträffat ett fel vid avföljandet av denna resurs.
     forms:
       current_file: Nuvarande fil
       current_image: Nuvarande bild
@@ -468,15 +549,21 @@ sv:
           conditions:
             - Kommer hit ofta
           description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
+          description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
           description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
           name: Kontinuitet
           next_level_in: Anslut under %{score} på varandra följande dagar för att komma till nästa nivå!
+          unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
           unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
           conditions:
             - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
           description: Detta märke beviljas när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, väv ditt nät för att kommunicera med andra personer på plattformen.
+          description_another: Den här användaren har %{score} följare.
+          description_own: "%{score} användare följer dig."
           name: Följare
+          next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
+          unearned_another: Den här användaren har inga följare än.
           unearned_own: Du har inga följare än.
         index:
           badge_title: "%{name} märke"
@@ -489,32 +576,67 @@ sv:
             - Anpassa, om du vill, meddelandet du håller på att skicka
             - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
           description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
+          description_another: Den här användaren har bjudit in %{score} användare.
+          description_own: Du har bjudit in %{score} användare.
           name: Inbjudningar
+          next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
+          unearned_another: Den här användaren har inte bjudit in någon användare än.
+          unearned_own: Du har inte bjudit in några användare än.
       description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
     group_admins:
       actions:
+        are_you_sure: Är du säker? Detta tar inte bort användaren från gruppen.
         demote_admin: Ta bort administratör
+      demote:
+        error: Det gick inte att ta bort den här användaren från administratörslistan
+        success: Användaren har tagits bort från admin framgångsrikt
       index:
         current_admins: 'Nuvarande administratörer:'
         manage_admins: Hantera administratörer
     group_invites:
+      accept:
+        error: Det gick inte att acceptera den här inbjudan
+        success: Inbjudan accepterades
       accept_invitation: Acceptera
       accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avslå deras förfrågningar:'
       index:
         invite: Inbjudan
+        invite_user: Bjud in en användare
+      invite:
+        error: Det uppstod ett fel med att bjuda in den här användaren
+        success: Användaren bjöds in
+      reject:
+        error: Det uppstod ett fel vid avvisandet av denna inbjudan
+        success: Inbjudan avvisades
       reject_invitation: Avvisa
     group_members:
+      accept:
+        error: Det gick inte att acceptera den här anslutningsförfrågan
+        success: Gå med förfrågan accepterades
       actions:
         are_you_sure: Är du säker?
         promote_to_admin: Gör till administratör
+        remove_from_group: Ta bort användaren
       index:
         current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
         manage_members: Hantera medlemmar
+      promote:
+        error: Det uppstod ett fel i befordrandet av den här användaren
+        success: Användaren befodrades
+      reject:
+        error: Ett fel uppstod vid avvisandet av denna anmälningsförfrågan
+        success: Gå med förfrågan avvisades
+      remove:
+        error: Det gick inte att ta bort den här användaren från gruppen
+        success: Användaren togs bort från gruppen
     groups:
       actions:
         are_you_sure: Är du säker?
+      create:
+        error: Det har uppstått ett problem med att skapa gruppen
+        success: Grupp skapades
       edit:
         edit_user_group: Redigera grupp
         update_user_group: Uppdatera grupp
@@ -523,7 +645,14 @@ sv:
         email_help: E-post till din organisation, förening, kollektiv, grupp, etc.
         fill_in_for_verification: 'Fyll i dessa fält om du vill att din grupp ska verifieras:'
         name_help: Namn på din organisation, förening, kollektiv, grupp, etc.
+        nickname_help: Användarnamn till din organisation, förening, kollektiva, grupp etc. Använd inte mellanslag eller accenter.
         phone_help: Använd inte bindestreck eller mellanslag
+      join:
+        error: Det har uppstått ett problem med att gå med i gruppen
+        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
+      leave:
+        error: Det har uppstått ett problem med att lämna gruppen
+        success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
         accept_request: Acceptera
@@ -537,6 +666,9 @@ sv:
         admin: Administratör
         creator: Skapare
         member: Medlem
+      update:
+        error: Det har förekommit ett problem med att uppdatera gruppen
+        success: Gruppen uppdaterades
     help:
       main_topic:
         default_page:
@@ -570,6 +702,10 @@ sv:
           not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
+    managed_users:
+      expired_session: Den nuvarande ombildningsperioden har löpt ut.
+    members:
+      no_members: Denna användargrupp har inga medlemmar.
     menu:
       help: Hjälp
       home: Hem
@@ -605,11 +741,17 @@ sv:
       download:
         csv: Hämta data (csv)
       followers:
+        description: Antal användare som följer detta deltagarutrymme
         object: följare
         title: anhängare
       participants:
+        description: Antal aktiva användare i organisationen
         object: deltagarna
         title: Deltagarna
+      users:
+        description: Antal användare i organisationen
+        object: användare
+        title: Användare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
@@ -618,6 +760,7 @@ sv:
     newsletters:
       unsubscribe:
         check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan för <a href="%{link}" target="_blank">konfiguration</a>
+        error: Ett fel uppstod vid avbrytandet av prenumeration
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
@@ -625,6 +768,7 @@ sv:
       unathorized: Tyvärr, den här länken är inte längre tillgänglig
       update:
         error: Något fel uppstod
+        success: Nyhetsbrevinställningarna uppdateras framgångsrikt
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen av personuppgifter och dess skydd blir allt viktigare för oss alla. Med den nya allmänna databeskrivningsförordningen (GDPR) den 25 maj 2018 har individer bättre kontroll över deras personuppgifter. Av denna anledning behöver vi ditt "OK" för att fortsätta att skicka relevant information om aktiviteterna på %{organization_name}.
@@ -646,6 +790,9 @@ sv:
         receive_notifications_about: Jag vill få meddelanden om
         send_notifications_by_email: Skicka meddelanden via e-post
         update_notifications_settings: Spara ändringar
+      update:
+        error: Det har uppstått ett fel vid uppdatering av dina notisinställningar.
+        success: Dina inställningar för notiser har framgångsrikt uppdaterats.
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     own_user_groups:
@@ -710,6 +857,7 @@ sv:
           link: Visa all statistik
       terms_and_conditions:
         accept:
+          error: Det har blivit ett fel när du accepterade villkoren.
           success: Bra! Du har accepterat villkoren.
         form:
           agreement: Jag håller med om dessa villkor
@@ -728,8 +876,10 @@ sv:
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
+      deleted: Ta bort användare
       view: Se
     profiles:
+      default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         activity: Aktivitet
@@ -750,6 +900,7 @@ sv:
         edit_profile: Redigera profil
         edit_user_group: Redigera grupprofil
         fill_in_email_to_confirm_it: Vänligen fyll i din grupps e-post för att bekräfta det
+        invite_user: Bjud in användare
         join_user_group: Begär att gå med i gruppen
         leave_user_group: Lämna gruppen
         manage_user_group_admins: Hantera administratörer
@@ -832,6 +983,11 @@ sv:
         close_window: Stäng fönstret
         share: Dela
         share_link: Dela länk
+      version_author:
+        deleted: Raderad användare
+    user_activity:
+      index:
+        no_activities_warning: Den här användaren har inte någon aktivitet än.
     user_interests:
       show:
         no_scopes: Den här organisationen har inget utrymme än!
@@ -839,6 +995,7 @@ sv:
         select_your_interests: Välj de ämnen du är intresserad av att ta emot händelser relaterade till dem i din profil Tidslinje flik.
         update_my_interests: Uppdatera mina intressen
       update:
+        error: Ett fel uppstod när du uppdaterade dina intressen.
         success: Dina intressen har blivit uppdaterade.
     welcome_notification:
       default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
@@ -863,6 +1020,7 @@ sv:
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
+        nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
         subtitle: Om du accepterar inbjudan, vänligen välj ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
@@ -878,6 +1036,7 @@ sv:
       confirmation_instructions:
         action: Bekräfta mitt konto
         greeting: Välkommen %{recipient}!
+        instruction: 'Du kan bekräfta e-postadressen för ditt konto via länken nedan:'
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
@@ -892,8 +1051,10 @@ sv:
           Om du inte vill acceptera inbjudan, ignorerar du detta e-postmeddelande.<br />
           Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
+        someone_invited_you_as_private_user: Någon har bjudit in dig som privat_användare av %{application}, du kan acceptera den via länken nedan.
         subject: Inbjudningsanvisningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
@@ -935,7 +1096,10 @@ sv:
       no_token: Du kan inte komma åt den här sidan utan att komma från ett e-postmeddelande för lösenordsåterställning. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen.
       send_instructions: Du får ett mail med instruktioner om hur du återställer ditt lösenord om några minuter.
       send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord på din e-postadress om några minuter.
+      updated: Ditt lösenord har ändrats framgångsrikt. Du är nu inloggad.
+      updated_not_active: Ditt lösenord har ändrats framgångsrikt.
     registrations:
+      destroyed: Adjö! Ditt konto har blivit avstängt. Vi hoppas att vi ses snart igen.
       edit:
         are_you_sure: Är du säker?
         cancel_my_account: Avbryt mitt konto
@@ -952,6 +1116,7 @@ sv:
       signed_up_but_locked: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto är låst.
       signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
+      updated: Ditt konto har uppdaterats framgångsrikt.
     sessions:
       already_signed_out: Utloggningen lyckades.
       new:
@@ -975,6 +1140,7 @@ sv:
         resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
       send_instructions: Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter.
       send_paranoid_instructions: Om ditt konto finns, får du ett mail med instruktioner om hur du låser upp det på några minuter.
+      unlocked: Ditt konto har upplösts framgångsrikt. Vänligen logga in för att fortsätta.
   doorkeeper:
     scopes:
       public: Din offentliga information.
@@ -1020,6 +1186,7 @@ sv:
         sign_up: Registrera
       impersonation_warning:
         close_session: Stäng session
+        description_html: Du framställer dig som användaren <b>%{user_name}</b>.
         expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
         mark_all_as_read: Markera alla som lästa
@@ -1037,6 +1204,7 @@ sv:
         my_data: Mitt data
         my_interests: Mina intressen
         notifications_settings: Notisinställningar
+        title: Användarinställningar
         user_groups: Grupper
       widget:
         see_more: Se mer
