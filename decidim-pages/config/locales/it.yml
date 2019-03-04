@@ -25,6 +25,3 @@ it:
           edit:
             save: Aggiorna
             title: Modifica la pagina
-          update:
-            invalid: C'è stato un errore durante il salvataggio della pagina.
-            success: OK, la pagina è stata salvata.
