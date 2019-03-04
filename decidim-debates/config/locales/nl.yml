@@ -33,7 +33,6 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Gebruikers kunnen geen debat aanmaken
     debates:
       actions:
         confirm_destroy: Ben je zeker?
@@ -43,11 +42,6 @@ nl:
         title: acties
       admin:
         debates:
-          create:
-            invalid: Er is een probleem opgetreden tijdens het maken van het debat.
-            success: Debat succesvol aangemaakt.
-          destroy:
-            success: Debat succesvol verwijderd.
           edit:
             title: Bewerk debat
             update: Update debat
@@ -56,9 +50,6 @@ nl:
           new:
             create: Maak een debat aan
             title: Nieuw debat
-          update:
-            invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
-            success: Debat succesvol bijgewerkt.
         models:
           debate:
             name: Debat
@@ -71,9 +62,6 @@ nl:
           debates_count:
             one: "%{count} debat"
             other: "%{count} debatten"
-        create:
-          invalid: Er is een probleem opgetreden tijdens het aanmaken van het debat.
-          success: Debat succesvol aangemaakt.
         debate:
           participate: Deelnemen
         filters:
@@ -127,7 +115,6 @@ nl:
             email_subject: Nieuw debat "%{resource_title}" met %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creëerde het debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'Het is niet langer mogelijk een debat aan te maken in %{participatory_space_title}. Je kan nog steeds deelnemen aan lopende debatten op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Het aanmaken van een debat is gedeactiveerd %{participatory_space_title}
           notification_title: Je kan niet langer een debat aanmaken in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ nl:
           conditions:
             - Kies een open debat om deel te nemen
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
-          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.
           name: debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
           unearned_own: Je hebt nog deelgenomen aan debatten.
     metrics:
       debates:
