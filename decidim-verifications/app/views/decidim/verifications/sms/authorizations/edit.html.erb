@@ -21,6 +21,15 @@
             <% end %>
           </div>
         </div>
+
+        <div class="card">
+          <div class="card__content">
+            <div class="field">
+              <p><%= t(".resend") %></p>
+              <%= link_to t(".destroy"), decidim_sms.authorization_path, method: :delete, data: { confirm: t(".confirm_destroy") } %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
