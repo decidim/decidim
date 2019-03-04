@@ -31,7 +31,6 @@ fi:
             name: Suunnitelma
         projects:
           create:
-            invalid: Suunnitelman luonnissa tapahtui virhe
             success: Suunnitelma lisätty onnistuneesti
           destroy:
             success: Suunnitelma poistettu onnistuneesti
@@ -46,11 +45,9 @@ fi:
             create: Luo
             title: Uusi suunnitelma
           update:
-            invalid: Tämän suunnitelman päivityksessä tapahtui virhe
             success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia suunnitelmiin
@@ -138,13 +135,6 @@ fi:
             comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
             votes_enabled: Äänestys on käytössä
-    orders:
-      checkout:
-        error: Äänesi käsittelyssä tapahtui virhe
-        success: Äänesi on hyväksytty onnistuneesti
-      destroy:
-        error: Äänesi peruutuksen yhteydessä tapahtui virhe
-        success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
         project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
