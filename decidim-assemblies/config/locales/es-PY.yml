@@ -32,11 +32,9 @@ es-PY:
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         parent_id: Asamblea principal
-        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Espacio privado
-        promoted: Destacado
         published_at: Publicado
         purpose_of_action: Propósito de la acción
         scope_id: Ámbito
@@ -80,7 +78,6 @@ es-PY:
         new_assembly: Nueva asamblea
       assemblies:
         create:
-          error: Se produjo un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
         edit:
           update: Actualizar
@@ -94,24 +91,12 @@ es-PY:
         new:
           create: Crear
           title: Nueva asamblea
-        update:
-          error: Se ha producido un error al actualizar esta asamblea.
-          success: La asamblea se ha actualizado correctamente.
-      assemblies_copies:
-        create:
-          error: Se produjo un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
       assembly_copies:
         new:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar asamblea
       assembly_members:
-        create:
-          error: Se produjo un error al agregar un miembro para esta asamblea.
-          success: Miembro creado con éxito para esta asamblea.
-        destroy:
-          success: Miembro eliminado con éxito en esta asamblea.
         edit:
           title: Actualizar miembro de la asamblea.
           update: Actualizar
@@ -120,37 +105,14 @@ es-PY:
         new:
           create: Crear
           title: Nuevo miembro de la asamblea.
-        update:
-          error: Se produjo un error al actualizar el miembro para esta asamblea.
-          success: Miembro actualizado con éxito para esta asamblea.
-      assembly_publications:
-        create:
-          error: Se produjo un error al publicar esta asamblea.
-          success: Asamblea publicada con éxito.
-        destroy:
-          error: Se produjo un error al despublicar esta asamblea.
-          success: Asamblea despublicada con éxito.
       assembly_user_roles:
-        create:
-          error: Se ha producido un error al agregar un usuario para esta asamblea.
-          success: Usuario agregado conéxito a esta asamblea.
-        destroy:
-          success: Usuario eliminado con éxito de esta asamblea.
         edit:
-          title: Actualizar el usuario de la asamblea.
           update: Actualizar
-        index:
-          assembly_admins_title: Usuarios de la Asamblea
         new:
           create: Crear
-          title: Nuevo usuario de la asamblea.
-        update:
-          error: Ha habido un error al actualizar un usuario para esta asamblea.
-          success: Usuario actualizado con éxito para esta asamblea.
       menu:
         assemblies: Asambleas
         assemblies_submenu:
-          assembly_admins: Usuarios de la asamblea
           assembly_members: Miembros
           attachment_collections: Carpetas
           attachment_files: Archivos
@@ -186,7 +148,6 @@ es-PY:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario de la asamblea
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -205,7 +166,6 @@ es-PY:
         update: "%{user_name} actualizó el miembro %{resource_name} de la asamblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
-        delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
         update: "%{user_name} cambió el rol de %{resource_name} en la asamblea %{space_name}"
     assemblies:
       admin:
@@ -224,11 +184,7 @@ es-PY:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuario existente
-            non_user: No usuario
             select_a_position: Selecciona una posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
           index:
             filter:
               all: Todas
@@ -314,14 +270,12 @@ es-PY:
         endorsements_count: Adhesiones
         headline: Actividad
         meetings_count: Encuentros
-        orders_count: Votos
         pages_count: Páginas
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
         surveys_count: Encuestas
         users_count: Participantes
-        votes_count: Soportes
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -330,8 +284,6 @@ es-PY:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Una asamblea es un grupo de miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un área o alcance específico de la organización.</p> <p>asambleas celebran reuniones, algunas son privadas y otras están abiertas. Si están abiertos, es posible participar en ellos (por ejemplo: asistir si la capacidad lo permite, agregar puntos a la agenda o comentar sobre las propuestas y decisiones tomadas por este órgano).</p> <p>Ejemplos: una asamblea general (que se reúne una vez al año para definir las principales líneas de acción de la organización, así como sus órganos ejecutivos por voto), un consejo asesor de igualdad (que se reúne cada dos meses para hacer propuestas sobre cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para supervisar un proceso) o un organismo de garantía (que recopila incidentes, abusos o propuestas para mejorar los procedimientos de toma de decisiones) son ejemplos de asambleas.</p>\n"
-          page: "<p>Una asamblea es un grupo de miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un área o alcance específico de la organización.</p> <p>asambleas celebran reuniones, algunas son privadas y otras están abiertas. Si están abiertos, es posible participar en ellos (por ejemplo: asistir si la capacidad lo permite, agregar puntos a la agenda o comentar sobre las propuestas y decisiones tomadas por este órgano).</p> <p>Ejemplos: una asamblea general (que se reúne una vez al año para definir las principales líneas de acción de la organización, así como sus órganos ejecutivos por voto), un consejo asesor de igualdad (que se reúne cada dos meses para hacer propuestas sobre cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para supervisar un proceso) o un organismo de garantía (que recopila incidentes, abusos o propuestas para mejorar los procedimientos de toma de decisiones) son ejemplos de asambleas.</p>\n"
           title: '¿Qué son las asambleas?'
     log:
       value_types:
