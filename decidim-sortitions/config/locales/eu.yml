@@ -65,7 +65,6 @@ eu:
             destroy: Utzi banaketa
             title: Itzaltzeen baliogabetzea
           create:
-            error: Errore bat gertatu da sortzapen berri bat sortzean.
             success: Sortu arrakastaz sortu da
           destroy:
             error: Ezin da irtenbidea bertan behera utzi.
@@ -86,7 +85,6 @@ eu:
           show:
             selected_proposals: Aukeratutako proposamenak zozketan
           update:
-            error: Errore bat gertatu da sortzapena eguneratzean.
             success: Antolaketa eguneratu da
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ eu:
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           search: Search
-          state: Estatu
         filters_small_view:
           close_modal: Itxi modal
           filter: Filter
@@ -122,7 +119,6 @@ eu:
             one: hautatutako proposamena
             other: hautatutako proposamenak
         show:
-          algorithm: Sortzeko algoritmoaren kodea
           any_category: kategoria guztietan
           cancelled: Ezeztatuta sortzea
           candidate_proposal_ids: Ordenatzeko proposamenen ordena eta IDak
@@ -141,10 +137,6 @@ eu:
             one: Aukeratutako 1 proposamena
             other: '%{count} proposamen hautatuak'
           view: ikusi
-        sortition_author:
-          deleted: Erabiltzailea ezabatua
-        sortition_cancel_author:
-          deleted: Erabiltzailea ezabatua
         sortitions_count:
           count:
             one: 1 sortion
