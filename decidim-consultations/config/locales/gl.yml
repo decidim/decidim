@@ -58,23 +58,8 @@ gl:
         new_response: Nova resposta
         publish_results: Publicar resultados
         unpublish_results: Non publicar resultados
-      consultation_publications:
-        create:
-          error: Produciuse un erro ao publicar esta consulta.
-          success: Consulta publicada con éxito.
-        destroy:
-          error: Produciuse un erro ao publicar esta consulta.
-          success: Consulta sen publicar con éxito.
-      consultation_results_publications:
-        create:
-          error: Houbo un erro publicando os resultados desta consulta.
-          success: Resultados de consulta publicados con éxito.
-        destroy:
-          error: Produciuse un erro ao publicar os resultados desta consulta.
-          success: Resultados de consulta non publicados con éxito.
       consultations:
         create:
-          error: Produciuse un erro ao crear unha nova consulta.
           success: Consulta creada con éxito.
         edit:
           update: Actualización
@@ -88,7 +73,6 @@ gl:
           create: Crear
           title: Nova consulta
         update:
-          error: Produciuse un erro ao actualizar esta consulta.
           success: A consulta actualizouse con éxito.
       menu:
         consultations: Consultas
@@ -124,16 +108,8 @@ gl:
           name:
             one: Resposta
             other: Respostas
-      question_publications:
-        create:
-          error: Produciuse un erro ao publicar esta pregunta.
-          success: Pregunta publicada correctamente.
-        destroy:
-          error: Produciuse un erro ao publicar esta pregunta.
-          success: Pregunta inédita con éxito.
       questions:
         create:
-          error: Produciuse un erro ao crear unha nova pregunta.
           success: Pregunta creada con éxito.
         destroy:
           success: A pregunta eliminouse correctamente.
@@ -147,15 +123,10 @@ gl:
         new:
           create: Crear
           title: Nova pregunta
-        update:
-          error: Produciuse un erro ao actualizar esta pregunta.
-          success: A pregunta actualizouse con éxito.
       responses:
         create:
-          error: Produciuse un erro ao crear unha nova resposta.
           success: A resposta foi creada con éxito.
         destroy:
-          error: Produciuse un erro ao eliminar a resposta.
           success: A resposta eliminouse con éxito.
         edit:
           update: Actualización
@@ -164,9 +135,6 @@ gl:
         new:
           create: Crear
           title: Nova resposta
-        update:
-          error: Produciuse un erro ao actualizar esta resposta.
-          success: A resposta actualizouse con éxito.
       titles:
         consultations: Consultas
         questions: Preguntas
@@ -198,7 +166,6 @@ gl:
         all: Todo
         finished: Terminado
         search: Busca
-        state: Estado
         upcoming: Próximos
       filters_small_view:
         close_modal: Pechar ventá
@@ -227,9 +194,6 @@ gl:
         votes_out_of:
           one: votar de fóra
           other: votos de fóra
-      question_votes:
-        create:
-          error: Houbo erros ao votar a pregunta
       regular_questions:
         title: Preguntas para esta consulta
       show:
@@ -247,8 +211,6 @@ gl:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>consultas son un espazo que lle permite facer unha pregunta clara a todas as persoas que forman unha organización, convocar para participar na consulta, facer chiscar e ordenar o debate a favor ou en contra dunha resposta. Cando chegue a data de consulta, podes votar e publicar os resultados dos votos.</p> <p>Exemplos: as consultas poden ser case calquera aspecto que afecta a unha organización: algúns exemplos están cambiando o nome ou o logotipo da organización que ofrece varias alternativas, decidindo que Yes ou Non formen parte dunha organización máis grande, validando ou rexeitando un novo proxecto estratéxico. plan ou o resultado dun grupo de traballo, ou definindo se as posicións deben manter un máximo de 1, 2 ou 3 mandatos.</p>\n"
-          page: "<p>consultas son un espazo que lle permite facer unha pregunta clara a todas as persoas que forman unha organización, fan unha chamada para participar na consulta, fan chiscar e ordenan o debate a favor ou en contra dunha resposta. Cando chegue a data de consulta, podes votar e publicar os resultados dos votos.</p> <p>Exemplos: As consultas poden ser case calquera aspecto que afecta a unha organización: algúns exemplos están cambiando o nome ou o logotipo da organización que ofrece varias alternativas, decidindo que Yes ou Non se converteren nunha organización máis ampla, validando ou rexeitando un novo proxecto estratéxico. plan ou resultado dun grupo de traballo, ou definindo se as posicións deben manter un máximo de 1, 2 ou 3 mandatos na organización.</p>\n"
           title: Que son as consultas?
     menu:
       consultations: Consultas
@@ -265,22 +227,18 @@ gl:
         assistants_count_title: Asistentes
         comments_count_title: Comentarios
         meetings_count_title: Reunións
-        supports_count_title: Soporta
       technical_info:
         technical_data: Datos técnicos
       vote_button:
         already_voted: Xa votou
-        already_voted_hover: Revocar o soporte
         starting_from: Partindo de %{date}
         vote: Vota
       vote_modal:
         contextual_help: Selecciona unha opción.
-        title: 'Consulta: soporte de preguntas'
       vote_modal_confirm:
         change: Cambio
         confirm: Confirmar
         contextual_help: Confirma a opción seleccionada.
-        title: 'Consulta: confirma o soporte'
   layouts:
     decidim:
       admin:
