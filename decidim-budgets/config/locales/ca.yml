@@ -31,7 +31,6 @@ ca:
             name: Projecte
         projects:
           create:
-            invalid: Hi ha hagut un problema creant aquest projecte
             success: Projecte creat correctament
           destroy:
             success: El projecte s'ha eliminat correctament
@@ -46,11 +45,9 @@ ca:
             create: Crear
             title: Nou projecte
           update:
-            invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
         proposals_imports:
           create:
-            invalid: Hi ha hagut un problema en importar les propostes en projectes
             success: "S'ha importat amb èxit %{number} propostes en projectes"
           new:
             create: Importa propostes a projectes
@@ -138,13 +135,6 @@ ca:
             comments_blocked: Comentaris bloquejats
             show_votes: Mostra els suports
             votes_enabled: S'ha habilitat la votació
-    orders:
-      checkout:
-        error: S'ha produït un error en processar el teu vot
-        success: El teu vot s'ha tramitat amb èxit
-      destroy:
-        error: S'ha produït un error en cancel·lar el seu vot
-        success: El seu vot ha estat cancel·lat correctament
     resource_links:
       included_proposals:
         project_proposal: 'Propostes incloses en aquest projecte:'
