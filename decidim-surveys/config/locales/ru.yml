@@ -39,3 +39,15 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Новый опрос в %{participatory_space_title}
           notification_title: Опрос <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> теперь открыт.
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Ответы участников на опрос
+        surveys:
+          update:
+            invalid: При попытке сохранить опрос произошли ошибки.
+            success: Опрос успешно сохранен.
+      surveys:
+        answer:
+          invalid: При прохождении опроса произошли ошибки.
+          success: Опрос успешно пройден.
