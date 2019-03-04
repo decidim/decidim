@@ -4,16 +4,12 @@ fr:
       initiative:
         decidim_user_group_id: Auteur
         description: Description
-        offline_votes: Votes en présentiel
         scope_id: Périmètre d'application
         signature_end_date: Fin de la période de collecte des signatures
         signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
-          offline: En présentiel
-          online: En ligne
-        state: Etat
         title: Titre
       initiative_author:
         address: Adresse
@@ -27,14 +23,11 @@ fr:
         user: Membre du Comité de promotion
       initiatives_type:
         banner_image: Image d'en-tête
-        collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
-        document_number_authorization_handler: Autorisation de vérifier le numéro de document sur les votes
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
         title: Titre
-        undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
       initiatives_vote:
         name_and_surname: Nom et surnom
@@ -68,13 +61,11 @@ fr:
           fields:
             created_at: Créé à
             id: ID
-            state: État
-            supports_count: Soutiens
+            supports_count: Signatures
             title: Initiatives
         initiatives_type_scope:
           fields:
             scope: Périmètre d'application
-            supports_required: Soutiens requis
           name: Type d'initiative
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ fr:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
           email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           affected_user:
             email_intro: Votre initiative %{resource_title} a réalisé le %{percentage}% de signatures!
@@ -123,17 +112,13 @@ fr:
             - Accéder à l'espace de participation d'Initiatives
             - Suivez les étapes pour créer une nouvelle initiative
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
-          description_another: Cet utilisateur a reçu %{score} initiatives publiées.
           description_own: Vous avez publié %{score} initiatives.
           name: Initiatives publiées
           next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
           unearned_own: Vous n'avez pas encore publié d'initiative.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
-          page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
           title: Quelles sont les initiatives?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ fr:
           index:
             approve: Approuver
             confirm_revoke: Êtes-vous certain ?
-            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion
             no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
             revoke: Révoquer
             title: Membres du comité de promotion
@@ -166,7 +150,6 @@ fr:
             confirm: Êtes-vous certain ?
             discard: Dépublier la pétition
             export_pdf_signatures: Exporter PDF des signatures
-            export_votes: Exporter la liste des votes
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
             success: L'initiative a été envoyée à la validation technique
@@ -191,7 +174,6 @@ fr:
             print: Impression
           update:
             error: Une erreur est survenue
-            success: L'initiative a été mise à jour avec succès
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
@@ -257,18 +239,15 @@ fr:
         fill_data:
           back: Retour
           continue: Continuer
-          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
           select_scope: Sélectionnez une portée
         finish:
           back: Retour
           back_to_initiatives: Retour aux initiatives
-          callout_text: Bravo ! Votre initiative a été créée avec succès.
           go_to_my_initiatives: Aller à mes initiatives
           more_information: "(Plus d'informations)"
         finish_help:
-          access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
           help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
           help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
@@ -294,7 +273,6 @@ fr:
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
         show_similar_initiatives:
           back: Retour
-          compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura ainsi plus de possibilités de se réaliser.
           continue: Mon initiative est différente
           more_information: "(Plus d'informations)"
       events:
@@ -328,9 +306,7 @@ fr:
           help: Vérifiez les SMS reçus sur votre téléphone
       initiative_votes:
         create:
-          error: Il y a eu des erreurs lors de la signature de l'initiative.
           invalid: Les données fournies pour signer l'initiative ne sont pas valides
-          success_html: Toutes nos félicitations! L'initiative <strong> %{title}</strong> a été signée correctement
         personal_data:
           invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
         sms_code:
@@ -355,7 +331,6 @@ fr:
           myself: Mes initiatives
           open: Ouvrir
           search: Rechercher
-          state: État
           type: Type
           type_prompt: Sélectionnez un type
         filters_small_view:
@@ -384,13 +359,8 @@ fr:
             published: Cette proposition est publiée parce que
             rejected: Cette proposition a été rejetée parce que
             validating: Cette proposition est en cours d'évaluation
-          initiative_rejected_reason: Cette initiative a été rejetée en raison du manque de soutien.
         show:
-          any_vote_method: Cette initiative recueille le soutien en ligne ainsi qu'en présentiel.
           follow_description: Recevoir une notification lorsqu'il y a des nouvelles dans cette initiative
-          offline_method: Cette initiative ne recueille que des soutiens en présentiel.
-        signature_identities:
-          select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -409,16 +379,11 @@ fr:
           most_popular_initiative: Initiative la plus populaire
           need_more_votes: Besoin de plus de signatures
       initiatives_mailer:
-        creation_subject: Votre initiative '%{title}' a été créée
         initiative_link:
           check_initiative_details: Vous pouvez accéder aux détails de l'initiative
           here: ici
         more_information: Vous trouverez ici plus d'informations sur le processus de création d'une initiative.
-        progress_report_body_for: L'initiative %{title} a atteint %{percentage}% des soutiens requis.
-        progress_report_for: 'Résumé de l''initiative : %{title}'
         promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au Comité de promotion. Envoyez le lien suivant pour les inviter
-        status_change_body_for: 'Le statut de l''initiative %{title} a été changé pour : %{state}'
-        status_change_for: L'initiative %{title} a changé de statut
         technical_validation_body_for: Une validation technique a été demandée pour l'initiative %{title}.
         technical_validation_for: Une validation technique a été demandée pour l'initiative %{title}.
       last_activity:
@@ -437,7 +402,6 @@ fr:
     resources:
       initiatives_type:
         actions:
-          vote: Vote
           title: actes
   layouts:
     decidim:
