@@ -100,7 +100,7 @@ hu:
           offline_confirmations:
             create:
               error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
-              success: A felhasználó sikeresen ellenőrizve
+              success: Felhasználó ellenőrzése sikeres
             new:
               cancel: Mégse
               introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
