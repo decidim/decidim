@@ -32,11 +32,11 @@ fr:
         local_area: Zone d'organisation
         meta_scope: Échelle
         parent_id: Assemblée parentale
-        participatory_processes_ids: Processus participatifs associés
+        participatory_processes_ids: Concertations associées
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-il décidé
         private_space: Espace privé
-        promoted: A souligné
+        promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
         scope_id: Périmètre d'application
@@ -80,7 +80,7 @@ fr:
         new_assembly: Nouvel assemblée
       assemblies:
         create:
-          error: Un problème est survenu lors de la création d'un nouvel assemblage.
+          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
           success: Assemblée créée avec succès.
         edit:
           update: Mettre à jour
@@ -95,12 +95,12 @@ fr:
           create: Créer
           title: Nouvelle assemblée
         update:
-          error: Un problème est survenu lors de la mise à jour de cet assemblage.
+          error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
           success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Un problème est survenu lors de la duplication de ce montage.
-          success: L'assemblage a été dupliqué avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette assemblée.
+          success: L'assemblée a été dupliquée avec succès.
       assembly_copies:
         new:
           copy: Copier
@@ -108,7 +108,7 @@ fr:
           title: Dupliquer l'assemblée
       assembly_members:
         create:
-          error: Un problème est survenu lors de l'ajout d'un membre pour cette assemblée.
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
           success: Membre créé avec succès pour cette assemblée.
         destroy:
           success: Membre supprimé avec succès pour cette assemblée.
@@ -121,36 +121,36 @@ fr:
           create: Créer
           title: Nouveau membre de l'assemblée.
         update:
-          error: Un problème est survenu lors de la mise à jour du membre pour cette assemblée.
-          success: Membre mis à jour avec succès pour cet assemblage.
+          error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
+          success: Membre mis à jour avec succès pour cette assemblée.
       assembly_publications:
         create:
-          error: Un problème est survenu lors de la publication de cette assemblée.
+          error: Une erreur s'est produite lors de la publication de cette assemblée.
           success: Assemblée publiée avec succès.
         destroy:
-          error: Un problème est survenu lors de la publication de ce montage.
-          success: Assemblée non publiée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
+          success: Assemblée dépubliée avec succès.
       assembly_user_roles:
         create:
-          error: Un problème est survenu lors de l'ajout d'un administrateur pour cet assemblage.
-          success: Admin ajouté avec succès à cet assembly.
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
+          success: Utilisateur ajouté avec succès à cette assemblée.
         destroy:
-          success: Admin supprimé avec succès de cet assemblage.
+          success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mise à jour de l’administrateur.
+          title: Mettre à jour l'utilisateur de l'assemblée.
           update: Mettre à jour
         index:
-          assembly_admins_title: Administrateurs de l'Assemblée
+          assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel administrateur d'assemblage.
+          title: Nouvel utilisateur de l'assemblée.
         update:
-          error: Un problème est survenu lors de la mise à jour d'un administrateur pour cet assemblage.
-          success: L'administrateur a été mis à jour avec succès pour cet assembly.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
+          success: Utilisateur mis à jour avec succès pour cette assemblée.
       menu:
         assemblies: Assemblées
         assemblies_submenu:
-          assembly_admins: Administrateurs de l'Assemblée
+          assembly_admins: Administrateurs de l'assemblée
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
@@ -186,7 +186,7 @@ fr:
             email: Email
             name: Nom
             role: Fonction
-          name: Assemblée de l'Assemblée
+          name: Utilisateur de l'assemblée
           roles:
             admin: Administrateur
             collaborator: Collaborateur
@@ -205,7 +205,7 @@ fr:
         update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'assemblée %{space_name}"
-        delete: "%{user_name} retiré le participant %{resource_name} de l'assemblée %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
         update: "%{user_name} a changé le rôle de %{resource_name} dans l'assemblée %{space_name}"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ fr:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
-            existing_user: Participant existant
-            non_user: Non participant
+            existing_user: Utilisateur existant
+            non_user: Utilisateur inconnu
             select_a_position: Sélectionnez un statut
-            select_user: Sélectionnez un participant
-            user_type: Type de participant
+            select_user: Sélectionnez un utilisateur
+            user_type: Type d'utilisateur
           index:
             filter:
               all: Tout
@@ -314,14 +314,14 @@ fr:
         endorsements_count: Soutiens
         headline: Activité
         meetings_count: Rencontres
-        orders_count: Les soutiens
+        orders_count: Votes
         pages_count: Pages
         projects_count: Projets
         proposals_count: Propositions
         results_count: Réalisations
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Les soutiens
+        votes_count: Votes
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -330,8 +330,8 @@ fr:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Un <strong>assemblage</strong> est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant une zone spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les axes d’action de l’organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l’égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d’améliorer les relations entre dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour suivre un processus) ou un organisme de garantie (qui recueille des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
-          page: "<p>Un <strong>assemblage</strong> est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant une zone spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les axes d’action de l’organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l’égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d’améliorer les relations entre dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour suivre un processus) ou un organisme de garantie (qui recueille des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
+          contextual: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
+          page: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
           title: Que sont les assemblées?
     log:
       value_types:
