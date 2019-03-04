@@ -35,7 +35,6 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            creation_enabled: Започаткування обговорень учасниками увімкнено
     debates:
       actions:
         confirm_destroy: Ви впевнені?
@@ -45,11 +44,6 @@ uk:
         title: Дії
       admin:
         debates:
-          create:
-            invalid: При спробі започаткувати обговорення сталася помилка.
-            success: Обговорення успішно започатковано.
-          destroy:
-            success: Обговорення успішно видалено.
           edit:
             title: Редагувати обговорення
             update: Оновити обговорення
@@ -58,9 +52,6 @@ uk:
           new:
             create: Започаткувати обговорення
             title: Додати обговорення
-          update:
-            invalid: При спробі оновити обговорення сталася помилка.
-            success: Обговорення успішно оновлено.
         models:
           debate:
             name: Обговорення
@@ -75,9 +66,6 @@ uk:
             few: "%{count} обговорення"
             many: "%{count} обговорень"
             other: "%{count} обговорень"
-        create:
-          invalid: При спробі започаткувати обговорення сталася помилка.
-          success: Обговорення успішно започатковано.
         debate:
           participate: Взяти участь
         filters:
@@ -120,7 +108,6 @@ uk:
           user_followers:
             email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
         creation_disabled:
-          email_intro: 'В %{participatory_space_title} вже не можна починати обговорення. Ви можете взяти участь у вже започаткованих обговореннях на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} вимкнено започаткування обговорень
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> вимкнено започаткування обговорень
