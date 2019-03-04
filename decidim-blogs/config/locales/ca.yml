@@ -23,7 +23,6 @@ ca:
             name: Publicació
         posts:
           create:
-            invalid: S'ha produït un problema en crear aquesta publicació
             success: S'ha creat correctament la publicació
           destroy:
             success: La publicació s'ha eliminat correctament
@@ -34,9 +33,6 @@ ca:
           new:
             create: Crear
             title: Crea una publicació
-          update:
-            invalid: Hi ha hagut errors en desar la publicació.
-            success: La publicació s'ha desat correctament
       last_activity:
         new_post_at_html: "<span>Nova publicació a %{link}</span>"
       models:
