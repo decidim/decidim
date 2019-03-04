@@ -18,9 +18,6 @@ fi:
       comments: Kommentit
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
-      votes:
-        create:
-          error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Kirjaudu sisään</a> tai <a href="%{sign_up_url}">rekisteröidy palveluun</a> kommentoidaksesi.
@@ -41,7 +38,6 @@ fi:
         alignment:
           against: Vastaan
           in_favor: Puolesta
-        deleted_user: Poistettu käyttäjä
         reply: Vastaa
         report:
           action: Tee ilmoitus
@@ -91,7 +87,6 @@ fi:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
     metrics:
       comments:
-        description: Käyttäjien kirjoittamien kommenttien määrä
         object: kommentit
         title: Kommentit
   errors:
