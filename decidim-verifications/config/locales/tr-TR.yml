@@ -12,10 +12,7 @@ tr:
       id_document_upload:
         document_number: Belge numarası (harf ile)
         document_type: Belgenizin tipi
-        user: kullanıcı
         verification_attachment: Belgenizin taranmış kopyası
-      offline_confirmation:
-        email: Kullanıcı e-postası
       postal_letter_address:
         full_address: Açık adres
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ tr:
             - Bilgileri açıkça göremiyorsanız veya doğrulamıyorsanız, isteği reddedebilirsiniz ve kullanıcı bunu düzeltebilir.
         postal_letter:
           help:
-            - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.
+            - Participants request a verification code to be sent to their address.
             - Mektubu adreslerine doğrulama koduyla gönderirsiniz.
             - Mektubu gönderildiği gibi işaretlersiniz.
-            - Mektubu gönderildiği şekilde işaretledikten sonra, kullanıcı kodu tanıtabilir ve doğrulanabilir.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Kuruluşun sayımını kullanarak doğrulayın
         name: Kuruluşun nüfus sayımı
@@ -62,7 +59,6 @@ tr:
     verifications:
       authorizations:
         create:
-          error: Yetkilendirme oluşturulurken bir hata oluştu.
           success: Başarılı bir şekilde yetkilendirildiniz.
           unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
         first_login:
@@ -107,10 +103,6 @@ tr:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
             success: Hesabınız başarıyla doğrulandı.
-      dummy_authorization:
-        extra_explanation:
-          one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
-          other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ tr:
               title: Kimlik belgeleri yapılandırması
               update: Güncelleştirme
             update:
-              error: Yapılandırma güncellenirken bir hata oluştu.
               success: Yapılandırma başarıyla güncellendi
           confirmations:
-            create:
-              error: Doğrulama uyuşmuyor. Tekrar deneyebilir veya doğrulamayı reddedebilir, böylece kullanıcı bunu değiştirebilir
-              success: Kullanıcı başarıyla doğrulandı
             new:
               introduce_user_data: Resimdeki verileri tanıtın
               reject: reddetmek
               verify: DOĞRULAYIN
           offline_confirmations:
-            create:
-              error: Doğrulama uyuşmuyor. Tekrar dene veya kullanıcıyı değiştirmesini söyle
-              success: Kullanıcı başarıyla doğrulandı
             new:
               cancel: İptal etmek
-              introduce_user_data: Kullanıcı e-postasını ve belge verilerini tanıtın
               verify: DOĞRULAYIN
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ tr:
               offline_verification: Çevrimdışı doğrulama
               title: Bekleyen çevrimiçi doğrulamalar
               verification_number: 'Doğrulama #%{n}'
-          rejections:
-            create:
-              success: Doğrulama reddedildi. Kullanıcı dokümanlarını değiştirmek için istenecektir
         authorizations:
           choose:
             choose_a_type: "Lütfen nasıl doğrulanmak istediğinizi seçin:"
@@ -153,7 +134,6 @@ tr:
             title: Kimlik belgenizi kullanarak kendinizi doğrulayın
           create:
             error: Belgenizi yüklerken bir sorun oluştu
-            success: Belge başarıyla yüklendi
           edit:
             being_reviewed: Belgelerini inceliyoruz. Kısa bir süre sonra doğrulanacaksınız
             offline: Çevrimdışı doğrulamayı kullan
@@ -167,7 +147,6 @@ tr:
             title: Kimlik belgenizi yükleyin
           update:
             error: Belgenizi yeniden yüklerken bir sorun oluştu
-            success: Belge başarıyla yeniden yüklendi
         dni: DNI
         nie: NIE
         passport: Pasaport
@@ -180,7 +159,6 @@ tr:
               mark_as_sent: Gönderildiği gibi işaretle
               not_yet_sent: Henüz gönderilmedi
               title: Devam eden doğrulamalar
-              username: Kullanıcı adı
               verification_code: Doğrulama kodu
           postages:
             create:
