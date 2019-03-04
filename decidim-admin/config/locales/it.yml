@@ -70,7 +70,7 @@ it:
         success_color: Successo
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
-        user_groups_enabled: Abilita gruppi
+        user_groups_enabled: Abilita gruppi di utenti
         warning_color: avvertimento
         youtube_handler: Gestore di YouTube
       scope:
@@ -138,7 +138,7 @@ it:
         verify: Verifica
       area_types:
         create:
-          error: Si è verificato un problema durante la creazione di un nuovo tipo di area.
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
           success: Tipo di area creato con successo.
         destroy:
           success: Tipo di area distrutta con successo
@@ -149,11 +149,11 @@ it:
           create: Crea il tipo di area
           title: Nuovo tipo di area
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questo tipo di area.
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di area.
           success: Tipo di area aggiornato correttamente
       areas:
         create:
-          error: Si è verificato un problema durante la creazione di una nuova area.
+          error: Si è verificato un errore durante la creazione di una nuova area.
           success: Area creata con successo.
         destroy:
           success: Area distrutta con successo
@@ -165,11 +165,11 @@ it:
           title: Nuova area
         no_areas: Nessuna zona
         update:
-          error: Si è verificato un problema durante l'aggiornamento di quest'area.
+          error: Si è verificato un errore durante l'aggiornamento di quest'area.
           success: Area aggiornata con successo
       attachment_collections:
         create:
-          error: Si è verificato un problema durante la creazione di una nuova cartella.
+          error: Si è verificato un errore durante la creazione di una nuova cartella.
           success: Cartella creata con successo.
         destroy:
           success: Cartella distrutta con successo.
@@ -183,11 +183,11 @@ it:
           create: Creare
           title: Nuova cartella
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questa cartella.
+          error: Si è verificato un errore durante l'aggiornamento di questa cartella.
           success: Cartella aggiornata correttamente.
       attachments:
         create:
-          error: Si è verificato un problema durante la creazione di un nuovo allegato.
+          error: Si è verificato un errore creando il nuovo allegato.
           success: Allegato creato con successo.
         destroy:
           success: Allegato eliminato con successo.
@@ -200,17 +200,17 @@ it:
           create: Crea allegato
           title: Nuovo allegato
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questo allegato.
+          error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
       autocomplete:
         no_results: nessun risultato trovato
         search_prompt: Digitare almeno tre caratteri da cercare
       categories:
         create:
-          error: Si è verificato un problema durante la creazione di questa categoria.
+          error: Si è verificato un errore durante la creazione di questa categoria.
           success: OK, la categoria è stata creata.
         destroy:
-          error: Si è verificato un problema durante l'eliminazione di questa categoria. Per prima cosa cancella qualsiasi sottocategoria, assicurati che nessun'altra entità appartenga a questa categoria e riprova.
+          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartengaa questa categoria e provare di nuovo.
           success: OK, categoria cancellata.
         edit:
           title: Modifica categoria
@@ -222,17 +222,17 @@ it:
           create: Crea nuova categoria
           title: Nuova categoria
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questa categoria.
+          error: Si è verificato un errore aggiornando questa categoria.
           success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
           success: Autorizzazioni aggiornate correttamente.
       components:
         create:
-          error: Si è verificato un problema durante la creazione di questo componente.
+          error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
         destroy:
-          error: Si è verificato un problema durante la distruzione di questo componente.
+          error: C'è stato un errore nel distruggere questo componente.
           success: Componente cancellato con successo.
         edit:
           title: Modifica componente
@@ -256,7 +256,7 @@ it:
         unpublish:
           success: Il componente è stato pubblicato con successo.
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questo componente.
+          error: Si è verificato un errore durante l'aggiornamento di questo componente.
           success: Il componente è stato aggiornato correttamente.
       dashboard:
         show:
@@ -266,7 +266,7 @@ it:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
       help_sections:
-        error: Si è verificato un problema durante l'aggiornamento delle sezioni della guida
+        error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
           save: Salvare
         success: Aiuto sezioni aggiornate con successo
@@ -278,7 +278,7 @@ it:
             not_managed: Non gestito
           filter_by: Filtra per
           impersonate: Impersonare
-          impersonate_new_managed_user: Gestisci nuovo partecipante
+          impersonate_new_managed_user: Impersonare il nuovo utente gestito
           managed: Gestito
           name: Nome
           needs_authorization_warning: Hai bisogno di almeno un'autorizzazione abilitata per questa organizzazione.
@@ -289,31 +289,31 @@ it:
           view_logs: Visualizza i registri
       impersonations:
         close_session:
-          error: Si è verificato un problema durante la chiusura della sessione di gestione dei partecipanti corrente.
+          error: Si è verificato un errore durante la chiusura della sessione di impersonazione corrente.
           success: La sessione di impersonazione corrente è stata terminata con successo.
         create:
-          error: C'è stato un problema nella gestione del partecipante.
-          success: Il partecipante gestito è stato creato con successo.
+          error: Si è verificato un errore impersonando l'utente.
+          success: L'utente gestito è stato creato con successo.
         form:
           authorization_method: Metodo di autorizzazione
           name: Nome
           reason: Ragionare
         new:
           impersonate: Impersonare
-          impersonate_existing_managed_user: Gestisci partecipante "%{name}"
-          impersonate_existing_user: Gestisci partecipante "%{name}"
-          impersonate_new_managed_user: Gestisci nuovo partecipante
+          impersonate_existing_managed_user: Impersonare l'utente gestito "%{name}"
+          impersonate_existing_user: Impersonare l'utente "%{name}"
+          impersonate_new_managed_user: Impersonare il nuovo utente gestito
       logs:
         logs_list:
           no_logs_yet: Non ci sono ancora i log
       managed_users:
         promotion:
-          error: Si è verificato un problema nella promozione del partecipante gestito.
-          success: Il partecipante gestito è stato promosso con successo.
+          error: Si è verificato un errore che ha promosso l'utente gestito.
+          success: L'utente gestito è stato promosso con successo.
         promotions:
           new:
-            explanation: I partecipanti gestiti possono essere promossi a partecipanti standard. Significa che saranno invitati all'applicazione e non sarai in grado di gestirli di nuovo. Il partecipante invitato riceverà un'email per accettare il tuo invito.
-            new_managed_user_promotion: Nuova promozione partecipante gestita
+            explanation: Gli utenti gestiti possono essere promossi agli utenti standard. Significa che saranno invitati all'applicazione e non sarete in grado di repersonarli nuovamente. L'utente invitato riceverà un'email per accettare l'invito.
+            new_managed_user_promotion: Nuova promozione degli utenti gestiti
             promote: Promuovere
       menu:
         admin_log: Registro delle attività di amministrazione
@@ -333,8 +333,8 @@ it:
         scopes: Visibilità/ambito (Scopes)
         settings: Impostazioni
         static_pages: Pagine
-        user_groups: gruppi
-        users: I partecipanti
+        user_groups: Gruppi di utenti
+        users: Utenti
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ it:
             expired_at: Scaduto a
             reason: Ragionare
             started_at: Ha iniziato a
-            user: Partecipante
+            user: Utente
         newsletter:
           fields:
             created_at: Creato il
@@ -376,7 +376,7 @@ it:
             name: Nome
           name: Applicazione OAuth
         participatory_space_private_user:
-          name: Partecipante privato spazio partecipativo
+          name: Utente privato dello spazio partecipativo
         scope:
           fields:
             name: Nome
@@ -398,8 +398,8 @@ it:
             role: Ruolo
             roles:
               admin: Amministratore
-              user_manager: Responsabile del partecipante
-          name: Partecipante
+              user_manager: Gestore utente
+          name: Utente
         user_group:
           fields:
             actions: Azioni
@@ -408,7 +408,7 @@ it:
             name: Nome
             phone: Telefono
             state: Stato
-            users_count: I partecipanti contano
+            users_count: Conteggio degli utenti
       moderations:
         index:
           title: Moderazione
@@ -419,10 +419,10 @@ it:
             spam: Spam
       newsletters:
         create:
-          error: Si è verificato un problema durante la creazione di questa newsletter.
+          error: Si è verificato un errore durante la creazione di questa newsletter.
           success: OK, la Newsletter è stata creata. Adesso è possibile controllarla ed eventualmente inviarla.
         deliver:
-          error: Si è verificato un problema durante l'invio di questa newsletter.
+          error: Si è verificato un errore durante l'invio di questa newsletter.
           success: La newsletter è stata inviata con successo.
         destroy:
           error_already_sent: 'Non è possibile eliminare questa newsletter: è già stata inviata.'
@@ -444,14 +444,14 @@ it:
           preview: Anteprima
           subject: Oggetto
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questa newsletter.
+          error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
       oauth_applications:
         create:
-          error: Si è verificato un problema durante la creazione di questa applicazione.
+          error: Si è verificato un errore durante la creazione di questa applicazione.
           success: Applicazione creata con successo.
         destroy:
-          error: Si è verificato un problema durante la distruzione di questa applicazione.
+          error: C'è stato un errore nella distruzione di questa applicazione.
           success: Applicazione distrutta con successo.
         edit:
           save: Salvare
@@ -463,13 +463,13 @@ it:
           save: Salvare
           title: Nuova applicazione
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questa applicazione.
+          error: Si è verificato un errore durante l'aggiornamento di questa applicazione.
           success: Applicazione aggiornata con successo.
       officializations:
         create:
-          success: Il partecipante è stato ufficializzato con successo
+          success: Utente ufficializzato con successo
         destroy:
-          success: Partecipante con successo non ufficiale
+          success: Utente non ufficiale con successo
         index:
           actions: Azioni
           badge: Distintivo
@@ -491,7 +491,7 @@ it:
         new:
           badge: Distintivo di ufficializzazione
           officialize: ufficializzare
-          title: Ufficializzare il partecipante "%{name}"
+          title: Utente ufficiale "%{name}"
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -505,7 +505,7 @@ it:
           url: URL
           youtube: Youtube
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questa organizzazione.
+          error: Si è verificato un errore durante la modifica di questa organizzazione.
           success: OK, l'organizzazione è stata modificata.
       organization_appearance:
         edit:
@@ -528,16 +528,16 @@ it:
           update: Aggiornare
       participatory_space_private_users:
         create:
-          error: Si è verificato un problema durante l'aggiunta di un partecipante privato per questo spazio partecipativo.
-          success: Accesso partecipante allo spazio partecipativo creato con successo.
+          error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
+          success: Accesso utente privato spazio partecipativo creato con successo.
         destroy:
-          error: Si è verificato un problema durante l'eliminazione di un partecipante privato per questo spazio partecipativo.
-          success: Accesso partecipativo allo spazio partecipativo privato distrutto con successo.
+          error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
+          success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
-          title: Partecipante privato spazio partecipativo
+          title: Utente privato dello spazio partecipativo
         new:
           create: Creare
-          title: Nuovo partecipante privato dello spazio partecipativo.
+          title: Nuovo utente privato dello spazio partecipativo.
       resource_permissions:
         edit:
           submit: Sottoscrivi
@@ -546,7 +546,7 @@ it:
           success: Autorizzazioni aggiornate correttamente.
       scope_types:
         create:
-          error: Si è verificato un problema durante la creazione di un nuovo tipo di ambito.
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
           success: Tipo di ambito creato con successo.
         destroy:
           success: Tipo di ambito distrutto con successo
@@ -557,11 +557,11 @@ it:
           create: Crea tipo di ambito
           title: Nuovo ambito
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questo tipo di ambito.
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di ambito.
           success: Il tipo di ambito viene aggiornato correttamente
       scopes:
         create:
-          error: Si è verificato un problema durante la creazione di un nuovo ambito.
+          error: Si è verificato un errore creando un nuovo ambito.
           success: OK, è stato creato il nuovo àmbito.
         destroy:
           success: Ok, l'ambito è stato eliminato.
@@ -573,11 +573,11 @@ it:
           title: Nuovo ambito
         no_scopes: Nessun ambito a questo livello.
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questo ambito.
+          error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
       static_page_topics:
         create:
-          error: Si è verificato un problema durante la creazione di un nuovo argomento.
+          error: Si è verificato un errore durante la creazione di un nuovo argomento.
           success: Argomento creato con successo.
         destroy:
           success: Argomento distrutto con successo
@@ -588,18 +588,18 @@ it:
           create: Crea argomento
           title: Nuovo argomento
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questo argomento.
+          error: Si è verificato un errore durante l'aggiornamento di questo argomento.
           success: Argomento aggiornato correttamente
       static_pages:
         actions:
           view: Visualizza la pagina pubblica
         create:
-          error: Si è verificato un problema durante la creazione di una nuova pagina.
+          error: Si è verificato un errore creando una nuova pagina.
           success: OK, la nuova pagina è stata creata.
         destroy:
           success: OK, la pagina è stata eliminata.
         edit:
-          changed_notably_help: Se selezionato, i partecipanti saranno avvisati di accettare i nuovi termini e condizioni.
+          changed_notably_help: Se selezionato, gli utenti saranno avvisati di accettare i nuovi termini e condizioni.
           title: Modifica la pagina
           update: Aggiorna
         form:
@@ -615,7 +615,7 @@ it:
           empty: Non c'è pagina sotto questo argomento
           without_topic: Pagine senza argomento
         update:
-          error: Si è verificato un problema durante l'aggiornamento di questa pagina.
+          error: Si è verificato un errore durante l'aggiornamento di questa pagina.
           success: OK, la pagina è stata aggiornata.
       titles:
         admin_log: Registro di amministrazione
@@ -623,24 +623,24 @@ it:
         areas: le zone
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Partecipanti gestibili
-        impersonations: Gestione dei partecipanti
-        participants: I partecipanti
+        impersonatable_users: Utenti gestibili
+        impersonations: Gestione degli utenti
+        participants: utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
-        user_groups: gruppi
-        users: I partecipanti
+        user_groups: Gruppi di utenti
+        users: Utenti
       user_group:
         csv_verify:
-          invalid: Si è verificato un problema durante la lettura del file CSV.
-          success: File CSV caricato con successo, stiamo verificando i gruppi che corrispondono ai criteri. Questo potrebbe richiedere del tempo.
+          invalid: Si è verificato un errore durante la lettura del file CSV.
+          success: File CSV caricato con successo, stiamo verificando i gruppi di utenti che soddisfano i criteri. Questo potrebbe richiedere del tempo.
         reject:
-          invalid: Si è verificato un problema durante il rifiuto di questo gruppo.
-          success: Gruppo rifiutato con successo
+          invalid: Si è verificato un errore quando rifiuta questo gruppo di utenti.
+          success: Gruppo utenti rifiutato correttamente
         verify:
-          invalid: Si è verificato un problema durante la verifica di questo gruppo.
-          success: Gruppo verificato con successo
+          invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
+          success: Il gruppo utenti è stato verificato correttamente
       user_groups:
         index:
           filter:
@@ -657,28 +657,28 @@ it:
           verify_via_csv: Verifica tramite CSV
       user_groups_csv_verifications:
         new:
-          explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
+          explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
           title: Carica il tuo file CSV
           upload: Caricare
       users:
         create:
-          error: Si è verificato un problema durante l'invito a questo amministratore.
-          success: Partecipante invitato con successo.
+          error: Si è verificato un errore cercando di mandare l'invito a questo utente.
+          success: OK, utente invitato.
         destroy:
-          error: Si è verificato un problema durante il tentativo di eliminare questo amministratore.
-          success: Il partecipante non è più un amministratore.
+          error: Si è verificato un errore cercando di eliminare questo utente.
+          success: Questo utente non è più un amministratore.
         form:
           email: E-mail
           name: Nome
           role: Ruolo
         new:
           create: Invita
-          title: Invita partecipante come amministratore
+          title: Invita l'utente in qualità di amministratore
       view_public_page: Visualizza la pagina pubblica
     forms:
       errors:
         impersonate_user:
-          reason: È necessario fornire un motivo durante la gestione di un partecipante non gestito
+          reason: È necessario fornire un motivo durante la rappresentazione di un utente non gestito
     moderations:
       actions:
         hidden: Nascosto
@@ -690,13 +690,13 @@ it:
       admin:
         reportable:
           hide:
-            invalid: C'è stato un problema a nascondere la risorsa.
+            invalid: Si è verificato un problema cercando di nascondere la risorsa.
             success: OK, la risorsa è stata nascosta.
           unhide:
-            invalid: Si è verificato un problema durante il rilevamento della risorsa.
+            invalid: C'è stato un problema nel mostrare la risorsa.
             success: Risorsa correttamente non rilevata.
           unreport:
-            invalid: Si è verificato un problema durante il quale non è stata segnalata la risorsa.
+            invalid: Si è verificato un problema cercando di visualizzare la risorsa .
             success: OK, la risorda è visualizzabile.
       models:
         moderation:
@@ -718,4 +718,4 @@ it:
         settings:
           title: Impostazioni
         users:
-          title: I partecipanti
+          title: Utenti
