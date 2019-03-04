@@ -44,9 +44,6 @@ uk:
         email: Адреса електронної пошти
         name: Ім'я
         role: Роль
-    models:
-      decidim/participatory_process_step_activated_event: Крок започато
-      decidim/participatory_process_step_changed_event: Крок змінено
   activerecord:
     models:
       decidim/participatory_process:
@@ -59,11 +56,6 @@ uk:
         few: Гурти руху співучасті
         many: Гуртів руху співучасті
         other: Гуртів руху співучасті
-      decidim/participatory_process_step:
-        one: Крок
-        few: Кроки
-        many: Кроків
-        other: Кроків
   decidim:
     admin:
       actions:
@@ -75,8 +67,6 @@ uk:
         edit: Редагувати
         new_process: Додати рух
         new_process_group: Створити сукупність рухів
-        new_process_step: Додати крок
-        new_process_user_role: Додати учасника руху
         preview: Попередній перегляд
         publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
@@ -92,9 +82,6 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приватні учасники
-          process_admins: Учасники руху
-          steps: Кроки
       models:
         participatory_process:
           fields:
@@ -113,13 +100,11 @@ uk:
             end_date: Дата закінчення
             start_date: Дата початку
             title: Назва
-          name: Крок руху співучасті
         participatory_process_user_role:
           fields:
             email: Адреса електронної пошти
             name: Ім'я
             role: Роль
-          name: Учасник руху співучасті
           roles:
             admin: Адміністратор
             collaborator: Співробітник
@@ -134,72 +119,24 @@ uk:
           select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію руху співучасті
       participatory_process_groups:
-        destroy:
-          success: Сукупність рухів співучасті успішно видалено.
         edit:
           title: Редагувати сукупність рухів
           update: Оновити
         new:
           create: Створити
           title: Створити сукупність рухів
-        update:
-          error: При спробі оновити цю сукупність рухів співучасті сталася помилка.
-          success: Сукупність рухів співучасті успішно оновлено.
-      participatory_process_publications:
-        create:
-          error: При оприлюдненні цього руху співучасті сталася помилка.
-          success: Рух співучасті успішно оприлюднено.
-        destroy:
-          error: При скасуванні оприлюднення цього руху співучасті сталася помилка.
-          success: Оприлюднення руху співучасті успішно скасовано.
-      participatory_process_step_activations:
-        create:
-          error: При започаткуванні цього кроку руху співучасті сталася помилка.
-          success: Крок руху співучасті успішно започато.
       participatory_process_steps:
-        create:
-          error: При спробі створити новий крок руху співучасті сталася помилка.
-          success: Крок руху співучасті успішно створено.
         default_title: Вступ
-        destroy:
-          error:
-            active_step: Не можна видаляти діючий крок.
-            last_step: Не можна видаляти останній крок руху.
-          success: Крок руху співучасті успішно видалено.
         edit:
-          title: Редагувати крок руху співучасті
           update: Оновити
-        index:
-          steps_title: Кроки
         new:
           create: Додати
-          title: Додати крок руху співучасті
-        ordering:
-          error: При зміні порядку кроків цього руху співучасті сталася помилка.
-        update:
-          error: При спробі оновити цей крок руху співучасті сталася помилка.
-          success: Крок руху співучасті успішно оновлено.
       participatory_process_user_roles:
-        create:
-          error: При спробі додати учасника в цей рух співучасті сталася помилка.
-          success: До цього руху співучасті успішно додано учасника.
-        destroy:
-          success: З цього руху співучасті успішно видалено учасника.
         edit:
-          title: Оновити учасника руху співучасті.
           update: Оновити
-        index:
-          process_admins_title: Учасники руху співучасті
         new:
           create: Додати
-          title: Додати учасника руху співучасті.
-        update:
-          error: При спробі оновити учасника цього руху співучасті сталася помилка.
-          success: Учасника цього руху співучасті успішно оновлено.
       participatory_processes:
-        create:
-          error: При спробі створити новий рух співучасті сталася помилка.
-          success: Рух співучасті успішно створено. Тепер налаштуйте його кроки.
         edit:
           update: Оновити
         form:
@@ -212,65 +149,28 @@ uk:
         new:
           create: Створити
           title: Додати рух співучасті
-        update:
-          error: При спробі оновити цей рух співучасті сталася помилка.
-          success: Рух співучасті успішно оновлено.
-      participatory_processes_copies:
-        create:
-          error: При спробі створити копію цього руху співучасті сталася помилка.
-          success: Успішно створено копію руху співучасті.
-      participatory_processes_group:
-        create:
-          error: При спробі створити нову сукупність рухів співучасті сталася помилка.
-          success: Сукупність рухів співучасті успішно створено.
       titles:
         participatory_process_groups: Сукупності рухів співучасті
         participatory_processes: Рухи співучасті
-      users:
-        resend_invitation:
-          error: При повторному надсиланні запрошення сталася помилка.
-          success: Запрошення успішно знову надіслане.
     admin_log:
       participatory_process:
         create: "%{user_name} створив рух співучасті %{resource_name}"
         publish: "%{user_name} оприлюднив рух співучасті %{resource_name}"
         unpublish: "%{user_name} скасував оприлюднення руху співучасті %{resource_name}"
         update: "%{user_name} оновив рух співучасті %{resource_name}"
-      participatory_process_step:
-        activate: "%{user_name} започаткував крок %{resource_name} у русі співучасті %{space_name}"
-        create: "%{user_name} створив крок %{resource_name} у русі співучасті %{space_name}"
-        delete: "%{user_name} видалив крок %{resource_name} у русі співучасті %{space_name}"
-        update: "%{user_name} оновив крок %{resource_name} у русі співучасті %{space_name}"
-      participatory_process_user_role:
-        create: "%{user_name} запросив учасника %{resource_name} до руху співучасті %{space_name}"
-        delete: "%{user_name} видалив учасника %{resource_name} з руху співучасті %{space_name}"
-        update: "%{user_name} змінів роль учасника %{resource_name} у русі співучасті %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'У %{participatory_space_title} приведено в дію крок %{resource_title}. Ви можете переглянути його на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
-          notification_title: Приведено в дію крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете переглянути їх на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
-          notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
       processes: Рухи
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 рух у %{group}
-          few: "%{count} рухи у %{group}"
-          many: "%{count} рухів у %{group}"
-          other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
-    participatory_process_steps:
-      index:
-        process_steps: Кроки руху
-        title: Кроки руху співучасті
     participatory_processes:
       admin:
         participatory_process_copies:
@@ -289,7 +189,6 @@ uk:
         home:
           highlighted_processes:
             active_processes: Діючі рухи
-            active_step: Діючий крок
             more_information: Додаткові відомості
             participate: Взяти участь
             see_all_processes: Переглянути всі рухи
@@ -348,7 +247,6 @@ uk:
         endorsements_count: Проявів підтримки
         headline: Діяльність
         meetings_count: Зустрічей
-        orders_count: Голосів
         pages_count: Сторінок
         processes_count: Рухів
         projects_count: Проектів
@@ -356,7 +254,6 @@ uk:
         results_count: Підсумків
         surveys_count: Опитувань
         users_count: Учасників
-        votes_count: Голосів
   layouts:
     decidim:
       participatory_process_groups:
@@ -365,20 +262,14 @@ uk:
           processes_count: 'Рухів:'
       participatory_process_widgets:
         show:
-          active_step: Діючий крок
           take_part: Взяти участь
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
         participatory_process:
-          active_step: 'Поточний крок:'
           take_part: Взяти участь
         promoted_process:
-          active_step: 'Поточний крок:'
           more_info: Додаткові відомості
           take_part: Взяти участь
-      process_header_steps:
-        step: '%{current}-й крок з %{total} кроків'
-        view_steps: Переглянути кроки
       process_navigation:
         process_menu_item: Рух
