@@ -699,7 +699,7 @@ fi:
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: Ääntä
+            votes: Äänet
         wizard_aside:
           back: Takaisin
           info: Olet luomassa <strong>ehdotusta</strong>.
