@@ -32,11 +32,9 @@ ca:
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
         parent_id: Assemblea principal
-        participatory_processes_ids: Processos participatius relacionats
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
         private_space: Espai privat
-        promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
         scope_id: Àmbit
@@ -80,7 +78,6 @@ ca:
         new_assembly: Nova assemblea
       assemblies:
         create:
-          error: S'ha produït un error en crear una nova assemblea.
           success: Assemblea creada correctament.
         edit:
           update: Actualitzar
@@ -94,24 +91,12 @@ ca:
         new:
           create: Crear
           title: Nova assemblea
-        update:
-          error: S'ha produït un error en actualitzar aquesta assemblea.
-          success: L'assemblea s'ha actualitzat correctament.
-      assemblies_copies:
-        create:
-          error: S'ha produït un error en duplicar aquesta assemblea.
-          success: L'assemblea s'ha duplicat correctament.
       assembly_copies:
         new:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Assemblea duplicada
       assembly_members:
-        create:
-          error: S'ha produït un error en afegir un membre per a aquest assemblea.
-          success: Membre creat amb èxit per a aquesta assemblea.
-        destroy:
-          success: Membre eliminat amb èxit per a aquesta assemblea.
         edit:
           title: Actualitza el membre de l'assemblea.
           update: Actualitza
@@ -120,37 +105,14 @@ ca:
         new:
           create: Crear
           title: Nou membre de l'assemblea.
-        update:
-          error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
-          success: Membre actualitzat amb èxit per a aquesta assemblea.
-      assembly_publications:
-        create:
-          error: S'ha produït un error en publicar aquesta assemblea.
-          success: Assemblea publicada amb èxit.
-        destroy:
-          error: S'ha produït un error en despublicar aquesta assemblea.
-          success: Assemblea despublicada amb èxit.
       assembly_user_roles:
-        create:
-          error: S'ha produït un error en afegir un usuari per a aquesta assamblea.
-          success: L'usuari s'ha afegit correctament a aquesta assemblea.
-        destroy:
-          success: L'usuari s'ha eliminat d'aquesta assemblea correctament.
         edit:
-          title: Actualitza l'usuari de l'assemblea.
           update: Actualitza
-        index:
-          assembly_admins_title: Usuaris de l'assemblea
         new:
           create: Crea
-          title: Nou usuari de l'assemblea.
-        update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquesta assemblea.
-          success: L'usuari s'ha actualitzat correctament per a aquesta assemblea.
       menu:
         assemblies: Assemblees
         assemblies_submenu:
-          assembly_admins: Usuaris de l'assemblea
           assembly_members: Membres
           attachment_collections: Carpetes
           attachment_files: Fitxers
@@ -186,7 +148,6 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de l'assemblea
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -205,7 +166,6 @@ ca:
         update: "%{user_name} ha actualitzat el membre %{resource_name} de l'assemblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
         update: "%{user_name} ha canviat el rol de %{resource_name} a l'assemblea %{space_name}"
     assemblies:
       admin:
@@ -224,11 +184,7 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
-            existing_user: Usuari existent
-            non_user: No usuari
             select_a_position: Selecciona una posició
-            select_user: Selecciona un usuari
-            user_type: Tipus d'usuari
           index:
             filter:
               all: Tots
@@ -314,14 +270,12 @@ ca:
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
-        orders_count: Vots
         pages_count: Pàgines
         projects_count: Projectes
         proposals_count: Propostes
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Suports
     assembly_members:
       assembly_member:
         designated_on: Designat a
@@ -330,8 +284,6 @@ ca:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Una assemblea és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
-          page: "<p>Una assemblea és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
           title: Què són les assemblees?
     log:
       value_types:
