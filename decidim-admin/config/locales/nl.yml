@@ -617,7 +617,7 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Niet-personaliseerbare gebruikers
         impersonations: Zich voordoen als
-        participants: Deelnemers
+        participants: gebruikers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
