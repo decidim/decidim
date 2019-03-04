@@ -35,7 +35,6 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            creation_enabled: Создание обсуждений участниками включено
     debates:
       actions:
         confirm_destroy: Вы уверены?
@@ -45,11 +44,6 @@ ru:
         title: Действия
       admin:
         debates:
-          create:
-            invalid: При попытке создать это обсуждение произошла ошибка.
-            success: Обсуждение успешно создано.
-          destroy:
-            success: Обсуждение успешно удалено.
           edit:
             title: Редактировать обсуждение
             update: Обновить обсуждение
@@ -58,9 +52,6 @@ ru:
           new:
             create: Начать обсуждение
             title: Начать новое обсуждение
-          update:
-            invalid: При попытке обновить это обсуждение произошла ошибка.
-            success: Обсуждение успешно обновлено.
         models:
           debate:
             name: Обсуждение
@@ -75,9 +66,6 @@ ru:
             few: "%{count} обсуждения"
             many: "%{count} обсуждений"
             other: "%{count} обсуждений"
-        create:
-          invalid: При попытке создать это обсуждение произошла ошибка.
-          success: Обсуждение успешно создано.
         debate:
           participate: Принять участие
         filters:
@@ -120,7 +108,6 @@ ru:
           user_followers:
             email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
         creation_disabled:
-          email_intro: 'В %{participatory_space_title} уже нельзя начинать обсуждения. Вы можете принять участие в уже начатых обсуждениях на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} отключено создание обсуждений
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> отключено создание обсуждений
