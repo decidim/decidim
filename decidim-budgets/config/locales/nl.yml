@@ -31,7 +31,7 @@ nl:
             name: Project
         projects:
           create:
-            invalid: Er is een probleem opgetreden bij het maken van dit project
+            invalid: Er is een probleem opgetreden met het creëren van dit project
             success: Voorstel succesvol aangemaakt
           destroy:
             success: Project succesvol verwijderd
@@ -50,7 +50,7 @@ nl:
             success: Project succesvol bijgewerkt
         proposals_imports:
           create:
-            invalid: Er was een probleem bij het importeren van de voorstellen in projecten
+            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in projecten
             success: "%{number} voorstellen succesvol geïmporteerd in projecten"
           new:
             create: Voorstellen importeren in projecten
@@ -140,10 +140,10 @@ nl:
             votes_enabled: Stemmen ingeschakeld
     orders:
       checkout:
-        error: Er is een probleem opgetreden bij het verwerken van uw stem
-        success: Uw stem is met succes aanvaard
+        error: Er is een fout opgetreden tijdens het verwerken van uw stem
+        success: Uw stem is succesvol geaccepteerd
       destroy:
-        error: Er is een probleem opgetreden bij het annuleren van je stem
+        error: Er is een fout opgetreden tijdens het annuleren van uw stem
         success: Uw stem is succesvol geannuleerd
     resource_links:
       included_proposals:
