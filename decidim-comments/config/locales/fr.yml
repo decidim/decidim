@@ -18,9 +18,6 @@ fr:
       comments: Commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
-      votes:
-        create:
-          error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
         account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
@@ -41,7 +38,6 @@ fr:
         alignment:
           against: Contre
           in_favor: Pour
-        deleted_user: Utilisateur supprimé
         reply: Répondre
         report:
           action: Signaler
@@ -91,7 +87,6 @@ fr:
           notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Nombre de commentaires générés par les utilisateurs
         object: commentaires
         title: commentaires
   errors:
