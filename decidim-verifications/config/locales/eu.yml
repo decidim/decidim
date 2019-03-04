@@ -12,10 +12,7 @@ eu:
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letra batekin)
         document_type: Zure dokumentuaren mota
-        user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
-      offline_confirmation:
-        email: Erabiltzailearen helbide elektronikoa
       postal_letter_address:
         full_address: Helbide osoa
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ eu:
             - Informazio hori argi eta garbi ikusi ez baduzu edo egiaztatu ezin baduzu, eskaera ukatu egin dezakezu eta erabiltzaileak konpondu ahal izango du.
         postal_letter:
           help:
-            - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
+            - Participants request a verification code to be sent to their address.
             - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
             - Bidalitako mezua markatzen du.
-            - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Egiaztatu erakundearen zentsua erabiliz
         name: Erakundearen zentsua
@@ -62,7 +59,6 @@ eu:
     verifications:
       authorizations:
         create:
-          error: Errore bat gertatu da baimena sortzean.
           success: Ongi baimendu duzu.
           unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         first_login:
@@ -107,10 +103,6 @@ eu:
           new:
             error: Ezin izan dugu zure kontua egiaztatu edo ez duzu erakundearen zentsuan.
             success: Zure kontua ondo egiaztatu da.
-      dummy_authorization:
-        extra_explanation:
-          one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
-          other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ eu:
               title: Nortasun agirien konfigurazioa
               update: eguneratzearen
             update:
-              error: Errore bat gertatu da konfigurazioa eguneratzean.
               success: Konfigurazioa behar bezala eguneratu da
           confirmations:
-            create:
-              error: Egiaztapena ez dator bat. Berriro saiatu edo ezeztatu egiaztapena erabiltzaileak hura aldatzeko
-              success: Erabiltzaileak behar bezala egiaztatu du
             new:
               introduce_user_data: Idatzi irudian datuak
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:
-            create:
-              error: Egiaztapena ez dator bat. Saiatu berriro edo esan erabiltzaileak hura aldatzeko
-              success: Erabiltzaileak behar bezala egiaztatu du
             new:
               cancel: Utzi
-              introduce_user_data: Erabiltzailearen helbide elektronikoa eta dokumentuaren datuak sartu
               verify: Ziurtatu
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ eu:
               offline_verification: Lineaz kanpoko egiaztapena
               title: Zain dauden egiaztapenak
               verification_number: 'Egiaztapena # %{n}'
-          rejections:
-            create:
-              success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
             choose_a_type: "Hautatu nola egiaztatu nahi duzun:"
@@ -153,7 +134,6 @@ eu:
             title: Egiaztatu zure identifikazio dokumentua
           create:
             error: Arazo bat izan da dokumentua kargatzean
-            success: Dokumentua behar bezala kargatu da
           edit:
             being_reviewed: Zure dokumentuak berrikusten ari gara. Handik gutxira, egiaztatu egingo zara
             offline: Erabili lineaz kanpoko egiaztapena
@@ -167,7 +147,6 @@ eu:
             title: Kargatu zure identifikazio dokumentua
           update:
             error: Arazo bat izan da zure dokumentua berriro kargatzea
-            success: Dokumentua berriro kargatu da
         dni: DNI
         nie: NIE
         passport: pasaportea
@@ -180,7 +159,6 @@ eu:
               mark_as_sent: Markatu bidali gisa
               not_yet_sent: Ez da bidali oraindik
               title: Etengabeko egiaztapenak
-              username: Erabiltzaile izena
               verification_code: Egiaztapen kodea
           postages:
             create:
