@@ -66,23 +66,8 @@ pl:
         new_response: Nowa odpowiedź
         publish_results: Opublikuj wyniki
         unpublish_results: Cofnij publikację wyników
-      consultation_publications:
-        create:
-          error: Wystąpił błąd podczas publikowania tej konsultacji.
-          success: Konsultacje opublikowano pomyślnie.
-        destroy:
-          error: Wystąpił błąd podczas publikowania tej konsultacji.
-          success: Konsultacje nie zostały pomyślnie opublikowane.
-      consultation_results_publications:
-        create:
-          error: Wystąpił błąd podczas publikowania wyników dla tej konsultacji.
-          success: Wyniki konsultacji opublikowano pomyślnie.
-        destroy:
-          error: Wystąpił błąd podczas publikowania wyników dla tej konsultacji.
-          success: Wyniki konsultacji nie zostały pomyślnie opublikowane.
       consultations:
         create:
-          error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacje zostały pomyślnie utworzone.
         edit:
           update: Aktualizacja
@@ -96,7 +81,6 @@ pl:
           create: Stwórz
           title: Nowa konsultacja
         update:
-          error: Wystąpił błąd podczas aktualizowania tej konsultacji.
           success: Konsultacja zaktualizowana pomyślnie.
       menu:
         consultations: Konsultacje
@@ -138,16 +122,8 @@ pl:
             few: Odpowiedzi
             many: Odpowiedzi
             other: Odpowiedzi
-      question_publications:
-        create:
-          error: Wystąpił błąd podczas publikowania tego pytania.
-          success: Pytanie opublikowane pomyślnie.
-        destroy:
-          error: Podczas wysyłania tego pytania wystąpił błąd.
-          success: Pytanie nieopublikowane pomyślnie.
       questions:
         create:
-          error: Wystąpił błąd podczas tworzenia nowego pytania.
           success: Pytanie zostało pomyślnie utworzone.
         destroy:
           success: Pytanie zostało pomyślnie usunięte.
@@ -161,15 +137,10 @@ pl:
         new:
           create: Stwórz
           title: Nowe pytanie
-        update:
-          error: Wystąpił błąd podczas aktualizowania tego pytania.
-          success: Pytanie zaktualizowane pomyślnie.
       responses:
         create:
-          error: Wystąpił błąd podczas tworzenia nowej odpowiedzi.
           success: Odpowiedź została pomyślnie utworzona.
         destroy:
-          error: Wystąpił błąd podczas usuwania odpowiedzi.
           success: Odpowiedź została pomyślnie usunięta.
         edit:
           update: Aktualizacja
@@ -178,9 +149,6 @@ pl:
         new:
           create: Stwórz
           title: Nowa odpowiedź
-        update:
-          error: Wystąpił błąd podczas aktualizowania tej odpowiedzi.
-          success: Odpowiedź zaktualizowana pomyślnie.
       titles:
         consultations: Konsultacje
         questions: pytania
@@ -214,7 +182,6 @@ pl:
         all: Wszystko
         finished: Skończone
         search: Szukaj
-        state: Stan
         upcoming: Nadchodzące
       filters_small_view:
         close_modal: Zamknij okno
@@ -247,9 +214,6 @@ pl:
           few: głosów z
           many: głosów z
           other: głosów z
-      question_votes:
-        create:
-          error: Wystąpiły błędy podczas głosowania na pytanie
       regular_questions:
         title: Pytania do tej konsultacji
       show:
@@ -267,8 +231,6 @@ pl:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Konsultacje to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, wezwać do wzięcia udziału w konsultacjach, nakręcić i zlecić debatę za lub przeciw odpowiedzi. Po nadejściu daty konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: niektóre przykłady zmieniają nazwę lub logo organizacji oferującej kilka alternatyw, decydując Tak lub Nie, aby stać się częścią większej organizacji, zatwierdzając lub odrzucając nowy strategiczny plan lub wynik grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
-          page: "<p>Konsultacje to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, wezwać do wzięcia udziału w konsultacjach, nakręcić i zlecić debatę za lub przeciw odpowiedzi. Po nadejściu daty konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: niektóre przykłady zmieniają nazwę lub logo organizacji oferującej kilka alternatyw, decydując Tak lub Nie, aby stać się częścią większej organizacji, zatwierdzając lub odrzucając nowy strategiczny plan lub wynik grupy roboczej, lub określenie, czy stanowiska powinny pozostać maksymalnie 1, 2, czy 3 mandatami w organizacji.</p>\n"
           title: Czym są konsultacje?
     menu:
       consultations: Konsultacje
@@ -285,22 +247,18 @@ pl:
         assistants_count_title: Asystenci
         comments_count_title: Komentarze
         meetings_count_title: Spotkania
-        supports_count_title: Obsługuje
       technical_info:
         technical_data: Dane techniczne
       vote_button:
         already_voted: Już głosowałem
-        already_voted_hover: Odwołaj wsparcie
         starting_from: Począwszy od %{date}
         vote: Głosować
       vote_modal:
         contextual_help: Proszę wybrać opcję.
-        title: 'Konsultacje: wsparcie pytania'
       vote_modal_confirm:
         change: Zmiana
         confirm: Potwierdzać
         contextual_help: Potwierdź wybraną opcję.
-        title: 'Konsultacje: potwierdź wsparcie'
   layouts:
     decidim:
       admin:
