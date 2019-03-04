@@ -90,7 +90,7 @@ gl:
             create: Crear estado
             title: Novo estado
           update:
-            invalid: Houbo un problema ao actualizar este estado
+            invalid: Produciuse un problema ao actualizar este estado
             success: Estado actualizado correctamente
         timeline_entries:
           create:
