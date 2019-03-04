@@ -51,7 +51,7 @@ eu:
             name: Denbora-lerroko sarrera
         results:
           create:
-            invalid: Arazo bat izan da emaitza hau sortzean
+            invalid: Arazo bat izan da emaitza hau sortzean.
             success: Emaitza zuzen sortu da
           destroy:
             success: Emaitza zuzen ezabatu da.
@@ -70,7 +70,7 @@ eu:
             current_selection: Oraingo hautapena
             select: Aukeratu
           update:
-            invalid: Arazo bat izan da emaitza hau eguneratzean
+            invalid: Arazo bat izan da emaitza hau eguneratzean.
             success: Emaitza zuzen eguneratu da.
         shared:
           subnav:
@@ -90,11 +90,11 @@ eu:
             create: Sortu egoera
             title: Egoera berria
           update:
-            invalid: Arazo bat izan da egoera hau eguneratzean
+            invalid: Arazo bat izan da egoera hori eguneratzean
             success: Egoera behar bezala eguneratu da
         timeline_entries:
           create:
-            invalid: Arazo bat izan da sarrera hau sortzean
+            invalid: Arazo bat izan da sarrera hau sortzeko
             success: Sarrera ondo sortu da
           destroy:
             success: Sarrera zuzen ezabatu da
