@@ -40,10 +40,6 @@ en:
             base:
               too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
               too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: This email account has already been invited
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -65,9 +61,6 @@ en:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: There was a problem duplicating this meeting.
-          success: Meeting successfully duplicated.
         new:
           copy: Copy
           select: Select which data you would like to duplicate
@@ -108,10 +101,7 @@ en:
         meeting_registration_confirmed:
           notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%.
           email_outro: You have received this notification because you are an admin of the meeting's participatory space.
-          email_subject: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%
-          notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a> meeting are over %{percentage}%.
         meeting_updated:
           email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
@@ -135,14 +125,10 @@ en:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Register for the meetings you want to attend
           description: This badge is granted when you attend several face-to-face meetings.
-          description_another: This participant has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This participant hasn't attended any meeting yet.
           unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
@@ -161,19 +147,15 @@ en:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Add agenda sub-item
             agenda_item: Agenda Item
-            agenda_item_children: Agenda sub-items
             down: Down
             remove: Remove
             up: Up
           agenda_item_child:
-            agenda_item_child: Agenda sub-item
             down: Down
             remove: Remove
             up: Up
           create:
-            invalid: There was a problem creating this agenda
             success: Agenda successfully created
           edit:
             title: Edit agenda
@@ -187,7 +169,6 @@ en:
             create: Create
             title: New agenda
           update:
-            invalid: There was a problem updating this agenda
             success: Agenda successfully updated
         exports:
           meetings: Meetings
@@ -198,16 +179,9 @@ en:
             invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
             join: Join meeting '%{meeting_title}'
         invites:
-          create:
-            error: There was a problem inviting the participant to join the meeting.
-            success: Participant successfully invited to join the meeting.
           form:
             attendee_type: Attendee type
-            existing_user: Existing participant
             invite: Invite
-            invite_explanation: The participant will be invited to join the meeting and to the organization as well.
-            non_user: Non existing participant
-            select_user: Select participant
           index:
             filter:
               accepted: Accepted
@@ -228,10 +202,8 @@ en:
             select_organizer: Select the organizer
         meetings:
           close:
-            invalid: There was a problem closing this meeting
             success: Meeting successfully closed
           create:
-            invalid: There was a problem creating this meeting
             success: Meeting successfully created
           destroy:
             success: Meeting successfully deleted
@@ -255,11 +227,9 @@ en:
             add_service: Add service
             services: Services
           update:
-            invalid: There was a problem updating this meeting
             success: Meeting successfully updated
         minutes:
           create:
-            invalid: There was a problem creating this minutes
             success: Minutes successfully created
           edit:
             update: Update
@@ -267,7 +237,6 @@ en:
             create: Create
             title: Create minutes
           update:
-            invalid: There was a problem updating this minutes
             success: Minutes successfully updated
         models:
           meeting:
@@ -279,7 +248,6 @@ en:
             validate_registration_code: Validate registration code
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
-            invites: Invitations
             registration_form: Registration form
             registrations_count:
               one: There has been %{count} registration.
@@ -287,7 +255,6 @@ en:
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
-            invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
           validate_registration_code:
             invalid: This registration code is invalid.
@@ -406,13 +373,10 @@ en:
           registration_code: Your registration code is %{code}.
       registrations:
         create:
-          invalid: There was a problem joining this meeting.
           success: You have joined the meeting successfully.
         decline_invitation:
-          invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
         destroy:
-          invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       types:
         private_meeting: Private meeting
