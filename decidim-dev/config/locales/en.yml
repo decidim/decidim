@@ -17,12 +17,9 @@ en:
         test:
           conditions:
             - Use a test environment for decidim.
-          description: Participants get this badge by creating tests.
-          description_another: This participant has created %{score} tests.
           description_own: You have created %{score} tests.
           name: Tests
           next_level_in: Create %{score} more tests to reach the next level!
-          unearned_another: This participant hasn't created any tests yet.
           unearned_own: You have created no tests yet.
     pages:
       home:
