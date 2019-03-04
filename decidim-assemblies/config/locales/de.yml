@@ -32,11 +32,11 @@ de:
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         parent_id: Elternversammlung
-        participatory_processes_ids: Verwandte partizipative Prozesse
+        participatory_processes_ids: Related Partizipative Prozesse
         participatory_scope: Was ist entschieden?
         participatory_structure: Wie ist es entschieden?
         private_space: Privatsphäre
-        promoted: Hervorgehoben
+        promoted: Gefördert
         published_at: Veröffentlicht unter
         purpose_of_action: Zweck der Aktion
         scope_id: Umfang
@@ -80,7 +80,7 @@ de:
         new_assembly: Neue Montage
       assemblies:
         create:
-          error: Beim Erstellen einer neuen Baugruppe ist ein Problem aufgetreten.
+          error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
           success: Assembly wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
@@ -96,11 +96,11 @@ de:
           title: Neue Montage
         update:
           error: Beim Aktualisieren dieser Assembly ist ein Fehler aufgetreten.
-          success: Assembly erfolgreich aktualisiert.
+          success: Die Baugruppe wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
-          error: Beim Duplizieren dieser Assembly ist ein Problem aufgetreten.
-          success: Assembly erfolgreich dupliziert.
+          error: Beim Duplizieren dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Baugruppe wurde erfolgreich dupliziert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -108,7 +108,7 @@ de:
           title: Doppelte Montage
       assembly_members:
         create:
-          error: Beim Hinzufügen eines Mitglieds für diese Assembly ist ein Problem aufgetreten.
+          error: Beim Hinzufügen eines Mitglieds für diese Assembly ist ein Fehler aufgetreten.
           success: Mitglied wurde erfolgreich für diese Assembly erstellt.
         destroy:
           success: Mitglied wurde für diese Assembly erfolgreich gelöscht.
@@ -121,36 +121,36 @@ de:
           create: Erstellen
           title: Neues Montageelement
         update:
-          error: Beim Aktualisieren des Members für diese Assembly ist ein Fehler aufgetreten.
-          success: Das Mitglied wurde für diese Assembly erfolgreich aktualisiert.
+          error: Beim Aktualisieren des Elements für diese Assembly ist ein Fehler aufgetreten.
+          success: Mitglied wurde für diese Assembly erfolgreich aktualisiert.
       assembly_publications:
         create:
-          error: Beim Veröffentlichen dieser Assembly ist ein Problem aufgetreten.
+          error: Beim Veröffentlichen dieser Assembly ist ein Fehler aufgetreten.
           success: Assembly erfolgreich veröffentlicht.
         destroy:
-          error: Bei der Veröffentlichung dieser Assembly ist ein Problem aufgetreten.
-          success: Montage erfolgreich unveröffentlicht.
+          error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Assembly wurde nicht veröffentlicht.
       assembly_user_roles:
         create:
-          error: Beim Hinzufügen eines Administrators für diese Assembly ist ein Problem aufgetreten.
-          success: Admin wurde dieser Assembly erfolgreich hinzugefügt.
+          error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
+          success: Der Benutzer wurde dieser Baugruppe erfolgreich hinzugefügt.
         destroy:
-          success: Admin wurde erfolgreich aus dieser Assembly entfernt.
+          success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
-          title: Assembly-Administrator aktualisieren
+          title: Aktualisiere den Benutzer der Baugruppe
           update: Aktualisieren
         index:
-          assembly_admins_title: Versammlungsadministratoren
+          assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
-          title: Neuer Assembly-Administrator
+          title: Neuer Assembly-Benutzer
         update:
-          error: Beim Aktualisieren eines Administrators für diese Assembly ist ein Fehler aufgetreten.
-          success: Admin wurde für diese Assembly erfolgreich aktualisiert.
+          error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
+          success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
       menu:
         assemblies: Baugruppen
         assemblies_submenu:
-          assembly_admins: Versammlungsadministratoren
+          assembly_admins: Assembly Benutzer
           assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
@@ -186,7 +186,7 @@ de:
             email: Email
             name: Name
             role: Rolle
-          name: Versammlung Admin
+          name: Assembly Benutzer
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
@@ -205,7 +205,7 @@ de:
         update: "%{user_name} hat das %{resource_name} Mitglied in der %{space_name} Assembly aktualisiert"
       assembly_user_role:
         create: "%{user_name} lud %{resource_name} zur %{space_name} Versammlung ein"
-        delete: "%{user_name} den Teilnehmer %{resource_name} aus der %{space_name} Assembly entfernt"
+        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Assembly"
         update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Assembly geändert"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ de:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
-            existing_user: Bestehender Teilnehmer
-            non_user: Nicht Teilnehmer
+            existing_user: Existierender Benutzer
+            non_user: Nichtbenutzer
             select_a_position: Wählen Sie eine Position
-            select_user: Wählen Sie einen Teilnehmer aus
-            user_type: Teilnehmertyp
+            select_user: Wählen Sie einen Benutzer aus
+            user_type: Benutzertyp
           index:
             filter:
               all: Alle
@@ -314,14 +314,14 @@ de:
         endorsements_count: Empfehlungen
         headline: Aktivität
         meetings_count: Meetings
-        orders_count: Unterstützt
+        orders_count: Stimmen
         pages_count: Seiten
         projects_count: Projekte
         proposals_count: Vorschläge
         results_count: Ergebnisse
         surveys_count: Umfragen
         users_count: Teilnehmer
-        votes_count: Unterstützt
+        votes_count: Stimmen
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
@@ -330,8 +330,8 @@ de:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Ein <strong>Baugruppe</strong> ist eine Gruppe von Mitgliedern einer Organisation , die in regelmäßigen Abständen treffen Entscheidungen über einen bestimmten Bereich oder Umfang der Organisation zu machen.</p> <p>Versammlungen halten Versammlungen ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es zulässt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen zu unterbreiten In der Organisation) sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
-          page: "<p>Ein <strong>Baugruppe</strong> ist eine Gruppe von Mitgliedern einer Organisation , die in regelmäßigen Abständen treffen Entscheidungen über einen bestimmten Bereich oder Umfang der Organisation zu machen.</p> <p>Versammlungen halten Versammlungen ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es zulässt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen zu unterbreiten In der Organisation) sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
+          contextual: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
+          page: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
           title: Was sind Baugruppen?
     log:
       value_types:
