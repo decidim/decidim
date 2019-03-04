@@ -33,7 +33,6 @@ es:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Habilitar la creación de debates por los usuarios
     debates:
       actions:
         confirm_destroy: '¿Seguro que quieres borrar el debate?'
@@ -43,11 +42,6 @@ es:
         title: Acciones
       admin:
         debates:
-          create:
-            invalid: Ha habido un problema al crear el debate.
-            success: Debate creado con éxito.
-          destroy:
-            success: El debate se borró con éxito.
           edit:
             title: Editar debate
             update: Actualizar debate
@@ -56,9 +50,6 @@ es:
           new:
             create: Crear debate
             title: Nuevo debate
-          update:
-            invalid: Ha habido un problema al actualizar este debate.
-            success: Debate actualizado con éxito.
         models:
           debate:
             name: Debate
@@ -71,9 +62,6 @@ es:
           debates_count:
             one: "%{count} debate"
             other: "%{count} debates"
-        create:
-          invalid: Ha habido un problema al crear el debate.
-          success: Debate creado con éxito.
         debate:
           participate: Participar
         filters:
@@ -127,7 +115,6 @@ es:
             email_subject: Nuevo debate "%{resource_title}" de %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creó el debate <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'La creación de debate ya no está activa en %{participatory_space_title}. Aún puede participar en debates abiertos desde esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Ya no se pueden crear debates en %{participatory_space_title}
           notification_title: La creación de debates ahora está deshabilitada en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ es:
           conditions:
             - Elige un debate abierto para participar
           description: Este distintivo se otorga cuando participes activamente en los diferentes debates dejando tus comentarios.
-          description_another: Este usuario ha participado en %{score} debates.
           description_own: Has participado en %{score} debates.
           name: Debates
           next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha participado en ningún debate.
           unearned_own: Aún no has participado en ningún debate.
     metrics:
       debates:
