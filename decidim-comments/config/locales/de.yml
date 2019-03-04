@@ -18,9 +18,6 @@ de:
       comments: Bemerkungen
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
-      votes:
-        create:
-          error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">Melden Sie sich</a> an, um Ihren Kommentar hinzuzufügen.
@@ -41,7 +38,6 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
-        deleted_user: Gelöschter Benutzer
         reply: Antworten
         report:
           action: Bericht
@@ -91,7 +87,6 @@ de:
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Anzahl der von Benutzern generierten Kommentare
         object: Bemerkungen
         title: Bemerkungen
   errors:
