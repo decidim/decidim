@@ -58,23 +58,8 @@ fr:
         new_response: Nouvelle réponse
         publish_results: Publier les résultats
         unpublish_results: Dépublier des résultats
-      consultation_publications:
-        create:
-          error: Une erreur s'est produite lors de la publication de cette votation.
-          success: La votation a été publiée avec succès.
-        destroy:
-          error: Il y a eu une erreur lors de la dépublication de cette votation.
-          success: La votation a été dépubliée avec succès.
-      consultation_results_publications:
-        create:
-          error: Une erreur s'est produite lors de la publication des résultats de cette votation.
-          success: Les résultats de la votation ont été publiés avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la dépublication des résultats de cette votation.
-          success: Les résultats de la votation ont été dépubliés avec succès.
       consultations:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle votation.
           success: La votation a été créée avec succès.
         edit:
           update: Mettre à jour
@@ -88,7 +73,6 @@ fr:
           create: Créer
           title: Nouvelle votation
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette votation.
           success: Votation mise à jour avec succès.
       menu:
         consultations: Votations
@@ -124,16 +108,8 @@ fr:
           name:
             one: Réponse
             other: Réponses
-      question_publications:
-        create:
-          error: Une erreur s'est produite lors de la publication de cette question.
-          success: Question publiée avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression de cette question.
-          success: Question dépubliée avec succès.
       questions:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle question.
           success: Question créée avec succès.
         destroy:
           success: Question supprimée avec succès.
@@ -147,15 +123,10 @@ fr:
         new:
           create: Créer
           title: Nouvelle question
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette question.
-          success: Question mise à jour avec succès.
       responses:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
           success: Réponse créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de la réponse.
           success: Réponse supprimée avec succès.
         edit:
           update: Mettre à jour
@@ -164,9 +135,6 @@ fr:
         new:
           create: Créer
           title: Nouvelle réponse
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette réponse.
-          success: Réponse mise à jour avec succès.
       titles:
         consultations: Votations
         questions: Questions
@@ -198,7 +166,6 @@ fr:
         all: Tout
         finished: Passées
         search: Rechercher
-        state: État
         upcoming: À venir
       filters_small_view:
         close_modal: Fermer la fenêtre
@@ -227,9 +194,6 @@ fr:
         votes_out_of:
           one: vote sur
           other: votes sur
-      question_votes:
-        create:
-          error: Il y a eu des erreurs lors du vote sur la question
       regular_questions:
         title: Questions pour cette votation
       show:
@@ -247,8 +211,6 @@ fr:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
-          page: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant Oui ou Non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie plan ou le résultat d’un groupe de travail, ou définir si les postes doivent rester au maximum d’un, deux ou trois mandats dans l’organisation.</p>\n"
           title: Que sont les consultations?
     menu:
       consultations: Votations
@@ -265,22 +227,18 @@ fr:
         assistants_count_title: Assistants
         comments_count_title: Commentaires
         meetings_count_title: Rencontres
-        supports_count_title: Soutiens
       technical_info:
         technical_data: Données techniques
       vote_button:
         already_voted: Déjà voté
-        already_voted_hover: Retirer le vote
         starting_from: À partir de %{date}
         vote: Voter
       vote_modal:
         contextual_help: Veuillez sélectionner une option.
-        title: 'Votation : soutien aux questions'
       vote_modal_confirm:
         change: Modifier
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
-        title: 'Consultation : confirmer le soutien'
   layouts:
     decidim:
       admin:
