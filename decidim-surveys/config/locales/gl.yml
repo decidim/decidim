@@ -37,20 +37,8 @@ gl:
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
     metrics:
       survey_answers:
-        description: Número de enquisas respondidas polos usuarios
         object: respostas a enquisas
         title: Respostas a enquisas
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Enquisas respostas dos usuarios
-        surveys:
-          update:
-            invalid: Houbo erros ao gardar a enquisa.
-            success: A enquisa gardouse correctamente.
       last_activity:
         new_survey_at_html: "<span>Nova enquisa en %{link}</span>"
-      surveys:
-        answer:
-          invalid: Houbo erros ao responder a enquisa.
-          success: A enquisa respondeu con éxito.
