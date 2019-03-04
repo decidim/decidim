@@ -23,7 +23,6 @@ nl:
             name: Post
         posts:
           create:
-            invalid: Er is een probleem opgetreden bij het maken van dit bericht
             success: Post succesvol aangemaakt
           destroy:
             success: Post succesvol verwijderd
@@ -34,9 +33,6 @@ nl:
           new:
             create: creëren
             title: Maak bericht
-          update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van het bericht.
-            success: Bericht succesvol opgeslagen
       last_activity:
         new_post_at_html: "<span>Nieuw bericht op %{link}</span>"
       models:
