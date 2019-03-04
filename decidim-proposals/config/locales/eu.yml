@@ -261,7 +261,7 @@ eu:
       votes:
         description: Erabiltzaileek proposatutako sortutako boto kopurua
         object: boto
-        title: Botoak
+        title: Euskarriak
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -551,7 +551,7 @@ eu:
             official_proposal: Proposamen ofiziala
             published_at: Argitaratu at
             scope: Esparrua
-            state: Egoera
+            state: Estatu
             title: Titulua
             votes: Euskarriak
       new:
@@ -612,7 +612,7 @@ eu:
           origin: Jatorria
           related_to: Honekin lotuta
           search: Bilatu
-          state: Egoera
+          state: Estatu
           voted: Bozkatuta
           amendment_type: Mota
         filters_small_view:
