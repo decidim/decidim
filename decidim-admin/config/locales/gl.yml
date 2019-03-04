@@ -70,7 +70,6 @@ gl:
         success_color: Éxito
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
-        user_groups_enabled: Activar grupos de usuarios
         warning_color: Aviso
         youtube_handler: Xestor de YouTube
       scope:
@@ -138,7 +137,6 @@ gl:
         verify: Verifique
       area_types:
         create:
-          error: Produciuse un erro ao crear un novo tipo de área.
           success: Tipo de área creada con éxito.
         destroy:
           success: Tipo de área destruído con éxito
@@ -149,11 +147,9 @@ gl:
           create: Crea un tipo de área
           title: Tipo de área nova
         update:
-          error: Produciuse un erro ao actualizar este tipo de área.
           success: Tipo de área actualizado con éxito
       areas:
         create:
-          error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
           success: Área destruída con éxito
@@ -165,11 +161,9 @@ gl:
           title: Nova área
         no_areas: Sen Áreas
         update:
-          error: Produciuse un erro ao actualizar esta área.
           success: Área actualizada correctamente
       attachment_collections:
         create:
-          error: Produciuse un erro ao crear un cartafol novo.
           success: Cartafol creada con éxito.
         destroy:
           success: A carpeta foi destruída con éxito.
@@ -183,11 +177,9 @@ gl:
           create: Crear
           title: Nova carpeta
         update:
-          error: Produciuse un erro ao actualizar esta carpeta.
           success: A carpeta actualizouse con éxito.
       attachments:
         create:
-          error: Produciuse un erro ao crear un anexo novo.
           success: O anexo creouse correctamente.
         destroy:
           success: O anexo foi destruído con éxito.
@@ -200,17 +192,14 @@ gl:
           create: Crear anexo
           title: Novo anexo
         update:
-          error: Produciuse un erro ao actualizar este anexo.
           success: Adxunto actualizado correctamente.
       autocomplete:
         no_results: Non se atoparon resultados
         search_prompt: Escriba polo menos tres caracteres para buscar
       categories:
         create:
-          error: Houbo un erro ao crear esta categoría.
           success: Categoría creada con éxito.
         destroy:
-          error: Produciuse un erro ao eliminar esta categoría. Elimina primeiro calquera subcategoría, asegúrate de que outra entidade non pertence a esta categoría e téntao de novo.
           success: Categoría eliminada con éxito.
         edit:
           title: Editar categoría
@@ -222,17 +211,14 @@ gl:
           create: Crear categoría
           title: Nova categoría
         update:
-          error: Produciuse un erro ao actualizar esta categoría.
           success: A categoría actualizouse con éxito.
       component_permissions:
         update:
           success: Permisos actualizados con éxito.
       components:
         create:
-          error: Produciuse un erro ao crear este compoñente.
           success: Compoñente creado con éxito.
         destroy:
-          error: Produciuse un erro ao destruír este compoñente.
           success: Componente eliminado con éxito.
         edit:
           title: Editar compoñente
@@ -256,7 +242,6 @@ gl:
         unpublish:
           success: O compoñente foi publicado sen éxito.
         update:
-          error: Houbo un erro ao actualizar este compoñente.
           success: O compoñente foi actualizado correctamente.
       dashboard:
         show:
@@ -266,7 +251,6 @@ gl:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
       help_sections:
-        error: Produciuse un erro ao actualizar as seccións de axuda
         form:
           save: Gardar
         success: As seccións de axuda actualizáronse con éxito
@@ -278,7 +262,6 @@ gl:
             not_managed: Non se xestiona
           filter_by: Filtrar por
           impersonate: Suplantar
-          impersonate_new_managed_user: Substituír o novo usuario xestor
           managed: Xestionado
           name: Nome
           needs_authorization_warning: Precisa polo menos unha autorización habilitada para esta organización.
@@ -289,31 +272,19 @@ gl:
           view_logs: Ver rexistros
       impersonations:
         close_session:
-          error: Houbo un erro ao pechar a sesión de suplantación actual.
           success: A sesión de suplantación actual finalizou con éxito.
-        create:
-          error: Produciuse un erro ao personalizar o usuario.
-          success: O usuario xestionado foi creado con éxito.
         form:
           authorization_method: Método de autorización
           name: Nome
           reason: Motivo
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Substituír o usuario xestionado "%{name}"
-          impersonate_existing_user: Substitúe o usuario "%{name}"
-          impersonate_new_managed_user: Substituír o novo usuario xestor
       logs:
         logs_list:
           no_logs_yet: Aínda non hai rexistros
       managed_users:
-        promotion:
-          error: Produciuse un erro ao promover o usuario xestor.
-          success: O usuario xestionado foi promovido con éxito.
         promotions:
           new:
-            explanation: Os usuarios xestionados poden ser promocionados a usuarios estándar. Isto significa que serán invitados á aplicación e non poderás suplantarlles de novo. O usuario invitado recibirá un correo electrónico para aceptar a túa invitación.
-            new_managed_user_promotion: Nova promoción de usuarios xestionados
             promote: Promover
       menu:
         admin_log: Rexistro de actividade do administrador
@@ -333,8 +304,6 @@ gl:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páxinas
-        user_groups: Grupos de usuarios
-        users: Usuarios
       models:
         area:
           fields:
@@ -362,7 +331,6 @@ gl:
             expired_at: Vencido en
             reason: Motivo
             started_at: Comezou en
-            user: Usuario
         newsletter:
           fields:
             created_at: Creado en
@@ -375,8 +343,6 @@ gl:
             created_at: Creado en
             name: Nome
           name: Aplicación de OAuth
-        participatory_space_private_user:
-          name: Espazo participativo usuario privado
         scope:
           fields:
             name: Nome
@@ -398,8 +364,6 @@ gl:
             role: Rol
             roles:
               admin: Admin
-              user_manager: Xestor de usuarios
-          name: Usuario
         user_group:
           fields:
             actions: Accións
@@ -408,7 +372,6 @@ gl:
             name: Nome
             phone: Teléfono
             state: Estado
-            users_count: Usuarios contan
       moderations:
         index:
           title: Moderacións
@@ -419,10 +382,8 @@ gl:
             spam: Correo non desexado
       newsletters:
         create:
-          error: Produciuse un erro ao crear este boletín informativo.
           success: Boletín creado con éxito. Por favor, revíseo antes de enviar.
         deliver:
-          error: Produciuse un erro ao enviar este boletín informativo.
           success: Boletín enviado con éxito.
         destroy:
           error_already_sent: 'Non se pode destruír o boletín: xa foi enviado.'
@@ -444,14 +405,11 @@ gl:
           preview: Vista previa
           subject: Asunto
         update:
-          error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
       oauth_applications:
         create:
-          error: Produciuse un erro ao crear esta aplicación.
           success: Aplicación creada con éxito.
         destroy:
-          error: Produciuse un erro ao destruír esta aplicación.
           success: Aplicación destruída con éxito.
         edit:
           save: Gardar
@@ -463,13 +421,8 @@ gl:
           save: Gardar
           title: Nova aplicación
         update:
-          error: Produciuse un erro ao actualizar esta aplicación.
           success: A aplicación actualizouse con éxito.
       officializations:
-        create:
-          success: O usuario oficializouse con éxito
-        destroy:
-          success: O usuario non foi oficializado correctamente
         index:
           actions: Accións
           badge: Insignia
@@ -491,7 +444,6 @@ gl:
         new:
           badge: Insignia de oficialización
           officialize: Organizar
-          title: Clasificar o usuario "%{name}"
       organization:
         edit:
           title: Editar organización
@@ -505,7 +457,6 @@ gl:
           url: Url
           youtube: YouTube
         update:
-          error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
       organization_appearance:
         edit:
@@ -527,17 +478,8 @@ gl:
         edit:
           update: Actualización
       participatory_space_private_users:
-        create:
-          error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
-          success: O acceso ao usuario privado do espazo participativo creouse con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
-          success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
-        index:
-          title: Espazo participativo usuario privado
         new:
           create: Crear
-          title: Novo usuario privado do espazo participativo.
       resource_permissions:
         edit:
           submit: Enviar
@@ -546,7 +488,6 @@ gl:
           success: Permisos actualizados correctamente.
       scope_types:
         create:
-          error: Produciuse un erro ao crear un novo tipo de alcance.
           success: O tipo de alcance creouse con éxito.
         destroy:
           success: O tipo de alcance foi destruído con éxito
@@ -557,11 +498,9 @@ gl:
           create: Crea un tipo de alcance
           title: Novo alcance
         update:
-          error: Produciuse un erro ao actualizar este tipo de alcance.
           success: O tipo de alcance actualizouse con éxito
       scopes:
         create:
-          error: Produciuse un erro ao crear un novo alcance.
           success: Alcance creado con éxito.
         destroy:
           success: Alcance destruído con éxito
@@ -573,11 +512,9 @@ gl:
           title: Novo alcance
         no_scopes: Non hai alcances neste nivel.
         update:
-          error: Produciuse un erro ao actualizar este alcance.
           success: Ámbito actualizado con éxito
       static_page_topics:
         create:
-          error: Produciuse un erro ao crear un tema novo.
           success: O tema creouse con éxito.
         destroy:
           success: Tema destruído con éxito
@@ -588,18 +525,15 @@ gl:
           create: Crear tema
           title: Novo tema
         update:
-          error: Produciuse un erro ao actualizar este tema.
           success: Tema actualizado correctamente
       static_pages:
         actions:
           view: Ver páxina pública
         create:
-          error: Produciuse un erro ao crear unha nova páxina.
           success: Páxina creada con éxito.
         destroy:
           success: Páxina destruída con éxito
         edit:
-          changed_notably_help: Se está marcado, os usuarios serán notificados para aceptar os novos termos e condicións.
           title: Editar páxina
           update: Actualización
         form:
@@ -615,7 +549,6 @@ gl:
           empty: Non hai ningunha páxina neste tema
           without_topic: Páxinas sen tema
         update:
-          error: Produciuse un erro ao actualizar esta páxina.
           success: Páxina actualizada con éxito
       titles:
         admin_log: Rexistro de administrador
@@ -623,24 +556,9 @@ gl:
         areas: Campos
         authorization_workflows: Métodos de verificación
         dashboard: Taboleiro de instrumentos
-        impersonatable_users: Usuarios xestionables
-        impersonations: Xestión dos usuarios
-        participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas
-        user_groups: Grupos de usuarios
-        users: Usuarios
-      user_group:
-        csv_verify:
-          invalid: Produciuse un erro ao ler o ficheiro CSV.
-          success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
-        reject:
-          invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
-          success: Grupo de usuarios rexeitado con éxito
-        verify:
-          invalid: Produciuse un erro ao verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado con éxito
       user_groups:
         index:
           filter:
@@ -657,28 +575,16 @@ gl:
           verify_via_csv: Verifique a través de CSV
       user_groups_csv_verifications:
         new:
-          explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
           title: Carga o teu ficheiro CSV
           upload: Cargar
       users:
-        create:
-          error: Produciuse un erro ao invitar a este usuario.
-          success: Usuario convidado con éxito.
-        destroy:
-          error: Produciuse un erro ao tentar eliminar este usuario.
-          success: O usuario xa non é un administrador.
         form:
           email: Correo electrónico
           name: Nome
           role: Rol
         new:
           create: Invitar
-          title: Convidar ao usuario como administrador
       view_public_page: Ver páxina pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
     moderations:
       actions:
         hidden: Oculto
@@ -690,13 +596,10 @@ gl:
       admin:
         reportable:
           hide:
-            invalid: Produciuse un problema ao ocultar o recurso.
             success: Recurso escondido con éxito.
           unhide:
-            invalid: Produciuse un problema ao abrir o recurso.
             success: Recurso sen éxito.
           unreport:
-            invalid: Produciuse un problema ao non informar o recurso.
             success: Recurso non publicado correctamente.
       models:
         moderation:
@@ -717,5 +620,3 @@ gl:
           title: Boletíns informativos
         settings:
           title: Configuración
-        users:
-          title: Usuarios
