@@ -35,7 +35,7 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
-            creation_enabled: Vytváření diskusí u aktivovaných uživatelů
+            creation_enabled: Vytváření debaty účastníky povoleno
     debates:
       actions:
         confirm_destroy: Jsi si jistá?
@@ -49,7 +49,7 @@ cs:
             invalid: Během debaty vznikl problém.
             success: Diskuse byla úspěšně vytvořena.
           destroy:
-            success: Debata byla úspěšně smazána.
+            success: Diskuse byla úspěšně smazána.
           edit:
             title: Upravit diskusi
             update: Aktualizace debaty
@@ -150,7 +150,7 @@ cs:
           description_own: Zúčastnili jste se %{score} debat.
           name: Debaty
           next_level_in: Zúčastněte se dalších %{score} diskusí, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel se dosud nezúčastnil žádné debaty.
+          unearned_another: Tento účastník se dosud nezúčastnil žádné diskuse.
           unearned_own: Zatím jste se nezúčastnili žádné diskuse.
     metrics:
       debates:

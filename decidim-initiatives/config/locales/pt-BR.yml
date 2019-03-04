@@ -69,7 +69,7 @@ pt-BR:
             created_at: Criado em
             id: identidade
             state: Estado
-            supports_count: Suporta
+            supports_count: Assinaturas
             title: Iniciativas
         initiatives_type_scope:
           fields:

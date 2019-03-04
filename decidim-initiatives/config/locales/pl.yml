@@ -12,7 +12,7 @@ pl:
         signature_type_values:
           any: Mieszany
           offline: Twarzą w twarz
-          online: Online
+          online: online
         state: Stan
         title: Tytuł
       initiative_author:
@@ -75,7 +75,7 @@ pl:
             created_at: Utworzono w
             id: ID
             state: Stan
-            supports_count: Obsługuje
+            supports_count: Podpisy
             title: Inicjatywy
         initiatives_type_scope:
           fields:

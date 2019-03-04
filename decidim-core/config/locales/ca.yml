@@ -499,11 +499,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
-        user_officialized:
-          email_intro: S'ha oficialitzat a <a href="%{resource_url}">%{name} (%{nickname})</a>.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "%{nickname} s'ha oficialitzat"
-          notification_title: El <a href="%{resource_path}">%{name} (%{nickname})</a>, que sigueu, ha estat oficialitzat.
     export_mailer:
       data_portability_export:
         click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.

@@ -149,7 +149,7 @@ fr:
           attachments: Pièces jointes
           categories: Catégories
           components: Composants
-          conference_admins: Utilisateurs de la conférence
+          conference_admins: Administrateurs de conférence
           conference_invites: Invite
           conference_speakers: Haut-parleurs
           diploma: Certificat de participation

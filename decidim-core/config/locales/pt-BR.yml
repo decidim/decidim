@@ -500,11 +500,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> foi oficializado.
-          email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: "%{nickname} foi oficializado"
-          notification_title: O <a href="%{resource_path}">%{name} (%{nickname})</a>, que você está seguindo, foi oficializado.
     export_mailer:
       data_portability_export:
         click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.

@@ -155,7 +155,7 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: składniki
-          conference_admins: Użytkownicy konferencji
+          conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Głośniki
           diploma: Certyfikat uczestnictwa

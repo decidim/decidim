@@ -149,7 +149,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          conference_admins: Usuários da conferência
+          conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação

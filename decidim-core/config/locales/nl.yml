@@ -500,11 +500,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> is officieel.
-          email_outro: U hebt deze melding ontvangen omdat u %{nickname}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: "%{nickname} is officieel"
-          notification_title: De <a href="%{resource_path}">%{name} (%{nickname})</a>, die u volgt, is officieel.
     export_mailer:
       data_portability_export:
         click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> U hebt het bestand beschikbaar tot %{date}.

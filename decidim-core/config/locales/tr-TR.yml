@@ -504,11 +504,6 @@ tr:
           email_outro: Bu bildirimi, %{nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: "%{nickname} profilini güncelledi"
           notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> yetkilendirildi.
-          email_outro: '%{nickname}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: "%{nickname} yetkilendirildi"
-          notification_title: Takip ettiğiniz <a href="%{resource_path}">%{name} (%{nickname})</a>yetkilendirildi.
     export_mailer:
       data_portability_export:
         click_button: Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.

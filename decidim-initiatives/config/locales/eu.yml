@@ -69,7 +69,7 @@ eu:
             created_at: Sortutako at
             id: NAN
             state: Estatu
-            supports_count: euskarri
+            supports_count: sinadurak
             title: Ekimenak
         initiatives_type_scope:
           fields:

@@ -149,7 +149,7 @@ de:
           attachments: Anlagen
           categories: Kategorien
           components: Komponenten
-          conference_admins: Konferenzbenutzer
+          conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
