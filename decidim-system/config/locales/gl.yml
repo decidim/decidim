@@ -9,9 +9,6 @@ gl:
         save: Gardar
         title: Accións
       admins:
-        create:
-          error: Produciuse un erro ao crear un administrador novo.
-          success: O administrador creouse con éxito
         destroy:
           success: O administrador eliminouse con éxito
         edit:
@@ -22,9 +19,6 @@ gl:
         new:
           create: Crear
           title: Novo administrador
-        update:
-          error: Houbo un erro ao actualizar este administrador.
-          success: Admin actualizouse con éxito
       default_pages:
         placeholders:
           content: Engade contido significativo á páxina %{page} estática no taboleiro de administrador.
@@ -49,24 +43,15 @@ gl:
             name: Nome
           name: Organización
       organizations:
-        create:
-          error: Produciuse un erro ao crear unha nova organización.
-          success: Organización creada con éxito.
         edit:
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
         index:
           title: Organizacións
         new:
-          reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
-        update:
-          error: Produciuse un erro ao actualizar esta organización.
-          success: A organización actualizouse con éxito.
         users_registration_mode:
           disabled: O acceso só se pode facer con contas externas
-          enabled: Permitir aos usuarios rexistrarse e iniciar sesión
-          existing: Non permita que os usuarios se rexistren, pero permiten que os usuarios xa teñan acceso
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.
