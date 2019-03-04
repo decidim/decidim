@@ -12,10 +12,7 @@ de:
       id_document_upload:
         document_number: Dokumentennummer (mit Buchstaben)
         document_type: Art Ihres Dokuments
-        user: Benutzer
         verification_attachment: Gescannte Kopie Ihres Dokuments
-      offline_confirmation:
-        email: Benutzer Email
       postal_letter_address:
         full_address: Vollständige Adresse
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ de:
             - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
         postal_letter:
           help:
-            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+            - Participants request a verification code to be sent to their address.
             - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
             - Sie markieren den Brief als gesendet.
-            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen
         name: Zensus der Organisation
@@ -62,7 +59,6 @@ de:
     verifications:
       authorizations:
         create:
-          error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
           success: Sie wurden erfolgreich autorisiert.
           unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
         first_login:
@@ -107,10 +103,6 @@ de:
           new:
             error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Zählung der Organisation.
             success: Ihr Konto wurde erfolgreich verifiziert.
-      dummy_authorization:
-        extra_explanation:
-          one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
-          other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ de:
               title: Konfiguration der Identitätsdokumente
               update: Aktualisieren
             update:
-              error: Beim Aktualisieren der Konfiguration ist ein Fehler aufgetreten.
               success: Konfiguration erfolgreich aktualisiert
           confirmations:
-            create:
-              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Benutzer sie ändern kann
-              success: Benutzer erfolgreich verifiziert
             new:
               introduce_user_data: Stellen Sie die Daten in das Bild ein
               reject: Ablehnen
               verify: Überprüfen
           offline_confirmations:
-            create:
-              error: Die Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Benutzer mit, es zu ändern
-              success: Benutzer erfolgreich verifiziert
             new:
               cancel: Stornieren
-              introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ de:
               offline_verification: Offline-Überprüfung
               title: Ausstehende Überprüfungen
               verification_number: 'Überprüfung #%{n}'
-          rejections:
-            create:
-              success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
         authorizations:
           choose:
             choose_a_type: "Bitte wählen Sie aus, wie Sie verifiziert werden möchten:"
@@ -153,7 +134,6 @@ de:
             title: Überprüfen Sie sich anhand Ihres Ausweisdokuments
           create:
             error: Beim Hochladen Ihres Dokuments ist ein Problem aufgetreten
-            success: Dokument erfolgreich hochgeladen
           edit:
             being_reviewed: Wir überprüfen Ihre Dokumente. Sie werden in Kürze bestätigt
             offline: Offline-Bestätigung verwenden
@@ -167,7 +147,6 @@ de:
             title: Laden Sie Ihr Identitätsdokument hoch
           update:
             error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
-            success: Das Dokument wurde erfolgreich neu geladen
         dni: DNI
         nie: NIE
         passport: Reisepass
@@ -180,7 +159,6 @@ de:
               mark_as_sent: Als gesendet markieren
               not_yet_sent: Noch nicht gesendet
               title: Laufende Überprüfungen
-              username: Nutzername
               verification_code: Bestätigungscode
           postages:
             create:
