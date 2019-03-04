@@ -25,6 +25,3 @@ hu:
           edit:
             save: Frissítés
             title: Oldal szerkesztése
-          update:
-            invalid: Hiba történt az oldal mentése során.
-            success: Oldal mentése sikeres.
