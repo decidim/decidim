@@ -90,11 +90,11 @@ nl:
             create: Maak een status
             title: Nieuwe status
           update:
-            invalid: Er is een probleem opgetreden bij het maken van deze status
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze status
             success: Status succesvol bijgewerkt
         timeline_entries:
           create:
-            invalid: Er is een probleem opgetreden met het maken van deze invoer
+            invalid: Er is een probleem opgetreden bij het maken van dit item
             success: Invoer succesvol gemaakt
           destroy:
             success: Invoer succesvol verwijderd
@@ -107,7 +107,7 @@ nl:
             create: Item maken
             title: Nieuw item
           update:
-            invalid: Er is een probleem opgetreden met het bijwerken van dit item
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit item
             success: Item succesvol bijgewerkt
       admin_log:
         result:
