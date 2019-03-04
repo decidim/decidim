@@ -4,16 +4,12 @@ nl:
       initiative:
         decidim_user_group_id: Auteur
         description: Beschrijving
-        offline_votes: Face-to-face ondersteuning
         scope_id: Bereik
         signature_end_date: Einde van de periode om handtekeningen te verzamelen
         signature_start_date: Begin van de periode om handtekeningen te verzamelen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
-          offline: Face to face
-          online: Online
-        state: Staat
         title: Titel
       initiative_author:
         address: Adres
@@ -27,14 +23,11 @@ nl:
         user: Commissie lid
       initiatives_type:
         banner_image: Banner afbeelding
-        collect_user_extra_fields: Verzamel persoonlijke gebruikersgegevens bij ondertekening
         description: Beschrijving
-        document_number_authorization_handler: Autorisatie om documentnummer op stemmen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
         title: Titel
-        undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
         validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces
       initiatives_vote:
         name_and_surname: Naam en achternaam
@@ -68,13 +61,11 @@ nl:
           fields:
             created_at: Aangemaakt op
             id: ID kaart
-            state: Staat
-            supports_count: steunen
+            supports_count: handtekeningen
             title: initiatieven
         initiatives_type_scope:
           fields:
             scope: Bereik
-            supports_required: Ondersteuning vereist
           name: Type initiatief
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ nl:
     events:
       initiatives:
         initiative_extended:
-          email_intro: De handtekeningen einddatum voor het initiatief %{resource_title} is verlengd!
           email_outro: U hebt deze melding ontvangen omdat u %{resource_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Initiatief handtekeningen einddatum verlengd!
-          notification_title: De einddatum van de ondertekening van het <a href="%{resource_path}">%{resource_title}</a> initiatief is verlengd.
         milestone_completed:
           affected_user:
             email_intro: Uw initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
@@ -123,17 +112,13 @@ nl:
             - Ga naar de participatieruimte van Intiatives
             - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
-          description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           description_own: Je hebt %{score} initiatieven gepubliceerd.
           name: Gepubliceerde initiatieven
           next_level_in: Ontvang nog %{score} initiatieven die zijn gepubliceerd om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
           unearned_own: Je hebt nog geen initiatieven gepubliceerd.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan worden gepromoot door middel van het verzamelen van (digitale) handtekeningen voor de organisatie om een ​​specifieke actie uit te voeren (een verordening wijzigen, een project initiëren , verander de naam van een afdeling of een straat, enz.).</p> <p>De initiatiefnemers van een initiatief kunnen hun doelstellingen definiëren, steun verzamelen, debatteren, verspreiden en vergaderingspunten definiëren waar handtekeningen kunnen worden verzameld bij de deelnemers of debatten kunnen worden geopend voor andere deelnemers.</p> <p>Voorbeelden: een initiatief kan handtekeningen verzamelen om een ​​raadpleging bijeen te roepen onder alle mensen van een organisatie, of om een ​​vergadering te creëren of bijeen te roepen, of om een ​​proces van budgetverhoging op te zetten voor een territorium of een deel van de organisatie. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen aan deze vraag toevoegen en deze verder brengen in de organisatie.</p>\n"
-          page: "<p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan worden gepromoot door middel van het verzamelen van (digitale) handtekeningen voor de organisatie om een ​​specifieke actie uit te voeren (een verordening wijzigen, een project initiëren , verander de naam van een afdeling of een straat, enz.).</p> <p>De initiatiefnemers van een initiatief kunnen hun doelstellingen definiëren, steun verzamelen, debatteren, verspreiden en vergaderingspunten definiëren waar handtekeningen kunnen worden verzameld bij de deelnemers of debatten kunnen worden geopend voor andere deelnemers.</p> <p>Voorbeelden: een initiatief kan handtekeningen verzamelen om een ​​raadpleging bijeen te roepen onder alle mensen van een organisatie, of om een ​​vergadering te creëren of bijeen te roepen, of om een ​​proces van budgetverhoging op te zetten voor een territorium of een deel van de organisatie. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen aan deze vraag toevoegen en deze verder brengen in de organisatie.</p>\n"
           title: Wat zijn initiatieven?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ nl:
           index:
             approve: Goedkeuren
             confirm_revoke: Weet je het zeker?
-            invite_to_committee_help: Deel deze link om andere gebruikers uit te nodigen voor de promotiecommissie
             no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
@@ -166,7 +150,6 @@ nl:
             confirm: Weet je het zeker?
             discard: Gooi het initiatief weg
             export_pdf_signatures: PDF van handtekeningen exporteren
-            export_votes: Exportondersteuning
             reject: Verwerp initiatief
             send_to_technical_validation: Stuur naar technische validatie
             success: Het initiatief is verzonden naar technische validatie
@@ -191,7 +174,6 @@ nl:
             print: Afdrukken
           update:
             error: er is een fout opgetreden
-            success: Het burgerinitiatief is met succes bijgewerkt
         initiatives_type_scopes:
           create:
             error: er is een fout opgetreden
@@ -257,18 +239,15 @@ nl:
         fill_data:
           back: Terug
           continue: Doorgaan met
-          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stadsdeel?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_scope: Selecteer een scope
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          callout_text: Hartelijk gefeliciteerd! Je burgerinitiatief is succesvol aangemaakt.
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
         finish_help:
-          access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
           help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de Promotingscommissie vormen
           help_in_person_signatures: Als je ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet je de vereiste informatie uploaden.
           help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en deze voor verwerking kunt verzenden.
@@ -294,7 +273,6 @@ nl:
           invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotorcommissie
         show_similar_initiatives:
           back: Terug
-          compare_help: Als een van de volgende initiatieven vergelijkbaar is met die van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gedaan te worden.
           continue: Mijn initiatief is anders
           more_information: "(Meer informatie)"
       events:
@@ -328,9 +306,7 @@ nl:
           help: Controleer de sms die je op je telefoon hebt ontvangen
       initiative_votes:
         create:
-          error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
           invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
-          success_html: Gefeliciteerd! Het <strong> %{title}</strong> initiatief is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_code:
@@ -355,7 +331,6 @@ nl:
           myself: Mijn initiatieven
           open: Open
           search: Zoeken
-          state: Staat
           type: Type
           type_prompt: Selecteer een type
         filters_small_view:
@@ -384,13 +359,8 @@ nl:
             published: Dit voorstel is gepubliceerd omdat
             rejected: Dit voorstel is afgewezen omdat
             validating: Dit voorstel wordt beoordeeld
-          initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan ondersteuning.
         show:
-          any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
-          offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
-        signature_identities:
-          select_identity: Selecteer gebruikers-ID
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"
@@ -409,16 +379,11 @@ nl:
           most_popular_initiative: Meest populaire initiatief
           need_more_votes: Meer handtekeningen nodig
       initiatives_mailer:
-        creation_subject: Je burgerinitiatief '%{title}' is gemaakt
         initiative_link:
           check_initiative_details: Je kan de details van het initiatief bekijken
           here: hier
         more_information: Hier heb je meer informatie over het proces voor het maken van initiatieven.
-        progress_report_body_for: Het initiatief %{title} heeft %{percentage}% van de vereiste stemmen behaald.
-        progress_report_for: 'Doorgaan over het initiatief: %{title}'
         promotal_committee_help: Vergeet niet dat u ten minste %{member_count} personen moet uitnodigen voor een promotieraad. Stuur de volgende link door om mensen uit te nodigen voor de promotieraad
-        status_change_body_for: 'Het initiatief %{title} heeft de status gewijzigd in: %{state}'
-        status_change_for: Het initiatief %{title} is van status veranderd
         technical_validation_body_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
         technical_validation_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
       last_activity:
@@ -437,7 +402,6 @@ nl:
     resources:
       initiatives_type:
         actions:
-          vote: Stemmen
           title: acties
   layouts:
     decidim:
