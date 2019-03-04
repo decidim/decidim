@@ -289,13 +289,16 @@ fr:
             name: Proposition
         participatory_texts:
           bulk-actions:
+            are_you_sure: Etes-vous sûr de supprimer le brouillon du texte participatif?
             import_doc: Document d'importation
+            discard_all: Jeter tout
           import:
             invalid: Le formulaire est invalide!
             success: Félicitations, les sections suivantes ont été analysées à partir du document importé, elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
           index:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
+            save_draft: Enregistrer le brouillon
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
@@ -305,10 +308,14 @@ fr:
           publish:
             invalid: Impossible de publier des propositions
             success: Toutes les propositions ont été publiées
+          discard:
+            success: Tous les brouillons de texte participatifs ont été rejetés.
           sections:
             article: "<em>article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sous-section:</em> %{title}"
+          update:
+            success: Texte participatif mis à jour avec succès.
         proposal_answers:
           edit:
             accepted: Retenue
