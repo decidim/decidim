@@ -66,7 +66,7 @@ id:
             created_at: Dibuat di
             id: ID
             state: Negara
-            supports_count: Mendukung
+            supports_count: Tanda tangan
             title: Inisiatif
         initiatives_type_scope:
           fields:
