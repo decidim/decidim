@@ -46,6 +46,9 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Paso activado
+      decidim/participatory_process_step_changed_event: O paso cambiou
   activerecord:
     models:
       decidim/participatory_process:
@@ -54,6 +57,9 @@ gl:
       decidim/participatory_process_group:
         one: Grupo de procesos participativos
         other: Grupos de procesos participativos
+      decidim/participatory_process_step:
+        one: Paso
+        other: Pasos
   decidim:
     admin:
       actions:
@@ -65,6 +71,8 @@ gl:
         edit: Editar
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
+        new_process_step: Novo paso
+        new_process_user_role: Novo usuario do proceso
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación
@@ -80,6 +88,9 @@ gl:
           components: Compoñentes
           info: Información
           moderations: Moderacións
+          private_users: Usuarios privados
+          process_admins: Usuarios do proceso
+          steps: Pasos
       models:
         participatory_process:
           fields:
@@ -98,11 +109,13 @@ gl:
             end_date: Data de finalización
             start_date: Data de inicio
             title: Título
+          name: Paso de proceso participativo
         participatory_process_user_role:
           fields:
             email: Correo electrónico
             name: Nome
             role: Rol
+          name: Usuario de proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -117,24 +130,72 @@ gl:
           select: Seleccione os datos que desexa duplicar
           title: Duplicar o proceso participativo
       participatory_process_groups:
+        destroy:
+          success: Grupo de proceso participativo eliminado con éxito.
         edit:
           title: Editar o grupo de procesos
           update: Actualización
         new:
           create: Crear
           title: Novo grupo de procesos
+        update:
+          error: Produciuse un erro ao actualizar este grupo de procesos participativo.
+          success: Grupo de proceso participativo actualizado con éxito.
+      participatory_process_publications:
+        create:
+          error: Produciuse un erro ao publicar este proceso participativo.
+          success: Proceso participativo publicado con éxito.
+        destroy:
+          error: Produciuse un erro ao publicar este proceso participativo.
+          success: O proceso participativo non se publicou con éxito.
+      participatory_process_step_activations:
+        create:
+          error: Produciuse un erro ao activar este paso de proceso participativo.
+          success: O paso do proceso participativo activouse con éxito.
       participatory_process_steps:
+        create:
+          error: Produciuse un erro ao crear un novo paso de proceso participativo.
+          success: Paso de proceso participativo creouse con éxito.
         default_title: Introdución
+        destroy:
+          error:
+            active_step: Non se pode eliminar o paso activo.
+            last_step: Non se pode eliminar o último paso dun proceso.
+          success: Paso de proceso participativo eliminado con éxito.
         edit:
+          title: Edita paso de proceso participativo
           update: Actualización
+        index:
+          steps_title: Pasos
         new:
           create: Crear
+          title: Novo paso de proceso participativo
+        ordering:
+          error: Produciuse un erro ao reordenar estes pasos de proceso participativo.
+        update:
+          error: Produciuse un erro ao actualizar este paso de proceso participativo.
+          success: Paso de proceso participativo actualizado con éxito.
       participatory_process_user_roles:
+        create:
+          error: Houbo un erro engadindo un usuario a este proceso participativo.
+          success: O usuario engadiuse con éxito a este proceso participativo.
+        destroy:
+          success: Usuario eliminado con éxito deste proceso participativo.
         edit:
+          title: Actualiza o usuario de proceso participativo.
           update: Actualización
+        index:
+          process_admins_title: Usuarios de procesos participativos
         new:
           create: Crear
+          title: Novo usuario de proceso participativo.
+        update:
+          error: Houbo un erro actualizado por un usuario para este proceso participativo.
+          success: Usuario actualizado correctamente para este proceso participativo.
       participatory_processes:
+        create:
+          error: Produciuse un erro ao crear un novo proceso participativo.
+          success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
         edit:
           update: Actualización
         form:
@@ -147,23 +208,51 @@ gl:
         new:
           create: Crear
           title: Novo proceso participativo
+        update:
+          error: Produciuse un erro ao actualizar este proceso participativo.
+          success: Proceso participativo actualizado con éxito.
+      participatory_processes_copies:
+        create:
+          error: Produciuse un erro ao duplicar este proceso participativo.
+          success: O proceso participativo duplicouse con éxito.
+      participatory_processes_group:
+        create:
+          error: Produciuse un erro ao crear un novo grupo de procesos participativos.
+          success: Grupo de proceso participativo creouse con éxito.
       titles:
         participatory_process_groups: Grupos de procesos participativos
         participatory_processes: Procesos participativos
+      users:
+        resend_invitation:
+          error: Produciuse un erro ao reenviar a invitación.
+          success: A invitación resérvase con éxito.
     admin_log:
       participatory_process:
         create: "%{user_name} creou o proceso participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} proceso participativo"
         unpublish: "%{user_name} non publicou o proceso participativo %{resource_name}"
         update: "%{user_name} actualizou o proceso participativo %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} activou o paso %{resource_name} no proceso participativo %{space_name}"
+        create: "%{user_name} creou o paso %{resource_name} no proceso participativo %{space_name}"
+        delete: "%{user_name} eliminou o paso %{resource_name} no proceso participativo %{space_name}"
+        update: "%{user_name} actualizou o paso %{resource_name} no proceso participativo %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} convidou ao usuario %{resource_name} ao proceso participativo %{space_name}"
+        delete: "%{user_name} eliminou o usuario %{resource_name} do proceso participativo %{space_name}"
+        update: "%{user_name} cambiou o papel do usuario %{resource_name} no proceso participativo %{space_name}"
     events:
       participatory_process:
         step_activated:
+          email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
+          email_intro: 'As datas para o paso %{resource_title} en %{participatory_space_title} foron actualizadas. Podes velo desde esta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> paso en <a href="%{participatory_space_url}">%{participatory_space_title}</a> foron actualizadas.
     help:
       participatory_spaces:
         participatory_processes:
@@ -179,7 +268,14 @@ gl:
         title: Procesos participativos
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 procesos para %{group}
+          other: "%{count} procesos para %{group}"
         title: Grupos de procesos participativos
+    participatory_process_steps:
+      index:
+        process_steps: Pasos do proceso
+        title: Pasos de proceso participativo
     participatory_processes:
       admin:
         content_blocks:
@@ -207,6 +303,7 @@ gl:
         home:
           highlighted_processes:
             active_processes: Procesos activos
+            active_step: Paso activo
             more_information: Máis información
             participate: Participar
             see_all_processes: Ver todos os procesos
@@ -257,6 +354,7 @@ gl:
         endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
+        orders_count: Votos
         pages_count: Páxinas
         processes_count: Procesos
         projects_count: Proxectos
@@ -264,6 +362,7 @@ gl:
         results_count: Resultados
         surveys_count: Enquisas
         users_count: Participantes
+        votes_count: Votos
   layouts:
     decidim:
       participatory_process_groups:
@@ -272,14 +371,20 @@ gl:
           processes_count: 'Procesos:'
       participatory_process_widgets:
         show:
+          active_step: Paso activo
           take_part: Tomar parte en
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
         participatory_process:
+          active_step: 'Paso actual:'
           take_part: Tomar parte en
         promoted_process:
+          active_step: 'Paso actual:'
           more_info: Máis información
           take_part: Tomar parte en
+      process_header_steps:
+        step: Paso %{current} de %{total}
+        view_steps: Ver pasos
       process_navigation:
         process_menu_item: O proceso
