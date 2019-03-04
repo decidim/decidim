@@ -23,7 +23,6 @@ en:
             name: Post
         posts:
           create:
-            invalid: There was a problem creating this post
             success: Post successfully created
           destroy:
             success: Post successfully deleted
@@ -34,9 +33,6 @@ en:
           new:
             create: Create
             title: Create post
-          update:
-            invalid: There was a problem saving the post.
-            success: Post successfully saved
       last_activity:
         new_post_at_html: "<span>New post at %{link}</span>"
       models:
