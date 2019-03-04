@@ -51,7 +51,7 @@ it:
             name: Inserimento della linea temporale
         results:
           create:
-            invalid: C'è stato un problema durante la creazione di questo risultato
+            invalid: Si è verificato un problema durante la creazione di questo risultato
             success: Risultato creato con successo
           destroy:
             success: Risultato eliminato con successo
@@ -70,14 +70,14 @@ it:
             current_selection: Selezione corrente
             select: Selezionare
           update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
+            invalid: Si è verificato un problema durante l'aggiornamento di questo risultato
             success: Risultato modificato con successo
         shared:
           subnav:
             statuses: Status
         statuses:
           create:
-            invalid: C'è stato un problema nella creazione di questo stato
+            invalid: Si è verificato un problema durante la creazione di questo stato
             success: Stato creato con successo
           destroy:
             success: Stato eliminato con successo
@@ -90,11 +90,11 @@ it:
             create: Crea uno stato
             title: Nuovo stato
           update:
-            invalid: C'è stato un problema nel aggiornamento di questo stato
+            invalid: Si è verificato un problema durante l'aggiornamento di questo stato
             success: Stato aggiornato con successo
         timeline_entries:
           create:
-            invalid: C'è stato un problema nella creazione di questa voce
+            invalid: Si è verificato un problema durante la creazione di questa voce
             success: Voce creata con successo
           destroy:
             success: La voce è stata eliminata correttamente
@@ -107,7 +107,7 @@ it:
             create: Crea una voce
             title: Nuova voce
           update:
-            invalid: C'è stato un problema nel aggiornamento di questa voce
+            invalid: Si è verificato un problema durante l'aggiornamento di questa voce
             success: Voce aggiornata con successo
       admin_log:
         result:
