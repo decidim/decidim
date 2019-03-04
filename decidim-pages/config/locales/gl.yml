@@ -25,6 +25,3 @@ gl:
           edit:
             save: Actualización
             title: Editar páxina
-          update:
-            invalid: Produciuse un erro ao gardar a páxina.
-            success: A páxina gardouse correctamente.
