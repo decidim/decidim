@@ -12,10 +12,7 @@ gl:
       id_document_upload:
         document_number: Número do documento (con letra)
         document_type: Tipo do documento
-        user: Usuario
         verification_attachment: Copia escaneada do documento
-      offline_confirmation:
-        email: Correo electrónico do usuario
       postal_letter_address:
         full_address: Enderezo completo
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ gl:
             - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
         postal_letter:
           help:
-            - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
+            - Participants request a verification code to be sent to their address.
             - Envía a carta ao seu enderezo co código de verificación.
             - Marca a letra como enviada.
-            - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Verifícase mediante o censo da organización
         name: Censo da organización
@@ -62,7 +59,6 @@ gl:
     verifications:
       authorizations:
         create:
-          error: Produciuse un erro ao crear a autorización.
           success: Autorizouse con éxito.
           unconfirmed: Debes confirmar o teu correo electrónico para autorizarte.
         first_login:
@@ -107,10 +103,6 @@ gl:
           new:
             error: Non puidemos verificar a túa conta ou non estás no censo da organización.
             success: Verificouse correctamente a túa conta.
-      dummy_authorization:
-        extra_explanation:
-          one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.
-          other: 'A participación está restrinxida aos usuarios que conteñan algún dos seguintes códigos postais: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ gl:
               title: Configuración de documentos de identidade
               update: Actualización
             update:
-              error: Produciuse un erro ao actualizar a configuración.
               success: A configuración actualizouse correctamente
           confirmations:
-            create:
-              error: A verificación non coincide. Téntao de novo ou rexeita a verificación para que o usuario poida modificalo
-              success: O usuario verificouse con éxito
             new:
               introduce_user_data: Introduce os datos na imaxe
               reject: Rexeitar
               verify: Verifique
           offline_confirmations:
-            create:
-              error: A verificación non coincide. Téntao de novo ou díxolles ao usuario que o modifique
-              success: O usuario verificouse con éxito
             new:
               cancel: Cancelar
-              introduce_user_data: Introduce o correo electrónico do usuario e os datos do documento
               verify: Verifique
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ gl:
               offline_verification: Verificación sen conexión
               title: Verificacións pendentes
               verification_number: 'Verificación # %{n}'
-          rejections:
-            create:
-              success: Verificación rexeitada. Invitará ao usuario a que modifique os seus documentos
         authorizations:
           choose:
             choose_a_type: "Selecciona como queres verificar:"
@@ -153,7 +134,6 @@ gl:
             title: Verifica a túa conta usando o teu documento de identidade
           create:
             error: Produciuse un problema ao cargar o documento
-            success: Documento subido con éxito
           edit:
             being_reviewed: Estamos revisando os seus documentos. Verificarase en breve
             offline: Use a verificación sen conexión
@@ -167,7 +147,6 @@ gl:
             title: Carga o documento de identidade
           update:
             error: Produciuse un problema ao volver cargar o documento
-            success: O documento foi reencriptado con éxito
         dni: DNI
         nie: NIE
         passport: Pasaporte
@@ -180,7 +159,6 @@ gl:
               mark_as_sent: Marcar como enviado
               not_yet_sent: Aínda non enviado
               title: Verificacións en curso
-              username: Nome de usuario
               verification_code: Código de verificación
           postages:
             create:
