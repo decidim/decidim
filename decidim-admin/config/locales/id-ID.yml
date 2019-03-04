@@ -70,7 +70,7 @@ id:
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
         twitter_handler: Penangan Twitter
-        user_groups_enabled: Aktifkan grup pengguna
+        user_groups_enabled: Aktifkan grup
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
       scope:
@@ -138,7 +138,7 @@ id:
         verify: Memeriksa
       area_types:
         create:
-          error: Terjadi kesalahan saat membuat jenis area baru.
+          error: Terjadi masalah saat membuat tipe area baru.
           success: Tipe area berhasil dibuat.
         destroy:
           success: Tipe area berhasil dihancurkan
@@ -149,11 +149,11 @@ id:
           create: Buat tipe area
           title: Tipe area baru
         update:
-          error: Terjadi kesalahan saat memperbarui jenis area ini.
+          error: Ada masalah saat memperbarui jenis area ini.
           success: Tipe area berhasil diperbarui
       areas:
         create:
-          error: Terjadi kesalahan saat membuat area baru.
+          error: Terjadi masalah saat membuat area baru.
           success: Area berhasil dibuat.
         destroy:
           success: Area berhasil dihancurkan
@@ -165,11 +165,11 @@ id:
           title: Area baru
         no_areas: Tanpa Area
         update:
-          error: Ada kesalahan saat memperbarui area ini.
+          error: Terjadi masalah saat memperbarui area ini.
           success: Area berhasil diperbarui
       attachment_collections:
         create:
-          error: Ada kesalahan saat membuat folder baru.
+          error: Terjadi masalah saat membuat folder baru.
           success: Folder berhasil dibuat.
         destroy:
           success: Folder berhasil dihancurkan.
@@ -183,11 +183,11 @@ id:
           create: Membuat
           title: Folder baru
         update:
-          error: Ada kesalahan saat memperbarui folder ini.
+          error: Ada masalah saat memperbarui folder ini.
           success: Folder berhasil diperbarui.
       attachments:
         create:
-          error: Terjadi kesalahan saat membuat lampiran baru.
+          error: Terjadi masalah saat membuat lampiran baru.
           success: Attachment berhasil dibuat.
         destroy:
           success: Lampiran berhasil dihancurkan.
@@ -200,17 +200,17 @@ id:
           create: Buat lampiran
           title: Lampiran baru
         update:
-          error: Ada kesalahan saat memperbarui lampiran ini.
+          error: Terjadi masalah saat memperbarui lampiran ini.
           success: Lampiran berhasil diperbarui.
       autocomplete:
         no_results: Tidak ada hasil yang ditemukan
         search_prompt: Ketik setidaknya tiga karakter untuk mencari
       categories:
         create:
-          error: Terjadi kesalahan saat membuat kategori ini.
+          error: Terjadi masalah saat membuat kategori ini.
           success: Kategori berhasil dibuat.
         destroy:
-          error: Terjadi kesalahan saat menghapus kategori ini. Hapus subkategori terlebih dahulu, pastikan tidak ada entitas lain yang termasuk dalam kategori ini dan coba lagi.
+          error: Terjadi masalah saat menghapus kategori ini. Hapus subkategori mana saja terlebih dahulu, pastikan tidak ada entitas lain yang termasuk dalam kategori ini dan coba lagi.
           success: Kategori berhasil dihapus.
         edit:
           title: Edit kategori
@@ -222,17 +222,17 @@ id:
           create: Buat kategori
           title: Kategori baru
         update:
-          error: Terjadi kesalahan saat memperbarui kategori ini.
+          error: Terjadi masalah saat memperbarui kategori ini.
           success: Kategori berhasil diperbarui.
       component_permissions:
         update:
           success: Izin berhasil diperbarui.
       components:
         create:
-          error: Terjadi kesalahan saat membuat komponen ini.
+          error: Ada masalah saat membuat komponen ini.
           success: Komponen berhasil dibuat.
         destroy:
-          error: Terjadi kesalahan saat merusak komponen ini.
+          error: Ada masalah yang menghancurkan komponen ini.
           success: Komponen berhasil dihapus.
         edit:
           title: Edit komponen
@@ -256,7 +256,7 @@ id:
         unpublish:
           success: Komponen telah berhasil tidak dipublikasikan.
         update:
-          error: Terjadi kesalahan saat memperbarui komponen ini.
+          error: Ada masalah saat memperbarui komponen ini.
           success: Komponen berhasil diperbarui.
       dashboard:
         show:
@@ -266,7 +266,7 @@ id:
         export_as: "%{name} sebagai %{export_format}"
         notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       help_sections:
-        error: Terjadi kesalahan saat memperbarui bagian bantuan
+        error: Ada masalah saat memperbarui bagian bantuan
         form:
           save: Menyimpan
         success: Bagian bantuan berhasil diperbarui
@@ -278,7 +278,7 @@ id:
             not_managed: Tidak dikelola
           filter_by: Filter berdasarkan
           impersonate: Menirukan
-          impersonate_new_managed_user: Meniru pengguna yang dikelola baru
+          impersonate_new_managed_user: Kelola peserta baru
           managed: Dikelola
           name: Nama
           needs_authorization_warning: Anda memerlukan setidaknya satu otorisasi diaktifkan untuk organisasi ini.
@@ -289,31 +289,31 @@ id:
           view_logs: Lihat log
       impersonations:
         close_session:
-          error: Terjadi kesalahan saat menutup sesi peniruan saat ini.
+          error: Ada masalah saat menutup sesi manajemen peserta saat ini.
           success: Sesi peniruan saat ini telah berhasil berakhir.
         create:
-          error: Terjadi kesalahan saat meniru identitas pengguna.
-          success: Pengguna yang dikelola telah berhasil dibuat.
+          error: Terjadi masalah saat mengelola peserta.
+          success: Peserta yang dikelola telah berhasil dibuat.
         form:
           authorization_method: Metode otorisasi
           name: Nama
           reason: Alasan
         new:
           impersonate: Menirukan
-          impersonate_existing_managed_user: Meniru pengguna terkelola "%{name}"
-          impersonate_existing_user: Meniru pengguna "%{name}"
-          impersonate_new_managed_user: Meniru pengguna yang dikelola baru
+          impersonate_existing_managed_user: Kelola peserta "%{name}"
+          impersonate_existing_user: Kelola peserta "%{name}"
+          impersonate_new_managed_user: Kelola peserta baru
       logs:
         logs_list:
           no_logs_yet: Belum ada catatan
       managed_users:
         promotion:
-          error: Terjadi kesalahan saat mempromosikan pengguna yang dikelola.
-          success: Pengguna yang dikelola telah berhasil dipromosikan.
+          error: Ada masalah dalam mempromosikan peserta yang dikelola.
+          success: Peserta yang dikelola telah berhasil dipromosikan.
         promotions:
           new:
-            explanation: Pengguna yang dikelola dapat dipromosikan ke pengguna standar. Ini berarti mereka akan diundang ke aplikasi dan Anda tidak akan dapat meniru mereka lagi. Pengguna yang diundang akan menerima email untuk menerima undangan Anda.
-            new_managed_user_promotion: Promosi pengguna terkelola baru
+            explanation: Peserta yang dikelola dapat dipromosikan menjadi peserta standar. Ini berarti mereka akan diundang ke aplikasi dan Anda tidak akan bisa mengelolanya lagi. Peserta yang diundang akan menerima email untuk menerima undangan Anda.
+            new_managed_user_promotion: Promosi peserta terkelola baru
             promote: Memajukan
       menu:
         admin_log: Log aktivitas admin
@@ -333,8 +333,8 @@ id:
         scopes: Scopes
         settings: Pengaturan
         static_pages: Halaman
-        user_groups: Grup Pengguna
-        users: Pengguna
+        user_groups: Grup
+        users: Peserta
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ id:
             expired_at: Kedaluwarsa pada
             reason: Alasan
             started_at: Dimulai pada
-            user: Pengguna
+            user: Peserta
         newsletter:
           fields:
             created_at: Dibuat di
@@ -376,7 +376,7 @@ id:
             name: Nama
           name: Aplikasi OAuth
         participatory_space_private_user:
-          name: Ruang partisipatif pengguna pribadi
+          name: Ruang partisipatoris peserta privat
         scope:
           fields:
             name: Nama
@@ -398,8 +398,8 @@ id:
             role: Peran
             roles:
               admin: Admin
-              user_manager: Pengelola pengguna
-          name: Pengguna
+              user_manager: Manajer peserta
+          name: Peserta
         user_group:
           fields:
             actions: Tindakan
@@ -408,7 +408,7 @@ id:
             name: Nama
             phone: Telepon
             state: Negara
-            users_count: Jumlah pengguna
+            users_count: Peserta dihitung
       moderations:
         index:
           title: Moderasi
@@ -419,10 +419,10 @@ id:
             spam: Spam
       newsletters:
         create:
-          error: Terjadi kesalahan saat membuat buletin ini.
+          error: Ada masalah saat membuat buletin ini.
           success: Newsletter berhasil dibuat. Silakan, tinjau sebelum mengirim.
         deliver:
-          error: Terjadi kesalahan saat mengirim buletin ini.
+          error: Terjadi masalah saat mengirim buletin ini.
           success: Nawala berhasil dikirim.
         destroy:
           error_already_sent: 'Tidak dapat menghancurkan nawala: Sudah dikirim.'
@@ -444,14 +444,14 @@ id:
           preview: Preview
           subject: Subyek
         update:
-          error: Terjadi kesalahan saat memperbarui buletin ini.
+          error: Ada masalah saat memperbarui buletin ini.
           success: Buletin berhasil diperbarui. Harap tinjau sebelum mengirim.
       oauth_applications:
         create:
-          error: Terjadi kesalahan saat membuat aplikasi ini.
+          error: Terjadi masalah saat membuat aplikasi ini.
           success: Aplikasi berhasil dibuat.
         destroy:
-          error: Terjadi kesalahan saat menghancurkan aplikasi ini.
+          error: Ada masalah saat menghancurkan aplikasi ini.
           success: Aplikasi berhasil dihancurkan.
         edit:
           save: Menyimpan
@@ -463,13 +463,13 @@ id:
           save: Menyimpan
           title: Aplikasi baru
         update:
-          error: Terjadi kesalahan saat memperbarui aplikasi ini.
+          error: Terjadi masalah saat memperbarui aplikasi ini.
           success: Aplikasi berhasil diperbarui.
       officializations:
         create:
-          success: Pengguna resmi berhasil
+          success: Peserta berhasil resmi
         destroy:
-          success: Pengguna tidak resmi berhasil
+          success: Peserta berhasil tidak resmi
         index:
           actions: Tindakan
           badge: Lencana
@@ -491,7 +491,7 @@ id:
         new:
           badge: Lencana resmi
           officialize: Resmi
-          title: Beri otorisasi kepada pengguna "%{name}"
+          title: Resmikan peserta "%{name}"
       organization:
         edit:
           title: Edit organisasi
@@ -505,7 +505,7 @@ id:
           url: Url
           youtube: Youtube
         update:
-          error: Terjadi kesalahan saat memperbarui organisasi ini.
+          error: Ada masalah saat memperbarui organisasi ini.
           success: Organisasi berhasil diperbarui.
       organization_appearance:
         edit:
@@ -528,16 +528,16 @@ id:
           update: Memperbarui
       participatory_space_private_users:
         create:
-          error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.
-          success: Ruang partisipatif akses pengguna pribadi berhasil dibuat.
+          error: Terjadi masalah saat menambahkan peserta pribadi untuk ruang partisipatif ini.
+          success: Ruang partisipatif, akses peserta pribadi berhasil dibuat.
         destroy:
-          error: Terjadi kesalahan saat menghapus pengguna pribadi untuk ruang partisipatif ini.
-          success: Akses pribadi pengguna ruang partisipatif berhasil dihancurkan.
+          error: Ada masalah saat menghapus peserta pribadi untuk ruang partisipatif ini.
+          success: Ruang partisipatif, akses peserta pribadi berhasil dihancurkan.
         index:
-          title: Ruang partisipatif pengguna pribadi
+          title: Ruang partisipatoris peserta privat
         new:
           create: Membuat
-          title: Pengguna Pribadi Ruang Partisipatif Baru.
+          title: Partisipan Baru Ruang Partisipan pribadi.
       resource_permissions:
         edit:
           submit: Menyerahkan
@@ -546,7 +546,7 @@ id:
           success: Izin berhasil diperbarui.
       scope_types:
         create:
-          error: Terjadi kesalahan saat membuat jenis cakupan baru.
+          error: Ada masalah saat membuat tipe cakupan baru.
           success: Tipe lingkup berhasil dibuat.
         destroy:
           success: Tipe cakupan berhasil dihancurkan
@@ -557,11 +557,11 @@ id:
           create: Buat jenis cakupan
           title: Ruang lingkup baru
         update:
-          error: Ada kesalahan saat memperbarui jenis ruang lingkup ini.
+          error: Ada masalah saat memperbarui jenis ruang lingkup ini.
           success: Tipe lingkup berhasil diperbarui
       scopes:
         create:
-          error: Terjadi kesalahan saat membuat cakupan baru.
+          error: Terjadi masalah saat membuat ruang lingkup baru.
           success: Lingkup berhasil dibuat.
         destroy:
           success: Cakupan berhasil dihancurkan
@@ -573,11 +573,11 @@ id:
           title: Ruang lingkup baru
         no_scopes: Tidak ada cakupan pada level ini.
         update:
-          error: Ada kesalahan saat memperbarui ruang lingkup ini.
+          error: Ada masalah saat memperbarui ruang lingkup ini.
           success: Lingkup berhasil diperbarui
       static_page_topics:
         create:
-          error: Ada kesalahan saat membuat topik baru.
+          error: Terjadi masalah saat membuat topik baru.
           success: Topik berhasil dibuat.
         destroy:
           success: Topik berhasil dihancurkan
@@ -588,18 +588,18 @@ id:
           create: Buat topik
           title: Topik baru
         update:
-          error: Ada kesalahan saat memperbarui topik ini.
+          error: Terjadi masalah saat memperbarui topik ini.
           success: Topik berhasil diperbarui
       static_pages:
         actions:
           view: Lihat halaman publik
         create:
-          error: Ada kesalahan saat membuat halaman baru.
+          error: Terjadi masalah saat membuat halaman baru.
           success: Halaman berhasil dibuat.
         destroy:
           success: Halaman berhasil dihancurkan
         edit:
-          changed_notably_help: Jika dicentang, pengguna akan diberi tahu untuk menerima persyaratan dan ketentuan baru.
+          changed_notably_help: Jika dicentang, peserta akan diberitahukan untuk menerima syarat dan ketentuan baru.
           title: Edit halaman
           update: Memperbarui
         form:
@@ -615,7 +615,7 @@ id:
           empty: Tidak ada halaman di bawah topik ini
           without_topic: Halaman tanpa topik
         update:
-          error: Terjadi kesalahan saat memperbarui halaman ini.
+          error: Terjadi masalah saat memperbarui halaman ini.
           success: Halaman berhasil diperbarui
       titles:
         admin_log: Log admin
@@ -623,24 +623,24 @@ id:
         areas: Area
         authorization_workflows: Metode verifikasi
         dashboard: Dasbor
-        impersonatable_users: Pengguna yang dikelola
-        impersonations: Manajemen pengguna
-        participants: Pengguna
+        impersonatable_users: Peserta yang dikelola
+        impersonations: Manajemen peserta
+        participants: Peserta
         scope_types: Tipe lingkup
         scopes: Scopes
         static_pages: Halaman
-        user_groups: Grup Pengguna
-        users: Pengguna
+        user_groups: Grup
+        users: Peserta
       user_group:
         csv_verify:
-          invalid: Ada kesalahan saat membaca file CSV.
-          success: File CSV berhasil diunggah, kami memverifikasi grup pengguna yang cocok dengan kriteria. Ini mungkin membutuhkan waktu beberapa saat.
+          invalid: Ada masalah saat membaca file CSV.
+          success: File CSV berhasil diunggah, kami memverifikasi grup yang cocok dengan kriteria. Ini mungkin perlu waktu.
         reject:
-          invalid: Ada kesalahan saat menolak grup pengguna ini.
-          success: Kelompok pengguna berhasil ditolak
+          invalid: Terjadi masalah saat menolak grup ini.
+          success: Grup berhasil ditolak
         verify:
-          invalid: Ada kesalahan saat memverifikasi grup pengguna ini.
-          success: Kelompok pengguna berhasil diverifikasi
+          invalid: Ada masalah saat memverifikasi grup ini.
+          success: Grup berhasil diverifikasi
       user_groups:
         index:
           filter:
@@ -657,28 +657,28 @@ id:
           verify_via_csv: Verifikasi melalui CSV
       user_groups_csv_verifications:
         new:
-          explanation: Unggah file CSV Anda. Itu harus memiliki email resmi dari kelompok pengguna di organisasi Anda di kolom pertama file, tanpa header. Hanya grup pengguna yang telah mengkonfirmasi email mereka dan yang memiliki email yang muncul dalam file CSV akan divalidasi.
+          explanation: Unggah file CSV Anda. Itu harus memiliki email resmi grup di organisasi Anda di kolom pertama file, tanpa header. Hanya grup yang telah mengkonfirmasi email mereka dan yang memiliki email yang muncul di file CSV akan divalidasi.
           title: Unggah file CSV Anda
           upload: Unggah
       users:
         create:
-          error: Terjadi kesalahan saat mengundang pengguna ini.
-          success: Pengguna berhasil diundang.
+          error: Terjadi masalah saat mengundang admin ini.
+          success: Peserta berhasil diundang.
         destroy:
-          error: Terjadi kesalahan saat mencoba menghapus pengguna ini.
-          success: Pengguna bukan lagi administrator.
+          error: Terjadi masalah saat mencoba menghapus admin ini.
+          success: Peserta tidak lagi menjadi administrator.
         form:
           email: E-mail
           name: Nama
           role: Peran
         new:
           create: Undang
-          title: Undang pengguna sebagai administrator
+          title: Undang peserta sebagai administrator
       view_public_page: Lihat halaman publik
     forms:
       errors:
         impersonate_user:
-          reason: Anda perlu memberikan alasan ketika meniru pengguna yang tidak dikelola
+          reason: Anda harus memberikan alasan saat mengelola peserta yang tidak dikelola
     moderations:
       actions:
         hidden: Tersembunyi
@@ -690,13 +690,13 @@ id:
       admin:
         reportable:
           hide:
-            invalid: Ada masalah menyembunyikan sumber daya.
+            invalid: Terjadi masalah saat menyembunyikan sumber daya.
             success: Sumber daya berhasil disembunyikan.
           unhide:
             invalid: Terjadi masalah saat menyembunyikan sumber daya.
             success: Sumber daya berhasil tanpa hambatan.
           unreport:
-            invalid: Sudah ada masalah yang tidak melaporkan sumber daya.
+            invalid: Terjadi masalah saat tidak melaporkan sumber daya.
             success: Sumber daya berhasil tidak dilaporkan.
       models:
         moderation:
@@ -718,4 +718,4 @@ id:
         settings:
           title: Pengaturan
         users:
-          title: Pengguna
+          title: Peserta
