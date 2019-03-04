@@ -120,7 +120,7 @@ module Decidim
     def self.find_for_authentication(warden_conditions)
       organization = warden_conditions.dig(:env, "decidim.current_organization")
       find_by(
-        email: warden_conditions[:email].downcase,
+        email: warden_conditions[:email].to_s.downcase,
         decidim_organization_id: organization.id
       )
     end
