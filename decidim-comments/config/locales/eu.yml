@@ -20,7 +20,7 @@ eu:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       votes:
         create:
-          error: Arazo bat izan da iruzkina botatzea.
+          error: Erroreak gertatu dira iruzkina bozkatzean.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Hasi saioa zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina txertatzeko.
@@ -41,7 +41,7 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
-        deleted_user: Parte hartzaile ezabatua
+        deleted_user: Erabiltzaile ezabatua
         reply: Erantzuna
         report:
           action: Salatu
@@ -91,7 +91,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
     metrics:
       comments:
-        description: Parte-hartzaileek sortutako iruzkin kopurua
+        description: Erabiltzaileek sortutako iruzkin kopurua
         object: iruzkinak
         title: Oharrak
   errors:
