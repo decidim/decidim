@@ -31,7 +31,6 @@ eu:
             name: Proiektua
         projects:
           create:
-            invalid: Arazo bat izan da proiektu hau sortzean
             success: Proiektua ongi sortu da
           destroy:
             success: Proiektua behar bezala ezabatu da
@@ -46,11 +45,9 @@ eu:
             create: Sortu
             title: Proiektu berria
           update:
-            invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
         proposals_imports:
           create:
-            invalid: Arazo bat izan da proiektuen proposamenak inportatzea
             success: "%{number} proposamen arrakastaz proiektuak inportatu"
           new:
             create: Inportatu proposamenak proiektuetarako
@@ -138,13 +135,6 @@ eu:
             comments_blocked: Iruzkinak blokeatuta
             show_votes: Erakutsi botoak
             votes_enabled: Botoak gaituta
-    orders:
-      checkout:
-        error: Errorea gertatu da zure botoa prozesatzean
-        success: Zure botoa ongi bideratu da
-      destroy:
-        error: Errorea gertatu da zure botoa ezeztatzean
-        success: Zure botua zuzen ezeztatu da
     resource_links:
       included_proposals:
         project_proposal: 'Proiektu honetan jasotako proposamenak:'
