@@ -4,16 +4,12 @@ es-MX:
       initiative:
         decidim_user_group_id: Autor
         description: Descripción
-        offline_votes: Apoyo cara a cara
         scope_id: Alcance
         signature_end_date: Fin del período de recogida de firmas
         signature_start_date: Inicio del período de recogida de firmas
         signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
-          offline: Cara a cara
-          online: En línea
-        state: Estado
         title: Título
       initiative_author:
         address: Dirección
@@ -27,14 +23,11 @@ es-MX:
         user: Miembro del Comité
       initiatives_type:
         banner_image: Imagen de banner
-        collect_user_extra_fields: Recopilar datos personales del usuario en la firma
         description: Descripción
-        document_number_authorization_handler: Autorización para verificar el número de documento en las votaciones.
         extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
         title: Título
-        undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
       initiatives_vote:
         name_and_surname: Nombre y apellido
@@ -68,13 +61,11 @@ es-MX:
           fields:
             created_at: Creado en
             id: CARNÉ DE IDENTIDAD
-            state: Estado
-            supports_count: Apoyos
+            supports_count: Firmas
             title: Iniciativas
         initiatives_type_scope:
           fields:
             scope: Alcance
-            supports_required: Se requieren apoyos
           name: Alcance del tipo de iniciativa
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ es-MX:
     events:
       initiatives:
         initiative_extended:
-          email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
-          notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
           affected_user:
             email_intro: '¡Tu iniciativa %{resource_title} ha conseguido el %{percentage}% de firmas!'
@@ -123,17 +112,13 @@ es-MX:
             - Ir al espacio de participación de Iniciativas
             - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otros para llevarlas a cabo.
-          description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
-          unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
           unearned_own: Aún no tienes ninguna iniciativa publicada.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
-          page: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
           title: '¿Qué son las iniciativas?'
     initiatives:
       actions:
@@ -153,7 +138,6 @@ es-MX:
           index:
             approve: Aprobar
             confirm_revoke: '¿Estás seguro?'
-            invite_to_committee_help: Comparte este enlace para invitar a otros usuarios al comité de promoción
             no_members_yet: No hay miembros en el comité promotor
             revoke: Revocar
             title: Miembros del comité
@@ -166,7 +150,6 @@ es-MX:
             confirm: '¿Estás seguro?'
             discard: Descartar la iniciativa
             export_pdf_signatures: Exportar PDF de Firmas.
-            export_votes: Soportes de exportación
             reject: Rechazar la iniciativa
             send_to_technical_validation: Enviar a validación técnica
             success: La iniciativa ha sido enviada a validación técnica
@@ -191,7 +174,6 @@ es-MX:
             print: Impresión
           update:
             error: Se ha producido un error
-            success: La iniciativa ciudadana se ha actualizado con éxito
         initiatives_type_scopes:
           create:
             error: Se ha producido un error
@@ -257,18 +239,15 @@ es-MX:
         fill_data:
           back: Volver
           continue: Continuar
-          fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa? ¿Distrito de la ciudad?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_scope: Seleccione un alcance
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
-          callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
-          access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de usuario.
           help_for_organizations: Si sois una asociación, tendréis que facilitar los datos de los miembros de la junta de todas las organizaciones que conforman la Comisión Promotora.
           help_in_person_signatures: Si eliges recolectar las firmas en persona o combinadas en línea, tendrás que cargar la información requerida.
           help_text: Recuerda que para procesar correctamente la iniciativa debes acceder al panel de administración donde encontrarás el menú de usuario, cargar la información solicitada y enviarla para su tramitación.
@@ -294,7 +273,6 @@ es-MX:
           invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
         show_similar_initiatives:
           back: Volver
-          compare_help: Si alguna de las siguientes iniciativas es similar a la suya, lo alentamos a que la respalde. Su propuesta tendrá más posibilidades de hacerse.
           continue: Mi iniciativa es diferente
           more_information: "(Más información)"
       events:
@@ -328,9 +306,7 @@ es-MX:
           help: Consulta los SMS recibidos en tu teléfono.
       initiative_votes:
         create:
-          error: Ha habido errores al firmar la iniciativa.
           invalid: Los datos proporcionados para firmar la iniciativa no son válidos.
-          success_html: '¡Felicidades! La iniciativa <strong> %{title}</strong> ha sido firmada correctamente.'
         personal_data:
           invalid: Los datos personales no son consistentes con los datos proporcionados para la autorización.
         sms_code:
@@ -355,7 +331,6 @@ es-MX:
           myself: Mis iniciativas
           open: Abierto
           search: Buscar
-          state: Estado
           type: Tipo
           type_prompt: Selecciona un tipo
         filters_small_view:
@@ -384,13 +359,8 @@ es-MX:
             published: Esta propuesta se publica porque
             rejected: Esta propuesta ha sido rechazada porque
             validating: Esta propuesta está siendo evaluada.
-          initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
-          any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
           follow_description: Recibir una notificación cuando haya novedades en esta iniciativa.
-          offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
-        signature_identities:
-          select_identity: Selecciona un identificador de usuario
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -409,16 +379,11 @@ es-MX:
           most_popular_initiative: Iniciativa mas popular
           need_more_votes: Necesito mas firmas
       initiatives_mailer:
-        creation_subject: Su iniciativa ciudadana '%{title}' ha sido creada
         initiative_link:
           check_initiative_details: Puedes ver los detalles de la iniciativa
           here: aquí
         more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
-        progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
-        progress_report_for: 'Currículum sobre la iniciativa: %{title}'
         promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la Comisión Promotora. Reenvia el siguiente enlace para invitarlas.
-        status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
-        status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
         technical_validation_for: La iniciativa %{title} ha solicitado su validación técnica.
       last_activity:
@@ -437,7 +402,6 @@ es-MX:
     resources:
       initiatives_type:
         actions:
-          vote: Votar
           title: Comportamiento
   layouts:
     decidim:
