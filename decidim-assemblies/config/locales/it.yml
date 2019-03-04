@@ -36,7 +36,7 @@ it:
         participatory_scope: Cosa è deciso
         participatory_structure: Come è deciso?
         private_space: Spazio privato
-        promoted: Promosso
+        promoted: evidenziato
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
         scope_id: Scopi
@@ -80,7 +80,7 @@ it:
         new_assembly: Nuovo assemblaggio
       assemblies:
         create:
-          error: Si è verificato un errore durante la creazione di un nuovo assembly.
+          error: Si è verificato un problema durante la creazione di un nuovo assieme.
           success: L'assemblaggio è stato creato con successo.
         edit:
           update: Aggiorna
@@ -95,12 +95,12 @@ it:
           create: Crea
           title: Nuovo montaggio
         update:
-          error: Si è verificato un errore durante l'aggiornamento di questo assembly.
-          success: L'assemblaggio è aggiornato correttamente.
+          error: Si è verificato un problema durante l'aggiornamento di questo assembly.
+          success: Assemblea aggiornata con successo.
       assemblies_copies:
         create:
-          error: Si è verificato un errore durante la duplicazione di questo assembly.
-          success: L'assemblaggio è duplicato con successo.
+          error: Si è verificato un problema durante la duplicazione di questo assembly.
+          success: Assemblea duplicata con successo.
       assembly_copies:
         new:
           copy: Copia
@@ -108,10 +108,10 @@ it:
           title: Duplicare il montaggio
       assembly_members:
         create:
-          error: Si è verificato un errore durante l'aggiunta di un membro per questo assembly.
+          error: Si è verificato un problema durante l'aggiunta di un membro per questo assieme.
           success: Membro creato con successo per questo assembly.
         destroy:
-          success: Membro cancellato con successo per questo assembly.
+          success: Membro eliminato con successo per questo assembly.
         edit:
           title: Aggiorna membro dell'assembly.
           update: Aggiornare
@@ -121,36 +121,36 @@ it:
           create: Creare
           title: Nuovo membro dell'assemblea.
         update:
-          error: Si è verificato un errore durante l'aggiornamento del membro per questo assembly.
-          success: Membro aggiornato correttamente per questo assembly.
+          error: Si è verificato un problema durante l'aggiornamento del membro per questo assembly.
+          success: Membro aggiornato con successo per questo assembly.
       assembly_publications:
         create:
-          error: Si è verificato un errore durante la pubblicazione di questo assembly.
-          success: L'Assemblea è pubblicata con successo.
+          error: Si è verificato un problema durante la pubblicazione di questo assembly.
+          success: Assemblea pubblicata con successo.
         destroy:
-          error: Si è verificato un errore durante la pubblicazione di questo assembly.
-          success: Assembly non pubblicato con successo.
+          error: Si è verificato un problema durante la pubblicazione di questo assembly.
+          success: Assemblea non pubblicata con successo.
       assembly_user_roles:
         create:
-          error: Si è verificato un errore durante l'aggiunta di un utente per questo assembly.
-          success: Utente aggiunto correttamente a questo assembly.
+          error: Si è verificato un problema durante l'aggiunta di un amministratore per questo assembly.
+          success: Admin aggiunto con successo a questo assembly.
         destroy:
-          success: Utente rimosso con successo da questo assembly.
+          success: Admin rimosso con successo da questo assembly.
         edit:
-          title: Aggiorna utente dell'assieme.
+          title: Aggiorna l'assembly admin.
           update: Aggiornare
         index:
-          assembly_admins_title: Utenti dell'assemblaggio
+          assembly_admins_title: Amministratori di assemblaggio
         new:
           create: Creare
-          title: Nuovo utente dell'assemblaggio.
+          title: Nuovo amministratore di assembly.
         update:
-          error: Si è verificato un errore durante l'aggiornamento di un utente per questo assieme.
-          success: Utente aggiornato correttamente per questo assembly.
+          error: Si è verificato un problema durante l'aggiornamento di un amministratore per questo assembly.
+          success: Admin aggiornato correttamente per questo assembly.
       menu:
         assemblies: assemblee
         assemblies_submenu:
-          assembly_admins: Utenti dell'assemblaggio
+          assembly_admins: Amministratori di assemblaggio
           assembly_members: Utenti
           attachment_collections: Cartelle
           attachment_files: File
@@ -186,7 +186,7 @@ it:
             email: E-mail
             name: Nome
             role: Ruolo
-          name: Utente dell'Assemblea
+          name: Amministratore dell'Assemblea
           roles:
             admin: Amministratore
             collaborator: Collaboratore
@@ -205,7 +205,7 @@ it:
         update: "%{user_name} aggiornato il %{resource_name} membro nel %{space_name} assembly"
       assembly_user_role:
         create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
-        delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
+        delete: "%{user_name} rimosso il partecipante %{resource_name} dal gruppo %{space_name}"
         update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assembly %{space_name}"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ it:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
-            existing_user: Utente esistente
-            non_user: Non utente
+            existing_user: Partecipante esistente
+            non_user: Non partecipante
             select_a_position: Seleziona una posizione
-            select_user: Seleziona un utente
-            user_type: Tipologia di utente
+            select_user: Seleziona un partecipante
+            user_type: Tipo di partecipante
           index:
             filter:
               all: Tutti
@@ -314,14 +314,14 @@ it:
         endorsements_count: Riconoscimenti
         headline: Attività
         meetings_count: Riunioni
-        orders_count: Voti
+        orders_count: supporti
         pages_count: Pagine
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
         surveys_count: indagini
         users_count: Partecipanti
-        votes_count: Voti
+        votes_count: supporti
     assembly_members:
       assembly_member:
         designated_on: Designato su
@@ -330,8 +330,8 @@ it:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
-          page: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          contextual: "<p>An <strong>assembly</strong> è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          page: "<p>An <strong>assembly</strong> è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
           title: Cosa sono gli assiemi?
     log:
       value_types:
