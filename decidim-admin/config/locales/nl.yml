@@ -70,7 +70,7 @@ nl:
         success_color: Succes
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
-        user_groups_enabled: Schakel gebruikersgroepen in
+        user_groups_enabled: Groepen inschakelen
         warning_color: Waarschuwing
         youtube_handler: YouTube gebruikersnaam
       scope:
@@ -138,7 +138,7 @@ nl:
         verify: Verifiëren
       area_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          error: Er is een probleem opgetreden bij het maken van een nieuw gebiedstype.
           success: Pagina met succes gemaakt.
         destroy:
           success: Pagina met succes verwijderd
@@ -149,11 +149,11 @@ nl:
           create: Maak een pagina
           title: Nieuwe pagina
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          error: Er is een probleem opgetreden bij het bijwerken van dit gebiedstype.
           success: Pagina is succesvol bijgewerkt
       areas:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          error: Er is een probleem opgetreden bij het maken van een nieuw gebied.
           success: Pagina succesvol aangemaakt.
         destroy:
           success: Pagina succesvol verwijderd
@@ -165,11 +165,11 @@ nl:
           title: Nieuwe pagina
         no_areas: Geen pagina's
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          error: Er is een probleem opgetreden bij het updaten van dit gebied.
           success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe map.
+          error: Er is een probleem opgetreden bij het maken van een nieuwe map.
           success: Map is succesvol gemaakt.
         destroy:
           success: Map met succes vernietigd.
@@ -183,11 +183,11 @@ nl:
           create: creëren
           title: Nieuwe map
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze map.
+          error: Er is een probleem opgetreden bij het bijwerken van deze map.
           success: Map succesvol bijgewerkt.
       attachments:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
+          error: Er is een probleem opgetreden bij het maken van een nieuwe bijlage.
           success: Bijlage is succesvol gemaakt.
         destroy:
           success: Bijlage is succesvol vernietigd.
@@ -200,17 +200,14 @@ nl:
           create: Maak bijlage
           title: Nieuwe bijlage
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
           success: Bijlage is succesvol bijgewerkt.
       autocomplete:
         no_results: geen resultaten gevonden
         search_prompt: Typ minimaal drie tekens om te zoeken
       categories:
         create:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
           success: Categorie succesvol gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
           success: Categorie is succesvol verwijderd.
         edit:
           title: Categorie bewerken
@@ -222,17 +219,14 @@ nl:
           create: Categorie creëren
           title: Nieuwe categorie
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
           success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
           success: Toelatingen succesvol bijgewerkt.
       components:
         create:
-          error: Er is een fout opgetreden bij het aanmaken van dit onderdeel.
           success: Onderdeel met succes gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het vernietigen van dit onderdeel.
           success: Onderdeel succesvol verwijderd.
         edit:
           title: Bewerk onderdeel
@@ -256,7 +250,6 @@ nl:
         unpublish:
           success: Het onderdeel is met succes verwijderd.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
       dashboard:
         show:
@@ -266,7 +259,6 @@ nl:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       help_sections:
-        error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
         form:
           save: Opslaan
         success: Help-secties met succes bijgewerkt
@@ -278,7 +270,6 @@ nl:
             not_managed: Niet beheerd
           filter_by: Sorteren op
           impersonate: Nabootsen
-          impersonate_new_managed_user: Zich voordoen als nieuwe beheerde gebruiker
           managed: Beheerd
           name: Naam
           needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
@@ -289,31 +280,19 @@ nl:
           view_logs: Bekijk logboeken
       impersonations:
         close_session:
-          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
           success: De huidige impersonatie-sessie is succesvol beëindigd.
-        create:
-          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
-          success: De beheerde gebruiker is succesvol aangemaakt.
         form:
           authorization_method: Autorisatiemethode
           name: Naam
           reason: Reden
         new:
           impersonate: Nabootsen
-          impersonate_existing_managed_user: Zich voordoen als beheerde gebruiker "%{name}"
-          impersonate_existing_user: Zich voordoen als "%{name}"
-          impersonate_new_managed_user: Zich voordoen als nieuwe beheerde gebruiker
       logs:
         logs_list:
           no_logs_yet: Er zijn nog geen logs
       managed_users:
-        promotion:
-          error: Er is een fout opgetreden bij het promoten van de beheerde gebruiker.
-          success: De beheerde gebruiker is succesvol gepromoveerd.
         promotions:
           new:
-            explanation: Beheerde gebruikers kunnen worden gepromoveerd worden tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de applicatie en dat deze niet verpersoonlijkt kunnen worden. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
-            new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
             promote: Promoten
       menu:
         admin_log: Admin activiteitenlogboek
@@ -333,8 +312,6 @@ nl:
         scopes: Scopes
         settings: Instellingen
         static_pages: Pagina's
-        user_groups: Gebruikersgroepen
-        users: Gebruikers
       models:
         area:
           fields:
@@ -362,7 +339,6 @@ nl:
             expired_at: Verlopen op
             reason: Reden
             started_at: Gestart op
-            user: Gebruiker
         newsletter:
           fields:
             created_at: Aangemaakt op
@@ -375,8 +351,6 @@ nl:
             created_at: Aangemaakt op
             name: Naam
           name: OAuth-toepassing
-        participatory_space_private_user:
-          name: Gebruiker van de burgerinspraak
         scope:
           fields:
             name: Naam
@@ -398,8 +372,6 @@ nl:
             role: Rol
             roles:
               admin: Beheerder
-              user_manager: Gebruikersbeheerder
-          name: Gebruiker
         user_group:
           fields:
             actions: acties
@@ -408,7 +380,6 @@ nl:
             name: Naam
             phone: Telefoon
             state: Staat
-            users_count: Aantal gebruikers
       moderations:
         index:
           title: Moderaties
@@ -419,10 +390,8 @@ nl:
             spam: Spam
       newsletters:
         create:
-          error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol gemaakt. Controleer het alvorens te verzenden.
         deliver:
-          error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
         destroy:
           error_already_sent: 'Kan de nieuwsbrief niet vernietigen: het is al verstuurd.'
@@ -444,14 +413,11 @@ nl:
           preview: Voorbeeld
           subject: Onderwerpen
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       oauth_applications:
         create:
-          error: Er is een fout opgetreden bij het maken van deze toepassing.
           success: Applicatie succesvol aangemaakt.
         destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van deze toepassing.
           success: Toepassing succesvol vernietigd.
         edit:
           save: Opslaan
@@ -463,13 +429,8 @@ nl:
           save: Opslaan
           title: Nieuwe toepassing
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze toepassing.
           success: Toepassing succesvol bijgewerkt.
       officializations:
-        create:
-          success: Gebruiker officieel gevalideerd
-        destroy:
-          success: Gebruiker niet gevalideerd
         index:
           actions: acties
           badge: badge
@@ -491,7 +452,6 @@ nl:
         new:
           badge: Bevestigings badge
           officialize: Bevestigen
-          title: Gebruiker bevestigen "%{name}"
       organization:
         edit:
           title: Organisatie bewerken
@@ -505,7 +465,6 @@ nl:
           url: Url
           youtube: YouTube
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
       organization_appearance:
         edit:
@@ -527,17 +486,8 @@ nl:
         edit:
           update: Bijwerken
       participatory_space_private_users:
-        create:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
-          success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
-        destroy:
-          error: Er is een fout opgetreden bij het verwijderen van een privégebruiker voor deze deelruimte.
-          success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
-        index:
-          title: Privégebruiker van de burgerinspraak
         new:
           create: creëren
-          title: Nieuwe privégebruiker van de burgerinspraak.
       resource_permissions:
         edit:
           submit: voorleggen
@@ -546,7 +496,6 @@ nl:
           success: Machtigingen succesvol bijgewerkt.
       scope_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
           success: Scope type is succesvol gemaakt.
         destroy:
           success: Scope type is succesvol vernietigd
@@ -557,11 +506,9 @@ nl:
           create: Maak een scope aan
           title: Nieuwe scope
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit scope type.
           success: Scope type is succesvol bijgewerkt
       scopes:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe scope.
           success: Scope is succesvol gemaakt.
         destroy:
           success: Scope succesvol vernietigd
@@ -573,11 +520,9 @@ nl:
           title: Nieuwe scope
         no_scopes: Geen scopes op dit niveau.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze scope.
           success: Scope is succesvol bijgewerkt
       static_page_topics:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw onderwerp.
           success: Onderwerp met succes gemaakt.
         destroy:
           success: Onderwerp succesvol vernietigd
@@ -588,18 +533,15 @@ nl:
           create: Maak een onderwerp aan
           title: Nieuw onderwerp
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
           success: Onderwerp met succes bijgewerkt
       static_pages:
         actions:
           view: Bekijk de openbare pagina
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina is succesvol gemaakt.
         destroy:
           success: Pagina succesvol vernietigd
         edit:
-          changed_notably_help: Indien ingeschakeld, zullen gebruikers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
           title: Pagina bewerken
           update: Bijwerken
         form:
@@ -615,7 +557,6 @@ nl:
           empty: Er is geen pagina onder dit onderwerp
           without_topic: Pagina's zonder onderwerp
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: log van de beheerder
@@ -623,24 +564,9 @@ nl:
         areas: Onderwerpen
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
-        impersonatable_users: Beheersbare gebruikers
-        impersonations: Gebruikersbeheer
-        participants: gebruikers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
-        user_groups: Gebruikersgroepen
-        users: Gebruikers
-      user_group:
-        csv_verify:
-          invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
-          success: CSV-bestand geüpload, we verifiëren de gebruikersgroepen die aan de criteria voldoen. Dit kan even duren.
-        reject:
-          invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.
-          success: Gebruikersgroep is succesvol geweigerd
-        verify:
-          invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
-          success: Gebruikersgroep is succesvol geverifieerd
       user_groups:
         index:
           filter:
@@ -657,28 +583,16 @@ nl:
           verify_via_csv: Controleer via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload uw CSV-bestand. Het moet de officiële e-mails van de gebruikersgroepen in uw organisatie bevatten in de eerste kolom van het bestand, zonder kopteksten. Alleen gebruikersgroepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
           title: Upload uw CSV-bestand
           upload: Uploaden
       users:
-        create:
-          error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
-          success: Gebruiker succesvol uitgenodigd.
-        destroy:
-          error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
-          success: Gebruiker is niet meer een administrator.
         form:
           email: E-mail
           name: Naam
           role: Rol
         new:
           create: Nodig uit
-          title: Nodig gebruiker uit als beheerder
       view_public_page: Bekijk openbare pagina
-    forms:
-      errors:
-        impersonate_user:
-          reason: Je moet een reden opgeven waarom je je uitgeeft als een niet beheerde gebruiker
     moderations:
       actions:
         hidden: Verborgen
@@ -690,13 +604,10 @@ nl:
       admin:
         reportable:
           hide:
-            invalid: Er is een probleem geweest om de bron te verbergen.
             success: Resource succesvol verborgen.
           unhide:
-            invalid: Er is een probleem opgetreden bij het zichtbaar maken van de bron.
             success: Resource succesvol onthuld.
           unreport:
-            invalid: Er is een probleem geweest om de bron niet te rapporteren.
             success: Bron succesvol ontmeld.
       models:
         moderation:
@@ -717,5 +628,3 @@ nl:
           title: Nieuwsbrieven
         settings:
           title: Instellingen
-        users:
-          title: Gebruikers
