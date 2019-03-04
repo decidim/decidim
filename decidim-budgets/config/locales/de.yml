@@ -31,7 +31,6 @@ de:
             name: Projekt
         projects:
           create:
-            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten
             success: Projekt erfolgreich erstellt
           destroy:
             success: Projekt erfolgreich gelöscht
@@ -46,11 +45,9 @@ de:
             create: Erstellen
             title: Neues Projekt
           update:
-            invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
             success: Projekt erfolgreich aktualisiert
         proposals_imports:
           create:
-            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
@@ -138,13 +135,6 @@ de:
             comments_blocked: Kommentare blockiert
             show_votes: Stimmen anzeigen
             votes_enabled: Abstimmung aktiviert
-    orders:
-      checkout:
-        error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
-        success: Ihre Stimme wurde erfolgreich angenommen
-      destroy:
-        error: Bei der Absage der Abstimmung ist ein Fehler aufgetreten
-        success: Ihre Abstimmung wurde erfolgreich abgebrochen
     resource_links:
       included_proposals:
         project_proposal: 'Vorschläge in diesem Projekt:'
