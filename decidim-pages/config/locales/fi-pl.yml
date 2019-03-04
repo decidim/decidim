@@ -25,6 +25,3 @@ fi-pl:
           edit:
             save: Päivitä
             title: Muokkaa sivua
-          update:
-            invalid: Sivun tallennuksessa tapahtui virheitä.
-            success: Sivu tallennettu onnistuneesti.
