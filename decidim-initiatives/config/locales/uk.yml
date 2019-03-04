@@ -4,15 +4,12 @@ uk:
       initiative:
         decidim_user_group_id: Автор
         description: Опис
-        offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
         signature_end_date: Конець періоду збору підписів
         signature_start_date: Початок періоду збору підписів
         signature_type: Різновид збору підписів
         signature_type_values:
           any: Поєднаний
-          offline: На особистих зустрічах
-          online: Онлайн
         title: Назва
       initiative_author:
         address: Адреса
@@ -60,13 +57,11 @@ uk:
         initiatives:
           fields:
             created_at: 'Створено:'
-            state: Стан
-            supports_count: Проявів підтримки
+            supports_count: Підписів
             title: Почини
         initiatives_type_scope:
           fields:
             scope: Обсяг
-            supports_required: Необхідно проявів підтримки
           name: Обсяг різновиду почину
         initiatives_types:
           fields:
@@ -79,10 +74,8 @@ uk:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Строк збору підписів на підтримку почину %{resource_title} продовжено!
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Строк збору підписів на підтримку почину продовжено!
-          notification_title: Строк збору підписів на підтримку почину <a href="%{resource_path}">%{resource_title}</a> продовжено.
         milestone_completed:
           affected_user:
             email_subject: Досягнута нова віха!
@@ -92,11 +85,13 @@ uk:
             notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
     initiatives:
       admin:
+        answers:
+          info_initiative:
+            state: Стан
         committee_requests:
           index:
             approve: Схвалити
             confirm_revoke: Ви впевнені?
-            invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до робочого гурту з просування
             no_members_yet: У робочого гурту з просування нема жодного члена
             revoke: Відкликати
             title: Члени робочого гурту
@@ -105,7 +100,6 @@ uk:
             accept: Прийняти почин
             confirm: Ви впевнені?
             discard: Відкинути почин
-            export_votes: Зберегти у вигляді файлу перелік тих, хто підтримує
             reject: Відхилити почин
             send_to_technical_validation: Надіслати на технічну перевірку
             success: Почин був відправлений на технічну перевірку
@@ -130,7 +124,6 @@ uk:
             print: Друк
           update:
             error: Сталася помилка
-            success: Громадський почин було успішно оновлено
         initiatives_type_scopes:
           create:
             error: Сталася помилка
@@ -196,18 +189,15 @@ uk:
         fill_data:
           back: Повернутись
           continue: Продовжити
-          fill_data_help: "<ul> <li>Перегляньте зміст вашого почину. Чи легко розуміти його заголовок? Ясна мета вашого почину?</li> <li>Ви маєте обрати різновид збору підписів. На особистій зустрічі, в Інтернеті або і там, і там</li> <li>Який географічний обсяг почину? Місто, район?</li> </ul>"
           initiative_type: Різновид почину
           more_information: "(Додаткові відомості)"
           select_scope: Оберіть обсяг
         finish:
           back: Повернутись
           back_to_initiatives: Повернутися до починів
-          callout_text: Вітаємо! Ваш громадський почин було успішно додано.
           go_to_my_initiatives: Перейти до моїх починів
           more_information: "(Додаткові відомості)"
         finish_help:
-          access_reminder: Пам'ятайте, що ви завжди зможете отримати доступ до ваших починів через меню учасника.
           help_for_organizations: Якщо ви є асоціацією організацій, ви маєте завантажити протоколи засідань правління усіх організацій, які входять до робочого гурту з просування
           help_in_person_signatures: Якщо ви вирішили збирати підписи на особистих зустрічах або в поєднанні зі збором онлайн, вам потрібно завантажити необхідні для цього відомості.
           help_text: Пам'ятайте, що для властивої обробки почину ви повинні зайти до панелі адміністрування. Знайдіть там меню учасника, завантажте необхідні відомості та відправте їх на обробку.
@@ -230,7 +220,6 @@ uk:
           invite_to_committee_help: Посилання для запрошення людей, які увійдуть в робочий гурт з просування
         show_similar_initiatives:
           back: Повернутись
-          compare_help: Якщо будь-який з наведених нижче починів подібний до вашого, ми закликаємо вас підтримати його. Ваша пропозиція матиме більше можливостей для втілення.
           continue: Мій почин інший
           more_information: "(Додаткові відомості)"
       events:
@@ -246,9 +235,6 @@ uk:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Почини
-      initiative_votes:
-        create:
-          error: При підписанні цього почину сталися помилки.
       initiatives:
         author:
           deleted: Видалено
@@ -271,7 +257,6 @@ uk:
           myself: Мої почини
           open: Відкриті
           search: Шукати
-          state: Стан
           type: Різновид
           type_prompt: Оберіть різновид
         filters_small_view:
@@ -287,13 +272,6 @@ uk:
           most_voted: З найбільшою кількістю підписів
           random: Довільно
           recent: Найновіші
-        result:
-          initiative_rejected_reason: Цей почин був відхилений через недостатню підтримку.
-        show:
-          any_vote_method: Цей громадський почин збирає онлайн-підтримку, а також підтримку на особистих зустрічах.
-          offline_method: Цей громадський почин збирає прояви підтримки лише на особистих зустрічах.
-        signature_identities:
-          select_identity: Виберіть псевдонім учасника
         signatures_count:
           one: " підпис"
           few: " підписи"
@@ -313,16 +291,11 @@ uk:
             many: ПІДПИСІВ
             other: ПІДПИСІВ
       initiatives_mailer:
-        creation_subject: Ваш громадський почин "%{title}" був доданий
         initiative_link:
           check_initiative_details: Ви можете переглянути детальні відомості про почин
           here: тут
         more_information: Ось додаткові відомості про послідовність створення почину.
-        progress_report_body_for: Почин %{title} отримав %{percentage}% необхідної підтримки.
-        progress_report_for: 'Коротко про почин: %{title}'
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочого гурту з просування
-        status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
-        status_change_for: Стан почину %{title} змінився
         technical_validation_body_for: Почин %{title} подав запит на технічну перевірку.
         technical_validation_for: Почин %{title} подав запит на технічну перевірку.
       pages:
