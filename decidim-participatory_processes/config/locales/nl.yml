@@ -46,6 +46,9 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Stap geactiveerd
+      decidim/participatory_process_step_changed_event: Stap veranderd
   activerecord:
     models:
       decidim/participatory_process:
@@ -54,6 +57,9 @@ nl:
       decidim/participatory_process_group:
         one: Participerende procesgroep
         other: Participerende procesgroepen
+      decidim/participatory_process_step:
+        one: Stap
+        other: Stappen
   decidim:
     admin:
       actions:
@@ -65,6 +71,8 @@ nl:
         edit: Bewerken
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
+        new_process_step: Nieuwe stap
+        new_process_user_role: Nieuwe procesgebruiker
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden
@@ -80,6 +88,9 @@ nl:
           components: Onderdelen
           info: Info
           moderations: Moderaties
+          private_users: Privégebruikers
+          process_admins: Gebruikers verwerken
+          steps: Stappen
       models:
         participatory_process:
           fields:
@@ -98,11 +109,13 @@ nl:
             end_date: Einddatum
             start_date: Startdatum
             title: Titel
+          name: Stap van de burgerinspraak
         participatory_process_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
+          name: Participerende procesgebruiker
           roles:
             admin: Administrator
             collaborator: Medewerker
@@ -117,24 +130,72 @@ nl:
           select: Selecteer welke gegevens u wilt dupliceren
           title: Burgerinspraak dupliceren
       participatory_process_groups:
+        destroy:
+          success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
           update: Bijwerken
         new:
           create: Creëren
           title: Nieuwe themagroep
+        update:
+          error: Er was een fout bij het bijwerken van deze participatief procesgroep.
+          success: Participatief procesgroep is succesvol bijgewerkt.
+      participatory_process_publications:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief proces is succesvol gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief proces is succesvol gepubliceerd.
+      participatory_process_step_activations:
+        create:
+          error: Er is een fout opgetreden bij het activeren van deze participatief processtap.
+          success: Participatief processtap is succesvol geactiveerd.
       participatory_process_steps:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw participatief processtap.
+          success: Participatief processtap is succesvol gecreëerd.
         default_title: Introductie
+        destroy:
+          error:
+            active_step: Kan de actieve stap niet verwijderen.
+            last_step: Kan de laatste stap van een proces niet verwijderen.
+          success: Participatieve processtap succesvol verwijderd.
         edit:
+          title: Bewerk participatieve processtap
           update: Bijwerken
+        index:
+          steps_title: Stappen
         new:
           create: creëren
+          title: Nieuwe participerende processtap
+        ordering:
+          error: Er is een fout opgetreden bij het herschikken van deze participatieve processtappen.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze participatieve processtap.
+          success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_user_roles:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
+          success: Gebruiker is succesvol toegevoegd aan dit participatieproces.
+        destroy:
+          success: Gebruiker is succesvol verwijderd uit dit participatieproces.
         edit:
+          title: Update participatieve procesgebruiker.
           update: Bijwerken
+        index:
+          process_admins_title: Participatieve procesgebruiker
         new:
           create: creëren
+          title: Nieuwe participatieve procesgebruiker.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze burgerinspraak.
+          success: Gebruiker is succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
+          success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
         edit:
           update: Bijwerken
         form:
@@ -147,23 +208,51 @@ nl:
         new:
           create: creëren
           title: Nieuw participatief proces
+        update:
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief procesgroep is succesvol bijgewerkt.
+      participatory_processes_copies:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief procesgroep is succesvol gedupliceerd.
+      participatory_processes_group:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe participatieve procesgroep.
+          success: Participatieve procesgroep is succesvol opgericht.
       titles:
         participatory_process_groups: Participatieve procesgroepen
         participatory_processes: Participatieve processen
+      users:
+        resend_invitation:
+          error: Er is een fout opgetreden bij het opnieuw verzenden van de uitnodiging.
+          success: Uitnodiging opnieuw verzonden met succes.
     admin_log:
       participatory_process:
         create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
         publish: "%{user_name} heeft de burgerinspraak %{resource_name} gepubliceerd"
         unpublish: "%{user_name}heeft de burgerinspraak %{resource_name} ongepubliceerd"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
+      participatory_process_step:
+        activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
+        create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
+        delete: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak verwijderd"
+        update: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak bijgewerkt"
+      participatory_process_user_role:
+        create: "%{user_name} nodigde gebruiker %{resource_name} uit voor de %{space_name} burgerinspraak"
+        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd van de %{space_name} burgerinspraak"
+        update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in de %{space_name} burgerinspraak"
     events:
       participatory_process:
         step_activated:
+          email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Een update naar %{participatory_space_title}
+          notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
+          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update op %{participatory_space_title} werd uitgevoerd
+          notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     help:
       participatory_spaces:
         participatory_processes:
@@ -179,7 +268,14 @@ nl:
         title: Participatieve processen
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 processen voor %{group}
+          other: "%{count} processen voor %{group}"
         title: Participerende procesgroepen
+    participatory_process_steps:
+      index:
+        process_steps: Stappen van het thema
+        title: Participatieve processtappen
     participatory_processes:
       admin:
         content_blocks:
@@ -207,6 +303,7 @@ nl:
         home:
           highlighted_processes:
             active_processes: Actieve thema's
+            active_step: Actieve stap
             more_information: Meer informatie
             participate: Deelnemen
             see_all_processes: Bekijk alle thema's
@@ -257,6 +354,7 @@ nl:
         endorsements_count: Aanbevelingen
         headline: Activiteit
         meetings_count: Vergaderingen
+        orders_count: Stemmen
         pages_count: Pagina's
         processes_count: Thema's
         projects_count: Projecten
@@ -264,6 +362,7 @@ nl:
         results_count: Resultaten
         surveys_count: Enquêtes
         users_count: Deelnemers
+        votes_count: Stemmen
   layouts:
     decidim:
       participatory_process_groups:
@@ -272,14 +371,20 @@ nl:
           processes_count: 'Processen:'
       participatory_process_widgets:
         show:
+          active_step: Actieve stap
           take_part: Deelnemen
       participatory_processes:
         index:
           promoted_processes: Uitgelichte thema’s
         participatory_process:
+          active_step: 'Huidige stap:'
           take_part: Deelnemen
         promoted_process:
+          active_step: 'Huidige stap:'
           more_info: Meer informatie
           take_part: Deelnemen
+      process_header_steps:
+        step: Stap %{current} van %{total}
+        view_steps: Bekijk stappen
       process_navigation:
         process_menu_item: Het thema
