@@ -18,9 +18,6 @@ it:
       comments: Commenti
       last_activity:
         new_comment_at_html: "<span>Nuovo commento al %{link}</span>"
-      votes:
-        create:
-          error: Ci sono stati errori durante la votazione del commento.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Connessione con il tuo account</a> o <a href="%{sign_up_url}">Sign up</a> per aggiungere il tuo commento.
@@ -41,7 +38,6 @@ it:
         alignment:
           against: Contro
           in_favor: A favore
-        deleted_user: Utente cancellato
         reply: Rispondi
         report:
           action: Report
@@ -91,7 +87,6 @@ it:
           notification_title: Sei stato citato in <a href="%{resource_path}">%{resource_title}</a> di <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Numero di commenti generati dagli utenti
         object: Commenti
         title: Commenti
   errors:
