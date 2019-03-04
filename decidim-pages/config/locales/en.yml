@@ -25,6 +25,3 @@ en:
           edit:
             save: Update
             title: Edit page
-          update:
-            invalid: There was a problem saving the page.
-            success: Page successfully saved.
