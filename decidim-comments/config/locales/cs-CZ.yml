@@ -22,9 +22,6 @@ cs:
       comments: Komentáře
       last_activity:
         new_comment_at_html: "<span>Nový komentář v %{link}</span>"
-      votes:
-        create:
-          error: Při hlasování se vyskytly chyby.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_url}">přihlaste se</a> a přidejte svůj komentář.
@@ -45,7 +42,6 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
-        deleted_user: Vymazaný uživatel
         reply: Odpověď
         report:
           action: Zpráva
@@ -95,7 +91,6 @@ cs:
           notification_title: Byli jste uvedeni v <a href="%{resource_path}">%{resource_title}</a> podle <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Počet komentářů generovaných uživateli
         object: komentáře
         title: Komentáře
   errors:
