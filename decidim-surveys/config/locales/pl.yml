@@ -41,20 +41,8 @@ pl:
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
     metrics:
       survey_answers:
-        description: Liczba ankiet odebranych przez użytkowników
         object: odpowiedzi na ankiety
         title: Odpowiedzi na ankiety
     surveys:
-      admin:
-        exports:
-          survey_user_answers: Odpowiedzi na pytania użytkowników
-        surveys:
-          update:
-            invalid: Podczas zapisywania ankiety wystąpiły błędy.
-            success: Ankieta została zapisana pomyślnie.
       last_activity:
         new_survey_at_html: "<span>Nowa ankieta na %{link}</span>"
-      surveys:
-        answer:
-          invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
-          success: Ankieta odpowiedziała skutecznie.
