@@ -51,7 +51,7 @@ de:
             name: Zeitachseneintrag
         results:
           create:
-            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
+            invalid: Beim Erstellen dieses Ergebniss ist ein Problem aufgetreten
             success: Ergebnis erfolgreich erstellt
           destroy:
             success: Ergebnis erfolgreich gelöscht
@@ -70,7 +70,7 @@ de:
             current_selection: Aktuelle Auswahl
             select: Wählen
           update:
-            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten
+            invalid: Beim Aktualisieren dieses Ergebnis ist ein Problem aufgetreten
             success: Ergebnis erfolgreich aktualisiert
         shared:
           subnav:
