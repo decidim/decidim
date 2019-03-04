@@ -69,7 +69,7 @@ es-PY:
             created_at: Creado en
             id: CARNÉ DE IDENTIDAD
             state: Estado
-            supports_count: Apoyos
+            supports_count: Firmas
             title: Iniciativas
         initiatives_type_scope:
           fields:
