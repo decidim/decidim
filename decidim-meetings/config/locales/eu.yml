@@ -40,10 +40,6 @@ eu:
             base:
               too_many_minutes: Elementuen iraupena %{count} minutuko iraupena gainditzen du
               too_many_minutes_child: Elementuaren haurraren iraupena "%{parent_title}" gurasoaren iraupena gainditzen du %{count} minutuko agendako elementua
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Mezu hau dagoeneko gonbidatu da
     models:
       decidim/meetings/close_meeting_event: Bilera itxia
       decidim/meetings/create_meeting_event: Bilera
@@ -65,9 +61,6 @@ eu:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Akatsa gertatu da bilera hau bikoiztea.
-          success: Bildutako bilera bikoiztua behar bezala egin da.
         new:
           copy: Copy
           select: Aukeratu zein datu bikoiztu nahi dituzun
@@ -108,10 +101,7 @@ eu:
         meeting_registration_confirmed:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> bilerako erregistratzea baieztatu da. Zure izena emateko kodea %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
           email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
-          email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
         meeting_updated:
           email_intro: '"%{resource_title}" bilera eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
@@ -135,14 +125,10 @@ eu:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Parte hartu nahi duzun bileretan izena eman
           description: Idazmahaia hainbat aurpegi bileretara joaten zarenean ematen da.
-          description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
           description_own: '%{score} bileretan parte hartu duzu.'
           name: Bilera parte hartzera
           next_level_in: '%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!'
-          unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
           unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
       actions:
@@ -161,19 +147,15 @@ eu:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Gehitu agenda item ume
             agenda_item: Agenda Item
-            agenda_item_children: Agenda item Childs
             down: Down
             remove: Kendu
             up: up
           agenda_item_child:
-            agenda_item_child: Agenda Elementu umea
             down: Down
             remove: Kendu
             up: up
           create:
-            invalid: Arazo bat izan da agenda hau sortzeko
             success: Egutegia modu egokian sortu da
           edit:
             title: Editatu agenda
@@ -187,7 +169,6 @@ eu:
             create: Sortu
             title: Agenda berria
           update:
-            invalid: Arazo bat izan da agenda hau eguneratzean
             success: Agenda ondo eguneratu da
         exports:
           meetings: Bilerak
@@ -198,16 +179,9 @@ eu:
             invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} bileran. Beheko estekan onartu dezakezu."
             join: Erregistratu bilera '%{meeting_title}'
         invites:
-          create:
-            error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
-            success: Erabiltzailea behar bezala gonbidatu bilera batera.
           form:
             attendee_type: Parte-hartzaile mota
-            existing_user: Erabiltzaile existentea
             invite: Gonbit egin
-            invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
-            non_user: Erabiltzailea ez dago
-            select_user: Aukeratu erabiltzailea
           index:
             filter:
               accepted: Onartu
@@ -228,10 +202,8 @@ eu:
             select_organizer: Aukeratu antolatzailea
         meetings:
           close:
-            invalid: Arazo bat izan da topaketa hau ixtean.
             success: Topaketa ongi itxi da
           create:
-            invalid: Arazo bat izan da topaketa hau sortzean.
             success: Topaketa ongi sortu da
           destroy:
             success: Topaketa zuzen ezabatu da.
@@ -255,11 +227,9 @@ eu:
             add_service: Gehitu zerbitzua
             services: Zerbitzuak
           update:
-            invalid: Arazo bat izan da topaketa hau eguneratzean.
             success: Topaketa zuzen eguneratu da.
         minutes:
           create:
-            invalid: Arazo bat izan da minutu hau sortzeko
             success: Akta ongi sortu da
           edit:
             update: eguneratzearen
@@ -267,7 +237,6 @@ eu:
             create: Sortu
             title: Sortu minutu
           update:
-            invalid: Arazo bat izan da minutu hau eguneratzean
             success: Akta ongi eguneratu da
         models:
           meeting:
@@ -279,7 +248,6 @@ eu:
             validate_registration_code: Baliozkotzeko inskripzio kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
-            invites: Gonbidapenak
             registration_form: Izena emateko inprimakia
             registrations_count:
               one: Dena den, %{count} erregistratzeko.
@@ -287,7 +255,6 @@ eu:
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
           update:
-            invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
           validate_registration_code:
             invalid: Izena emateko kode hau baliogabea da.
@@ -406,13 +373,10 @@ eu:
           registration_code: Zure izena emateko kodea %{code}.
       registrations:
         create:
-          invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
         decline_invitation:
-          invalid: Arazo bat izan da gonbidapena gaindituz gero.
           success: Gonbidapena ongi egin du.
         destroy:
-          invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
       types:
         private_meeting: Bilera pribatua
