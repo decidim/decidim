@@ -51,7 +51,7 @@ pt-BR:
             name: Entrada da linha de tempo
         results:
           create:
-            invalid: Tem havido um problema ao criar esse resultado
+            invalid: Houve um problema ao criar esse resultado
             success: Resultado criado com sucesso
           destroy:
             success: Resultado eliminado com êxito
@@ -77,7 +77,7 @@ pt-BR:
             statuses: Statuses
         statuses:
           create:
-            invalid: Houve um problema ao criar este status
+            invalid: Houve um problema ao criar esse status
             success: Status criado com sucesso
           destroy:
             success: Status excluído com êxito
@@ -90,11 +90,11 @@ pt-BR:
             create: Criar status
             title: Novo status
           update:
-            invalid: Ocorreu um problema ao atualizar esse status
+            invalid: Ocorreu um problema ao atualizar este status
             success: Status atualizado com sucesso
         timeline_entries:
           create:
-            invalid: Tem havido um problema ao criar esta entrada
+            invalid: Ocorreu um problema ao criar esta entrada
             success: Entrada criada com sucesso
           destroy:
             success: Entrada excluída com êxito
