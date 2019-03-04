@@ -58,23 +58,8 @@ nl:
         new_response: Nieuw antwoord
         publish_results: Publiceer resultaten
         unpublish_results: Publicatie van resultaten ongedaan maken
-      consultation_publications:
-        create:
-          error: Er is een fout opgetreden bij het publiceren van dit overleg.
-          success: Overleg succesvol gepubliceerd.
-        destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van dit overleg.
-          success: Publicatie van overleg succesvol ongedaan gemaakt.
-      consultation_results_publications:
-        create:
-          error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit overleg.
-          success: Overlegresultaten met succes gepubliceerd.
-        destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van publicatie van de resultaten voor dit overleg.
-          success: Overlegresultaten niet gepubliceerd.
       consultations:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw overleg.
           success: Overleg succesvol aangemaakt.
         edit:
           update: Bijwerken
@@ -88,7 +73,6 @@ nl:
           create: Aanmaken
           title: Nieuwe burgerinspraak
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit overleg.
           success: Overleg succesvol bijgewerkt.
       menu:
         consultations: burgerinspraak
@@ -124,16 +108,8 @@ nl:
           name:
             one: antwoord
             other: antwoorden
-      question_publications:
-        create:
-          error: Er is een fout opgetreden bij het publiceren van deze vraag.
-          success: Vraag met succes gepubliceerd.
-        destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze vraag.
-          success: Publicatie van de vraag succesvol ongedaan gemaakt.
       questions:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe vraag.
           success: Vraag met succes gemaakt.
         destroy:
           success: Vraag succesvol verwijderd.
@@ -147,15 +123,10 @@ nl:
         new:
           create: Aanmaken
           title: Nieuwe vraag
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze vraag.
-          success: Vraag is succesvol bijgewerkt.
       responses:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
           success: Reactie succesvol aangemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het verwijderen van het antwoord.
           success: Reactie succesvol verwijderd.
         edit:
           update: Bijwerken
@@ -164,9 +135,6 @@ nl:
         new:
           create: Aanmaken
           title: Nieuwe reactie
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
-          success: Reactie is bijgewerkt.
       titles:
         consultations: Burgerinspraak
         questions: vragen
@@ -198,7 +166,6 @@ nl:
         all: Alle
         finished: Voltooid
         search: Zoeken
-        state: Staat
         upcoming: Toekomstige
       filters_small_view:
         close_modal: Sluit venster
@@ -227,9 +194,6 @@ nl:
         votes_out_of:
           one: Stemmen over
           other: Stemmen over
-      question_votes:
-        create:
-          error: Er zijn fouten opgetreden bij het stemmen op de vraag
       regular_questions:
         title: Vragen voor dit consult
       show:
@@ -247,8 +211,6 @@ nl:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Overleg is een ruimte die u toelaat om een ​​duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk te geven en het debat voor of tegen een reactie te bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: enkele voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
-          page: "<p>Overleg is een ruimte waarin u een duidelijke vraag kunt stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk kunt opzetten en het debat voor of tegen een reactie kunt bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: sommige voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten in de organisatie moeten blijven.</p>\n"
           title: Wat zijn consulten?
     menu:
       consultations: Burgerinspraak
@@ -265,22 +227,18 @@ nl:
         assistants_count_title: assistenten
         comments_count_title: Reacties
         meetings_count_title: Events
-        supports_count_title: steunen
       technical_info:
         technical_data: Technische data
       vote_button:
         already_voted: Reeds gestemd
-        already_voted_hover: Steun intrekken
         starting_from: Te beginnen op %{date}
         vote: Stem
       vote_modal:
         contextual_help: Maak een keuze a.u.b.
-        title: 'Overleg: vraagondersteuning'
       vote_modal_confirm:
         change: Wijzigen
         confirm: Bevestig
         contextual_help: Bevestig de geselecteerde optie.
-        title: 'Raadpleging: steun bevestigen'
   layouts:
     decidim:
       admin:
