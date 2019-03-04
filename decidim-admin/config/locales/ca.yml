@@ -617,7 +617,7 @@ ca:
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
         impersonations: Impersonacions
-        participants: Participants
+        participants: Usuaris
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines

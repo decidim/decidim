@@ -153,23 +153,23 @@ fr:
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
         announcement:
           accepted: |-
-            Cette correction de la %{amendable_type} %{amendable_link} a
+            Cette modification du %{amendable_type} %{amendable_link} a été
             accepté sur <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Ceci est une modification pour le %{amendable_type} %{amendable_link}
+            Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
           rejected: |-
             Cette modification pour le %{amendable_type} %{amendable_link}
             été rejetée le <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Cette modification pour le %{amendable_type} %{amendable_link}
-            a été retirée par l'auteur.
+            Cet amendement pour le %{amendable_type} %{amendable_link}
+            a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
         back: Retour
         heading: Créez votre amendement
         help_text: Vous modifiez le %{model_name}
-        send: Envoyer une amende
+        send: Envoyer l'amendement
       rejected:
         error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès

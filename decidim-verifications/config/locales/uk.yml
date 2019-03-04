@@ -79,6 +79,9 @@ uk:
               introduce_user_data: Введіть відомості на картинці
               reject: Відхилити
               verify: Підтвердити
+          offline_confirmations:
+            create:
+              success: Особу учасника успішно підтверджено
           pending_authorizations:
             index:
               title: Підтвердження, які очікують на розгляд

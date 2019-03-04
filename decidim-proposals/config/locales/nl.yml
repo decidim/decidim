@@ -261,7 +261,7 @@ nl:
       votes:
         description: Aantal stemmen dat is gegenereerd in voorstellen van gebruikers
         object: stemmen
-        title: stemmen
+        title: Stemmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -289,13 +289,16 @@ nl:
             name: Voorstel
         participatory_texts:
           bulk-actions:
+            are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
             import_doc: Document importeren
+            discard_all: Gooi alles weg
           import:
             invalid: Het formulier is ongeldig!
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
           index:
             info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
             publish_document: Publiceer document
+            save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
           new_import:
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
@@ -305,10 +308,14 @@ nl:
           publish:
             invalid: Kan voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
+          discard:
+            success: Alle participatieve tekstconcepten zijn genegeerd.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
             sub-section: "<em>Onderafdeling:</em> %{title}"
+          update:
+            success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           edit:
             accepted: Aanvaard
@@ -461,7 +468,7 @@ nl:
           published: Gepubliceerd
           related_to: Gerelateerd aan
           search: Zoeken
-          state: Staat
+          state: Status
           withdrawn: teruggetrokken
         filters_small_view:
           close_modal: Modal sluiten
@@ -551,7 +558,7 @@ nl:
             official_proposal: Officieel voorstel
             published_at: Gepubliceerd op
             scope: Scope
-            state: Staat
+            state: Status
             title: Titel
             votes: Stemmen
       new:

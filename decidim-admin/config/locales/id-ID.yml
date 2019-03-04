@@ -617,7 +617,7 @@ id:
         dashboard: Dasbor
         impersonatable_users: Pengguna yang tidak dapat disalahgunakan
         impersonations: Peniruan identitas
-        participants: Peserta
+        participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
         static_pages: Halaman

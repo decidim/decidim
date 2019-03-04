@@ -50,7 +50,7 @@ gl:
       actions:
         confirm: Confirmar
         new_conference: Nova conferencia
-        send_diplomas: Enviar diplomas
+        send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
           copy: Copiar
@@ -152,7 +152,7 @@ gl:
           conference_admins: Usuarios da conferencia
           conference_invites: Invitacións
           conference_speakers: Ponentes
-          diploma: Diploma
+          diploma: Certificado de asistencia
           info: Información
           media_links: Ligazóns multimedia
           moderations: Moderacións
@@ -250,10 +250,10 @@ gl:
       conference:
         create: "%{user_name} creou a %{resource_name} conferencia"
         publish: "%{user_name} publicou a %{resource_name} conferencia"
-        send_conference_diplomas: "%{user_name} envía diplomas aos %{resource_name} usuarios da conferencia"
+        send_conference_diplomas: "%{user_name} enviáronse certificados de asistencia aos %{resource_name} congreso dos atendidos"
         unpublish: "%{user_name} inédita a %{resource_name} conferencia"
         update: "%{user_name} actualizou a %{resource_name} conferencia"
-        update_diploma: "%{user_name} actualizou a conferencia de configuración do diploma %{resource_name}"
+        update_diploma: "%{user_name} actualizou os certificados de configuración de asistencia para %{resource_name} conferencia"
       conference_speaker:
         create: "%{user_name} creou o %{resource_name} altofalante na %{space_name} conferencia"
         delete: "%{user_name} eliminou o %{resource_name} altofalante da %{space_name} conferencia"
@@ -334,7 +334,7 @@ gl:
         diplomas:
           edit:
             save: Gardar
-            title: Diploma
+            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
@@ -350,7 +350,7 @@ gl:
             title: Tipos de rexistro
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Atopará o diploma da conferencia <a href="%{url}">%{title}</a> nos anexos.
+            diploma_html: Atopará o certificado de asistencia á conferencia <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
             certificate_of_attendance: Certificado de asistencia
@@ -433,7 +433,7 @@ gl:
             subject: Invitación para participar nunha conferencia
         send_conference_diploma_mailer:
           diploma:
-            subject: Enviouse o diploma da súa conferencia
+            subject: Enviouse o certificado de asistencia de conferencia
       models:
         conference_invite:
           fields:

@@ -1,1 +1,139 @@
 id:
+  activemodel:
+    attributes:
+      project:
+        budget: Anggaran
+        decidim_category_id: Kategori
+        decidim_scope_id: Cakupan
+        description: Deskripsi
+        proposal_ids: Proposal terkait
+        title: Judul
+  activerecord:
+    models:
+      decidim/budgets/project:
+        other: Proyek
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Folder
+        attachments: Lampiran
+        confirm_destroy: Anda yakin ingin menghapus proyek ini?
+        destroy: Menghapus
+        edit: Edit
+        import: Impor proposal ke proyek
+        new: Proyek baru
+        preview: Pratinjau
+        title: Tindakan
+      admin:
+        models:
+          project:
+            name: Proyek
+        projects:
+          create:
+            success: Proyek berhasil dibuat
+          destroy:
+            success: Proyek berhasil dihapus
+          edit:
+            title: Edit proyek
+            update: Memperbarui
+          index:
+            finished_orders: Suara jadi
+            pending_orders: Suara yang tertunda
+            title: Proyek
+          new:
+            create: Membuat
+            title: Proyek baru
+          update:
+            success: Proyek berhasil diperbarui
+        proposals_imports:
+          create:
+            success: "%{number} proposal berhasil diimpor ke proyek"
+          new:
+            create: Impor proposal ke proyek
+            no_components: Tidak ada komponen proposal lain dalam ruang partisipatif ini untuk mengimpor proposal ke proyek.
+            select_component: Silakan pilih satu komponen
+      admin_log:
+        project:
+          create: "%{user_name} menciptakan proyek %{resource_name} dalam %{space_name} ruang"
+          delete: "%{user_name} menghapus %{resource_name} proyek di %{space_name} ruang"
+          update: "%{user_name} memperbarui proyek %{resource_name} di ruang %{space_name}"
+      models:
+        project:
+          fields:
+            title: Judul
+      projects:
+        budget_confirm:
+          are_you_sure: Apa kamu setuju? Setelah Anda mengkonfirmasi suara Anda, Anda tidak dapat mengubahnya.
+          cancel: Membatalkan
+          confirm: Memastikan
+          description: Ini adalah proyek yang Anda pilih untuk menjadi bagian dari anggaran.
+          title: Konfirmasikan suara
+        budget_excess:
+          close: Dekat
+          description: Proyek ini melebihi anggaran maksimum dan tidak dapat ditambahkan. Jika mau, Anda dapat menghapus proyek yang sudah Anda pilih untuk ditambahkan, atau pilih dengan preferensi Anda.
+          ok: baik
+          title: Anggaran maksimum terlampaui
+        budget_summary:
+          are_you_sure: Anda yakin ingin membatalkan suara?
+          assigned: 'Ditugaskan:'
+          cancel_order: hapus suara Anda dan mulai lagi dari awal
+          checked_out:
+            description: Anda telah memberikan suara untuk anggaran. Jika Anda berubah pikiran, Anda dapat %{cancel_link}.
+            title: Suara anggaran selesai
+          description: Menurut Anda proyek apa yang harus kita alokasikan anggarannya? Tetapkan setidaknya %{minimum_budget} untuk proyek yang Anda inginkan dan pilih dengan preferensi Anda untuk menentukan anggaran.
+          title: Anda yang memutuskan anggaran
+        count:
+          projects_count:
+            other: "%{count} proyek"
+        filters:
+          category: Kategori
+          category_prompt: Pilih Kategori
+          search: Pencarian
+        filters_small_view:
+          close_modal: Tutup modal
+          filter: Filter
+          filter_by: Saring menurut
+          unfold: Membuka
+        order_progress:
+          vote: Memilih
+        order_selected_projects:
+          remove: Menghapus
+          selected_projects:
+            other: proyek yang dipilih
+          view: Melihat
+        project:
+          add: Menambahkan
+          count:
+            other: "%{count} mendukung"
+          remove: Menghapus
+          view: Melihat
+        project_budget_button:
+          add: Menambahkan
+          added: Ditambahkan
+        show:
+          budget: Anggaran
+          view_all_projects: Lihat semua proyek
+    components:
+      budgets:
+        actions:
+          vote: Memilih
+        name: Anggaran
+        settings:
+          global:
+            announcement: Pengumuman
+            comments_enabled: Komentar diaktifkan
+            projects_per_page: Proyek per halaman
+            resources_permissions_enabled: Izin tindakan dapat ditetapkan untuk setiap pertemuan
+            total_budget: Total anggaran
+            vote_threshold_percent: Batas ambang persentase suara
+          step:
+            announcement: Pengumuman
+            comments_blocked: Komentar diblokir
+            show_votes: Tampilkan suara
+            votes_enabled: Voting diaktifkan
+    resource_links:
+      included_proposals:
+        project_proposal: 'Proposal yang termasuk dalam proyek ini:'
+  index:
+    confirmed_orders_count: Votes dihitung
+  total_budget: Total anggaran

@@ -153,23 +153,23 @@ it:
           help_text: Esaminare le modifiche e accettare o rifiutare questo emendamento. Una notifica verrà inviata al suo autore (s).
         announcement:
           accepted: |-
-            Questa emendazione per lo %{amendable_type} %{amendable_link} è stata
-            accettata su <strong>%{announcement_date}</strong>.
+            Questo emendamento per lo %{amendable_type} %{amendable_link} è stato
+            accettato su <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Questa è una emendazione per lo %{amendable_type} %{amendable_link}
+            Questo emendamento per lo %{amendable_type} %{amendable_link}
             è in fase di valutazione.
           rejected: |-
             Questa emendazione per lo %{amendable_type} %{amendable_link}
             stata respinta su <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Questa emendazione per lo %{amendable_type} %{amendable_link}
-            è stata ritirata dall'autore.
+            Questo emendamento per lo %{amendable_type} %{amendable_link}
+            è stato ritirato dall'autore.
       new:
         amendment_author: Autore dell'autore
         back: Indietro
         heading: Crea il tuo emendamento
         help_text: Stai modificando lo %{model_name}
-        send: Invia emendation
+        send: Invia un emendamento
       rejected:
         error: Si è verificato un errore durante il rifiuto di questa modifica, riprova più tardi
         success: L'emendamento è stato respinto con successo
@@ -180,7 +180,7 @@ it:
         back: Indietro
         heading: Rivedi l'emendamento
         help_text: Stai modificando lo %{model_name}
-        send: Accetta l'emendamento
+        send: Accettare l'emendamento
     anonymous_user: Anonimo
     application:
       collection:

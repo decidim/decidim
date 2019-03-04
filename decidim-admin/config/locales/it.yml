@@ -617,7 +617,7 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Utenti impersonabili
         impersonations: impersonations
-        participants: I partecipanti
+        participants: utenti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
