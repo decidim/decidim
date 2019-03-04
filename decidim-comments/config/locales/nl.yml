@@ -18,9 +18,6 @@ nl:
       comments: Comments
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
-      votes:
-        create:
-          error: Er zijn fouten geweest bij het stemmen van de reactie.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Meld je aan met je account</a> of <a href="%{sign_up_url}">registreer je</a> om een nieuwe reactie toe te voegen.
@@ -41,7 +38,6 @@ nl:
         alignment:
           against: Tegen
           in_favor: Voor
-        deleted_user: Verwijderde gebruiker
         reply: Antwoord
         report:
           action: Melden
@@ -91,7 +87,6 @@ nl:
           notification_title: Je bent getagd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Aantal opmerkingen gegenereerd door gebruikers
         object: opmerkingen
         title: Comments
   errors:
