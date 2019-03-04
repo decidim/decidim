@@ -33,7 +33,6 @@ sv:
             title: Titel
           form:
             add_question: Lägg till fråga
-            already_answered_warning: Frågeformuläret är redan besvarat av vissa användare så att du inte kan ändra sina frågor.
           question:
             add_answer_option: Lägg till svaralternativ
             any: Vilken som helst
@@ -43,9 +42,6 @@ sv:
             remove: Ta bort
             statement: Påstående
             up: Upp
-          update:
-            invalid: Det har varit fel när du sparat frågeformuläret.
-            success: Frågeformulär sparades framgångsrikt.
       errors:
         answer:
           body: Kroppen kan inte vara tomt
@@ -56,24 +52,11 @@ sv:
         single_option: Enkelt alternativ
         sorting: Sortering
       questionnaires:
-        answer:
-          invalid: Det har varit fel när du besvarade frågeformuläret.
-          success: Frågeformuläret besvarades med framgång.
         question:
           max_choices: 'Max val: %{n}'
         show:
-          answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> att svara på frågeformuläret.
-            title: Besvara frågeformuläret
           are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
           questionnaire_answered:
-            body: Du har redan besvarat det här frågeformuläret.
             title: Redan svarat
-          questionnaire_closed:
-            body: Frågeformuläret är stängt och kan inte besvaras.
-            title: Frågeformuläret stängt
-          questionnaire_for_private_users:
-            body: Frågeformuläret är endast tillgängligt för privata användare
-            title: Frågeformuläret stängt
           submit: Lämna
           tos_agreement: Genom att acceptera accepterar du användarvillkoren
