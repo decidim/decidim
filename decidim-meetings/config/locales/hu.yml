@@ -40,10 +40,6 @@ hu:
             base:
               too_many_minutes: A tételek időtartama meghaladja az ülés időtartamát (%{count} perc)
               too_many_minutes_child: Az altételek időtartama meghaladja a "%{parent_title}" napirendi pont időtartamát (%{count} perc)
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Ezt az email címet már meghívták
     models:
       decidim/meetings/close_meeting_event: Találkozó lezárva
       decidim/meetings/create_meeting_event: Találkozó
@@ -65,9 +61,6 @@ hu:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Hiba történt a találkozó duplikálása során.
-          success: Találkozó duplikálása sikeres.
         new:
           copy: Másolás
           select: Válaszd ki, mely adatokat szeretnéd duplikálni
@@ -108,10 +101,7 @@ hu:
         meeting_registration_confirmed:
           notification_title: A <a href="%{resource_url}">%{resource_title}</a> találkozó regisztrációja megerősítést nyert. A regisztrációs kódod %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: 'A(z) "%{resource_title}" találkozó ilyen arányban telt be: %{percentage}%.'
           email_outro: Ezt az értesítést azért kaptad, mert adminisztrátora vagy a találkozó részvételi helyének.
-          email_subject: 'A(z) "%{resource_title}" találkozó ilyen arányban telt be: %{percentage}%'
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó ilyen arányban telt be: %{percentage}%.'
         meeting_updated:
           email_intro: 'A(z) "%{resource_title}" találkozót frissítettük. Az új verzióról ezen az oldalon olvashatsz:'
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
@@ -135,14 +125,10 @@ hu:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Regisztráljon a résztvevő találkozókon
           description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
-          description_another: Ez a felhasználó %{score} találkozón vett részt.
           description_own: '%{score} találkozóra vett részt.'
           name: Részt vett az üléseken
           next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
-          unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
           unearned_own: Még nem vettél részt semmilyen találkozón.
     meetings:
       actions:
@@ -161,19 +147,15 @@ hu:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Napirendi pont hozzáadása altételekhez
             agenda_item: Napirendi pont
-            agenda_item_children: Napirendi alpont
             down: Le
             remove: Eltávolítás
             up: Fel
           agenda_item_child:
-            agenda_item_child: Napirendi alpont
             down: Le
             remove: Eltávolítás
             up: Fel
           create:
-            invalid: Probléma merült fel a napirend létrehozásakor
             success: Napirend létrehozása sikeres
           edit:
             title: Napirend szerkesztése
@@ -187,7 +169,6 @@ hu:
             create: Létrehozás
             title: Új napirend
           update:
-            invalid: Probléma történt a napirend frissítése során
             success: Napirend frissítése sikeres
         exports:
           meetings: Találkozók
@@ -198,16 +179,9 @@ hu:
             invited_you_to_join_a_meeting: "%{invited_by} meghívott, hogy csatlakozz ehhez a találkozóhoz: %{application}. Jelezz vissza az alábbi linken."
             join: 'Csatlakozz ehhez: "%{meeting_title}"'
         invites:
-          create:
-            error: Probléma merült fel a felhasználó találkozóra törénő meghívásakor.
-            success: Felhasználó meghívása a találkozóra sikeres.
           form:
             attendee_type: Résztvevő típusa
-            existing_user: Létező felhasználó
             invite: Meghívás
-            invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethet csatlakozásra.
-            non_user: Nem létező felhasználó
-            select_user: Felhasználó kiválasztása
           index:
             filter:
               accepted: Elfogadva
@@ -228,10 +202,8 @@ hu:
             select_organizer: Válassz szervezőt
         meetings:
           close:
-            invalid: Probléma merült fel a találkozó lezárásakor
             success: Találkozó lezárása sikeres
           create:
-            invalid: Probléma történt a találkozó létrehozása során
             success: Találkozó létrehozása sikeres
           destroy:
             success: Találkozó törlése sikeres
@@ -255,11 +227,9 @@ hu:
             add_service: Szolgáltatás hozzáadása
             services: Szolgáltatások
           update:
-            invalid: Probléma történt a találkozó frissítése során
             success: Találkozó frissítése sikeres
         minutes:
           create:
-            invalid: Probléma történt a jegyzőkönyv létrehozásakor
             success: Jegyzőkönyv létrehozása sikeres
           edit:
             update: Frissítés
@@ -267,7 +237,6 @@ hu:
             create: Létrehozás
             title: Jegyzőkönyv létrehozása
           update:
-            invalid: Probléma történt a jegyzőkönyv frissítésekor
             success: Jegyzőkönyv frissítése sikeres
         models:
           meeting:
@@ -279,7 +248,6 @@ hu:
             validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
-            invites: Meghívottak
             registration_form: Regisztrációs űrlap
             registrations_count:
               one: '%{count} regisztráció volt.'
@@ -287,7 +255,6 @@ hu:
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
-            invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
           validate_registration_code:
             invalid: Érvénytelen a regisztrációs kód.
@@ -406,13 +373,10 @@ hu:
           registration_code: 'Regisztrációs kódod: %{code}.'
       registrations:
         create:
-          invalid: Probléma történt a találkozóhoz való csatlakozáskor.
           success: Sikeresen csatlakoztál a találkozóhoz.
         decline_invitation:
-          invalid: Hiba történt a meghívás visszautasítása során.
           success: Meghívás elutasítása sikeres.
         destroy:
-          invalid: Probléma történt a találkozó elhagyása közben.
           success: Sikeresen elhagytad a találkozót.
       types:
         private_meeting: Privát találkozó
