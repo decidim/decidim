@@ -17,9 +17,12 @@ de:
         test:
           conditions:
             - Verwenden Sie eine Testumgebung für Decidim.
+          description: Benutzer erhalten dieses Badge, indem sie Tests erstellen.
+          description_another: Dieser Benutzer hat %{score} Tests erstellt.
           description_own: Sie haben %{score} Tests erstellt.
           name: Tests
           next_level_in: Erstellen Sie %{score} weitere Tests, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Tests erstellt.
           unearned_own: Sie haben noch keine Tests erstellt.
     pages:
       home:
