@@ -22,9 +22,6 @@ pl:
       comments: Komentarze
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz na %{link}</span>"
-      votes:
-        create:
-          error: Podczas głosowania komentarza wystąpiły błędy.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać komentarz.
@@ -45,7 +42,6 @@ pl:
         alignment:
           against: Przeciwko
           in_favor: Na korzyść
-        deleted_user: Usunięty użytkownik
         reply: Odpowiadać
         report:
           action: Raport
@@ -95,7 +91,6 @@ pl:
           notification_title: Wspomniałeś w <a href="%{resource_path}">%{resource_title}</a> przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Liczba komentarzy wygenerowanych przez użytkowników
         object: komentarze
         title: Komentarze
   errors:
