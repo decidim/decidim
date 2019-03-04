@@ -58,23 +58,8 @@ eu:
         new_response: Erantzun berria
         publish_results: Argitaratu emaitzak
         unpublish_results: Argitaratu emaitzak
-      consultation_publications:
-        create:
-          error: Errore bat gertatu da kontsulta hau argitaratzean.
-          success: Kontsulta argitaratua.
-        destroy:
-          error: Errore bat gertatu da kontsulta hau argitaratzea.
-          success: Kontsulta argitaratu gabe.
-      consultation_results_publications:
-        create:
-          error: Errore bat gertatu da kontsultaren emaitzak argitaratzean.
-          success: Kontsulta emaitzak argitaratu dira.
-        destroy:
-          error: Errore bat gertatu da kontsultarako emaitzak argitaratzea.
-          success: Kontsulta emaitzak argitaratu gabe.
       consultations:
         create:
-          error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
         edit:
           update: eguneratzearen
@@ -88,7 +73,6 @@ eu:
           create: Sortu
           title: Kontsulta berria
         update:
-          error: Errore bat gertatu da kontsulta hau eguneratzean.
           success: Kontsultak eguneratu egin du.
       menu:
         consultations: kontsultak
@@ -124,16 +108,8 @@ eu:
           name:
             one: Erantzun
             other: Erantzunak
-      question_publications:
-        create:
-          error: Errore bat gertatu da galdera hau argitaratzean.
-          success: Galdera argitaratu da.
-        destroy:
-          error: Errore bat gertatu da galdera hau argitaratzea.
-          success: Galdera argitaratu gabe.
       questions:
         create:
-          error: Errore bat gertatu da galdera berri bat sortzean.
           success: Galdera zuzen sortu da.
         destroy:
           success: Galdera ezabatu da.
@@ -147,15 +123,10 @@ eu:
         new:
           create: Sortu
           title: Galdera berria
-        update:
-          error: Errore bat gertatu da galdera hau eguneratzean.
-          success: Galdera ondo eguneratu da.
       responses:
         create:
-          error: Errore bat gertatu da erantzun berri bat sortzean.
           success: Erantzun arrakastaz sortu da.
         destroy:
-          error: Errore bat gertatu da erantzuna kentzean.
           success: Erantzun ezabatu da.
         edit:
           update: eguneratzearen
@@ -164,9 +135,6 @@ eu:
         new:
           create: Sortu
           title: Erantzun berria
-        update:
-          error: Errore bat gertatu da erantzun hau eguneratzean.
-          success: Erantzun arrakastaz eguneratu da.
       titles:
         consultations: kontsultak
         questions: Galderak
@@ -198,7 +166,6 @@ eu:
         all: guztiak
         finished: Amaitu
         search: Search
-        state: Estatu
         upcoming: Datozen
       filters_small_view:
         close_modal: Itxi leihoa
@@ -227,9 +194,6 @@ eu:
         votes_out_of:
           one: bozkatu
           other: botoetatik kanpo
-      question_votes:
-        create:
-          error: Arazoak izan dira galdera hautapenean
       regular_questions:
         title: Kontsulta honi buruzko galderak
       show:
@@ -247,8 +211,6 @@ eu:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Kontsultak aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, kontsulta egiteko parte hartzeko, txinparta egiteko eta erantzuna emateko edo aurka egiteko. Kontsulta datak iristen direnean, botoen emaitzak bozkatu eta argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakundeari eragiten dion alderdi ia guztiak izan ditzake: adibide batzuk erakundearen izena edo logotipoa aldatzen ari dira, aukera ugari eskainiz, Bai edo Ez izaera handiago baten parte hartzea erabakitzeko, baliogabetzeko edo baztertzeko estrategia berri bat plan edo talde lan baten emaitza, edo posizioak 1, 2 edo 3 mandatu gehienez egon behar duten ala ez zehazteko.</p>\n"
-          page: "<p>Kontsultak aukera ematen du erakunde bat osatzen duten pertsona guztiei galdera argi bat egiteko, kontsulta egiteko parte hartzeko, txinparta egiteko eta eztabaida bat egiteko edo aurka egiteko. Kontsulta datak iristen direnean, botoen emaitzak bozkatu eta argitaratu ahal izango dituzu.</p> <p>Adibideak: Kontsultak erakundeari eragiten dion alderdi ia guztiei buruzkoak izan daitezke: adibide batzuk erakundearen izena edo logotipoa aldatzen dute hainbat alternatiba eskainiz, bai eta nolanahi ere, erakunde handiagoa, baliogabetzeko edo baztertzeko estrategia berri bat baztertzeko. plan edo talde lan baten emaitza, edo posizioak antolaketan 1, 2 edo 3 mandatarako gehienez egon behar duten ala ez zehazteko.</p>\n"
           title: Zer dira kontsultak?
     menu:
       consultations: kontsultak
@@ -265,22 +227,18 @@ eu:
         assistants_count_title: laguntzaileak
         comments_count_title: Oharrak
         meetings_count_title: Bilerak
-        supports_count_title: euskarri
       technical_info:
         technical_data: Datu teknikoak
       vote_button:
         already_voted: Bozkatu
-        already_voted_hover: Ezeztatu laguntza
         starting_from: '%{date}tik hasita'
         vote: Bozkatu
       vote_modal:
         contextual_help: Aukeratu aukera bat.
-        title: 'Kontsulta: galdera-laguntza'
       vote_modal_confirm:
         change: Aldaketa
         confirm: Berretsi
         contextual_help: Berretsi hautatutako aukera.
-        title: 'Kontsulta: berretsi laguntza'
   layouts:
     decidim:
       admin:
