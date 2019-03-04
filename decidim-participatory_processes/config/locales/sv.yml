@@ -46,6 +46,9 @@ sv:
         email: E-post
         name: namn
         role: Roll
+    models:
+      decidim/participatory_process_step_activated_event: Steg aktiverat
+      decidim/participatory_process_step_changed_event: Steget har ändrats
   activerecord:
     models:
       decidim/participatory_process:
@@ -54,6 +57,9 @@ sv:
       decidim/participatory_process_group:
         one: Deltagande processgrupp
         other: Deltagande processgrupper
+      decidim/participatory_process_step:
+        one: Steg
+        other: Steg
   decidim:
     admin:
       actions:
@@ -65,6 +71,8 @@ sv:
         edit: Redigera
         new_process: Ny process
         new_process_group: Ny processgrupp
+        new_process_step: Nytt steg
+        new_process_user_role: Ny processanvändare
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
@@ -80,6 +88,9 @@ sv:
           components: Komponenter
           info: Info
           moderations: Moderering
+          private_users: Privata användare
+          process_admins: Processanvändare
+          steps: Steg
       models:
         participatory_process:
           fields:
@@ -98,11 +109,13 @@ sv:
             end_date: Slutdatum
             start_date: Startdatum
             title: Titel
+          name: Deltagande steg av process
         participatory_process_user_role:
           fields:
             email: E-post
             name: Namn
             role: Roll
+          name: Deltagande processanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
@@ -117,24 +130,72 @@ sv:
           select: Välj vilken data du skulle vilja duplicera
           title: Duplicera deltagandeprocess
       participatory_process_groups:
+        destroy:
+          success: Deltagande processgrupp raderades framgångsrikt.
         edit:
           title: Redigera processgrupp
           update: Uppdatera
         new:
           create: Skapa
           title: Ny processgrupp
+        update:
+          error: Det uppstod ett fel vid uppdaterandet av denna deltagande processgrupp.
+          success: Deltagande processgrupp uppdaterades framgångsrikt.
+      participatory_process_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av denna deltagandeprocess.
+          success: Deltagandeprocessen publiceras framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av denna deltagandeprocess.
+          success: Deltagandeprocessen publicerades framgångsrikt.
+      participatory_process_step_activations:
+        create:
+          error: Det gick inte att aktivera det här steget i deltagandeprocessen.
+          success: Steget i deltagandeprocessen aktiverades framgångsrikt.
       participatory_process_steps:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt steg i deltagandeprocess.
+          success: Steget i deltagandeprocessen skapades framgångsrikt.
         default_title: Introduktion
+        destroy:
+          error:
+            active_step: Det aktiva steget kan inte raderas.
+            last_step: Kan inte ta bort det sista steget i en process.
+          success: Steget i deltagandeprocessen raderades framgångsrikt.
         edit:
+          title: Redigera steget i deltagandeprocessen
           update: Uppdatera
+        index:
+          steps_title: Steg
         new:
           create: Skapa
+          title: Nytt steg i deltagandeprocessen
+        ordering:
+          error: Ett fel uppstod med att omarrangera stegen för denna deltagandeprocess.
+        update:
+          error: Ett fel uppstod vid uppdatering av detta steg i deltagandeprocessen.
+          success: Steget i deltagandeprocessen uppdaterades framgångsrikt.
       participatory_process_user_roles:
+        create:
+          error: Det gick inte att lägga till en användare för den här deltagandeprocessen.
+          success: Användaren lades framgångsrikt till den här deltagandeprocessen.
+        destroy:
+          success: Användaren avlägsnades framgångsrikt från den här deltagandeprocessen.
         edit:
+          title: Uppdatera användare i deltagandeprocess.
           update: Uppdatera
+        index:
+          process_admins_title: Användare i deltagandeprocess
         new:
           create: Skapa
+          title: Ny användare i deltagandeprocess.
+        update:
+          error: Det uppstod ett fel som uppdaterade en användare för den här deltagandeprocessen.
+          success: Användaren uppdaterades framgångsrikt för denna deltagandeprocess.
       participatory_processes:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny deltagandeprocess.
+          success: Deltagandeprocessen skapades framgångsrikt. Konfigurera nu dess steg.
         edit:
           update: Uppdatera
         form:
@@ -147,23 +208,51 @@ sv:
         new:
           create: Skapa
           title: Ny deltagande process
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här deltagandeprocessen.
+          success: Deltagandeprocessen uppdaterades framgångsrikt.
+      participatory_processes_copies:
+        create:
+          error: Det uppstod ett fel vid duplicering av denna deltagandeprocess.
+          success: Deltagandeprocessen duplicerades framgångsrikt.
+      participatory_processes_group:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny grupp för deltagandeprocess.
+          success: Grupp för deltagandeprocess skapades framgångsrikt.
       titles:
         participatory_process_groups: Grupper för deltagandeprocess
         participatory_processes: Deltagande processer
+      users:
+        resend_invitation:
+          error: Det uppstod ett fel när du skickade inbjudan igen.
+          success: Inbjudan skickades om framgångsrikt.
     admin_log:
       participatory_process:
         create: "%{user_name} skapade deltagandeprocess %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocess %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocess %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
+        create: "%{user_name} skapade steget %{resource_name} i deltagande processen %{space_name}"
+        delete: "%{user_name} raderade steget %{resource_name} i den deltagandeprocessen %{space_name}"
+        update: "%{user_name} uppdaterade steget %{resource_name} i den deltagandeprocessen %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} bjudit in användaren %{resource_name} till deltagandeprocess %{space_name}"
+        delete: "%{user_name} tagit bort användaren %{resource_name} från deltagandeprocess %{space_name}"
+        update: "%{user_name} ändrade användarens roll %{resource_name} i deltagandeprocess %{space_name}"
     events:
       participatory_process:
         step_activated:
+          email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: Steget %{resource_title} är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
+          email_intro: 'Dagen för steget %{resource_title} vid %{participatory_space_title} har uppdaterats. Du kan se den från den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     help:
       participatory_spaces:
         participatory_processes:
@@ -179,7 +268,14 @@ sv:
         title: Deltagande processer
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 process för %{group}
+          other: "%{count} processer för %{group}"
         title: Grupper vid deltagandeprocesser
+    participatory_process_steps:
+      index:
+        process_steps: Processsteg
+        title: Steg vid deltagandeprocesser
     participatory_processes:
       admin:
         content_blocks:
@@ -207,6 +303,7 @@ sv:
         home:
           highlighted_processes:
             active_processes: Aktiva processer
+            active_step: Aktivt steg
             more_information: Mer information
             participate: Delta
             see_all_processes: Se alla processer
@@ -257,6 +354,7 @@ sv:
         endorsements_count: Påskrivet
         headline: Aktivitet
         meetings_count: Möten
+        orders_count: Röster
         pages_count: Sidor
         processes_count: Processer
         projects_count: Projekt
@@ -264,6 +362,7 @@ sv:
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
+        votes_count: Röster
   layouts:
     decidim:
       participatory_process_groups:
@@ -272,14 +371,20 @@ sv:
           processes_count: 'Processer:'
       participatory_process_widgets:
         show:
+          active_step: Aktivt steg
           take_part: Delta
       participatory_processes:
         index:
           promoted_processes: Markerade processer
         participatory_process:
+          active_step: 'Nuvarande steg:'
           take_part: Delta
         promoted_process:
+          active_step: 'Nuvarande steg:'
           more_info: Mer information
           take_part: Delta
+      process_header_steps:
+        step: Steg %{current} av %{total}
+        view_steps: Visa steg
       process_navigation:
         process_menu_item: Processen
