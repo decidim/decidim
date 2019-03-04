@@ -36,7 +36,7 @@ pt-BR:
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         private_space: Espaço privado
-        promoted: Destacado
+        promoted: Em destaque
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
         scope_id: Âmbito
@@ -80,7 +80,7 @@ pt-BR:
         new_assembly: Nova assembleia
       assemblies:
         create:
-          error: Ocorreu um erro ao criar uma nova assembleia.
+          error: Houve um problema ao criar uma nova montagem.
           success: Assembleia criada com sucesso.
         edit:
           update: Atualizar
@@ -95,12 +95,12 @@ pt-BR:
           create: Criar
           title: Nova assembleia
         update:
-          error: Ocorreu um erro ao atualizar este assembly.
-          success: Assembleia atualizada com sucesso.
+          error: Houve um problema ao atualizar este assembly.
+          success: Montagem atualizada com sucesso.
       assemblies_copies:
         create:
-          error: Ocorreu um erro ao duplicar esta assembleia.
-          success: Assembleia duplicada com sucesso.
+          error: Houve um problema ao duplicar esse assembly.
+          success: Montagem duplicada com sucesso.
       assembly_copies:
         new:
           copy: Cópia
@@ -108,8 +108,8 @@ pt-BR:
           title: Duplicar assembleia
       assembly_members:
         create:
-          error: Ocorreu um erro ao adicionar um membro para esta assembleia.
-          success: Membro criado com sucesso para este assembly.
+          error: Houve um problema ao adicionar um membro para este assembly.
+          success: Membro criado com êxito para este assembly.
         destroy:
           success: Membro excluído com êxito para este assembly.
         edit:
@@ -121,36 +121,36 @@ pt-BR:
           create: Criar
           title: Novo membro da assembleia.
         update:
-          error: Houve um erro ao atualizar o membro para este assembly.
+          error: Houve um problema ao atualizar o membro para este assembly.
           success: Membro atualizado com êxito para este assembly.
       assembly_publications:
         create:
-          error: Ocorreu um erro ao publicar esta assembleia.
-          success: Assembleia publicada com sucesso.
+          error: Ocorreu um problema ao publicar este assembly.
+          success: Assembly publicado com sucesso.
         destroy:
-          error: Ocorreu um erro ao atualizar esta assembleia.
-          success: Assembleia não publicada com sucesso.
+          error: Houve um problema ao cancelar a publicação dessa montagem.
+          success: Montagem não publicada com sucesso.
       assembly_user_roles:
         create:
-          error: Ocorreu um erro ao adicionar um usuário para esta montagem.
-          success: Usuário adicionado com sucesso a esta montagem.
+          error: Houve um problema ao adicionar um administrador para este assembly.
+          success: Admin adicionado com êxito a esta montagem.
         destroy:
-          success: Usuário removido com sucesso deste assembly.
+          success: Admin removido com sucesso deste conjunto.
         edit:
-          title: Atualize o usuário da montagem.
+          title: Atualize o assembly admin.
           update: Atualizar
         index:
-          assembly_admins_title: Usuários da assembleia
+          assembly_admins_title: Administradores de montagem
         new:
           create: Criar
-          title: Novo usuário da assembleia.
+          title: Novo assembly admin.
         update:
-          error: Ocorreu um erro ao atualizar um usuário para esta montagem.
-          success: Usuário atualizado com sucesso para esta montagem.
+          error: Houve um problema ao atualizar um administrador para este assembly.
+          success: Admin atualizado com êxito para esta montagem.
       menu:
         assemblies: Assembleias
         assemblies_submenu:
-          assembly_admins: Usuários da assembleia
+          assembly_admins: Administradores de montagem
           assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: arquivos
@@ -186,7 +186,7 @@ pt-BR:
             email: O email
             name: Nome
             role: Cargo
-          name: Usuários da assembleia
+          name: Administrador de montagem
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -205,7 +205,7 @@ pt-BR:
         update: "%{user_name} atualizou o %{resource_name} membro na montagem %{space_name}"
       assembly_user_role:
         create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
-        delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
+        delete: "%{user_name} removeu o participante %{resource_name} da montagem %{space_name}"
         update: "%{user_name} alterou a função de %{resource_name} na montagem %{space_name}"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ pt-BR:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuário existente
-            non_user: Não usuário
+            existing_user: Participante existente
+            non_user: Não participante
             select_a_position: Selecione uma posição
-            select_user: Selecione um usuário
-            user_type: Tipo de usuário
+            select_user: Selecione um participante
+            user_type: Tipo de participante
           index:
             filter:
               all: Todos
@@ -314,14 +314,14 @@ pt-BR:
         endorsements_count: Endossos
         headline: Atividade
         meetings_count: Reuniões
-        orders_count: Votos
+        orders_count: Suporta
         pages_count: Páginas
         projects_count: Projetos
         proposals_count: Propostas
         results_count: Resultados
         surveys_count: pesquisas
         users_count: Participantes
-        votes_count: Votos
+        votes_count: Suporta
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -330,8 +330,8 @@ pt-BR:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Uma assembléia é um grupo de membros de uma organização que se reúne periodicamente para tomar decisões sobre uma área ou escopo específico da organização.</p> <p>Assembleias realizam reuniões, algumas são privadas e outras estão abertas. Se estiverem abertas, é possível participar delas (por exemplo: participar se a capacidade permitir, adicionar pontos à agenda ou comentar as propostas e decisões tomadas por este órgão).</p> <p>Exemplos: Assembléia Geral (que se reúne uma vez por ano para definir as principais linhas de ação da organização, bem como seus órgãos executivos por votação), um conselho consultivo para a igualdade (que se reúne a cada dois meses para apresentar propostas sobre como melhorar as relações de gênero na organização), uma comissão de avaliação (que se reúne todos os meses para monitorar um processo) ou um órgão de garantia (que coleta incidentes, abusos ou propostas para melhorar os procedimentos de tomada de decisão) são exemplos de assembléias.</p>\n"
-          page: "<p>Uma assembléia é um grupo de membros de uma organização que se reúne periodicamente para tomar decisões sobre uma área ou escopo específico da organização.</p> <p>Assembleias realizam reuniões, algumas são privadas e outras estão abertas. Se estiverem abertas, é possível participar delas (por exemplo: participar se a capacidade permitir, adicionar pontos à agenda ou comentar as propostas e decisões tomadas por este órgão).</p> <p>Exemplos: Assembléia Geral (que se reúne uma vez por ano para definir as principais linhas de ação da organização, bem como seus órgãos executivos por votação), um conselho consultivo para a igualdade (que se reúne a cada dois meses para apresentar propostas sobre como melhorar as relações de gênero na organização), uma comissão de avaliação (que se reúne todos os meses para monitorar um processo) ou um órgão de garantia (que coleta incidentes, abusos ou propostas para melhorar os procedimentos de tomada de decisão) são exemplos de assembléias.</p>\n"
+          contextual: "<p>Um <strong>conjunto</strong> é um grupo de membros de uma organização que se reúne periodicamente para tomar decisões sobre uma área ou um escopo específico da organização.</p> <p>Assembleias realizam reuniões, algumas são privadas e outras são abertas. Se estiverem abertas, é possível participar delas (por exemplo: participar se a capacidade permitir, adicionar pontos à agenda ou comentar as propostas e decisões tomadas por este órgão).</p> <p>Exemplos: Uma assembleia geral (que se reúne uma vez por ano para definir as principais linhas de ação da organização, bem como seus órgãos executivos por voto), um conselho consultivo para a igualdade (que se reúne a cada dois meses para fazer propostas sobre como melhorar as relações de gênero na organização), uma comissão de avaliação (que se reúne todos os meses para monitorar um processo) ou um órgão de garantia (que coleta incidentes, abusos ou propostas para melhorar os procedimentos de tomada de decisão) são exemplos de assembléias.</p>\n"
+          page: "<p>Um <strong>conjunto</strong> é um grupo de membros de uma organização que se reúne periodicamente para tomar decisões sobre uma área ou um escopo específico da organização.</p> <p>Assembleias realizam reuniões, algumas são privadas e outras são abertas. Se estiverem abertas, é possível participar delas (por exemplo: participar se a capacidade permitir, adicionar pontos à agenda ou comentar as propostas e decisões tomadas por este órgão).</p> <p>Exemplos: Uma assembleia geral (que se reúne uma vez por ano para definir as principais linhas de ação da organização, bem como seus órgãos executivos por voto), um conselho consultivo para a igualdade (que se reúne a cada dois meses para fazer propostas sobre como melhorar as relações de gênero na organização), uma comissão de avaliação (que se reúne todos os meses para monitorar um processo) ou um órgão de garantia (que coleta incidentes, abusos ou propostas para melhorar os procedimentos de tomada de decisão) são exemplos de assembléias.</p>\n"
           title: O que são montagens?
     log:
       value_types:
