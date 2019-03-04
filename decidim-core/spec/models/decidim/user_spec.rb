@@ -242,7 +242,7 @@ module Decidim
       let(:conditions) do
         {
           env: {
-            "decidim.current_organization" => organization,
+            "decidim.current_organization" => organization
           },
           email: user.email.upcase
         }
