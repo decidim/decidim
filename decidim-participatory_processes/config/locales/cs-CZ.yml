@@ -46,9 +46,6 @@ cs:
         email: E-mailem
         name: název
         role: Role
-    models:
-      decidim/participatory_process_step_activated_event: Krok aktivován
-      decidim/participatory_process_step_changed_event: Krok se změnil
   activerecord:
     models:
       decidim/participatory_process:
@@ -61,11 +58,6 @@ cs:
         few: Skupiny zúčastněných procesů
         many: Skupiny zúčastněných procesů
         other: Skupiny zúčastněných procesů
-      decidim/participatory_process_step:
-        one: Krok
-        few: Kroky
-        many: Kroky
-        other: Kroky
   decidim:
     admin:
       actions:
@@ -77,8 +69,6 @@ cs:
         edit: Upravit
         new_process: Nový proces
         new_process_group: Nová skupina procesů
-        new_process_step: Nový krok
-        new_process_user_role: Nový uživatel procesu
         preview: Náhled
         publish: Publikovat
         resend_invitation: Znovu poslat pozvánku
@@ -94,9 +84,6 @@ cs:
           components: Komponenty
           info: Info
           moderations: Moderování
-          private_users: Soukromí uživatelé
-          process_admins: Zpracovat uživatele
-          steps: Kroky
       models:
         participatory_process:
           fields:
@@ -115,13 +102,11 @@ cs:
             end_date: Datum ukončení
             start_date: Počáteční datum
             title: Titul
-          name: Participační krok procesu
         participatory_process_user_role:
           fields:
             email: E-mailem
             name: název
             role: Role
-          name: Uživatel participativního procesu
           roles:
             admin: Správce
             collaborator: Spolupracovník
@@ -136,72 +121,24 @@ cs:
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní participační proces
       participatory_process_groups:
-        destroy:
-          success: Účastní skupina procesů byla úspěšně smazána.
         edit:
           title: Upravit skupinu procesů
           update: Aktualizace
         new:
           create: Vytvořit
           title: Nová skupina procesů
-        update:
-          error: Byla chyba při aktualizaci této participační skupiny procesů.
-          success: Skupina účastnických procesů byla úspěšně aktualizována.
-      participatory_process_publications:
-        create:
-          error: Při publikování tohoto procesu participace došlo k chybě.
-          success: Účastnící proces byl úspěšně publikován.
-        destroy:
-          error: Došlo k chybě při zrušení publikování tohoto participačního procesu.
-          success: Účastní proces byl nepublikován úspěšně.
-      participatory_process_step_activations:
-        create:
-          error: Došlo k chybě aktivace tohoto kroku procesu participace.
-          success: Úspěšný krok procesu byl úspěšně aktivován.
       participatory_process_steps:
-        create:
-          error: Při vytváření nového kroku procesu participace došlo k chybě.
-          success: Úspěšný krok procesu byl úspěšně vytvořen.
         default_title: Úvod
-        destroy:
-          error:
-            active_step: Aktivní krok nelze odstranit.
-            last_step: Poslední krok procesu nelze odstranit.
-          success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
-          title: Úprava kroku procesu participace
           update: Aktualizace
-        index:
-          steps_title: Kroky
         new:
           create: Vytvořit
-          title: Nový krok procesu participace
-        ordering:
-          error: Došlo k chybě při novém uspořádání těchto kroků procesu participace.
-        update:
-          error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
-          success: Úspěšný krok procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
-        create:
-          error: Při přidávání uživatele pro tento participační proces došlo k chybě.
-          success: Uživatel úspěšně přidal do tohoto participačního procesu.
-        destroy:
-          success: Uživatel byl úspěšně odstraněn z tohoto participačního procesu.
         edit:
-          title: Aktualizovat uživatele participačního procesu.
           update: Aktualizace
-        index:
-          process_admins_title: Uživatelé účastnických procesů
         new:
           create: Vytvořit
-          title: Nový účastník procesu procesu.
-        update:
-          error: Došlo k chybě při aktualizaci uživatele pro tento participační proces.
-          success: Uživatel byl úspěšně aktualizován pro tento participační proces.
       participatory_processes:
-        create:
-          error: Při vytváření nového participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
         edit:
           update: Aktualizace
         form:
@@ -214,51 +151,23 @@ cs:
         new:
           create: Vytvořit
           title: Nový participační proces
-        update:
-          error: Při aktualizaci tohoto participačního procesu došlo k chybě.
-          success: Participační proces byl úspěšně aktualizován.
-      participatory_processes_copies:
-        create:
-          error: Při kopírování tohoto participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně zdvojen.
-      participatory_processes_group:
-        create:
-          error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
-          success: Skupina úspěšně vytvořená skupina účastníků.
       titles:
         participatory_process_groups: Skupiny zúčastněných procesů
         participatory_processes: Participativní procesy
-      users:
-        resend_invitation:
-          error: Při odeslání pozvánky došlo k chybě.
-          success: Pozvánka byla úspěšně odmítnuta.
     admin_log:
       participatory_process:
         create: "%{user_name} vytvořil %{resource_name} participační proces"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
-      participatory_process_step:
-        activate: "%{user_name} aktivoval %{resource_name} krok %{space_name} participaci"
-        create: "%{user_name} vytvořil %{resource_name} krok ve %{space_name} účastnických procesech"
-        delete: "%{user_name} odstraněno %{resource_name} krok ve %{space_name} účastnických procesech"
-        update: "%{user_name} aktualizoval %{resource_name} krok ve %{space_name} účastnických procesech"
-      participatory_process_user_role:
-        create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
-        delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
-        update: "%{user_name} změnilo roli uživatele %{resource_name} ve %{space_name} účastnických procesech"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Krok %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
-          notification_title: Krok %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Byly aktualizovány datum pro krok %{resource_title} v %{participatory_space_title} . Můžete ji vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
-          notification_title: Byly aktualizovány data pro krok <a href="%{resource_path}">%{resource_title}</a> ve <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     help:
       participatory_spaces:
         participatory_processes:
@@ -274,16 +183,7 @@ cs:
         title: Participativní procesy
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 pro %{group}
-          few: "%{count} procesů pro %{group}"
-          many: "%{count} procesů pro %{group}"
-          other: "%{count} procesů pro %{group}"
         title: Skupiny zúčastněných procesů
-    participatory_process_steps:
-      index:
-        process_steps: Procesní kroky
-        title: Stacionární kroky procesu
     participatory_processes:
       admin:
         content_blocks:
@@ -311,7 +211,6 @@ cs:
         home:
           highlighted_processes:
             active_processes: Aktivní procesy
-            active_step: Aktivní krok
             more_information: Více informací
             participate: Účastnit se
             see_all_processes: Zobrazit všechny procesy
@@ -370,7 +269,6 @@ cs:
         endorsements_count: Potvrzení
         headline: Aktivita
         meetings_count: Setkání
-        orders_count: Hlasy
         pages_count: Stránky
         processes_count: Procesy
         projects_count: Projekty
@@ -378,7 +276,6 @@ cs:
         results_count: Výsledek
         surveys_count: Průzkumy
         users_count: Účastníci
-        votes_count: Hlasy
   layouts:
     decidim:
       participatory_process_groups:
@@ -387,20 +284,14 @@ cs:
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
-          active_step: Aktivní krok
           take_part: Zúčastnit se
       participatory_processes:
         index:
           promoted_processes: Zvýrazněné procesy
         participatory_process:
-          active_step: 'Aktuální krok:'
           take_part: Zúčastnit se
         promoted_process:
-          active_step: 'Aktuální krok:'
           more_info: Více informací
           take_part: Zúčastnit se
-      process_header_steps:
-        step: Krok %{current} z %{total}
-        view_steps: Zobrazit kroky
       process_navigation:
         process_menu_item: Proces
