@@ -33,7 +33,6 @@ cs:
             name: Projekt
         projects:
           create:
-            invalid: Při vytváření tohoto projektu došlo k problému
             success: Projekt byl úspěšně vytvořen
           destroy:
             success: Projekt byl úspěšně smazán
@@ -48,11 +47,9 @@ cs:
             create: Vytvořit
             title: Nový projekt
           update:
-            invalid: Při aktualizaci tohoto projektu došlo k problému
             success: Projekt byl úspěšně aktualizován
         proposals_imports:
           create:
-            invalid: Při importu návrhů do projektů došlo k problému
             success: "%{number} projektů úspěšně dovezených do projektů"
           new:
             create: Návrhy na projekty
@@ -146,13 +143,6 @@ cs:
             comments_blocked: Komentáře byly blokovány
             show_votes: Zobrazit hlasy
             votes_enabled: Hlasování povoleno
-    orders:
-      checkout:
-        error: Při zpracování hlasu došlo k chybě
-        success: Vaše hlasování bylo úspěšně přijato
-      destroy:
-        error: Při zrušení hlasování došlo k chybě
-        success: Váš hlas byl úspěšně zrušen
     resource_links:
       included_proposals:
         project_proposal: 'Návrhy zahrnuté v tomto projektu:'
