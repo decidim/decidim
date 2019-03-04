@@ -25,6 +25,3 @@ pt-BR:
           edit:
             save: Atualizar
             title: Editar página
-          update:
-            invalid: Ocorreu erros ao salvar a página.
-            success: Página salva com sucesso.
