@@ -12,10 +12,7 @@ sv:
       id_document_upload:
         document_number: Dokumentnummer (med bokstav)
         document_type: Typ av ditt dokument
-        user: Användare
         verification_attachment: Skannad kopia av ditt dokument
-      offline_confirmation:
-        email: Användar-e-post
       postal_letter_address:
         full_address: Fullständig adress
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ sv:
             - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
         postal_letter:
           help:
-            - Användare begär en verifieringskod som ska skickas till deras adress.
+            - Participants request a verification code to be sent to their address.
             - Du skickar brevet till deras adress med verifieringskoden.
             - Du markerar brevet som skickat.
-            - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Få verifierad med hjälp av organisationens folkräkning
         name: Organisationens folkräkning
@@ -62,7 +59,6 @@ sv:
     verifications:
       authorizations:
         create:
-          error: Ett fel uppstod när auktoriseringen skulle skapas.
           success: Du har framgångsrikt auktoriserats.
           unconfirmed: Du måste bekräfta din e-post för att auktorisera dig själv.
         first_login:
@@ -107,10 +103,6 @@ sv:
           new:
             error: Vi kunde inte verifiera ditt konto eller du är inte i organisationens folkräkning.
             success: Ditt konto har verifierats.
-      dummy_authorization:
-        extra_explanation:
-          one: Deltagande är begränsat till användare med postnummer %{postal_codes}.
-          other: 'Deltagande är begränsat till användare med någon av följande postnummer: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ sv:
               title: Konfiguration av identitetsdokument
               update: Uppdatering
             update:
-              error: Det uppstod ett fel vid uppdatering av konfigurationen.
               success: Konfigurationen har uppdaterats
           confirmations:
-            create:
-              error: Verifieringen matchar inte. Försök igen eller avvisa verifieringen så att användaren kan ändra den
-              success: Användaren har verifierats
             new:
               introduce_user_data: Presentera data i bilden
               reject: Avvisa
               verify: Verifiera
           offline_confirmations:
-            create:
-              error: Verifieringen matchar inte. Försök igen eller berätta för användaren att ändra den
-              success: Användaren har verifierats
             new:
               cancel: Annullera
-              introduce_user_data: Presentation av användar-e-post och dokumentdata
               verify: Kontrollera
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ sv:
               offline_verification: Offline verifiering
               title: Pågående verifieringar
               verification_number: 'Verifiering #%{n}'
-          rejections:
-            create:
-              success: Verifieringen avvisades. Användaren kommer att uppmanas att ändra sina dokument
         authorizations:
           choose:
             choose_a_type: "Var god välj hur du vill verifieras:"
@@ -153,7 +134,6 @@ sv:
             title: Verifiera dig själv med ditt identitetsdokument
           create:
             error: Det gick inte att ladda upp dokumentet
-            success: Dokumentet har laddats upp
           edit:
             being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
             offline: Använd offline verifiering
@@ -167,7 +147,6 @@ sv:
             title: Ladda upp ditt identitetsdokument
           update:
             error: Ett problem uppstod när dokumentet skulle laddas upp igen
-            success: Dokumentet laddades framgångsrikt upp
         dni: ID-kort
         nie: Personnummer
         passport: Pass
@@ -180,7 +159,6 @@ sv:
               mark_as_sent: Markera som skickat
               not_yet_sent: inte skickat än
               title: Pågående kontroller
-              username: Användarnamn
               verification_code: Verifieringskod
           postages:
             create:
