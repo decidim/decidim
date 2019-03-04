@@ -617,7 +617,7 @@ cs:
         dashboard: Přístrojová deska
         impersonatable_users: Nezodpovědní uživatelé
         impersonations: Odhalení
-        participants: Účastníci
+        participants: Uživatelé
         scope_types: Typy rozsahu
         scopes: Scopes
         static_pages: Stránky
