@@ -65,7 +65,6 @@ de:
             destroy: Sortierung abbrechen
             title: Stornierung der Sortierung
           create:
-            error: Beim Erstellen einer neuen Datei ist ein Fehler aufgetreten.
             success: Die Sortierung wurde erfolgreich erstellt
           destroy:
             error: Die Sortierung kann nicht abgebrochen werden.
@@ -86,7 +85,6 @@ de:
           show:
             selected_proposals: Vorschläge für die Auslosung ausgewählt
           update:
-            error: Beim Aktualisieren der Sortierung ist ein Fehler aufgetreten.
             success: Die Sortierung wurde erfolgreich aktualisiert
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ de:
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
           search: Suche
-          state: Zustand
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -122,7 +119,6 @@ de:
             one: ausgewählter Vorschlag
             other: ausgewählte Vorschläge
         show:
-          algorithm: Sortieralgorithmuscode
           any_category: aus allen Kategorien
           cancelled: Stornierte Sortierung
           candidate_proposal_ids: Reihenfolge der Sortierungsvorschläge und IDs
@@ -141,10 +137,6 @@ de:
             one: Angebot ausgewählt
             other: Vorschläge ausgewählt
           view: Aussicht
-        sortition_author:
-          deleted: Gelöschter Benutzer
-        sortition_cancel_author:
-          deleted: Gelöschter Benutzer
         sortitions_count:
           count:
             one: 1 Sortierung
