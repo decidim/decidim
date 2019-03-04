@@ -25,7 +25,6 @@ ru:
             name: Пост
         posts:
           create:
-            invalid: При попытке добавить этот пост произошла ошибка
             success: Пост успешно создан
           destroy:
             success: Пост успешно удален
@@ -36,9 +35,6 @@ ru:
           new:
             create: Создать
             title: Создать пост
-          update:
-            invalid: При попытке сохранить пост произошли ошибки.
-            success: Пост успешно сохранен
       models:
         post:
           fields:
