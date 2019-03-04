@@ -12,10 +12,7 @@ fi-pl:
       id_document_upload:
         document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
-        user: Käyttäjä
         verification_attachment: Asiakirjan skannattu kopio
-      offline_confirmation:
-        email: Käyttäjän sähköposti
       postal_letter_address:
         full_address: Koko osoite
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ fi-pl:
             - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
         postal_letter:
           help:
-            - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
+            - Participants request a verification code to be sent to their address.
             - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
             - Sinä merkitset kirjeen lähetetyksi.
-            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Varmenna käyttäjätilisi organisaation rekisteritietojen avulla
         name: Organisaation rekisteritiedot
@@ -62,7 +59,6 @@ fi-pl:
     verifications:
       authorizations:
         create:
-          error: Vahvistuksen luonnissa tapahtui virhe.
           success: Tilisi on onnistuneesti vahvistettu.
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
         first_login:
@@ -107,10 +103,6 @@ fi-pl:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
             success: Tilisi on vahvistettu onnistuneesti.
-      dummy_authorization:
-        extra_explanation:
-          one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
-          other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ fi-pl:
               title: Henkilöllisyystodistusten asetukset
               update: Päivitä
             update:
-              error: Asetusten päivittämisessä tapahtui virhe.
               success: Asetukset päivitettiin onnistuneesti
           confirmations:
-            create:
-              error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
-              success: Käyttäjä vahvistettu onnistuneesti
             new:
               introduce_user_data: Syötä kuvassa näkyvät tiedot
               reject: Hylkää
               verify: Vahvista
           offline_confirmations:
-            create:
-              error: Vahvistus ei täsmää. Yritä uudelleen tai pyydä käyttäjää muuttamaan tietojaan
-              success: Käyttäjä vahvistettu onnistuneesti
             new:
               cancel: Peruuta
-              introduce_user_data: Lisää käyttäjän sähköposti ja asiakirjan tiedot
               verify: Vahvista
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ fi-pl:
               offline_verification: Offline-vahvistus
               title: Odottaa verkkotarkastuksia
               verification_number: 'Vahvistus #%{n}'
-          rejections:
-            create:
-              success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
         authorizations:
           choose:
             choose_a_type: "Valitse, kuinka haluat varmistaa henkilöllisyytesi:"
@@ -153,7 +134,6 @@ fi-pl:
             title: Varmista henkilöllisyytesi käyttämällä henkilöllisyystodistusta
           create:
             error: Asiakirjan lataamisessa tapahtui virhe
-            success: Asiakirja ladattu onnistuneesti
           edit:
             being_reviewed: Tarkistamme asiakirjojasi. Tilisi vahvistetaan pian
             offline: Käytä offline-vahvistusta
@@ -167,7 +147,6 @@ fi-pl:
             title: Lähetä henkilöllisyystodistuksesi
           update:
             error: Asiakirjan uudelleen lataaminen epäonnistui
-            success: Asiakirjan uudelleen lataaminen onnistui
         dni: Henkilökortti
         nie: HETU
         passport: Passi
@@ -180,7 +159,6 @@ fi-pl:
               mark_as_sent: Merkitse lähetetyksi
               not_yet_sent: Ei vielä lähetetty
               title: Käynnissä olevat vahvistukset
-              username: Käyttäjätunnus
               verification_code: Vahvistuskoodi
           postages:
             create:
