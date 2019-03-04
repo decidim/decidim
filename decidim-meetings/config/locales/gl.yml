@@ -40,10 +40,6 @@ gl:
             base:
               too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
               too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico xa foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -65,9 +61,6 @@ gl:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Produciuse un erro ao duplicar esta reunión.
-          success: Reunión duplicada con éxito.
         new:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
@@ -108,10 +101,7 @@ gl:
         meeting_registration_confirmed:
           notification_title: Inscríbase o rexistro da reunión <a href="%{resource_url}">%{resource_title}</a> . O teu código de rexistro é %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: As xuntas ocupadas con "%{resource_title}" ocupan máis de %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da reunión.
-          email_subject: As xuntas ocupadas con "%{resource_title}" ocuparon máis de %{percentage}%
-          notification_title: As xuntas ocupadas por <a href="%{resource_path}">%{resource_title}</a> ocupadas son máis do %{percentage}%.
         meeting_updated:
           email_intro: 'Realizouse a reunión "%{resource_title}". Podes ler a nova versión da súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -135,14 +125,10 @@ gl:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Rexístrese nas reunións que desexa asistir
           description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
-          description_another: Este usuario asistiu a %{score} reunións.
           description_own: Atendeu %{score} reunións.
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non asistiu a ningunha reunión.
           unearned_own: Aínda non asistiu a ningunha reunión.
     meetings:
       actions:
@@ -161,19 +147,15 @@ gl:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Engadir elemento do tema da axenda
             agenda_item: Punto de axenda
-            agenda_item_children: Elemento da axenda Childs
             down: Baixo
             remove: Quitar
             up: Arriba
           agenda_item_child:
-            agenda_item_child: Tema do programa Neno
             down: Baixo
             remove: Quitar
             up: Arriba
           create:
-            invalid: Produciuse un problema ao crear esta axenda
             success: Axenda creada con éxito
           edit:
             title: Editar axenda
@@ -187,7 +169,6 @@ gl:
             create: Crear
             title: Nova axenda
           update:
-            invalid: Produciuse un problema ao actualizar esta axenda
             success: A axenda actualizouse correctamente
         exports:
           meetings: Reunións
@@ -198,16 +179,9 @@ gl:
             invited_you_to_join_a_meeting: "%{invited_by} convidoute a unirse a unha reunión en %{application}. Podes aceptalo a través da seguinte ligazón."
             join: Únete á reunión "%{meeting_title}"
         invites:
-          create:
-            error: Produciuse un problema ao invitar ao usuario a unirse á reunión.
-            success: O usuario convidouse con éxito a unirse á reunión.
           form:
             attendee_type: Tipo de asistente
-            existing_user: Usuario existente
             invite: Invitar
-            invite_explanation: Tamén se invitará ao usuario a unirse á reunión e á organización.
-            non_user: Usuario non existente
-            select_user: Seleccionar usuario
           index:
             filter:
               accepted: Aceptada
@@ -228,10 +202,8 @@ gl:
             select_organizer: Selecciona o organizador
         meetings:
           close:
-            invalid: Produciuse un problema ao pechar esta reunión
             success: Reunión pechada con éxito
           create:
-            invalid: Produciuse un problema ao crear esta reunión
             success: Reunión creada correctamente
           destroy:
             success: Reunión eliminada correctamente
@@ -255,11 +227,9 @@ gl:
             add_service: Engadir servizo
             services: Servizos
           update:
-            invalid: Produciuse un problema ao actualizar esta reunión
             success: Reunión actualizada correctamente
         minutes:
           create:
-            invalid: Produciuse un problema ao crear estes minutos
             success: Minutos creados con éxito
           edit:
             update: Actualización
@@ -267,7 +237,6 @@ gl:
             create: Crear
             title: Crea minutos
           update:
-            invalid: Produciuse un problema ao actualizar estes minutos
             success: Minutos actualizados correctamente
         models:
           meeting:
@@ -279,7 +248,6 @@ gl:
             validate_registration_code: Validar o código de rexistro
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
-            invites: Invitacións
             registration_form: Formulario de inscrición
             registrations_count:
               one: Houbo un rexistro de %{count}.
@@ -287,7 +255,6 @@ gl:
             reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
           update:
-            invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
           validate_registration_code:
             invalid: Este código de rexistro non é válido.
@@ -406,13 +373,10 @@ gl:
           registration_code: O teu código de rexistro é %{code}.
       registrations:
         create:
-          invalid: Produciuse un problema ao unirse a esta reunión.
           success: Uniches á reunión correctamente.
         decline_invitation:
-          invalid: Produciuse un problema ao diminuír a invitación.
           success: Rexeitou con éxito a invitación.
         destroy:
-          invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
       types:
         private_meeting: Encontro privado
