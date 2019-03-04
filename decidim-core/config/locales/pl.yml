@@ -30,7 +30,7 @@ pl:
       decidim/user:
         current_password: Obecne hasło
         email: Adres e-mail
-        name: Nazwa użytkownika
+        name: Przezwisko
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
@@ -41,15 +41,15 @@ pl:
         many: Poprawki
         other: Poprawki
       decidim/user:
-        one: Brak użytkowników
-        few: Użytkownicy
-        many: Użytkownicy
-        other: Użytkownicy
+        one: Brak uczestników
+        few: Uczestnicy
+        many: Uczestnicy
+        other: Uczestnicy
       decidim/user_group:
-        one: Grupa użytkowników
-        few: Grupy użytkowników
-        many: Grupy użytkowników
-        other: Grupy użytkowników
+        one: Grupa
+        few: Grupy
+        many: Grupy
+        other: Grupy
   booleans:
     'false': 'Nie'
     'true': 'Tak'
@@ -69,7 +69,7 @@ pl:
         file_no_exists: Plik nie istnieje
         invalid_token: Podany token jest nieprawidłowy.
         no_token: Nie podano tokena
-        notice: Twoje dane są obecnie w toku. Otrzymasz e-mail po zakończeniu.
+        notice: Trwa pobieranie danych. Otrzymasz e-mail po zakończeniu.
       delete:
         alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już logować z jego pomocą.
         confirm:
@@ -79,15 +79,15 @@ pl:
           title: Usuń moje konto
         explanation: Proszę podać przyczynę, dla której chcesz usunąć swoje konto (opcjonalne).
       destroy:
-        error: Podczas usuwania Twojego konta wystąpił błąd.
+        error: Podczas usuwania konta wystąpił problem.
         success: Twoje konto zostało pomyślnie usunięte.
       show:
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
       update:
-        error: Podczas aktualizowania konta wystąpił błąd.
-        success: Twoje konto zostało zaktualizowane pomyślnie.
-        success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
+        error: Podczas aktualizowania konta wystąpił problem.
+        success: Twoje konto zostało pomyślnie zaktualizowane.
+        success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. Otrzymasz wiadomość e-mail z potwierdzeniem nowego adresu e-mail.
     admin_log:
       area:
         create: "%{user_name} utworzył obszar %{resource_name}"
@@ -113,8 +113,8 @@ pl:
       organization:
         update: "%{user_name} zaktualizował ustawienia organizacji"
       participatory_space_private_user:
-        create: "%{user_name} zaprosił %{resource_name} aby zostać użytkownikiem prywatnym"
-        delete: "%{user_name} usunął użytkownika %{resource_name} jako użytkownika prywatnego"
+        create: "%{user_name} zaproszono %{resource_name} aby zostać uczestnikiem prywatnym"
+        delete: "%{user_name} usunęło uczestnika %{resource_name} jako prywatnego uczestnika"
       scope:
         create: "%{user_name} utworzył zasięg %{resource_name}"
         create_with_parent: "%{user_name} utworzył zasięg %{resource_name} w zasięgu %{parent_scope}"
@@ -127,30 +127,30 @@ pl:
         delete: "%{user_name} usunięto %{resource_name} strona statyczna"
         update: "%{user_name} zaktualizowałem %{resource_name} strona statyczna"
       user:
-        invite: "%{user_name} zaprosił użytkownika %{resource_name} z rolą: %{role}"
-        officialize: "%{user_name} oficjalny użytkownik %{resource_name}"
-        remove_from_admin: "%{user_name} usunięto użytkownika %{resource_name} z rolą: %{role}"
-        unofficialize: "%{user_name} nieoficjalny użytkownik %{resource_name}"
+        invite: "%{user_name} zaprosił uczestnika %{resource_name} z rolą: %{role}"
+        officialize: "%{user_name} oficjalnym uczestnikiem %{resource_name}"
+        remove_from_admin: "%{user_name} usunęło uczestnika %{resource_name} z rolą: %{role}"
+        unofficialize: "%{user_name} nieoficjalizowany uczestnik %{resource_name}"
       user_group:
-        reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
-        verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
-        verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
+        reject: "%{user_name} odrzuciło weryfikację %{resource_name} grupy"
+        verify: "%{user_name} zweryfikowało grupę %{resource_name}"
+        verify_via_csv: "%{user_name} zweryfikowało grupę %{resource_name} za pomocą pliku CSV"
     amendments:
       accepted:
-        error: Wystąpił błąd podczas akceptacji poprawki, spróbuj ponownie później.
-        success: Ta emisja została pomyślnie przyjęta.
+        error: Wystąpił problem z zaakceptowaniem poprawki. Spróbuj ponownie później.
+        success: Ta poprawka została przyjęta z powodzeniem.
       amendable:
         amended_by: Zmienione przez
         button: Zmień %{model_name}
-        promote_button: Promuj do %{model_name}
-        error: Wystąpił błąd podczas zmiany tego zasobu.
+        promote_button: Opublikuj jako nowe %{model_name}
+        error: Podczas zmiany tego zasobu wystąpił problem.
         help_text: Popraw to %{model_name} , modyfikując %{amendable_fields}
-        promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
+        promote_help_text: Możesz opublikować tę poprawkę jako niezależną %{model_name}
         no_amenders: Nie ma żadnych fałszerstw
         no_amendments: Brak zmian
         section_heading: Poprawki (%{count})
       created:
-        error: Wystąpił błąd podczas tworzenia tej poprawki, spróbuj ponownie później
+        error: Wystąpił błąd podczas tworzenia tej poprawki. Spróbuj ponownie później
         success: Poprawka została pomyślnie utworzona
       emendation:
         actions:
@@ -165,8 +165,7 @@ pl:
             Niniejsza poprawka do oceny %{amendable_type} %{amendable_link}
             jest przedmiotem oceny.
           rejected: |-
-            Ta emisja dla %{amendable_type} %{amendable_link}
-            została odrzucona na <strong>%{announcement_date}</strong>.
+            Niniejsza poprawka dotycząca %{amendable_type} %{amendable_link} została odrzucona w dniu <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Ta poprawka do %{amendable_type} %{amendable_link}
             została wycofana przez autora.
@@ -177,11 +176,11 @@ pl:
         help_text: Modyfikujesz %{model_name}
         send: Wyślij poprawkę
       rejected:
-        error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
-        success: Emendacja została odrzucona pomyślnie
+        error: Wystąpił problem z odrzuceniem tej poprawki. Spróbuj ponownie później
+        success: Poprawka została odrzucona
       promoted:
-        success: Emedycja została pomyślnie awansowana
-        error: Podczas promowania wyemitowania wystąpiły błędy
+        success: Poprawka została pomyślnie opublikowana jako nowy wniosek
+        error: Wystąpił problem z opublikowaniem poprawki jako nowej propozycji
       review:
         back: Z powrotem
         heading: Przejrzyj poprawkę
@@ -198,7 +197,7 @@ pl:
       documents:
         related_documents: Powiązane dokumenty
       photos:
-        related_photos: Powiązane zdjęcia
+        related_photos: Powiązane obrazy
     author:
       comments:
         one: komentarz
@@ -220,7 +219,7 @@ pl:
       dummy_authorization_workflow:
         name: Przepustowy proces autoryzacji
       errors:
-        duplicate_authorization: Użytkownik jest już uprawniony z tych samych danych.
+        duplicate_authorization: Uczestnik jest już autoryzowany z tymi samymi danymi.
       expired_at: Wygasł na %{timestamp}
       expires_at: Wygasa na %{timestamp}
       foo_authorization:
@@ -330,7 +329,7 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
+          nickname_help: Twój alias (@nickname) w %{organization}
           sign_up: Proszę wypełnić swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -339,7 +338,7 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
           newsletter_title: Skontaktuj się z uprawnieniami
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
+          nickname_help: Twój alias (@nickname) w %{organization}
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:
@@ -354,7 +353,7 @@ pl:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego
-          sign_up_disabled: Zarejestruj się jest wyłączone, możesz użyć istniejącego użytkownika, aby uzyskać dostęp
+          sign_up_disabled: Zarejestruj się jest wyłączone, możesz użyć istniejącego konta, aby uzyskać dostęp
       shared:
         newsletter_modal:
           buttons:
@@ -381,7 +380,7 @@ pl:
           publish_content: Opublikuj zawartość dla siebie
           see_email: Zobacz swój e-mail
           see_name: Zobacz swoje imię
-          see_username: Zobacz swoją nazwę użytkownika
+          see_username: Zobacz swój pseudonim
           this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie w stanie:'
           update_profile: Zaktualizuj swój profil
@@ -398,47 +397,47 @@ pl:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Nowa poprawka została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
             email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">nowelizacja</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Nowa poprawka została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">nowelizacja</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'Emendacja została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Poprawka została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
             email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Emendacja została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Poprawka została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Emendacja odrzucona dla %{amendable_title} została awansowana na niezależną %{amendable_type}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Odrzucona poprawka dla %{amendable_title} została opublikowana jako nowa %{amendable_type}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Promowane od %{emendation_author_nickname} zostało promowane
-            notification_title: Odrzucona <a href="%{emendation_path}">emisja</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została zwiększona o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako nowa propozycja
+            notification_title: <a href="%{emendation_path}">odrzucona poprawka</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została opublikowana jako nowa propozycja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Emendacja odrzucona dla %{amendable_title} została awansowana na niezależną %{amendable_type}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Odrzucona poprawka dla %{amendable_title} została opublikowana jako nowa %{amendable_type}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Promowane od %{emendation_author_nickname} zostało promowane
-            notification_title: Odrzucona <a href="%{emendation_path}">emisja</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została zwiększona o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako nowa propozycja
+            notification_title: <a href="%{emendation_path}">odrzucona poprawka</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została opublikowana jako nowa propozycja <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Poprawka została przyjęta dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
+            email_subject: Zaakceptowano poprawkę dla %{amendable_title} z %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Poprawka została przyjęta dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
+            email_subject: Zaakceptowano poprawkę dla %{amendable_title} z %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
@@ -459,15 +458,15 @@ pl:
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
+          email_intro: Gratulacje! Zdobyłeś odznakę <a href="%{resource_url}">%{badge_name}</a> (poziom %{current_level}).
           email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
           email_subject: 'Otrzymałeś nową odznakę: %{badge_name}!'
-          notification_title: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
+          notification_title: Gratulacje! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
         level_up:
-          email_intro: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+          email_intro: Gratulacje! Osiągnąłeś poziom %{current_level} na <a href="%{resource_url}">%{badge_name} znaczek</a>!
           email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
           email_subject: Osiągnąłeś poziom %{current_level} na %{badge_name} odznace!
-          notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+          notification_title: Gratulacje! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
       groups:
         demoted_membership:
           email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> usunął prawa administratora do tej grupy.
@@ -512,11 +511,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: "%{nickname} zaktualizował (a) swój profil"
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> zostało zdyskwalifikowane.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: "%{nickname} zostało zsynchronizowane"
-          notification_title: Lista <a href="%{resource_path}">%{name} (%{nickname})</a>, którą obserwujesz, została oficjalnie zatwierdzona.
     export_mailer:
       data_portability_export:
         click_button: Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.
@@ -548,10 +542,10 @@ pl:
     follows:
       create:
         button: Postępuj zgodnie z
-        error: Nastąpił błąd w następstwie tego zasobu.
+        error: Wystąpił problem związany z tym zasobem.
       destroy:
         button: Przestań obserwować
-        error: Nastąpił błąd obserwowania użytkownika tego zasobu.
+        error: Podczas korzystania z tego zasobu wystąpił problem.
     forms:
       current_file: Bieżący plik
       current_image: Bieżący obraz
@@ -566,21 +560,21 @@ pl:
           conditions:
             - Chodź tu często
           description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
-          description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
+          description_another: Ten uczestnik w pewnym momencie nawiązał połączenie przez %{score} kolejnych dni.
           description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
           name: Ciągłość
           next_level_in: Łącz przez %{score} kolejnych dni, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie zalogował się przez więcej niż jeden kolejny dzień.
+          unearned_another: Ten uczestnik nie zalogował się przez więcej niż jeden kolejny dzień.
           unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
           conditions:
             - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
           description: Ta odznaka jest przyznawana, gdy dotrzesz do określonej liczby obserwujących. %{organization_name} to sieć społeczna i polityczna, tkanie sieci w celu komunikowania się z innymi osobami na platformie.
-          description_another: Ten użytkownik ma %{score} obserwujących.
-          description_own: "%{score} użytkowników obserwuje Ciebie."
+          description_another: Ten uczestnik ma %{score} obserwujących.
+          description_own: "%{score} osób obserwuje Cię."
           name: Obserwujący
-          next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
+          next_level_in: Uzyskaj %{score} dodatkowych osób, które pozwolą Ci przejść do następnego poziomu!
+          unearned_another: Ten uczestnik nie ma jeszcze żadnych obserwujących.
           unearned_own: Nie masz jeszcze żadnych obserwujących.
         index:
           badge_title: "%{name} znaczek"
@@ -593,67 +587,67 @@ pl:
             - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
             - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
           description: Ta odznaka jest przyznawana, gdy zaprosiłeś niektórych ludzi i spędzili trochę czasu, aby zarejestrować się w %{organization_name} i zostać uczestnikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozszerzeniu społeczności!
-          description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
-          description_own: Zaprosiłeś %{score} użytkowników.
+          description_another: Ten uczestnik zaprasza %{score} osób.
+          description_own: Zaprosiłeś %{score} osób.
           name: Zaproszenia
-          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie zaprosił jeszcze żadnego użytkownika.
-          unearned_own: Nie zaprosiłeś jeszcze żadnych użytkowników.
+          next_level_in: Zaproś %{score} kolejnych osób, aby przejść do następnego poziomu!
+          unearned_another: Ten uczestnik jeszcze nikogo nie zaprosił.
+          unearned_own: Jeszcze nikogo nie zaprosiłeś.
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     group_admins:
       actions:
-        are_you_sure: Jesteś pewny? Nie spowoduje to usunięcia użytkownika z grupy.
+        are_you_sure: Jesteś pewny? Nie spowoduje to usunięcia uczestnika z grupy.
         demote_admin: Usuń administratora
       demote:
-        error: Wystąpił błąd podczas usuwania tego użytkownika z listy administratorów
-        success: Użytkownik został pomyślnie usunięty z admin
+        error: Podczas usuwania tego uczestnika z listy administratorów wystąpił problem
+        success: Uczestnik został usunięty z administratora
       index:
         current_admins: 'Obecni administratorzy:'
         manage_admins: Zarządzaj adminami
     group_invites:
       accept:
-        error: Wystąpił błąd podczas akceptowania tego zaproszenia
-        success: Zaproszenie zostało zaakceptowane
+        error: Podczas przyjmowania tego zaproszenia wystąpił problem
+        success: Zaproszenie przyjęto z powodzeniem
       accept_invitation: Zaakceptować
       accept_or_reject_group_invitations: 'Następujące grupy zaprosiły Cię do dołączenia do nich. Zaakceptuj lub odrzuć ich prośby:'
       index:
         invite: Zapraszam
-        invite_user: Zaproś użytkownika
+        invite_user: Zaproś uczestnika
       invite:
-        error: Podczas zapraszania tego użytkownika wystąpił błąd
-        success: Użytkownik został zaproszony z powodzeniem
+        error: Podczas zapraszania tego uczestnika wystąpił problem
+        success: Uczestnik został zaproszony
       reject:
-        error: Wystąpił błąd podczas odrzucania tego zaproszenia
-        success: Zaproszenie odrzucone z powodzeniem
+        error: Wystąpił problem z odrzuceniem tego zaproszenia
+        success: Zaproszenie zostało odrzucone
       reject_invitation: Odrzucać
     group_members:
       accept:
-        error: Wystąpił błąd podczas akceptowania tego żądania dołączenia
-        success: Żądanie dołączenia zostało zaakceptowane pomyślnie
+        error: Wystąpił problem z zaakceptowaniem tej prośby o dołączenie
+        success: Żądanie dołączenia zostało zaakceptowane
       actions:
         are_you_sure: Jesteś pewny?
         promote_to_admin: Uczynić adminem
-        remove_from_group: Usuń użytkownika
+        remove_from_group: Usuń uczestnika
       index:
         current_members_without_admins: 'Aktualni członkowie (bez administratorów):'
         manage_members: Zarządzaj członkami
       promote:
-        error: Wystąpił błąd podczas promowania tego użytkownika
-        success: Użytkownik został pomyślnie awansowany
+        error: Wystąpił problem z promowaniem tego uczestnika
+        success: Uczestnik awansował pomyślnie
       reject:
-        error: Wystąpił błąd podczas odrzucania tego żądania dołączenia
-        success: Żądanie dołączenia zostało odrzucone pomyślnie
+        error: Wystąpił problem z odrzuceniem tej prośby o dołączenie
+        success: Żądanie połączenia zostało odrzucone
       remove:
-        error: Wystąpił błąd podczas usuwania tego użytkownika z grupy
-        success: Użytkownik usunięty z grupy pomyślnie
+        error: Podczas usuwania tego uczestnika z grupy wystąpił problem
+        success: Uczestnik został usunięty z grupy
     groups:
       actions:
         are_you_sure: Jesteś pewny?
       create:
         error: Podczas tworzenia grupy wystąpił problem
-        success: Grupa utworzona pomyślnie
+        success: Grupa została pomyślnie utworzona
       edit:
         edit_user_group: Edytuj grupę
         update_user_group: Zaktualizuj grupę
@@ -662,14 +656,14 @@ pl:
         email_help: E-mail do Twojej organizacji, stowarzyszenia, grupy, grupy itp.
         fill_in_for_verification: 'Wypełnij te pola, jeśli chcesz zweryfikować swoją grupę:'
         name_help: Nazwa organizacji, stowarzyszenia, grupy, grupy itp.
-        nickname_help: Nazwa użytkownika Twojej organizacji, stowarzyszenia, grupy, grupy itp. Nie używaj spacji ani akcentów.
+        nickname_help: Pseudonim twojej organizacji, stowarzyszenia, grupy, grupy itp. Nie używaj spacji ani akcentów.
         phone_help: Nie używaj myślników ani spacji
       join:
         error: Podczas dołączania do grupy wystąpił problem
-        success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twoją prośbę przed zaakceptowaniem Cię do grupy.
+        success: Prośba o połączenie pomyślnie utworzona. Administrator sprawdzi Twoją prośbę przed zaakceptowaniem Cię do grupy.
       leave:
         error: Podczas opuszczania grupy wystąpił problem
-        success: Grupa została pomyślnie zakończona.
+        success: Grupa pomyślnie zrezygnowała.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
         accept_request: Zaakceptować
@@ -684,8 +678,8 @@ pl:
         creator: Twórca
         member: Członek
       update:
-        error: Wystąpił problem podczas aktualizacji grupy
-        success: Grupa zaktualizowana pomyślnie
+        error: Podczas aktualizowania grupy wystąpił problem
+        success: Grupa została pomyślnie zaktualizowana
     help:
       main_topic:
         default_page:
@@ -720,9 +714,9 @@ pl:
         scope_type_presenter:
           not_found: 'Typ zasięgu nie został znaleziony w bazie danych (ID: %{id})'
     managed_users:
-      expired_session: Obecna sesja personifikacji wygasła.
+      expired_session: Obecna sesja administracyjna uczestnika wygasła.
     members:
-      no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
+      no_members: Ta grupa nie ma jeszcze żadnych członków.
     menu:
       help: Wsparcie
       home: Ekran startowy
@@ -758,17 +752,17 @@ pl:
       download:
         csv: Pobierz dane (csv)
       followers:
-        description: Liczba użytkowników obserwujących to miejsce uczestnictwa
+        description: Liczba uczestników obserwujących to miejsce uczestnictwa
         object: Obserwujący
         title: Obserwujący
       participants:
-        description: Liczba aktywnych użytkowników w organizacji
+        description: Liczba aktywnych uczestników w organizacji
         object: Uczestnicy
         title: Uczestnicy
       users:
-        description: Liczba użytkowników w organizacji
-        object: użytkowników
-        title: Użytkownicy
+        description: Liczba uczestników w organizacji
+        object: Uczestnicy
+        title: Uczestnicy
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
@@ -777,7 +771,7 @@ pl:
     newsletters:
       unsubscribe:
         check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić w <a href="%{link}" target="_blank">konfiguracji strona</a>
-        error: Wystąpił błąd podczas anulowania subskrypcji
+        error: Wystąpił problem z anulowaniem subskrypcji
         success: Zyskujesz subskrypcję.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
@@ -785,7 +779,7 @@ pl:
       unathorized: Przepraszamy, ten link nie jest już dostępny
       update:
         error: Stało się coś złego
-        success: Ustawienia newslettera zostały pomyślnie zaktualizowane
+        success: Ustawienia newslettera zostały zaktualizowane
     newsletters_opt_in_mailer:
       notify:
         body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
@@ -808,8 +802,8 @@ pl:
         send_notifications_by_email: Wysyłaj powiadomienia pocztą e-mail
         update_notifications_settings: Zapisz zmiany
       update:
-        error: Podczas aktualizowania ustawień powiadomień wystąpił błąd.
-        success: Ustawienia powiadomień zostały zaktualizowane.
+        error: Podczas aktualizowania ustawień powiadomień wystąpił problem.
+        success: Twoje ustawienia powiadomień zostały pomyślnie zaktualizowane.
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
     own_user_groups:
@@ -874,7 +868,7 @@ pl:
           link: Pokaż wszystkie statystyki
       terms_and_conditions:
         accept:
-          error: Wystąpił błąd podczas akceptowania warunków.
+          error: Wystąpił problem z zaakceptowaniem warunków.
           success: Wspaniały! Zaakceptowałeś warunki i zasady.
         form:
           agreement: Zgadzam się na te warunki
@@ -893,10 +887,10 @@ pl:
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
-      deleted: Usunięty użytkownik
+      deleted: Uczestnik został usunięty
       view: Widok
     profiles:
-      default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
+      default_officialization_text_for_user_groups: Ta grupa została publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
         activity: Czynność
@@ -917,7 +911,7 @@ pl:
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil grupy
         fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby to potwierdzić
-        invite_user: Zaproś użytkownika
+        invite_user: Zaproś uczestnika
         join_user_group: Poproś o dołączenie do grupy
         leave_user_group: Opuścić grupę
         manage_user_group_admins: Zarządzaj adminami
@@ -1003,10 +997,10 @@ pl:
         share: Dzielić
         share_link: Udostępnij link
       version_author:
-        deleted: Usunięty użytkownik
+        deleted: Usunięty uczestnik
     user_activity:
       index:
-        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
+        no_activities_warning: Ten uczestnik nie miał jeszcze żadnej aktywności.
     user_interests:
       show:
         no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
@@ -1014,7 +1008,7 @@ pl:
         select_your_interests: Wybierz tematy, które Cię interesują, aby otrzymywać związane z nimi wydarzenia na karcie Oś czasu w profilu.
         update_my_interests: Zaktualizuj moje zainteresowania
       update:
-        error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
+        error: Podczas aktualizowania Twoich zainteresowań wystąpił problem.
         success: Twoje zainteresowania zostały pomyślnie zaktualizowane.
     welcome_notification:
       default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
@@ -1039,7 +1033,7 @@ pl:
     invitations:
       edit:
         header: Zakończ tworzenie konta
-        nickname_help: Twój unikalny identyfikator w %{organization}.
+        nickname_help: Twój pseudonim w %{organization}.
         submit_button: Zapisać
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1055,7 +1049,7 @@ pl:
       confirmation_instructions:
         action: Potwierdź moje konto
         greeting: Witamy %{recipient}!
-        instruction: 'Możesz potwierdzić swój adres e-mail konta za pomocą poniższego linku:'
+        instruction: 'Możesz potwierdzić swoje konto e-mail za pomocą poniższego linku:'
         subject: Instrukcje potwierdzające
       email_changed:
         greeting: Witaj, %{recipient}!
@@ -1070,10 +1064,10 @@ pl:
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
           Twoje konto nie zostanie utworzone, dopóki nie uzyskasz dostępu do powyższego linku i nie ustawisz nicka ani hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}. Możesz to zaakceptować za pomocą poniższego linku."
-        invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to za pomocą poniższego linku."
+        invited_you_as_private_user: "%{invited_by} zaprosiło Cię jako prywatnego uczestnika %{application}. Możesz zaakceptować to za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administrator o numerze %{application}, możesz go zaakceptować za pomocą poniższego linku.
-        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako private_user z adresu %{application}, możesz go zaakceptować, klikając poniższy link.
+        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego uczestnika %{application}, możesz go zaakceptować, klikając poniższy link.
         subject: Instrukcje dotyczące zaproszenia
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
@@ -1118,7 +1112,7 @@ pl:
       updated: Twoje hasło zostało zmienione. Jesteś teraz zalogowany.
       updated_not_active: Twoje hasło zostało zmienione.
     registrations:
-      destroyed: PA! Twoje konto zostało pomyślnie anulowane. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
+      destroyed: Twoje konto zostało pomyślnie anulowane. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
       edit:
         are_you_sure: Jesteś pewny?
         cancel_my_account: Anuluj moje konto
@@ -1161,7 +1155,7 @@ pl:
         resend_unlock_instructions: Wyślij ponownie instrukcje odblokowania
       send_instructions: Otrzymasz wiadomość e-mail z instrukcjami, jak odblokować konto w ciągu kilku minut.
       send_paranoid_instructions: Jeśli Twoje konto istnieje, otrzymasz e-mail z instrukcjami, jak je odblokować w ciągu kilku minut.
-      unlocked: Twoje konto zostało odblokowane pomyślnie. Zaloguj się, aby kontynuować.
+      unlocked: Twoje konto zostało odblokowane. Zaloguj się, aby kontynuować.
   doorkeeper:
     scopes:
       public: Twoje informacje publiczne.
@@ -1209,7 +1203,7 @@ pl:
         sign_up: Zapisz się
       impersonation_warning:
         close_session: Zamknij sesję
-        description_html: Podszyszcza się do użytkownika <b>%{user_name}</b>.
+        description_html: Zarządzasz uczestnikiem <b>%{user_name}</b>.
         expire_time_html: Sesja wygasa w <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Oznacz wszystkie jako przeczytane
@@ -1227,7 +1221,7 @@ pl:
         my_data: Moje dane
         my_interests: Moje zainteresowania
         notifications_settings: Ustawienia powiadomień
-        title: Ustawienia użytkownika
+        title: Ustawienia uczestników
         user_groups: Grupy
       widget:
         see_more: Zobacz więcej
