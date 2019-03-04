@@ -37,8 +37,20 @@ fi:
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
     metrics:
       survey_answers:
+        description: Kyselyvastausten määrä
         object: kyselyvastaukset
         title: Kyselyvastaukset
     surveys:
+      admin:
+        exports:
+          survey_user_answers: Kyselyn vastaukset
+        surveys:
+          update:
+            invalid: Kyselyn tallennus epäonnistui.
+            success: Kysely tallennettu onnistuneesti.
       last_activity:
         new_survey_at_html: "<span>Uusi kysely osoitteessa %{link}</span>"
+      surveys:
+        answer:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          success: Kyselyyn vastattu onnistuneesti.
