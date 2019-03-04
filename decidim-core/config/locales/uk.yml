@@ -22,9 +22,16 @@ uk:
       decidim/user:
         current_password: Поточний пароль
         email: Адреса електронної пошти
+        name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
+    models:
+      decidim/user_group:
+        one: Гурт учасників
+        few: Гурти учасників
+        many: Гуртів учасників
+        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
@@ -41,6 +48,7 @@ uk:
         file_no_exists: Файл не існує
         invalid_token: Вказаний токен недійсний.
         no_token: Не надано жодного токену
+        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       delete:
         alert: Цю дію скасувати не можна. Якщо ви видалите свій обліковий запис, ви не зможете ввійти в систему.
         confirm:
@@ -49,9 +57,16 @@ uk:
           question: Ви впевнені, що бажаєте видалити свій обліковий запис?
           title: Видалити мій обліковий запис
         explanation: Будь ласка, введіть причину, з якої ви хочете видалити свій обліковий запис (необов'язково).
+      destroy:
+        error: При спробі видалити ваш обліковий запис сталася помилка.
+        success: Ваш обліковий запис успішно видалено.
       show:
         change_password: Змінити пароль
         update_account: Оновити обліковий запис
+      update:
+        error: При спробі оновити ваш обліковий запис сталася помилка.
+        success: Вашу обліковку успішно оновлено.
+        success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
       area:
         create: "%{user_name} додав дільницю %{resource_name}"
@@ -87,6 +102,14 @@ uk:
         create: "%{user_name} створив статичну сторінку %{resource_name}"
         delete: "%{user_name} видалив статичну сторінку %{resource_name}"
         update: "%{user_name} оновив статичну сторінку %{resource_name}"
+      user:
+        invite: "%{user_name} запросив учасника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} надав службовий статус учаснику %{resource_name}"
+        remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
+        unofficialize: "%{user_name} скасував службовий статус учасника %{resource_name}"
+      user_group:
+        reject: "%{user_name} відхилив підтвердження гурту учасників %{resource_name}"
+        verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
       collection:
@@ -97,6 +120,8 @@ uk:
           other: Документів
       documents:
         related_documents: Супутні документи
+      photos:
+        related_photos: Супутні світлини
     author:
       comments:
         one: коментар
@@ -117,6 +142,8 @@ uk:
         name: Приклад підтвердження своєї особи
       dummy_authorization_workflow:
         name: Приклад шляху підтвердження особи
+      errors:
+        duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
       expired_at: Строк дії закінчився %{timestamp}
       expires_at: Строк дії закінчується %{timestamp}
       foo_authorization:
@@ -200,6 +227,7 @@ uk:
           email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
         new:
           complete_profile: Заповнити профіль
+          nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
           sign_up: Будь ласка, заповніть свій профіль
           subtitle: Щоб завершити реєстрацію, заповніть наступну форму
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
@@ -208,6 +236,7 @@ uk:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
+          nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
           sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
@@ -242,6 +271,7 @@ uk:
           publish_content: Оприлюднювати за вас дописи
           see_email: Бачити вашу адресу ел-пошти
           see_name: Бачити ваше ім'я
+          see_username: Бачити ваше ім'я учасника
           this_application_will_be_able_to: 'Цей додаток зможе:'
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
@@ -310,8 +340,10 @@ uk:
     follows:
       create:
         button: Стежити
+        error: При спробі стежити за цим ресурсом сталася помилка.
       destroy:
         button: Припинити стежити
+        error: При спробі припинити стежити за цим ресурсом сталася помилка.
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
@@ -338,6 +370,8 @@ uk:
           not_found: 'Цей обсяг не знайдено в базі даних (ID: %{id})'
         scope_type_presenter:
           not_found: 'Цей різновид обсягу не знайдено в базі даних (ID: %{id})'
+    managed_users:
+      expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
     messaging:
@@ -372,6 +406,7 @@ uk:
     newsletters:
       unsubscribe:
         check_subscription: Якщо ви хочете змінити свої уподобання, ви можете зробити це на <a href="%{link}" target="_blank">сторінці налаштувань</a>
+        error: При спробі скасування підписки сталася помилка
         success: Ви успішно скасували підписку.
         token_error: Строк дії посилання закінчився.
         unsubscribe: Скасувати підписку
@@ -379,6 +414,7 @@ uk:
       unathorized: Вибачте, це посилання вже не доступне
       update:
         error: Трапилось щось не те
+        success: Розсилання новин успішно оновлено
     newsletters_opt_in_mailer:
       notify:
         body_1: Обробка особистих даних та їх захист стають дедалі важливішими для всіх нас. За новим "Загальним положенням про захист даних" (GDPR) від 25 травня 2018 року люди мають змогу керувати своїми особистими даними. Тому ми потребуємо вашої згоди, щоб продовжувати надсилати вам свіжі новини про діяльність %{organization_name}.
@@ -395,6 +431,9 @@ uk:
         email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
         newsletter_notifications: Я хочу отримувати розсилання
         update_notifications_settings: Зберегти зміни
+      update:
+        error: При спробі оновити налаштування сповіщень сталася помилка.
+        success: Ваші налаштування сповіщень успішно оновлено.
     own_user_groups:
       index:
         pending: Очікує на розгляд
@@ -440,6 +479,7 @@ uk:
           register: Зареєструватися
       terms_and_conditions:
         accept:
+          error: Під час прийняття умов участі виникла помилка.
           success: Чудово! Ви прийняли умови участі.
         form:
           agreement: Я погоджуюсь з цими умовами
@@ -458,6 +498,7 @@ uk:
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
+      deleted: Видалений учасник
       view: Переглянути
     profiles:
       default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
@@ -525,10 +566,13 @@ uk:
         close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
+      version_author:
+        deleted: Видалений учасник
   devise:
     invitations:
       edit:
         header: Завершіть створення свого облікового запису
+        nickname_help: Ваш унікальний псевдонім в %{organization}.
         submit_button: Зберегти
         subtitle: Якщо ви приймаєте запрошення, встановіть, будь ласка, свій псевдонім та пароль.
     mailer:
@@ -540,8 +584,10 @@ uk:
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+        invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
+        someone_invited_you_as_private_user: Хтось запросив вас як приватного учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
       invite_admin:
         subject: Вас запросили керувати %{organization}
       invite_collaborator:
@@ -588,6 +634,7 @@ uk:
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
+        description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
         expire_time_html: Строк дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
@@ -604,6 +651,7 @@ uk:
         delete_my_account: Видалити мій обліковий запис
         my_data: Мої дані
         notifications_settings: Налаштування сповіщень
+        title: Налаштування учасника
       widget:
         see_more: Читати далі
   locale:
