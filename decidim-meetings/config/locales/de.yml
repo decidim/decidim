@@ -40,10 +40,6 @@ de:
             base:
               too_many_minutes: Die Dauer der Elemente überschreitet die Besprechungsdauer um %{count} Minuten
               too_many_minutes_child: Die Dauer der Item-Childs überschreitet den Tagesordnungspunkt "%{parent_title}" Elternzeit um %{count} Minute
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Diese E-Mail wurde bereits eingeladen
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Treffen
@@ -65,9 +61,6 @@ de:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Es gab einen Fehler beim Duplizieren dieses Meetings.
-          success: Dupliziertes Meeting erfolgreich
         new:
           copy: Kopieren
           select: Wählen Sie die Daten aus, die Sie duplizieren möchten
@@ -108,10 +101,7 @@ de:
         meeting_registration_confirmed:
           notification_title: Ihre Anmeldung zum Meeting <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Die "%{resource_title}" Sitzung belegte Slots sind über %{percentage}%.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
-          email_subject: Die "%{resource_title}" Sitzung belegte Steckplätze sind über %{percentage}%
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Besprechung belegten Slots liegen bei über %{percentage}%.
         meeting_updated:
           email_intro: 'Das "%{resource_title}" Meeting wurde aktualisiert. Sie können die neue Version von ihrer Seite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie das Treffen "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
@@ -135,14 +125,10 @@ de:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Registrieren Sie sich in den Meetings, an denen Sie teilnehmen möchten
           description: Dieses Abzeichen wird gewährt, wenn Sie mehrere persönliche Treffen besuchen.
-          description_another: Dieser Benutzer hat an %{score} Meetings teilgenommen.
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
           name: Besuchte Sitzungen
           next_level_in: Nimm an %{score} weiteren Treffen teil, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch kein Meeting besucht.
           unearned_own: Sie haben noch kein Meeting besucht.
     meetings:
       actions:
@@ -161,19 +147,15 @@ de:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Fügen Sie den Tagesordnungspunkt child hinzu
             agenda_item: Tagesordnungspunkt
-            agenda_item_children: Tagesordnungspunkt Childs
             down: Nieder
             remove: Löschen
             up: Oben
           agenda_item_child:
-            agenda_item_child: Tagesordnungspunkt Kind
             down: Nieder
             remove: Löschen
             up: Oben
           create:
-            invalid: Beim Erstellen dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich erstellt
           edit:
             title: Agenda bearbeiten
@@ -187,7 +169,6 @@ de:
             create: Erstellen
             title: Neue Agenda
           update:
-            invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
           meetings: Treffen
@@ -198,16 +179,9 @@ de:
             invited_you_to_join_a_meeting: "%{invited_by} hat Sie eingeladen, an einem Meeting um %{application}. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             join: Trete dem Meeting '%{meeting_title}' bei
         invites:
-          create:
-            error: Beim Einladen des Nutzers in das Meeting ist ein Problem aufgetreten.
-            success: Der Benutzer wurde erfolgreich zum Meeting eingeladen.
           form:
             attendee_type: Teilnehmertyp
-            existing_user: Existierender Benutzer
             invite: Einladen
-            invite_explanation: Der Benutzer wird eingeladen, dem Meeting und der Organisation beizutreten.
-            non_user: Nicht existierender Benutzer
-            select_user: Nutzer wählen
           index:
             filter:
               accepted: Akzeptiert
@@ -228,10 +202,8 @@ de:
             select_organizer: Wählen Sie den Organisator aus
         meetings:
           close:
-            invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
             success: Treffen erfolgreich abgeschlossen
           create:
-            invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
             success: Besprechung erfolgreich erstellt
           destroy:
             success: Das Meeting wurde erfolgreich gelöscht
@@ -255,11 +227,9 @@ de:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
           update:
-            invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Treffen erfolgreich aktualisiert
         minutes:
           create:
-            invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
             success: Minuten erfolgreich erstellt
           edit:
             update: Aktualisieren
@@ -267,7 +237,6 @@ de:
             create: Erstellen
             title: Erstellen Sie Minuten
           update:
-            invalid: Beim Aktualisieren dieser Minuten ist ein Problem aufgetreten
             success: Minuten erfolgreich aktualisiert
         models:
           meeting:
@@ -279,7 +248,6 @@ de:
             validate_registration_code: Validiere den Registrierungscode
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
-            invites: Lädt ein
             registration_form: Anmeldeformular
             registrations_count:
               one: Es wurde %{count} registriert.
@@ -287,7 +255,6 @@ de:
             reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
           update:
-            invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
           validate_registration_code:
             invalid: Dieser Registrierungscode ist ungültig.
@@ -406,13 +373,10 @@ de:
           registration_code: Ihr Registrierungscode ist %{code}.
       registrations:
         create:
-          invalid: Bei diesem Meeting ist ein Problem aufgetreten.
           success: Sie sind dem Meeting erfolgreich beigetreten.
         decline_invitation:
-          invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
         destroy:
-          invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
       types:
         private_meeting: Privates Treffen
