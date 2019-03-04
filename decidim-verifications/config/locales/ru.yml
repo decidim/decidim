@@ -79,6 +79,9 @@ ru:
               introduce_user_data: Введите данные на картинке
               reject: Отклонить
               verify: Подтвердить личность
+          offline_confirmations:
+            create:
+              success: Литчность участника успешно подтверждена
           pending_authorizations:
             index:
               title: Подтверждения, ожидающие рассмотрения
