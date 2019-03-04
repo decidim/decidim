@@ -261,7 +261,7 @@ nl:
       votes:
         description: Aantal stemmen dat is gegenereerd in voorstellen van gebruikers
         object: stemmen
-        title: stemmen
+        title: Stemmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -461,7 +461,7 @@ nl:
           published: Gepubliceerd
           related_to: Gerelateerd aan
           search: Zoeken
-          state: Staat
+          state: Status
           withdrawn: teruggetrokken
         filters_small_view:
           close_modal: Modal sluiten
@@ -551,7 +551,7 @@ nl:
             official_proposal: Officieel voorstel
             published_at: Gepubliceerd op
             scope: Scope
-            state: Staat
+            state: Status
             title: Titel
             votes: Stemmen
       new:
