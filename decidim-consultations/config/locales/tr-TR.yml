@@ -58,23 +58,8 @@ tr:
         new_response: Yeni cevap
         publish_results: Sonuçları yayınla
         unpublish_results: Sonuçları yayından kaldır
-      consultation_publications:
-        create:
-          error: Bu danışmada bir hata oluştu.
-          success: Danışmanlık başarıyla yayınlandı.
-        destroy:
-          error: Bu danışma işleminin yayından kaldırılmasıyla ilgili bir hata oluştu.
-          success: Danışmanlık başarıyla yayından kaldırıldı.
-      consultation_results_publications:
-        create:
-          error: Bu danışma için sonuçları yayınlayan bir hata oluştu.
-          success: Danışmanlık sonuçları başarıyla yayınlandı.
-        destroy:
-          error: Bu danışma için sonuçların yayından kaldırılmasıyla ilgili bir hata oluştu.
-          success: Danışmanlık sonuçları başarılı bir şekilde yayınlanmamıştır.
       consultations:
         create:
-          error: Yeni bir danışma oluştururken bir hata oluştu.
           success: Danışmanlık başarıyla oluşturuldu.
         edit:
           update: Güncelleştirme
@@ -88,7 +73,6 @@ tr:
           create: yaratmak
           title: Yeni danışma
         update:
-          error: Bu danışma hizmetini güncellerken bir hata oluştu.
           success: Danışma başarıyla güncellendi.
       menu:
         consultations: istişareler
@@ -124,16 +108,8 @@ tr:
           name:
             one: Tepki
             other: Tepkiler
-      question_publications:
-        create:
-          error: Bu soruyu yayınlarken bir hata oluştu.
-          success: Soru başarıyla basıldı.
-        destroy:
-          error: Bu soruyu yayından kaldırmada bir hata oluştu.
-          success: Soru başarıyla basıldı.
       questions:
         create:
-          error: Yeni bir soru oluşturulurken bir hata oluştu.
           success: Soru başarıyla oluşturuldu.
         destroy:
           success: Soru başarıyla silindi.
@@ -147,15 +123,10 @@ tr:
         new:
           create: yaratmak
           title: Yeni soru
-        update:
-          error: Bu soru güncellenirken bir hata oluştu.
-          success: Soru başarıyla güncellendi.
       responses:
         create:
-          error: Yeni bir yanıt oluştururken bir hata oluştu.
           success: Yanıt başarıyla oluşturuldu.
         destroy:
-          error: Yanıtı kaldırırken bir hata oluştu.
           success: Yanıt başarıyla silindi.
         edit:
           update: Güncelleştirme
@@ -164,9 +135,6 @@ tr:
         new:
           create: yaratmak
           title: Yeni cevap
-        update:
-          error: Bu yanıtı güncellerken bir hata oluştu.
-          success: Yanıt başarıyla güncellendi.
       titles:
         consultations: istişareler
         questions: Sorular
@@ -198,7 +166,6 @@ tr:
         all: Herşey
         finished: bitirdi
         search: Arama
-        state: Belirtmek, bildirmek
         upcoming: Yaklaşan
       filters_small_view:
         close_modal: Pencereyi kapat
@@ -227,9 +194,6 @@ tr:
         votes_out_of:
           one: oy vermek
           other: oy vermemek
-      question_votes:
-        create:
-          error: Soruya oy verirken hatalar oldu
       regular_questions:
         title: Bu danışma için sorular
       show:
@@ -247,8 +211,6 @@ tr:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>İstişareler, bir organizasyon oluşturan tüm kişilere net bir soru sormanızı, görüşmelere katılmak için bir çağrı yapmanızı, bir sorgunun lehine veya aleyhinde tartışma başlatmanızı ve talep etmenizi sağlayan bir alandır. Danışma tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir örgütü etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler, organizasyonun adını veya logosunu çeşitli alternatifler sunarak değiştirir, daha büyük bir organizasyonun parçası olmak için Evet veya Hayır'a karar verir, yeni bir stratejikin geçerliliğini onaylar veya reddeder. Bir çalışma grubunun sonucu veya planı veya pozisyonların en fazla 1, 2 veya 3 mandat kalması gerekip gerekmediğini tanımlamak.</p>\n"
-          page: "<p>İstişareler, bir örgütü oluşturan herkese açık bir soru sormanıza, istişareye katılmak için bir çağrı yapmanıza, bir yanıtı yanıtlamaya ya da aleyhine tartışmaya yol açmanıza izin veren bir alandır. İstişare tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir kuruluşu etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler daha büyük bir kuruluşun parçası olmak için Evet veya Hayır olarak karar vermek, yeni bir stratejik onaylamak veya reddetmek için çeşitli alternatifler sunan kuruluşun adını veya logosunu değiştiriyor Bir çalışma grubunun planını veya sonucunu ya da pozisyonların organizasyonda azami 1, 2 veya 3 zorunlu kalması gerekip gerekmediğini tanımlayın.</p>\n"
           title: Danışmalar nelerdir?
     menu:
       consultations: istişareler
@@ -265,22 +227,18 @@ tr:
         assistants_count_title: Yardımcıları
         comments_count_title: Yorumlar
         meetings_count_title: Toplantılar
-        supports_count_title: Destekler
       technical_info:
         technical_data: Teknik veri
       vote_button:
         already_voted: Çoktan oy verildi
-        already_voted_hover: Desteği iptal et
         starting_from: '%{date}başlayarak'
         vote: Oy
       vote_modal:
         contextual_help: Lütfen bir seçenek seçin.
-        title: 'Danışma: soru desteği'
       vote_modal_confirm:
         change: Değişiklik
         confirm: Onaylamak
         contextual_help: Lütfen seçilen seçeneği onaylayın.
-        title: 'Danışma: teyit teyit'
   layouts:
     decidim:
       admin:
