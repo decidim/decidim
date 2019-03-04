@@ -9,6 +9,9 @@ pl:
         save: Zapisać
         title: działania
       admins:
+        create:
+          error: Podczas tworzenia nowego administratora wystąpił błąd.
+          success: Admin został utworzony
         destroy:
           success: Administrator został pomyślnie usunięty
         edit:
@@ -19,6 +22,9 @@ pl:
         new:
           create: Stwórz
           title: Nowy administrator
+        update:
+          error: Podczas aktualizowania tego administratora wystąpił błąd.
+          success: Admin został zaktualizowany
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statyczne %{page} na panelu administratora.
@@ -43,15 +49,24 @@ pl:
             name: Nazwa
           name: Organizacja
       organizations:
+        create:
+          error: Podczas tworzenia nowej organizacji wystąpił błąd.
+          success: Organizacja powiodła się.
         edit:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
         index:
           title: Organizacje
         new:
+          reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
+        update:
+          error: Podczas aktualizowania tej organizacji wystąpił błąd.
+          success: Organizacja została zaktualizowana.
         users_registration_mode:
           disabled: Dostęp można uzyskać tylko za pomocą kont zewnętrznych
+          enabled: Zezwalaj użytkownikom na rejestrację i logowanie
+          existing: Nie zezwalaj użytkownikom na rejestrację, ale zezwalaj istniejącym użytkownikom na logowanie
       shared:
         notices:
           no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj, czy przeczytasz %{guide}.
