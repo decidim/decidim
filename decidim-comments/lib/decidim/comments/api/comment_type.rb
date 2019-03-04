@@ -74,6 +74,12 @@ module Decidim
           obj.reported_by?(ctx[:current_user])
         }
       end
+
+      field :userCanComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.root_commentable.commentable? && obj.root_commentable.can_participate?(ctx[:current_user])
+        }
+      end
     end
   end
 end

@@ -52,7 +52,6 @@ export const MAX_LENGTH = 1000;
 export class AddCommentForm extends React.Component<AddCommentFormProps, AddCommentFormState> {
   public static defaultProps = {
     showTitle: true,
-    userCanComment: false,
     submitButtonClassName: "button button--sc",
     arguable: false,
     autoFocus: false
@@ -132,11 +131,10 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The add comment form on an empty element.
    */
   private _renderForm() {
-    const { session, submitButtonClassName, userCanComment, commentable: { id, type } } = this.props;
+    const { session, submitButtonClassName, commentable: { id, type } } = this.props;
     const { disabled, remainingCharacterCount } = this.state;
 
-    console.log(userCanComment);
-    if (session && userCanComment) {
+    if (session) {
       return (
         <form onSubmit={this.addComment}>
           {this._renderCommentAs()}
@@ -224,7 +222,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - Returns nothing or a wrapper with buttons
    */
   private _renderOpinionButtons() {
-    const { session, arguable, userCanComment } = this.props;
+    const { session, arguable } = this.props;
     const { alignment } = this.state;
     const buttonClassName = classnames("button", "tiny", "button--muted");
     const okButtonClassName = classnames(buttonClassName, "opinion-toggle--ok", {
@@ -237,7 +235,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       "is-active": alignment === 0
     });
 
-    if (session && arguable && userCanComment) {
+    if (session && arguable) {
       return (
         <div className="opinion-toggle button-group">
           <button

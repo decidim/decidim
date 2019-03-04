@@ -19,6 +19,7 @@ fragment CommentData on Comment {
   }
   hasComments
   acceptsNewComments
+  userCanComment
   alignment
   alreadyReported
   ...UpVoteButton
