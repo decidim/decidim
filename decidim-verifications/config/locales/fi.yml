@@ -206,8 +206,13 @@ fi:
             error: Pyynnössäsi oli ongelma
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
           edit:
+            confirm_destroy: Haluatko varmasti palauttaa vahvistuskoodin?
+            destroy: Nollaa vahvistuskoodi
             send: Vahvista
+            resend: Etkö saanut vahvistuskoodia?
             title: Kirjoita vastaanottamasi vahvistuskoodi
+          destroy:
+            success: Vahvistuskoodi palautetaan onnistuneesti. Anna puhelinnumerosi uudelleen.
           new:
             send: Lähetä minulle tekstiviesti
             title: Pyydä vahvistuskoodia

@@ -205,8 +205,13 @@ id:
             error: Ada masalah dengan permintaan anda
             success: Terima kasih! Kami telah mengirim SMS ke ponsel Anda.
           edit:
+            confirm_destroy: Anda yakin ingin mengatur ulang kode verifikasi?
+            destroy: Setel ulang kode verifikasi
             send: Memastikan
+            resend: Tidak menerima kode verifikasi?
             title: Perkenalkan kode verifikasi yang Anda terima
+          destroy:
+            success: Kode verifikasi berhasil diset ulang. Harap masukkan kembali nomor telepon Anda.
           new:
             send: Kirimi saya SMS
             title: Minta kode verifikasi Anda

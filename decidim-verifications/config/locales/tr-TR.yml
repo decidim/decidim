@@ -206,8 +206,13 @@ tr:
             error: İsteğiniz ile ilgili bir sorun vardı
             success: Teşekkürler! Telefonunuza bir SMS gönderdik.
           edit:
+            confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
+            destroy: Doğrulama kodunu sıfırla
             send: Onaylamak
+            resend: Doğrulama kodunu alamadınız mı?
             title: Aldığınız doğrulama kodunu tanıtın
+          destroy:
+            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           new:
             send: Bana bir SMS gönder
             title: Doğrulama kodunuzu isteyin
