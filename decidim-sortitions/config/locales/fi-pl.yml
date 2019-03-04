@@ -65,7 +65,6 @@ fi-pl:
             destroy: Peruuta satunnaistaminen
             title: Satunnaistamisen peruuttaminen
           create:
-            error: Uuden satunnaisvalinnan luomisessa tapahtui virhe.
             success: Satunnaisvalinta onnistuneesti luotu
           destroy:
             error: Satunnaisvalintaa ei voi peruuttaa.
@@ -86,7 +85,6 @@ fi-pl:
           show:
             selected_proposals: Valintaan valitut ehdotukset
           update:
-            error: Satunnaisvalinnan päivittämisessä tapahtui virhe.
             success: Satunnaisvalinta onnistuneesti päivitetty
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ fi-pl:
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
           search: Hae
-          state: Tila
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Rajaa
@@ -122,7 +119,6 @@ fi-pl:
             one: valittu ehdotus
             other: valitut ehdotukset
         show:
-          algorithm: Satunnaisvalinnan algoritmikoodi
           any_category: kaikista aihepiireistä
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
@@ -141,10 +137,6 @@ fi-pl:
             one: ehdotus valittu
             other: '%{count} ehdotusta valittu'
           view: Näytä
-        sortition_author:
-          deleted: Poistettu käyttäjä
-        sortition_cancel_author:
-          deleted: Poistettu käyttäjä
         sortitions_count:
           count:
             one: 1 satunnaisvalinta
