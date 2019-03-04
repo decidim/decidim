@@ -149,7 +149,7 @@ sv:
           attachments: bilagor
           categories: kategorier
           components: Komponenter
-          conference_admins: Konferensanvändare
+          conference_admins: Konferensadministratörer
           conference_invites: Inbjudningskort
           conference_speakers: högtalare
           diploma: Närvarointyg
