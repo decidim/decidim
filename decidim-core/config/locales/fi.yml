@@ -156,8 +156,8 @@ fi:
             Tämä muutos kohteelle %{amendable_type} %{amendable_link} on
             hyväksytty <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Tämä on muutos kohteelle %{amendable_type} %{amendable_link}
-            arvioimiselle.
+            Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
+            arvioidaan.
           rejected: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
             hylättiin ajankohtana <strong>%{announcement_date}</strong>.
