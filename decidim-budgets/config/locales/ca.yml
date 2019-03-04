@@ -31,7 +31,7 @@ ca:
             name: Projecte
         projects:
           create:
-            invalid: S'ha produït un problema en crear aquest projecte
+            invalid: Hi ha hagut un problema creant aquest projecte
             success: Projecte creat correctament
           destroy:
             success: El projecte s'ha eliminat correctament
@@ -46,7 +46,7 @@ ca:
             create: Crear
             title: Nou projecte
           update:
-            invalid: S'ha produït un problema en actualitzar aquest projecte
+            invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
         proposals_imports:
           create:
@@ -140,11 +140,11 @@ ca:
             votes_enabled: S'ha habilitat la votació
     orders:
       checkout:
-        error: S'ha produït un problema en processar el vostre vot
-        success: S'ha acceptat el vostre vot amb èxit
+        error: S'ha produït un error en processar el teu vot
+        success: El teu vot s'ha tramitat amb èxit
       destroy:
-        error: S'ha produït un problema en cancel·lar el teu vot
-        success: El vostre vot s'ha cancel·lat correctament
+        error: S'ha produït un error en cancel·lar el seu vot
+        success: El seu vot ha estat cancel·lat correctament
     resource_links:
       included_proposals:
         project_proposal: 'Propostes incloses en aquest projecte:'
