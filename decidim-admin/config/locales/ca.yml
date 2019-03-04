@@ -70,7 +70,7 @@ ca:
         success_color: Èxit
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
-        user_groups_enabled: Habilita grups
+        user_groups_enabled: Activar els grups d'usuaris
         warning_color: Avís
         youtube_handler: Nom d'usuari de YouTube
       scope:
@@ -138,7 +138,7 @@ ca:
         verify: Verificar
       area_types:
         create:
-          error: S'ha produït un problema en crear un tipus d'àrea nova.
+          error: S'ha produït un error en crear un tipus d'àrea nova.
           success: El tipus d'àrea ha estat creat correctament.
         destroy:
           success: El tipus d'àrea s'ha destruït amb èxit
@@ -149,11 +149,11 @@ ca:
           create: Crea un tipus d'àrea
           title: Tipus d'àrea nou
         update:
-          error: S'ha produït un problema en actualitzar aquest tipus d'àrea.
+          error: S'ha produït un error en actualitzar aquest tipus d'àrea.
           success: El tipus d'àrea s'ha actualitzat correctament
       areas:
         create:
-          error: S'ha produït un problema en crear una nova àrea.
+          error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
           success: Àrea destruïda correctament
@@ -165,11 +165,11 @@ ca:
           title: Nova àrea
         no_areas: Sense àrees
         update:
-          error: S'ha produït un problema en actualitzar aquesta àrea.
+          error: S'ha produït un error en actualitzar aquesta àrea.
           success: Àrea actualitzada correctament
       attachment_collections:
         create:
-          error: S'ha produït un problema en crear una nova carpeta.
+          error: S'ha produït un error en crear una nova carpeta.
           success: S'ha creat la carpeta amb èxit.
         destroy:
           success: S'ha eliminat la carpeta amb èxit.
@@ -183,11 +183,11 @@ ca:
           create: Crear
           title: Carpeta nova
         update:
-          error: S'ha produït un problema en actualitzar aquesta carpeta.
+          error: S'ha produït un error en actualitzar aquesta carpeta.
           success: S'ha actualitzat la carpeta amb èxit.
       attachments:
         create:
-          error: S'ha produït un problema en crear un fitxer adjunt nou.
+          error: S'ha produït un error en crear un nou arxiu adjunt.
           success: Adjunt creat correctament.
         destroy:
           success: L'adjunt s'ha eliminat correctament.
@@ -200,17 +200,17 @@ ca:
           create: Crea arxiu adjunt
           title: Nou arxiu adjunt
         update:
-          error: S'ha produït un problema en actualitzar aquest fitxer adjunt.
+          error: S'ha produït un error en actualitzar aquest arxiu adjunt.
           success: Adjunt actualitzat correctament.
       autocomplete:
         no_results: No s'ha trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
       categories:
         create:
-          error: S'ha produït un problema en crear aquesta categoria.
+          error: S'ha produït un error en crear aquesta categoria.
           success: Categoria creada correctament.
         destroy:
-          error: S'ha produït un problema en suprimir aquesta categoria. Suprimeix primer la subcategoria, assegureu-vos que cap altra entitat pertany a aquesta categoria i torneu-ho a provar.
+          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
           success: Categoria eliminada correctament.
         edit:
           title: Edita categoria
@@ -222,17 +222,17 @@ ca:
           create: Crea una categoria
           title: Nova categoria
         update:
-          error: S'ha produït un problema en actualitzar aquesta categoria.
+          error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
       component_permissions:
         update:
           success: Permisos actualitzats correctament.
       components:
         create:
-          error: S'ha produït un problema en crear aquest component.
+          error: S'ha produït un error en crear aquest component.
           success: El component s'ha creat correctament.
         destroy:
-          error: Hi ha hagut un problema en destruir aquest component.
+          error: S'ha produït un error en destruir aquest component.
           success: El component s'ha suprimit correctament.
         edit:
           title: Edita el component
@@ -256,7 +256,7 @@ ca:
         unpublish:
           success: El component s'ha despublicat correctament.
         update:
-          error: S'ha produït un problema en actualitzar aquest component.
+          error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
       dashboard:
         show:
@@ -266,7 +266,7 @@ ca:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       help_sections:
-        error: S'ha produït un problema en actualitzar les seccions d'ajuda
+        error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
           save: Desa
         success: Les seccions d'ajuda s'han actualitzat correctament
@@ -278,7 +278,7 @@ ca:
             not_managed: No gestionat
           filter_by: Filtra per
           impersonate: Suplantar
-          impersonate_new_managed_user: Gestioneu un nou participant
+          impersonate_new_managed_user: Substitueix un nou usuari administrat
           managed: Gestionat
           name: Nom
           needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
@@ -289,31 +289,31 @@ ca:
           view_logs: Veure registres
       impersonations:
         close_session:
-          error: Hi ha hagut un problema en tancar la sessió actual de gestió de participants.
+          error: S'ha produït un error en tancar la sessió de suplantació actual.
           success: La sessió de suplantació actual s'ha finalitzat amb èxit.
         create:
-          error: S'ha produït un problema en gestionar el participant.
-          success: El participant gestionat s'ha creat correctament.
+          error: S'ha produït un error en impersonar l'usuari.
+          success: L'usuari gestionat s'ha creat correctament.
         form:
           authorization_method: Mètode d'autorització
           name: Nom
           reason: Raó
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Gestioneu el participant "%{name}"
-          impersonate_existing_user: Gestioneu el participant "%{name}"
-          impersonate_new_managed_user: Gestioneu un nou participant
+          impersonate_existing_managed_user: Impersonar l'usuari gestionat "%{name}"
+          impersonate_existing_user: Impersona l'usuari "%{name}"
+          impersonate_new_managed_user: Impersona un nou usuari administrat
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
       managed_users:
         promotion:
-          error: S'ha produït un problema en la promoció del participant gestionat.
-          success: S'ha promogut amb èxit el participant gestionat.
+          error: S'ha produït un error en promoure l'usuari gestionat.
+          success: S'ha promogut amb èxit l'usuari gestionat.
         promotions:
           new:
-            explanation: Els participants administrats es poden promocionar a participants estàndard. Significa que seran convidats a l'aplicació i no podreu tornar a gestionar-los. El participant convidat rebrà un correu electrònic per acceptar la vostra invitació.
-            new_managed_user_promotion: Nova promoció gestionada de participants
+            explanation: Els usuaris gestionats es poden promocionar a usuaris estàndard. Significa que seran convidats al sistema i no podreu tornar a suplantar-los. L'usuari convidat rebrà un correu electrònic per acceptar la vostra invitació.
+            new_managed_user_promotion: Nova promoció d'usuari gestionat
             promote: Promocionar
       menu:
         admin_log: Registre d'activitat d'administració
@@ -333,8 +333,8 @@ ca:
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
-        user_groups: Grups
-        users: Participants
+        user_groups: Grups d'usuaris
+        users: Usuaris
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ ca:
             expired_at: Vençut el
             reason: Raó
             started_at: Va començar el
-            user: Participant
+            user: Usuari
         newsletter:
           fields:
             created_at: Data de creació
@@ -376,7 +376,7 @@ ca:
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:
-          name: Participant privat de l'espai privat
+          name: Usuari privat de l'espai de participació
         scope:
           fields:
             name: Nom
@@ -398,8 +398,8 @@ ca:
             role: Rol
             roles:
               admin: Administrador
-              user_manager: Gestor participant
-          name: Participant
+              user_manager: Administrador d'usuaris
+          name: Usuari
         user_group:
           fields:
             actions: Accions
@@ -408,7 +408,7 @@ ca:
             name: Nom
             phone: Telèfon
             state: Estat
-            users_count: Els participants compten
+            users_count: Número d'usuaris
       moderations:
         index:
           title: Moderacions
@@ -419,10 +419,10 @@ ca:
             spam: Contingut brossa
       newsletters:
         create:
-          error: S'ha produït un problema en crear aquest butlletí.
+          error: S'ha produït un error en crear aquest butlletí.
           success: Butlletí creat amb èxit. Si us plau, revisa'l abans d'enviar.
         deliver:
-          error: S'ha produït un problema en enviar aquest butlletí.
+          error: Hi ha hagut un error d'enviament d'aquest butlletí.
           success: Butlletí enviat amb èxit.
         destroy:
           error_already_sent: 'No es pot destruir butlletí de notícies: Ja s''ha enviat.'
@@ -444,14 +444,14 @@ ca:
           preview: Previsualitzar
           subject: Assumpte
         update:
-          error: S'ha produït un problema en actualitzar aquest butlletí.
+          error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       oauth_applications:
         create:
-          error: S'ha produït un problema en crear aquesta aplicació.
+          error: S'ha produït un error en crear aquesta aplicació.
           success: L'aplicació s'ha creat correctament.
         destroy:
-          error: S'ha produït un problema en destruir aquesta aplicació.
+          error: S'ha produït un error en destruir aquesta aplicació.
           success: S'ha destruït l'aplicació amb èxit.
         edit:
           save: Desa
@@ -463,13 +463,13 @@ ca:
           save: Desa
           title: Nova aplicació
         update:
-          error: S'ha produït un problema en actualitzar aquesta aplicació.
+          error: S'ha produït un error en actualitzar aquesta aplicació.
           success: S'ha actualitzat l'aplicació amb èxit.
       officializations:
         create:
-          success: El participant s'ha oficialitzat amb èxit
+          success: L'usuari s'ha oficialitzat amb èxit
         destroy:
-          success: Participant amb èxit no oficialitzat
+          success: La oficialització de l'usuari ha estat inhabilitada correctament
         index:
           actions: Accions
           badge: Insígnia
@@ -491,7 +491,7 @@ ca:
         new:
           badge: Insígnia d'oficialització
           officialize: Oficialitza
-          title: Organitzar el participant "%{name}"
+          title: Oficialitza l'usuari "%{name}"
       organization:
         edit:
           title: Edita organització
@@ -505,7 +505,7 @@ ca:
           url: URL
           youtube: YouTube
         update:
-          error: S'ha produït un problema en actualitzar aquesta organització.
+          error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
       organization_appearance:
         edit:
@@ -528,16 +528,16 @@ ca:
           update: Actualitza
       participatory_space_private_users:
         create:
-          error: Hi ha hagut un problema en afegir un participant privat per aquest espai participatiu.
-          success: S'ha creat l'espai participatiu de l'espai privat d'accés als participants.
+          error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
+          success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
         destroy:
-          error: Hi ha hagut un problema en suprimir un participant privat per aquest espai participatiu.
-          success: S'ha destruït l'accés a un espai participatiu privat d'usuaris.
+          error: S'ha produït un error en suprimir un usuari privat d'aquest espai participatiu.
+          success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
         index:
-          title: Participant privat de l'espai privat
+          title: Usuari privat de l'espai participatiu
         new:
           create: Crear
-          title: Nou participant privat de Space Participatory.
+          title: Nou usuari privat de l'espai participatiu.
       resource_permissions:
         edit:
           submit: Enviar
@@ -546,7 +546,7 @@ ca:
           success: Els permisos s'han actualitzat correctament.
       scope_types:
         create:
-          error: S'ha produït un problema en crear un nou tipus d'àmbit d'aplicació.
+          error: S'ha produït un error en crear un nou tipus d'àmbit.
           success: Tipus d'àmbit creat amb èxit.
         destroy:
           success: Tipus d'àmbit destruït amb èxit
@@ -557,11 +557,11 @@ ca:
           create: Crea tipus d'àmbit
           title: Nou àmbit
         update:
-          error: S'ha produït un problema en actualitzar aquest tipus d'àmbit d'aplicació.
+          error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
           success: Tipus d'àmbit actualitzat amb èxit
       scopes:
         create:
-          error: S'ha produït un problema en crear un nou abast.
+          error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
         destroy:
           success: Àmbit eliminat amb èxit
@@ -573,11 +573,11 @@ ca:
           title: Nou àmbit
         no_scopes: No hi ha àmbits a aquest nivell.
         update:
-          error: S'ha produït un problema en actualitzar aquest àmbit.
+          error: S'ha produït un error en l'actualització d'aquest àmbit.
           success: Àmbit actualitzat correctament
       static_page_topics:
         create:
-          error: S'ha produït un problema en crear un tema nou.
+          error: S'ha produït un error en crear un tema nou.
           success: S'ha creat el tema amb èxit.
         destroy:
           success: S'ha destruït el tema amb èxit
@@ -588,18 +588,18 @@ ca:
           create: Crea un tema
           title: Nou tema
         update:
-          error: S'ha produït un problema en actualitzar aquest tema.
+          error: S'ha produït un error en actualitzar aquest tema.
           success: S'ha actualitzat el tema amb èxit
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
         create:
-          error: S'ha produït un problema en crear una pàgina nova.
+          error: S'ha produït un error en crear una nova pàgina.
           success: La pàgina s'ha creat correctament.
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
-          changed_notably_help: Si està marcada, els participants seran notificats per acceptar els nous termes i condicions.
+          changed_notably_help: Si està marcada, els usuaris seran notificats per acceptar els nous termes i condicions.
           title: Editar pàgina
           update: Actualitzar
         form:
@@ -615,7 +615,7 @@ ca:
           empty: No hi ha cap pàgina sobre aquest tema
           without_topic: Pàgines sense tema
         update:
-          error: S'ha produït un problema en actualitzar aquesta pàgina.
+          error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
         admin_log: Registre d'administració
@@ -623,24 +623,24 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
-        impersonatable_users: Participants manejables
-        impersonations: Gestió dels participants
-        participants: Participants
+        impersonatable_users: Usuaris manejables
+        impersonations: Gestió d'usuaris
+        participants: Usuaris
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
-        user_groups: Grups
-        users: Participants
+        user_groups: Grups d'usuaris
+        users: Usuaris
       user_group:
         csv_verify:
-          invalid: S'ha produït un problema en llegir el fitxer CSV.
-          success: El fitxer CSV s'ha carregat correctament, estem verificant els grups que coincideixen amb els criteris. Això pot trigar una estona.
+          invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: El fitxer CSV s'ha carregat correctament, estem verificant que els grups d'usuaris coincideixin amb els criteris. Això pot trigar una estona.
         reject:
-          invalid: Hi ha hagut un problema en rebutjar aquest grup.
-          success: El grup s'ha rebutjat correctament
+          invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.
+          success: Grup d'usuaris rebutjat amb èxit
         verify:
-          invalid: Hi ha hagut un problema en verificar aquest grup.
-          success: S'ha verificat el grup amb èxit
+          invalid: Hi ha hagut un error en rebutjar aquest grup d'usuaris.
+          success: Grup d'usuaris verificat correctament
       user_groups:
         index:
           filter:
@@ -657,28 +657,28 @@ ca:
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
-          explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups d'usuaris de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups d'usuaris que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
           title: Penja el fitxer CSV
           upload: Penja
       users:
         create:
-          error: S'ha produït un problema en invitar aquest administrador.
-          success: S'ha convidat el participant amb èxit.
+          error: Hi ha hagut un error en convidar a aquest usuari.
+          success: Usuari convidat amb èxit.
         destroy:
-          error: S'ha produït un problema en intentar esborrar aquest administrador.
-          success: El participant ja no és un administrador.
+          error: S'ha produït un error en intentar eliminar aquest usuari.
+          success: L'usuari ja no és un administrador.
         form:
           email: Correu electrònic
           name: Nom
           role: Rol
         new:
           create: Convidar
-          title: Convida el participant com a administrador
+          title: Convidar un usuari com a administrador
       view_public_page: Mostra la pàgina pública
     forms:
       errors:
         impersonate_user:
-          reason: Heu de proporcionar un motiu per a la gestió d'un participant no administrat
+          reason: Heu d'indicar un motiu quan impersoneu un usuari no administrat
     moderations:
       actions:
         hidden: Ocults
@@ -690,13 +690,13 @@ ca:
       admin:
         reportable:
           hide:
-            invalid: S'ha produït un problema en amagar el recurs.
+            invalid: Hi ha hagut un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
           unhide:
-            invalid: S'ha produït un problema en descobrir el recurs.
+            invalid: Hi ha hagut un problema en tornar a mostrar el recurs.
             success: S'ha tornat a mostrar el recurs correctament.
           unreport:
-            invalid: S'ha produït un problema en no informar el recurs.
+            invalid: Hi ha hagut un problema cancel·lant la denúncia.
             success: Denúncia cancel·lada correctament.
       models:
         moderation:
@@ -718,4 +718,4 @@ ca:
         settings:
           title: Configuració
         users:
-          title: Participants
+          title: Usuaris
