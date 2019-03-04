@@ -206,8 +206,13 @@ es-PY:
             error: Hubo un problema con tu solicitud
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           edit:
+            confirm_destroy: '¿Estás seguro de que quieres restablecer el código de verificación?'
+            destroy: Restablecer código de verificación
             send: Confirmar
+            resend: '¿No recibió el código de verificación?'
             title: Introduce el código de verificación que has recibido
+          destroy:
+            success: Código de verificación restablecido con éxito. Por favor vuelva a ingresar su número de teléfono.
           new:
             send: Mándame un SMS
             title: Solicita tu código de verificación
