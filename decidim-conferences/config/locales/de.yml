@@ -12,8 +12,6 @@ de:
         description: Beschreibung
         hashtag: Hashtag
         hero_image: Hauptbild
-        participatory_processes_ids: Related Partizipative Prozesse
-        promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
@@ -56,23 +54,7 @@ de:
           copy: Kopieren
           select: Wählen Sie die Daten aus, die Sie duplizieren möchten
           title: Doppelte Konferenz
-      conference_publications:
-        create:
-          error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
-          success: Konferenz erfolgreich veröffentlicht.
-        destroy:
-          error: Beim Aufheben der Veröffentlichung dieser Konferenz ist ein Fehler aufgetreten.
-          success: Konferenz wurde nicht erfolgreich veröffentlicht.
-      conference_registration:
-        confirm:
-          error: Bei der Bestätigung dieser Konferenzanmeldung ist ein Fehler aufgetreten.
-          success: Konferenzanmeldung erfolgreich bestätigt.
       conference_speakers:
-        create:
-          error: Beim Hinzufügen eines Sprechers für diese Konferenz ist ein Fehler aufgetreten.
-          success: Referent erfolgreich für diese Konferenz erstellt.
-        destroy:
-          success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
         edit:
           title: Konferenzsprecher aktualisieren
           update: Aktualisieren
@@ -81,30 +63,12 @@ de:
         new:
           create: Erstellen
           title: Neuer Konferenzsprecher.
-        update:
-          error: Beim Aktualisieren des Sprechers für diese Konferenz ist ein Fehler aufgetreten.
-          success: Der Sprecher wurde für diese Konferenz erfolgreich aktualisiert.
       conference_user_roles:
-        create:
-          error: Beim Hinzufügen eines Benutzers für diese Konferenz ist ein Fehler aufgetreten.
-          success: Benutzer wurde erfolgreich zu dieser Konferenz hinzugefügt.
-        destroy:
-          success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzbenutzer
         new:
           create: Erstellen
-          title: Neuer Konferenzbenutzer
-        update:
-          error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
-          success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
       conferences:
-        create:
-          error: Beim Erstellen einer neuen Konferenz ist ein Fehler aufgetreten.
-          success: Konferenz erfolgreich erstellt
         edit:
           update: Aktualisieren
         exports:
@@ -117,19 +81,7 @@ de:
         new:
           create: Erstellen
           title: Konferenz
-        update:
-          error: Beim Aktualisieren dieser Konferenz ist ein Fehler aufgetreten.
-          success: Konferenz wurde erfolgreich aktualisiert.
-      conferences_copies:
-        create:
-          error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
-          success: Konferenz wurde erfolgreich dupliziert.
       media_links:
-        create:
-          error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
-          success: Medienlink erfolgreich erstellt
-        destroy:
-          success: Medienlink wurde erfolgreich gelöscht.
         edit:
           title: Medienlink aktualisieren
           update: Aktualisieren
@@ -138,9 +90,6 @@ de:
         new:
           create: Erstellen
           title: Medienlink
-        update:
-          error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
-          success: Media Link wurde erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
@@ -149,7 +98,7 @@ de:
           attachments: Anlagen
           categories: Kategorien
           components: Komponenten
-          conference_admins: Konferenzbenutzer
+          conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
@@ -164,7 +113,6 @@ de:
         conference:
           fields:
             created_at: Hergestellt in
-            promoted: Gefördert
             published: Veröffentlicht
             title: Titel
         conference_speaker:
@@ -178,7 +126,6 @@ de:
             email: Email
             name: Name
             role: Rolle
-          name: Konferenzbenutzer
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
@@ -208,42 +155,19 @@ de:
             weight: Gewicht
           name: Registrierungstyp
       partners:
-        create:
-          error: Beim Hinzufügen eines Partners für diese Konferenz ist ein Fehler aufgetreten.
-          success: Der Partner wurde erfolgreich zu dieser Konferenz hinzugefügt.
-        destroy:
-          success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
         edit:
           title: Partner aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
           title: Neuer Partner
-        update:
-          error: Bei einem Fehler ist ein Partner für diese Konferenz aktualisiert worden.
-          success: Der Partner wurde für diese Konferenz erfolgreich aktualisiert.
-      registration_type_publications:
-        create:
-          error: Beim Veröffentlichen dieses Registrierungstyps ist ein Fehler aufgetreten.
-          success: Die Registrierung wurde erfolgreich veröffentlicht.
-        destroy:
-          error: Beim Aufheben der Veröffentlichung dieses Registrierungstyps ist ein Fehler aufgetreten.
-          success: Registrierungstyp nicht erfolgreich veröffentlicht.
       registration_types:
-        create:
-          error: Beim Hinzufügen eines Registrierungstyps für diese Konferenz ist ein Fehler aufgetreten.
-          success: Die Registrierung wurde erfolgreich zu dieser Konferenz hinzugefügt.
-        destroy:
-          success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
         edit:
           title: Registrierungsart aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
           title: Neuer Registrierungstyp
-        update:
-          error: Bei einem Fehler ist ein Registrierungstyp für diese Konferenz aktualisiert worden.
-          success: Die Registrierung wurde für diese Konferenz erfolgreich aktualisiert.
       titles:
         conferences: Konferenzen
     admin_log:
@@ -260,14 +184,12 @@ de:
         update: "%{user_name} aktualisierte den %{resource_name} Sprecher in der %{space_name} Konferenz"
       conference_user_role:
         create: "%{user_name} lud %{resource_name} zu der %{space_name} Konferenz ein"
-        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
         update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Konferenz geändert"
       conferences:
         conference_registration:
           confirm: "%{user_name} bestätigte eine Konferenz Anmeldung in %{resource_name} Konferenz"
         partner:
           create: "%{user_name} hat %{resource_name} zur %{space_name} Konferenz erstellt"
-          delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
           update: "%{user_name} aktualisiert %{resource_name} in der %{space_name} Konferenz"
         registration_type:
           create: "%{user_name} hat den %{resource_name} Registrierungstyp in der %{space_name} Konferenz erstellt"
@@ -290,15 +212,8 @@ de:
           form:
             slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
-          create:
-            error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
-            success: Der Benutzer wurde erfolgreich zur Teilnahme an der Konferenz eingeladen.
           form:
             attendee_type: Teilnehmertyp
-            existing_user: Existierender Benutzer
-            invite_explanation: Der Benutzer wird eingeladen, der Konferenz und der Organisation beizutreten.
-            non_user: Nicht existierender Benutzer
-            select_user: Nutzer wählen
           index:
             filter:
               accepted: Akzeptiert
@@ -306,22 +221,14 @@ de:
               rejected: Abgelehnt
               sent: Geschickt
             filter_by: Filtern nach
-            invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             search: Suche
           new:
-            explanation: Der Benutzer wird eingeladen, an einer Konferenz teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
-            new_invite: Nutzer einladen
         conference_registrations:
           index:
             registrations: Anmeldungen
         conference_speakers:
-          form:
-            existing_user: Existierender Benutzer
-            non_user: Nichtbenutzer
-            select_user: Nutzer wählen
-            user_type: Benutzertyp
           index:
             search: Suche
         conferences:
@@ -355,16 +262,12 @@ de:
             attendance_verified_by: Anwesenheit überprüft durch
             certificate_of_attendance: Teilnahmebestätigung
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
-        send_diploma:
-          error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
-          success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen
         show:
           free: Kostenlos
-          going: Gehen
           no_slots_available: Keine Steckplätze verfügbar
           registration: Anmeldung
       conference_program:
@@ -384,17 +287,6 @@ de:
         pending_validation:
           confirmation_pending: Sie erhalten in Kürze eine Bestätigung
           details: 'Sie haben sich für %{registration_type} Typ mit einem Preis von %{price} angemeldet und können an den folgenden Veranstaltungen teilnehmen:'
-          pending_html: Ihre Anmeldung zur Konferenz <a href="%{url}">%{title}</a> steht noch aus.
-      conference_registrations:
-        create:
-          invalid: Bei dieser Konferenz ist ein Problem aufgetreten.
-          success: Sie sind der Konferenz erfolgreich beigetreten.
-        decline_invitation:
-          invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
-          success: Sie haben die Einladung erfolgreich abgelehnt.
-        destroy:
-          invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
-          success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
         go_to_twitter: Gehe zu Twitter
         more_info: Mehr Info
@@ -426,8 +318,6 @@ de:
         conference_registration_mailer:
           confirmation:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
-          pending_validation:
-            subject: Die Anmeldung Ihrer Konferenz steht noch aus
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
@@ -451,7 +341,6 @@ de:
             email: Email
             name: Name
             registration_type: Registrierungstyp
-            state: Zustand
             states:
               confirmed: Bestätigt
               pending: steht aus
@@ -463,10 +352,6 @@ de:
       photo:
         show:
           close_modal: Modal schließen
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Fotos
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
@@ -483,9 +368,7 @@ de:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
-        related_assemblies: Ähnliche Assemblies
         related_consultations: Verwandte Konsultationen
-        related_participatory_processes: In Verbindung stehende partizipative Prozesse
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen
@@ -494,7 +377,6 @@ de:
         endorsements_count: Empfehlungen
         headline: Aktivität
         meetings_count: Meetings
-        orders_count: Stimmen
         pages_count: Seiten
         posts_count: Beiträge
         projects_count: Projekte
@@ -502,7 +384,6 @@ de:
         results_count: Ergebnisse
         surveys_count: Umfragen
         users_count: Teilnehmer
-        votes_count: Stimmen
     events:
       conferences:
         conference_registration_validation_pending:
@@ -553,8 +434,6 @@ de:
       conferences:
         conference:
           take_part: Teilnehmen
-        index:
-          promoted_conferences: Geförderte Konferenzen
         order_by_conferences:
           conferences:
             one: "%{count} Konferenz"
