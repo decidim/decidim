@@ -35,7 +35,6 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
-            creation_enabled: Vytváření diskusí u aktivovaných uživatelů
     debates:
       actions:
         confirm_destroy: Jsi si jistá?
@@ -45,11 +44,6 @@ cs:
         title: Akce
       admin:
         debates:
-          create:
-            invalid: Během debaty vznikl problém.
-            success: Diskuse byla úspěšně vytvořena.
-          destroy:
-            success: Debata byla úspěšně smazána.
           edit:
             title: Upravit diskusi
             update: Aktualizace debaty
@@ -58,9 +52,6 @@ cs:
           new:
             create: Vytvořte debatu
             title: Nová debata
-          update:
-            invalid: Při aktualizaci této rozpravy došlo k problému.
-            success: Debata byla úspěšně aktualizována.
         models:
           debate:
             name: Rozprava
@@ -75,9 +66,6 @@ cs:
             few: "%{count} debat"
             many: "%{count} debat"
             other: "%{count} debat"
-        create:
-          invalid: Během debaty vznikl problém.
-          success: Diskuse byla úspěšně vytvořena.
         debate:
           participate: Účastnit se
         filters:
@@ -131,7 +119,6 @@ cs:
             email_subject: Nová diskuse "%{resource_title}" o %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil <a href="%{resource_path}">%{resource_title}</a> diskusi.
         creation_disabled:
-          email_intro: 'Tvorba debaty již není aktivní v %{participatory_space_title}. Na otevřených diskusích se můžete stále účastnit z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Vytváření debaty je zakázáno v %{participatory_space_title}
           notification_title: Vytváření debaty je nyní zakázáno v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -146,11 +133,9 @@ cs:
           conditions:
             - Vyberte si otevřenou rozpravu, do které se můžete zapojit
           description: Tento odznak se uděluje, když se aktivně účastníte různých debat tím, že ponecháte své komentáře.
-          description_another: Tento uživatel se zúčastnil %{score} debat.
           description_own: Zúčastnili jste se %{score} debat.
           name: Debaty
           next_level_in: Zúčastněte se dalších %{score} diskusí, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel se dosud nezúčastnil žádné debaty.
           unearned_own: Zatím jste se nezúčastnili žádné diskuse.
     metrics:
       debates:
