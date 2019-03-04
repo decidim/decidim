@@ -33,6 +33,7 @@ describe("<Comments />", () => {
         },
         commentable: {
           acceptsNewComments: true,
+          userCanComment: true,
           commentsHaveAlignment: true,
           commentsHaveVotes: true,
           totalCommentsCount: 15,

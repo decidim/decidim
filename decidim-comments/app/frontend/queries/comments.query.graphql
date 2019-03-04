@@ -13,6 +13,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
   }
   commentable(id: $commentableId, type: $commentableType) {
     acceptsNewComments
+    userCanComment
     commentsHaveAlignment
     commentsHaveVotes
     totalCommentsCount

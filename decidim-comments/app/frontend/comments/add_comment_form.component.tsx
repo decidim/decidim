@@ -46,10 +46,13 @@ export const MAX_LENGTH = 1000;
  * @class
  * @augments Component
  */
+ /**
+  * COm dinamitzo això?
+*/
 export class AddCommentForm extends React.Component<AddCommentFormProps, AddCommentFormState> {
   public static defaultProps = {
     showTitle: true,
-    userCanComment: true,
+    userCanComment: false,
     submitButtonClassName: "button button--sc",
     arguable: false,
     autoFocus: false
@@ -132,6 +135,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     const { session, submitButtonClassName, userCanComment, commentable: { id, type } } = this.props;
     const { disabled, remainingCharacterCount } = this.state;
 
+    console.log(userCanComment);
     if (session && userCanComment) {
       return (
         <form onSubmit={this.addComment}>
@@ -220,7 +224,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - Returns nothing or a wrapper with buttons
    */
   private _renderOpinionButtons() {
-    const { session, arguable } = this.props;
+    const { session, arguable, userCanComment } = this.props;
     const { alignment } = this.state;
     const buttonClassName = classnames("button", "tiny", "button--muted");
     const okButtonClassName = classnames(buttonClassName, "opinion-toggle--ok", {
@@ -233,7 +237,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       "is-active": alignment === 0
     });
 
-    if (session && arguable) {
+    if (session && arguable && userCanComment) {
       return (
         <div className="opinion-toggle button-group">
           <button
@@ -379,6 +383,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 comments: [],
                 hasComments: false,
                 acceptsNewComments: false,
+                userCanComment: false,
                 upVotes: 0,
                 upVoted: false,
                 downVotes: 0,
