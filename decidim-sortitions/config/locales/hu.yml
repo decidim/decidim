@@ -65,7 +65,6 @@ hu:
             destroy: Sorsolás törlése
             title: Sorsolás törlése
           create:
-            error: Hiba történt egy új sorsolás létrehozásakor.
             success: Sorsolás létrehozása sikeres
           destroy:
             error: Nem lehet törölni a sorsolást.
@@ -86,7 +85,6 @@ hu:
           show:
             selected_proposals: Sorsolásra kiválasztott javaslatok
           update:
-            error: Hiba történt a sorsolás frissítése során.
             success: Sorsolás frissítése sikeres
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ hu:
           category: Kategória
           category_prompt: Válassz kategóriát
           search: Keresés
-          state: Állapot
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrés
@@ -122,7 +119,6 @@ hu:
             one: kiválasztott javaslat
             other: kiválasztott javaslatok
         show:
-          algorithm: Sorsolás algoritmus kódja
           any_category: minden kategóriából
           cancelled: Törölt sorsolás
           candidate_proposal_ids: Sorsolásos javaslatok sorrendje és azonosítói
@@ -141,10 +137,6 @@ hu:
             one: kiválasztott javaslat
             other: kiválasztott javaslatok
           view: Megtekintés
-        sortition_author:
-          deleted: Törölt felhasználó
-        sortition_cancel_author:
-          deleted: Törölt felhasználó
         sortitions_count:
           count:
             one: 1 sorsolás
