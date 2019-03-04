@@ -33,7 +33,6 @@ nl:
             title: Titel
           form:
             add_question: Vraag toevoegen
-            already_answered_warning: De vragenlijst is al door enkele gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
           question:
             add_answer_option: Antwoordoptie toevoegen
             any: Ieder
@@ -43,9 +42,6 @@ nl:
             remove: Verwijderen
             statement: Uitspraak
             up: omhoog
-          update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
-            success: Vragenlijsten succesvol opgeslagen.
       errors:
         answer:
           body: Lichaam mag niet leeg zijn
@@ -56,24 +52,11 @@ nl:
         single_option: Enkele optie
         sorting: sorteer-
       questionnaires:
-        answer:
-          invalid: Er zijn fouten opgetreden bij het beantwoorden van de vragenlijst.
-          success: Vragenlijst met succes beantwoord.
         question:
           max_choices: 'Max. Keuzes: %{n}'
         show:
-          answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">meld u aan</a> om de vragenlijst te beantwoorden.
-            title: Beantwoord de vragenlijst
           are_you_sure: Deze actie kan niet ongedaan worden gemaakt en u kunt uw antwoorden niet bewerken. Weet je het zeker?
           questionnaire_answered:
-            body: U hebt deze vragenlijst al beantwoord.
             title: Al beantwoord
-          questionnaire_closed:
-            body: De vragenlijst is gesloten en kan niet worden beantwoord.
-            title: Vragenlijst gesloten
-          questionnaire_for_private_users:
-            body: De vragenlijst is alleen beschikbaar voor privé-gebruikers
-            title: Vragenlijst gesloten
           submit: voorleggen
           tos_agreement: Door deel te nemen, gaat u akkoord met de Servicevoorwaarden
