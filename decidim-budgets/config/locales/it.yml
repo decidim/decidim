@@ -31,7 +31,6 @@ it:
             name: Progetto
         projects:
           create:
-            invalid: C'è stato un problema durante la creazione di questo progetto.
             success: OK, progetto creato.
           destroy:
             success: Progetto eliminato con successo
@@ -46,11 +45,9 @@ it:
             create: Crea
             title: Nuovo progetto
           update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
             success: OK, progetto aggiornato.
         proposals_imports:
           create:
-            invalid: C'è stato un problema nell'importazione delle proposte nei progetti
             success: "%{number} proposte importate con successo nei progetti"
           new:
             create: Importa proposte per progetti
@@ -138,13 +135,6 @@ it:
             comments_blocked: Commenti bloccati
             show_votes: Mostra voti
             votes_enabled: Voto abilitato
-    orders:
-      checkout:
-        error: C'è stato un errore durante l'acquisizione del voto.
-        success: OK, il tuo voto è stato acquisito.
-      destroy:
-        error: C'è stato un errore durante la cancellazione del voto.
-        success: OK, il tuo voto è stato cancellato.
     resource_links:
       included_proposals:
         project_proposal: 'Proposte incluse in questo progetto:'
