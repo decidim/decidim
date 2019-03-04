@@ -33,7 +33,6 @@ fr:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
-            creation_enabled: Création de débats par les utilisateurs activés
     debates:
       actions:
         confirm_destroy: Êtes-vous certain ?
@@ -43,11 +42,6 @@ fr:
         title: Actions
       admin:
         debates:
-          create:
-            invalid: Il y a eu un problème lors de la création du débat.
-            success: Débat créé avec succès.
-          destroy:
-            success: Débat supprimé avec succès.
           edit:
             title: Modifier le débat
             update: Actualiser le débat
@@ -56,9 +50,6 @@ fr:
           new:
             create: Créer un débat
             title: Nouveau débat
-          update:
-            invalid: Il y a eu un problème lors de la mise à jour de ce débat.
-            success: Débat mis à jour avec succès.
         models:
           debate:
             name: Débat
@@ -71,9 +62,6 @@ fr:
           debates_count:
             one: "%{count} débat"
             other: "%{count} débats"
-        create:
-          invalid: Il y a eu un problème lors de la création de ce débat.
-          success: Débat créé avec succès.
         debate:
           participate: Participer
         filters:
@@ -127,7 +115,6 @@ fr:
             email_subject: Nouveau débat "%{resource_title}" par %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> créé le débat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: La création de débats est désactivée dans %{participatory_space_title}
           notification_title: La création de débats est maintenant désactivée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ fr:
           conditions:
             - Choisissez un débat ouvert pour participer à
           description: Ce badge est attribué lorsque vous participez activement aux différents débats en laissant vos commentaires.
-          description_another: Cet utilisateur a participé à %{score} débats.
           description_own: Vous avez participé à %{score} débats.
           name: Des débats
           next_level_in: Participez à %{score} autres débats pour atteindre le prochain niveau!
-          unearned_another: Cet utilisateur n'a encore participé à aucun débat.
           unearned_own: Vous avez déjà participé à des débats.
     metrics:
       debates:
