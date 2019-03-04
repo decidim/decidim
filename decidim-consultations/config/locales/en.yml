@@ -58,23 +58,8 @@ en:
         new_response: New response
         publish_results: Publish results
         unpublish_results: Unpublish results
-      consultation_publications:
-        create:
-          error: There was a problem publishing this consultation.
-          success: Consultation successfully published.
-        destroy:
-          error: There was a problem unpublishing this consultation.
-          success: Consultation successfully unpublished.
-      consultation_results_publications:
-        create:
-          error: There was a problem publishing the results for this consultation.
-          success: Consultation results successfully published.
-        destroy:
-          error: There was a problem unpublishing the results for this consultation.
-          success: Consultation results successfully unpublished.
       consultations:
         create:
-          error: There was a problem creating a new consultation.
           success: Consultation successfully created.
         edit:
           update: Update
@@ -88,7 +73,6 @@ en:
           create: Create
           title: New consultation
         update:
-          error: There was a problem updating this consultation.
           success: Consultation updated successfully.
       menu:
         consultations: Consultations
@@ -124,16 +108,8 @@ en:
           name:
             one: Response
             other: Responses
-      question_publications:
-        create:
-          error: There was a problem publishing this question.
-          success: Question successfully published.
-        destroy:
-          error: There was a problem unpublishing this question.
-          success: Question successfully unpublished.
       questions:
         create:
-          error: There was a problem creating a new question.
           success: Question successfully created.
         destroy:
           success: Question successfully deleted.
@@ -147,15 +123,10 @@ en:
         new:
           create: Create
           title: New question
-        update:
-          error: There was a problem updating this question.
-          success: Question successfully updated.
       responses:
         create:
-          error: There was a problem creating a new response.
           success: Response successfully created.
         destroy:
-          error: There was a problem removing the response.
           success: Response successfully deleted.
         edit:
           update: Update
@@ -164,9 +135,6 @@ en:
         new:
           create: Create
           title: New response
-        update:
-          error: There was a problem updating this response.
-          success: Response successfully updated.
       titles:
         consultations: Consultations
         questions: Questions
@@ -198,7 +166,6 @@ en:
         all: All
         finished: Finished
         search: Search
-        state: Status
         upcoming: Upcoming
       filters_small_view:
         close_modal: Close window
@@ -227,9 +194,6 @@ en:
         votes_out_of:
           one: vote out of
           other: votes out of
-      question_votes:
-        create:
-          error: There was a problem voting the question
       regular_questions:
         title: Questions for this consultation
       show:
@@ -247,8 +211,6 @@ en:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong>Consultations</strong> are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
-          page: "<p><strong>Consultations</strong> are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
           title: What are consultations?
     menu:
       consultations: Consultations
@@ -265,22 +227,18 @@ en:
         assistants_count_title: Assistants
         comments_count_title: Comments
         meetings_count_title: Meetings
-        supports_count_title: Votes
       technical_info:
         technical_data: Technical data
       vote_button:
         already_voted: Already voted
-        already_voted_hover: Revoke vote
         starting_from: Starting from %{date}
         vote: Vote
       vote_modal:
         contextual_help: Please, select an option.
-        title: 'Consultation: question vote'
       vote_modal_confirm:
         change: Change
         confirm: Confirm
         contextual_help: Please confirm the selected option.
-        title: 'Consultation: confirm vote'
   layouts:
     decidim:
       admin:
