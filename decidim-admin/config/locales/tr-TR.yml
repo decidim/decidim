@@ -70,7 +70,7 @@ tr:
         success_color: başarı
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
-        user_groups_enabled: Grupları etkinleştir
+        user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
         youtube_handler: YouTube işleyici
       scope:
@@ -138,7 +138,7 @@ tr:
         verify: DOĞRULAYIN
       area_types:
         create:
-          error: Yeni bir alan türü oluşturulurken bir sorun oluştu.
+          error: Yeni alan türü oluştururken bir hata oluştu.
           success: Alan türü başarıyla oluşturuldu.
         destroy:
           success: Alan tipi başarıyla yok edildi
@@ -149,11 +149,11 @@ tr:
           create: Alan türü oluştur
           title: Yeni alan tipi
         update:
-          error: Bu alan türünü güncellerken bir sorun oluştu.
+          error: Bu alan türünü güncellerken bir hata oluştu.
           success: Alan türü başarıyla güncellendi
       areas:
         create:
-          error: Yeni bir alan oluşturulurken bir sorun oluştu.
+          error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
         destroy:
           success: Alan başarıyla yok edildi
@@ -165,11 +165,11 @@ tr:
           title: Yeni alan
         no_areas: Alan Yok
         update:
-          error: Bu alan güncellenirken bir sorun oluştu.
+          error: Bu alanı güncellerken bir hata oluştu.
           success: Alan başarıyla güncellendi
       attachment_collections:
         create:
-          error: Yeni bir klasör oluşturulurken bir sorun oluştu.
+          error: Yeni bir klasör oluştururken bir hata oluştu.
           success: Klasör başarıyla oluşturuldu.
         destroy:
           success: Klasör başarıyla yok edildi.
@@ -183,11 +183,11 @@ tr:
           create: yaratmak
           title: Yeni dosya
         update:
-          error: Bu klasör güncellenirken bir sorun oluştu.
+          error: Bu klasör güncellenirken bir hata oluştu.
           success: Klasör başarıyla güncellendi.
       attachments:
         create:
-          error: Yeni bir ek oluştururken bir sorun oluştu.
+          error: Yeni bir ek oluştururken bir hata oluştu.
           success: Ek başarıyla oluşturuldu.
         destroy:
           success: Ek başarıyla başarılı bir şekilde yok edildi.
@@ -200,17 +200,17 @@ tr:
           create: Ek oluştur
           title: Yeni ek
         update:
-          error: Bu ek güncellenirken bir sorun oluştu.
+          error: Bu eki güncellerken bir hata oluştu.
           success: Ek başarıyla güncellendi.
       autocomplete:
         no_results: Sonuç bulunamadı
         search_prompt: Aramak için en az üç karakter girin
       categories:
         create:
-          error: Bu kategoriyi oluştururken bir sorun oluştu.
+          error: Bu kategori oluşturulurken bir hata oluştu.
           success: Kategori başarıyla oluşturuldu.
         destroy:
-          error: Bu kategoriyi silerken bir sorun oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka hiçbir işletmenin bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
+          error: Bu kategoriyi silerken bir hata oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka bir varlığın bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
           success: Kategori başarıyla silindi.
         edit:
           title: Kategoriyi düzenle
@@ -222,17 +222,17 @@ tr:
           create: Kategori oluştur
           title: Yeni kategori
         update:
-          error: Bu kategoriyi güncellerken bir sorun oluştu.
+          error: Bu kategori güncellenirken bir hata oluştu.
           success: Kategori başarıyla güncellendi.
       component_permissions:
         update:
           success: İzinler başarıyla güncellendi.
       components:
         create:
-          error: Bu bileşeni oluştururken bir sorun oluştu.
+          error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
         destroy:
-          error: Bu bileşeni yok ederken bir sorun oluştu.
+          error: Bu bileşeni yok eden bir hata oluştu.
           success: Bileşen başarıyla silindi.
         edit:
           title: Bileşeni düzenle
@@ -256,7 +256,7 @@ tr:
         unpublish:
           success: Bileşen başarıyla yayından kaldırıldı.
         update:
-          error: Bu bileşen güncellenirken bir sorun oluştu.
+          error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
       dashboard:
         show:
@@ -266,7 +266,7 @@ tr:
         export_as: "%{name} olarak %{export_format}"
         notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       help_sections:
-        error: Yardım bölümlerini güncellerken bir sorun oluştu
+        error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
           save: Kayıt etmek
         success: Bölümler başarıyla güncellenmiş Yardım
@@ -278,7 +278,7 @@ tr:
             not_managed: Yönetilmeyen
           filter_by: Tarafından filtre
           impersonate: taklit etmek
-          impersonate_new_managed_user: Yeni katılımcıyı yönet
+          impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
           managed: Yönetilen
           name: isim
           needs_authorization_warning: Bu kuruluş için etkinleştirilen en az bir yetkilendirmeye ihtiyacınız var.
@@ -289,31 +289,31 @@ tr:
           view_logs: Günlükleri görüntüle
       impersonations:
         close_session:
-          error: Mevcut katılımcı yönetimi oturumunu kapatırken bir sorun oluştu.
+          error: Mevcut kimliğe bürünme oturumunu kapatırken bir hata oluştu.
           success: Geçerli kimliğe bürünme oturumu başarıyla sona ermiştir.
         create:
-          error: Katılımcıyı yönetirken bir sorun oluştu.
-          success: Yönetilen katılımcı başarıyla oluşturuldu.
+          error: Kullanıcıyı taklit eden bir hata oluştu.
+          success: Yönetilen kullanıcı başarıyla oluşturuldu.
         form:
           authorization_method: Yetkilendirme yöntemi
           name: isim
           reason: neden
         new:
           impersonate: taklit etmek
-          impersonate_existing_managed_user: '"%{name}" katılımcısını yönet'
-          impersonate_existing_user: '"%{name}" katılımcısını yönet'
-          impersonate_new_managed_user: Yeni katılımcıyı yönet
+          impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
+          impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
+          impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
       logs:
         logs_list:
           no_logs_yet: Henüz kayıt yok
       managed_users:
         promotion:
-          error: Yönetilen katılımcıyı tanıtırken bir sorun oluştu.
-          success: Yönetilen katılımcı başarıyla tanıtıldı.
+          error: Yönetilen kullanıcıyı tanıtan bir hata oluştu.
+          success: Yönetilen kullanıcı başarıyla tanıtıldı.
         promotions:
           new:
-            explanation: Yönetilen katılımcılar standart katılımcılara terfi ettirilebilir. Bu, uygulamaya davet edilecekleri ve onları bir daha yönetemeyeceğiniz anlamına gelir. Davet edilen katılımcı davetinizi kabul etmek için bir e-posta alacak.
-            new_managed_user_promotion: Yeni yönetilen katılımcı tanıtımı
+            explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
+            new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
       menu:
         admin_log: Yönetici etkinlik günlüğü
@@ -333,8 +333,8 @@ tr:
         scopes: kapsamları
         settings: Ayarlar
         static_pages: Sayfalar
-        user_groups: Gruplar
-        users: Katılımcılar
+        user_groups: Kullanıcı Grupları
+        users: Kullanıcılar
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ tr:
             expired_at: Süresi doldu
             reason: neden
             started_at: Başlangıç
-            user: Katılımcı
+            user: kullanıcı
         newsletter:
           fields:
             created_at: Düzenlendi
@@ -376,7 +376,7 @@ tr:
             name: isim
           name: OAuth uygulaması
         participatory_space_private_user:
-          name: Katılımcı alan özel katılımcı
+          name: Katılımcı alan özel kullanıcısı
         scope:
           fields:
             name: isim
@@ -398,8 +398,8 @@ tr:
             role: rol
             roles:
               admin: yönetim
-              user_manager: Katılımcı yöneticisi
-          name: Katılımcı
+              user_manager: Kullanıcı yöneticisi
+          name: kullanıcı
         user_group:
           fields:
             actions: Eylemler
@@ -408,7 +408,7 @@ tr:
             name: isim
             phone: Telefon
             state: Belirtmek, bildirmek
-            users_count: Katılımcılar sayılır
+            users_count: Kullanıcılar
       moderations:
         index:
           title: Denetimler
@@ -419,10 +419,10 @@ tr:
             spam: İstenmeyen e
       newsletters:
         create:
-          error: Bu bülteni oluştururken bir sorun oluştu.
+          error: Bu bülteni oluştururken bir hata oluştu.
           success: Bülten başarıyla oluşturuldu. Lütfen göndermeden önce gözden geçirin.
         deliver:
-          error: Bu bülteni yayınlarken bir sorun oluştu.
+          error: Bu bülteni veren bir hata oluştu.
           success: Bülten başarıyla teslim edildi.
         destroy:
           error_already_sent: 'Haber bülteni yok edilemez: Zaten gönderilmiş.'
@@ -444,14 +444,14 @@ tr:
           preview: Ön izleme
           subject: konu
         update:
-          error: Bu bülten güncellenirken bir sorun oluştu.
+          error: Bu bülteni güncellerken bir hata oluştu.
           success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
       oauth_applications:
         create:
-          error: Bu uygulamayı oluştururken bir sorun oluştu.
+          error: Bu uygulama oluşturulurken bir hata oluştu.
           success: Uygulama başarıyla oluşturuldu.
         destroy:
-          error: Bu uygulamayı yok ederken bir sorun oluştu.
+          error: Bu uygulamayı yok eden bir hata oluştu.
           success: Uygulama başarıyla yok edildi.
         edit:
           save: Kayıt etmek
@@ -463,13 +463,13 @@ tr:
           save: Kayıt etmek
           title: Yeni uygulama
         update:
-          error: Bu uygulama güncellenirken bir sorun oluştu.
+          error: Bu uygulama güncellenirken bir hata oluştu.
           success: Uygulama başarıyla güncellendi.
       officializations:
         create:
-          success: Katılımcı başarıyla yetkilendirildi
+          success: Kullanıcı başarıyla onaylandı
         destroy:
-          success: Katılımcı başarıyla gayri resmi
+          success: Kullanıcı başarıyla gayri resmi
         index:
           actions: Eylemler
           badge: rozet
@@ -491,7 +491,7 @@ tr:
         new:
           badge: Resmi görevlendirme rozeti
           officialize: ', resmiyete'
-          title: '"%{name}" katılımcısını resmileştir'
+          title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
       organization:
         edit:
           title: Kuruluş düzenle
@@ -505,7 +505,7 @@ tr:
           url: URL
           youtube: Youtube
         update:
-          error: Bu kuruluş güncellenirken bir sorun oluştu.
+          error: Bu kuruluşu güncellerken bir hata oluştu.
           success: Kuruluş başarıyla güncellendi.
       organization_appearance:
         edit:
@@ -528,16 +528,16 @@ tr:
           update: Güncelleştirme
       participatory_space_private_users:
         create:
-          error: Bu katılımcı alanı için özel bir katılımcı eklerken bir sorun oluştu.
-          success: Katılımcı alan özel katılımcı erişimi başarıyla oluşturuldu.
+          error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
+          success: Katılımcı alan özel kullanıcı erişimi başarıyla oluşturuldu.
         destroy:
-          error: Bu katılımcı alanı için özel bir katılımcıyı silerken bir sorun oluştu.
-          success: Katılımcı alan özel katılımcı erişimi başarıyla imha edildi.
+          error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
+          success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
         index:
-          title: Katılımcı alan özel katılımcı
+          title: Katılımcı alan özel kullanıcısı
         new:
           create: yaratmak
-          title: Yeni Katılımcı Alan özel katılımcı.
+          title: Yeni Katılımcı Uzay özel kullanıcısı.
       resource_permissions:
         edit:
           submit: Gönder
@@ -546,7 +546,7 @@ tr:
           success: İzinler başarıyla güncellendi.
       scope_types:
         create:
-          error: Yeni bir kapsam türü yaratırken bir sorun oluştu.
+          error: Yeni kapsam türü oluştururken bir hata oluştu.
           success: Kapsam türü başarıyla oluşturuldu.
         destroy:
           success: Kapsam türü başarıyla yok edildi
@@ -557,11 +557,11 @@ tr:
           create: Kapsam türü oluştur
           title: Yeni kapsam
         update:
-          error: Bu kapsam türünü güncellerken bir sorun oluştu.
+          error: Bu kapsam türünü güncellerken bir hata oluştu.
           success: Kapsam türü başarıyla güncellendi
       scopes:
         create:
-          error: Yeni bir kapsam yaratırken bir sorun oluştu.
+          error: Yeni kapsam oluştururken bir hata oluştu.
           success: Kapsam başarıyla oluşturuldu.
         destroy:
           success: Kapsam başarıyla yok edildi
@@ -573,11 +573,11 @@ tr:
           title: Yeni kapsam
         no_scopes: Bu seviyede hiçbir kapsam yok.
         update:
-          error: Bu kapsamı güncellerken bir sorun oluştu.
+          error: Bu kapsamı güncellerken bir hata oluştu.
           success: Kapsam başarıyla güncellendi
       static_page_topics:
         create:
-          error: Yeni bir konu oluştururken bir sorun oluştu.
+          error: Yeni bir konu oluştururken bir hata oluştu.
           success: Konu başarıyla oluşturuldu.
         destroy:
           success: Konu başarıyla yok edildi
@@ -588,18 +588,18 @@ tr:
           create: Konu oluştur
           title: Yeni Konu
         update:
-          error: Bu konuyu güncellerken bir sorun oluştu.
+          error: Bu konu güncellenirken bir hata oluştu.
           success: Konu başarıyla güncellendi
       static_pages:
         actions:
           view: Genel sayfayı görüntüle
         create:
-          error: Yeni sayfa oluşturulurken bir sorun oluştu.
+          error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.
         destroy:
           success: Sayfa başarıyla yok edildi
         edit:
-          changed_notably_help: İşaretlenirse, katılımcılara yeni şartlar ve koşulları kabul etmeleri bildirilir.
+          changed_notably_help: İşaretlenirse, kullanıcılar yeni şartlar ve koşulları kabul etmek için bilgilendirileceklerdir.
           title: Sayfayı düzenle
           update: Güncelleştirme
         form:
@@ -615,7 +615,7 @@ tr:
           empty: Bu konunun altında sayfa yok
           without_topic: Konu olmayan sayfalar
         update:
-          error: Bu sayfa güncellenirken bir sorun oluştu.
+          error: Bu sayfa güncellenirken bir hata oluştu.
           success: Sayfa başarıyla güncellendi
       titles:
         admin_log: Yönetici günlüğü
@@ -623,24 +623,24 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: gösterge paneli
-        impersonatable_users: Yönetilebilir katılımcılar
-        impersonations: Katılımcı yönetimi
-        participants: Katılımcılar
+        impersonatable_users: Yönetilebilir kullanıcılar
+        impersonations: Kullanıcılar yönetimi
+        participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar
-        user_groups: Gruplar
-        users: Katılımcılar
+        user_groups: Kullanıcı Grupları
+        users: Kullanıcılar
       user_group:
         csv_verify:
-          invalid: CSV dosyasını okurken bir sorun oluştu.
-          success: CSV dosyası başarıyla yüklendi, ölçütle eşleşen grupları doğrulıyoruz. Bu biraz zaman alabilir.
+          invalid: CSV dosyasını okurken bir hata oluştu.
+          success: CSV dosyası başarıyla yüklendi, kriterleri karşılayan kullanıcı gruplarını doğrularız. Bu biraz zaman alabilir.
         reject:
-          invalid: Bu grubu reddetmekte bir sorun vardı.
-          success: Grup başarıyla reddedildi
+          invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
+          success: Kullanıcı grubu başarıyla reddedildi
         verify:
-          invalid: Bu grubu doğrularken bir sorun oluştu.
-          success: Grup başarıyla doğrulandı
+          invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
+          success: Kullanıcı grubu başarıyla doğrulandı
       user_groups:
         index:
           filter:
@@ -657,28 +657,28 @@ tr:
           verify_via_csv: CSV ile doğrulayın
       user_groups_csv_verifications:
         new:
-          explanation: CSV dosyanızı yükleyin. Kuruluşunuzdaki grupların resmi e-postaları, dosyanın ilk sütununda, başlıkları olmadan olmalıdır. Yalnızca e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip gruplar doğrulanır.
+          explanation: CSV dosyanızı yükleyin. Dosyanın ilk sütunundaki kullanıcı gruplarının resmi e-postalarının, başlıksız olarak olması gerekir. Sadece e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip olan kullanıcı grupları doğrulanacaktır.
           title: CSV dosyanızı yükleyin
           upload: Yükleme
       users:
         create:
-          error: Bu yöneticiyi davet ederken bir sorun oluştu.
-          success: Katılımcı başarıyla davet edildi.
+          error: Bu kullanıcıyı davet ederken bir hata oluştu.
+          success: Kullanıcı başarıyla davet edildi.
         destroy:
-          error: Bu yöneticiyi silmeye çalışırken bir sorun oluştu.
-          success: Katılımcı artık bir yönetici değil.
+          error: Bu kullanıcıyı silmeye çalışırken bir hata oluştu.
+          success: Kullanıcı artık yönetici değil.
         form:
           email: E-posta
           name: isim
           role: rol
         new:
           create: Davet et
-          title: Katılımcıyı yönetici olarak davet et
+          title: Kullanıcıyı yönetici olarak davet et
       view_public_page: Genel sayfayı görüntüle
     forms:
       errors:
         impersonate_user:
-          reason: Yönetilmeyen bir katılımcıyı yönetirken bir neden belirtmeniz gerekir
+          reason: Yönetilmeyen bir kullanıcıyı taklit ederken bir neden belirtmeniz gerekir
     moderations:
       actions:
         hidden: Gizli
@@ -690,13 +690,13 @@ tr:
       admin:
         reportable:
           hide:
-            invalid: Kaynağı gizlerken bir sorun vardı.
+            invalid: Kaynağı gizleyen bir sorun oluştu.
             success: Kaynak başarıyla gizlendi.
           unhide:
-            invalid: Kaynağın gizlenmesinde bir sorun vardı.
+            invalid: Kaynağın gizlenmesinde bir sorun var.
             success: Kaynak başarıyla yasaklandı.
           unreport:
-            invalid: Kaynağın bildirilmesinde bir sorun vardı.
+            invalid: Kaynağı bildirmeyen bir sorun oluştu.
             success: Kaynak başarıyla bildirilmedi.
       models:
         moderation:
@@ -718,4 +718,4 @@ tr:
         settings:
           title: Ayarlar
         users:
-          title: Katılımcılar
+          title: Kullanıcılar
