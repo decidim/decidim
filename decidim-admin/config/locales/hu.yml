@@ -70,7 +70,6 @@ hu:
         success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
-        user_groups_enabled: Felhasználói csoportok engedélyezése
         warning_color: Figyelem
         youtube_handler: YouTube handler
       scope:
@@ -138,7 +137,6 @@ hu:
         verify: Ellenőrzés
       area_types:
         create:
-          error: Hiba történt az új területtípus létrehozásakor.
           success: Területtípus létrehozása sikeres.
         destroy:
           success: Területtípus eltávolítása sikeres
@@ -149,11 +147,9 @@ hu:
           create: Területtípus létrehozása
           title: Új területtípus
         update:
-          error: Hiba történt a területtípus frissítése során.
           success: Területtípus frissítése sikeres
       areas:
         create:
-          error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
           success: Terület eltávolítása sikeres
@@ -165,11 +161,9 @@ hu:
           title: Új terület
         no_areas: Nincs terület
         update:
-          error: Hiba történt ezen terület frissítése során.
           success: Terület frissítése sikeres
       attachment_collections:
         create:
-          error: Hiba történt az új mappa létrehozása során.
           success: Mappa létrehozása sikeres.
         destroy:
           success: Mappa eltávolítása sikeres.
@@ -183,11 +177,9 @@ hu:
           create: Létrehozás
           title: Új mappa
         update:
-          error: Hiba történt a mappa frissítése során.
           success: Mappa frissítése sikeres.
       attachments:
         create:
-          error: Hiba történt az új melléklet létrehozása során.
           success: Melléklet létrehozása sikeres.
         destroy:
           success: Melléklet eltávolítása sikeres.
@@ -200,17 +192,14 @@ hu:
           create: Melléklet létrehozása
           title: Új melléklet
         update:
-          error: Hiba történt a melléklet frissítése során.
           success: Melléklet frissítése sikeres.
       autocomplete:
         no_results: Nincs találat
         search_prompt: Legalább három karakter szükséges a kereséshez
       categories:
         create:
-          error: Hiba történt a kategória létrehozása során.
           success: Kategória létrehozása sikeres.
         destroy:
-          error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
           success: Kategória eltávolítása sikeres.
         edit:
           title: Kategória szerkesztése
@@ -222,17 +211,14 @@ hu:
           create: Kategória létrehozása
           title: Új kategória
         update:
-          error: Hiba történt a kategória frissítése során.
           success: Kategória frissítése sikeres.
       component_permissions:
         update:
           success: Engedélyek frissítése sikeres.
       components:
         create:
-          error: Hiba történt a komponens létrehozása során.
           success: Elem létrehozása sikeres.
         destroy:
-          error: Hiba történt az elem eltávolítása során.
           success: Elem eltávolítása sikeres.
         edit:
           title: Elem szerkesztése
@@ -256,7 +242,6 @@ hu:
         unpublish:
           success: Az elem közzétételének visszavonása sikeres volt.
         update:
-          error: Hiba történt az elem frissítése során.
           success: Az elem frissítése sikeres volt.
       dashboard:
         show:
@@ -266,7 +251,6 @@ hu:
         export_as: "%{name} mint %{export_format}"
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       help_sections:
-        error: Hiba történt a súgószakaszok frissítésekor
         form:
           save: Mentés
         success: A súgó szakaszok sikeresen frissültek
@@ -278,7 +262,6 @@ hu:
             not_managed: Nem felügyelt
           filter_by: 'Szűrés ez alapján:'
           impersonate: Megszemélyesítés
-          impersonate_new_managed_user: Új felügyelt felhasználó felhatalmazása
           managed: Felügyelt
           name: Név
           needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.
@@ -289,31 +272,19 @@ hu:
           view_logs: Naplók megtekintése
       impersonations:
         close_session:
-          error: Hiba történt a megszemélyesítő munkamenet lezárása közben.
           success: A megszemélyesítő munkamenet sikeresen lezárult.
-        create:
-          error: Hiba történt a felhasználó felhatalmazása során.
-          success: A felhasználó sikeresen létrehozva.
         form:
           authorization_method: Hitelesítési módszer
           name: Név
           reason: Indok
         new:
           impersonate: Megszemélyesítés
-          impersonate_existing_managed_user: '"%{name}" felügyelt felhasználó felhatalmazása'
-          impersonate_existing_user: '"%{name}" felhasználó felhatalmazása'
-          impersonate_new_managed_user: Új felügyelt felhasználó felhatalmazása
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
-        promotion:
-          error: Hiba történt a felügyelt felhasználó előléptetése során.
-          success: A felügyelt felhasználó előléptetése sikeres.
         promotions:
           new:
-            explanation: A felügyelt felhasználók egyszerű felhasználóvá alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra felhatalmazni. Erről emailben kapnak értesítést.
-            new_managed_user_promotion: Új felügyelt felhasználó előléptetése
             promote: Előléptetés
       menu:
         admin_log: Admin tevékenységnapló
@@ -333,8 +304,6 @@ hu:
         scopes: Hatáskörök
         settings: Beállítások
         static_pages: Oldalak
-        user_groups: Felhasználói csoportok
-        users: Felhasználók
       models:
         area:
           fields:
@@ -362,7 +331,6 @@ hu:
             expired_at: 'Lejár:'
             reason: Indok
             started_at: 'Kezdődik:'
-            user: Felhasználó
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -375,8 +343,6 @@ hu:
             created_at: 'Létrehozva:'
             name: Név
           name: OAuth alkalmazás
-        participatory_space_private_user:
-          name: Részvételi tér privát felhasználó
         scope:
           fields:
             name: Név
@@ -398,8 +364,6 @@ hu:
             role: Szerepkör
             roles:
               admin: Admin
-              user_manager: Felhasználói menedzser
-          name: Felhasználó
         user_group:
           fields:
             actions: Műveletek
@@ -408,7 +372,6 @@ hu:
             name: Név
             phone: Telefon
             state: Állapot
-            users_count: Felhasználók száma
       moderations:
         index:
           title: Moderálás
@@ -419,10 +382,8 @@ hu:
             spam: Spam
       newsletters:
         create:
-          error: Hiba történt a hírlevél létrehozása során.
           success: Hírlevél létrehozása sikeres. Ellenőrizd le, mielőtt elküldenéd.
         deliver:
-          error: Hiba történt a hírlevél kézbesítése során.
           success: Hírlevél kézbesítése sikeres.
         destroy:
           error_already_sent: 'Nem lehet törölni a hírlevelet: már elküldve.'
@@ -444,14 +405,11 @@ hu:
           preview: Előnézet
           subject: Tárgy
         update:
-          error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
       oauth_applications:
         create:
-          error: Hiba történt az alkalmazás létrehozása során.
           success: Alkalmazás létrehozása sikeres.
         destroy:
-          error: Hiba történt az alkalmazás eltávolítása során.
           success: Alkalmazás eltávolítása sikeres.
         edit:
           save: Mentés
@@ -463,13 +421,8 @@ hu:
           save: Mentés
           title: Új alkalmazás
         update:
-          error: Hiba történt az alkalmazás frissítése során.
           success: Alkalmazás frissítse sikeres.
       officializations:
-        create:
-          success: A felhasználó hivatalos lett
-        destroy:
-          success: Felhasználó hivatalos státusza visszavonva
         index:
           actions: Műveletek
           badge: Jelvény
@@ -491,7 +444,6 @@ hu:
         new:
           badge: Hivatalos jelölés
           officialize: Hivatalossá tétel
-          title: '"%{name}" hivatalosság tétele'
       organization:
         edit:
           title: Szervezet szerkesztése
@@ -505,7 +457,6 @@ hu:
           url: Url
           youtube: Youtube
         update:
-          error: Hiba történt a szervezet frissítése során.
           success: A szervezet frissítése sikeres volt.
       organization_appearance:
         edit:
@@ -527,17 +478,8 @@ hu:
         edit:
           update: Frissítés
       participatory_space_private_users:
-        create:
-          error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
-          success: Privát felhasználó részvételi helyhez való hozzáférése biztosítva.
-        destroy:
-          error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
-          success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
-        index:
-          title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
-          title: Új privát felhasználó a részvételi térben.
       resource_permissions:
         edit:
           submit: Beküldés
@@ -546,7 +488,6 @@ hu:
           success: Engedélyek frissítése sikeres.
       scope_types:
         create:
-          error: Hiba történt az új hatáskör-típus létrehozásakor.
           success: Hatáskör típus létrehozása sikeres.
         destroy:
           success: Hatáskör típus eltávolítása sikeres
@@ -557,11 +498,9 @@ hu:
           create: Hatáskör típus létrehozása
           title: Új hatáskor
         update:
-          error: Hiba történt a hatáskör típus frissítése során.
           success: Hatáskör típus frissítése sikeres
       scopes:
         create:
-          error: Hiba történt az új hatáskör létrehozásakor.
           success: Hatáskor létrehozása sikeres.
         destroy:
           success: A hatáskör törlése sikeres
@@ -573,11 +512,9 @@ hu:
           title: Új hatáskör
         no_scopes: Ezen a szinten nincsenek hatáskörök.
         update:
-          error: Hiba történt a hatáskör frissítése során.
           success: Hatáskör frissítése sikeres
       static_page_topics:
         create:
-          error: Hiba történt egy új téma létrehozásakor.
           success: Téma létrehozva sikeresen.
         destroy:
           success: A téma sikeresen megsemmisült
@@ -588,18 +525,15 @@ hu:
           create: Téma létrehozása
           title: Új téma
         update:
-          error: Hiba történt a téma frissítésekor.
           success: Téma frissítve sikeresen
       static_pages:
         actions:
           view: Nyilvános oldal megtekintése
         create:
-          error: Hiba történt az új oldal létrehozásakor.
           success: Oldal létrehozása sikeres.
         destroy:
           success: Oldal törlése sikeres
         edit:
-          changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új feltételekről.
           title: Oldal szerkesztése
           update: Frissítés
         form:
@@ -615,7 +549,6 @@ hu:
           empty: Ebben a témában nincs oldal
           without_topic: Téma nélküli oldalak
         update:
-          error: Hiba történt az oldal frissítése során.
           success: Oldal frissítése sikeres
       titles:
         admin_log: Admin napló
@@ -623,24 +556,9 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
-        impersonatable_users: Kezelhető felhasználók
-        impersonations: Felhasználók kezelése
-        participants: felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
-        user_groups: Felhasználói csoportok
-        users: Felhasználók
-      user_group:
-        csv_verify:
-          invalid: Hiba történt a CSV fájl olvasásában.
-          success: A CSV-fájl sikeresen fel lett töltve, ellenőrizzük a kritériumoknak megfelelő felhasználói csoportokat. Ez eltarthat egy ideig.
-        reject:
-          invalid: Hiba történt a felhasználói csoport elutasításakor.
-          success: Felhasználói csoport elutasítva
-        verify:
-          invalid: Hiba történt a felhasználói csoport ellenőrzésekor.
-          success: Felhasználói csoport elfogadva
       user_groups:
         index:
           filter:
@@ -657,28 +575,16 @@ hu:
           verify_via_csv: Ellenőrizze a CSV használatát
       user_groups_csv_verifications:
         new:
-          explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
           title: Töltse fel a CSV fájlját
           upload: Feltöltés
       users:
-        create:
-          error: Hiba történt a felhasználó meghívása során.
-          success: Felhasználó meghívása sikeres.
-        destroy:
-          error: Hiba történt a felhasználó törlése során.
-          success: A felhasználó már nem rendszergazda.
         form:
           email: Email
           name: Név
           role: Szerep
         new:
           create: Meghívás
-          title: Felhasználó meghívása rendszergazdaként
       view_public_page: Nyilvános oldal megtekintése
-    forms:
-      errors:
-        impersonate_user:
-          reason: Indokolnod kell a nem felügyelt felhasználók felhatalmazását
     moderations:
       actions:
         hidden: Rejtett
@@ -690,13 +596,10 @@ hu:
       admin:
         reportable:
           hide:
-            invalid: Probléma történt az erőforrás elrejtésekor.
             success: Erőforrás sikeresen elrejtve.
           unhide:
-            invalid: Probléma volt az erőforrás megmutatásával.
             success: Az erőforrás sikeresen elrejtve.
           unreport:
-            invalid: Probléma történt az erőforrás elrejtésének visszavonásakor.
             success: Erőforrás jelentésének visszavonása sikeres.
       models:
         moderation:
@@ -717,5 +620,3 @@ hu:
           title: Hírlevelek
         settings:
           title: Beállítások
-        users:
-          title: Felhasználók
