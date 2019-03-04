@@ -9,9 +9,6 @@ fr:
         save: Sauvegarder
         title: Actions
       admins:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
-          success: Admin créé avec succès
         destroy:
           success: Administrateur supprimé avec succès
         edit:
@@ -22,9 +19,6 @@ fr:
         new:
           create: Créer
           title: Nouvel administrateur
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
-          success: Administrateur mis à jour avec succès
       default_pages:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
@@ -49,24 +43,15 @@ fr:
             name: Nom
           name: Organisation
       organizations:
-        create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
-          success: Organisation créée avec succès.
         edit:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
         index:
           title: Organisations
         new:
-          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
-          success: Organisation mise à jour avec succès.
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
-          enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
-          existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter
       shared:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
