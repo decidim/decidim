@@ -25,6 +25,3 @@ sv:
           edit:
             save: Uppdatera
             title: Redigera sida
-          update:
-            invalid: Det har blivit fel när du sparar sidan.
-            success: Sidan sparades framgångsrikt.
