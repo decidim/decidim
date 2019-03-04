@@ -40,10 +40,6 @@ it:
             base:
               too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
               too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Incontro
@@ -65,9 +61,6 @@ it:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: C'era un errore en duplicazione di questo incontro.
-          success: Riunione duplicata con successo.
         new:
           copy: copia
           select: Seleziona i dati che desideri duplicare
@@ -108,10 +101,7 @@ it:
         meeting_registration_confirmed:
           notification_title: La tua registrazione per la riunione <a href="%{resource_url}">%{resource_title}</a> è stata confermata. Il tuo codice di registrazione è %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della riunione.
-          email_subject: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%
-          notification_title: Gli spazi occupati della riunione <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
         meeting_updated:
           email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
@@ -135,14 +125,10 @@ it:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Registrati negli incontri a cui vuoi partecipare
           description: Questo badge è concesso quando si partecipano a numerosi incontri faccia a faccia.
-          description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.
           name: Riunioni frequentate
           next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.
           unearned_own: Non hai ancora partecipato a nessuna riunione.
     meetings:
       actions:
@@ -161,19 +147,15 @@ it:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Aggiungi bambino oggetto agenda
             agenda_item: Oggetto dell'ordine del giorno
-            agenda_item_children: Oggetto del calendario Childs
             down: Giù
             remove: Rimuovere
             up: Su
           agenda_item_child:
-            agenda_item_child: Articolo Agenda Bambino
             down: Giù
             remove: Rimuovere
             up: Su
           create:
-            invalid: C'è stato un problema nel creare questo programma
             success: Agenda creata con successo
           edit:
             title: Modifica agenda
@@ -187,7 +169,6 @@ it:
             create: Creare
             title: Nuova agenda
           update:
-            invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
           meetings: incontri
@@ -198,16 +179,9 @@ it:
             invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
             join: Partecipa alla riunione '%{meeting_title}'
         invites:
-          create:
-            error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
-            success: L'utente è stato invitato a partecipare alla riunione.
           form:
             attendee_type: Tipo di partecipante
-            existing_user: Utente esistente
             invite: Invita
-            invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
-            non_user: Utente non esistente
-            select_user: Seleziona utente
           index:
             filter:
               accepted: Accettato
@@ -228,10 +202,8 @@ it:
             select_organizer: Seleziona l'organizzatore
         meetings:
           close:
-            invalid: C'è stato un problema durante la chiusura di questo meeting.
             success: OK, il meeting è stato chiuso.
           create:
-            invalid: C'è stato un problema durante la creazione di questo meeting.
             success: OK, il meeting è stato creato con successo.
           destroy:
             success: OK, il meeting è stato cancellato.
@@ -255,11 +227,9 @@ it:
             add_service: Aggiungi servizio
             services: Servizi
           update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.
         minutes:
           create:
-            invalid: Si è verificato un problema durante la creazione di questi minuti
             success: Minuti creati con successo
           edit:
             update: Aggiornare
@@ -267,7 +237,6 @@ it:
             create: Creare
             title: Crea minuti
           update:
-            invalid: Si è verificato un problema durante l'aggiornamento di questo minuto
             success: Minuti aggiornati con successo
         models:
           meeting:
@@ -279,7 +248,6 @@ it:
             validate_registration_code: Convalida il codice di registrazione
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
-            invites: Inviti
             registration_form: Formulario di registrazione
             registrations_count:
               one: C'è stata %{count} registrazione.
@@ -287,7 +255,6 @@ it:
             reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
           update:
-            invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
           validate_registration_code:
             invalid: Questo codice di registrazione non è valido.
@@ -406,13 +373,10 @@ it:
           registration_code: Il tuo codice di registrazione è %{code}.
       registrations:
         create:
-          invalid: C'è stato un problema a partecipare a questa riunione.
           success: Hai partecipato alla riunione con successo.
         decline_invitation:
-          invalid: C'è stato un problema a rifiutare l'invito.
           success: Hai rifiutato l'invito con successo.
         destroy:
-          invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
       types:
         private_meeting: Incontro privato
