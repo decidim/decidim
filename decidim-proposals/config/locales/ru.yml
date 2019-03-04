@@ -50,12 +50,18 @@ ru:
         few: Примечания
         many: Примечаний
         other: Примечаний
+      decidim/proposals/proposal_vote:
+        one: Голос
+        few: Голоса
+        many: Голосов
+        other: Голосов
   decidim:
     components:
       proposals:
         actions:
           create: Внести
           endorse: Поддержать
+          vote: Голосовать
           withdraw: Отозвать
         name: Предложения
         settings:
@@ -70,12 +76,14 @@ ru:
             proposal_answering_enabled: Включена возможность отвечать на предложения
             proposal_edit_before_minutes: Предложения могут быть отредактированы авторами до того, как пройдет столько минут
             proposal_length: Предельная длина основного текста предложения
+            proposal_limit: Предельное количество предложений от одного участника
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
             proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
             resources_permissions_enabled: Для каждого предложения можно задать те или иные разрешения на действия
             threshold_per_proposal: Порог для каждого предложения
+            vote_limit: Предельное количество голосов для одного участника
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
@@ -83,6 +91,9 @@ ru:
             endorsements_blocked: Возможность выразить поддержку отключена
             endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
+            votes_blocked: Голосование отключено
+            votes_enabled: Голосование включено
+            votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)
     events:
       proposals:
         creation_enabled:
@@ -120,6 +131,7 @@ ru:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> обнародовал предложение <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
           notification_title: В %{participatory_space_title} было добавлено предложение <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           follower:
@@ -128,11 +140,15 @@ ru:
             email_subject: Предложение, за которым вы следите, было отклонено
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было отклонено.
         proposal_update_category:
+          email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
           email_subject: Обновлена категория предложений %{resource_title}
           notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
         voting_enabled:
+          email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} началось голосование по предложениям
+          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">голосовать по предложениям</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -162,6 +178,7 @@ ru:
             title: Ответ на предложение %{title}
         proposal_notes:
           create:
+            error: При попытке добавить к предложению это примечание произошла ошибка
             success: Примечание к предложению успешно добавлено
           form:
             note: Примечание
@@ -195,15 +212,18 @@ ru:
             success: 'Предложения успешно перенесены в категорию %{category}: %{proposals}.'
         proposals_imports:
           create:
+            invalid: При попытке позаимствовать эти предложения произошла ошибка
             success: "%{number} предложений успешно позаимствованы"
           new:
             create: Позаимствовать предложения
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
             select_component: Пожалуйста, выберите составляющую
+            select_states: Проверьте состояние предложений, которые вы хотите позаимствовать
         shared:
           info_proposal:
             body: Основной текст
             created_at: Дата создания
+            proposal_votes_count: Количество голосов
             proposals: Предложения
       admin_log:
         proposal:
@@ -223,7 +243,11 @@ ru:
           official: Служебные
         filter_state_values:
           except_rejected: Все, кроме отклоненных
+      create:
+        error: При попытке сохранить это предложение произошли ошибки.
+        success: Предложение успешно создано. Сохранено как черновик.
       destroy_draft:
+        error: При попытке удалить этот черновик предложения произошли ошибки.
         success: Черновик предложения был успешно удален.
       models:
         proposal:
@@ -236,11 +260,14 @@ ru:
             official_proposal: Служебное предложение
             published_at: 'Обнародовано:'
             scope: Охват
+            state: Cостояние
             title: Заголовок
             votes: Голоса
       new:
         limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
       proposal_endorsements:
+        create:
+          error: При попытке поддержать это предложение произошли ошибки.
         identities:
           done: Готово
           select_identity: Выберите роль
@@ -250,6 +277,9 @@ ru:
           endorse: Поддержать
         render_endorsements_button_card_part:
           endorse: Поддержать
+      proposal_votes:
+        create:
+          error: При голосовании по этому предложению произошли ошибки.
       proposals:
         compare:
           mine_is_different: Мое предложение отличается
@@ -280,6 +310,8 @@ ru:
           origin: Источник
           related_to: Связано с
           search: Поиск
+          state: Cостояние
+          voted: Проголосованные
         filters_small_view:
           close_modal: Закрыть окошко
           filter: Отобрать
@@ -289,11 +321,18 @@ ru:
           new_proposal: Внести предложение
           see_all_withdrawn: Просмотреть все отозванные предложения
           view_proposal: Просмотреть предложение
+        linked_proposals:
+          proposal_votes:
+            one: голосовать
+            few: голоса
+            many: голоса
+            other: голоса
         new:
           send: Продолжить
           title: Создайте свое предложение
         orders:
           label: 'Упорядочить предложения по:'
+          most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
         preview:
@@ -316,12 +355,26 @@ ru:
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
+          withdraw_confirmation: Вы действительно хотите снять это предложение?
           withdraw_proposal: Снять предложение
         tags:
           changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
           filed_as: Отмечено как
+        vote_button:
+          already_voted: Уже проголосовали
+          already_voted_hover: Отменить голос
+          maximum_votes_reached: Достигнуто предельное количество голосов
+          no_votes_remaining: Больше не осталось голосов
+          vote: Голосовать
+          votes_blocked: Голосование отключено
         votes_count:
+          count:
+            one: ГОЛОС
+            few: ГОЛОСА
+            many: ГОЛОСОВ
+            other: ГОЛОСА
           most_popular_proposal: Самое популярное предложение
+          need_more_votes: Нужно больше голосов
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
@@ -329,8 +382,11 @@ ru:
             description: Вы можете создать до %{limit} предложений.
           threshold_per_proposal:
             description: Для того чтобы пройти проверку, предложения должны получить %{limit} выражений поддержки
+          title: 'Голосование регулируется следующими правилами:'
           vote_limit:
+            description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
+            votes: Голоса
         wizard_aside:
           back: Вернуться
           info: Вы создаете <strong>предложение</strong>.
@@ -341,6 +397,15 @@ ru:
           step_3: Завершите
           step_4: Обнародуйте свое предложение
           step_of: Шаг %{current_step_num} из %{total_steps}
+      publish:
+        error: При попытке обнародовать это предложение произошли ошибки.
+        success: Предложение успешно обнародовано.
+      update:
+        error: При попытке сохранить это предложение произошли ошибки.
+        success: Предложение успешно обновлено.
+      update_draft:
+        error: При попытке сохранить этот черновик предложения произошли ошибки.
+        success: Черновик предложения успешно обновлен.
     resource_links:
       copied_from_component:
         proposal_proposal: Подобные предложения
