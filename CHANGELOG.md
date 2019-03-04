@@ -19,6 +19,8 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 
 - **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events
 
+- **Bump Ruby version**: As per [\#4927](https://github.com/decidim/decidim/pull/4927) we've bumped the minimum Ruby version to 2.5.x. Check you're running a suitable Ruby version.
+
 **Added**:
 
 - **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4814](https://github.com/decidim/decidim/pull/4814)
@@ -50,6 +52,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-initiatives**: Allow users report comments on initiatives and admins moderate reports from initiative admin panel. [\#4878](https://github.com/decidim/decidim/pull/4878)
 - **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 - **decidim-verifications**: Allow definition of attributes in settings manifest to be required always on authorizations. [\#4911](https://github.com/decidim/decidim/pull/4911)
+- **decidim**: Bump required Ruby minimum version to 2.5.x [\#4927](https://github.com/decidim/decidim/pull/4927)
 
 **Changed**:
 
