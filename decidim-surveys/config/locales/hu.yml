@@ -37,8 +37,20 @@ hu:
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> felmérés elindult itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     metrics:
       survey_answers:
+        description: A felhasználók által felmérett felmérések száma
         object: válaszok a felmérésekre
         title: Válaszok a felmérésekhez
     surveys:
+      admin:
+        exports:
+          survey_user_answers: Felhasználók válaszai
+        surveys:
+          update:
+            invalid: Hiba történt a felmérés mentése során.
+            success: Felmérés mentése sikeres.
       last_activity:
         new_survey_at_html: "<span>Új felmérés %{link}</span>kor"
+      surveys:
+        answer:
+          invalid: Hiba történt a felmérés megválaszolása során.
+          success: Felmérés kitöltése sikeres.
