@@ -25,6 +25,3 @@ es-PY:
           edit:
             save: Actualizar
             title: Editar página
-          update:
-            invalid: Ha habido errores al guardar la página.
-            success: Página guardada correctamente.
