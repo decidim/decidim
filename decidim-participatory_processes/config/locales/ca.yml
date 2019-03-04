@@ -46,9 +46,6 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
-    models:
-      decidim/participatory_process_step_activated_event: Pas activat
-      decidim/participatory_process_step_changed_event: Pas canviat
   activerecord:
     models:
       decidim/participatory_process:
@@ -57,9 +54,6 @@ ca:
       decidim/participatory_process_group:
         one: Grup de procés participatiu
         other: Grups de procés participatiu
-      decidim/participatory_process_step:
-        one: Fase
-        other: Fases
   decidim:
     admin:
       actions:
@@ -71,8 +65,6 @@ ca:
         edit: Editar
         new_process: Nou procés
         new_process_group: Nou grup de processos
-        new_process_step: Nova fase
-        new_process_user_role: Nou usuari del procés
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -88,9 +80,6 @@ ca:
           components: Components
           info: Informació
           moderations: Moderacions
-          private_users: Usuaris privats
-          process_admins: Usuaris del procés
-          steps: Fases del procés
       models:
         participatory_process:
           fields:
@@ -109,13 +98,11 @@ ca:
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
-          name: Name
         participatory_process_user_role:
           fields:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de procés participatiu
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -130,72 +117,24 @@ ca:
           select: Selecciona quines dades vols duplicar
           title: Duplicar procés participatiu
       participatory_process_groups:
-        destroy:
-          success: El grup de processos participatius s'ha suprimit correctament.
         edit:
           title: Editar grup de procés
           update: Actualitzar
         new:
           create: Crear
           title: Nou grup de processos
-        update:
-          error: Hi ha hagut un error actualitzant aquest grup de processos participatius.
-          success: Grup de procés participatiu actualitzat correctament.
-      participatory_process_publications:
-        create:
-          error: S'ha produït un error en publicar aquest procés participatiu.
-          success: El procés participatiu s'ha publicat correctament.
-        destroy:
-          error: S'ha produït un error en despublicar aquest procés participatiu.
-          success: El procés participatiu s'ha despublicat correctament.
-      participatory_process_step_activations:
-        create:
-          error: S'ha produït un error en activar aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha activat correctament.
       participatory_process_steps:
-        create:
-          error: S'ha produït un error en crear una nova fase de procés participatiu.
-          success: La fase de procés participatiu s'ha creat correctament.
         default_title: Introducció
-        destroy:
-          error:
-            active_step: No es pot eliminar la fase activa.
-            last_step: No es pot eliminar l'última fase d'un procés.
-          success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
-          title: Editar fase de procés participatiu
           update: Actualitzar
-        index:
-          steps_title: Fases del procés
         new:
           create: Crear
-          title: Nova fase de procés participatiu
-        ordering:
-          error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
-        update:
-          error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
-        create:
-          error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: L'usuari s'ha afegit amb èxit a aquest procés participatiu.
-        destroy:
-          success: L'usuari s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Editar usuari de procés participatiu.
           update: Actualitzar
-        index:
-          process_admins_title: Usuaris del procés participatiu
         new:
           create: Crear
-          title: Nou usuari de procés participatiu.
-        update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquest procés participatiu.
-          success: Usuari actualitzat satisfactòriament per a aquest procés participatiu.
       participatory_processes:
-        create:
-          error: S'ha produït un error en crear un nou procés participatiu.
-          success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
         edit:
           update: Actualitzar
         form:
@@ -208,51 +147,23 @@ ca:
         new:
           create: Crear
           title: Nou procés participatiu
-        update:
-          error: S'ha produït un error en l'actualització d'aquest procés participatiu.
-          success: El procés participatiu s'ha actualitzat correctament.
-      participatory_processes_copies:
-        create:
-          error: Hi ha hagut un error duplicant el procés participatiu.
-          success: El procés participatiu ha estat duplicat correctament.
-      participatory_processes_group:
-        create:
-          error: S'ha produït un error creant aquest grup de processos participatius.
-          success: Grup de processos participatius creat correctament.
       titles:
         participatory_process_groups: Grups de processos participatius
         participatory_processes: Processos participatius
-      users:
-        resend_invitation:
-          error: Hi ha hagut un error reenviant la invitació.
-          success: Invitació reenviada amb èxit.
     admin_log:
       participatory_process:
         create: "%{user_name} ha creat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
-      participatory_process_step:
-        activate: "%{user_name} ha activat la fase %{resource_name} en el procés participatiu %{space_name}"
-        create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
-        delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
-        update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
-      participatory_process_user_role:
-        create: "%{user_name} ha convidat l'usuari %{resource_name} al procés participatiu %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} del procés participatiu %{space_name}"
-        update: "%{user_name} ha canviat el rol de l'usuari %{resource_name} en el procés participatiu %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
-          notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'S''han actualitzat les dates de la fase %{resource_title} a %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
-          notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
     help:
       participatory_spaces:
         participatory_processes:
@@ -268,14 +179,7 @@ ca:
         title: Processos participatius
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 procés per a %{group}
-          other: "%{count} processos per a %{group}"
         title: Grups de processos participatius
-    participatory_process_steps:
-      index:
-        process_steps: Fases del procés
-        title: Fases del procés participatiu
     participatory_processes:
       admin:
         content_blocks:
@@ -303,7 +207,6 @@ ca:
         home:
           highlighted_processes:
             active_processes: Processos actius
-            active_step: Pas actiu
             more_information: Més informació
             participate: Participa
             see_all_processes: Veure tots els processos
@@ -354,7 +257,6 @@ ca:
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
-        orders_count: Vots
         pages_count: Pàgines
         processes_count: Processos
         projects_count: Projectes
@@ -362,7 +264,6 @@ ca:
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Suports
   layouts:
     decidim:
       participatory_process_groups:
@@ -371,20 +272,14 @@ ca:
           processes_count: 'Processos:'
       participatory_process_widgets:
         show:
-          active_step: Fase activa
           take_part: Participa
       participatory_processes:
         index:
           promoted_processes: Processos destacats
         participatory_process:
-          active_step: 'Fase actual:'
           take_part: Participa
         promoted_process:
-          active_step: 'Fase actual:'
           more_info: Més informació
           take_part: Participa
-      process_header_steps:
-        step: Fase %{current} de %{total}
-        view_steps: Veure les fases
       process_navigation:
         process_menu_item: El procés
