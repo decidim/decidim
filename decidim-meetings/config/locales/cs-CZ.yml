@@ -40,10 +40,6 @@ cs:
             base:
               too_many_minutes: Doba trvání položek přesahuje dobu trvání konference o %{count} minut
               too_many_minutes_child: Délka položky dítěte přesahuje po dobu %{count} minuty položku programu "%{parent_title}"
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail již byl pozván
     models:
       decidim/meetings/close_meeting_event: Setkání bylo uzavřeno
       decidim/meetings/create_meeting_event: Setkání
@@ -71,9 +67,6 @@ cs:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
-          success: Duplicitní schůzka úspěšně.
         new:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
@@ -114,10 +107,7 @@ cs:
         meeting_registration_confirmed:
           notification_title: Vaše registrace pro schůzku <a href="%{resource_url}">%{resource_title}</a> byla potvrzena. Váš registrační kód je %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Počet schůzek obsazených schůzem "%{resource_title}" je vyšší než %{percentage}%.
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor participačního prostoru schůzky.
-          email_subject: Schůzky obsazené schůzkou "%{resource_title}" jsou nad %{percentage}%
-          notification_title: Počet obsazených slotů <a href="%{resource_path}">%{resource_title}</a> je vyšší než %{percentage}%.
         meeting_updated:
           email_intro: 'Schůzka "%{resource_title}" byla aktualizována. Nová verze si můžete přečíst na stránce:'
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
@@ -141,14 +131,10 @@ cs:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Zaregistrujte se na schůzkách, které chcete navštívit
           description: Tento odznak je udělen, když se účastníte několika osobních setkání.
-          description_another: Tento uživatel se zúčastnil %{score} setkání.
           description_own: Zúčastnili jste se %{score} setkání.
           name: Účastnily se setkání
           next_level_in: Zúčastněte se dalších %{score} setkání, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel se ještě nezúčastnil žádné schůzky.
           unearned_own: Zatím jste se ještě nezúčastnili.
     meetings:
       actions:
@@ -167,19 +153,15 @@ cs:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Přidání položky agendy dítěte
             agenda_item: Položka agendy
-            agenda_item_children: Agenda Item Childs
             down: Dolů
             remove: Odstranit
             up: Nahoru
           agenda_item_child:
-            agenda_item_child: Agenda Položka Dítě
             down: Dolů
             remove: Odstranit
             up: Nahoru
           create:
-            invalid: Při vytváření této agendy došlo k problému
             success: Agenda byla úspěšně vytvořena
           edit:
             title: Upravit agendu
@@ -193,7 +175,6 @@ cs:
             create: Vytvořit
             title: Nová agenda
           update:
-            invalid: Při aktualizaci této agendy došlo k problému
             success: Agenda byla úspěšně aktualizována
         exports:
           meetings: Setkání
@@ -204,16 +185,9 @@ cs:
             invited_you_to_join_a_meeting: "%{invited_by} vás zve na schůzku na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
             join: Připojte se ke schůzce '%{meeting_title}'
         invites:
-          create:
-            error: Při pozvání uživatele k schůzce došlo k problému.
-            success: Uživatel úspěšně byl pozván k účasti na schůzce.
           form:
             attendee_type: Typ účastníka
-            existing_user: Existující uživatel
             invite: Pozvat
-            invite_explanation: Uživatel bude pozván, aby se připojil ke schůzce i organizaci.
-            non_user: Neexistující uživatel
-            select_user: Vyberte uživatele
           index:
             filter:
               accepted: Přijato
@@ -234,10 +208,8 @@ cs:
             select_organizer: Vyberte organizátor
         meetings:
           close:
-            invalid: Při setkání došlo k problému
             success: Setkání bylo úspěšně uzavřeno
           create:
-            invalid: Při vytváření této schůzky došlo k problému
             success: Setkání bylo úspěšně vytvořeno
           destroy:
             success: Setkání bylo úspěšně smazáno
@@ -261,11 +233,9 @@ cs:
             add_service: Přidat službu
             services: Služby
           update:
-            invalid: Došlo k problému při aktualizaci této schůzky
             success: Schůzka byla úspěšně aktualizována
         minutes:
           create:
-            invalid: Při vytváření těchto minut došlo k problému
             success: Minuty úspěšně vytvořeny
           edit:
             update: Aktualizace
@@ -273,7 +243,6 @@ cs:
             create: Vytvořit
             title: Vytvořte minuty
           update:
-            invalid: Při aktualizaci těchto minut došlo k problému
             success: Minuty úspěšně aktualizovány
         models:
           meeting:
@@ -285,7 +254,6 @@ cs:
             validate_registration_code: Ověřte registrační kód
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
-            invites: Pozvánky
             registration_form: Registrační formulář
             registrations_count:
               one: Byla zde registrace %{count}.
@@ -295,7 +263,6 @@ cs:
             reserved_slots_help: Nechte ji na 0, pokud nemáte vyhrazené sloty
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
           update:
-            invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
           validate_registration_code:
             invalid: Tento registrační kód je neplatný.
@@ -416,13 +383,10 @@ cs:
           registration_code: Váš registrační kód je %{code}.
       registrations:
         create:
-          invalid: Na schůzi došlo k problému.
           success: Do schůzky jste se úspěšně připojili.
         decline_invitation:
-          invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
         destroy:
-          invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
       types:
         private_meeting: Privátní setkání
