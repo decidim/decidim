@@ -12,8 +12,6 @@ tr:
         description: Açıklama
         hashtag: Başlık etiketi
         hero_image: Ana resim
-        participatory_processes_ids: İlgili Katılımcı süreçler
-        promoted: Tanıtılan
         published_at: Yayınlandı
         scope_id: kapsam
         scopes_enabled: Kapsamlar etkin
@@ -56,23 +54,7 @@ tr:
           copy: kopya
           select: Çoğaltmak istediğiniz verileri seçin
           title: Yinelenen konferans
-      conference_publications:
-        create:
-          error: Bu konferansı yayınlayan bir hata oluştu.
-          success: Konferans başarıyla yayınlandı.
-        destroy:
-          error: Bu konferansı yayından kaldırmada bir hata oluştu.
-          success: Konferans başarıyla yayından kaldırıldı.
-      conference_registration:
-        confirm:
-          error: Bu konferans kaydını onaylarken bir hata oluştu.
-          success: Konferans kaydı başarıyla onaylandı.
       conference_speakers:
-        create:
-          error: Bu konferans için bir hoparlör eklenirken bir hata oluştu.
-          success: Bu konferans için konuşmacı başarıyla oluşturuldu.
-        destroy:
-          success: Bu konferans için konuşmacı başarıyla silindi.
         edit:
           title: Konferans konuşmacısını güncelle.
           update: Güncelleştirme
@@ -81,30 +63,12 @@ tr:
         new:
           create: yaratmak
           title: Yeni konferans konuşmacı.
-        update:
-          error: Bu konferans için konuşmacı güncellenirken bir hata oluştu.
-          success: Bu konferans için konuşmacı başarıyla güncellendi.
       conference_user_roles:
-        create:
-          error: Bu konferans için bir kullanıcı eklenirken bir hata oluştu.
-          success: Kullanıcı bu konferansa başarıyla eklendi.
-        destroy:
-          success: Kullanıcı bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: Konferans kullanıcısını güncelle.
           update: Güncelleştirme
-        index:
-          conference_admins_title: konferans kullanıcıları
         new:
           create: yaratmak
-          title: Yeni konferans kullanıcısı.
-        update:
-          error: Bu konferans için bir kullanıcı güncellendi bir hata oluştu.
-          success: Kullanıcı bu konferans için başarıyla güncellendi.
       conferences:
-        create:
-          error: Yeni bir konferans oluştururken bir hata oluştu.
-          success: Konferans başarıyla oluşturuldu.
         edit:
           update: Güncelleştirme
         exports:
@@ -117,19 +81,7 @@ tr:
         new:
           create: yaratmak
           title: Konferans
-        update:
-          error: Bu konferans güncellenirken bir hata oluştu.
-          success: Konferans başarıyla güncellendi.
-      conferences_copies:
-        create:
-          error: Bu konferansı çoğaltırken bir hata oluştu.
-          success: Konferans başarıyla kopyalandı.
       media_links:
-        create:
-          error: Yeni bir medya bağlantısı oluştururken bir hata oluştu.
-          success: Medya Bağlantısı başarıyla oluşturuldu.
-        destroy:
-          success: Medya Bağlantısı başarıyla silindi.
         edit:
           title: Medya bağlantısını güncelle.
           update: Güncelleştirme
@@ -138,9 +90,6 @@ tr:
         new:
           create: yaratmak
           title: Medya Bağlantısı
-        update:
-          error: Bu medya bağlantısını güncellerken bir hata oluştu.
-          success: Medya Bağlantısı başarıyla güncellendi.
       menu:
         conferences: Konferanslar
         conferences_submenu:
@@ -149,7 +98,7 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
-          conference_admins: Konferans kullanıcıları
+          conference_admins: Konferans yöneticileri
           conference_invites: Davetler
           conference_speakers: Hoparlörler
           diploma: Katılım sertifikası
@@ -164,7 +113,6 @@ tr:
         conference:
           fields:
             created_at: Düzenlendi
-            promoted: Tanıtılan
             published: Yayınlanan
             title: Başlık
         conference_speaker:
@@ -178,7 +126,6 @@ tr:
             email: E-posta
             name: isim
             role: rol
-          name: Konferans Kullanıcısı
           roles:
             admin: yönetici
             collaborator: işbirlikçi
@@ -208,42 +155,19 @@ tr:
             weight: Ağırlık
           name: Kayıt tipi
       partners:
-        create:
-          error: Bu konferans için bir ortak eklenirken bir hata oluştu.
-          success: İş ortağı bu konferansa başarıyla eklendi.
-        destroy:
-          success: İş ortağı bu konferanstan başarıyla kaldırıldı.
         edit:
           title: İş ortağı güncelle.
           update: Güncelleştirme
         new:
           create: yaratmak
           title: Yeni ortak
-        update:
-          error: Bu konferans için bir ortak güncellendi bir hata oluştu.
-          success: Bu konferans için iş ortağı başarıyla güncellendi.
-      registration_type_publications:
-        create:
-          error: Bu kayıt türünde bir hata oluştu.
-          success: Kayıt tipi başarıyla yayınlandı.
-        destroy:
-          error: Bu kayıt türünün yayından kaldırılmasıyla ilgili bir hata oluştu.
-          success: Kayıt türü başarıyla yayından kaldırıldı.
       registration_types:
-        create:
-          error: Bu konferans için kayıt türü eklenirken bir hata oluştu.
-          success: Bu konferansa kayıt tipi başarıyla eklendi.
-        destroy:
-          success: Kayıt türü bu konferanstan başarıyla kaldırıldı.
         edit:
           title: Kayıt türünü güncelle.
           update: Güncelleştirme
         new:
           create: yaratmak
           title: Yeni kayıt türü
-        update:
-          error: Bu konferans için bir kayıt türü güncellendiğinde bir hata oluştu.
-          success: Bu konferans için kayıt tipi başarıyla güncellendi.
       titles:
         conferences: Konferanslar
     admin_log:
@@ -260,14 +184,12 @@ tr:
         update: "%{user_name} , %{space_name} konferansta %{resource_name} konuşmacıyı güncelledi"
       conference_user_role:
         create: "%{user_name} %{space_name} konferansa %{resource_name} davet edildi"
-        delete: "%{user_name} kullanıcı uzaklaştırıldı %{resource_name} den %{space_name} konferans"
         update: "%{user_name} , %{space_name} konferanstaki %{resource_name} rolünü değiştirdi"
       conferences:
         conference_registration:
           confirm: "%{user_name} , %{resource_name} konferansta bir konferans kaydını onayladı"
         partner:
           create: "%{user_name} %{space_name} konferansa %{resource_name} oluşturuldu"
-          delete: "%{user_name} kullanıcı uzaklaştırıldı %{resource_name} den %{space_name} konferans"
           update: "%{user_name} %{space_name} konferansta %{resource_name} güncellendi"
         registration_type:
           create: "%{user_name} , %{space_name} konferansta %{resource_name} kayıt tipini oluşturdu"
@@ -290,15 +212,8 @@ tr:
           form:
             slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         conference_invites:
-          create:
-            error: Kullanıcıyı konferansa katılmaya davet ederken bir sorun oluştu.
-            success: Kullanıcı konferansa katılmaya başarıyla davet edildi.
           form:
             attendee_type: Katılımcı Tipi
-            existing_user: Mevcut kullanıcı
-            invite_explanation: Kullanıcı konferansa ve organizasyona da davet edilecektir.
-            non_user: Mevcut olmayan kullanıcı
-            select_user: Kullanıcı seç
           index:
             filter:
               accepted: Kabul edilmiş
@@ -306,22 +221,14 @@ tr:
               rejected: Reddedilen
               sent: Gönderilen
             filter_by: Tarafından filtre
-            invite_attendee: Katılımcı Davet Et
             invites: Davetler
             search: Arama
           new:
-            explanation: Kullanıcı bir konferansa katılmaya davet edilecek. E-posta kayıtlı değilse, organizasyona da davet edilecektir.
             invite: Davet et
-            new_invite: Kullanıcı davet et
         conference_registrations:
           index:
             registrations: Kayıtlar
         conference_speakers:
-          form:
-            existing_user: Mevcut kullanıcı
-            non_user: Kullanıcı yok
-            select_user: Kullanıcı seç
-            user_type: Kullanıcı tipi
           index:
             search: Arama
         conferences:
@@ -355,16 +262,12 @@ tr:
             attendance_verified_by: Katılım onaylandı
             certificate_of_attendance: Katılım sertifikası
             certificate_of_attendance_description: Bu, <strong>%{user}</strong> <strong>%{start} - %{end}</strong><strong>%{location}</strong> tutulan <strong>%{title}</strong> katılıp katıldığını onaylamaktır.
-        send_diploma:
-          error: Konferansa katılım sertifikalarını gönderirken bir sorun oluştu.
-          success: Konferansa katılım sertifikaları doğru gönderildi
       conference:
         registration_confirm:
           cancel: İptal etmek
           confirm: Onaylamak
         show:
           free: Ücretsiz
-          going: Gidiyor
           no_slots_available: Mevcut yuva yok
           registration: kayıt
       conference_program:
@@ -384,17 +287,6 @@ tr:
         pending_validation:
           confirmation_pending: Onayı kısa bir süre alacaksınız
           details: '%{price} maliyetle %{registration_type} yazdınız ve aşağıdaki etkinliklere katılabilirsiniz:'
-          pending_html: Konferans için kaydınız <a href="%{url}">%{title}</a> teyit edilmeyi bekliyor.
-      conference_registrations:
-        create:
-          invalid: Bu konferansa katılırken bir sorun oluştu.
-          success: Konferansa başarılı bir şekilde katıldınız.
-        decline_invitation:
-          invalid: Davetin reddedilmesiyle ilgili bir sorun oluştu.
-          success: Davetiyeyi başarıyla reddettiniz.
-        destroy:
-          invalid: Bu konferansı terk etmekle ilgili bir sorun oluştu.
-          success: Konferansı başarıyla terk ettiniz.
       conference_speaker:
         go_to_twitter: Twitter'a git
         more_info: Daha fazla bilgi
@@ -426,8 +318,6 @@ tr:
         conference_registration_mailer:
           confirmation:
             subject: Konferansınızın kaydı onaylandı
-          pending_validation:
-            subject: Konferansınızın kaydının onaylanması bekleniyor
         invite_join_conference_mailer:
           invite:
             subject: Bir konferansa katılma daveti
@@ -451,7 +341,6 @@ tr:
             email: E-posta
             name: isim
             registration_type: Kayıt tipi
-            state: Belirtmek, bildirmek
             states:
               confirmed: onaylı
               pending: kadar
@@ -463,10 +352,6 @@ tr:
       photo:
         show:
           close_modal: Yakın kalıcı
-          photo: Fotoğraf
-      photos_list:
-        show:
-          related_photos: Fotoğraflar
       registration_types:
         index:
           choose_an_option: 'Kayıt seçeneğinizi seçin:'
@@ -483,9 +368,7 @@ tr:
         details: ayrıntılar
         introduction: Giriş
         objectives: Hedefler
-        related_assemblies: İlgili montajlar
         related_consultations: İlgili istişareler
-        related_participatory_processes: İlgili Katılımcı Süreçler
       statistics:
         answers_count: Cevaplar
         comments_count: Yorumlar
@@ -494,7 +377,6 @@ tr:
         endorsements_count: Cirolar
         headline: Aktivite
         meetings_count: Toplantılar
-        orders_count: oy
         pages_count: Sayfalar
         posts_count: Mesajlar
         projects_count: Projeler
@@ -502,7 +384,6 @@ tr:
         results_count: Sonuçlar
         surveys_count: Anketler
         users_count: Katılımcılar
-        votes_count: oy
     events:
       conferences:
         conference_registration_validation_pending:
@@ -553,8 +434,6 @@ tr:
       conferences:
         conference:
           take_part: Yer almak
-        index:
-          promoted_conferences: Tanıtılan konferanslar
         order_by_conferences:
           conferences:
             one: "%{count} konferans"
