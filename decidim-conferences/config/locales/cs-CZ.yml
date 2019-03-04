@@ -56,7 +56,7 @@ cs:
       actions:
         confirm: Potvrdit
         new_conference: Nová konference
-        send_diplomas: Odeslat diplomy
+        send_diplomas: Odeslání certifikátů o účasti
       conference_copies:
         new:
           copy: kopírovat
@@ -158,7 +158,7 @@ cs:
           conference_admins: Uživatelé konference
           conference_invites: Pozvánky
           conference_speakers: Reproduktory
-          diploma: Diplom
+          diploma: Potvrzení o účasti
           info: Info
           media_links: Odkazy na média
           moderations: Moderování
@@ -256,10 +256,10 @@ cs:
       conference:
         create: "%{user_name} vytvořila %{resource_name} konferenci"
         publish: "%{user_name} zveřejnila %{resource_name} konferenci"
-        send_conference_diplomas: "%{user_name} posílat diplomy %{resource_name} uživatelům konference"
+        send_conference_diplomas: "%{user_name} zaslali certifikáty o účasti na %{resource_name} konferenci"
         unpublish: "%{user_name} nepublikováno %{resource_name} konferenci"
         update: "%{user_name} aktualizovala %{resource_name} konferenci"
-        update_diploma: "%{user_name} aktualizovala konfiguraci diplomu %{resource_name}"
+        update_diploma: "%{user_name} aktualizovala certifikáty pro účast na %{resource_name} konferenci"
       conference_speaker:
         create: "%{user_name} vytvořila %{resource_name} reproduktor na %{space_name} konferencích"
         delete: "%{user_name} odstranila %{resource_name} reproduktor z %{space_name} konferencí"
@@ -342,7 +342,7 @@ cs:
         diplomas:
           edit:
             save: Uložit
-            title: Diplom
+            title: Potvrzení o účasti
         invite_join_conference_mailer:
           invite:
             decline: Odmítnout pozvánku '%{conference_title}'
@@ -358,7 +358,7 @@ cs:
             title: Typy registrace
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: V přílohách najdete diplom pro konferenci <a href="%{url}">%{title}</a>.
+            diploma_html: Naleznete certifikát o účasti na konferenci <a href="%{url}">%{title}</a> v přílohách.
           diploma_user:
             attendance_verified_by: Účet ověřil
             certificate_of_attendance: Potvrzení o účasti
@@ -441,7 +441,7 @@ cs:
             subject: Pozvánka na konferenci
         send_conference_diploma_mailer:
           diploma:
-            subject: Váš diplom konference byl zaslán
+            subject: Vaše potvrzení o návštěvě konference bylo odesláno
       models:
         conference_invite:
           fields:
