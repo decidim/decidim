@@ -32,11 +32,11 @@ tr:
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
         parent_id: Ana montaj
-        participatory_processes_ids: İlgili Katılımcı süreçler
+        participatory_processes_ids: İlgili katılımcı süreçler
         participatory_scope: Karar nedir
         participatory_structure: Nasıl karar verilir
         private_space: Özel alan
-        promoted: Tanıtılan
+        promoted: Vurgulanan
         published_at: Yayınlandı
         purpose_of_action: Eylem amacı
         scope_id: kapsam
@@ -80,7 +80,7 @@ tr:
         new_assembly: Yeni montaj
       assemblies:
         create:
-          error: Yeni bir derleme oluştururken bir hata oluştu.
+          error: Yeni bir derleme oluştururken bir sorun oluştu.
           success: Montaj başarıyla oluşturuldu.
         edit:
           update: Güncelleştirme
@@ -95,12 +95,12 @@ tr:
           create: yaratmak
           title: Yeni montaj
         update:
-          error: Bu derleme güncellenirken bir hata oluştu.
+          error: Bu derleme güncellenirken bir sorun oluştu.
           success: Montaj başarıyla güncellendi.
       assemblies_copies:
         create:
-          error: Bu derlemeyi çoğaltırken bir hata oluştu.
-          success: Montaj başarıyla kopyalandı.
+          error: Bu derleme yinelenirken bir sorun oluştu.
+          success: Derleme başarıyla çoğaltıldı.
       assembly_copies:
         new:
           copy: kopya
@@ -108,10 +108,10 @@ tr:
           title: Duplicate assembly
       assembly_members:
         create:
-          error: Bu derleme için üye eklenirken bir hata oluştu.
+          error: Bu meclis için üye eklerken bir sorun oluştu.
           success: Üye bu derleme için başarıyla oluşturuldu.
         destroy:
-          success: Üye bu derlemede başarıyla silindi.
+          success: Üye bu derleme için başarıyla silindi.
         edit:
           title: Montaj üyesini güncelle.
           update: Güncelleştirme
@@ -121,36 +121,36 @@ tr:
           create: yaratmak
           title: Yeni montaj üyesi.
         update:
-          error: Bu derleme için üye güncellenirken bir hata oluştu.
+          error: Bu derleme için üyeyi güncellerken bir sorun oluştu.
           success: Üye bu derleme için başarıyla güncellendi.
       assembly_publications:
         create:
-          error: Bu derleme yayınlanırken bir hata oluştu.
-          success: Montaj başarıyla yayınlandı.
+          error: Bu derleme yayınlanırken bir sorun oluştu.
+          success: Derleme başarıyla yayınlandı.
         destroy:
-          error: Bu derlemenin yayından kaldırılmasıyla ilgili bir hata oluştu.
-          success: Montaj başarıyla yayından kaldırıldı.
+          error: Bu derlemenin yayından kaldırılmasında bir sorun vardı.
+          success: Derleme başarıyla yayınlanmadı.
       assembly_user_roles:
         create:
-          error: Bu derleme için bir kullanıcı eklenirken bir hata oluştu.
-          success: Kullanıcı bu meclise başarıyla eklendi.
+          error: Bu derleme için yönetici eklerken bir sorun oluştu.
+          success: Yönetici bu derlemeye başarıyla eklendi.
         destroy:
-          success: Kullanıcı bu derlemeden başarıyla kaldırıldı.
+          success: Yönetici bu derlemeden başarıyla kaldırıldı.
         edit:
-          title: Montaj kullanıcısını güncelle.
+          title: Derleme yöneticisini güncelle.
           update: Güncelleştirme
         index:
-          assembly_admins_title: Montaj kullanıcıları
+          assembly_admins_title: Meclis yöneticileri
         new:
           create: yaratmak
-          title: Yeni montaj kullanıcısı.
+          title: Yeni montaj yöneticisi
         update:
-          error: Bu derleme için bir kullanıcı güncellendi bir hata oluştu.
-          success: Kullanıcı bu derleme için başarıyla güncellendi.
+          error: Bu derleme için bir yönetici güncellenirken bir sorun oluştu.
+          success: Yönetici bu derleme için başarıyla güncellendi.
       menu:
         assemblies: meclisleri
         assemblies_submenu:
-          assembly_admins: Montaj kullanıcıları
+          assembly_admins: Meclis yöneticileri
           assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
@@ -186,7 +186,7 @@ tr:
             email: E-posta
             name: isim
             role: rol
-          name: Montaj Kullanıcı
+          name: Meclis yöneticisi
           roles:
             admin: yönetici
             collaborator: işbirlikçi
@@ -205,7 +205,7 @@ tr:
         update: "%{user_name} , %{space_name} mecliste %{resource_name} üye güncellendi"
       assembly_user_role:
         create: "%{user_name} %{space_name} mecraya %{resource_name} davet edildi"
-        delete: "%{user_name} kullanıcı %{resource_name} %{space_name} aksamından çıkardı"
+        delete: "%{user_name} katılımcı %{resource_name} %{space_name} derlemeden çıkardı"
         update: "%{user_name} , %{space_name} mecliste %{resource_name} rolünü değiştirdi"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ tr:
             slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         assembly_members:
           form:
-            existing_user: Mevcut kullanıcı
-            non_user: Kullanıcı yok
+            existing_user: Mevcut katılımcı
+            non_user: Katılımcı olmayan
             select_a_position: Bir pozisyon seç
-            select_user: Bir kullanıcı seç
-            user_type: Kullanıcı tipi
+            select_user: Bir katılımcı seçin
+            user_type: Katılımcı tipi
           index:
             filter:
               all: Herşey
@@ -314,14 +314,14 @@ tr:
         endorsements_count: Cirolar
         headline: Aktivite
         meetings_count: Toplantılar
-        orders_count: oy
+        orders_count: Destekler
         pages_count: Sayfalar
         projects_count: Projeler
         proposals_count: Teklif
         results_count: Sonuçlar
         surveys_count: Anketler
         users_count: Katılımcılar
-        votes_count: oy
+        votes_count: Destekler
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen
@@ -330,8 +330,8 @@ tr:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
-          page: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
+          contextual: "<p>Bir <strong>montajı</strong> , organizasyonun belirli bir alanı veya kapsamı hakkında kararlar almak için periyodik olarak toplanan bir organizasyonun üyeleri grubudur.</p> <p>Toplantılar yapılır, bazıları özel, bazıları açıktır. Açıklarsa, onlara katılmak mümkündür (örneğin: kapasitenin izin vermesi halinde katılmak, gündeme puan eklemek veya bu organın aldığı teklifler ve kararlar hakkında yorum yapmak).</p> <p>Örnekler: Kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanan bir genel kurul, eşitlik danışma konseyi Kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanan) veya bir garanti kuruluşu (karar alma prosedürlerini iyileştirmek için olayları, suiistimalleri veya önerileri toplayan) tüm montaj örnekleridir.</p>\n"
+          page: "<p>Bir <strong>montajı</strong> , organizasyonun belirli bir alanı veya kapsamı hakkında kararlar almak için periyodik olarak toplanan bir organizasyonun üyeleri grubudur.</p> <p>Toplantılar yapılır, bazıları özel, bazıları açıktır. Açıklarsa, onlara katılmak mümkündür (örneğin: kapasitenin izin vermesi halinde katılmak, gündeme puan eklemek veya bu organın aldığı teklifler ve kararlar hakkında yorum yapmak).</p> <p>Örnekler: Kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanan bir genel kurul, eşitlik danışma konseyi Kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanan) veya bir garanti kuruluşu (karar alma prosedürlerini iyileştirmek için olayları, suiistimalleri veya önerileri toplayan) tüm montaj örnekleridir.</p>\n"
           title: Meclis nedir?
     log:
       value_types:
