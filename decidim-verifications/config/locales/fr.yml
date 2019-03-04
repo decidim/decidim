@@ -12,10 +12,7 @@ fr:
       id_document_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
-        user: Utilisateur
         verification_attachment: Copie scannée du document
-      offline_confirmation:
-        email: Email de l'utilisateur
       postal_letter_address:
         full_address: Adresse complète
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ fr:
             - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
-            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+            - Participants request a verification code to be sent to their address.
             - Vous envoyez la lettre à leur adresse avec le code de vérification.
             - Vous marquez la lettre comme envoyée.
-            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
         name: Recensement de l'organisation
@@ -62,7 +59,6 @@ fr:
     verifications:
       authorizations:
         create:
-          error: Une erreur s'est produite lors de la création de l'autorisation.
           success: Vous avez été autorisé avec succès.
           unconfirmed: Vous devez confirmer votre email pour vous autoriser.
         first_login:
@@ -107,10 +103,6 @@ fr:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
             success: Votre compte a été vérifié avec succès.
-      dummy_authorization:
-        extra_explanation:
-          one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
-          other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ fr:
               title: Configuration des documents d'identité
               update: Mettre à jour
             update:
-              error: Une erreur s'est produite lors de la mise à jour de la configuration.
               success: Configuration mise à jour avec succès
           confirmations:
-            create:
-              error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
-              success: Utilisateur vérifié avec succès
             new:
               introduce_user_data: Introduire les données dans l'image
               reject: Rejeter
               verify: Vérifier
           offline_confirmations:
-            create:
-              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
-              success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ fr:
               offline_verification: Vérification hors ligne
               title: Vérifications en attente
               verification_number: 'Vérification # %{n}'
-          rejections:
-            create:
-              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
             choose_a_type: "Veuillez sélectionner comment vous souhaitez être vérifié:"
@@ -153,7 +134,6 @@ fr:
             title: Vérifiez-vous en utilisant votre pièce d'identité
           create:
             error: Un problème est survenu lors du téléchargement de votre document
-            success: Document téléchargé avec succès
           edit:
             being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
             offline: Utiliser la vérification hors ligne
@@ -167,7 +147,6 @@ fr:
             title: Téléchargez votre document d'identité
           update:
             error: Un problème est survenu lors du chargement de votre document
-            success: Document téléchargé avec succès
         dni: Carte nationale d'identité
         nie: Carte de séjour ou de résident
         passport: Passeport
@@ -180,7 +159,6 @@ fr:
               mark_as_sent: Marquer comme envoyé
               not_yet_sent: Pas encore envoyé
               title: Vérifications en cours
-              username: Nom d'utilisateur
               verification_code: Code de vérification
           postages:
             create:
