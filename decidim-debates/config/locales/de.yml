@@ -33,7 +33,6 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            creation_enabled: Debate-Erstellung durch Benutzer aktiviert
     debates:
       actions:
         confirm_destroy: Bist du sicher?
@@ -43,11 +42,6 @@ de:
         title: Aktionen
       admin:
         debates:
-          create:
-            invalid: Es gab ein Problem beim Erstellen der Debatte.
-            success: Diskussion erfolgreich erstellt
-          destroy:
-            success: Die Diskussion wurde erfolgreich gelöscht.
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
@@ -56,9 +50,6 @@ de:
           new:
             create: Erstelle eine Debatte
             title: Neue Debatte
-          update:
-            invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
-            success: Die Diskussion wurde erfolgreich aktualisiert.
         models:
           debate:
             name: Debatte
@@ -71,9 +62,6 @@ de:
           debates_count:
             one: "%{count} Debatte"
             other: "%{count} Debatten"
-        create:
-          invalid: Es gab ein Problem beim Erstellen der Debatte.
-          success: Diskussion erfolgreich erstellt
         debate:
           participate: Sich beteiligen
         filters:
@@ -127,7 +115,6 @@ de:
             email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die <a href="%{resource_path}">%{resource_title}</a> Debatte geschaffen.
         creation_disabled:
-          email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title}nicht mehr aktiv. Sie können weiterhin an offenen Debatten von dieser Seite teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Die Erstellung von Debatten wurde in %{participatory_space_title}deaktiviert
           notification_title: Die Erstellung von Debatten ist jetzt in <a href="%{participatory_space_url}">%{participatory_space_title}</a>deaktiviert
@@ -142,11 +129,9 @@ de:
           conditions:
             - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an den verschiedenen Debatten teilnehmen, indem Sie Ihre Kommentare hinterlassen.
-          description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
           description_own: Sie haben an %{score} Debatten teilgenommen.
           name: Debatten
           next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
           unearned_own: Sie haben bereits an Debatten teilgenommen.
     metrics:
       debates:
