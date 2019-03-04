@@ -33,7 +33,6 @@ ca:
             title: Títol
           form:
             add_question: Afegeix una pregunta
-            already_answered_warning: No pots modificar les pregunte d'aquest qüestionari perquè ja ha estat contestat per alguns usuaris.
           question:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
@@ -43,9 +42,6 @@ ca:
             remove: Eliminar
             statement: Declaració
             up: Pujar
-          update:
-            invalid: S'han produït alguns errors en desar el qüestionari.
-            success: Els qüestionaris s'han desat correctament.
       errors:
         answer:
           body: El camp no pot estar en blanc
@@ -56,24 +52,11 @@ ca:
         single_option: Opció única
         sorting: Ordenació
       questionnaires:
-        answer:
-          invalid: S'han produït errors en respondre el qüestionari.
-          success: El qüestionari ha estat respost amb èxit.
         question:
           max_choices: 'Opcions màximes: %{n}'
         show:
-          answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el qüestionari.
-            title: Respon el qüestionari
           are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segur?
           questionnaire_answered:
-            body: Ja has respost a aquest qüestionari.
             title: Ja has respost
-          questionnaire_closed:
-            body: El qüestionari està tancat i no es pot respondre.
-            title: S'ha tancat el qüestionari
-          questionnaire_for_private_users:
-            body: El qüestionari només està disponible per a usuaris privats
-            title: S'ha tancat el qüestionari
           submit: Enviar respostes
           tos_agreement: En participar, acceptes els Termes i condicions d'ús
