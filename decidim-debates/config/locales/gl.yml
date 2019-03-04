@@ -33,7 +33,6 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Debate creado polos usuarios activado
     debates:
       actions:
         confirm_destroy: Estás seguro?
@@ -43,11 +42,6 @@ gl:
         title: Accións
       admin:
         debates:
-          create:
-            invalid: Produciuse un problema ao crear o debate.
-            success: Debate creouse con éxito.
-          destroy:
-            success: Debate eliminado con éxito.
           edit:
             title: Editar debate
             update: Actualizar debate
@@ -56,9 +50,6 @@ gl:
           new:
             create: Crear debate
             title: Novo debate
-          update:
-            invalid: Houbo un problema ao actualizar este debate.
-            success: Debate actualizado con éxito.
         models:
           debate:
             name: Debate
@@ -71,9 +62,6 @@ gl:
           debates_count:
             one: "Debate %{count}"
             other: "%{count} debates"
-        create:
-          invalid: Produciuse un problema ao crear o debate.
-          success: Debate creouse con éxito.
         debate:
           participate: Participar
         filters:
@@ -127,7 +115,6 @@ gl:
             email_subject: Novo debate "%{resource_title}" por %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creou o debate <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'A creación de debates xa non está activa en %{participatory_space_title}. Aínda podes participar nos debates abertos desta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Creación de debates desactivada en %{participatory_space_title}
           notification_title: A creación de debates agora está desactivada en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ gl:
           conditions:
             - Escolle un debate aberto para participar
           description: Este distintivo é concedido cando participas activamente nos diferentes debates deixando os teus comentarios.
-          description_another: Este usuario participou en %{score} debates.
           description_own: Participaches en %{score} debates.
           name: Debates
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
-          unearned_another: Este usuario aínda non participou en ningún debate.
           unearned_own: Participaches nos debates aínda.
     metrics:
       debates:
