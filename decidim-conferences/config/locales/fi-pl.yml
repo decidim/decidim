@@ -149,7 +149,7 @@ fi-pl:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin käyttäjät
+          conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
