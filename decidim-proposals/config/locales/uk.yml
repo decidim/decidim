@@ -50,12 +50,18 @@ uk:
         few: Примітки
         many: Приміток
         other: Приміток
+      decidim/proposals/proposal_vote:
+        one: Голос
+        few: Голоси
+        many: Голосів
+        other: Голосів
   decidim:
     components:
       proposals:
         actions:
           create: Додати
           endorse: Підтримати
+          vote: Голосувати
           withdraw: Відкликати голос
         name: Пропозиції
         settings:
@@ -70,12 +76,14 @@ uk:
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Гранична довжина основного тексту пропозиції
+            proposal_limit: Гранична кількість пропозицій від одного учасника
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
             resources_permissions_enabled: Для кожної пропозиції можна встановити ті чи інші дозволи на дії
             threshold_per_proposal: Поріг на кожну пропозицію
+            vote_limit: Гранична кількість голосів від одного учасника
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
@@ -83,6 +91,9 @@ uk:
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
+            votes_blocked: Голосування вимкнене
+            votes_enabled: Голосування ввімкнене
+            votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
     events:
       proposals:
         creation_enabled:
@@ -120,6 +131,7 @@ uk:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> оприлюднив пропозицію <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           notification_title: До %{participatory_space_title} було додано пропозицію <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           follower:
@@ -128,11 +140,15 @@ uk:
             email_subject: Пропозиція, за якою ви стежите, була відхилена
             notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
+          email_intro: 'Адміністратор оновив категорію вашої пропозиції "%{resource_title}", перевірте її:'
           email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
           email_subject: Категорію пропозиції %{resource_title} було оновлено
           notification_title: Адміністратор оновив категорію пропозиції <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
+          email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: У %{participatory_space_title} почалось голосування щодо пропозицій
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -162,6 +178,7 @@ uk:
             title: Відповідь на пропозицію %{title}
         proposal_notes:
           create:
+            error: При спробі додати примітку до цієї пропозиції сталася помилка
             success: Примітку до пропозиції успішно створено
           form:
             note: Примітка
@@ -195,15 +212,18 @@ uk:
             success: 'Пропозиції успішно перенесені до категорії %{category}: %{proposals}.'
         proposals_imports:
           create:
+            invalid: При запозиченні цих пропозицій сталася помилка
             success: "%{number} пропозицій успішно запозичено"
           new:
             create: Запозичити пропозиції
             no_components: У цьому просторі співучасті немає інших складових пропозицій, звідки можна було б запозичити пропозиції.
             select_component: Будь ласка, оберіть складову
+            select_states: Перевірте стани пропозицій, які бажаєте запозичити
         shared:
           info_proposal:
             body: Основний текст
             created_at: Дата створення
+            proposal_votes_count: Кількість голосів
             proposals: Пропозиції
       admin_log:
         proposal:
@@ -223,7 +243,11 @@ uk:
           official: Службове
         filter_state_values:
           except_rejected: Усі, окрім відхилених
+      create:
+        error: При спробі збереження цієї пропозиції сталися помилки.
+        success: Пропозицію успішно створено. Збережено як чернетку.
       destroy_draft:
+        error: При спробі видалити чернетку цієї пропозиції сталися помилки.
         success: Чернетку пропозиції успішно видалено.
       models:
         proposal:
@@ -236,11 +260,14 @@ uk:
             official_proposal: Службова пропозиція
             published_at: 'Оприлюднено:'
             scope: Обсяг
+            state: Стан
             title: Назва
             votes: Голоси
       new:
         limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
       proposal_endorsements:
+        create:
+          error: При спробі надати підтримку цій пропозиції виникла помилка.
         identities:
           done: Зроблено
           select_identity: Оберіть роль
@@ -250,6 +277,9 @@ uk:
           endorse: Підтримати
         render_endorsements_button_card_part:
           endorse: Підтримати
+      proposal_votes:
+        create:
+          error: При голосуванні щодо пропозиції сталися помилки.
       proposals:
         compare:
           mine_is_different: Моя пропозиція інша
@@ -280,6 +310,8 @@ uk:
           origin: Джерело
           related_to: Пов'язане з
           search: Шукати
+          state: Стан
+          voted: Проголосоване
         filters_small_view:
           close_modal: Закрити віконце
           filter: Відібрати
@@ -289,11 +321,18 @@ uk:
           new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
+        linked_proposals:
+          proposal_votes:
+            one: голос
+            few: голоси
+            many: голосів
+            other: голосів
         new:
           send: Продовжити
           title: Внесіть свою пропозицію
         orders:
           label: 'Впорядкувати пропозиції за:'
+          most_voted: Отримали найбільше голосів
           random: Довільно
           recent: Нещодавні
         preview:
@@ -316,12 +355,26 @@ uk:
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Поскаржитись
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
+          withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
           withdraw_proposal: Зняти пропозицію
         tags:
           changed_from: "(перенесено з <u>%{previous_category}</u> адміністратором)"
           filed_as: Відмічено як
+        vote_button:
+          already_voted: Вже проголосували
+          already_voted_hover: Скасувати голос
+          maximum_votes_reached: Використано всі голоси
+          no_votes_remaining: Не залишилось голосів
+          vote: Голосувати
+          votes_blocked: Голосування вимкнене
         votes_count:
+          count:
+            one: ГОЛОС
+            few: ГОЛОСИ
+            many: ГОЛОСІВ
+            other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
+          need_more_votes: Потрібно більше голосів
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
@@ -329,8 +382,11 @@ uk:
             description: Ви можете висунути до %{limit} пропозицій.
           threshold_per_proposal:
             description: Для того, щоб пропозиції були підтверджені, їм мають надати підтримку %{limit} людей
+          title: 'Голосування регулюється наступними правилами:'
           vote_limit:
+            description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
+            votes: Голоси
         wizard_aside:
           back: Повернутись
           info: Ви вносите <strong>пропозицію</strong>.
@@ -341,6 +397,15 @@ uk:
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію
           step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
+      publish:
+        error: При спробі оприлюднити цю пропозицію сталися помилки.
+        success: Пропозицію успішно оприлюднено.
+      update:
+        error: При спробі збереження цієї пропозиції сталися помилки.
+        success: Пропозицію успішно оновлено.
+      update_draft:
+        error: При спробі збереження чернетки цієї пропозиції сталися помилки.
+        success: Чернетку пропозиції успішно оновлено.
     resource_links:
       copied_from_component:
         proposal_proposal: Супутні пропозиції
