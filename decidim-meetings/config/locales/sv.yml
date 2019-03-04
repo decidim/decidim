@@ -40,10 +40,6 @@ sv:
             base:
               too_many_minutes: Varaktigheten av objekten överstiger mötestiden med %{count} minuter
               too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendaobjektet "%{parent_title}" med %{count} minuter
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Det här e-postadressen har redan blivit inbjuden
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -65,9 +61,6 @@ sv:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Ett fel uppstod när det här mötet skulle dupliceras.
-          success: Mötet duplicerat.
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
@@ -108,10 +101,7 @@ sv:
         meeting_registration_confirmed:
           notification_title: Din registrering för mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din registreringskod är %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: De upptagna platserna vid "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
-          email_subject: De upptagna platserna vid "%{resource_title}" är över %{percentage}%
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötesplatserna är över %{percentage}%.
         meeting_updated:
           email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
@@ -135,14 +125,10 @@ sv:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Registrera dig i de möten du vill delta i
           description: Detta märke beviljas när du deltar i flera möten mellan ansikte mot ansikte.
-          description_another: Den här användaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.
           name: Deltog i möten
           next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
-          unearned_another: Den här användaren har inte deltagit i något möte än.
           unearned_own: Du har inte deltagit i något möte än.
     meetings:
       actions:
@@ -161,19 +147,15 @@ sv:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Lägg till dagordning för underordnat objekt
             agenda_item: Dagordningspunkt
-            agenda_item_children: Underordnade dagordningspunkter
             down: Ned
             remove: Ta bort
             up: Upp
           agenda_item_child:
-            agenda_item_child: Underordnade dagordningspunkter
             down: Ned
             remove: Ta bort
             up: Upp
           create:
-            invalid: Det blev ett problem med att skapa denna dagordning
             success: Dagordning skapades
           edit:
             title: Redigera dagordning
@@ -187,7 +169,6 @@ sv:
             create: Skapa
             title: Ny dagordning
           update:
-            invalid: Det har blivit ett problem med att uppdatera den här dagordningen
             success: Dagordning uppdaterad
         exports:
           meetings: möten
@@ -198,16 +179,9 @@ sv:
             invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
             join: Gå med i mötet "%{meeting_title}"
         invites:
-          create:
-            error: Det har uppstått ett problem när du bjöd in användaren att gå med i mötet.
-            success: Användaren bjöds inbjuden att delta i mötet.
           form:
             attendee_type: Deltagartyp
-            existing_user: Existerande användare
             invite: Bjuda in
-            invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
-            non_user: Icke-existerande användare
-            select_user: Välj användare
           index:
             filter:
               accepted: Accepterad
@@ -228,10 +202,8 @@ sv:
             select_organizer: Välj arrangören
         meetings:
           close:
-            invalid: Det uppstod ett problem med att stänga detta möte
             success: Mötet avslutades
           create:
-            invalid: Det har uppstått ett problem med att skapa detta möte
             success: Möte skapades
           destroy:
             success: Mötet har tagits bort
@@ -255,11 +227,9 @@ sv:
             add_service: Lägg till service
             services: Tjänster
           update:
-            invalid: Det uppstod ett problem med att uppdatera det här mötet
             success: Mötet har uppdaterats
         minutes:
           create:
-            invalid: Det uppstod ett problem med att skapa det här protokollet
             success: Protokollet skapades
           edit:
             update: Uppdatering
@@ -267,7 +237,6 @@ sv:
             create: Skapa
             title: Skapa protokoll
           update:
-            invalid: Det har uppstått problem med att uppdatera det här protokollet
             success: Protokollet uppdaterades
         models:
           meeting:
@@ -279,7 +248,6 @@ sv:
             validate_registration_code: Bekräfta registreringskod
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
-            invites: Inbjudningar
             registration_form: Anmälningsblankett
             registrations_count:
               one: Det har varit %{count} registrering.
@@ -287,7 +255,6 @@ sv:
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
           update:
-            invalid: Det uppstod ett problem med att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
           validate_registration_code:
             invalid: Denna registreringskod är ogiltig.
@@ -406,13 +373,10 @@ sv:
           registration_code: Din registreringskod är %{code}.
       registrations:
         create:
-          invalid: Det har uppstått ett problem med att gå med i det här mötet.
           success: Du har gått med på mötet.
         decline_invitation:
-          invalid: Det uppstod ett problem med att avböja inbjudan.
           success: Du har avböjt inbjudan.
         destroy:
-          invalid: Det uppstod ett problem med att lämna detta möte.
           success: Du har lämnat mötet.
       types:
         private_meeting: Privat möte
