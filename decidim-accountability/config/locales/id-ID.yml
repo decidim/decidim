@@ -207,6 +207,7 @@ id:
           notification_title: Hasilnya <a href="%{resource_path}">%{resource_title}</a>, yang termasuk proposal <a href="%{proposal_path}">%{proposal_title}</a>, sekarang %{progress}% selesai.
     metrics:
       results:
+        description: Jumlah hasil yang dihasilkan
         object: hasil
         title: Hasil
     participatory_processes:

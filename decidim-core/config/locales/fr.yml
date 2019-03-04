@@ -154,20 +154,17 @@ fr:
           help_text: Examinez les modifications et acceptez ou rejetez cet amendement. Une notification sera envoyée à son (ses) auteur(s).
         announcement:
           accepted: |-
-            Cet amendement pour la proposition %{amendable_type}
-            %{amendable_link}
+            Cet amendement pour la proposition %{amendable_link}
             a été accepté le <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Cet amendement pour la proposition %{amendable_type}
-            %{amendable_link}
+            Cet amendement pour la proposition %{amendable_link}
             est en cours d'évaluation.
           rejected: |-
             Cet amendement pour la proposition %{amendable_type}
             %{amendable_link}
             a été rejeté le <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Cet amendement pour la proposition %{amendable_type}
-            %{amendable_link}
+            Cet amendement pour la proposition %{amendable_link}
             a été retirée par l'auteur.
       new:
         amendment_author: Auteur

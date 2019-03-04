@@ -210,7 +210,7 @@ it:
           notification_title: Il risultato <a href="%{resource_path}">%{resource_title}</a>, che include la proposta <a href="%{proposal_path}">%{proposal_title}</a>, è ora completo al %{progress}%.
     metrics:
       results:
-        description: Numero di risultati di responsabilità generati
+        description: Numero di risultati generati
         object: risultati
         title: risultati
     participatory_processes:

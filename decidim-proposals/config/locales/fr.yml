@@ -333,6 +333,8 @@ fr:
           publish:
             invalid: Impossible de publier des propositions
             success: Toutes les propositions ont été publiées
+          discard:
+            success: Tous les brouillons de texte participatifs ont été rejetés.
           sections:
             article: "<em>article</em>"
             section: "<em>Section :</em> <strong>%{title}</strong>"

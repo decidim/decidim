@@ -325,7 +325,7 @@ fr:
         meetings:
           index:
             all: Tout
-            date: Rendez-vous amoureux
+            date: Date
             meetings: Rencontres
             past: Passées
             search: Rechercher

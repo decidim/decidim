@@ -210,7 +210,7 @@ nl:
           notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, inclusief het voorstel <a href="%{proposal_path}">%{proposal_title}</a>, is nu %{progress}% voltooid.
     metrics:
       results:
-        description: Aantal gegenereerde verantwoordingsresultaten
+        description: Aantal gegenereerde resultaten
         object: uitslagen
         title: resultaten
     participatory_processes:

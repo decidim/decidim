@@ -51,7 +51,7 @@ fr:
       actions:
         confirm: Confirmer
         new_conference: Nouvelle conférence
-        send_diplomas: Envoyer des diplômes
+        send_diplomas: Envoyer des certificats de présence
       conference_copies:
         new:
           copy: Copie
@@ -150,10 +150,10 @@ fr:
           attachments: Pièces jointes
           categories: Catégories
           components: Fonctionnalités
-          conference_admins: Utilisateurs de la conférence
-          conference_invites: Invite
-          conference_speakers: Haut-parleurs
-          diploma: Diplôme
+          conference_admins: Administrateurs de la conférence
+          conference_invites: Invités
+          conference_speakers: Intervenants
+          diploma: Certificat de participation
           info: Information
           media_links: Liens médias
           moderations: Modération
@@ -186,7 +186,7 @@ fr:
             moderator: Modérateur
         media_link:
           fields:
-            date: Rendez-vous amoureux
+            date: Date
             link: Lien
             title: Titre
           name: Lien média
@@ -251,10 +251,10 @@ fr:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
         publish: "%{user_name} publication la %{resource_name} conférence"
-        send_conference_diplomas: "%{user_name} envoyer des diplômes aux %{resource_name} utilisateurs de la conférence"
+        send_conference_diplomas: "%{user_name} certificats de présence envoyés aux %{resource_name} participants à la conférence"
         unpublish: "%{user_name} non publié la %{resource_name} conférence"
         update: "%{user_name} mis à jour le %{resource_name} conférence"
-        update_diploma: "%{user_name} mis à jour la configuration du diplôme %{resource_name} conférence"
+        update_diploma: "%{user_name} mis à jour la configuration des certificats de participation pour %{resource_name} conférence"
       conference_speaker:
         create: "%{user_name} créé le %{resource_name} orateur dans la %{space_name} conférence"
         delete: "%{user_name} enlevé le %{resource_name} orateur de la %{space_name} conférence"
@@ -284,7 +284,7 @@ fr:
         title: Programme
     conference_speakers:
       index:
-        title: Haut-parleurs
+        title: Intervenants
     conferences:
       admin:
         conference_copies:
@@ -308,7 +308,7 @@ fr:
               sent: Envoyé
             filter_by: Filtrer par
             invite_attendee: Inviter un participant
-            invites: Invite
+            invites: Invités
             search: Chercher
           new:
             explanation: L'utilisateur sera invité à participer à une conférence. Si l'email n'est pas enregistré, ils seront également invités à l'organisation.
@@ -335,7 +335,7 @@ fr:
         diplomas:
           edit:
             save: Sauvegarder
-            title: Diplôme
+            title: Certificat de participation
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
@@ -351,7 +351,7 @@ fr:
             title: Types d'inscription
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Vous trouverez le diplôme de la conférence <a href="%{url}">%{title}</a> dans les annexes.
+            diploma_html: Vous trouverez le certificat de participation à la conférence <a href="%{url}">%{title}</a> dans les pièces jointes.
           diploma_user:
             attendance_verified_by: Présence vérifiée par
             certificate_of_attendance: Certificat de participation
@@ -372,7 +372,7 @@ fr:
         program_meeting:
           content: Contenu
           location: Emplacement
-          speakers: Haut-parleurs
+          speakers: Intervenants
           streaming: Diffusion
         show:
           day: journée
@@ -409,7 +409,7 @@ fr:
           go_to_twitter: Aller sur Twitter
       conference_speakers:
         index:
-          speakers: Haut-parleurs
+          speakers: Intervenants
       conferences:
         partners:
           collaborators: Les partenaires
@@ -434,7 +434,7 @@ fr:
             subject: Invitation à participer à une conférence
         send_conference_diploma_mailer:
           diploma:
-            subject: Le diplôme de votre conférence a été envoyé
+            subject: Votre certificat de participation à la conférence a été envoyé.
       models:
         conference_invite:
           fields:
@@ -566,6 +566,6 @@ fr:
       conferences_nav:
         conference_menu_item: Informations
         conference_partners_menu_item: Les partenaires
-        conference_speaker_menu_item: Haut-parleurs
+        conference_speaker_menu_item: Intervenants
         media: Médias
         venues: Lieux

@@ -154,22 +154,22 @@ hu:
         announcement:
           accepted: |-
             Ez a módosítás a %{amendable_type} %{amendable_link} re
-            elfogadva a <strong>%{announcement_date}</strong>.
+            elfogadott <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Ez egy módosítás, amely a %{amendable_type} %{amendable_link}
-            értékelésre készül.
+            Ezt a %{amendable_type} %{amendable_link}
+            módosítást értékelik.
           rejected: |-
             A %{amendable_type} %{amendable_link}
             re vonatkozó módosítást <strong>%{announcement_date}</strong>én elutasították.
           withdrawn: |-
-            A %{amendable_type} %{amendable_link}
-            módosításra a szerző visszavonta a dokumentumot.
+            Ezt a %{amendable_type} %{amendable_link}
+            módosítást a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
         back: Vissza
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
-        send: Helyreigazítás küldése
+        send: Módosítás küldése
       rejected:
         error: Az emelés elutasításakor hiba történt, próbálkozzon később
         success: Az emelést sikeresen elutasították

@@ -119,16 +119,16 @@ hu:
           space_followers:
             email_intro: |-
               Szia,
-              Új vitát "%{resource_title}" hoztak létre a %{space_title} részvételi téren, ellenőrizzük és hozzájárulunk:
+              Új vitát "%{resource_title}" hoztak létre a %{space_title} részvételi téren, nézd meg és járulj hozzá:
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: Új vita "%{resource_title}" %{space_title}
+            email_subject: Új vita "%{resource_title}" indult itt %{space_title}
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Szia,
-              %{author_name} %{author_nickname}, akit figyelsz, új vita született "%{resource_title}". Nézze meg és járuljon hozzá:
+              %{author_name} %{author_nickname}, akit kötvetsz, új vitát hozott létre "%{resource_title}" címmel. Nézzed meg és vegyél részt benne:
             email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: Új vita "%{resource_title}" %{author_nickname}
+            email_subject: Új vitát hozott létre "%{resource_title}" címmel %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> létrehozta a <a href="%{resource_path}">%{resource_title}</a> vitát.
         creation_disabled:
           email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'
@@ -156,4 +156,4 @@ hu:
       debates:
         description: A létrehozott viták száma
         object: viták
-        title: viták
+        title: Viták

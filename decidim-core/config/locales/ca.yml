@@ -153,10 +153,10 @@ ca:
           help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació al seu autor(s).
         announcement:
           accepted: |-
-            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat
-            acceptada en <strong>%{announcement_date}</strong>.
+            Aquesta modificació per al %{amendable_type} %{amendable_link} ha estat
+            acceptada a <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Aquesta esmena pel %{amendable_type} %{amendable_link} s'està avaluant.
+            S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}.
           rejected: |-
             Aquesta esmena del %{amendable_type} %{amendable_link}
             va ser rebutjada en <strong>%{announcement_date}</strong>.
@@ -168,7 +168,7 @@ ca:
         back: Tornar
         heading: Crea la teva esmena
         help_text: Estàs modificant el %{model_name}
-        send: Envia l'esmena
+        send: Enviar esmena
       rejected:
         error: S'ha produït un error en rebutjar aquesta esmena, torna-ho a provar més tard
         success: L'esmena s'ha rebutjat correctament
