@@ -25,6 +25,3 @@ de:
           edit:
             save: Aktualisieren
             title: Seite bearbeiten
-          update:
-            invalid: Beim Speichern der Seite sind Fehler aufgetreten.
-            success: Seite erfolgreich gespeichert
