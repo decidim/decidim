@@ -65,7 +65,6 @@ pt-BR:
             destroy: Cancelar ordenação
             title: Cancelamento da classificação
           create:
-            error: Ocorreu um erro ao criar uma nova classificação.
             success: Ordenação criada com sucesso
           destroy:
             error: Não é possível cancelar a classificação.
@@ -86,7 +85,6 @@ pt-BR:
           show:
             selected_proposals: Propostas selecionadas para sorteio
           update:
-            error: Houve um erro ao atualizar a classificação.
             success: Ordenação atualizada com sucesso
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ pt-BR:
           category: Categoria
           category_prompt: Selecionar uma categoria
           search: Pesquisar
-          state: Estado
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
@@ -122,7 +119,6 @@ pt-BR:
             one: proposta selecionada
             other: propostas selecionadas
         show:
-          algorithm: Código de Algoritmo da Classificação
           any_category: de todas as categorias
           cancelled: Sortição cancelada
           candidate_proposal_ids: Ordem de propostas de classificação e IDs
@@ -141,10 +137,6 @@ pt-BR:
             one: 1 proposta selecionada
             other: '%{count} propostas selecionadas'
           view: Visão
-        sortition_author:
-          deleted: Usuário excluído
-        sortition_cancel_author:
-          deleted: Usuário excluído
         sortitions_count:
           count:
             one: 1 ordenação
