@@ -31,11 +31,9 @@ ru:
         is_transparent: Прозрачное
         local_area: Участок организации
         meta_scope: Метаданные охвата
-        participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Что решается
         participatory_structure: Как это решается
         private_space: Частное пространство
-        promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
         scope_id: Охват
@@ -85,7 +83,6 @@ ru:
         new_assembly: Добавить собрание
       assemblies:
         create:
-          error: При попытке добавить новое собрание произошла ошибка.
           success: Собрание успешно добавлено.
         edit:
           update: Обновить
@@ -99,24 +96,12 @@ ru:
         new:
           create: Добавить
           title: Добавить собрание
-        update:
-          error: При попытке обновить это собрание произошла ошибка.
-          success: Собрание успешно обновлено.
-      assemblies_copies:
-        create:
-          error: При попытке создать копию этого собрания произошла ошибка.
-          success: Успешно создана копия собрания.
       assembly_copies:
         new:
           copy: Копировать
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию собрания
       assembly_members:
-        create:
-          error: При попытке добавить члена президиума этого собрания произошла ошибка.
-          success: Член президиума этого собрания успешно добавлен.
-        destroy:
-          success: Член президиума этого собрания успешно удален.
         edit:
           title: Обновить члена президиума собрания.
           update: Обновить
@@ -125,37 +110,14 @@ ru:
         new:
           create: Добавить
           title: Добавить члена президиума собрания.
-        update:
-          error: При попытке обновить члена президиума этого собрания произошла ошибка.
-          success: Член президиума этого собрания успешно обновлен.
-      assembly_publications:
-        create:
-          error: При обнародовании этого собрания произошла ошибка.
-          success: Собрание успешно обнародовано.
-        destroy:
-          error: При отмене обнародования этого собрания произошла ошибка.
-          success: Обнародование собрания успешно отменено.
       assembly_user_roles:
-        create:
-          error: При попытке добавить участника этого собрания произошла ошибка.
-          success: Успешно добавлен участник этого собрания.
-        destroy:
-          success: Успешно удален участник этого собрания.
         edit:
-          title: Обновить участника собрания.
           update: Обновить
-        index:
-          assembly_admins_title: Участники собрания
         new:
           create: Добавить
-          title: Добавить участника собрания.
-        update:
-          error: При попытке обновить члена президиума этого собрания произошла ошибка.
-          success: Участник этого собрания успешно обновлен.
       menu:
         assemblies: Собрания
         assemblies_submenu:
-          assembly_admins: Участники собрания
           assembly_members: Члены президиума
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
@@ -191,7 +153,6 @@ ru:
             email: Эл. адрес
             name: Имя
             role: Роль
-          name: Участник собрания
           roles:
             admin: Администратор
             collaborator: Сотрудник
@@ -210,7 +171,6 @@ ru:
         update: "%{user_name} обновил члена президиума %{resource_name} на собрание %{space_name}"
       assembly_user_role:
         create: "%{user_name} пригласил члена президиума %{resource_name} на собрание %{space_name}"
-        delete: "%{user_name} удалил участника %{resource_name} собрания %{space_name}"
         update: "%{user_name} изменил роль %{resource_name} на собрании %{space_name}"
     assemblies:
       admin:
@@ -228,11 +188,7 @@ ru:
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         assembly_members:
           form:
-            existing_user: Существующий участник
-            non_user: Не участник
             select_a_position: Выберите должность
-            select_user: Выберите участника
-            user_type: Вид участника
           index:
             filter:
               all: Все
@@ -303,14 +259,12 @@ ru:
         endorsements_count: Выражений поддержки
         headline: Деятельность
         meetings_count: Встреч
-        orders_count: Голосов
         pages_count: Страниц
         projects_count: Проектов
         proposals_count: Предложений
         results_count: Итогов
         surveys_count: Опросов
         users_count: Участников
-        votes_count: Голосов
     assembly_members:
       assembly_member:
         designated_on: 'Полномочия предоставлены:'
