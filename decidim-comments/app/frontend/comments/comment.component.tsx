@@ -322,9 +322,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderReplyForm() {
     const { session, comment, rootCommentable, orderBy } = this.props;
     const { showReplyForm } = this.state;
+    const { comment: { userCanComment  } } = this.props;
 
-    // if (session && showReplyForm && userCanComment) {
-    if (session && showReplyForm) {
+    if (session && showReplyForm && userCanComment) {
       return (
         <AddCommentForm
           session={session}

@@ -103,6 +103,7 @@ describe("<Comments />", () => {
   describe("when the commentable cannot accept new comments", () => {
     beforeEach(() => {
       commentable.acceptsNewComments = false;
+      commentable.userCanComment = false;
     });
 
     it("doesn't render an AddCommentForm component", () => {

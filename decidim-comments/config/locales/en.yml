@@ -64,6 +64,7 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
         loading: Loading comments ...
         title: "%{count} comments"

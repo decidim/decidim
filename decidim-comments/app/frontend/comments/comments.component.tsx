@@ -61,6 +61,7 @@ export class Comments extends React.Component<CommentsProps> {
           {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
+          {this._renderBlockedCommentsForUserWarning()}
         </section>
       </div>
     );
@@ -80,6 +81,28 @@ export class Comments extends React.Component<CommentsProps> {
           <p>{I18n.t("components.comments.blocked_comments_warning")}</p>
         </div>
       );
+    }
+
+    return null;
+  }
+
+  /**
+   * Renders a warning message if the participatory_space is  private and users
+   * don't have permissions.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  private _renderBlockedCommentsForUserWarning() {
+    const { commentable: { acceptsNewComments, userCanComment } } = this.props;
+
+    if (acceptsNewComments) {
+      if (!userCanComment){
+        return (
+          <div className="callout warning">
+            <p>{I18n.t("components.comments.blocked_comments_for_user_warning")}</p>
+          </div>
+        );
+      }
     }
 
     return null;
@@ -114,7 +137,7 @@ export class Comments extends React.Component<CommentsProps> {
   private _renderAddCommentForm() {
     const { session, commentable, orderBy } = this.props;
     const { acceptsNewComments, commentsHaveAlignment, userCanComment } = commentable;
-    
+
     if (acceptsNewComments && userCanComment) {
       return (
         <AddCommentForm

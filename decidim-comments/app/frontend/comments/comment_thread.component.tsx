@@ -29,7 +29,7 @@ interface CommentThreadProps {
 class CommentThread extends React.Component<CommentThreadProps> {
   public static defaultProps: any = {
     session: null,
-    votable: false,
+    votable: false
   };
 
   public render() {

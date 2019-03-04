@@ -104,10 +104,22 @@ module Decidim
         Decidim::Debates::DataPortabilityDebateSerializer
       end
 
+      # Public: Whether the object can have new comments or not.
+      def can_participate?(user)
+        can_participate_in_space?(user)
+      end
+
       private
 
       def comments_blocked?
         component.current_settings.comments_blocked
+      end
+
+      def can_participate_in_space?(user)
+        return true unless component.participatory_space.try(:private_space?)
+        return false unless user
+
+        component.participatory_space.users.include?(user)
       end
     end
   end
