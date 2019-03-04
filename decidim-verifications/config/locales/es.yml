@@ -12,10 +12,7 @@ es:
       id_document_upload:
         document_number: Número de documento (con letra)
         document_type: Tipo de tu documento
-        user: Usuario
         verification_attachment: Copia escaneada de tu documento
-      offline_confirmation:
-        email: Email del usuario
       postal_letter_address:
         full_address: Dirección completa
       postal_letter_confirmation:
@@ -42,10 +39,10 @@ es:
             - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
         postal_letter:
           help:
-            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+            - Participants request a verification code to be sent to their address.
             - Envías la carta a su dirección con el código de verificación.
             - Marcas la carta como enviada.
-            - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Verifíquese utilizando el censo de la organización.
         name: Censo de la organización
@@ -62,7 +59,6 @@ es:
     verifications:
       authorizations:
         create:
-          error: Hubo un error al crear la autorización.
           success: Has sido autorizado/a correctamente.
           unconfirmed: Necesitas confirmar tu correo electrónico para autorizarte.
         first_login:
@@ -107,10 +103,6 @@ es:
           new:
             error: No pudimos verificar su cuenta o usted no está en el censo de la organización.
             success: Su cuenta ha sido verificada con éxito.
-      dummy_authorization:
-        extra_explanation:
-          one: La participación está restringida a usuarios con el código postal %{postal_codes}.
-          other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -118,23 +110,15 @@ es:
               title: Configuración de documentos de identidad
               update: Actualizar
             update:
-              error: Se ha producido un error al actualizar la configuración.
               success: Configuración actualizada correctamente
           confirmations:
-            create:
-              error: La verificación no coincide. Inténtalo de nuevo o rechaza la verificación para que el usuario pueda modificarla
-              success: El usuario ha sido verificado correctamente
             new:
               introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
-            create:
-              error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
-              success: Usuario verificado correctamente
             new:
               cancel: Cancelar
-              introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
               verify: Verificar
           pending_authorizations:
             index:
@@ -142,9 +126,6 @@ es:
               offline_verification: Verificación presencial
               title: Verificaciones online pendientes
               verification_number: 'Verificación #%{n}'
-          rejections:
-            create:
-              success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
         authorizations:
           choose:
             choose_a_type: "Por favor selecciona como quieres ser verificado:"
@@ -153,7 +134,6 @@ es:
             title: Verifícate utilizando tu documento de identidad
           create:
             error: Hubo un problema al subir tu documento
-            success: El documento se ha subido correctamente
           edit:
             being_reviewed: Estamos revisando tus documentos. Serás verificado en breve
             offline: Utiliza la verificación presencial
@@ -167,7 +147,6 @@ es:
             title: Sube tu documento de Identidad
           update:
             error: Hubo un problema al volver a subir tu documento
-            success: El documento se ha resubido correctamente
         dni: DNI
         nie: NIE
         passport: Pasaporte
@@ -180,7 +159,6 @@ es:
               mark_as_sent: Marcar como enviada
               not_yet_sent: Aún no se ha enviado
               title: Verificaciones en curso
-              username: Nombre de usuario
               verification_code: Código de verificación
           postages:
             create:
