@@ -51,7 +51,7 @@ hu:
             name: Idővonal bejegyzés
         results:
           create:
-            invalid: Probléma történt az eredmény létrehozásakor
+            invalid: Hiba történt az eredmény létrehozása során
             success: Eredmény sikeresen létrehozva
           destroy:
             success: Eredmény sikeresen törölve
@@ -70,14 +70,14 @@ hu:
             current_selection: Aktuális kijelölés
             select: Választ
           update:
-            invalid: Probléma történt az eredmény frissítésekor
+            invalid: Hiba történt az eredmény frissítésekor
             success: Eredmény sikeresen frissítve
         shared:
           subnav:
             statuses: Állapotok
         statuses:
           create:
-            invalid: Probléma történt az állapot létrehozásakor
+            invalid: Hiba történt az állapot létrehozása során
             success: Állapot létrehozása sikeres
           destroy:
             success: Állapot eltávolítása sikeres
@@ -90,11 +90,11 @@ hu:
             create: Státusz létrehozása
             title: Új állapot
           update:
-            invalid: Probléma történt az állapot frissítésekor
+            invalid: Hiba történt az állapot frissítésekor
             success: Állapot frissítése sikeres
         timeline_entries:
           create:
-            invalid: Probléma történt a bejegyzés létrehozásakor
+            invalid: Hiba történt a bejegyzés létrehozása során
             success: Bejegyzés létrehozása sikeres
           destroy:
             success: Bejegyzés eltávolítása sikeres
@@ -107,7 +107,7 @@ hu:
             create: Bejegyzés létrehozása
             title: Új bejegyzés
           update:
-            invalid: Probléma történt a bejegyzés frissítésekor
+            invalid: Hiba történt a bejegyzés frissítésekor
             success: Bejegyzés frissítése sikeres
       admin_log:
         result:
