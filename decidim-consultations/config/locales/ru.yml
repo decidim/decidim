@@ -61,23 +61,8 @@ ru:
         new_response: Добавить ответ
         publish_results: Обнародовать итоги
         unpublish_results: Отменить обнародование итогов
-      consultation_publications:
-        create:
-          error: При попытке обнародовать эту консультацию произошла ошибка.
-          success: Консультация успешно обнародована.
-        destroy:
-          error: При попытке отменить обнародование этой консультации произошла ошибка.
-          success: Обнародование консультации успешно отменено.
-      consultation_results_publications:
-        create:
-          error: При попытке обнародовать итоги этой консультации произошла ошибка.
-          success: Итоги консультации успешно обнародованы.
-        destroy:
-          error: При попытке отменить обнародование итогов этой консультации произошла ошибка.
-          success: Обнародование итогов консультации успешно отменено.
       consultations:
         create:
-          error: При попытке создать новую консультацию произошла ошибка.
           success: Консультация успешно создана.
         edit:
           update: Обновить
@@ -91,7 +76,6 @@ ru:
           create: Создать
           title: Добавить консультацию
         update:
-          error: При попытке обновить эту консультацию произошла ошибка.
           success: Консультация успешно обновлена.
       menu:
         consultations: Консультации
@@ -133,16 +117,8 @@ ru:
             few: Ответа
             many: Ответов
             other: Ответов
-      question_publications:
-        create:
-          error: При попытке обнародовать этот вопрос произошла ошибка.
-          success: Вопрос успешно обнародован.
-        destroy:
-          error: При попытке отменить обнародование этого вопроса произошла ошибка.
-          success: Обнародование вопроса успешно отменено.
       questions:
         create:
-          error: При попытке создать новый вопрос произошла ошибка.
           success: Вопрос успешно создан.
         destroy:
           success: Вопрос успешно удален.
@@ -156,15 +132,10 @@ ru:
         new:
           create: Добавить
           title: Добавить вопрос
-        update:
-          error: При попытке обновить этот вопрос произошла ошибка.
-          success: Вопрос успешно обновлен.
       responses:
         create:
-          error: При попытке добавить новый ответ произошла ошибка.
           success: Ответ успешно добавлен.
         destroy:
-          error: При попытке удалить ответ произошла ошибка.
           success: Ответ успешно удален.
         edit:
           update: Обновить
@@ -173,9 +144,6 @@ ru:
         new:
           create: Добавить
           title: Добавить ответ
-        update:
-          error: При попытке обновить этот ответ произошла ошибка.
-          success: Ответ успешно обновлен.
       titles:
         consultations: Консультации
         questions: Вопросы
@@ -202,7 +170,6 @@ ru:
         all: Все
         finished: Завершившиеся
         search: Поиск
-        state: Cостояние
         upcoming: Предстоящие
       filters_small_view:
         close_modal: Закрыть окно
@@ -225,9 +192,6 @@ ru:
           few: голоса из
           many: голосов из
           other: голосов из
-      question_votes:
-        create:
-          error: При голосовании по данному вопросу произошли ошибки
       regular_questions:
         title: Вопросы для этой консультации
       show:
@@ -257,22 +221,18 @@ ru:
         assistants_count_title: Помощников
         comments_count_title: Комментариев
         meetings_count_title: Встреч
-        supports_count_title: Выражений поддержки
       technical_info:
         technical_data: Технические сведения
       vote_button:
         already_voted: Уже проголосовали
-        already_voted_hover: Отозвать поддержку
         starting_from: Начиная с %{date}
         vote: Голосовать
       vote_modal:
         contextual_help: Пожалуйста, выберите вариант.
-        title: 'Консультация: поддержка вопроса'
       vote_modal_confirm:
         change: Изменить
         confirm: Подтвердить
         contextual_help: Пожалуйста, подтвердите выбранный вариант.
-        title: 'Консультация: подтвердите поддержку'
   layouts:
     decidim:
       admin:
