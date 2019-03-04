@@ -4,16 +4,12 @@ pl:
       initiative:
         decidim_user_group_id: Autor
         description: Opis
-        offline_votes: Wsparcie twarzą w twarz
         scope_id: Zakres
         signature_end_date: Koniec okresu zbierania podpisu
         signature_start_date: Początek okresu zbierania podpisu
         signature_type: Typ kolekcji podpisu
         signature_type_values:
           any: Mieszany
-          offline: Twarzą w twarz
-          online: Online
-        state: Stan
         title: Tytuł
       initiative_author:
         address: Adres
@@ -27,14 +23,11 @@ pl:
         user: członek Komisji
       initiatives_type:
         banner_image: Obraz baneru
-        collect_user_extra_fields: Zbierz dane osobowe użytkownika na podpisie
         description: Opis
-        document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu w sprawie głosowania
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
         title: Tytuł
-        undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
       initiatives_vote:
         name_and_surname: Imię i nazwisko
@@ -74,13 +67,11 @@ pl:
           fields:
             created_at: Utworzono w
             id: ID
-            state: Stan
-            supports_count: Obsługuje
+            supports_count: Podpisy
             title: Inicjatywy
         initiatives_type_scope:
           fields:
             scope: Zakres
-            supports_required: Wymagane wsparcie
           name: Zakres typu inicjatywy
         initiatives_types:
           fields:
@@ -107,10 +98,8 @@ pl:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Data zakończenia podpisów inicjatywy %{resource_title} została przedłużona!
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Data zakończenia podpisów inicjatywa!
-          notification_title: Data zakończenia podpisów dla inicjatywy <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         milestone_completed:
           affected_user:
             email_intro: Twoja inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
@@ -129,17 +118,13 @@ pl:
             - Idź do miejsca uczestnictwa Intiatives
             - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy uruchamiasz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
-          description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
           description_own: Masz opublikowanych %{score} inicjatyw.
           name: Opublikowane inicjatywy
           next_level_in: Uzyskaj %{score} dodatkowych inicjatyw opublikowanych, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych inicjatyw.
           unearned_own: Nie opublikowano jeszcze żadnych inicjatyw.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Inicjatywa jest propozycją, którą może promować każdy z własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) poprzez zbieranie (cyfrowych) podpisów dla organizacji w celu przeprowadzenia konkretnego działania (modyfikacja rozporządzenia, zainicjowanie projektu , zmień nazwę wydziału lub ulicy itp.).</p> <p>Organizatorzy inicjatywy mogą określić swoje cele, zebrać wsparcie, debatę, upowszechnić i określić miejsca spotkań, w których można zbierać podpisy od uczestników lub debaty otwarte dla innych uczestników.</p> <p>Przykłady: Inicjatywa może zbierać podpisy, aby zwoływać konsultacje wśród wszystkich osób w organizacji, tworzyć lub zwoływać zgromadzenie lub inicjować proces zwiększania budżetu dla terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów więcej osób może zwiększyć to zapotrzebowanie i przenieść je do przodu w organizacji.</p>\n"
-          page: "<p>Inicjatywa jest propozycją, którą może promować każdy z własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) poprzez zbieranie (cyfrowych) podpisów dla organizacji w celu przeprowadzenia konkretnego działania (modyfikacja rozporządzenia, zainicjowanie projektu , zmień nazwę wydziału lub ulicy itp.).</p> <p>Organizatorzy inicjatywy mogą określić swoje cele, zebrać wsparcie, debatę, upowszechnić i określić miejsca spotkań, w których można zbierać podpisy od uczestników lub debaty otwarte dla innych uczestników.</p> <p>Przykłady: Inicjatywa może zbierać podpisy, aby zwoływać konsultacje wśród wszystkich osób w organizacji, tworzyć lub zwoływać zgromadzenie lub inicjować proces zwiększania budżetu dla terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów więcej osób może zwiększyć to zapotrzebowanie i przenieść je do przodu w organizacji.</p>\n"
           title: Jakie są inicjatywy?
     initiatives:
       actions:
@@ -159,7 +144,6 @@ pl:
           index:
             approve: Zatwierdzać
             confirm_revoke: Jesteś pewny?
-            invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu promocji
             no_members_yet: W komisji promotorskiej nie ma członków
             revoke: Unieważnić
             title: członkowie Komitetu
@@ -172,7 +156,6 @@ pl:
             confirm: Jesteś pewny?
             discard: Odrzuć inicjatywę
             export_pdf_signatures: Eksportuj PDF podpisów
-            export_votes: Wsparcie eksportu
             reject: Odrzuć inicjatywę
             send_to_technical_validation: Wyślij do sprawdzenia technicznego
             success: Inicjatywa została wysłana do walidacji technicznej
@@ -197,7 +180,6 @@ pl:
             print: Wydrukować
           update:
             error: Wystąpił błąd
-            success: Inicjatywa obywatelska została pomyślnie zaktualizowana
         initiatives_type_scopes:
           create:
             error: Wystąpił błąd
@@ -263,18 +245,15 @@ pl:
         fill_data:
           back: Plecy
           continue: dalej
-          fill_data_help: "<ul> <li>Popraw treść swojej inicjatywy. Czy twój tytuł jest łatwy do zrozumienia? Czy cel Twojej inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Osobiście, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy? Dzielnica?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_scope: Wybierz zakres
         finish:
           back: Plecy
           back_to_initiatives: Powrót do inicjatyw
-          callout_text: Gratulacje! Twoja inicjatywa obywatelska została pomyślnie utworzona.
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
         finish_help:
-          access_reminder: Pamiętaj, że zawsze będziesz mieć dostęp do swoich inicjatyw za pośrednictwem menu użytkownika.
           help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły z zarządu wszystkich organizacji, które tworzą Komisję Promującą
           help_in_person_signatures: Jeśli zdecydowałeś się zebrać podpisy osobiście lub w połączeniu z internetem, będziesz musiał przesłać wymagane informacje.
           help_text: Pamiętaj, że aby poprawnie przetworzyć inicjatywę musisz uzyskać dostęp do panelu administracyjnego, w którym znajdziesz menu użytkownika, wgrać wymagane informacje i wysłać je do przetworzenia.
@@ -300,7 +279,6 @@ pl:
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu promotora
         show_similar_initiatives:
           back: Plecy
-          compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do zrobienia.
           continue: Moja inicjatywa jest inna
           more_information: "(Więcej informacji)"
       events:
@@ -334,9 +312,7 @@ pl:
           help: Sprawdź SMS-y odebrane w telefonie
       initiative_votes:
         create:
-          error: Podczas podpisywania inicjatywy wystąpiły błędy.
           invalid: Dane dostarczone do podpisania inicjatywy nie są ważne
-          success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została podpisana poprawnie
         personal_data:
           invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
         sms_code:
@@ -365,7 +341,6 @@ pl:
           myself: Moje inicjatywy
           open: otwarty
           search: Szukaj
-          state: Stan
           type: Rodzaj
           type_prompt: Wybierz typ
         filters_small_view:
@@ -396,13 +371,8 @@ pl:
             published: Ta propozycja została opublikowana, ponieważ
             rejected: Ta propozycja została odrzucona, ponieważ
             validating: Ta propozycja jest oceniana
-          initiative_rejected_reason: Inicjatywa ta została odrzucona ze względu na brak wsparcia.
         show:
-          any_vote_method: Ta inicjatywa obywatelska zbiera wsparcie online i twarzą w twarz.
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości z tej inicjatywy
-          offline_method: Ta inicjatywa obywatelska zbiera jedynie osobiste wsparcie.
-        signature_identities:
-          select_identity: Wybierz identyfikator użytkownika
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -425,16 +395,11 @@ pl:
           most_popular_initiative: Najbardziej popularna inicjatywa
           need_more_votes: Potrzebujesz więcej podpisów
       initiatives_mailer:
-        creation_subject: Twoja inicjatywa obywatelska "%{title}" została utworzona
         initiative_link:
           check_initiative_details: Możesz zobaczyć szczegóły inicjatywy
           here: tutaj
         more_information: Tutaj masz więcej informacji na temat procesu tworzenia inicjatywy.
-        progress_report_body_for: Inicjatywa %{title} osiągnęła %{percentage}% wymaganych podpór.
-        progress_report_for: 'Wznów o inicjatywie: %{title}'
         promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu promotora. Prześlij poniższy link, aby zaprosić ludzi do komitetu promotora
-        status_change_body_for: 'Inicjatywa %{title} zmieniła swój stan na: %{state}'
-        status_change_for: Inicjatywa %{title} zmieniła swój stan
         technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
         technical_validation_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
       last_activity:
@@ -453,7 +418,6 @@ pl:
     resources:
       initiatives_type:
         actions:
-          vote: Głosować
           title: działania
   layouts:
     decidim:
