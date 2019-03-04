@@ -37,8 +37,20 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
     metrics:
       survey_answers:
+        description: Erabiltzaileek emandako inkesta kopurua
         object: inkestak erantzunak
         title: Inkesten erantzunak
     surveys:
+      admin:
+        exports:
+          survey_user_answers: Inkesta erabiltzaile erantzunak
+        surveys:
+          update:
+            invalid: Inkesta gordetzean erroreak gertatu dira.
+            success: Inkesta ondo gorde da.
       last_activity:
         new_survey_at_html: "<span>Inkesta berrian %{link}</span>"
+      surveys:
+        answer:
+          invalid: Inkesta erantzutean erroreak gertatu dira.
+          success: Inkesta ondo bete da.
