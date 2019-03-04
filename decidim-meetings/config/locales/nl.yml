@@ -40,10 +40,6 @@ nl:
             base:
               too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
               too_many_minutes_child: De duur van het item childs overschrijdt de ouder-duur van het agendapunt "%{parent_title}" met %{count} minuut
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Deze e-mail is al uitgenodigd
     models:
       decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
@@ -65,9 +61,6 @@ nl:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: Er is een fout opgetreden tijdens het dupliceren van dit event.
-          success: Event succesvol gedupliceerd.
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens je wilt dupliceren
@@ -108,10 +101,7 @@ nl:
         meeting_registration_confirmed:
           notification_title: Uw registratie voor de vergadering <a href="%{resource_url}">%{resource_title}</a> is bevestigd. Je registratiecode is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Het aantal ingenomen plaatsen voor het even "%{resource_title}" is groter dan %{percentage}%.
           email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
-          email_subject: Het "%{resource_title}" event bezet meer plaatsen dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette plaatsen zijn over %{percentage}%.
         meeting_updated:
           email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
           email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
@@ -135,14 +125,10 @@ nl:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Registreer u in de vergaderingen die u wilt bijwonen
           description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
-          description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
           name: Bijgewoond vergaderingen
           next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
           unearned_own: U hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
@@ -161,19 +147,15 @@ nl:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Agenda-item kind toevoegen
             agenda_item: Agendapunt
-            agenda_item_children: Agendapunt Childs
             down: naar beneden
             remove: Verwijderen
             up: omhoog
           agenda_item_child:
-            agenda_item_child: Agendapunt Kind
             down: naar beneden
             remove: Verwijderen
             up: omhoog
           create:
-            invalid: Er is een probleem opgetreden bij het maken van deze agenda
             success: Agenda succesvol gemaakt
           edit:
             title: Agenda bewerken
@@ -187,7 +169,6 @@ nl:
             create: creëren
             title: Nieuwe agenda
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
             success: Agenda succesvol bijgewerkt
         exports:
           meetings: vergaderingen
@@ -198,16 +179,9 @@ nl:
             invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
             join: Word lid van '%{meeting_title}'
         invites:
-          create:
-            error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
-            success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
           form:
             attendee_type: Type deelnemer
-            existing_user: Bestaande gebruiker
             invite: Uitnodigen
-            invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de vergadering en aan de organisatie.
-            non_user: Niet bestaande gebruiker
-            select_user: Selecteer gebruiker
           index:
             filter:
               accepted: Aanvaard
@@ -228,10 +202,8 @@ nl:
             select_organizer: Selecteer de organisator
         meetings:
           close:
-            invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
             success: Vergadering succesvol afgesloten
           create:
-            invalid: Er is een probleem opgetreden met het maken van deze vergadering
             success: Vergadering succesvol aangemaakt
           destroy:
             success: Vergadering succesvol verwijderd
@@ -255,11 +227,9 @@ nl:
             add_service: Dienst toevoegen
             services: Diensten
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
         minutes:
           create:
-            invalid: Er is een probleem opgetreden bij het maken van deze minuten
             success: Notulen met succes gemaakt
           edit:
             update: Bijwerken
@@ -267,7 +237,6 @@ nl:
             create: creëren
             title: Maak minuten
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze minuten
             success: Notulen met succes bijgewerkt
         models:
           meeting:
@@ -279,7 +248,6 @@ nl:
             validate_registration_code: Valideer de registratiecode
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
-            invites: Uitnodigingen
             registration_form: Registratieformulier
             registrations_count:
               one: Er is %{count} registratie geweest.
@@ -287,7 +255,6 @@ nl:
             reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
           update:
-            invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
           validate_registration_code:
             invalid: Deze registratiecode is ongeldig.
@@ -406,13 +373,10 @@ nl:
           registration_code: Uw registratiecode is %{code}.
       registrations:
         create:
-          invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
           success: U bent met succes lid geworden van de vergadering.
         decline_invitation:
-          invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
           success: U hebt de uitnodiging met succes afgewezen.
         destroy:
-          invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
       types:
         private_meeting: Privé vergadering
