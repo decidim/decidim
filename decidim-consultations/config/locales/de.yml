@@ -58,23 +58,8 @@ de:
         new_response: Neue Antwort
         publish_results: Veröffentlichen Sie die Ergebnisse
         unpublish_results: Veröffentlichen Sie die Ergebnisse
-      consultation_publications:
-        create:
-          error: Bei der Veröffentlichung dieser Konsultation ist ein Fehler aufgetreten.
-          success: Konsultation erfolgreich veröffentlicht.
-        destroy:
-          error: Es ist ein Fehler aufgetreten, diese Konsultation aufzuheben.
-          success: Beratung wurde erfolgreich nicht veröffentlicht.
-      consultation_results_publications:
-        create:
-          error: Bei der Veröffentlichung der Ergebnisse für diese Konsultation ist ein Fehler aufgetreten.
-          success: Konsultationsergebnisse erfolgreich veröffentlicht.
-        destroy:
-          error: Es ist ein Fehler aufgetreten, die Ergebnisse dieser Konsultation nicht zu veröffentlichen.
-          success: Konsultationsergebnisse wurden nicht veröffentlicht.
       consultations:
         create:
-          error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich erstellt.
         edit:
           update: Aktualisieren
@@ -88,7 +73,6 @@ de:
           create: Erstellen
           title: Neue Konsultation
         update:
-          error: Beim Aktualisieren dieser Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich aktualisiert.
       menu:
         consultations: Konsultationen
@@ -124,16 +108,8 @@ de:
           name:
             one: Antwort
             other: Antworten
-      question_publications:
-        create:
-          error: Beim Veröffentlichen dieser Frage ist ein Fehler aufgetreten.
-          success: Frage erfolgreich veröffentlicht.
-        destroy:
-          error: Beim Aufheben der Veröffentlichung dieser Frage ist ein Fehler aufgetreten.
-          success: Frage wurde nicht erfolgreich veröffentlicht.
       questions:
         create:
-          error: Beim Erstellen einer neuen Frage ist ein Fehler aufgetreten.
           success: Frage erfolgreich erstellt.
         destroy:
           success: Frage wurde erfolgreich gelöscht.
@@ -147,15 +123,10 @@ de:
         new:
           create: Erstellen
           title: Neue Frage
-        update:
-          error: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten.
-          success: Frage erfolgreich aktualisiert.
       responses:
         create:
-          error: Beim Erstellen einer neuen Antwort ist ein Fehler aufgetreten.
           success: Antwort erfolgreich erstellt
         destroy:
-          error: Beim Entfernen der Antwort ist ein Fehler aufgetreten.
           success: Antwort wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
@@ -164,9 +135,6 @@ de:
         new:
           create: Erstellen
           title: Neue Antwort
-        update:
-          error: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten.
-          success: Antwort wurde erfolgreich aktualisiert.
       titles:
         consultations: Konsultationen
         questions: Fragen
@@ -198,7 +166,6 @@ de:
         all: Alle
         finished: Fertig
         search: Suche
-        state: Zustand
         upcoming: Bevorstehende
       filters_small_view:
         close_modal: Fenster schließen
@@ -227,9 +194,6 @@ de:
         votes_out_of:
           one: abstimmen
           other: Stimmen aus
-      question_votes:
-        create:
-          error: Es gab Fehler bei der Abstimmung der Frage
       regular_questions:
         title: Fragen für diese Konsultation
       show:
@@ -247,8 +211,6 @@ de:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Konsultationen sind ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte anzuregen und die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate bleiben sollen.</p>\n"
-          page: "<p>Konsultationen sind ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate in der Organisation bleiben sollen.</p>\n"
           title: Was sind Konsultationen?
     menu:
       consultations: Konsultationen
@@ -265,22 +227,18 @@ de:
         assistants_count_title: Assistenten
         comments_count_title: Bemerkungen
         meetings_count_title: Meetings
-        supports_count_title: Unterstützt
       technical_info:
         technical_data: Technische Daten
       vote_button:
         already_voted: Schon gewählt
-        already_voted_hover: Support entziehen
         starting_from: Beginnend von %{date}
         vote: Abstimmung
       vote_modal:
         contextual_help: Bitte wähle eine Option.
-        title: 'Beratung: Frage Unterstützung'
       vote_modal_confirm:
         change: Veränderung
         confirm: Bestätigen
         contextual_help: Bitte bestätigen Sie die ausgewählte Option.
-        title: 'Beratung: Bestätigung der Unterstützung'
   layouts:
     decidim:
       admin:
