@@ -51,7 +51,7 @@ ca:
             name: Element
         results:
           create:
-            invalid: Hi ha hagut un problema en crear aquest resultat
+            invalid: S'ha produït un problema en crear aquest resultat
             success: El resultat ha estat creat correctament
           destroy:
             success: El resultat ha estat eliminat correctament
@@ -70,14 +70,14 @@ ca:
             current_selection: Selecció actual
             select: Selecciona
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest resultat
+            invalid: S'ha produït un problema en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
             statuses: Estats
         statuses:
           create:
-            invalid: Hi ha hagut un problema en crear aquest estat
+            invalid: S'ha produït un problema en crear aquest estat
             success: El estat ha estat creat correctament
           destroy:
             success: El estat ha estat eliminat correctament
@@ -90,11 +90,11 @@ ca:
             create: Crea estat
             title: Nou estat
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest estat
+            invalid: S'ha produït un problema en actualitzar aquest estat
             success: El estat ha estat actualitzat correctament
         timeline_entries:
           create:
-            invalid: Hi ha hagut un problema en crear aquest element
+            invalid: S'ha produït un problema en crear aquesta entrada
             success: El element ha estat creat correctament
           destroy:
             success: El element ha estat eliminat correctament
@@ -107,7 +107,7 @@ ca:
             create: Crea element
             title: Nou element
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest element
+            invalid: S'ha produït un problema en actualitzar aquesta entrada
             success: El element ha estat actualitzat correctament
       admin_log:
         result:
