@@ -617,7 +617,7 @@ de:
         dashboard: Instrumententafel
         impersonatable_users: Impersonable Benutzer
         impersonations: Identitätswechsel
-        participants: Teilnehmer
+        participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten
