@@ -33,7 +33,6 @@ sv:
           step:
             announcement: Notis
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Skapande av debatter av användare aktiverat
     debates:
       actions:
         confirm_destroy: Är du säker?
@@ -43,11 +42,6 @@ sv:
         title: Handlingar
       admin:
         debates:
-          create:
-            invalid: Det blev ett problem med skapandet av debatten.
-            success: Debatten skapades.
-          destroy:
-            success: Debatten raderades.
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
@@ -56,9 +50,6 @@ sv:
           new:
             create: Skapa debatt
             title: Ny debatt
-          update:
-            invalid: Det har blivit ett problem under uppdateringen av denna debatt.
-            success: Debatten uppdaterades.
         models:
           debate:
             name: Debatt
@@ -71,9 +62,6 @@ sv:
           debates_count:
             one: "%{count} debatt"
             other: "%{count} debatter"
-        create:
-          invalid: Det har blivit ett problem med skapandet av debatten.
-          success: Debatten skapades.
         debate:
           participate: Delta
         filters:
@@ -127,7 +115,6 @@ sv:
             email_subject: Ny debatt "%{resource_title}" med %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> skapade <a href="%{resource_path}">%{resource_title}</a> debatten.
         creation_disabled:
-          email_intro: 'Debattskapandet är inte längre aktivt i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter på den här sidan:'
           email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
           email_subject: Skapande av debatter är inaktiverat i %{participatory_space_title}
           notification_title: Skapande av debatter är nu inaktiverat i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -142,11 +129,9 @@ sv:
           conditions:
             - Välj en öppen debatt att delta i
           description: Detta märke beviljas när du aktivt deltar i de olika debatterna genom att lämna dina kommentarer.
-          description_another: Den här användaren har deltagit i %{score} debatter.
           description_own: Du har deltagit i %{score} debatter.
           name: debatter
           next_level_in: Delta i %{score} fler debatter för att nå nästa nivå!
-          unearned_another: Den här användaren har inte deltagit i någon debatt än.
           unearned_own: Du har inte deltagit i några debatter än.
     metrics:
       debates:
