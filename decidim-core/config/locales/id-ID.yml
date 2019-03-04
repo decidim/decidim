@@ -30,17 +30,12 @@ id:
       decidim/user:
         current_password: Kata sandi saat ini
         email: E-mail
-        name: Nama pengguna
         password: Kata sandi
         password_confirmation: konfirmasi kata kunci
         remember_me: Ingat saya
     models:
       decidim/amendment:
         other: Amandemen
-      decidim/user:
-        other: Pengguna
-      decidim/user_group:
-        other: Grup Pengguna
   booleans:
     'false': 'Tidak'
     'true': 'iya nih'
@@ -60,7 +55,6 @@ id:
         file_no_exists: File tidak ada
         invalid_token: Token yang diberikan tidak valid.
         no_token: Tidak ada token yang disediakan
-        notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       delete:
         alert: Tindakan ini tidak bisa dibatalkan. Jika Anda menghapus akun Anda, Anda tidak akan dapat masuk.
         confirm:
@@ -69,16 +63,9 @@ id:
           question: Anda yakin ingin menghapus akun Anda?
           title: Hapus akun Saya
         explanation: Silakan, isi alasan Anda ingin menghapus akun Anda (opsional).
-      destroy:
-        error: Terjadi kesalahan saat menghapus akun Anda.
-        success: Akun Anda berhasil dihapus.
       show:
         change_password: Ganti kata sandi
         update_account: Perbaharui akun
-      update:
-        error: Terjadi kesalahan saat memperbarui akun Anda.
-        success: Akun Anda telah berhasil diperbarui.
-        success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
     admin_log:
       area:
         create: "%{user_name} menciptakan %{resource_name} area"
@@ -103,9 +90,6 @@ id:
         update: "%{user_name} memperbarui aplikasi %{resource_name} OAuth"
       organization:
         update: "%{user_name} memperbarui pengaturan organisasi"
-      participatory_space_private_user:
-        create: "%{user_name} diundang %{resource_name} untuk menjadi pengguna pribadi"
-        delete: "%{user_name} menghapus pengguna %{resource_name} sebagai pengguna pribadi"
       scope:
         create: "%{user_name} menciptakan %{resource_name} ruang lingkup"
         create_with_parent: "%{user_name} menciptakan %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
@@ -117,31 +101,15 @@ id:
         create: "%{user_name} menciptakan halaman %{resource_name} statis"
         delete: "%{user_name} menghapus halaman %{resource_name} statis"
         update: "%{user_name} memperbarui %{resource_name} halaman statis"
-      user:
-        invite: "%{user_name} mengundang pengguna %{resource_name} dengan peran: %{role}"
-        officialize: "%{user_name} resmi pengguna %{resource_name}"
-        remove_from_admin: "%{user_name} menghapus pengguna %{resource_name} dengan peran: %{role}"
-        unofficialize: "%{user_name} tidak resmi pengguna %{resource_name}"
-      user_group:
-        reject: "%{user_name} menolak %{resource_name} verifikasi grup pengguna"
-        verify: "%{user_name} memverifikasi %{resource_name} grup pengguna"
-        verify_via_csv: "%{user_name} memverifikasi %{resource_name} grup pengguna melalui file CSV"
     amendments:
-      accepted:
-        error: Terjadi kesalahan saat menerima emendasi, coba lagi nanti.
-        success: Perubahan ini telah berhasil diterima.
       amendable:
         amended_by: Diubah oleh
         button: Ubah %{model_name}
-        promote_button: Promosikan ke %{model_name}
-        error: Terjadi kesalahan saat mengubah sumber daya ini.
         help_text: Tingkatkan %{model_name} ini dengan memodifikasi %{amendable_fields}
-        promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
         no_amenders: Tidak ada amandemen
         no_amendments: Tidak ada amandemen
         section_heading: Amandemen (%{count})
       created:
-        error: Terjadi kesalahan saat membuat amendemen ini, coba lagi nanti
         success: Amandemen telah berhasil dibuat
       emendation:
         actions:
@@ -155,9 +123,6 @@ id:
           evaluating: |-
             Perubahan ini untuk %{amendable_type} %{amendable_link}
             sedang dievaluasi.
-          rejected: |-
-            Perubahan ini untuk %{amendable_type} %{amendable_link}
-            ditolak pada <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Perubahan ini untuk %{amendable_type} %{amendable_link}
             telah ditarik oleh penulis.
@@ -167,12 +132,6 @@ id:
         heading: Buat amandemen Anda
         help_text: Anda memodifikasi %{model_name}
         send: Kirim amandemen
-      rejected:
-        error: Terjadi kesalahan saat menolak perubahan ini, silakan coba lagi nanti
-        success: Amendemen tersebut telah ditolak dengan sukses
-      promoted:
-        success: Emendasi berhasil dipromosikan
-        error: Sudah ada kesalahan saat mempromosikan emendasi
       review:
         back: Kembali
         heading: Tinjau amandemennya
@@ -185,8 +144,6 @@ id:
           other: Dokumen
       documents:
         related_documents: Dokumen yang berkaitan
-      photos:
-        related_photos: Foto-foto terkait
     author:
       comments:
         other: komentar
@@ -204,8 +161,6 @@ id:
         name: Contoh otorisasi
       dummy_authorization_workflow:
         name: Alur kerja otorisasi dummy
-      errors:
-        duplicate_authorization: Pengguna sudah diotorisasi dengan data yang sama.
       expired_at: Kedaluwarsa pada %{timestamp}
       expires_at: Kedaluwarsa pada %{timestamp}
       foo_authorization:
@@ -312,7 +267,6 @@ id:
           email_already_exists: Akun lain menggunakan alamat email yang sama
         new:
           complete_profile: Profil lengkap
-          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
           sign_up: Silakan lengkapi profil Anda
           subtitle: Silakan isi formulir berikut untuk menyelesaikan pendaftaran
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
@@ -321,7 +275,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
           sign_in: Masuk
           sign_up: Daftar
           sign_up_as:
@@ -336,7 +289,6 @@ id:
           are_you_new?: Baru ke platform?
           register: Buat sebuah akun
           sign_in_disabled: Anda dapat mengakses dengan akun eksternal
-          sign_up_disabled: Daftar dinonaktifkan, Anda dapat menggunakan pengguna yang ada untuk mengakses
       shared:
         newsletter_modal:
           buttons:
@@ -367,7 +319,6 @@ id:
           publish_content: Publikasikan konten untuk Anda
           see_email: Lihat email Anda
           see_name: Lihat namamu
-          see_username: Lihat nama pengguna Anda
           this_application_will_be_able_to: 'Aplikasi ini akan dapat:'
           this_application_will_not_be_able_to: 'Aplikasi ini tidak akan dapat:'
           update_profile: Perbarui profil Anda
@@ -384,48 +335,24 @@ id:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'Sebuah perubahan baru telah dibuat untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen baru untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendasi baru</a> telah dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Sebuah perubahan baru telah dibuat untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen baru untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendasi baru</a> telah dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_rejected:
           affected_user:
-            email_intro: 'Amendemen telah ditolak untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen ditolak untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Amendemen telah ditolak untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen ditolak untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Suatu emendasi yang ditolak untuk %{amendable_title} telah dipromosikan menjadi independen %{amendable_type}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Sebuah perbaikan dari %{emendation_author_nickname} telah dipromosikan
-            notification_title: A <a href="%{emendation_path}">emendasi</a> ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} telah dipromosikan oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Suatu emendasi yang ditolak untuk %{amendable_title} telah dipromosikan menjadi independen %{amendable_type}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Sebuah perbaikan dari %{emendation_author_nickname} telah dipromosikan
-            notification_title: A <a href="%{emendation_path}">emendasi</a> ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} telah dipromosikan oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'Amendemen telah diterima untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen diterima untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Amendemen telah diterima untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen diterima untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Dokumen baru telah ditambahkan ke %{resource_title}. Anda dapat melihatnya dari halaman ini:'
@@ -445,15 +372,11 @@ id:
         email_subject: Pembaruan ke %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Kerja bagus! Anda memperoleh lencana <a href="%{resource_url}">%{badge_name}</a> (tingkat %{current_level}).
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
           email_subject: 'Anda telah memperoleh lencana baru: %{badge_name}!'
-          notification_title: Kerja bagus! Anda memperoleh lencana <a href="%{resource_path}">%{badge_name}</a> (tingkat %{current_level}).
         level_up:
-          email_intro: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
           email_subject: Anda telah mencapai level %{current_level} pada %{badge_name} lencana!
-          notification_title: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah menghapus hak admin Anda ke grup itu.
@@ -498,11 +421,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: "%{nickname} memperbarui profil mereka"
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> telah resmi.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{nickname}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
-          email_subject: "%{nickname} telah resmi"
-          notification_title: <a href="%{resource_path}">%{name} (%{nickname})</a>, yang Anda ikuti, telah resmi.
     export_mailer:
       data_portability_export:
         click_button: Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.
@@ -534,10 +452,8 @@ id:
     follows:
       create:
         button: Mengikuti
-        error: Ada kesalahan mengikuti sumber ini.
       destroy:
         button: Berhenti mengikuti
-        error: Terjadi kesalahan saat berhenti mengikuti sumber daya ini.
     forms:
       current_file: File saat ini
       current_image: Gambar saat ini
@@ -552,21 +468,15 @@ id:
           conditions:
             - Sering ke sini
           description: Lencana ini diberikan saat Anda mengunjungi platform dengan cara biasa. Kami suka ada Anda di sini!
-          description_another: Pengguna ini telah terhubung selama %{score} hari berturut-turut di beberapa titik.
           description_own: Anda telah terhubung selama %{score} hari berturut-turut di beberapa titik.
           name: Kontinuitas
           next_level_in: Terhubung selama %{score} hari berturut-turut untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum masuk selama lebih dari satu hari berturut-turut.
           unearned_own: Anda belum terhubung selama lebih dari satu hari berturut-turut.
         followers:
           conditions:
             - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
           description: Lencana ini diberikan ketika Anda mencapai sejumlah pengikut tertentu. %{organization_name} adalah jaringan sosial dan politik, menjalin web Anda untuk berkomunikasi dengan orang lain di platform.
-          description_another: Pengguna ini memiliki %{score} pengikut.
-          description_own: "%{score} pengguna mengikuti Anda."
           name: Pengikut
-          next_level_in: Dapatkan %{score} lebih banyak pengguna untuk mengikuti Anda untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum memiliki pengikut.
           unearned_own: Anda belum punya pengikut.
         index:
           badge_title: "%{name} lencana"
@@ -579,67 +489,32 @@ id:
             - Sesuaikan, jika Anda mau, pesan yang Anda kirim
             - Anda akan naik level dengan mengirim undangan dan meminta mereka terdaftar.
           description: Lencana ini diberikan ketika Anda mengundang beberapa orang dan mereka telah menghabiskan sedikit waktu untuk mendaftar di %{organization_name} dan menjadi peserta. Terima kasih telah membuat %{organization_name} diketahui orang lain dan membantu memperluas komunitas!
-          description_another: Pengguna ini telah mengundang %{score} pengguna.
-          description_own: Anda telah mengundang %{score} pengguna.
           name: Undangan
-          next_level_in: Undang %{score} lebih banyak pengguna untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum mengundang pengguna apa pun.
-          unearned_own: Anda belum mengundang pengguna.
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
       reached_top: Anda telah mencapai level teratas untuk lencana ini.
     group_admins:
       actions:
-        are_you_sure: Apakah kamu yakin? Ini tidak akan menghapus pengguna dari grup.
         demote_admin: Hapus admin
-      demote:
-        error: Terjadi kesalahan saat menghapus pengguna ini dari daftar admin
-        success: Pengguna dihapus dari admin dengan sukses
       index:
         current_admins: 'Admin saat ini:'
         manage_admins: Kelola admin
     group_invites:
-      accept:
-        error: Terjadi kesalahan saat menerima undangan ini
-        success: Undangan diterima dengan sukses
       accept_invitation: Menerima
       accept_or_reject_group_invitations: 'Grup berikut telah mengundang Anda untuk bergabung dengan mereka. Terima atau tolak permintaan mereka:'
       index:
         invite: Undang
-        invite_user: Undang pengguna
-      invite:
-        error: Terjadi kesalahan saat mengundang pengguna ini
-        success: Pengguna berhasil diundang
-      reject:
-        error: Terjadi kesalahan saat menolak undangan ini
-        success: Undangan ditolak dengan sukses
       reject_invitation: Menolak
     group_members:
-      accept:
-        error: Terjadi kesalahan saat menerima permintaan bergabung ini
-        success: Permintaan bergabung diterima dengan sukses
       actions:
         are_you_sure: Apakah kamu yakin?
         promote_to_admin: Membuat admin
-        remove_from_group: Hapus pengguna
       index:
         current_members_without_admins: 'Anggota saat ini (tanpa admin):'
         manage_members: Kelola anggota
-      promote:
-        error: Terjadi kesalahan saat mempromosikan pengguna ini
-        success: Pengguna berhasil dipromosikan
-      reject:
-        error: Terjadi kesalahan saat menolak permintaan bergabung ini
-        success: Gabung permintaan ditolak dengan sukses
-      remove:
-        error: Terjadi kesalahan saat menghapus pengguna ini dari grup
-        success: Pengguna dihapus dari grup dengan sukses
     groups:
       actions:
         are_you_sure: Apakah kamu yakin?
-      create:
-        error: Ada masalah saat membuat grup
-        success: Grup berhasil dibuat
       edit:
         edit_user_group: Edit grup
         update_user_group: Perbarui grup
@@ -648,14 +523,7 @@ id:
         email_help: Email dari organisasi Anda, asosiasi, kolektif, grup, dll.
         fill_in_for_verification: 'Isi bidang-bidang ini jika Anda ingin grup Anda diverifikasi:'
         name_help: Nama organisasi Anda, asosiasi, kolektif, grup, dll.
-        nickname_help: Nama pengguna organisasi Anda, asosiasi, kolektif, grup, dll. Jangan menggunakan spasi atau aksen.
         phone_help: Jangan gunakan tanda hubung atau spasi
-      join:
-        error: Ada masalah saat bergabung dengan grup
-        success: Gabung permintaan berhasil dibuat. Admin akan meninjau permintaan Anda sebelum menerima Anda ke grup.
-      leave:
-        error: Ada masalah saat keluar dari grup
-        success: Grup berhasil dibiarkan.
       members:
         accept_or_reject_join_requests: 'Pengguna berikut telah mendaftar untuk bergabung dengan grup ini. Terima atau tolak permintaan mereka:'
         accept_request: Menerima
@@ -669,9 +537,6 @@ id:
         admin: Administrator
         creator: Pencipta
         member: Anggota
-      update:
-        error: Terjadi masalah saat memperbarui grup
-        success: Grup berhasil diperbarui
     help:
       main_topic:
         default_page:
@@ -705,10 +570,6 @@ id:
           not_found: 'Ruang lingkup tidak ditemukan di database (ID: %{id})'
         scope_type_presenter:
           not_found: 'Jenis ruang lingkup tidak ditemukan di database (ID: %{id})'
-    managed_users:
-      expired_session: Sesi peniruan saat ini telah kedaluwarsa.
-    members:
-      no_members: Kelompok pengguna ini belum memiliki anggota.
     menu:
       help: Membantu
       home: Rumah
@@ -744,17 +605,11 @@ id:
       download:
         csv: Unduh data (csv)
       followers:
-        description: Jumlah pengguna yang mengikuti ruang partisipasi ini
         object: pengikut
         title: Pengikut
       participants:
-        description: Jumlah pengguna aktif dalam organisasi
         object: peserta
         title: Peserta
-      users:
-        description: Jumlah pengguna dalam organisasi
-        object: pengguna
-        title: Pengguna
     newsletter_mailer:
       newsletter:
         note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
@@ -763,7 +618,6 @@ id:
     newsletters:
       unsubscribe:
         check_subscription: Jika Anda ingin mengubah preferensi Anda, Anda dapat melakukannya di <a href="%{link}" target="_blank">halaman konfigurasi</a>
-        error: Terjadi kesalahan saat berhenti berlangganan
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
         unsubscribe: Berhenti berlangganan
@@ -771,7 +625,6 @@ id:
       unathorized: Maaf, tautan ini tidak lagi tersedia
       update:
         error: Terjadi kesalahan
-        success: Pengaturan buletin berhasil diperbarui
     newsletters_opt_in_mailer:
       notify:
         body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
@@ -793,9 +646,6 @@ id:
         receive_notifications_about: Saya ingin mendapatkan pemberitahuan tentang
         send_notifications_by_email: Kirim pemberitahuan melalui email
         update_notifications_settings: Simpan perubahan
-      update:
-        error: Terjadi kesalahan saat memperbarui pengaturan notifikasi Anda.
-        success: Pengaturan pemberitahuan Anda telah berhasil diperbarui.
     open_data:
       not_available_yet: File Open Data belum tersedia, silakan coba lagi dalam beberapa menit.
     own_user_groups:
@@ -860,7 +710,6 @@ id:
           link: Tampilkan semua statistik
       terms_and_conditions:
         accept:
-          error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
           success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
         form:
           agreement: Saya setuju dengan ketentuan ini
@@ -879,10 +728,8 @@ id:
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
-      deleted: Pengguna yang dihapus
       view: Melihat
     profiles:
-      default_officialization_text_for_user_groups: Kelompok pengguna ini diverifikasi secara publik, namanya telah diverifikasi untuk sesuai dengan nama aslinya
       default_officialization_text_for_users: Peserta ini diverifikasi secara publik, nama atau perannya telah diverifikasi untuk sesuai dengan nama dan peran aslinya
       show:
         activity: Aktivitas
@@ -903,7 +750,6 @@ id:
         edit_profile: Edit profil
         edit_user_group: Edit profil grup
         fill_in_email_to_confirm_it: Silakan isi email grup Anda untuk mengonfirmasi
-        invite_user: Undang pengguna
         join_user_group: Permintaan untuk bergabung dengan grup
         leave_user_group: Meninggalkan grup
         manage_user_group_admins: Kelola admin
@@ -985,11 +831,6 @@ id:
         close_window: Tutup jendela
         share: Bagikan
         share_link: Membagikan tautan
-      version_author:
-        deleted: Pengguna yang dihapus
-    user_activity:
-      index:
-        no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
     user_interests:
       show:
         no_scopes: Organisasi ini belum memiliki ruang lingkup!
@@ -997,7 +838,6 @@ id:
         select_your_interests: Pilih topik yang Anda minati untuk menerima acara yang terkait dengan mereka di tab Kronologi profil Anda.
         update_my_interests: Perbarui minat saya
       update:
-        error: Terjadi kesalahan saat memperbarui minat Anda.
         success: Minat Anda telah berhasil diperbarui.
     welcome_notification:
       default_body: <p>Hai {{name}}, terima kasih sudah bergabung dengan {{organization}} dan selamat datang!</p><ul><li>Jika Anda ingin mendapatkan ide cepat tentang apa yang dapat Anda lakukan di sini, lihat bagian <a href="{{help_url}}">Bantuan</a> .</li><li>Setelah Anda membacanya, Anda akan mendapatkan lencana pertama Anda. Berikut adalah <a href="{{badges_url}}">daftar dari semua lencana</a> yang dapat Anda peroleh ketika Anda berpartisipasi dalam {{organization}}</li><li>Terakhir tetapi tidak sedikit, bergabunglah dengan orang lain, bagikan kepada mereka pengalaman terlibat dan berpartisipasi dalam {{organization}}. Buatlah proposal, komentar, debat, pikirkan tentang bagaimana berkontribusi terhadap kebaikan bersama, memberikan argumen untuk meyakinkan, mendengarkan dan membaca untuk diyakinkan, mengekspresikan ide Anda dengan cara yang konkrit dan langsung, merespons dengan kesabaran dan keputusan, membela ide-ide Anda dan tetap pikiran terbuka untuk berkolaborasi dan bergabung dengan ide orang lain.</li></ul>
@@ -1022,7 +862,6 @@ id:
     invitations:
       edit:
         header: Selesaikan membuat akun Anda
-        nickname_help: Pengenal unik Anda dalam %{organization}.
         submit_button: Menyimpan
         subtitle: Jika Anda menerima undangan, atur nama panggilan dan kata sandi Anda.
       invitation_removed: Undangan Anda telah dihapus.
@@ -1038,7 +877,6 @@ id:
       confirmation_instructions:
         action: Konfirmasikan akun saya
         greeting: Selamat datang %{recipient}!
-        instruction: 'Anda dapat mengkonfirmasi email akun Anda melalui tautan di bawah ini:'
         subject: Instruksi konfirmasi
       email_changed:
         greeting: Halo %{recipient}!
@@ -1053,10 +891,8 @@ id:
           Jika Anda tidak ingin menerima undangan, silakan abaikan email ini.<br />
           Akun Anda tidak akan dibuat sampai Anda mengakses tautan di atas dan mengatur nama panggilan dan kata sandi Anda.
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
-        invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
-        someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
       invite_admin:
         subject: Anda telah diundang untuk mengelola %{organization}
@@ -1098,10 +934,7 @@ id:
       no_token: Anda tidak dapat mengakses halaman ini tanpa datang dari email pengaturan ulang kata sandi. Jika Anda datang dari email pengaturan ulang kata sandi, pastikan Anda menggunakan URL lengkap yang disediakan.
       send_instructions: Anda akan menerima email berisi instruksi tentang cara mereset kata sandi Anda dalam beberapa menit.
       send_paranoid_instructions: Jika alamat email Anda ada di basis data kami, Anda akan menerima tautan pemulihan kata sandi di alamat email Anda dalam beberapa menit.
-      updated: Kata sandi Anda telah berhasil diubah. Anda sekarang masuk.
-      updated_not_active: Kata sandi Anda telah berhasil diubah.
     registrations:
-      destroyed: Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi segera.
       edit:
         are_you_sure: Apakah kamu yakin?
         cancel_my_account: Batalkan akun saya
@@ -1118,7 +951,6 @@ id:
       signed_up_but_locked: Anda telah berhasil mendaftar. Namun, kami tidak dapat masuk karena akun Anda terkunci.
       signed_up_but_unconfirmed: Sebuah pesan dengan tautan konfirmasi telah dikirim ke alamat email Anda. Silakan ikuti tautan untuk mengaktifkan akun Anda.
       update_needs_confirmation: Anda telah memperbarui akun Anda, tetapi kami perlu memverifikasi alamat email baru Anda. Silakan periksa email Anda dan ikuti tautan konfirmasi untuk mengonfirmasi alamat email baru Anda.
-      updated: Akun Anda telah berhasil diperbarui.
     sessions:
       already_signed_out: Berhasil keluar.
       new:
@@ -1141,7 +973,6 @@ id:
         resend_unlock_instructions: Kirim ulang instruksi buka kunci
       send_instructions: Anda akan menerima email berisi petunjuk cara membuka kunci akun Anda dalam beberapa menit.
       send_paranoid_instructions: Jika akun Anda ada, Anda akan menerima email berisi petunjuk cara membuka kuncinya dalam beberapa menit.
-      unlocked: Akun Anda telah berhasil dibuka kuncinya. Tolong masuk untuk melanjutkan.
   doorkeeper:
     scopes:
       public: Informasi publik Anda.
@@ -1186,7 +1017,6 @@ id:
         sign_up: Daftar
       impersonation_warning:
         close_session: Tutup sesi
-        description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
         expire_time_html: Sesi Anda akan berakhir dalam <b><span class="minutes">%{minutes}</span> menit</b>.
       notifications_dashboard:
         mark_all_as_read: tandai semua telah dibaca
@@ -1204,7 +1034,6 @@ id:
         my_data: Data saya
         my_interests: Minat saya
         notifications_settings: Pengaturan Notifikasi
-        title: Pengaturan pengguna
         user_groups: Grup
       widget:
         see_more: Lihat lebih banyak
