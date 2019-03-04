@@ -18,9 +18,6 @@ ca:
       comments: Comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
-      votes:
-        create:
-          error: Hi ha hagut errors en votar el comentari.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Inicia la sessió amb el teu compte</a> o <a href="%{sign_up_url}">registra't</a> per afegir el teu comentari.
@@ -41,7 +38,6 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
-        deleted_user: Usuari eliminat
         reply: Respondre
         report:
           action: Denuncia
@@ -91,7 +87,6 @@ ca:
           notification_title: Has estat esmentat a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Nombre de comentaris generats pels usuaris
         object: comentaris
         title: Comentaris
   errors:
