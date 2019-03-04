@@ -66,16 +66,12 @@ es:
       decidim/proposals/proposal_note:
         one: Nota
         other: Notas
-      decidim/proposals/proposal_vote:
-        one: Apoyo
-        other: Apoyo
   decidim:
     components:
       proposals:
         actions:
           create: Crear
           endorse: Adherirse
-          vote: Apoyar
           withdraw: Retirar
         name: Propuestas
         settings:
@@ -87,21 +83,18 @@ es:
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
-            minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
-            proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             threshold_per_proposal: Umbral por propuesta
-            vote_limit: Límite de apoyos por usuario
           step:
             announcement: Aviso
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
@@ -110,10 +103,6 @@ es:
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Respuesta a propuestas activadas
-            suggested_hashtags: Hashtags sugeridos a los usuarios para nuevas propuestas.
-            votes_blocked: Votación deshabilitada
-            votes_enabled: Votación habilitada
-            votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -195,7 +184,6 @@ es:
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La propuesta "%{resource_title}" se ha añadido a "%{participatory_space_title}" que estás siguiendo.
-          email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> se ha añadido a %{participatory_space_title}
         proposal_rejected:
@@ -210,15 +198,11 @@ es:
             email_subject: Una propuesta que estás siguiendo ha sido rechazada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
-          email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
-          notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -226,51 +210,37 @@ es:
             - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
             - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y estas sean aceptadas.
-          description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
           name: Propuestas aceptadas
           next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
             - Navega y dedica un tiempo leyendo las propuestas de otras personas
             - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
           description: Este distintivo se otorga cuando apoyas propuestas de otras personas.
-          description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
           next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
             - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
             - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
-          description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
-        description: Número de propuestas aceptadas por los usuarios
         object: propuestas
-        title: Propuestas aceptadas
       endorsements:
-        description: Número de adhesiones generadas en las propuestas
         object: adhesiones
         title: Adhesiones
       proposals:
-        description: Número de propuestas generadas
         object: propuestas
         title: Propuestas
-      votes:
-        description: Número de apoyos generados en las propuestas por los usuarios
-        object: votos
-        title: Votos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -303,9 +273,7 @@ es:
             discard_all: Descartar todo
           import:
             invalid: '¡El formulario no es válido!'
-            success: Enhorabuena, los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
           index:
-            info_1: Los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
             publish_document: Publicar documento
             save_draft: Guardar borrador
             title: PREVISUALIZAR TEXTO PARTICIPATIVO
@@ -320,14 +288,10 @@ es:
           publish:
             invalid: No se pudieron publicar las propuestas
             success: Todas las propuestas han sido publicadas
-          discard:
-            success: Todos los borradores de textos participativos han sido descartados.
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
-          update:
-            success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
             accepted: Aceptada
@@ -337,7 +301,6 @@ es:
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
-            error: Ha habido un problema al crear esta nota de propuesta
             success: Nota de propuesta creada con éxito
           form:
             note: Nota
@@ -381,26 +344,21 @@ es:
             success: 'Propuestas actualizadas correctamente en la categoría %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ha habido un problema al importar las propuestas
             success: "%{number} propuestas importadas correctamente"
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
-            select_states: Verifica los estados de las propuestas para importar
         proposals_merges:
           create:
-            invalid: Se produjo un error al fusionar las propuestas seleccionadas.
             success: Las propuestas se fusionaron en una nueva con éxito.
         proposals_splits:
           create:
-            invalid: Hubo un error dividiendo las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
         shared:
           info_proposal:
             body: Cuerpo
             created_at: Fecha de creación
-            proposal_votes_count: Número de apoyos
             proposals: Propuestas
       admin_log:
         proposal:
@@ -421,7 +379,6 @@ es:
           citizens: Ciudadanía
           meetings: Encuentros
           official: Oficial
-          user_groups: Grupos de Usuarios
         filter_state_values:
           accepted: Aceptado
           all: Todos
@@ -435,7 +392,6 @@ es:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Ha habido errores al publicar el borrador colaborativo.
             irreversible_action_modal:
               body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
@@ -444,7 +400,6 @@ es:
             success: Borrador de colaborativo publicado con éxito como una propuesta.
           view_collaborative_draft: Ver borrador colaborativo
           withdraw:
-            error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
               body: Después de cerrar el borrador, dejara de ser editable. El borrador no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
@@ -463,7 +418,6 @@ es:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Ha habido un problema al crear este borradores colaborativo
           success: Borrador colaborativo creado con éxito.
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
@@ -480,7 +434,6 @@ es:
           published: Publicado
           related_to: Relacionado con
           search: Buscar
-          state: Estado
           withdrawn: Retirado
         filters_small_view:
           close_modal: Cerrar modal
@@ -499,23 +452,15 @@ es:
           recent: Reciente
         requests:
           accepted_request:
-            error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
             success: "@%{user} ha sido aceptado como contribuidor con éxito"
-          access_requested:
-            error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
-            success: Tu solicitud para colaborar ha sido enviada con éxito
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rechazar
             title: Solicitudes de contribuciones
-          rejected_request:
-            error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido rechazado como contribuidor con éxito"
         show:
           back: Volver
           edit: Editar borrador colaborativo
           final_proposal: propuesta final
-          final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
             one: y %{count} persona más
             other: y %{count} personas más
@@ -534,9 +479,6 @@ es:
           open: Abierto
           published: Publicado
           withdrawn: Retirado
-        update:
-          error: Ha habido errores al guardar el borrador colaborativo.
-          success: Borrador colaborativo actualizado con éxito.
         wizard_aside:
           back: Volver
           info: Estás creando un borrador colaborativo <strong></strong>.
@@ -546,11 +488,7 @@ es:
           step_2: Comparar con borradores colaborativos
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
-      create:
-        error: Ha habido errores al guardar la propuesta.
-        success: Propuesta creada con éxito. Guardada como borrador.
       destroy_draft:
-        error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
       last_activity:
         new_proposal_at_html: "<span>Nueva propuesta en %{link}</span>"
@@ -570,7 +508,6 @@ es:
             official_proposal: Propuesta oficial
             published_at: Publicado el
             scope: Ámbito
-            state: Estado
             title: Título
             votes: Apoyos
       new:
@@ -583,8 +520,6 @@ es:
           comments: Comentarios
           endorse: Adherirse
       proposal_endorsements:
-        create:
-          error: Ha habido errores al adherirse a la propuesta.
         identities:
           done: Hecho
           select_identity: Seleccionar identidad
@@ -594,9 +529,6 @@ es:
           endorse: Adherirse
         render_endorsements_button_card_part:
           endorse: Adherirse
-      proposal_votes:
-        create:
-          error: Ha habido errores al apoyar la propuesta.
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
@@ -631,8 +563,6 @@ es:
           origin: Origen
           related_to: Relacionadas con
           search: Buscar
-          state: Estado
-          voted: Apoyadas
           amendment_type: Tipo
         filters_small_view:
           close_modal: Cerrar ventana
@@ -644,16 +574,11 @@ es:
           new_proposal: Nueva propuesta
           see_all_withdrawn: Ver todas las propuestas retiradas
           view_proposal: Ver propuesta
-        linked_proposals:
-          proposal_votes:
-            one: dar apoyo
-            other: apoyos
         new:
           send: Continuar
           title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
-          most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
         participatory_texts:
@@ -685,40 +610,23 @@ es:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
           filed_as: Archivado como
-        vote_button:
-          already_voted: Ya has dado tu apoyo
-          already_voted_hover: Retirar tu apoyo
-          maximum_votes_reached: Límite de apoyos alcanzado
-          no_votes_remaining: No hay votos restantes
-          vote: Dar apoyo
-          votes_blocked: Apoyos desactivados
         votes_count:
-          count:
-            one: APOYO
-            other: APOYOS
           most_popular_proposal: Propuestas más populares
-          need_more_votes: Necesita más apoyos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
-            description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
             given_enough_votes: Has dado suficientes apoyos.
-            supports_remaining: Tienes que apoyar %{remaining_votes} propuestas más para que tus apoyos se tengan en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
             description: Para ser validadas, las propuestas deben llegar a un cuórum nínimo de %{limit} apoyos
-          title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
-            description: Puedes apoyar hasta %{limit} propuestas.
             left: Restante
-            votes: Apoyos
         wizard_aside:
           back: Volver
           info: Estás creando una <strong>propuesta</strong>.
@@ -729,15 +637,6 @@ es:
           step_3: Completar
           step_4: Publicar tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
-      publish:
-        error: Ha habido errores al publicar la propuesta.
-        success: Propuesta publicada con éxito.
-      update:
-        error: Ha habido errores al guardar la propuesta.
-        success: Propuesta actualizada con éxito.
-      update_draft:
-        error: Ha habido errores al guardar el borrador de la propuesta.
-        success: Borrador de propuesta actualizado con éxito.
       versions:
         changes_at_title: Cambios en "%{title}"
         index:
