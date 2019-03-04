@@ -149,7 +149,7 @@ ca:
           attachments: Fitxers adjunts
           categories: Categoríes
           components: Components
-          conference_admins: Usuaris de la conferència
+          conference_admins: Administradors de conferències
           conference_invites: Convida
           conference_speakers: Ponents
           diploma: Certificat d'assistència
