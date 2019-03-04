@@ -33,7 +33,6 @@ fi:
             title: Otsikko
           form:
             add_question: Lisää kysymys
-            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
           question:
             add_answer_option: Lisää vastausvaihtoehto
             any: Minkä tahansa
@@ -43,9 +42,6 @@ fi:
             remove: Poista
             statement: Selite
             up: Ylös
-          update:
-            invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
-            success: Kyselylomakkeet tallennettiin onnistuneesti.
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
@@ -56,24 +52,11 @@ fi:
         single_option: Yksi vaihtoehto
         sorting: Järjestäminen
       questionnaires:
-        answer:
-          invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
-          success: Kyselyyn vastattu onnistuneesti.
         question:
           max_choices: 'Valintojen maksimimäärä: %{n}'
         show:
-          answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
-            title: Vastaa kyselyyn
           are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
           questionnaire_answered:
-            body: Olet jo vastannut tähän kyselyyn.
             title: Olet jo vastannut
-          questionnaire_closed:
-            body: Kyselylomake on suljettu, eikä siihen voi vastata.
-            title: Kysely on suljettu
-          questionnaire_for_private_users:
-            body: Kyselylomake on saatavilla vain yksityisille käyttäjille
-            title: Kysely on suljettu
           submit: Lähetä
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
