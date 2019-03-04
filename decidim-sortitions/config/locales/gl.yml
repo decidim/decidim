@@ -65,7 +65,6 @@ gl:
             destroy: Cancelar sortition
             title: Cancelación do sortition
           create:
-            error: Produciuse un erro ao crear unha nova xeración.
             success: Creouse a edición correctamente
           destroy:
             error: Non se pode cancelar o sorteo.
@@ -86,7 +85,6 @@ gl:
           show:
             selected_proposals: Propostas seleccionadas para o sorteo
           update:
-            error: Produciuse un erro ao actualizar o sorteo.
             success: A clasificación actualizouse correctamente
       admin_log:
         sortition:
@@ -105,7 +103,6 @@ gl:
           category: Categoría
           category_prompt: Selecciona unha categoría
           search: Busca
-          state: Estado
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -122,7 +119,6 @@ gl:
             one: proposta seleccionada
             other: propostas seleccionadas
         show:
-          algorithm: Codigo de algoritmo de Sortition
           any_category: de todas as categorías
           cancelled: Cancelada sortition
           candidate_proposal_ids: Orde de propostas de clasificación e ID
@@ -141,10 +137,6 @@ gl:
             one: 1 proposta seleccionada
             other: '%{count} propostas seleccionadas'
           view: Ver
-        sortition_author:
-          deleted: Usuario eliminado
-        sortition_cancel_author:
-          deleted: Usuario eliminado
         sortitions_count:
           count:
             one: 1 sortition
