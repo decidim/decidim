@@ -20,9 +20,6 @@ ru:
   decidim:
     comments:
       comments: Комментарии
-      votes:
-        create:
-          error: При голосовании за комментарий произошли ошибки.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_url}">зарегистрируйтесь</a>, чтобы добавить свой комментарий.
@@ -43,7 +40,6 @@ ru:
         alignment:
           against: Против
           in_favor: В поддержку
-        deleted_user: Удаленный участник
         reply: Ответить
         report:
           action: Пожаловаться
