@@ -148,11 +148,11 @@ cs:
             votes_enabled: Hlasování povoleno
     orders:
       checkout:
-        error: Při zpracování hlasu došlo k chybě
+        error: Při hlasování došlo k problému
         success: Vaše hlasování bylo úspěšně přijato
       destroy:
-        error: Při zrušení hlasování došlo k chybě
-        success: Váš hlas byl úspěšně zrušen
+        error: Při zrušení hlasování došlo k problému
+        success: Vaše hlasování bylo úspěšně zrušeno
     resource_links:
       included_proposals:
         project_proposal: 'Návrhy zahrnuté v tomto projektu:'
