@@ -39,10 +39,6 @@ ru:
             base:
               too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
               too_many_minutes_child: Продолжительность вложенных вопросов превышает продолжительность общего вопроса «%{parent_title}» на %{count} минут
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Участник с таким адресом уже приглашен
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -70,9 +66,6 @@ ru:
   decidim:
     admin:
       meeting_copies:
-        create:
-          error: При попытке создать копию этой встречи произошла ошибка.
-          success: Успешно создана копия встречи.
         new:
           copy: Копировать
           select: Выберите, какие данные вы хотели бы скопировать
@@ -107,10 +100,7 @@ ru:
           email_subject: В %{participatory_space_title} добавлена новая встреча
           notification_title: В %{participatory_space_title} была добавлена встреча <a href="%{resource_path}">%{resource_title}</a>
         meeting_registrations_over_percentage:
-          email_intro: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов%.
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
-          email_subject: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов
-          notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         meeting_updated:
           email_intro: 'Встреча «%{resource_title}» обновлена. Вы можете прочитать новую версию на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
@@ -146,19 +136,15 @@ ru:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Добавить вложенный вопрос повестки дня
             agenda_item: Вопрос повестки дня
-            agenda_item_children: Впложенные вопросы данного вопроса повестки дня
             down: Вниз
             remove: Удалить
             up: Вверх
           agenda_item_child:
-            agenda_item_child: Впложенный вопрос данного вопроса повестки дня
             down: Вниз
             remove: Удалить
             up: Вверх
           create:
-            invalid: При попытке создать эту повестку дня произошла ошибка
             success: Повестка дня успешно создана
           edit:
             title: Изменить повестку дня
@@ -172,7 +158,6 @@ ru:
             create: Создать
             title: Создать повестку дня
           update:
-            invalid: При попытке обновить эту повестку дня произошла ошибка
             success: Повестка дня успешно обновлена
         exports:
           registrations: Регистрации
@@ -182,16 +167,9 @@ ru:
             invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу в %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
-          create:
-            error: При попытке пригласить этого участника на встречу произошла ошибка.
-            success: Участник успешно приглашен на встречу.
           form:
             attendee_type: Вид участника
-            existing_user: Существующий участник
             invite: Пригласить
-            invite_explanation: Участнику будет предложено присоединиться к встрече и к организации.
-            non_user: Не существующий участник
-            select_user: Выберите участника
           index:
             filter:
               accepted: Принятые
@@ -212,10 +190,8 @@ ru:
             select_organizer: Выберите организатора
         meetings:
           close:
-            invalid: При попытке закрыть эту встречу произошла ошибка
             success: Встреча успешно завершена
           create:
-            invalid: При попытке добавить эту встречу произошла ошибка
             success: Встреча успешно добавлена
           destroy:
             success: Встреча успешно удалена
@@ -239,11 +215,9 @@ ru:
             add_service: Добавить услугу
             services: Услуги
           update:
-            invalid: При попытке обновить эту встречу произошла ошибка
             success: Встреча успешно обновлена
         minutes:
           create:
-            invalid: При попытке создать этот протокол произошла ошибка
             success: Протокол успешно создан
           edit:
             update: Обновить
@@ -251,7 +225,6 @@ ru:
             create: Создать
             title: Создать протокол
           update:
-            invalid: При попытке обновить этот протокол произошла ошибка
             success: Протокол успешно обновлен
         models:
           meeting:
@@ -263,11 +236,9 @@ ru:
             validate_registration_code: Подтвердить регистрационный код
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
-            invites: Приглашения
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
           update:
-            invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
           validate_registration_code:
             invalid: Этот регистрационный код неуместен.
@@ -355,13 +326,10 @@ ru:
           registration_code: 'Ваш регистрационный код: %{code}.'
       registrations:
         create:
-          invalid: При попытке присоединиться к встрече произошла ошибка.
           success: Вы успешно зарегистрировались на эту встречу.
         decline_invitation:
-          invalid: При попытке отклонить это приглашение произошла ошибка.
           success: Вы успешно отклонили это приглашение.
         destroy:
-          invalid: При попытке отказаться от встречи произошла ошибка.
           success: Вы успешно отменили регистрацию на встречу.
       types:
         private_meeting: Частная встреча
