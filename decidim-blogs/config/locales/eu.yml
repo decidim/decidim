@@ -23,7 +23,6 @@ eu:
             name: Post
         posts:
           create:
-            invalid: Arazo bat izan da post hau sortzeko
             success: Mezua ondo sortu da
           destroy:
             success: Mezua ondo ezabatu da
@@ -34,9 +33,6 @@ eu:
           new:
             create: Sortu
             title: Sortu mezua
-          update:
-            invalid: Erroreak gertatu dira mezua gordetzean.
-            success: Mezua ondo gorde da
       last_activity:
         new_post_at_html: "<span>Post berria %{link}</span>"
       models:
