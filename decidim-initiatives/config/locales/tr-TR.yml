@@ -4,16 +4,12 @@ tr:
       initiative:
         decidim_user_group_id: Yazar
         description: Açıklama
-        offline_votes: Yüz yüze destek
         scope_id: kapsam
         signature_end_date: İmza toplama süresinin sonu
         signature_start_date: İmza toplama döneminin başlangıcı
         signature_type: İmza koleksiyonu türü
         signature_type_values:
           any: Karışık
-          offline: Yüz yüze
-          online: İnternet üzerinden
-        state: Belirtmek, bildirmek
         title: Başlık
       initiative_author:
         address: Adres
@@ -27,14 +23,11 @@ tr:
         user: Komite Üyesi
       initiatives_type:
         banner_image: Banner resmi
-        collect_user_extra_fields: İmzada kullanıcının kişisel verilerini topla
         description: Açıklama
-        document_number_authorization_handler: Oylamada belge numarasını doğrulama yetkisi
         extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
         title: Başlık
-        undo_online_signatures_enabled: Kullanıcıların çevrimiçi imzalarını geri almalarını sağlama
         validate_sms_code_on_votes: İmza işlemine SMS kodu doğrulama adımı ekleme
       initiatives_vote:
         name_and_surname: Ad ve soyadı
@@ -68,13 +61,11 @@ tr:
           fields:
             created_at: Düzenlendi
             id: İD
-            state: Belirtmek, bildirmek
-            supports_count: Destekler
+            supports_count: İmzalar
             title: Girişimler
         initiatives_type_scope:
           fields:
             scope: kapsam
-            supports_required: Gerekli destekler
           name: Girişim tipi kapsamı
         initiatives_types:
           fields:
@@ -101,10 +92,8 @@ tr:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Girişim için imzalar bitiş tarihi %{resource_title} uzatıldı!
           email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: Girişim imzaları bitiş tarihi uzatıldı!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişiminin imza bitiş tarihi uzatıldı.
         milestone_completed:
           affected_user:
             email_intro: Girişiminiz %{resource_title} elde etti %{percentage}imzaların%!
@@ -123,17 +112,13 @@ tr:
             - Intiatives'in katılım alanına git
             - Yeni bir girişim oluşturmak için adımları izleyin
           description: Bu rozet, yeni girişimler başlattığınızda, bunları gerçekleştirmek için başkalarıyla ortaklık kurduğunuzda verilir.
-          description_another: Bu kullanıcı %{score} yayınlandı.
           description_own: Yayınlanmış %{score} girişiniz var.
           name: Yayınlanmış girişimler
           next_level_in: Bir sonraki seviyeye ulaşmak için yayınlanan %{score} daha alın!
-          unearned_another: Bu kullanıcı henüz yayınlanmış hiçbir girişimde bulunmadı.
           unearned_own: Henüz yayınlanan hiçbir girişimin yok.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Bir girişim belirli bir işlemi (bir yönetmelik değiştirmek yürütmek için organizasyon için (dijital) imza toplama yoluyla (bağımsız kanal veya katılım boşluklar diğerinin) kendi inisiyatifleriyle herkes tarafından teşvik edilebilir bir öneri bir proje başlatmak olduğunu , bir bölümün veya bir sokağın adını değiştirir vb.).</p> <p>Bir girişimin destekleyicileri hedeflerini tanımlayabilir, destek toplayabilir, tartışabilir, dağıtabilir ve katılımcılardan imzaların toplanabileceği buluşma noktalarını veya diğer katılımcılara açık tartışmaları tanımlayabilir.</p> <p>Örnekler: Bir inisiyatif, bir örgütün tüm halkı arasında bir istişare toplanması, bir meclis oluşturma veya toplanması ya da kuruluşun bir bölgesi veya bölgesi için bir bütçe artışı sürecinin başlatılması için imza toplayabilir. İmza toplama süreci boyunca, bu talebe daha fazla kişi katılabilir ve organizasyonda ileriye taşıyabilir.</p>\n"
-          page: "<p>Bir girişim belirli bir işlemi (bir yönetmelik değiştirmek yürütmek için organizasyon için (dijital) imza toplama yoluyla (bağımsız kanal veya katılım boşluklar diğerinin) kendi inisiyatifleriyle herkes tarafından teşvik edilebilir bir öneri bir proje başlatmak olduğunu , bir bölümün veya bir sokağın adını değiştirir vb.).</p> <p>Bir girişimin destekleyicileri hedeflerini tanımlayabilir, destek toplayabilir, tartışabilir, dağıtabilir ve katılımcılardan imzaların toplanabileceği buluşma noktalarını veya diğer katılımcılara açık tartışmaları tanımlayabilir.</p> <p>Örnekler: Bir inisiyatif, bir örgütün tüm halkı arasında bir istişare toplanması, bir meclis oluşturma veya toplanması ya da kuruluşun bir bölgesi veya bölgesi için bir bütçe artışı sürecinin başlatılması için imza toplayabilir. İmza toplama süreci boyunca, bu talebe daha fazla kişi katılabilir ve organizasyonda ileriye taşıyabilir.</p>\n"
           title: Girişimler nelerdir?
     initiatives:
       actions:
@@ -153,7 +138,6 @@ tr:
           index:
             approve: onaylamak
             confirm_revoke: Emin misiniz?
-            invite_to_committee_help: Diğer kullanıcıları promosyon komitesine davet etmek için bu bağlantıyı paylaşın
             no_members_yet: Promoter komitesinde üye yok
             revoke: geri almak
             title: Komite üyeleri
@@ -166,7 +150,6 @@ tr:
             confirm: Emin misiniz?
             discard: Girişimi atın
             export_pdf_signatures: İmza PDF'sini dışa aktar
-            export_votes: İhracat destekleri
             reject: Girişimi reddet
             send_to_technical_validation: Teknik doğrulamaya gönder
             success: Girişim teknik doğrulamaya gönderildi
@@ -191,7 +174,6 @@ tr:
             print: baskı
           update:
             error: bir hata oluştu
-            success: Vatandaş girişimi başarıyla güncellendi
         initiatives_type_scopes:
           create:
             error: bir hata oluştu
@@ -257,18 +239,15 @@ tr:
         fill_data:
           back: Geri
           continue: Devam et
-          fill_data_help: "<ul> <li>Girişinizin içeriğini gözden geçirin. Başlığınız anlaşılması kolay mı? Girişimin amacı net mi?</li> <li>İmzanın türünü seçmelisiniz. , Çevrimiçi ya da her ikisinin bir kombinasyonu kişiye ise</li> <li>girişiminin coğrafi kapsamı nedir? Şehir bölge mi?</li> </ul>"
           initiative_type: Girişimi tipi
           more_information: "(Daha fazla bilgi)"
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
           back_to_initiatives: Girişimlere geri dönüş
-          callout_text: Tebrikler! Vatandaş girişimi başarıyla oluşturuldu.
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
         finish_help:
-          access_reminder: Kullanıcı menüsü aracılığıyla girişimlerinize her zaman erişebileceğinizi unutmayın.
           help_for_organizations: Eğer bir dernekseniz, Teşvik Komisyonunu oluşturan tüm kuruluşların yönetim kurulunun tutanaklarını yüklemeniz gerekecektir.
           help_in_person_signatures: İmzaları şahsen ya da çevrimiçi olarak bir araya getirmeyi seçtiyseniz, gerekli bilgileri yüklemeniz gerekecektir.
           help_text: Girişimi doğru şekilde işlemek için kullanıcı menüsünü bulacağınız, gerekli bilgileri yükleyeceğiniz ve işlem için göndereceğiniz yönetim paneline erişmeniz gerektiğini unutmayın.
@@ -294,7 +273,6 @@ tr:
           invite_to_committee_help: Promoter komitesinin bir parçası olacak kişileri davet etmek için bağlantı
         show_similar_initiatives:
           back: Geri
-          compare_help: Aşağıdaki girişimlerden herhangi biri sizinkilerle benzerse, bunu desteklemenizi öneririz. Teklifinizin yapılması için daha fazla olasılık olacaktır.
           continue: Benim girişim farklı
           more_information: "(Daha fazla bilgi)"
       events:
@@ -328,9 +306,7 @@ tr:
           help: Telefonunuza gelen SMS’leri kontrol edin.
       initiative_votes:
         create:
-          error: Girişimi imzalarken hatalar oldu.
           invalid: Girişimi imzalamak için sağlanan veriler geçerli değil
-          success_html: Tebrikler! <strong> %{title}</strong> girişimi doğru imzalandı
         personal_data:
           invalid: Kişisel veriler yetkilendirme için verilen verilerle tutarlı değildir.
         sms_code:
@@ -355,7 +331,6 @@ tr:
           myself: Benim girişimlerim
           open: Açık
           search: Arama
-          state: Belirtmek, bildirmek
           type: tip
           type_prompt: Bir tip seçin
         filters_small_view:
@@ -384,13 +359,8 @@ tr:
             published: Bu teklif yayınlandı çünkü
             rejected: Bu teklif reddedildi, çünkü
             validating: Bu teklif değerlendiriliyor
-          initiative_rejected_reason: Bu girişim destek eksikliğinden dolayı reddedildi.
         show:
-          any_vote_method: Bu vatandaş girişimi, yüz yüze olduğu kadar çevrimiçi destek toplar.
           follow_description: Bu inisiyatifte haber olduğunda bir bildirim alın
-          offline_method: Bu vatandaş girişimi sadece yüz yüze destekleri toplar.
-        signature_identities:
-          select_identity: Kullanıcı tanımlayıcıyı seç
         signatures_count:
           one: " imza"
           other: " imzalar"
@@ -409,16 +379,11 @@ tr:
           most_popular_initiative: En popüler girişim
           need_more_votes: Daha fazla imzaya ihtiyacım var
       initiatives_mailer:
-        creation_subject: Vatandaş girişimi '%{title}' oluşturuldu
         initiative_link:
           check_initiative_details: Girişim ayrıntılarını görebilirsiniz
           here: İşte
         more_information: Girişim oluşturma süreci hakkında daha fazla bilgiye buradan ulaşabilirsiniz.
-        progress_report_body_for: İnisiyatif %{title} ulaşmıştır %{percentage}gerekli desteklerin%.
-        progress_report_for: 'Girişimle ilgili özgeçmiş: %{title}'
         promotal_committee_help: Promoter komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları destekleyici kuruluna davet etmek için aşağıdaki bağlantıyı yönlendirin
-        status_change_body_for: 'Girişim %{title} şu şekilde değiştirdi: %{state}'
-        status_change_for: Girişim %{title} durumu değişti
         technical_validation_body_for: Girişimi %{title} teknik doğrulamayı talep etti.
         technical_validation_for: Girişimi %{title} teknik doğrulamayı talep etti.
       last_activity:
@@ -437,7 +402,6 @@ tr:
     resources:
       initiatives_type:
         actions:
-          vote: Oy
           title: Eylemler
   layouts:
     decidim:
