@@ -79,7 +79,9 @@ module Decidim
       private
 
       # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered
+      # Handle special case when all children weight are nil
       def children_use_weighted_progress?
+        return false if children.pluck(:weight).all? { |weight| weight.nil? }
         children.length == 1 || children.pluck(:weight).none? { |weight| weight == 1.0 }
       end
     end
