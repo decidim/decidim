@@ -51,7 +51,7 @@ es-MX:
             name: Evolución del proyecto
         results:
           create:
-            invalid: Ha habido un problema al crear este resultado
+            invalid: Hubo un problema creando este resultado.
             success: El resultado ha sido creado correctamente
           destroy:
             success: El resultado se ha eliminado correctamente
@@ -70,14 +70,14 @@ es-MX:
             current_selection: Selección actual
             select: Seleccionar
           update:
-            invalid: Ha habido un problema al actualizar este resultado
+            invalid: Hubo un problema al actualizar este resultado.
             success: El resultado ha actualizado correctamente
         shared:
           subnav:
             statuses: Estados
         statuses:
           create:
-            invalid: Ha habido un problema al crear este estado
+            invalid: Hubo un problema creando este estado.
             success: El estado ha sido creado correctamente
           destroy:
             success: El estado se ha eliminado correctamente
@@ -90,11 +90,11 @@ es-MX:
             create: Crear estado
             title: Nuevo estado
           update:
-            invalid: Ha habido un problema al actualizar este estado
+            invalid: Hubo un problema al actualizar este estado.
             success: El estado ha actualizado correctamente
         timeline_entries:
           create:
-            invalid: Ha habido un problema al crear este elemento
+            invalid: Hubo un problema al crear esta entrada.
             success: El elemento ha sido creado correctamente
           destroy:
             success: El elemento se ha eliminado correctamente
@@ -107,7 +107,7 @@ es-MX:
             create: Crear elemento
             title: Nuevo elemento
           update:
-            invalid: Ha habido un problema al actualizar este elemento
+            invalid: Hubo un problema al actualizar esta entrada.
             success: El elemento ha actualizado correctamente
       admin_log:
         result:
