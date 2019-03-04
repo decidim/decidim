@@ -23,7 +23,6 @@ gl:
             name: Publicar
         posts:
           create:
-            invalid: Produciuse un problema ao crear esta publicación
             success: Publicouse a publicación correctamente
           destroy:
             success: Publicouse correctamente a eliminación
@@ -34,9 +33,6 @@ gl:
           new:
             create: Crear
             title: Crear unha publicación
-          update:
-            invalid: Produciuse un erro ao gardar a publicación.
-            success: Publicouse o envío con éxito
       last_activity:
         new_post_at_html: "<span>Nova publicación en %{link}</span>"
       models:
