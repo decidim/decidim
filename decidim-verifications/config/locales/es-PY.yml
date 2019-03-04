@@ -100,7 +100,7 @@ es-PY:
           offline_confirmations:
             create:
               error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
-              success: Usuario verificado correctamente
+              success: El usuario ha sido verificado correctamente
             new:
               cancel: Cancelar
               introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
