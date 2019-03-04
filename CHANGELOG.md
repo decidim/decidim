@@ -17,8 +17,6 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 ```
 
 
-- **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events
-
 - **Bump Ruby version**: As per [\#4927](https://github.com/decidim/decidim/pull/4927) we've bumped the minimum Ruby version to 2.5.x. Check you're running a suitable Ruby version.
 
 **Added**:
