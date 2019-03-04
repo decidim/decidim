@@ -31,7 +31,7 @@ sv:
             name: Projekt
         projects:
           create:
-            invalid: Det här har uppstått ett problem med att skapa detta projekt
+            invalid: Det uppstod ett problem med att skapa detta projekt
             success: Projekt skapades framgångsrikt
           destroy:
             success: Projektet togs framgångsrikt bort
@@ -46,11 +46,11 @@ sv:
             create: Skapa
             title: Nytt projekt
           update:
-            invalid: Det har uppstått ett problem med att uppdatera detta projekt
+            invalid: Det gick inte att uppdatera projektet
             success: Projektet har uppdaterats
         proposals_imports:
           create:
-            invalid: Det har uppstått ett problem med att importera förslagen till projekt
+            invalid: Det gick inte att importera förslagen till projekt
             success: "%{number} förslag importerades till projekt"
           new:
             create: Importera förslag till projekt
@@ -140,10 +140,10 @@ sv:
             votes_enabled: Röstning aktiverad
     orders:
       checkout:
-        error: Ett fel uppstod när din röst behandlades
-        success: Din röst har accepterats
+        error: Det var ett problem att behandla din röst
+        success: Din röst har godkänts
       destroy:
-        error: Ett fel uppstod när du avbröt din röst
+        error: Det var ett problem att avbryta din röst
         success: Din röst har avbrutits
     resource_links:
       included_proposals:
