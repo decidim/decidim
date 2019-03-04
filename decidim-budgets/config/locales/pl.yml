@@ -48,7 +48,7 @@ pl:
             create: Stwórz
             title: Nowy projekt
           update:
-            invalid: Wystąpił problem z aktualizacją tego projektu
+            invalid: Podczas aktualizowania tego projektu wystąpił problem
             success: Zaktualizowano projekt
         proposals_imports:
           create:
@@ -148,11 +148,11 @@ pl:
             votes_enabled: Włączone głosowanie
     orders:
       checkout:
-        error: Podczas przetwarzania Twojego głosu wystąpił błąd
-        success: Twój głos został pomyślnie przyjęty
+        error: Podczas przetwarzania Twojego głosu wystąpił problem
+        success: Twój głos został zaakceptowany
       destroy:
-        error: Podczas anulowania Twojego głosu wystąpił błąd
-        success: Twój głos został pomyślnie zakończony
+        error: Wystąpił problem z anulowaniem Twojego głosu
+        success: Twój głos został pomyślnie anulowany
     resource_links:
       included_proposals:
         project_proposal: 'Propozycje zawarte w tym projekcie:'
