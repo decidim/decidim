@@ -23,7 +23,6 @@ fi:
             name: Artikkeli
         posts:
           create:
-            invalid: Tämän artikkelin luomisessa esiintyi ongelma
             success: Artikkeli luotu onnistuneesti
           destroy:
             success: Artikkeli poistettu onnistuneesti
@@ -34,9 +33,6 @@ fi:
           new:
             create: Luo
             title: Luo artikkeli
-          update:
-            invalid: Artikkelin tallennuksessa tapahtui virheitä.
-            success: Artikkeli tallennettu onnistuneesti
       last_activity:
         new_post_at_html: "<span>Uusi artikkeli osoitteessa %{link}</span>"
       models:
