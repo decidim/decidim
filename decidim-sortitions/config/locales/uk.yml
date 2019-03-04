@@ -69,7 +69,6 @@ uk:
             destroy: Скасувати жеребкування
             title: Скасування жеребкування
           create:
-            error: При спробі створити нове жеребкування сталася помилка.
             success: Жеребкування успішно створено
           destroy:
             error: Неможливо скасувати це жеребкування.
@@ -90,7 +89,6 @@ uk:
           show:
             selected_proposals: Пропозиції, відібрані для жеребкування
           update:
-            error: При спробі оновити жеребкування сталася помилка.
             success: Жеребкування успішно оновлено
       admin_log:
         sortition:
@@ -111,7 +109,6 @@ uk:
           category: Категорія
           category_prompt: Оберіть категорію
           search: Шукати
-          state: Стан
         filters_small_view:
           close_modal: Закрити віконце
           filter: Відібрати
@@ -130,7 +127,6 @@ uk:
             many: вибраних пропозицій
             other: вибраних пропозицій
         show:
-          algorithm: Код алгоритму жеребкування
           any_category: з усіх категорій
           cancelled: Скасоване жеребкування
           candidate_proposal_ids: Порядок та назви жеребкованих пропозицій
@@ -151,10 +147,6 @@ uk:
             many: обраних пропозицій
             other: обраних пропозицій
           view: Переглянути
-        sortition_author:
-          deleted: Видалений учасник
-        sortition_cancel_author:
-          deleted: Видалений учасник
         sortitions_count:
           count:
             one: 1 жеребкування
