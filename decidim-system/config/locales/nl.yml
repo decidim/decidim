@@ -9,6 +9,9 @@ nl:
         save: Opslaan
         title: Acties
       admins:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe admin.
+          success: Admin is succesvol gemaakt
         destroy:
           success: Admin is succesvol verwijderd
         edit:
@@ -19,6 +22,9 @@ nl:
         new:
           create: Creëren
           title: Nieuwe admin
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin succesvol bijgewerkt
       default_pages:
         placeholders:
           content: Voeg relevante inhoud aan het statische pagina van %{page} op het admin dashboard.
@@ -43,15 +49,24 @@ nl:
             name: Naam
           name: Organisatie
       organizations:
+        create:
+          error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
+          success: Organisatie is succesvol gemaakt.
         edit:
           secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
         index:
           title: Organisaties
         new:
+          reference_prefix_hint: Het referentie-voorvoegsel wordt gebruikt ter identificatie van unieke middelen over alle organisaties
           secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
           title: Nieuwe organisatie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol bijgewerkt.
         users_registration_mode:
           disabled: Alleen toegang is mogelijk met externe accounts
+          enabled: Sta gebruikers toe zich te registreren en in te loggen
+          existing: Sta niet toe dat gebruikers zich registreren, maar staan ​​bestaande gebruikers toe om in te loggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.
