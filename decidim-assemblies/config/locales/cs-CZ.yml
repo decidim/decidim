@@ -32,11 +32,11 @@ cs:
         local_area: Oblast organizace
         meta_scope: Rozsah metadat
         parent_id: Sestavení rodičů
-        participatory_processes_ids: Související procesy účasti
+        participatory_processes_ids: Související procesy participace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Soukromý prostor
-        promoted: Propagováno
+        promoted: Zvýrazněno
         published_at: Publikováno v
         purpose_of_action: Účel akce
         scope_id: Rozsah
@@ -86,7 +86,7 @@ cs:
         new_assembly: Nová montáž
       assemblies:
         create:
-          error: Při vytváření nové sestavy došlo k chybě.
+          error: Při vytváření nové sestavy došlo k problému.
           success: Shromáždění bylo úspěšně vytvořeno.
         edit:
           update: Aktualizace
@@ -101,12 +101,12 @@ cs:
           create: Vytvořit
           title: Nová montáž
         update:
-          error: Při aktualizaci této sestavy došlo k chybě.
-          success: Sestavení se úspěšně aktualizovalo.
+          error: Při aktualizaci této sestavy došlo k problému.
+          success: Sestavení bylo úspěšně aktualizováno.
       assemblies_copies:
         create:
-          error: Při kopírování této sestavy došlo k chybě.
-          success: Sestavení úspěšně duplikováno.
+          error: Při sestavování tohoto problému došlo k problému.
+          success: Sestavení bylo úspěšně zdvojeno.
       assembly_copies:
         new:
           copy: kopírovat
@@ -114,8 +114,8 @@ cs:
           title: Duplicitní sestavení
       assembly_members:
         create:
-          error: Při přidávání člena této sestavy došlo k chybě.
-          success: Člen vytvořen úspěšně pro tuto sestavu.
+          error: Při přidávání člena do sestavy došlo k problému.
+          success: Člen byl úspěšně vytvořen pro tuto sestavu.
         destroy:
           success: Člen byl úspěšně smazán pro tuto sestavu.
         edit:
@@ -127,36 +127,36 @@ cs:
           create: Vytvořit
           title: Nový montážní člen.
         update:
-          error: Při aktualizaci člena této sestavy došlo k chybě.
+          error: Při aktualizaci člena této sestavy došlo k problému.
           success: Člen byl úspěšně aktualizován pro tuto sestavu.
       assembly_publications:
         create:
-          error: Při publikování této sestavy došlo k chybě.
-          success: Shromáždění bylo úspěšně zveřejněno.
+          error: Při publikování této sestavy došlo k problému.
+          success: Shromáždění úspěšně publikováno.
         destroy:
-          error: Při odebrání této sestavy došlo k chybě.
-          success: Shromáždění bylo nepublikováno úspěšně.
+          error: Při sestavení této sestavy došlo k problému.
+          success: Shromáždění bylo úspěšně zrušeno.
       assembly_user_roles:
         create:
-          error: Při přidávání uživatele této sestavy došlo k chybě.
-          success: Uživatel byl úspěšně přidán do této sestavy.
+          error: Při sestavení administrátora došlo k problému.
+          success: Správce úspěšně přidán do této sestavy.
         destroy:
-          success: Uživatel byl z této sestavy úspěšně odstraněn.
+          success: Správce byl úspěšně odstraněn z této sestavy.
         edit:
-          title: Aktualizovat uživatele sestavy.
+          title: Aktualizovat správu sestav.
           update: Aktualizace
         index:
-          assembly_admins_title: Uživatelé sestav
+          assembly_admins_title: Správci sestav
         new:
           create: Vytvořit
-          title: Nový uživatel sestavení.
+          title: Nová sestava admin.
         update:
-          error: Došlo k chybě uživatele aktualizované pro tuto sestavu.
-          success: Uživatel úspěšně aktualizován pro tuto sestavu.
+          error: Při aktualizaci správce této sestavy došlo k problému.
+          success: Správce byl úspěšně aktualizován pro tuto sestavu.
       menu:
         assemblies: Sestavy
         assemblies_submenu:
-          assembly_admins: Uživatelé sestav
+          assembly_admins: Správci sestav
           assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
@@ -192,7 +192,7 @@ cs:
             email: E-mailem
             name: název
             role: Role
-          name: Uspořádání uživatele
+          name: Správní shromáždění
           roles:
             admin: Správce
             collaborator: Spolupracovník
@@ -211,7 +211,7 @@ cs:
         update: "%{user_name} aktualizoval %{resource_name} člen v sestavě %{space_name}"
       assembly_user_role:
         create: "%{user_name} pozváno %{resource_name} do sestavy %{space_name}"
-        delete: "%{user_name} odstranil uživatele %{resource_name} ze sestavy %{space_name}"
+        delete: "%{user_name} odstranil účastníka %{resource_name} ze sestavy %{space_name}"
         update: "%{user_name} změnila roli %{resource_name} v sestavě %{space_name}"
     assemblies:
       admin:
@@ -230,11 +230,11 @@ cs:
             slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
-            existing_user: Existující uživatel
-            non_user: Není uživatel
+            existing_user: Stávající účastník
+            non_user: Neúčastník
             select_a_position: Vyberte pozici
-            select_user: Vyberte uživatele
-            user_type: Typ uživatele
+            select_user: Vyberte účastníka
+            user_type: Typ účastníka
           index:
             filter:
               all: Všechno
@@ -320,14 +320,14 @@ cs:
         endorsements_count: Potvrzení
         headline: Aktivita
         meetings_count: Setkání
-        orders_count: Hlasy
+        orders_count: Podporuje
         pages_count: Stránky
         projects_count: Projekty
         proposals_count: Návrhy
         results_count: Výsledek
         surveys_count: Průzkumy
         users_count: Účastníci
-        votes_count: Hlasy
+        votes_count: Podporuje
     assembly_members:
       assembly_member:
         designated_on: Určeno pro
@@ -336,8 +336,8 @@ cs:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
-          page: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          contextual: "<p> <strong>skupina</strong> je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou za rok s cílem definovat hlavní směry organizace a její výkonné orgány hlasováním), Poradní radu pro rovnost (která se každé dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          page: "<p> <strong>skupina</strong> je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou za rok s cílem definovat hlavní směry organizace a její výkonné orgány hlasováním), Poradní radu pro rovnost (která se každé dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           title: Co jsou shromáždění?
     log:
       value_types:
