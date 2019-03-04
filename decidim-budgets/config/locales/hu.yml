@@ -31,7 +31,7 @@ hu:
             name: Projekt
         projects:
           create:
-            invalid: Probléma történt a projekt létrehozása során
+            invalid: Probléma volt a projekt létrehozása során
             success: Projekt létrehozása sikeres
           destroy:
             success: Projekt eltávolítása sikeres
@@ -46,11 +46,11 @@ hu:
             create: Létrehozás
             title: Új projekt
           update:
-            invalid: Probléma történt a projekt frissítése során
+            invalid: Hiba történt a projekt frissítésekor
             success: Projekt frissítése sikeres
         proposals_imports:
           create:
-            invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor
+            invalid: Probléma volt a javaslatok projektekbe történő importálásakor
             success: "%{number} javaslat sikeresen importálva a projektekbe"
           new:
             create: Javaslatok importálása projektekbe
@@ -140,11 +140,11 @@ hu:
             votes_enabled: Szavazás engedélyezve
     orders:
       checkout:
-        error: Hiba történt a szavazatod feldolgozása során
-        success: A szavazatod elfogadása sikeres volt
+        error: Hiba történt a szavazás feldolgozása során
+        success: Az Ön szavazata sikeresen elfogadott
       destroy:
-        error: Hiba történt a szavazatod törlése során
-        success: A szavazatod visszavonása sikeres volt
+        error: Hiba történt a szavazás megszakításakor
+        success: A szavazás sikeresen megszűnt
     resource_links:
       included_proposals:
         project_proposal: 'A projekthez kapcsolódó javaslatok:'
