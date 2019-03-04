@@ -7,7 +7,6 @@ ru:
       id_document_upload:
         document_number: Номер документа (с буквой)
         document_type: Вид вашего документа
-        user: Участник
         verification_attachment: Скан вашего документа
       postal_letter_address:
         full_address: Полный адрес
@@ -30,10 +29,10 @@ ru:
             - Если вы не можете ясно увидеть данные, или вы не можете их сверить, вы можете отклонить запрос, и участник сможет его подправить.
         postal_letter:
           help:
-            - Участники запрашивают проверочный код для отправки по их адресу.
+            - Participants request a verification code to be sent to their address.
             - Вы отправляете им почтой письмо с проверочным кодом.
             - Вы помечаете письмо как отправленное.
-            - Когда вы пометите письмо как отправленное, участник сможет ввести код и пройти проверку.
+            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       direct: Прямой
       help: Помощь
       id_documents:
@@ -47,7 +46,6 @@ ru:
     verifications:
       authorizations:
         create:
-          error: При попытке создать это подтверждение личности произошла ошибка.
           success: Вы успешно подтвердили свою личность.
         first_login:
           actions:
@@ -63,18 +61,9 @@ ru:
           authorize_with: Подтвердить личность с помощью %{authorizer}
         skip_verification: Вы можете пока что пропустить это и %{link}
         start_exploring: начать изучать
-      dummy_authorization:
-        extra_explanation:
-          one: Участие ограничено участниками с почтовым кодом %{postal_codes}.
-          few: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
-          many: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
-          other: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
       id_documents:
         admin:
           confirmations:
-            create:
-              error: Подтверждение не сходится. Повторите попытку или отклоните проверку, чтобы участник мог ее исправить
-              success: Литчность участника успешно подтверждена
             new:
               introduce_user_data: Введите данные на картинке
               reject: Отклонить
@@ -83,13 +72,9 @@ ru:
             index:
               title: Подтверждения, ожидающие рассмотрения
               verification_number: 'Подтверждение #%{n}'
-          rejections:
-            create:
-              success: Подтверждение личности отклонено. Участнику будет предложено внести изменения в документы
         authorizations:
           create:
             error: Не удалось загрузить ваш документ
-            success: Документ успешно загружен
           edit:
             being_reviewed: Мы рассматриваем ваши документы. Ваша личность вскоре будет проверена
             rejection_clarity: Убедитесь, что в загруженном изображении ясно видны данные
@@ -101,7 +86,6 @@ ru:
             title: Загрузить документ, удостоверяющий личность
           update:
             error: Не удалось заново загрузить ваш документ
-            success: Документ успешно заново загружен
         dni: ИНН
         nie: СНИЛС
         passport: Паспорт
@@ -114,7 +98,6 @@ ru:
               mark_as_sent: Пометить как отправленное
               not_yet_sent: Еще не отправлено
               title: Текущие проверки личности
-              username: Имя участника
               verification_code: Проверочный код
           postages:
             create:
