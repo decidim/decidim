@@ -44,6 +44,9 @@ ru:
         email: Эл. адрес
         name: Имя
         role: Роль
+    models:
+      decidim/participatory_process_step_activated_event: Шаг приведен в действие
+      decidim/participatory_process_step_changed_event: Шаг изменен
   activerecord:
     models:
       decidim/participatory_process:
@@ -56,6 +59,11 @@ ru:
         few: Группы движений соучастия
         many: Групп движений соучастия
         other: Групп движений соучастия
+      decidim/participatory_process_step:
+        one: Шаг
+        few: Шага
+        many: Шагов
+        other: Шагов
   decidim:
     admin:
       actions:
@@ -67,6 +75,8 @@ ru:
         edit: Редактировать
         new_process: Добавить новое движение
         new_process_group: Создать группу движений
+        new_process_step: Новый шаг
+        new_process_user_role: Добавить участника движения
         preview: Предпросмотр
         publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение
@@ -82,6 +92,9 @@ ru:
           components: Составляющие
           info: Сведения
           moderations: Действия по модерации
+          private_users: Частные участники
+          process_admins: Участники движения
+          steps: Шаги
       models:
         participatory_process:
           fields:
@@ -100,11 +113,13 @@ ru:
             end_date: Дата окончания
             start_date: Дата начала
             title: Название
+          name: Шаг движения соучастия
         participatory_process_user_role:
           fields:
             email: Эл. адрес
             name: Имя
             role: Роль
+          name: Участник движения соучастия
           roles:
             admin: Администратор
             collaborator: Сотрудник
@@ -119,24 +134,72 @@ ru:
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию движения соучастия
       participatory_process_groups:
+        destroy:
+          success: Группа движений соучастия успешно удалена.
         edit:
           title: Редактировать группу движений
           update: Обновить
         new:
           create: Создать
           title: Создать группу движений
+        update:
+          error: При попытке обновить эту группу движений соучастия произошла ошибка.
+          success: Группа движения соучастия успешно обновлена.
+      participatory_process_publications:
+        create:
+          error: При обнародовании нового движения соучастия произошла ошибка.
+          success: Движение соучастия успешно обнародовано.
+        destroy:
+          error: При отмене обнародования этого движения соучастия произошла ошибка.
+          success: Обнародование движения соучастия успешно отменено.
+      participatory_process_step_activations:
+        create:
+          error: При попытке начать новый шаг движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно начат.
       participatory_process_steps:
+        create:
+          error: При попытке создать новый шаг движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно создан.
         default_title: Введение
+        destroy:
+          error:
+            active_step: Нельзя удалять действующий шаг.
+            last_step: Нельзя удалять последний шаг движения.
+          success: Шаг движения соучастия успешно удален.
         edit:
+          title: Редактировать шаг движения соучастия
           update: Обновить
+        index:
+          steps_title: Шаги
         new:
           create: Создать
+          title: Добавить шаг движения соучастия
+        ordering:
+          error: При перестановке шагов этого движения соучастия произошла ошибка.
+        update:
+          error: При попытке обновить этот шаг движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
+        create:
+          error: При попытке добавить участника в это движение соучастия произошла ошибка.
+          success: В это движение соучастия успешно добавлен участник.
+        destroy:
+          success: Успешно удален участник этого движения соучастия.
         edit:
+          title: Обновить участника движения соучастия.
           update: Обновить
+        index:
+          process_admins_title: Участники движения соучастия
         new:
           create: Создать
+          title: Добавить участника движения соучастия.
+        update:
+          error: При попытке обновить участника этого движения соучастия произошла ошибка.
+          success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
+        create:
+          error: При попытке создать новое движение соучастия произошла ошибка.
+          success: Движение соучастия было успешно создано. Теперь настройте его шаги.
         edit:
           update: Обновить
         form:
@@ -149,28 +212,65 @@ ru:
         new:
           create: Создать
           title: Добавить движение соучастия
+        update:
+          error: При попытке обновить это движение соучастия произошла ошибка.
+          success: Движение соучастия успешно обновлено.
+      participatory_processes_copies:
+        create:
+          error: При попытке создать копию этого движения соучастия произошла ошибка.
+          success: Движение соучастия успешно продублировано.
+      participatory_processes_group:
+        create:
+          error: При попытке создать новую группу движений соучастия произошла ошибка.
+          success: Группа движения соучастия успешно создана.
       titles:
         participatory_process_groups: Группы движений соучастия
         participatory_processes: Движения соучастия
+      users:
+        resend_invitation:
+          error: При повторной отправке приглашения произошла ошибка.
+          success: Приглашение успешно повторно отправлено.
     admin_log:
       participatory_process:
         create: "%{user_name} создал движение соучастия %{resource_name}"
         publish: "%{user_name} обнародовал движение соучастия %{resource_name}"
         unpublish: "%{user_name} отменил обнародование движения соучастия %{resource_name}"
         update: "%{user_name} обновил движение соучастия %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} привел в действие шаг %{resource_name} движения соучастия %{space_name}"
+        create: "%{user_name} создал шаг %{resource_name} движения соучастия %{space_name}"
+        delete: "%{user_name} удалил шаг %{resource_name} движения соучастия %{space_name}"
+        update: "%{user_name} обновил шаг %{resource_name} движения соучастия %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} пригласил участника %{resource_name} в движение соучастия %{space_name}"
+        delete: "%{user_name} удалил участника %{resource_name} из движения соучастия %{space_name}"
+        update: "%{user_name} изменил роль участника %{resource_name} в движении соучастия %{space_name}"
     events:
       participatory_process:
         step_activated:
+          email_intro: 'Теперь в %{participatory_space_title} приведен в действие шаг %{resource_title}. Вы можете посмотреть его на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{participatory_space_title}
+          notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведен в действие шаг %{resource_title}
         step_changed:
+          email_intro: 'Обновлены даты шага %{resource_title} в %{participatory_space_title}. Вы можете посмотреть их на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{participatory_space_title}
+          notification_title: Обновлены даты шага <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Движения
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 движение у %{group}
+          few: "%{count} движения у %{group}"
+          many: "%{count} движений у %{group}"
+          other: "%{count} движений у %{group}"
         title: Группы движений соучастия
+    participatory_process_steps:
+      index:
+        process_steps: Шаги движения
+        title: Шаги движения соучастия
     participatory_processes:
       admin:
         participatory_process_copies:
@@ -189,6 +289,7 @@ ru:
         home:
           highlighted_processes:
             active_processes: Действующие движения
+            active_step: Действующий шаг
             more_information: Дополнительные сведения
             participate: Принять участие
             see_all_processes: Просмотреть все движения
@@ -247,6 +348,7 @@ ru:
         endorsements_count: Выражений поддержки
         headline: Деятельность
         meetings_count: Встреч
+        orders_count: Голосов
         pages_count: Страниц
         processes_count: Движений
         projects_count: Проектов
@@ -254,6 +356,7 @@ ru:
         results_count: Итогов
         surveys_count: Опросов
         users_count: Участников
+        votes_count: Голосов
   layouts:
     decidim:
       participatory_process_groups:
@@ -262,14 +365,20 @@ ru:
           processes_count: 'Движений:'
       participatory_process_widgets:
         show:
+          active_step: Действующий шаг
           take_part: Принять участие
       participatory_processes:
         index:
           promoted_processes: Рекомендуемые движения
         participatory_process:
+          active_step: 'Текущий шаг:'
           take_part: Принять участие
         promoted_process:
+          active_step: 'Текущий шаг:'
           more_info: Дополнительные сведения
           take_part: Принять участие
+      process_header_steps:
+        step: Шаг %{current} из %{total}
+        view_steps: Просмотреть шаги
       process_navigation:
         process_menu_item: Движение
