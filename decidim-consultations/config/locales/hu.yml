@@ -58,23 +58,8 @@ hu:
         new_response: Új válasz
         publish_results: Eredmények közzététele
         unpublish_results: Eredmények visszavonása
-      consultation_publications:
-        create:
-          error: Hiba történt a konzultáció közzététele során.
-          success: Konzultáció sikeresen közzétéve.
-        destroy:
-          error: Hiba történt a konzultáció közzétételének visszavonásakor.
-          success: Konzultáció közzététele sikeresen visszavonva.
-      consultation_results_publications:
-        create:
-          error: Hiba történt a konzultáció eredményeinek közzététele során.
-          success: Konzultáció eredményei sikeresen közzétéve.
-        destroy:
-          error: Hiba történt a konzultáció eredményeinek közzététele során.
-          success: Konzultáció eredményeinek közzététele visszavonva.
       consultations:
         create:
-          error: Hiba történt az új konzultáció létrehozása során.
           success: Konzultáció létrehozása sikeres.
         edit:
           update: Frissítés
@@ -88,7 +73,6 @@ hu:
           create: Létrehozás
           title: Új konzultáció
         update:
-          error: Hiba történt a konzultáció frissítése során.
           success: A konzultáció frissítése sikeres.
       menu:
         consultations: Konzultációk
@@ -124,16 +108,8 @@ hu:
           name:
             one: Válasz
             other: Válaszok
-      question_publications:
-        create:
-          error: Hiba történt a kérdés közzététele során.
-          success: Kérdés sikeresen közzétéve.
-        destroy:
-          error: Hiba történt a kérdés közzétételének visszavonásakor.
-          success: Kérdés közzététele visszavonva.
       questions:
         create:
-          error: Hiba történt az új kérdés létrehozása során.
           success: Kérdés létrehozása sikeres.
         destroy:
           success: Kérdés törlése sikeres.
@@ -147,15 +123,10 @@ hu:
         new:
           create: Létrehozás
           title: Új kérdés
-        update:
-          error: Hiba történt a kérdés frissítése során.
-          success: Kérdés frissítése sikeres.
       responses:
         create:
-          error: Hiba történt az új válasz létrehozása során.
           success: Válasz létrehozása sikeres.
         destroy:
-          error: Hiba történt a válasz eltávolítása során.
           success: Válasz törlése sikeres.
         edit:
           update: Frissítés
@@ -164,9 +135,6 @@ hu:
         new:
           create: Létrehozás
           title: Új válasz
-        update:
-          error: Hiba történt a válasz frissítése során.
-          success: Válasz frissítése sikeres.
       titles:
         consultations: Konzultációk
         questions: Kérdések
@@ -198,7 +166,6 @@ hu:
         all: Összes
         finished: Befejezett
         search: Keresés
-        state: Állapot
         upcoming: Közelgő
       filters_small_view:
         close_modal: Ablak bezárása
@@ -227,9 +194,6 @@ hu:
         votes_out_of:
           one: 'szavazat ennyiből:'
           other: szavazatok
-      question_votes:
-        create:
-          error: Hiba történt a kérdésre való szavazás során
       regular_questions:
         title: Konzultációra vonatkozó kérdések
       show:
@@ -247,8 +211,6 @@ hu:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>A konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generáljanak egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, igennel vagy nemmel döntve arról, hogy a szervezet egy megállapodást írjon alá, nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása kérdésében, vagy munkacsoport eredményét, vagy adott esetben meghatározni, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
-          page: "<p>konzultációk olyan teret jelentenek, amely lehetővé teszi, hogy egyértelmű kérdéseket tegyenek fel a szervezetet alkotó embereknek, hívjanak fel a konzultációban való részvételre, szikrázzanak és megrendeljék a vitát egy válasz ellen vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteszi a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte minden olyan aspektusra vonatkozhatnak, amely a szervezetet érinti: néhány példa megváltoztatja a több alternatívát kínáló szervezet nevét vagy logóját, úgy dönt, hogy igen vagy nem, hogy egy nagyobb szervezet részévé váljon, új stratégiai jóváhagyást vagy elutasítást kapjon vagy egy munkacsoport eredménye, vagy meghatározza, hogy a pozíciók maximálisan 1, 2 vagy 3 mandátumot kell-e maradniuk a szervezetben.</p>\n"
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
@@ -265,22 +227,18 @@ hu:
         assistants_count_title: Segítség
         comments_count_title: Hozzászólások
         meetings_count_title: Találkozók
-        supports_count_title: Támogatások
       technical_info:
         technical_data: Technikai részletek
       vote_button:
         already_voted: Már szavaztál
-        already_voted_hover: Támogatás visszavonása
         starting_from: '%{date} óta'
         vote: Szavazás
       vote_modal:
         contextual_help: Válassz az opciók közül.
-        title: 'Konzultáció: kérdés-támogatás'
       vote_modal_confirm:
         change: Módosítás
         confirm: Megerősítés
         contextual_help: Erősítsd meg a kiválasztott opciót.
-        title: 'Konzultáció: erősítsd meg a támogatást'
   layouts:
     decidim:
       admin:
