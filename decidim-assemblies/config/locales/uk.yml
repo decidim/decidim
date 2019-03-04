@@ -31,11 +31,9 @@ uk:
         is_transparent: Є прозорими
         local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
-        participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Приватний простір
-        promoted: Висвітлено
         published_at: 'Оприлюднено:'
         purpose_of_action: Мета дії
         scope_id: Обсяг
@@ -85,7 +83,6 @@ uk:
         new_assembly: Додати збори
       assemblies:
         create:
-          error: При спробі додати нові збори сталася помилка.
           success: Збори успішно додано.
         edit:
           update: Оновити
@@ -99,24 +96,12 @@ uk:
         new:
           create: Додати
           title: Додати збори
-        update:
-          error: При спробі оновити ці збори сталася помилка.
-          success: Збори успішно оновлено.
-      assemblies_copies:
-        create:
-          error: При спробі створити копію цих зборів сталася помилка.
-          success: Успішно створено копію зборів.
       assembly_copies:
         new:
           copy: Скопіювати
           select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зборів
       assembly_members:
-        create:
-          error: При спробі додати члена президії цих зборів сталася помилка.
-          success: Успішно додано члена президії цих зборів.
-        destroy:
-          success: Успішно видалено члена президії цих зборів.
         edit:
           title: Оновити члена президії зборів.
           update: Оновити
@@ -125,37 +110,14 @@ uk:
         new:
           create: Додати
           title: Додати члена президії зборів.
-        update:
-          error: При спробі оновити члена президії цих зборів сталася помилка.
-          success: Члена президії цих зборів успішно оновлено.
-      assembly_publications:
-        create:
-          error: Під час оприлюднення цих зборів сталася помилка.
-          success: Збори успішно оприлюднено.
-        destroy:
-          error: При скасуванні оприлюднення цих зборів сталася помилка.
-          success: Оприлюднення зборів успішно скасовано.
       assembly_user_roles:
-        create:
-          error: При спробі додати учасника цих зборів сталася помилка.
-          success: Учасника цих зборів успішно додано.
-        destroy:
-          success: Учасника цих зборів успішно видалено.
         edit:
-          title: Оновити учасника зборів.
           update: Оновити
-        index:
-          assembly_admins_title: Учасники зборів
         new:
           create: Створити
-          title: Додати учасника зборів.
-        update:
-          error: При спробі оновити учасника цих зборів сталася помилка.
-          success: Учасника цих зборів успішно оновлено.
       menu:
         assemblies: Збори
         assemblies_submenu:
-          assembly_admins: Учасники зборів
           assembly_members: Члени президії
           attachment_collections: Теки
           attachment_files: Вкладені файли
@@ -191,7 +153,6 @@ uk:
             email: Адреса електронної пошти
             name: Ім'я
             role: Роль
-          name: Учасник зборів
           roles:
             admin: Адміністратор
             collaborator: Співробітник
@@ -210,7 +171,6 @@ uk:
         update: "%{user_name} оновив члена президії %{resource_name} зборів %{space_name}"
       assembly_user_role:
         create: "%{user_name} запросив %{resource_name} до зборів %{space_name}"
-        delete: "%{user_name} видалив учасника %{resource_name} зі зборів %{space_name}"
         update: "%{user_name} змінив роль %{resource_name} у зборах %{space_name}"
     assemblies:
       admin:
@@ -228,11 +188,7 @@ uk:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         assembly_members:
           form:
-            existing_user: Чинний учасник
-            non_user: Не учасник
             select_a_position: Оберіть посаду
-            select_user: Оберіть учасника
-            user_type: Різновид учасника
           index:
             filter:
               all: Усі
@@ -303,14 +259,12 @@ uk:
         endorsements_count: Проявів підтримки
         headline: Діяльність
         meetings_count: Зустрічей
-        orders_count: Голосів
         pages_count: Сторінок
         projects_count: Проектів
         proposals_count: Пропозицій
         results_count: Підсумків
         surveys_count: Опитувань
         users_count: Учасників
-        votes_count: Голосів
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'
