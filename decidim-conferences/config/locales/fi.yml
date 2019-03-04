@@ -12,8 +12,6 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        participatory_processes_ids: Liittyvät osallisuusprosessit
-        promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
         scopes_enabled: Teemat käytössä
@@ -56,23 +54,7 @@ fi:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi konferenssi
-      conference_publications:
-        create:
-          error: Konferenssin julkaisemisesta tapahtui virhe.
-          success: Konferenssi julkaistu onnistuneesti.
-        destroy:
-          error: Tämän konferenssin julkaisun perumisessa tapahtui virhe.
-          success: Konferenssin julkaisu peruutettu onnistuneesti.
-      conference_registration:
-        confirm:
-          error: Tapahtui virhe vahvistettaessa tämän konferenssin ilmoittautumista.
-          success: Konferenssi-ilmoittautumisen vahvistaminen onnistui.
       conference_speakers:
-        create:
-          error: Puhujan lisääminen tähän konferenssiin ei onnistunut.
-          success: Puhuja lisättiin onnistuneesti konferenssiin.
-        destroy:
-          success: Puhuja poistettiin onnistuneesti konferenssista.
         edit:
           title: Päivitä konferenssin puhuja.
           update: Päivitä
@@ -81,30 +63,12 @@ fi:
         new:
           create: Luo
           title: Uusi konferenssin puhuja.
-        update:
-          error: Konferenssin puhujan päivittämisessä tapahtui virhe.
-          success: Konferenssin puhuja päivitettiin onnistuneesti.
       conference_user_roles:
-        create:
-          error: Käyttäjän lisääminen tähän konferenssiin ei onnistunut.
-          success: Käyttäjä lisätty onnistuneesti konferenssiin.
-        destroy:
-          success: Käyttäjä poistettiin onnistuneesti konferenssista.
         edit:
-          title: Päivitä konferenssin käyttäjä.
           update: Päivitä
-        index:
-          conference_admins_title: konferenssin käyttäjät
         new:
           create: Luo
-          title: Uusi konferenssin käyttäjä.
-        update:
-          error: Konferenssin käyttäjän päivittämisessä tapahtui virhe.
-          success: Konferenssin käyttäjä päivitettiin onnistuneesti.
       conferences:
-        create:
-          error: Uuden konferenssin luomisessa tapahtui virhe.
-          success: Konferenssi luotu onnistuneesti.
         edit:
           update: Päivitä
         exports:
@@ -117,19 +81,7 @@ fi:
         new:
           create: Luo
           title: Konferenssi
-        update:
-          error: Konferenssin päivittämisessä tapahtui virhe.
-          success: Konferenssi päivitetty onnistuneesti.
-      conferences_copies:
-        create:
-          error: Virhe kopioitaessa konferenssia.
-          success: Konferenssi kopioitu onnistuneesti.
       media_links:
-        create:
-          error: Luotaessa uutta medialinkkiä tapahtui virhe.
-          success: Medialinkki luotu onnistuneesti.
-        destroy:
-          success: Medialinkki poistettiin onnistuneesti.
         edit:
           title: Päivitä medialinkki.
           update: Päivitä
@@ -138,9 +90,6 @@ fi:
         new:
           create: Luo
           title: Medialinkki
-        update:
-          error: Medialinkin päivittämisessä esiintyi virhe.
-          success: Medialinkki päivitettiin onnistuneesti.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -149,7 +98,7 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin käyttäjät
+          conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
@@ -164,7 +113,6 @@ fi:
         conference:
           fields:
             created_at: Luonnin ajankohta
-            promoted: Korostettu
             published: Julkaistu
             title: Otsikko
         conference_speaker:
@@ -178,7 +126,6 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Konferenssin käyttäjä
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Työryhmän jäsen
@@ -208,42 +155,19 @@ fi:
             weight: Painoarvo
           name: Ilmoittautumistyypit
       partners:
-        create:
-          error: Tapahtui virhe lisätessä yhteistyökumppania tähän konferenssiin.
-          success: Yhteistyökumppani lisätty onnistuneesti tähän konferenssiin.
-        destroy:
-          success: Yhteistyökumppani poistettu onnistuneesti tästä konferenssista.
         edit:
           title: Päivitä yhteistyökumppani.
           update: Päivitä
         new:
           create: Luo
           title: Uusi yhteistyökumppani
-        update:
-          error: Tapahtui virhe päivitettäessä tämän konferenssin yhteistyökumppania.
-          success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
-      registration_type_publications:
-        create:
-          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
-          success: Ilmoittautumistyyppi julkaistiin onnistuneesti.
-        destroy:
-          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
-          success: Ilmoittamistyypin julkaisu lopetettiin onnistuneesti.
       registration_types:
-        create:
-          error: Tapahtui virhe lisätessä ilmoittautumistyyppiä tälle konferenssille.
-          success: Ilmoittautumistyyppi lisättiin onnistuneesti tähän konferenssiin.
-        destroy:
-          success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
         edit:
           title: Päivitä ilmoittautumistyyppi.
           update: Päivitä
         new:
           create: Luo
           title: Uusi ilmoittautumistyyppi
-        update:
-          error: Tapahtui virhe päivitettäessä tämän konferenssin ilmoittautumistyyppiä.
-          success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
     admin_log:
@@ -260,14 +184,12 @@ fi:
         update: "%{user_name} päivitti puhujan %{resource_name} konferenssissa %{space_name}"
       conference_user_role:
         create: "%{user_name} kutsui %{resource_name} konferenssiin %{space_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
         update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
       conferences:
         conference_registration:
           confirm: "%{user_name} vahvisti konferenssin %{resource_name} ilmoittautumisen"
         partner:
           create: "%{user_name} loi %{resource_name} konferenssiin %{space_name}"
-          delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
           update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
@@ -290,15 +212,8 @@ fi:
           form:
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
-          create:
-            error: Käyttäjän kutsumisessa konferenssiin esiintyi ongelma.
-            success: Käyttäjä kutsuttu onnistuneesti konferenssiin.
           form:
             attendee_type: Osallistujatyyppi
-            existing_user: Olemassa oleva käyttäjä
-            invite_explanation: Käyttäjää kutsutaan mukaan konferenssiin ja organisaatioon.
-            non_user: Käyttäjää ei ole olemassa
-            select_user: Valitse käyttäjä
           index:
             filter:
               accepted: Hyväksytyt
@@ -306,22 +221,14 @@ fi:
               rejected: Hylätyt
               sent: Lähetetyt
             filter_by: Suodata
-            invite_attendee: Kutsu osallistuja
             invites: Kutsut
             search: Hae
           new:
-            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
-            new_invite: Kutsu käyttäjä
         conference_registrations:
           index:
             registrations: Ilmoittautumiset
         conference_speakers:
-          form:
-            existing_user: Olemassa oleva käyttäjä
-            non_user: Ei käyttäjä
-            select_user: Valitse käyttäjä
-            user_type: Käyttäjätyyppi
           index:
             search: Hae
         conferences:
@@ -355,16 +262,12 @@ fi:
             attendance_verified_by: Osallistuminen vahvistettu
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
-        send_diploma:
-          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
-          success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
         show:
           free: Maksuton
-          going: Osallistumassa
           no_slots_available: Ei paikkoja vapaana
           registration: Ilmoittautuminen
       conference_program:
@@ -384,17 +287,6 @@ fi:
         pending_validation:
           confirmation_pending: Saat vahvistuksen pian
           details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tapahtumiin:'
-          pending_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> odottaa vahvistusta.
-      conference_registrations:
-        create:
-          invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
-          success: Olet ilmoittautunut konferenssiin onnistuneesti.
-        decline_invitation:
-          invalid: Kutsun hyläämisessä esiintyi ongelma.
-          success: Olet hylännyt kutsun onnistuneesti.
-        destroy:
-          invalid: Konferenssista poistumisessa on tapahtunut virhe.
-          success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
         go_to_twitter: Siirry Twitteriin
         more_info: lisätietoja
@@ -426,8 +318,6 @@ fi:
         conference_registration_mailer:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
-          pending_validation:
-            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
@@ -451,7 +341,6 @@ fi:
             email: Sähköposti
             name: Nimi
             registration_type: Ilmoittautumistyyppi
-            state: Tila
             states:
               confirmed: Vahvistettu
               pending: Odottaa
@@ -463,10 +352,6 @@ fi:
       photo:
         show:
           close_modal: Sulje ikkuna
-          photo: Kuva
-      photos_list:
-        show:
-          related_photos: Kuvat
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
@@ -483,9 +368,7 @@ fi:
         details: Tarkemmat tiedot
         introduction: Esittely
         objectives: Tavoitteet
-        related_assemblies: Liittyvät ryhmät
         related_consultations: Liittyvät kuulemiset
-        related_participatory_processes: Liittyvät osallisuusprosessit
       statistics:
         answers_count: Vastausta
         comments_count: Kommenttia
@@ -494,7 +377,6 @@ fi:
         endorsements_count: Suositusta
         headline: Toiminta
         meetings_count: Tapaamista
-        orders_count: Ääntä
         pages_count: Sivua
         posts_count: Viestiä
         projects_count: Suunnitelmaa
@@ -502,7 +384,6 @@ fi:
         results_count: Tulosta
         surveys_count: Kyselyä
         users_count: Osallistujaa
-        votes_count: Ääntä
     events:
       conferences:
         conference_registration_validation_pending:
@@ -553,8 +434,6 @@ fi:
       conferences:
         conference:
           take_part: Osallistu
-        index:
-          promoted_conferences: Korostetut konferenssit
         order_by_conferences:
           conferences:
             one: "%{count} konferenssi"
