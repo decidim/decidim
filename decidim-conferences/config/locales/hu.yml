@@ -12,8 +12,6 @@ hu:
         description: Leírás
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
-        participatory_processes_ids: Kapcsolódó részvételi folyamatok
-        promoted: promotált
         published_at: Megjelent a
         scope_id: terület
         scopes_enabled: A hatókör engedélyezett
@@ -56,23 +54,7 @@ hu:
           copy: Másolat
           select: Válassza ki, mely adatokat szeretné megismételni
           title: Duplikált konferencia
-      conference_publications:
-        create:
-          error: Hiba történt a konferencia közzétételében.
-          success: A konferencia sikeresen jelent meg.
-        destroy:
-          error: Hiba történt a konferencia közzétételének közzétételénél.
-          success: A konferencia sikeresen közzétett.
-      conference_registration:
-        confirm:
-          error: Hiba történt a konferencia regisztráció megerősítése során.
-          success: A konferencia regisztráció sikeresen megtörtént.
       conference_speakers:
-        create:
-          error: Hiba történt a konferencia hangszórójának hozzáadásával.
-          success: A konferencia sikeresen létrehozta a hangszórót.
-        destroy:
-          success: A hangszóró sikeresen törölve lett a konferencia számára.
         edit:
           title: A konferencia hangszóró frissítése.
           update: frissítés
@@ -81,30 +63,12 @@ hu:
         new:
           create: Teremt
           title: Új konferencia hangszóró.
-        update:
-          error: Hiba történt a konferencia hangszórójának frissítéséhez.
-          success: A hangszóró sikeresen frissült a konferencia számára.
       conference_user_roles:
-        create:
-          error: Hiba történt egy felhasználó hozzáadásával a konferencia számára.
-          success: A felhasználó sikeresen csatlakozott ehhez a konferenciához.
-        destroy:
-          success: A felhasználó sikeresen eltávolította ezt a konferenciát.
         edit:
-          title: A konferencia felhasználó frissítése.
           update: frissítés
-        index:
-          conference_admins_title: konferencia felhasználók számára
         new:
           create: Teremt
-          title: Új konferencia felhasználó.
-        update:
-          error: Hiba történt a konferencia felhasználójának frissítéséhez.
-          success: A felhasználó sikeresen frissítette ezt a konferenciát.
       conferences:
-        create:
-          error: Hiba történt egy új konferencia létrehozásakor.
-          success: A konferencia sikeresen létrejött.
         edit:
           update: frissítés
         exports:
@@ -117,19 +81,7 @@ hu:
         new:
           create: Teremt
           title: konferencia
-        update:
-          error: Hiba történt a konferencia frissítésekor.
-          success: A konferencia sikeresen frissült.
-      conferences_copies:
-        create:
-          error: Hiba történt a konferencia másolása során.
-          success: A konferencia sikeresen megismétlődött.
       media_links:
-        create:
-          error: Hiba történt új média link létrehozása közben.
-          success: A Media Link sikeresen létrejött.
-        destroy:
-          success: A Media Link sikeresen törölve.
         edit:
           title: A média link frissítése.
           update: frissítés
@@ -138,9 +90,6 @@ hu:
         new:
           create: Létrehozás
           title: Media Link
-        update:
-          error: Hiba történt a média link frissítésekor.
-          success: A Media Link sikeresen frissült.
       menu:
         conferences: Konferenciák
         conferences_submenu:
@@ -149,7 +98,7 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Alkatrészek
-          conference_admins: Konferencia felhasználók
+          conference_admins: Konferencia adminisztrátorok
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
@@ -164,7 +113,6 @@ hu:
         conference:
           fields:
             created_at: 'Létrehozva:'
-            promoted: promotált
             published: Közzétett
             title: Cím
         conference_speaker:
@@ -178,7 +126,6 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Konferencia felhasználó
           roles:
             admin: Adminisztrátor
             collaborator: Együttműködő
@@ -208,42 +155,19 @@ hu:
             weight: Súly
           name: Regisztrációs típus
       partners:
-        create:
-          error: Hiba történt a konferencia partnerének hozzáadása során.
-          success: Partner sikeresen hozzáadva ehhez a konferenciához.
-        destroy:
-          success: A partner sikeresen eltávolítva a konferenciáról.
         edit:
           title: Partner frissítése.
           update: Frissítés
         new:
           create: Létrehozás
           title: Új partner
-        update:
-          error: Hiba történt a konferencia partnerének frissítése során.
-          success: Partner sikeresen frissítve.
-      registration_type_publications:
-        create:
-          error: Hiba történt a regisztrációs típus közzétételében.
-          success: A regisztrációs típus sikeresen közzétéve.
-        destroy:
-          error: Hiba történt a regisztrációs típus közzétételének visszavonása során.
-          success: A regisztrációs típus közzététele sikeresen visszavonva.
       registration_types:
-        create:
-          error: Hiba történt a konferencia regisztráció-típusának hozzáadása során.
-          success: A regisztrációs típus sikeresen hozzáadva a konferenciához.
-        destroy:
-          success: A regisztrációs típus sikeresen el lett távolítva ebből a konferenciából.
         edit:
           title: A regisztrációs típus frissítése.
           update: Frissítés
         new:
           create: Létrehozás
           title: Új regisztrációs típus
-        update:
-          error: Hiba történt a konferencia regisztrációs típusának frissítése során.
-          success: A regisztrációs típus sikeresen frissült a konferencia számára.
       titles:
         conferences: Konferenciák
     admin_log:
@@ -260,14 +184,12 @@ hu:
         update: "%{user_name} frissítette az %{resource_name} hangszórót a %{space_name} konferencián"
       conference_user_role:
         create: "%{user_name} meghívott %{resource_name} a %{space_name} konferenciára"
-        delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
         update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
       conferences:
         conference_registration:
           confirm: "%{user_name} megerősítette konferencia regisztrációját a %{resource_name} konferencián"
         partner:
           create: "%{user_name} létrehozta a %{resource_name}-t a %{space_name} konferenciában"
-          delete: "%{user_name} eltávolította a %{resource_name} felhasználót a %{space_name} konferenciából"
           update: "%{user_name} frissítette a %{resource_name}-t a %{space_name} konferencián"
         registration_type:
           create: "%{user_name} létrehozta az %{resource_name} regisztrációs típust a %{space_name} konferencián"
@@ -290,15 +212,8 @@ hu:
           form:
             slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         conference_invites:
-          create:
-            error: Probléma merült fel a felhasználó csatlakozásakor.
-            success: A felhasználó sikeresen felkereste a konferenciát.
           form:
             attendee_type: A résztvevő típusa
-            existing_user: Létező felhasználó
-            invite_explanation: A felhasználót meghívják a konferenciára és a szervezetre is.
-            non_user: Nem létező felhasználó
-            select_user: Felhasználó kiválasztása
           index:
             filter:
               accepted: Elfogadott
@@ -306,22 +221,14 @@ hu:
               rejected: Elutasítva
               sent: Küldött
             filter_by: Szűrés vlami alapján
-            invite_attendee: Hívja meg a résztvevőt
             invites: Meghívottak
             search: Keresés
           new:
-            explanation: A felhasználó meghívást kap egy konferenciára. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
             invite: Meghívás
-            new_invite: Felhasználó meghívása
         conference_registrations:
           index:
             registrations: regisztrációk
         conference_speakers:
-          form:
-            existing_user: Létező felhasználó
-            non_user: Nem felhasználó
-            select_user: Felhasználó kiválasztása
-            user_type: Felhasználó típusa
           index:
             search: Keresés
         conferences:
@@ -355,16 +262,12 @@ hu:
             attendance_verified_by: A részvételt ellenőrizte
             certificate_of_attendance: Tanúsítvány a részvételről
             certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett a <strong>%{title}</strong> című eseményen a <strong>%{location}</strong> címen a követező időpontban, <strong>%{start} - %{end}</strong>
-        send_diploma:
-          error: Probléma merült fel a konferencia részvételi igazolásainak elküldése közben.
-          success: A konferencia részvételi igazolások helyesen küldtek
       conference:
         registration_confirm:
           cancel: Megszünteti
           confirm: megerősít
         show:
           free: Ingyenes
-          going: Haladó
           no_slots_available: Nincs szabad hely
           registration: Regisztráció
       conference_program:
@@ -384,17 +287,6 @@ hu:
         pending_validation:
           confirmation_pending: Rövidesen megkapod a visszaigazolást
           details: 'A %{registration_type} típussal regisztráltál a konferenciára, melyek költsége %{price} és így részt vehetsz a következő eseményeken:'
-          pending_html: A <a href="%{url}">%{title}</a> konferencia regisztrációd függőben van.
-      conference_registrations:
-        create:
-          invalid: Probléma merült fel a konferencián.
-          success: A konferencia sikeresen csatlakozott.
-        decline_invitation:
-          invalid: Hiba történt a meghívás visszautasításában.
-          success: Elutasította a meghívást sikeresen.
-        destroy:
-          invalid: Probléma merült fel a konferencián.
-          success: A konferencia sikeres volt.
       conference_speaker:
         go_to_twitter: Menjen a Twitterre
         more_info: több információ
@@ -426,8 +318,6 @@ hu:
         conference_registration_mailer:
           confirmation:
             subject: A konferencia regisztrációja megerősítést nyert
-          pending_validation:
-            subject: A konferencia regisztrációd megerősítése függőben van
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
@@ -451,7 +341,6 @@ hu:
             email: Email
             name: Név
             registration_type: Regisztrációs típus
-            state: Állapot
             states:
               confirmed: Megerősített
               pending: Függőben levő
@@ -463,10 +352,6 @@ hu:
       photo:
         show:
           close_modal: Modal bezárása
-          photo: Fénykép
-      photos_list:
-        show:
-          related_photos: Fotók
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
@@ -483,9 +368,7 @@ hu:
         details: Részletek
         introduction: Bevezetés
         objectives: célok
-        related_assemblies: Kapcsolódó gyűlések
         related_consultations: Kapcsolódó konzultációk
-        related_participatory_processes: Kapcsolódó részvételi folyamatok
       statistics:
         answers_count: válaszok
         comments_count: Hozzászólások
@@ -494,7 +377,6 @@ hu:
         endorsements_count: Elismerések
         headline: Tevékenység
         meetings_count: találkozók
-        orders_count: szavazatok
         pages_count: Oldalak
         posts_count: Hozzászólások
         projects_count: projektek
@@ -502,7 +384,6 @@ hu:
         results_count: Eredmények
         surveys_count: Felmérések
         users_count: résztvevők
-        votes_count: szavazatok
     events:
       conferences:
         conference_registration_validation_pending:
@@ -553,8 +434,6 @@ hu:
       conferences:
         conference:
           take_part: Részt vesz
-        index:
-          promoted_conferences: Támogatott konferenciák
         order_by_conferences:
           conferences:
             one: "%{count} konferencia"
