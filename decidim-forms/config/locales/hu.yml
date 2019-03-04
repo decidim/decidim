@@ -33,7 +33,6 @@ hu:
             title: Cím
           form:
             add_question: Kérdés hozzáadása
-            already_answered_warning: Néhány felhasználó már válaszolt a kérdőívre, így nem változtathatja meg kérdéseit.
           question:
             add_answer_option: Válasz opció hozzáadása
             any: Bármilyen
@@ -43,9 +42,6 @@ hu:
             remove: Eltávolít
             statement: Nyilatkozat
             up: Fel
-          update:
-            invalid: Hiba történt a kérdőív mentésekor.
-            success: A kérdőíveket sikeresen elmentettük.
       errors:
         answer:
           body: A szövegtörzs nem lehet üres
@@ -56,24 +52,11 @@ hu:
         single_option: Egy választási lehetőség
         sorting: Válogatás
       questionnaires:
-        answer:
-          invalid: Hiba történt a kérdőív megválaszolásakor.
-          success: A kérdőívre sikeresen válaszoltál.
         question:
           max_choices: 'Max választás: %{n}'
         show:
-          answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezz be a fiókoddal </a> vagy <a href="%{sign_up_link}">iratkozz fel</a> a kérdőív megválaszolásához.
-            title: Válaszoljon a kérdőívre
           are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
           questionnaire_answered:
-            body: Már megválaszoltad ezt a kérdőívet.
             title: Már megválaszolt
-          questionnaire_closed:
-            body: A kérdőív zárva van, és nem lehet megválaszolni.
-            title: A kérdőív lezárult
-          questionnaire_for_private_users:
-            body: A kérdőív csak magán felhasználók számára áll rendelkezésre
-            title: A kérdőív lezárult
           submit: Beküldés
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
