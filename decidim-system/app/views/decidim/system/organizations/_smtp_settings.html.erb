@@ -1,6 +1,6 @@
 <div class="fieldset">
   <h4><%= t("decidim.system.models.organization.fields.smtp_settings") %></h4>
-  <%= f.fields_for :smtp_settings do |fields| %>
+  <%= f.fields_for :smtp_settings do %>
     <div class="field">
       <%= f.email_field :from %>
     </div>
