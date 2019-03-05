@@ -69,6 +69,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-initiatives**: Change initiative creation wizard layout. [\#4888](https://github.com/decidim/decidim/pull/4888)
 - **decidim-initiatives**: Make changes related with initiatives signature and permissions ux. [\#4906](https://github.com/decidim/decidim/pull/4906)
 - **decidim-admin**: Fix inputs of translated attributes in resource permissions options form. [\#4911](https://github.com/decidim/decidim/pull/4911)
+- **decidim-initiatives**: Validate vote_form metadata considering initiative scope and also children scopes. [\#4933](https://github.com/decidim/decidim/pull/4933)
 
 **Fixed**:
 
