@@ -232,7 +232,7 @@ ca:
           error: S'ha produït un error en crear aquest component.
           success: El component s'ha creat correctament.
         destroy:
-          error: S'ha produït un error en destruir aquest component.
+          error: S'ha produït un error en eliminar aquest component.
           success: El component s'ha suprimit correctament.
         edit:
           title: Edita el component
@@ -278,7 +278,7 @@ ca:
             not_managed: No gestionat
           filter_by: Filtra per
           impersonate: Suplantar
-          impersonate_new_managed_user: Substitueix un nou usuari administrat
+          impersonate_new_managed_user: Administrar una nova participant
           managed: Gestionat
           name: Nom
           needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
@@ -289,10 +289,10 @@ ca:
           view_logs: Veure registres
       impersonations:
         close_session:
-          error: S'ha produït un error en tancar la sessió de suplantació actual.
+          error: S'ha produït un error en tancar la sessió actual de gestió de participants.
           success: La sessió de suplantació actual s'ha finalitzat amb èxit.
         create:
-          error: S'ha produït un error en impersonar l'usuari.
+          error: S'ha produït un error en administrar la participant.
           success: L'usuari gestionat s'ha creat correctament.
         form:
           authorization_method: Mètode d'autorització
