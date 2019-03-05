@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -36,6 +37,7 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Call To Action button path
@@ -45,6 +47,7 @@ en:
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icon
+        from: From email address
         github_handler: GitHub handler
         header_snippets: Header snippets
         highlighted_content_banner_action_subtitle: Action button subtitle
@@ -63,6 +66,8 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
@@ -70,6 +75,7 @@ en:
         success_color: Success
         tos_version: Terms of service version
         twitter_handler: Twitter handler
+        user_name: Username
         user_groups_enabled: Enable groups
         warning_color: Warning
         youtube_handler: YouTube handler
@@ -107,9 +113,9 @@ en:
               must_be_ssl: The redirect URI must be a SSL URI
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Invalid image file
             official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
               allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
