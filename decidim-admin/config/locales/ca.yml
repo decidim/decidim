@@ -529,7 +529,7 @@ ca:
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
-          success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
+          success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
         destroy:
           error: S'ha produït un error en suprimir un usuari privat d'aquest espai participatiu.
           success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
