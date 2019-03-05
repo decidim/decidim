@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe CreateInitiativeHelper do
-      let(:online) { %w(OnLine online) }
-      let(:offline) { ["Face to face", "offline"] }
+      let(:online) { %w(Online online) }
+      let(:offline) { ["In-person", "offline"] }
       let(:mixed) { %w(Mixed any) }
       let(:all) { [online, offline, mixed] }
 
@@ -57,6 +57,18 @@ module Decidim
           expect(signature_type_options).not_to include(online)
           expect(signature_type_options).not_to include(mixed)
           expect(signature_type_options).to include(offline)
+        end
+      end
+
+      context "when signature setting changed" do
+        let(:signature_type) { "online" }
+        let(:initiative_state) { "published" }
+        let(:signature_type_options) { helper.signature_type_options(form) }
+
+        before { initiative_type.update!(online_signature_enabled: false) }
+
+        it "contains all signature type options" do
+          expect(signature_type_options).to match_array(all)
         end
       end
 

@@ -34,7 +34,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The #{resource_title} step is now active for #{participatory_space_title}. You can see it from this page:")
+        .to eq("The #{resource_title} phase is now active for #{participatory_space_title}. You can see it from this page:")
     end
   end
 
@@ -48,7 +48,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("The #{resource_title} step is now active for <a href=\"#{resource_path}\">#{participatory_space_title}</a>")
+        .to eq("The #{resource_title} phase is now active for <a href=\"#{resource_path}\">#{participatory_space_title}</a>")
     end
   end
 end

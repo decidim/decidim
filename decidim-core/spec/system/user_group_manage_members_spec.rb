@@ -46,14 +46,14 @@ describe "User group manage members", type: :system do
     end
 
     it "allows removing a user from the group" do
-      accept_confirm { click_link "Remove user" }
-      expect(page).to have_content("User removed from the group successfully")
+      accept_confirm { click_link "Remove participant" }
+      expect(page).to have_content("Participant successfully removed from the group")
       expect(page).to have_no_content(member.name)
     end
 
     it "allows promoting a user" do
       accept_confirm { click_link "Make admin" }
-      expect(page).to have_content("User promoted successfully")
+      expect(page).to have_content("Participant promoted successfully")
       expect(page).to have_no_content(member.name)
     end
 
@@ -72,7 +72,7 @@ describe "User group manage members", type: :system do
         end
 
         expect(page).to have_no_css(".list-request")
-        expect(page).to have_content("Join request accepted successfully")
+        expect(page).to have_content("Join request successfully accepted")
         expect(page).to have_content(requested_user.name)
         expect(page).to have_content("Role: Member")
       end
@@ -84,7 +84,7 @@ describe "User group manage members", type: :system do
         end
 
         expect(page).to have_no_css(".list-request")
-        expect(page).to have_content("Join request rejected successfully")
+        expect(page).to have_content("Join request successfully rejected")
         expect(page).to have_no_content(requested_user.name)
       end
     end

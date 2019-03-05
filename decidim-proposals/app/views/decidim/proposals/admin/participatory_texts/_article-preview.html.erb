@@ -7,7 +7,7 @@
 <% if proposal.article? %>
 <div class="grid-x">
   <div class="cell">
-    <%= form.text_area :body, optional: true %>
+    <%= form.text_area :body, optional: false, rows: 5 %>
   </div>
 </div>
 <% end %>

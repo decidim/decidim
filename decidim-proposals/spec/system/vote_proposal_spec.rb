@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Vote Proposal", type: :system, slow: true do
+describe "Support Proposal", type: :system, slow: true do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -11,8 +11,8 @@ describe "Vote Proposal", type: :system, slow: true do
   let!(:user) { create :user, :confirmed, organization: organization }
 
   def expect_page_not_to_include_votes
-    expect(page).to have_no_button("Vote")
-    expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
+    expect(page).to have_no_button("Support")
+    expect(page).to have_no_css(".card__support__data span", text: "0 SUPPORTS")
   end
 
   context "when votes are not enabled" do
@@ -68,7 +68,7 @@ describe "Vote Proposal", type: :system, slow: true do
         visit_component
 
         within ".card__support", match: :first do
-          click_button "Vote"
+          click_button "Support"
         end
 
         expect(page).to have_css("#loginModal", visible: true)
@@ -87,12 +87,12 @@ describe "Vote Proposal", type: :system, slow: true do
 
         it "is able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
-            click_button "Vote"
-            expect(page).to have_button("Already voted")
+            click_button "Support"
+            expect(page).to have_button("Already supported")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 VOTE")
+            expect(page).to have_content("1 SUPPORT")
           end
         end
       end
@@ -105,23 +105,23 @@ describe "Vote Proposal", type: :system, slow: true do
 
         it "is not able to vote it again" do
           within "#proposal-#{proposal.id}-vote-button" do
-            expect(page).to have_button("Already voted")
-            expect(page).to have_no_button("Vote")
+            expect(page).to have_button("Already supported")
+            expect(page).to have_no_button("Support")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 VOTE")
+            expect(page).to have_content("1 SUPPORT")
           end
         end
 
         it "is able to undo the vote" do
           within "#proposal-#{proposal.id}-vote-button" do
-            click_button "Already voted"
-            expect(page).to have_button("Vote")
+            click_button "Already supported"
+            expect(page).to have_button("Support")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("0 VOTES")
+            expect(page).to have_content("0 SUPPORTS")
           end
         end
       end
@@ -183,11 +183,11 @@ describe "Vote Proposal", type: :system, slow: true do
 
           it "updates the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_button "Vote"
-              expect(page).to have_button("Already voted")
+              click_button "Support"
+              expect(page).to have_button("Already supported")
             end
 
-            expect(page).to have_content("REMAINING\n9\nVOTES")
+            expect(page).to have_content("REMAINING\n9\nSUPPORTS")
           end
         end
 
@@ -195,7 +195,9 @@ describe "Vote Proposal", type: :system, slow: true do
           before do
             permissions = {
               vote: {
-                authorization_handler_name: "dummy_authorization_handler"
+                authorization_handlers: {
+                  "dummy_authorization_handler" => { "options" => {} }
+                }
               }
             }
 
@@ -205,7 +207,7 @@ describe "Vote Proposal", type: :system, slow: true do
 
           it "shows a modal dialog" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_button "Vote"
+              click_button "Support"
             end
 
             expect(page).to have_content("Authorization required")
@@ -220,22 +222,22 @@ describe "Vote Proposal", type: :system, slow: true do
 
           it "is not able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
-              expect(page).to have_button("Already voted")
-              expect(page).to have_no_button("Vote")
+              expect(page).to have_button("Already supported")
+              expect(page).to have_no_button("Support")
             end
           end
 
           it "is able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_button "Already voted"
-              expect(page).to have_button("Vote")
+              click_button "Already supported"
+              expect(page).to have_button("Support")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0 VOTES")
+              expect(page).to have_content("0 SUPPORTS")
             end
 
-            expect(page).to have_content("REMAINING\n10\nVOTES")
+            expect(page).to have_content("REMAINING\n10\nSUPPORTS")
           end
         end
 
@@ -261,10 +263,10 @@ describe "Vote Proposal", type: :system, slow: true do
 
             it "shows the vote count but not the vote button" do
               within "#proposal_#{proposal.id} .card__support" do
-                expect(page).to have_content("1 VOTE")
+                expect(page).to have_content("1 SUPPORT")
               end
 
-              expect(page).to have_content("VOTING DISABLED")
+              expect(page).to have_content("SUPPORTS DISABLED")
             end
           end
         end
@@ -281,7 +283,7 @@ describe "Vote Proposal", type: :system, slow: true do
       it "cannot be voted" do
         visit_component
 
-        choose "filter_state_rejected"
+        choose "Rejected", name: "filter[state]"
         page.find_link(rejected_proposal.title, wait: 30)
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
@@ -311,7 +313,7 @@ describe "Vote Proposal", type: :system, slow: true do
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("VOTE LIMIT REACHED")
+            expect(page).to have_content("SUPPORT LIMIT REACHED")
           end
         end
       end
@@ -323,8 +325,8 @@ describe "Vote Proposal", type: :system, slow: true do
 
         within proposal_element do
           within ".card__support", match: :first do
-            click_button "Vote"
-            expect(page).to have_content("ALREADY VOTED")
+            click_button "Support"
+            expect(page).to have_content("ALREADY SUPPORTED")
           end
         end
       end
@@ -352,7 +354,7 @@ describe "Vote Proposal", type: :system, slow: true do
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("1 VOTE")
+            expect(page).to have_content("1 SUPPORT")
           end
         end
       end
@@ -380,29 +382,29 @@ describe "Vote Proposal", type: :system, slow: true do
         end
 
         within proposal_elements[0] do
-          click_button "Vote"
-          expect(page).to have_content("ALREADY VOTED")
-          expect(page).to have_content("0 VOTES")
+          click_button "Support"
+          expect(page).to have_content("ALREADY SUPPORTED")
+          expect(page).to have_content("0 SUPPORTS")
         end
 
         within proposal_elements[1] do
-          click_button "Vote"
-          expect(page).to have_content("ALREADY VOTED")
-          expect(page).to have_content("0 VOTES")
+          click_button "Support"
+          expect(page).to have_content("ALREADY SUPPORTED")
+          expect(page).to have_content("0 SUPPORTS")
         end
 
         within proposal_elements[2] do
-          click_button "Vote"
-          expect(page).to have_content("ALREADY VOTED")
-          expect(page).to have_content("1 VOTE")
+          click_button "Support"
+          expect(page).to have_content("ALREADY SUPPORTED")
+          expect(page).to have_content("1 SUPPORT")
         end
 
         within proposal_elements[0] do
-          expect(page).to have_content("1 VOTE")
+          expect(page).to have_content("1 SUPPORT")
         end
 
         within proposal_elements[1] do
-          expect(page).to have_content("1 VOTE")
+          expect(page).to have_content("1 SUPPORT")
         end
       end
     end
@@ -420,8 +422,8 @@ describe "Vote Proposal", type: :system, slow: true do
         expect do
           within proposal_element do
             within ".card__support", match: :first do
-              click_button "Vote"
-              expect(page).to have_content("1 VOTE")
+              click_button "Support"
+              expect(page).to have_content("1 SUPPORT")
             end
           end
         end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)

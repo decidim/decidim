@@ -258,15 +258,14 @@ ca:
         others: Altres
         public: Públic
       filter:
-        all: Tots
+        all: Tot tipus d'assemblees
         commission: Comissió
-        consultative_advisory: Consultiva / assessora
+        consultative_advisory: Consultiva/Assessora
         executive: Executiu
         government: Govern
-        label: 'Espectacle:'
+        help: 'Espectacle:'
         others: Altres
         participatory: Participatiu
-        placeholder: Filtrar per tipus
         working_group: Grup de treball
       index:
         title: Assemblees

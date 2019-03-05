@@ -36,6 +36,7 @@ id:
         organization_url: URL Organisasi
         redirect_uri: Alihkan URI
       organization:
+        alert_color: Waspada
         badges_enabled: Aktifkan lencana
         cta_button_path: Jalur tombol Call To Action
         cta_button_text: Teks tombol Call To Action
@@ -62,11 +63,15 @@ id:
         omnipresent_banner_short_description: Deskripsi Singkat
         omnipresent_banner_title: Judul
         omnipresent_banner_url: URL
+        primary_color: Utama
         reference_prefix: Awalan referensi
+        secondary_color: Sekunder
         show_statistics: Tampilkan statistik
+        success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
         twitter_handler: Penangan Twitter
         user_groups_enabled: Aktifkan grup pengguna
+        warning_color: Peringatan
         youtube_handler: Penangan YouTube
       scope:
         code: Kode
@@ -220,10 +225,6 @@ id:
           error: Terjadi kesalahan saat memperbarui kategori ini.
           success: Kategori berhasil diperbarui.
       component_permissions:
-        edit:
-          everyone: Semua orang
-          submit: Simpan izin
-          title: Edit izin
         update:
           success: Izin berhasil diperbarui.
       components:
@@ -510,6 +511,7 @@ id:
         edit:
           update: Memperbarui
         form:
+          colors_title: Warna organisasi
           cta_button_path_help: 'Anda dapat menimpa tempat tombol Ajakan Bertindak di tautan beranda ke. Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi. Contoh: %{url}'
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           header_snippets_help: Gunakan bidang ini untuk menambahkan sesuatu ke kepala HTML. Penggunaan yang paling umum adalah mengintegrasikan layanan pihak ketiga yang memerlukan beberapa JavaScript atau CSS tambahan. Juga, Anda dapat menggunakannya untuk menambahkan meta tag ekstra ke HTML. Perhatikan bahwa ini hanya akan ditampilkan di halaman publik, bukan di bagian admin.
@@ -536,6 +538,12 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
+      resource_permissions:
+        edit:
+          submit: Menyerahkan
+          title: Edit izin
+        update:
+          success: Izin berhasil diperbarui.
       scope_types:
         create:
           error: Terjadi kesalahan saat membuat jenis cakupan baru.
@@ -615,9 +623,9 @@ id:
         areas: Area
         authorization_workflows: Metode verifikasi
         dashboard: Dasbor
-        impersonatable_users: Pengguna yang tidak dapat disalahgunakan
-        impersonations: Peniruan identitas
-        participants: Peserta
+        impersonatable_users: Pengguna yang dikelola
+        impersonations: Manajemen pengguna
+        participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
         static_pages: Halaman

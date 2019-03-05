@@ -156,8 +156,8 @@ fi-pl:
             Tämä muutos kohteelle %{amendable_type} %{amendable_link} on
             hyväksytty <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Tämä on muutos kohteelle %{amendable_type} %{amendable_link}
-            arvioimiselle.
+            Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
+            arvioidaan.
           rejected: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
             hylättiin ajankohtana <strong>%{announcement_date}</strong>.
@@ -741,7 +741,7 @@ fi-pl:
       download:
         csv: Lataa tiedot (csv)
       followers:
-        description: Organisaatiota seuraavien käyttäjien määrä
+        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
         object: seuraajat
         title: Seuraajat
       participants:

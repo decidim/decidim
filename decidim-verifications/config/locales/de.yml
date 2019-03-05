@@ -46,6 +46,9 @@ de:
             - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
             - Sie markieren den Brief als gesendet.
             - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+      csv_census:
+        explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen
+        name: Zensus der Organisation
       direct: Direkte
       help: Hilfe
       id_documents:
@@ -65,6 +68,7 @@ de:
         first_login:
           actions:
             another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
+            csv_census: Vergewissern Sie sich anhand der Volkszählung der Organisation
             dummy_authorization_handler: Überprüfen Sie anhand des Beispielautorisierungshandlers
             dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
             id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
@@ -76,6 +80,33 @@ de:
           authorize_with: Bestätigen Sie mit %{authorizer}
         skip_verification: Sie können dies für jetzt und %{link}überspringen
         start_exploring: Fang an zu erforschen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Beim Import der Volkszählung ist ein Fehler aufgetreten.
+              success: Erfolgreich importiert %{count} Artikel (%{errors} Fehler)
+            destroy_all:
+              success: Alle Volkszählungsdaten wurden gelöscht
+          destroy:
+            confirm: Alles löschen Die Zählung kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            title: Löschen Sie alle Volkszählungsdaten
+          index:
+            data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}
+            empty: Es gibt keine Zensusdaten. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
+            title: Aktuelle Volkszählungsdaten
+          instructions:
+            body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
+            title: Sie müssen die csv-Zählung für diese Organisation aktivieren
+          new:
+            info: 'Muss eine Datei im CSV-Format mit einer Spalte sein: E-Mail'
+            file: CSV-Datei mit E-Mail-Daten
+            submit: Datei hochladen
+            title: Laden Sie eine neue Volkszählung hoch
+        authorizations:
+          new:
+            error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Zählung der Organisation.
+            success: Ihr Konto wurde erfolgreich verifiziert.
       dummy_authorization:
         extra_explanation:
           one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
@@ -175,8 +206,13 @@ de:
             error: Es gab ein Problem mit ihrer Anfrage
             success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
           edit:
+            confirm_destroy: Möchten Sie den Bestätigungscode wirklich zurücksetzen?
+            destroy: Bestätigungscode zurücksetzen
             send: Bestätigen
+            resend: Sie haben den Bestätigungscode nicht erhalten?
             title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
+          destroy:
+            success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
           new:
             send: Senden Sie mir eine SMS
             title: Fordern Sie Ihren Bestätigungscode an

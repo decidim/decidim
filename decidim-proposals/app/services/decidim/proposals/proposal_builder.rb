@@ -23,6 +23,26 @@ module Decidim
 
       module_function :create
 
+      # Public: Creates a new Proposal with the authors of the `original_proposal`.
+      #
+      # attributes - The Hash of attributes to create the Proposal with.
+      # action_user - The User to be used as the user who is creating the proposal in the traceability logs.
+      # original_proposal - The proposal from which authors will be copied.
+      #
+      # Returns a Proposal.
+      def create_with_authors(attributes:, action_user:, original_proposal:)
+        Decidim.traceability.perform_action!(:create, Proposal, action_user, visibility: "all") do
+          proposal = Proposal.new(attributes)
+          original_proposal.coauthorships.each do |coauthorship|
+            proposal.add_coauthor(coauthorship.author, user_group: coauthorship.user_group)
+          end
+          proposal.save!
+          proposal
+        end
+      end
+
+      module_function :create_with_authors
+
       # Public: Creates a new Proposal by copying the attributes from another one.
       #
       # original_proposal - The Proposal to be used as base to create the new one.
@@ -54,12 +74,20 @@ module Decidim
           extra_attributes
         )
 
-        proposal = create(
-          attributes: origin_attributes,
-          author: author,
-          user_group_author: user_group_author,
-          action_user: action_user
-        )
+        proposal = if author.nil?
+                     create_with_authors(
+                       attributes: origin_attributes,
+                       original_proposal: original_proposal,
+                       action_user: action_user
+                     )
+                   else
+                     create(
+                       attributes: origin_attributes,
+                       author: author,
+                       user_group_author: user_group_author,
+                       action_user: action_user
+                     )
+                   end
 
         proposal.link_resources(original_proposal, "copied_from_component") unless skip_link
         proposal

@@ -30,6 +30,12 @@ describe Decidim::AttachmentCreatedEvent do
     end
   end
 
+  describe "resource_url" do
+    it "is generated correctly" do
+      expect(subject.resource_url).to eq(attached_to_url)
+    end
+  end
+
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)

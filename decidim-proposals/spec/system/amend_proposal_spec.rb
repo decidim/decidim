@@ -84,7 +84,7 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_css(".field", text: "Amendment author", visible: true)
         end
         it "is shown the submit button" do
-          expect(page).to have_button("Send emendation")
+          expect(page).to have_button("Send amendment")
         end
       end
 
@@ -97,7 +97,7 @@ describe "Amend Proposal", type: :system do
             fill_in "amend[emendation_fields][body]", with: "Cities need more people, not more cars"
             select user_group.name, from: :amend_user_group_id
           end
-          click_button "Send emendation"
+          click_button "Send amendment"
         end
 
         it "is shown the Success Callout" do
@@ -142,18 +142,18 @@ describe "Amend Proposal", type: :system do
             expect(page).to have_content("REVIEW THE AMENDMENT")
             expect(page).to have_field("Title", with: emendation.title.to_s)
             expect(page).to have_field("Body", with: emendation.body.to_s)
-            expect(page).to have_button("Accept emendation")
+            expect(page).to have_button("Accept amendment")
           end
 
           context "and the emendation is accepted" do
             before do
               within ".edit_amend" do
-                click_button "Accept emendation"
+                click_button "Accept amendment"
               end
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success", text: "This emendation has been accepted successfully.")
+              expect(page).to have_css(".callout.success", text: "This amendment has been successfully accepted.")
             end
 
             it "is changed the state of the emendation" do
@@ -168,7 +168,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is shown the Success Callout" do
-            expect(page).to have_css(".callout.success", text: "The emendation has been rejected successfully")
+            expect(page).to have_css(".callout.success", text: "The amendment has been successfully rejected")
           end
 
           it "is changed the state of the emendation" do
@@ -193,7 +193,7 @@ describe "Amend Proposal", type: :system do
         end
 
         it "is shown the promote button" do
-          expect(page).to have_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_content("PUBLISH AS A NEW PROPOSAL")
         end
 
         context "when the user clicks on the promote button" do
@@ -202,7 +202,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is shown the Success Callout" do
-            expect(page).to have_content("Emendation promoted successfully")
+            expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
@@ -211,7 +211,7 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is NOT shown the promote button" do
-              expect(page).not_to have_content("PROMOTE TO PROPOSAL")
+              expect(page).not_to have_content("PUBLISH AS A NEW PROPOSAL")
             end
           end
         end

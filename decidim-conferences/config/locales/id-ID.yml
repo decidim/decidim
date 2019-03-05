@@ -40,12 +40,14 @@ id:
         other: Konferensi
       decidim/conference_speaker:
         other: Pembicara konferensi
+      decidim/conference_user_role:
+        other: Peran pengguna konferensi
   decidim:
     admin:
       actions:
         confirm: Memastikan
         new_conference: Konferensi Baru
-        send_diplomas: Kirim Diploma
+        send_diplomas: Kirim sertifikat kehadiran
       conference_copies:
         new:
           copy: Salinan
@@ -144,10 +146,10 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          conference_admins: Pengguna konferensi
+          conference_admins: Admin konferensi
           conference_invites: Undangan
           conference_speakers: Pembicara
-          diploma: Diploma
+          diploma: Sertifikat kehadiran
           info: Info
           media_links: Tautan Media
           moderations: Moderasi
@@ -245,10 +247,10 @@ id:
       conference:
         create: "%{user_name} menciptakan konferensi %{resource_name}"
         publish: "%{user_name} mempublikasikan %{resource_name} konferensi"
-        send_conference_diplomas: "%{user_name} kirim diploma ke %{resource_name} pengguna konferensi"
+        send_conference_diplomas: "%{user_name} mengirimkan sertifikat kehadiran ke %{resource_name} peserta konferensi"
         unpublish: "%{user_name} tidak menerbitkan %{resource_name} konferensi"
         update: "%{user_name} memperbarui %{resource_name} konferensi"
-        update_diploma: "%{user_name} memperbarui konfigurasi diploma %{resource_name} konferensi"
+        update_diploma: "%{user_name} memperbarui sertifikat konfigurasi kehadiran untuk %{resource_name} konferensi"
       conference_speaker:
         create: "%{user_name} menciptakan %{resource_name} pembicara dalam %{space_name} konferensi"
         delete: "%{user_name} menghapus %{resource_name} pembicara dari %{space_name} konferensi"
@@ -328,7 +330,7 @@ id:
         diplomas:
           edit:
             save: Menyimpan
-            title: Diploma
+            title: Sertifikat kehadiran
         invite_join_conference_mailer:
           invite:
             decline: Tolak undangan '%{conference_title}'
@@ -344,14 +346,14 @@ id:
             title: Jenis pendaftaran
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Anda akan menemukan diploma untuk konferensi <a href="%{url}">%{title}</a> dalam lampiran.
+            diploma_html: Anda akan menemukan sertifikat kehadiran untuk konferensi <a href="%{url}">%{title}</a> di lampiran.
           diploma_user:
             attendance_verified_by: Kehadiran diverifikasi oleh
             certificate_of_attendance: Sertifikat kehadiran
             certificate_of_attendance_description: Ini untuk menyatakan bahwa <strong>%{user}</strong> telah hadir dan mengambil bagian dalam <strong>%{title}</strong> diadakan pada <strong>%{location}</strong> pada <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Ada masalah saat mengirim diploma konferensi.
-          success: Konferensi Diploma dikirim dengan benar
+          error: Ada masalah saat mengirim sertifikat kehadiran konferensi.
+          success: Sertifikat kehadiran konferensi dikirim dengan benar
       conference:
         registration_confirm:
           cancel: Membatalkan
@@ -427,7 +429,7 @@ id:
             subject: Undangan untuk bergabung dalam konferensi
         send_conference_diploma_mailer:
           diploma:
-            subject: Diploma konferensi Anda telah dikirim
+            subject: Sertifikat kehadiran konferensi Anda telah dikirim
       models:
         conference_invite:
           fields:

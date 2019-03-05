@@ -46,6 +46,9 @@ sv:
             - Du skickar brevet till deras adress med verifieringskoden.
             - Du markerar brevet som skickat.
             - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
+      csv_census:
+        explanation: Få verifierad med hjälp av organisationens folkräkning
+        name: Organisationens folkräkning
       direct: Direkt
       help: Hjälp
       id_documents:
@@ -65,6 +68,7 @@ sv:
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiera mot ett annat exempel på behörighetshanteraren
+            csv_census: Verifiera mot organisationens folkräkning
             dummy_authorization_handler: Verifiera mot exempel av behörighetshanterare
             dummy_authorization_workflow: Verifiera mot exemplet på arbetsflöde för auktorisering
             id_documents: Bli verifierad genom att ladda upp ditt identitetsdokument
@@ -76,6 +80,33 @@ sv:
           authorize_with: Verifiera med %{authorizer}
         skip_verification: Du kan hoppa över det här för tillfället och %{link}
         start_exploring: börja utforska
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Det gick inte att importera folkräkning.
+              success: Har importerat %{count} objekt (%{errors} fel)
+            destroy_all:
+              success: Alla folkräkningsuppgifter har tagits bort
+          destroy:
+            confirm: Radera hela folkräkningen kan inte ångras. Är du säker på att du vill fortsätta?
+            title: Radera alla mätdata
+          index:
+            data: Det finns totalt %{count} poster laddade. Senaste uppladdningsdatumet var %{due_date}
+            empty: Det finns inga folkräkningstal. Använd formuläret nedan för att importera det med en CSV-fil.
+            title: Nuvarande folkräkning data
+          instructions:
+            body: För att göra detta måste du ange systemadministration och lägga till csv_census-godkännandena till organisationen
+            title: Du måste aktivera csv-folkräkningen för den här organisationen
+          new:
+            info: 'Måste vara en fil med CSV-format med en kolumn: e-post'
+            file: .csv-fil med e-postdata
+            submit: Ladda upp fil
+            title: Ladda upp en ny folkräkning
+        authorizations:
+          new:
+            error: Vi kunde inte verifiera ditt konto eller du är inte i organisationens folkräkning.
+            success: Ditt konto har verifierats.
       dummy_authorization:
         extra_explanation:
           one: Deltagande är begränsat till användare med postnummer %{postal_codes}.
@@ -175,8 +206,13 @@ sv:
             error: Ett problem uppstod med din förfrågan
             success: Tack! Vi har skickat ett SMS till din telefon.
           edit:
+            confirm_destroy: Är du säker på att du vill återställa verifieringskoden?
+            destroy: Återställ verifieringskod
             send: Bekräfta
+            resend: Fick inte verifieringskoden?
             title: Presentera verifieringskoden du fick
+          destroy:
+            success: Verifieringskoden återställs väl. Ange ditt telefonnummer igen.
           new:
             send: Skicka mig ett SMS
             title: Begär din verifieringskod

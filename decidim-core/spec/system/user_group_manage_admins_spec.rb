@@ -40,7 +40,7 @@ describe "User group manage admins", type: :system do
 
     it "allows demoting a user" do
       accept_confirm { click_link "Remove admin" }
-      expect(page).to have_content("User removed from admin successfully")
+      expect(page).to have_content("Participant successfully removed from admin")
       expect(page).to have_no_content(admin.name)
     end
   end

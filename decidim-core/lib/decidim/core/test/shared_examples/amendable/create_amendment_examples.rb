@@ -18,7 +18,7 @@ shared_examples "create amendment" do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
         .with(
-          :create,
+          "publish",
           form.amendable_type.constantize,
           form.current_user,
           kind_of(Hash)

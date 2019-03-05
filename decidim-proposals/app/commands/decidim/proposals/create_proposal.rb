@@ -43,29 +43,28 @@ module Decidim
 
       attr_reader :form, :proposal, :attachment
 
-      def proposal_attributes
-        fields = {}
-
-        fields[:title] = title_with_hashtags
-        fields[:body] = body_with_hashtags
-        fields[:component] = form.component
-
-        fields
-      end
-
-      # This will be the PaperTrail version that is
-      # shown in the version control feature (1 of 1)
+      # Prevent PaperTrail from creating an additional version
+      # in the proposal multi-step creation process (step 1: create)
+      #
+      # A first version will be created in step 4: publish
+      # for diff rendering in the proposal version control
       def create_proposal
-        @proposal = Decidim.traceability.perform_action!(
-          :create,
-          Decidim::Proposals::Proposal,
-          @current_user,
-          visibility: "public-only"
-        ) do
-          proposal = Proposal.new(proposal_attributes)
-          proposal.add_coauthor(@current_user, user_group: user_group)
-          proposal.save!
-          proposal
+        PaperTrail.request(enabled: false) do
+          @proposal = Decidim.traceability.perform_action!(
+            :create,
+            Decidim::Proposals::Proposal,
+            @current_user,
+            visibility: "public-only"
+          ) do
+            proposal = Proposal.new(
+              title: title_with_hashtags,
+              body: body_with_hashtags,
+              component: form.component
+            )
+            proposal.add_coauthor(@current_user, user_group: user_group)
+            proposal.save!
+            proposal
+          end
         end
       end
 

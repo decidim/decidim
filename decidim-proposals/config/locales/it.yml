@@ -2,6 +2,7 @@ it:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Indirizzo
         body: Corpo
         category_id: Categoria
         decidim_scope_id: Scopo
@@ -10,6 +11,7 @@ it:
         title: Titolo
         user_group_id: Crea una bozza collaborativa come
       proposal:
+        address: Indirizzo
         answer: Risposta
         answered_at: Risposto a
         automatic_hashtags: Hashtag aggiunti automaticamente
@@ -26,8 +28,15 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+      proposals_import:
+        import_proposals: Importa proposte
+        keep_authors: Mantieni gli autori originali
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -289,26 +298,36 @@ it:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Sei sicuro di scartare l'intera bozza del testo partecipativo?
             import_doc: Importa il documento
+            discard_all: Scarta tutto
           import:
             invalid: Il modulo non è valido!
             success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
           index:
             info_1: Le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
             publish_document: Pubblica un documento
+            save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
+            accepted_mime_types:
+              md: riduione di prezzo
+              odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: Markdown'
+            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:
             invalid: Impossibile pubblicare proposte
             success: Tutte le proposte sono state pubblicate
+          discard:
+            success: Tutte le bozze di testo partecipativo sono state scartate.
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sottosezione:</em> %{title}"
+          update:
+            success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
           edit:
             accepted: Accettata

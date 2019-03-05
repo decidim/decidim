@@ -9,7 +9,7 @@ shared_examples "manage participatory process private users examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Private Users"
+    click_link "Private participants"
   end
 
   it "shows participatory process private user list" do

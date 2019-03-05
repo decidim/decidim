@@ -36,6 +36,7 @@ pl:
         organization_url: Adres organizacji
         redirect_uri: Przekierowanie URI
       organization:
+        alert_color: Alarm
         badges_enabled: Włącz odznaki
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku wezwania do działania
@@ -62,11 +63,15 @@ pl:
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
+        primary_color: Podstawowa
         reference_prefix: Prefiks referencyjny
+        secondary_color: Wtórny
         show_statistics: Pokaż statystyki
+        success_color: Powodzenie
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
         user_groups_enabled: Włącz grupy użytkowników
+        warning_color: Ostrzeżenie
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod
@@ -220,10 +225,6 @@ pl:
           error: Podczas aktualizowania tej kategorii wystąpił błąd.
           success: Kategoria została zaktualizowana.
       component_permissions:
-        edit:
-          everyone: Każdy
-          submit: Zapisz uprawnienia
-          title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
       components:
@@ -510,6 +511,7 @@ pl:
         edit:
           update: Aktualizuj
         form:
+          colors_title: Kolory organizacji
           cta_button_path_help: 'Możesz zastąpić lokalizację, w której przycisk Do połączenia z działaniem na łącza do strony głównej. Użyj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, liczby, myślniki i ukośniki, i muszą zaczynać się od litery. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można zastąpić tekst przycisku Żądanie do działania na stronie głównej dla każdego dostępnego języka w organizacji. Jeśli nie zostanie ustawiona, zostanie użyta wartość domyślna. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
@@ -536,6 +538,12 @@ pl:
         new:
           create: Stwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
+      resource_permissions:
+        edit:
+          submit: Zatwierdź
+          title: Edytuj uprawnienia
+        update:
+          success: Uprawnienia zostały pomyślnie zaktualizowane.
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -615,9 +623,9 @@ pl:
         areas: Obszary
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
-        impersonatable_users: Niekodowalni użytkownicy
-        impersonations: Impersonaty
-        participants: Uczestnicy
+        impersonatable_users: Zarządzaj użytkownikami
+        impersonations: Zarządzanie użytkownikami
+        participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony

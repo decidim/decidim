@@ -2,6 +2,7 @@ fr:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adresse
         body: Corps
         category_id: Catégorie
         decidim_scope_id: Portée
@@ -10,6 +11,7 @@ fr:
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
       proposal:
+        address: Adresse
         answer: Répondre
         answered_at: Répondu à
         automatic_hashtags: Hashtags ajoutés automatiquement
@@ -26,8 +28,15 @@ fr:
       proposals_copy:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
+      proposals_import:
+        import_proposals: Propositions d'importation
+        keep_authors: Gardez les auteurs originaux
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Type de document invalide. Les formats acceptés sont: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -289,26 +298,36 @@ fr:
             name: Proposition
         participatory_texts:
           bulk-actions:
+            are_you_sure: Etes-vous sûr de supprimer le brouillon du texte participatif?
             import_doc: Document d'importation
+            discard_all: Jeter tout
           import:
             invalid: Le formulaire est invalide!
             success: Félicitations, les sections suivantes ont été analysées à partir du document importé, elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
           index:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
+            save_draft: Enregistrer le brouillon
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
+            accepted_mime_types:
+              md: Réduction
+              odt: Odt
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
-            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée dans Propositions. Les formats supportés sont: Markdown'
+            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
             title: AJOUTER UN DOCUMENT
             upload_document: Télécharger le document
           publish:
             invalid: Impossible de publier des propositions
             success: Toutes les propositions ont été publiées
+          discard:
+            success: Tous les brouillons de texte participatifs ont été rejetés.
           sections:
             article: "<em>article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sous-section:</em> %{title}"
+          update:
+            success: Texte participatif mis à jour avec succès.
         proposal_answers:
           edit:
             accepted: Retenue

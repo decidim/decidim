@@ -167,7 +167,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "filter_state_rejected"
+        choose "Rejected", name: "filter[state]"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
@@ -208,7 +208,7 @@ describe "Proposals", type: :system do
 
         click_link proposal.title
 
-        expect(page).to have_content("Deleted user")
+        expect(page).to have_content("Participant deleted")
       end
     end
   end
@@ -272,6 +272,23 @@ describe "Proposals", type: :system do
       it_behaves_like "editable content for admins"
     end
 
+    context "when comments have been moderated" do
+      let(:proposal) { create(:proposal, component: component) }
+      let(:author) { create(:user, :confirmed, organization: component.organization) }
+      let!(:comments) { create_list(:comment, 3, commentable: proposal) }
+      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+
+      it "displays unhidden comments count" do
+        visit_component
+
+        within("#proposal_#{proposal.id}") do
+          within(".card-data__item:last-child") do
+            expect(page).to have_content(2)
+          end
+        end
+      end
+    end
+
     describe "default ordering" do
       it_behaves_like "a random proposal ordering"
     end
@@ -295,13 +312,13 @@ describe "Proposals", type: :system do
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
-        expect(page).to have_selector("a", text: "Most voted")
+        expect(page).to have_selector("a", text: "Most supported")
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
       end
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
-        expect(page).to have_button("Voting disabled", disabled: true, count: 2)
+        expect(page).to have_button("Supports disabled", disabled: true, count: 2)
         expect(page).to have_no_link("View proposal")
       end
     end
@@ -323,7 +340,7 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Voting disabled", disabled: true)
+        expect(page).to have_no_button("Supports disabled", disabled: true)
         expect(page).to have_no_button("Vote")
         expect(page).to have_link("View proposal", count: 2)
       end
@@ -516,7 +533,7 @@ describe "Proposals", type: :system do
             visit_component
 
             within "form.new_filter" do
-              expect(page).to have_content(/State/i)
+              expect(page).to have_content(/Status/i)
             end
           end
 
@@ -568,7 +585,7 @@ describe "Proposals", type: :system do
             visit_component
 
             within "form.new_filter" do
-              expect(page).to have_no_content(/State/i)
+              expect(page).to have_no_content(/Status/i)
             end
           end
         end
@@ -583,7 +600,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/State/i)
+            expect(page).to have_no_content(/Status/i)
           end
         end
       end
@@ -600,7 +617,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: :filter_category_id
+            select category.name[I18n.locale.to_s], from: "filter[category_id]"
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
@@ -626,7 +643,7 @@ describe "Proposals", type: :system do
         within ".order-by" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
           page.find("a", text: "Random").click
-          click_link "Most voted"
+          click_link "Most supported"
         end
 
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
@@ -659,6 +676,12 @@ describe "Proposals", type: :system do
       it_behaves_like "a paginated resource"
     end
 
+    context "when component is not commentable" do
+      let!(:ressources) { create_list(:proposal, 3, component: component) }
+
+      it_behaves_like "an uncommentable component"
+    end
+
     context "when amendments_enabled setting is enabled" do
       let!(:proposal) { create(:proposal, component: component, scope: scope) }
       let!(:emendation) { create(:proposal, component: component, scope: scope) }
@@ -671,7 +694,7 @@ describe "Proposals", type: :system do
 
       context "with 'all' type" do
         it "lists the filtered proposals" do
-          find('input[id="filter_type_all"]').click
+          find('input[name="filter[type]"][value="all"]').click
 
           expect(page).to have_css(".card.card--proposal", count: 2)
           expect(page).to have_content("2 PROPOSALS")

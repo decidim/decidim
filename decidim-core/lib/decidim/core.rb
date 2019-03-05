@@ -75,6 +75,8 @@ module Decidim
   autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
+  autoload :IoEncoder, "decidim/io_encoder"
+  autoload :HasResourcePermission, "decidim/has_resource_permission"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -252,6 +254,14 @@ module Decidim
 
   # Exposes a configuration option: an object to deliver SMS codes to users.
   config_accessor :sms_gateway_service
+
+  # Exposes a configuration option: an object to generate a timestamp from a
+  # document
+  config_accessor :timestamp_service
+
+  # Exposes a configuration option: an object to process a pdf and add a
+  # signature to the document
+  config_accessor :pdf_signature_service
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality

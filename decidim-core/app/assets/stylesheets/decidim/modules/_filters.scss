@@ -84,7 +84,7 @@ $filters-padding-y: 1rem;
 
   .section-title{
     text-transform: uppercase;
-    color: $primary;
+    color: var(--primary);
     text-decoration: underline;
     margin-right: $global-margin;
   }

@@ -50,7 +50,7 @@ nl:
       actions:
         confirm: Bevestigen
         new_conference: Nieuwe conferentie
-        send_diplomas: Verzend diploma's
+        send_diplomas: Stuur certificaten van deelname
       conference_copies:
         new:
           copy: Kopiëren
@@ -149,10 +149,10 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Components
-          conference_admins: Conferentie gebruikers
+          conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
           conference_speakers: sprekers
-          diploma: Diploma
+          diploma: Certificaat van aanwezigheid
           info: info
           media_links: Media links
           moderations: matigingen
@@ -250,10 +250,10 @@ nl:
       conference:
         create: "%{user_name} heeft de %{resource_name} conferentie gemaakt"
         publish: "%{user_name} heeft de %{resource_name} conferentie gepubliceerd"
-        send_conference_diplomas: "%{user_name} verzend diploma's naar de %{resource_name} conferentiegebruikers"
+        send_conference_diplomas: "%{user_name} verzonden presentielingscertificaten voor de %{resource_name} conferentierondes"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} conferentie"
         update: "%{user_name} heeft de %{resource_name} conferentie bijgewerkt"
-        update_diploma: "%{user_name} heeft de conferentieconfiguratie %{resource_name} conferentie bijgewerkt"
+        update_diploma: "%{user_name} heeft de aanwezigheidsconfiguratiecertificaten bijgewerkt voor %{resource_name} conferentie"
       conference_speaker:
         create: "%{user_name} heeft de %{resource_name} luidspreker gemaakt in de %{space_name} conferentie"
         delete: "%{user_name} heeft de %{resource_name} luidspreker van de %{space_name} conferentie verwijderd"
@@ -334,7 +334,7 @@ nl:
         diplomas:
           edit:
             save: Opslaan
-            title: Diploma
+            title: Certificaat van aanwezigheid
         invite_join_conference_mailer:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
@@ -350,14 +350,14 @@ nl:
             title: Registratie soorten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: U vindt het diploma voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
+            diploma_html: U vindt het certificaat van aanwezigheid voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
           diploma_user:
             attendance_verified_by: Aanwezigheid geverifieerd door
             certificate_of_attendance: Certificaat van aanwezigheid
             certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> heeft deelgenomen en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Er is een probleem opgetreden tijdens het verzenden van de conferentiediploma's.
-          success: Conferentiediploma's correct verzonden
+          error: Er is een probleem opgetreden tijdens het verzenden van de aanwezigheidsvergaderingscertificaten.
+          success: Conference certificaten van aanwezigheid correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
@@ -433,7 +433,7 @@ nl:
             subject: Uitnodiging om deel te nemen aan een conferentie
         send_conference_diploma_mailer:
           diploma:
-            subject: Het diploma van uw conferentie is verzonden
+            subject: Uw certificaat van aanwezigheid is verzonden
       models:
         conference_invite:
           fields:

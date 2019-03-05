@@ -4,7 +4,7 @@
   text-align: center;
 
   &::before{
-    @include spinner(25px, $medium-gray, $primary, 800ms);
+    @include spinner(25px, $medium-gray, var(--primary), 800ms);
 
     content: "";
     vertical-align: middle;

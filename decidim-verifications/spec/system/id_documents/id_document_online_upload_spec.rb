@@ -26,7 +26,7 @@ describe "Identity document online upload", type: :system do
       file_name: "id.jpg"
     )
 
-    expect(page).to have_content("Document uploaded successfully")
+    expect(page).to have_content("Document successfully uploaded")
   end
 
   it "shows an error when upload failed" do

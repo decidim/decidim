@@ -36,6 +36,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        alert_color: Alerta
         badges_enabled: Activa els distintius
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
@@ -62,11 +63,15 @@ ca:
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        primary_color: Primària
         reference_prefix: Prefix de referència
+        secondary_color: Secundària
         show_statistics: Mostra estadístiques
+        success_color: Èxit
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
-        user_groups_enabled: Activa els grups d'usuaris
+        user_groups_enabled: Activar els grups d'usuaris
+        warning_color: Avís
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -93,7 +98,7 @@ ca:
         title: Títol
         weight: Pes
       user_group_csv_verification:
-        file: Dossier
+        file: Fitxer
     errors:
       models:
         oauth_application:
@@ -220,10 +225,6 @@ ca:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
       component_permissions:
-        edit:
-          everyone: Tothom
-          submit: Desar permisos
-          title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
       components:
@@ -510,6 +511,7 @@ ca:
         edit:
           update: Actualitzar
         form:
+          colors_title: Colors de l'organització
           cta_button_path_help: 'Pots sobreescriure a on enllaça el botó d''acció principal de la pàgina d''inici. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
@@ -536,6 +538,12 @@ ca:
         new:
           create: Crear
           title: Nou usuari privat de l'espai participatiu.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Edita els permisos
+        update:
+          success: Els permisos s'han actualitzat correctament.
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -615,9 +623,9 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
-        impersonatable_users: Usuaris impersonables
-        impersonations: Suplantacions
-        participants: Participants
+        impersonatable_users: Usuaris manejables
+        impersonations: Gestió d'usuaris
+        participants: Usuaris
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
@@ -651,7 +659,7 @@ ca:
         new:
           explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups d'usuaris de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups d'usuaris que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
           title: Penja el fitxer CSV
-          upload: Carrega
+          upload: Penja
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.
@@ -677,7 +685,7 @@ ca:
         hide: Amagar
         not_hidden: No ocult
         title: Accions
-        unhide: Unhide
+        unhide: Tornar a mostrar
         unreport: Desfer denúncia
       admin:
         reportable:
@@ -685,8 +693,8 @@ ca:
             invalid: Hi ha hagut un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
           unhide:
-            invalid: Hi ha hagut un problema en descobrir el recurs.
-            success: S'ha desactivat el recurs amb èxit.
+            invalid: Hi ha hagut un problema en tornar a mostrar el recurs.
+            success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: Hi ha hagut un problema cancel·lant la denúncia.
             success: Denúncia cancel·lada correctament.

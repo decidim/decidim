@@ -84,7 +84,7 @@ $nav-border-width: 3px;
   }
 
   &.is-active{
-    box-shadow: inset 0 (-1 * ($nav-border-width + 1px)) 0 0 $primary;
+    box-shadow: inset 0 (-1 * ($nav-border-width + 1px)) 0 0 var(--primary);
 
     @include breakpoint(smallmedium down){
       display: none;
@@ -94,8 +94,8 @@ $nav-border-width: 3px;
 
 .process-nav__more{
   margin: 0;
-  color: $primary;
-  background-color: rgba($primary, .1);
+  color: var(--primary);
+  background-color: rgba(var(--primary), .1);
   text-transform: uppercase;
   font-weight: $global-weight-bold;
   font-size: rem-calc(14);
@@ -104,7 +104,7 @@ $nav-border-width: 3px;
     @include square(5px);
 
     border-radius: 100%;
-    background-color: $primary;
+    background-color: var(--primary);
     display: inline-block;
     vertical-align: middle;
     margin-bottom: .1rem;
@@ -140,7 +140,7 @@ $nav-border-width: 3px;
 }
 
 .process-nav__link{
-  color: $primary;
+  color: var(--primary);
   text-transform: uppercase;
   font-weight: $global-weight-bold;
   display: flex;
@@ -166,13 +166,13 @@ $nav-border-width: 3px;
 
 @include breakpoint(medium){
   .process-nav__link.is-active{
-    color: $primary;
+    color: var(--primary);
 
     svg{
-      fill: $primary;
+      fill: var(--primary);
 
       .stroked-shape{
-        stroke: $primary;
+        stroke: var(--primary);
       }
     }
   }

@@ -1,0 +1,494 @@
+cs:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Popis
+        offline_votes: Podpora tváří v tvář
+        scope_id: Rozsah
+        signature_end_date: Konec doby sběru podpisu
+        signature_start_date: Začátek doby sběru podpisu
+        signature_type: Typ sbírky podpisu
+        signature_type_values:
+          any: Smíšený
+          offline: Z očí do očí
+          online: OnLine
+        state: Stát
+        title: Titul
+      initiative_author:
+        address: Adresa
+        city: Město
+        id_document: DNI / NIE
+        name: Jméno a příjmení
+        phone_number: Telefonní číslo
+        post_code: PSČ
+        province: Provincie
+      initiatives_committee_member:
+        user: člen komise
+      initiatives_type:
+        banner_image: Obrázek banneru
+        collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        description: Popis
+        document_number_authorization_handler: Povolení ověřit číslo dokumentu na hlasování
+        extra_fields_legal_information: Právní informace o shromažďování osobních údajů
+        minimum_committee_members: Minimální počet členů výboru
+        online_signature_enabled: Online podpis povolen
+        title: Titul
+        undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
+        validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
+      initiatives_vote:
+        name_and_surname: Jméno a příjmení
+        document_number: Číslo dokumentu
+        date_of_birth: Datum narození
+        postal_code: Poštovní směrovací číslo
+      organization_data:
+        address: Adresa
+        id_document: Doklad totožnosti
+        name: Kompletní jméno
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initativní
+        few: Iniciativy
+        many: Iniciativy
+        other: Iniciativy
+      decidim/initiative_comittee:
+        one: Výbor
+        few: Výbory
+        many: Výbory
+        other: Výbory
+      decidim/initiative_vote:
+        one: Podpis
+        few: Podpisy
+        many: Podpisy
+        other: Podpisy
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Nový typ iniciativy
+      menu:
+        initiatives: Iniciativy
+        initiatives_types: Typy iniciativ
+      models:
+        initiatives:
+          fields:
+            created_at: Vytvořeno u
+            id: ID
+            state: Stát
+            supports_count: Podpisy
+            title: Iniciativy
+        initiatives_type_scope:
+          fields:
+            scope: Rozsah
+            supports_required: Potřebné podpory
+          name: Rozsah typu iniciativy
+        initiatives_types:
+          fields:
+            created_at: Vytvořeno u
+            title: Typy iniciativ
+          name: Typ iniciativy
+        initiatives_votes:
+          fields:
+            date_of_birth: Datum narození
+            document_number: Číslo dokumentu
+            hash: Hash
+            initiative_end_date: Datum ukončení
+            initiative_id: ID iniciativy
+            initiative_signatures_count: Počet podpisů
+            initiative_start_date: Počáteční datum
+            initiative_title: Název iniciativy
+            name_and_surname: Jméno a příjmení
+            postal_code: Poštovní směrovací číslo
+            time_and_date: Čas a datum
+            timestamp: Časové razítko
+      titles:
+        initiatives: Iniciativy
+        initiatives_types: Typy iniciativ
+    events:
+      initiatives:
+        initiative_extended:
+          email_intro: Podpisový termín pro iniciativu %{resource_title} byl rozšířen!
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Datum ukončení podpisů iniciativy bylo rozšířeno!
+          notification_title: Konec konce podpisu iniciativy <a href="%{resource_path}">%{resource_title}</a> byl prodloužen.
+        milestone_completed:
+          affected_user:
+            email_intro: Vaše iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
+            email_outro: Toto oznámení jste obdrželi, protože jste autorem iniciativy %{resource_title}.
+            email_subject: Nový milník dokončen!
+            notification_title: Vaše iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+          follower:
+            email_intro: Iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
+            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+            email_subject: Nový milník dokončen!
+            notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Jděte do prostoru účasti iniciativ
+            - Postupujte podle kroků k vytvoření nové iniciativy
+          description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
+          description_another: Tento uživatel zveřejnil %{score} iniciativ.
+          description_own: Máte k dispozici %{score} iniciativ.
+          name: Publikované iniciativy
+          next_level_in: Získejte %{score} dalších publikovaných iniciativ, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel dosud nezveřejnil žádné iniciativy.
+          unearned_own: Dosud jste nezveřejnili žádné iniciativy.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
+          page: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
+          title: Co jsou iniciativy?
+    initiatives:
+      actions:
+        answer: Odpovědět
+      admin:
+        answers:
+          edit:
+            title: Odpověď na %{title}
+            answer: Odpovědět
+          info_initiative:
+            created_at: Vytvořeno u
+            description: Popis
+            initiative_votes_count: Počet hlasů
+            initiatives: Iniciativy
+            state: Stát
+        committee_requests:
+          index:
+            approve: Schvalovat
+            confirm_revoke: Jsi si jistá?
+            invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
+            no_members_yet: V komisi promotérů nejsou žádní členové
+            revoke: Zrušit
+            title: členové komise
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximální množství prvků, které chcete zobrazit
+        initiatives:
+          edit:
+            accept: Přijměte iniciativu
+            confirm: Jsi si jistá?
+            discard: Zrušte iniciativu
+            export_pdf_signatures: Export PDF podpisů
+            export_votes: Podpora exportu
+            reject: Odmítnout iniciativu
+            send_to_technical_validation: Odeslání k technickému ověření
+            success: Iniciativa byla odeslána k technickému ověření
+            update: Aktualizace
+          form:
+            title: Obecná informace
+          index:
+            actions_title: Akce
+            filter:
+              accepted: Přijato
+              all: Všechno
+              created: Vytvořeno
+              discarded: Vyřazeno
+              published: Publikováno
+              rejected: Odmítnuto
+              validating: Technická validace
+            filter_by: Filtrovat podle
+            preview: Náhled
+            print: Vytisknout
+            search: Vyhledávání
+          show:
+            print: Vytisknout
+          update:
+            error: Došlo k chybě
+            success: Iniciativa občanů byla úspěšně aktualizována
+        initiatives_type_scopes:
+          create:
+            error: Došlo k chybě
+            success: Byla vytvořena nová oblast pro daný typ iniciativy
+          destroy:
+            success: Rozsah byl úspěšně odstraněn
+          edit:
+            back: Zadní
+            confirm_destroy: Jsi si jistá?
+            destroy: Odstranit
+            title: Upravit rozsah typu iniciativy
+            update: Aktualizace
+          new:
+            back: Zadní
+            create: Vytvořit
+            title: Vytvoření rozsahu typů iniciativy
+          update:
+            error: Došlo k chybě
+            success: Rozsah byl úspěšně aktualizován
+        initiatives_types:
+          create:
+            error: Došlo k chybě
+            success: Nový typ iniciativy byl úspěšně vytvořen
+          destroy:
+            success: Typ iniciativy byl úspěšně odstraněn
+          edit:
+            confirm_destroy: Jsi si jistá?
+            destroy: Odstranit
+            update: Aktualizace
+          form:
+            title: Obecná informace
+          initiative_type_scopes:
+            title: Zaměřuje se na typ iniciativy
+          new:
+            create: Vytvořit
+            title: Nový typ iniciativy
+          update:
+            error: Došlo k chybě
+            success: Typ iniciativy byl úspěšně aktualizován
+      admin_log:
+        initiative:
+          publish: "%{user_name} zveřejnila %{resource_name} iniciativu"
+          send_to_technical_validation: "%{user_name} zaslala %{resource_name} iniciativu k technickému ověření"
+          unpublish: "%{user_name} odhodil %{resource_name} iniciativu"
+          update: "%{user_name} aktualizovala iniciativu %{resource_name}"
+      admin_states:
+        accepted: Přijato
+        created: Vytvořeno
+        discarded: Vyřazeno
+        published: Publikováno
+        rejected: Odmítnuto
+        validating: Technická validace
+      committee_requests:
+        new:
+          continue: Pokračovat
+          help_text: Chystáte se požádat o členství v iniciativě této iniciativy
+        spawn:
+          success: Vaše žádost byla zaslána autorovi iniciativy.
+      content_blocks:
+        highlighted_initiatives:
+          name: Zdůrazněné iniciativy
+      create_initiative:
+        fill_data:
+          back: Zadní
+          continue: Pokračovat
+          fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
+          initiative_type: Typ iniciativy
+          more_information: "(Více informací)"
+          select_scope: Vyberte oblast
+        finish:
+          back: Zadní
+          back_to_initiatives: Zpět na iniciativy
+          callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
+          go_to_my_initiatives: Jděte na mé iniciativy
+          more_information: "(Více informací)"
+        finish_help:
+          access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
+          help_for_organizations: Pokud jste sdružení, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
+          help_in_person_signatures: Pokud jste se rozhodli vyzvednout podpisy osobně nebo v kombinaci s online, budete muset nahrát požadované informace.
+          help_text: Nezapomeňte, že pro správné zpracování iniciativy musíte přistupovat k administračnímu panelu, kde naleznete uživatelské menu, nahrát požadované informace a odeslat je ke zpracování.
+          initiatives_page_link: Můžete si prohlédnout všechny tyto informace o %{link} určeny k informování o iniciativách.
+          page: stránka
+        previous_form:
+          back: Zadní
+          continue: Pokračovat
+          help: Jaká je iniciativa? Zapište název a popis. Doporučujeme krátký a stručný název a popis zaměřený na navrhované řešení.
+          more_information: "(Více informací)"
+        promotal_committee:
+          back: Zadní
+          individual_help_text: Tento druh občanské iniciativy vyžaduje provizorní komisi skládající se z nejméně %{committee_size} lidí (atestujících). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
+          more_information: "(Více informací)"
+        select_initiative_type:
+          back: Zadní
+          choose_html: Chci vytvořit <strong>%{title}</strong>
+          more_information: "(Více informací)"
+          select: Chci tuto iniciativu podpořit
+          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Která iniciativa chcete spustit?
+        share_committee_link:
+          continue: Pokračovat
+          invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí promotorového výboru
+        show_similar_initiatives:
+          back: Zadní
+          compare_help: Pokud je některá z následujících iniciativ podobná vašim, doporučujeme vám ji podpořit. Váš návrh bude mít více možností, jak to udělat.
+          continue: Moje iniciativa je jiná
+          more_information: "(Více informací)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, který sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Nová iniciativa %{author_nickname}
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla vytvořena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, který sledujete, schválil následující iniciativu, možná chcete přispět k rozhovoru:"
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Iniciativa byla potvrzena číslem %{author_nickname}
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Iniciativy
+      initiative_signatures:
+        fill_personal_data:
+          continue: Pokračovat
+          date_select:
+            day: Den
+            month: Měsíc
+            year: Rok
+          help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
+        finish:
+          back_to_initiative: Zpět na iniciativu
+        sms_phone_number:
+          continue: Pošlete mi SMS
+          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód
+        sms_code:
+          continue: Zkontrolujte kód a pokračujte
+          help: Zkontrolujte SMS přijaté v telefonu
+      initiative_votes:
+        create:
+          error: Při podpisu iniciativy došlo k chybám.
+          invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné
+          success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla správně podepsána
+        personal_data:
+          invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
+        sms_code:
+          invalid: Váš ověřovací kód neodpovídá našemu. Prosím, zkontrolujte SMS, který jsme vám poslali.
+        sms_phone:
+          invalid: Telefonní číslo je neplatné nebo čeká na autorizaci. Zkontrolujte prosím vaše oprávnění.
+      initiatives:
+        author:
+          deleted: Vymazáno
+        author_list:
+          hidden_authors_count:
+            one: a 1 další osobou
+            few: a %{count} dalších lidí
+            many: a %{count} dalších lidí
+            other: a %{count} dalších lidí
+        count:
+          title:
+            one: "%{count}"
+            few: "%{count} iniciativ"
+            many: "%{count} iniciativ"
+            other: "%{count} iniciativ"
+        filters:
+          any: Žádný
+          author: Autor
+          closed: Zavřeno
+          myself: Moje iniciativy
+          open: otevřeno
+          search: Vyhledávání
+          state: Stát
+          type: Typ
+          type_prompt: Vyberte typ
+        filters_small_view:
+          close_modal: Zavřete okno
+          filter: Filtr
+          filter_by: Filtrovat podle
+          unfold: Rozvinout
+        index_header:
+          new_initiative: Nová iniciativa
+        interactions:
+          comments_count:
+            count:
+              one: Komentář
+              few: Komentáře
+              many: Komentáře
+              other: Komentáře
+        orders:
+          label: 'Třídit iniciativy podle:'
+          most_commented: Nejvíce komentované
+          most_voted: Nejvíce podepsané
+          random: Náhodný
+          recent: Nejnovější
+        result:
+          answer_title:
+            accepted: Tento návrh byl přijat, protože
+            created: Tento návrh byl vytvořen
+            discarded: Tento návrh byl zlikvidován, protože
+            published: Tento návrh je zveřejněn proto, že
+            rejected: Tento návrh byl zamítnut, protože
+            validating: Tento návrh se hodnotí
+          initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
+        show:
+          any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
+          follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
+          offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
+        signature_identities:
+          select_identity: Vyberte identifikátor uživatele
+        signatures_count:
+          one: " podpis"
+          few: " podpisy"
+          many: " podpisy"
+          other: " podpisy"
+        supports:
+          title: Výpis podpisů
+        vote_cabin:
+          already_voted: Již jste podepsal
+          supports_required: "Vyžaduje se %{total_supports} podpisů"
+          verification_required: Ověřte svůj účet, abyste podepsali iniciativu
+          vote: Podepsat
+          votes_blocked: Podpis zakázán
+        votes_count:
+          count:
+            one: PODPIS
+            few: PODPISY
+            many: PODPISY
+            other: PODPISY
+          most_popular_initiative: Nejoblíbenější iniciativa
+          need_more_votes: Potřebujete další podpisy
+      initiatives_mailer:
+        creation_subject: Vaše občanská iniciativa "%{title}" byla vytvořena
+        initiative_link:
+          check_initiative_details: Můžete vidět podrobnosti o iniciativě
+          here: tady
+        more_information: Zde naleznete další informace o procesu vytváření iniciativ.
+        progress_report_body_for: Iniciativa %{title} dosáhla %{percentage}% požadované podpory.
+        progress_report_for: 'Pokračujte v iniciativě: %{title}'
+        promotal_committee_help: Nezapomeňte, že musíte vyzvat nejméně %{member_count} lidí na organizační výbor. Předání následujícího odkazu na pozvání osob do výboru předkladatelů
+        status_change_body_for: 'Iniciativa %{title} změnila svůj stav na: %{state}'
+        status_change_for: Iniciativa %{title} změnila svůj stav
+        technical_validation_body_for: Iniciativa %{title} požádala o jeho technickou validaci.
+        technical_validation_for: Iniciativa %{title} požádala o jeho technickou validaci.
+      last_activity:
+        new_initiative: Nová iniciativa
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktivní iniciativy
+            see_all_initiatives: Podívejte se na všechny iniciativy
+      states:
+        accepted: Přijato
+        expired: Platnost vypršela
+      unavailable_scope: Nedostupný rozsah
+    menu:
+      initiatives: Iniciativy
+    resources:
+      initiatives_type:
+        actions:
+          vote: Hlasování
+          title: Akce
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Přílohy
+          committee_members: členové komise
+          components: Komponenty
+          information: Informace
+      initiative_creation_header:
+        back: Zadní
+        fill_data: Vytvořit
+        finish: Dokončit
+        previous_form: Start
+        promotal_committee: Výbor předkladatelů
+        select_initiative_type: Vybrat
+        show_similar_initiatives: Porovnejte
+        step: Krok %{current} z %{total}
+        title: Vytvořte novou iniciativu
+      initiative_header:
+        initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: Zadní
+        fill_personal_data: Dokončete své údaje
+        finish: Dokončit
+        finished: Vytvoření podpisu iniciativy
+        select_identity: Vyberte identitu
+        see_steps: viz kroky
+        sms_code: Ověření kódu SMS
+        sms_phone_number: Číslo mobilního telefonu
+        step: Krok %{current} z %{total}
+        title: Přihlásit %{initiative_title}
+      initiatives:
+        initiative:
+          check: Koukni na to
+          check_and_support: Podívejte se na to a podepište
+        no_initiatives_yet:
+          no_initiatives_yet: Zatím žádné iniciativy!

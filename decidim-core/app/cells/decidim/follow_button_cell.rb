@@ -12,10 +12,6 @@ module Decidim
 
     private
 
-    def current_user
-      context[:current_user]
-    end
-
     def button_classes
       return "card__button secondary text-uppercase follow-button mb-none" if inline?
       return "button secondary hollow expanded button--icon button--sc" if large?

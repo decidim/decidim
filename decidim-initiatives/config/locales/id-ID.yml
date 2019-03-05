@@ -13,6 +13,7 @@ id:
           any: Campur aduk
           offline: Tatap muka
           online: On line
+        state: Negara
         title: Judul
       initiative_author:
         address: Alamat
@@ -26,8 +27,20 @@ id:
         user: anggota Komite
       initiatives_type:
         banner_image: Gambar spanduk
+        collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
+        document_number_authorization_handler: Otorisasi untuk memverifikasi nomor dokumen pada pemungutan suara
+        extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
+        minimum_committee_members: Minimal anggota komite
+        online_signature_enabled: Tanda tangan online diaktifkan
         title: Judul
+        undo_online_signatures_enabled: Aktifkan pengguna untuk membatalkan tanda tangan online mereka
+        validate_sms_code_on_votes: Tambahkan langkah validasi kode SMS ke proses tanda tangan
+      initiatives_vote:
+        name_and_surname: Nama dan nama keluarga
+        document_number: Nomor dokumen
+        date_of_birth: Tanggal lahir
+        postal_code: Kode Pos
       organization_data:
         address: Alamat
         id_document: Dokumen ID
@@ -53,7 +66,7 @@ id:
             created_at: Dibuat di
             id: ID
             state: Negara
-            supports_count: Mendukung
+            supports_count: Tanda tangan
             title: Inisiatif
         initiatives_type_scope:
           fields:
@@ -65,6 +78,20 @@ id:
             created_at: Dibuat di
             title: Jenis inisiatif
           name: Jenis inisiatif
+        initiatives_votes:
+          fields:
+            date_of_birth: Tanggal lahir
+            document_number: Nomor dokumen
+            hash: Hash
+            initiative_end_date: Tanggal akhir
+            initiative_id: ID inisiatif
+            initiative_signatures_count: Jumlah tanda tangan
+            initiative_start_date: Mulai tanggal
+            initiative_title: Judul inisiatif
+            name_and_surname: Nama dan nama keluarga
+            postal_code: Kode Pos
+            time_and_date: Waktu dan tanggal
+            timestamp: Stempel waktu
       titles:
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif
@@ -106,7 +133,19 @@ id:
           page: "<p>Inisiatif adalah proposal yang dapat dipromosikan oleh siapa pun atas inisiatif mereka sendiri (terlepas dari saluran lain atau ruang partisipasi) melalui pengumpulan tanda tangan (digital) untuk organisasi untuk melakukan tindakan tertentu (memodifikasi peraturan, memulai proyek , ubah nama departemen atau jalan, dll.).</p> <p>Promotor suatu inisiatif dapat menentukan tujuannya, mengumpulkan dukungan, berdebat, menyebarluaskannya dan menentukan titik-titik pertemuan di mana tanda tangan dapat dikumpulkan dari peserta atau debat terbuka untuk peserta lain.</p> <p>Contoh: Suatu inisiatif dapat mengumpulkan tanda tangan untuk mengadakan konsultasi di antara semua orang dari suatu organisasi, atau untuk membuat atau mengadakan pertemuan, atau untuk memulai proses peningkatan anggaran untuk suatu wilayah atau wilayah organisasi. Selama proses pengumpulan tanda tangan, lebih banyak orang dapat menambah permintaan ini dan membawanya ke depan dalam organisasi.</p>\n"
           title: Apa inisiatifnya?
     initiatives:
+      actions:
+        answer: Menjawab
       admin:
+        answers:
+          edit:
+            title: Jawab untuk %{title}
+            answer: Menjawab
+          info_initiative:
+            created_at: Dibuat di
+            description: Deskripsi
+            initiative_votes_count: Votes dihitung
+            initiatives: Inisiatif
+            state: Negara
         committee_requests:
           index:
             approve: Menyetujui
@@ -123,6 +162,7 @@ id:
             accept: Terima inisiatif
             confirm: Apakah kamu yakin?
             discard: Buang inisiatif
+            export_pdf_signatures: Ekspor PDF tanda tangan
             export_votes: Mendukung ekspor
             reject: Tolak inisiatif
             send_to_technical_validation: Kirim ke validasi teknis
@@ -238,12 +278,13 @@ id:
           more_information: "(Informasi lebih lanjut)"
         promotal_committee:
           back: Kembali
-          individual_help_text: Inisiatif warga membutuhkan Komisi Promosi yang terdiri dari setidaknya tiga orang (pengawas). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini mereka harus mengikuti langkah-langkah yang ditunjukkan.
+          individual_help_text: Inisiatif warga negara semacam ini membutuhkan Komisi Promosi yang terdiri dari setidaknya %{committee_size} orang (pengacara). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini, mereka harus mengikuti langkah-langkah yang ditunjukkan.
           more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
+          choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: "(Informasi lebih lanjut)"
-          select: Memilih
+          select: Saya ingin mempromosikan inisiatif ini
           select_initiative_type_help: Inisiatif warga adalah cara yang dapat dilakukan oleh kewarganegaraan sehingga Dewan Kota dapat melakukan tindakan untuk membela kepentingan umum yang berada di dalam wilayah yurisdiksi kota. Inisiatif apa yang ingin Anda luncurkan?
         share_committee_link:
           continue: Terus
@@ -266,9 +307,33 @@ id:
           notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Inisiatif
+      initiative_signatures:
+        fill_personal_data:
+          continue: Terus
+          date_select:
+            day: Hari
+            month: Bulan
+            year: Tahun
+          help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
+        finish:
+          back_to_initiative: Kembali ke inisiatif
+        sms_phone_number:
+          continue: Kirimi saya SMS
+          help: Isi formulir dengan nomor telepon terverifikasi Anda untuk meminta kode verifikasi Anda
+        sms_code:
+          continue: Periksa kode dan lanjutkan
+          help: Periksa SMS yang diterima di ponsel Anda
       initiative_votes:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
+          invalid: Data yang diberikan untuk menandatangani inisiatif tidak valid
+          success_html: Selamat! Inisiatif <strong> %{title}</strong> telah ditandatangani dengan benar
+        personal_data:
+          invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
+        sms_code:
+          invalid: Kode verifikasi Anda tidak cocok dengan kode kami. Harap periksa ulang SMS yang kami kirimkan kepada Anda.
+        sms_phone:
+          invalid: Nomor telepon tidak valid atau menunggu otorisasi. Silakan periksa otorisasi Anda.
       initiatives:
         author:
           deleted: Dihapus
@@ -295,6 +360,10 @@ id:
           unfold: Membuka
         index_header:
           new_initiative: Inisiatif baru
+        interactions:
+          comments_count:
+            count:
+              other: Komentar
         orders:
           label: 'Urutkan inisiatif dengan:'
           most_commented: Sebagian besar berkomentar
@@ -302,30 +371,35 @@ id:
           random: Acak
           recent: Terbaru
         result:
-          initiative_accepted_reason: Inisiatif ini telah diterima karena
+          answer_title:
+            accepted: Proposal ini telah diterima karena
+            created: Proposal ini telah dibuat
+            discarded: Proposal ini telah dibuang karena
+            published: Proposal ini diterbitkan karena
+            rejected: Proposal ini telah ditolak karena
+            validating: Proposal ini sedang dievaluasi
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         show:
           any_vote_method: Inisiatif warga ini mengumpulkan dukungan online serta tatap muka.
+          follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
           offline_method: Inisiatif warga ini hanya mengumpulkan dukungan tatap muka.
         signature_identities:
           select_identity: Pilih pengenal pengguna
         signatures_count:
           other: " tanda tangan"
-        statistics:
-          assistants_count_title: Asisten
-          comments_count_title: Komentar
-          meetings_count_title: Rapat
-          supports_count_title: Tanda tangan
         supports:
           title: Daftar tanda tangan
         vote_cabin:
           already_voted: Sudah ditandatangani
           supports_required: "%{total_supports} tanda tangan diperlukan"
+          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:
           count:
             other: TANDATANGAN
+          most_popular_initiative: Inisiatif paling populer
+          need_more_votes: Perlu lebih banyak tanda tangan
       initiatives_mailer:
         creation_subject: Inisiatif warga Anda '%{title}' telah dibuat
         initiative_link:
@@ -352,6 +426,11 @@ id:
       unavailable_scope: Ruang lingkup tidak tersedia
     menu:
       initiatives: Inisiatif
+    resources:
+      initiatives_type:
+        actions:
+          vote: Memilih
+          title: Tindakan
   layouts:
     decidim:
       admin:
@@ -361,6 +440,7 @@ id:
           components: Komponen
           information: Informasi
       initiative_creation_header:
+        back: Kembali
         fill_data: Membuat
         finish: Selesai
         previous_form: Mulai
@@ -371,6 +451,17 @@ id:
         title: Buat inisiatif baru
       initiative_header:
         initiative_menu_item: Prakarsa
+      initiative_signature_creation_header:
+        back: Kembali
+        fill_personal_data: Lengkapi data Anda
+        finish: Selesai
+        finished: Tanda tangan inisiatif dibuat
+        select_identity: Pilih identitas
+        see_steps: lihat langkah-langkahnya
+        sms_code: Verifikasi kode SMS
+        sms_phone_number: Nomor ponsel
+        step: Langkah %{current} dari %{total}
+        title: Tanda %{initiative_title}
       initiatives:
         initiative:
           check: Coba lihat

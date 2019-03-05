@@ -11,7 +11,7 @@ describe "Admin manages officializations", type: :system do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Users"
+    click_link "Participants"
   end
 
   describe "listing officializations" do
@@ -26,7 +26,9 @@ describe "Admin manages officializations", type: :system do
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      click_link "Participants"
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
     end
 
     it "shows each user and its officialization status" do
@@ -45,7 +47,9 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization: organization) }
 
       before do
-        click_link "Participants"
+        within ".secondary-nav" do
+          click_link "Participants"
+        end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           click_link "Officialize"
@@ -55,7 +59,7 @@ describe "Admin manages officializations", type: :system do
       it "officializes it with the standard badge" do
         click_button "Officialize"
 
-        expect(page).to have_content("officialized successfully")
+        expect(page).to have_content("successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_content("Officialized")
@@ -72,7 +76,7 @@ describe "Admin manages officializations", type: :system do
 
         click_button "Officialize"
 
-        expect(page).to have_content("officialized successfully")
+        expect(page).to have_content("successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
@@ -91,7 +95,9 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        click_link "Participants"
+        within ".secondary-nav" do
+          click_link "Participants"
+        end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           click_link "Reofficialize"
@@ -108,7 +114,7 @@ describe "Admin manages officializations", type: :system do
         )
         click_button "Officialize"
 
-        expect(page).to have_content("officialized successfully")
+        expect(page).to have_content("successfully officialized")
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           expect(page).to have_content("Officialized").and have_content("Major of Barcelona")
@@ -121,7 +127,9 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization: organization) }
 
     before do
-      click_link "Participants"
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
 
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link "Unofficialize"
@@ -129,7 +137,7 @@ describe "Admin manages officializations", type: :system do
     end
 
     it "unofficializes user and goes back to list" do
-      expect(page).to have_content("unofficialized successfully")
+      expect(page).to have_content("successfully unofficialized")
 
       within "tr[data-user-id=\"#{user.id}\"]" do
         expect(page).to have_content("Not officialized")
@@ -141,7 +149,9 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
 
     before do
-      click_link "Participants"
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
     end
 
     it "redirect to conversation path" do
@@ -156,7 +166,9 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
 
     before do
-      click_link "Participants"
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
     end
 
     it "redirect to user profile page" do
@@ -174,7 +186,9 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
 
     before do
-      click_link "Participants"
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
     end
 
     it "redirect to user profile page" do

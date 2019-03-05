@@ -13,6 +13,7 @@ sv:
           any: Blandad
           offline: Ansikte mot ansikte
           online: Digitala
+        state: stat
         title: Titel
       initiative_author:
         address: Adress
@@ -26,8 +27,20 @@ sv:
         user: Kommittémedlem
       initiatives_type:
         banner_image: Banner image
+        collect_user_extra_fields: Samla användarens personuppgifter om signatur
         description: Beskrivning
+        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer vid omröstning
+        extra_fields_legal_information: Juridisk information om insamling av personuppgifter
+        minimum_committee_members: Minsta utskottets medlemmar
+        online_signature_enabled: Online signatur aktiverad
         title: Titel
+        undo_online_signatures_enabled: Aktivera användarna att ångra sina online-signaturer
+        validate_sms_code_on_votes: Lägg till SMS-kodvalideringssteg till signaturprocess
+      initiatives_vote:
+        name_and_surname: Namn och efternamn
+        document_number: Dokumentnummer
+        date_of_birth: Födelsedatum
+        postal_code: Postnummer
       organization_data:
         address: Adress
         id_document: ID-dokument
@@ -56,7 +69,7 @@ sv:
             created_at: Skapad vid
             id: ID
             state: Status
-            supports_count: Stöder
+            supports_count: signaturer
             title: initiativ
         initiatives_type_scope:
           fields:
@@ -68,6 +81,20 @@ sv:
             created_at: Skapad vid
             title: Initiativtyper
           name: Initiativtyp
+        initiatives_votes:
+          fields:
+            date_of_birth: Födelsedatum
+            document_number: Dokumentnummer
+            hash: Hash
+            initiative_end_date: Slutdatum
+            initiative_id: Initiativ ID
+            initiative_signatures_count: Antal signaturer
+            initiative_start_date: Start datum
+            initiative_title: Initiativtitel
+            name_and_surname: Namn och efternamn
+            postal_code: Postnummer
+            time_and_date: Tid och datum
+            timestamp: Tidsstämpel
       titles:
         initiatives: initiativ
         initiatives_types: Initiativtyper
@@ -109,7 +136,19 @@ sv:
           page: "<p>Ett initiativ är ett förslag som kan främjas av någon på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) signaturer för organisationen att genomföra en specifik åtgärd (ändra en förordning, initiera ett projekt , ändra namn på en avdelning eller en gata, etc.).</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida och definiera mötespunkter där signaturer kan hämtas från deltagarna eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att sammankalla samråd med alla organisationer i en organisation eller att skapa eller sammankalla en sammansättning eller att initiera en budgethöjning för ett område eller område i organisationen. Under processen att samla signaturer kan fler människor lägga till denna efterfrågan och vidarebefordra den i organisationen.</p>\n"
           title: Vad är initiativ?
     initiatives:
+      actions:
+        answer: Svar
       admin:
+        answers:
+          edit:
+            title: Svar för %{title}
+            answer: Svar
+          info_initiative:
+            created_at: Skapad vid
+            description: Beskrivning
+            initiative_votes_count: Röster räknas
+            initiatives: initiativ
+            state: stat
         committee_requests:
           index:
             approve: Godkänna
@@ -126,6 +165,7 @@ sv:
             accept: Acceptera initiativ
             confirm: Är du säker?
             discard: Förkasta initiativet
+            export_pdf_signatures: Exportera PDF av signaturer
             export_votes: Exportstöd
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
@@ -241,12 +281,13 @@ sv:
           more_information: "(Mer information)"
         promotal_committee:
           back: Tillbaka
-          individual_help_text: Medborgarinitiativ kräver en föreslagningskommission bestående av minst tre personer (vittnen). Du måste dela följande länk med andra personer som ingår i detta initiativ. När dina kontakter får den här länken måste de följa de angivna stegen.
+          individual_help_text: Denna typ av medborgarinitiativ kräver en uppdragskommission bestående av minst %{committee_size} personer (vittnen). Du måste dela följande länk med andra personer som ingår i detta initiativ. När dina kontakter får den här länken måste de följa de angivna stegen.
           more_information: "(Mer information)"
         select_initiative_type:
           back: Tillbaka
+          choose_html: Jag vill skapa en <strong>%{title}</strong>
           more_information: "(Mer information)"
-          select: Välja
+          select: Jag vill främja detta initiativ
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
         share_committee_link:
           continue: Fortsätta
@@ -269,9 +310,33 @@ sv:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet godkändes av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: initiativ
+      initiative_signatures:
+        fill_personal_data:
+          continue: Fortsätta
+          date_select:
+            day: Dag
+            month: Månad
+            year: År
+          help: Vänligen fyll i följande fält med dina personuppgifter för att underteckna initiativet
+        finish:
+          back_to_initiative: Tillbaka till initiativet
+        sms_phone_number:
+          continue: Skicka mig ett SMS
+          help: Fyll i formuläret med ditt verifierade telefonnummer för att begära din verifieringskod
+        sms_code:
+          continue: Kontrollera koden och fortsätt
+          help: Kontrollera det SMS som mottas i telefonen
       initiative_votes:
         create:
           error: Det har varit fel när du undertecknade initiativet.
+          invalid: Uppgifterna som lämnas för att underteckna initiativet är inte giltiga
+          success_html: grattis! <strong> %{title}</strong> initiativet har skrivits korrekt
+        personal_data:
+          invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
+        sms_code:
+          invalid: Din verifieringskod stämmer inte överens med vår. Vänligen dubbelklicka på det SMS vi skickade till dig.
+        sms_phone:
+          invalid: Telefonnumret är ogiltigt eller inte godkänt. Var god kontrollera dina auktorisationer.
       initiatives:
         author:
           deleted: Raderad
@@ -300,6 +365,11 @@ sv:
           unfold: Veckla ut
         index_header:
           new_initiative: Nytt initiativ
+        interactions:
+          comments_count:
+            count:
+              one: Kommentar
+              other: kommentarer
         orders:
           label: 'Sortera initiativ av:'
           most_commented: Mest kommenterade
@@ -307,32 +377,37 @@ sv:
           random: Slumpmässig
           recent: Senaste
         result:
-          initiative_accepted_reason: Detta initiativ har godkänts, eftersom
+          answer_title:
+            accepted: Detta förslag har godkänts eftersom
+            created: Detta förslag har skapats
+            discarded: Detta förslag har blivit kasserat eftersom
+            published: Detta förslag publiceras på grund av
+            rejected: Detta förslag har avslagits eftersom
+            validating: Detta förslag utvärderas
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på stöd.
         show:
           any_vote_method: Detta medborgarinitiativ samlar in online-support och ansikte mot ansikte.
+          follow_description: Få en anmälan när det finns nyheter i detta initiativ
           offline_method: Detta medborgarinitiativ samlar bara ansikte mot ansikte stöd.
         signature_identities:
           select_identity: Välj användaridentifierare
         signatures_count:
           one: " signatur"
           other: " signaturer"
-        statistics:
-          assistants_count_title: assistenter
-          comments_count_title: Kommentarer
-          meetings_count_title: Möten
-          supports_count_title: signaturer
         supports:
           title: Förteckning över signaturer
         vote_cabin:
           already_voted: Redan undertecknad
           supports_required: "%{total_supports} signaturer krävs"
+          verification_required: Verifiera ditt konto för att underteckna initiativet
           vote: Signera
           votes_blocked: Signering inaktiverad
         votes_count:
           count:
             one: SIGNATUR
             other: UNDERSKRIFTER
+          most_popular_initiative: Mest populära initiativ
+          need_more_votes: Behöver du fler signaturer
       initiatives_mailer:
         creation_subject: Ditt medborgarinitiativ "%{title}" har skapats
         initiative_link:
@@ -359,6 +434,11 @@ sv:
       unavailable_scope: Otillgänglig räckvidd
     menu:
       initiatives: initiativ
+    resources:
+      initiatives_type:
+        actions:
+          vote: Rösta
+          title: Åtgärder
   layouts:
     decidim:
       admin:
@@ -368,6 +448,7 @@ sv:
           components: Komponenter
           information: Information
       initiative_creation_header:
+        back: Tillbaka
         fill_data: Skapa
         finish: Avsluta
         previous_form: Start
@@ -378,6 +459,17 @@ sv:
         title: Skapa ny satsning
       initiative_header:
         initiative_menu_item: Initiativ
+      initiative_signature_creation_header:
+        back: Tillbaka
+        fill_personal_data: Fyll i dina uppgifter
+        finish: Avsluta
+        finished: Initiativ signatur skapad
+        select_identity: Välj identitet
+        see_steps: se steg
+        sms_code: SMS-kod verifiering
+        sms_phone_number: mobilnummer
+        step: Steg %{current} av %{total}
+        title: Sign %{initiative_title}
       initiatives:
         initiative:
           check: Kolla in det

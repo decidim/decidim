@@ -46,6 +46,9 @@ pt:
             - Você envia a carta para seu endereço com o código de verificação.
             - Você marca a carta como enviada.
             - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+      csv_census:
+        explanation: Seja verificado usando o censo da organização
+        name: Recenseamento da organização
       direct: Direto
       help: Socorro
       id_documents:
@@ -65,6 +68,7 @@ pt:
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
+            csv_census: Verifique o censo da organização
             dummy_authorization_handler: Verifique contra o manipulador de autorização de exemplo
             dummy_authorization_workflow: Verifique o exemplo de fluxo de trabalho de autorização
             id_documents: Seja verificado ao fazer o upload do documento de identidade
@@ -76,6 +80,33 @@ pt:
           authorize_with: Verifique com %{authorizer}
         skip_verification: Você pode ignorar isso por enquanto e %{link}
         start_exploring: comece a explorar
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Ocorreu um erro ao importar o censo.
+              success: Itens importados com sucesso %{count} (%{errors} erros)
+            destroy_all:
+              success: Todos os dados do censo foram excluídos
+          destroy:
+            confirm: Excluir todo o censo não pode ser desfeito. Você tem certeza que quer continuar?
+            title: Excluir todos os dados do censo
+          index:
+            data: Existem %{count} registros carregados no total. A última data de envio foi em %{due_date}
+            empty: Não há dados do censo. Use o formulário abaixo para importá-lo usando um arquivo CSV.
+            title: Dados do censo atual
+          instructions:
+            body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
+            title: Você precisa ativar o censo csv para esta organização
+          new:
+            info: 'Deve ser um arquivo com formato CSV com uma coluna: email'
+            file: arquivo .csv com dados de e-mails
+            submit: Subir arquivo
+            title: Carregar um novo censo
+        authorizations:
+          new:
+            error: Não foi possível confirmar sua conta ou você não está no censo da organização.
+            success: Sua conta foi confirmada com sucesso.
       dummy_authorization:
         extra_explanation:
           one: A participação é restrita aos usuários com o código postal %{postal_codes}.
@@ -175,8 +206,13 @@ pt:
             error: Houve um problema com o seu pedido
             success: Obrigado! Enviamos um SMS para o seu telefone.
           edit:
+            confirm_destroy: Tem certeza de que deseja redefinir o código de verificação?
+            destroy: Redefinir código de verificação
             send: confirme
+            resend: Não recebeu o código de verificação?
             title: Introduza o código de verificação recebido
+          destroy:
+            success: O código de verificação foi redefinido com sucesso. Por favor, digite novamente o seu número de telefone.
           new:
             send: Envie-me um SMS
             title: Solicite seu código de verificação

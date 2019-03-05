@@ -550,9 +550,9 @@ es:
             - Viene aquí a menudo
           description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
           description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
-          description_own: Te has conectado por %{score} días consecutivos en algún momento.
+          description_own: Te has conectado durante %{score} días consecutivos en algún momento.
           name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos alcanzar al siguiente nivel!'
+          next_level_in: '¡Conéctate durante %{score} días consecutivos para alcanzar el siguiente nivel!'
           unearned_another: Este usuario no ha entrado durante más de un día consecutivo.
           unearned_own: No te has conectado por más de un día consecutivo.
         followers:
@@ -741,7 +741,7 @@ es:
       download:
         csv: Descargar datos (csv)
       followers:
-        description: Número de usuarios que siguen este espacio de participación
+        description: Número de usuarios que siguen este espacio de participación.
         object: seguidores
         title: Seguidores
       participants:

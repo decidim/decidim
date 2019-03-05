@@ -5,7 +5,7 @@ shared_context "with a component" do
 
   let(:user) { create :user, :confirmed, organization: organization }
 
-  let!(:organization) { create(:organization) }
+  let!(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
 
   let(:participatory_process) do
     create(:participatory_process, :with_steps, organization: organization)

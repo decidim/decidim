@@ -46,6 +46,9 @@ nl:
             - U stuurt de brief naar hun adres met de verificatiecode.
             - U markeert de brief zoals verzonden.
             - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
+      csv_census:
+        explanation: Wordt geverifieerd aan de hand van de volkstelling van de organisatie
+        name: De volkstelling van de organisatie
       direct: direct
       help: Helpen
       id_documents:
@@ -65,6 +68,7 @@ nl:
         first_login:
           actions:
             another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
+            csv_census: Controleer tegen de volkstelling van de organisatie
             dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
             dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
             id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
@@ -76,6 +80,33 @@ nl:
           authorize_with: Verifieer met %{authorizer}
         skip_verification: U kunt dit overslaan voor nu en %{link}
         start_exploring: begin met verkennen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Er is een fout opgetreden bij het importeren van census.
+              success: '%{count} items succesvol geïmporteerd (%{errors} fouten)'
+            destroy_all:
+              success: Alle censusgegevens zijn verwijderd
+          destroy:
+            confirm: Verwijder alle volkstelling kan niet ongedaan worden gemaakt. Weet je zeker dat je door wilt gaan?
+            title: Verwijder alle tellingsgegevens
+          index:
+            data: Er zijn %{count} records in totaal geladen. De laatste uploaddatum was op %{due_date}
+            empty: Er zijn geen censusgegevens. Gebruik het onderstaande formulier om het te importeren met behulp van een CSV-bestand.
+            title: Huidige censusgegevens
+          instructions:
+            body: Hiervoor moet u het systeembeheer invoeren en de csv_census-autorisaties toevoegen aan de organisatie
+            title: U moet de csv-telling voor deze organisatie activeren
+          new:
+            info: 'Moet een bestand zijn met CSV-indeling met één kolom: e-mail'
+            file: .csv-bestand met e-mailgegevens
+            submit: Upload bestand
+            title: Upload een nieuwe telling
+        authorizations:
+          new:
+            error: We kunnen uw account niet verifiëren of u staat niet in de volkstelling van de organisatie.
+            success: Uw account is succesvol geverifieerd.
       dummy_authorization:
         extra_explanation:
           one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
@@ -175,8 +206,13 @@ nl:
             error: Er was een probleem met je verzoek
             success: Bedankt! We hebben een sms naar je telefoon gestuurd.
           edit:
+            confirm_destroy: Weet je zeker dat je de verificatiecode opnieuw wilt instellen?
+            destroy: Verificatiecode opnieuw instellen
             send: Bevestigen
+            resend: Geen verificatiecode ontvangen?
             title: Voer de verificatiecode in die u heeft ontvangen
+          destroy:
+            success: Verificatiecode succesvol gereset. Voer uw telefoonnummer opnieuw in.
           new:
             send: Stuur me een sms
             title: Vraag uw verificatiecode aan

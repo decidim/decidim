@@ -13,6 +13,7 @@ eu:
           any: mistoa
           offline: Aurrez aurre
           online: OnLine
+        state: Estatu
         title: Izenburua
       initiative_author:
         address: Helbidea
@@ -26,8 +27,20 @@ eu:
         user: Batzordeko kidea
       initiatives_type:
         banner_image: Banner irudia
+        collect_user_extra_fields: Bildu sinadura pertsonalaren datu pertsonalak
         description: deskribapena
+        document_number_authorization_handler: Botoen dokumentu zenbakia egiaztatzeko baimena
+        extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
+        minimum_committee_members: Batzorde kideen gutxienekoak
+        online_signature_enabled: Sinadura elektronikoa gaituta dago
         title: Izenburua
+        undo_online_signatures_enabled: Gaitu erabiltzaileek beren sinadurak desegin ditzaten
+        validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
+      initiatives_vote:
+        name_and_surname: Izena eta abizena
+        document_number: Dokumentuaren zenbakia
+        date_of_birth: Jaioteguna
+        postal_code: Posta kodea
       organization_data:
         address: Helbidea
         id_document: ID dokumentua
@@ -56,7 +69,7 @@ eu:
             created_at: Sortutako at
             id: NAN
             state: Estatu
-            supports_count: euskarri
+            supports_count: sinadurak
             title: Ekimenak
         initiatives_type_scope:
           fields:
@@ -68,6 +81,20 @@ eu:
             created_at: Sortutako at
             title: Ekimen motak
           name: Ekimen mota
+        initiatives_votes:
+          fields:
+            date_of_birth: Jaioteguna
+            document_number: Dokumentuaren zenbakia
+            hash: hash
+            initiative_end_date: Amaiera data
+            initiative_id: Initiative ID
+            initiative_signatures_count: Sinadura kopurua
+            initiative_start_date: Hasiera data
+            initiative_title: Ekimenaren izenburua
+            name_and_surname: Izena eta abizena
+            postal_code: Posta kodea
+            time_and_date: Denbora eta data
+            timestamp: timestamp
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
@@ -109,7 +136,19 @@ eu:
           page: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
           title: Zer dira ekimenak?
     initiatives:
+      actions:
+        answer: Erantzuna
       admin:
+        answers:
+          edit:
+            title: '%{title}erantzun'
+            answer: Erantzuna
+          info_initiative:
+            created_at: Sortutako at
+            description: deskribapena
+            initiative_votes_count: Botoien zenbaketa
+            initiatives: Ekimenak
+            state: Estatu
         committee_requests:
           index:
             approve: Onartu
@@ -126,6 +165,7 @@ eu:
             accept: Onartu ekimena
             confirm: Ziur zaude?
             discard: Ekimena baztertu
+            export_pdf_signatures: Esportatu sinadurak PDF
             export_votes: Esportatu euskarriak
             reject: Ezetsi ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
@@ -241,12 +281,13 @@ eu:
           more_information: "(Informazio gehiago)"
         promotal_committee:
           back: Back
-          individual_help_text: Herritarren ekimenek gutxienez hiru pertsona (egiaztatzaileak) osatzen duten Sustapen Batzordea behar dute. Hurrengo estekarekin partekatu behar duzu ekimen honen parte diren beste pertsona batzuekin. Zure kontaktuak esteka hau jasotzen duenean, adierazitako urratsak jarraitu beharko dituzte.
+          individual_help_text: Herritarren ekimen mota honek gutxienez %{committee_size} pertsona (egiaztatzaile) osatutako Sustapen Batzordea eskatzen du. Hurrengo estekarekin partekatu behar duzu ekimen honen parte diren beste pertsona batzuekin. Zure kontaktuak esteka hau jasotzen duenean, adierazitako urratsak jarraitu beharko dituzte.
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
+          choose_html: <strong>%{title}</strong>bat sortu nahi dut
           more_information: "(Informazio gehiago)"
-          select: Aukeratu
+          select: Ekimen hau sustatu nahi dut
           select_initiative_type_help: Herritarren ekimenak herritarrek esku hartu ahal izateko bitartekoak dira, Udalak Udalaren jurisdikzioaren esparruan dauden interes orokorren defentsarako ekintzak burutzeko. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
           continue: Jarraitu
@@ -269,9 +310,33 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> babesten du.
       index:
         title: Ekimenak
+      initiative_signatures:
+        fill_personal_data:
+          continue: Jarraitu
+          date_select:
+            day: eguna
+            month: hilabetea
+            year: Urtea
+          help: Mesedez, bete zure datu pertsonalak ondorengo eremuak ekimena sinatzeko
+        finish:
+          back_to_initiative: Ekimenera itzuli
+        sms_phone_number:
+          continue: Bidali SMS bat
+          help: Bete ezazu zure egiaztatutako telefono-zenbakia zure egiaztapen-kodea eskatzeko
+        sms_code:
+          continue: Egiaztatu kodea eta jarraitu
+          help: Egiaztatu telefonoan jasotako SMSa
       initiative_votes:
         create:
           error: Ekimena sinatu zenean akatsak izan dira.
+          invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak
+          success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da
+        personal_data:
+          invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
+        sms_code:
+          invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Begiratu bi aldiz bidalitako SMSa.
+        sms_phone:
+          invalid: Telefono-zenbakia baliogabea edo baimenaren zain dago. Egiaztatu zure baimenak.
       initiatives:
         author:
           deleted: Ezabatutako
@@ -300,6 +365,11 @@ eu:
           unfold: Zabaldu
         index_header:
           new_initiative: Ekimen berria
+        interactions:
+          comments_count:
+            count:
+              one: Iruzkina
+              other: Oharrak
         orders:
           label: 'Sortu ekintzak honela:'
           most_commented: Iruzkinik gehien
@@ -307,32 +377,37 @@ eu:
           random: Random
           recent: Berrienak
         result:
-          initiative_accepted_reason: Ekimen hau onartu egin delako
+          answer_title:
+            accepted: Proposamen hau onartu egin delako
+            created: Proposamen hau sortu da
+            discarded: Proposamen hau baztertu egin da
+            published: Proposamen hau argitaratzen delako
+            rejected: Proposamen hau baztertu egin delako
+            validating: Proposamen hau ebaluatzen ari da
           initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
           any_vote_method: Herritarren ekimen honek lineako laguntza eta aurrez aurre biltzen ditu.
+          follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
           offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
         signature_identities:
           select_identity: Hautatu erabiltzailearen identifikatzailea
         signatures_count:
           one: " sinadura"
           other: " sinadurak"
-        statistics:
-          assistants_count_title: laguntzaileak
-          comments_count_title: Oharrak
-          meetings_count_title: Bilerak
-          supports_count_title: sinadurak
         supports:
           title: Sinadura zerrenda
         vote_cabin:
           already_voted: Dagoeneko sinatuta
           supports_required: "%{total_supports} sinadura beharrezkoa da"
+          verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
             one: SIGNATURE
             other: sinadurak
+          most_popular_initiative: Ekimen ezagunena
+          need_more_votes: Sinadura gehiago behar duzu
       initiatives_mailer:
         creation_subject: Zure herritarren ekimena '%{title}' sortu da
         initiative_link:
@@ -359,6 +434,11 @@ eu:
       unavailable_scope: Ez dago erabilgarri
     menu:
       initiatives: Ekimenak
+    resources:
+      initiatives_type:
+        actions:
+          vote: Bozkatu
+          title: Ekintzak
   layouts:
     decidim:
       admin:
@@ -368,6 +448,7 @@ eu:
           components: Osagaiak
           information: informazioa
       initiative_creation_header:
+        back: Back
         fill_data: Sortu
         finish: Amaitu
         previous_form: start
@@ -378,6 +459,17 @@ eu:
         title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Back
+        fill_personal_data: Zure datuak osatzea
+        finish: Amaitu
+        finished: Ekimena sinadura sortu da
+        select_identity: Hautatu identitatea
+        see_steps: ikusi urratsak
+        sms_code: SMS kodea egiaztatzea
+        sms_phone_number: Telefono mugikorraren zenbakia
+        step: Step %{current} of %{total}
+        title: Saioa hasi %{initiative_title}
       initiatives:
         initiative:
           check: Begiratu

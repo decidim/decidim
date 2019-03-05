@@ -46,6 +46,9 @@ it:
             - Inviate la lettera al loro indirizzo con il codice di verifica.
             - Hai contrassegnato la lettera come inviata.
             - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
+      csv_census:
+        explanation: Ottieni la verifica utilizzando il censimento dell'organizzazione
+        name: Censimento dell'organizzazione
       direct: Diretto
       help: Aiuto
       id_documents:
@@ -65,6 +68,7 @@ it:
         first_login:
           actions:
             another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
+            csv_census: Verifica contro il censimento dell'organizzazione
             dummy_authorization_handler: Verificare contro il gestore di autorizzazione di esempio
             dummy_authorization_workflow: Verificare il flusso di lavoro di autorizzazione di esempio
             id_documents: Ottieni la verifica caricando il tuo documento di identità
@@ -76,6 +80,33 @@ it:
           authorize_with: Verifica con %{authorizer}
         skip_verification: Puoi saltare questo per ora e %{link}
         start_exploring: comincia ad esplorare
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Si è verificato un errore durante l'importazione del censimento.
+              success: Sono stati importati correttamente %{count} articoli (%{errors} errore)
+            destroy_all:
+              success: Tutti i dati del censimento sono stati cancellati
+          destroy:
+            confirm: Cancellare tutto il censimento non può essere annullato. Sei sicuro di voler continuare?
+            title: Elimina tutti i dati del censimento
+          index:
+            data: Ci sono %{count} record caricati in totale. L'ultima data di caricamento era %{due_date}
+            empty: Non ci sono dati del censimento. Utilizza il modulo sottostante per importarlo utilizzando un file CSV.
+            title: Dati di censimento attuali
+          instructions:
+            body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
+            title: È necessario attivare il censimento CSV per questa organizzazione
+          new:
+            info: 'Deve essere un file con formato CSV con una colonna: email'
+            file: file .csv con dati di posta elettronica
+            submit: Caricare un file
+            title: Carica un nuovo censimento
+        authorizations:
+          new:
+            error: Non è stato possibile verificare il tuo account o non ci si trova nel censimento dell'organizzazione.
+            success: Il tuo account è stato verificato con successo.
       dummy_authorization:
         extra_explanation:
           one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
@@ -175,8 +206,13 @@ it:
             error: c'è stato un problema con la tua richiesta
             success: Grazie! Abbiamo inviato un SMS al tuo telefono.
           edit:
+            confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
+            destroy: Reimposta il codice di verifica
             send: Confermare
+            resend: Non hai ricevuto il codice di verifica?
             title: Inserisci il codice di verifica che hai ricevuto
+          destroy:
+            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           new:
             send: Mandami un sms
             title: Richiedi il tuo codice di verifica

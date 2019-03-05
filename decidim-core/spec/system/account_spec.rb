@@ -89,7 +89,7 @@ describe "Account", type: :system do
           end
 
           within_flash_messages do
-            expect(page).to have_content("error")
+            expect(page).to have_content("There was a problem")
           end
 
           expect(user.reload.valid_password?("sekritpass123")).to eq(false)

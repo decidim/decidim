@@ -2,6 +2,7 @@ nl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adres
         body: Lichaam
         category_id: Categorie
         decidim_scope_id: strekking
@@ -10,6 +11,7 @@ nl:
         title: Titel
         user_group_id: Creëer samenwerkingsconcept als
       proposal:
+        address: Adres
         answer: Antwoord
         answered_at: Beantwoord op
         automatic_hashtags: Hashtags worden automatisch toegevoegd
@@ -26,8 +28,15 @@ nl:
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
+      proposals_import:
+        import_proposals: Voorstellen importeren
+        keep_authors: Houd originele auteurs
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -289,26 +298,36 @@ nl:
             name: Voorstel
         participatory_texts:
           bulk-actions:
+            are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
             import_doc: Document importeren
+            discard_all: Gooi alles weg
           import:
             invalid: Het formulier is ongeldig!
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
           index:
             info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
             publish_document: Publiceer document
+            save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: odt
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
-            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Voorgestelde formaten zijn: Markdown'
+            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Gestuurde indelingen zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Upload document
           publish:
             invalid: Kan voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
+          discard:
+            success: Alle participatieve tekstconcepten zijn genegeerd.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
             sub-section: "<em>Onderafdeling:</em> %{title}"
+          update:
+            success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           edit:
             accepted: Aanvaard
@@ -612,7 +631,7 @@ nl:
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken
-          state: Status
+          state: staat
           voted: Gestemd
           amendment_type: Type
         filters_small_view:

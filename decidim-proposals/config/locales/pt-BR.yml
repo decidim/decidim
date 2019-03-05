@@ -2,6 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Endereço
         body: Corpo
         category_id: Categoria
         decidim_scope_id: Escopo
@@ -10,6 +11,7 @@ pt-BR:
         title: Título
         user_group_id: Criar rascunho colaborativo como
       proposal:
+        address: Endereço
         answer: Responda
         answered_at: Respondido em
         automatic_hashtags: Hashtags adicionados automaticamente
@@ -26,8 +28,15 @@ pt-BR:
       proposals_copy:
         copy_proposals: Eu entendo que isso irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
         origin_component_id: Componente para copiar as propostas de
+      proposals_import:
+        import_proposals: Importar propostas
+        keep_authors: Mantenha os autores originais
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -289,26 +298,36 @@ pt-BR:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Tem certeza de descartar todo o rascunho do texto participativo?
             import_doc: Importar documento
+            discard_all: Descartar tudo
           import:
             invalid: O formato é inválido!
             success: Parabéns, as seções a seguir foram analisadas do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
           index:
             info_1: As seções a seguir foram analisadas a partir do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
             publish_document: Publicar documento
+            save_draft: Salvar rascunho
             title: Visualizar texto participativo
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
-            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados ​​em Propostas. Formatos suportados são: Markdown'
+            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados em Propostas. Formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Carregar documento
           publish:
             invalid: Não foi possível publicar propostas
             success: Todas as propostas foram publicadas
+          discard:
+            success: Todos os rascunhos de texto participativos foram descartados.
           sections:
             article: "<em>Artigo</em>"
             section: "<em>Seção:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsecção:</em> %{title}"
+          update:
+            success: Texto participativo atualizado com sucesso.
         proposal_answers:
           edit:
             accepted: Aceitaram

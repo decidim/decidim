@@ -3,8 +3,8 @@ ca:
     attributes:
       config:
         available_methods: Mètodes disponibles
-        offline: Fora de línia
-        offline_explanation: Instruccions per a la verificació fora de línia
+        offline: Sense connexió
+        offline_explanation: Instruccions per a la verificació sense connexió
         online: En línia
       id_document_information:
         document_number: Número de document (amb lletra)
@@ -46,6 +46,9 @@ ca:
             - Envies la carta a la seva adreça amb el codi de verificació.
             - Marques la carta com a enviada.
             - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
+      csv_census:
+        explanation: Es verifica mitjançant el cens de l'organització
+        name: Cens de l'organització
       direct: Directe
       help: Ajuda
       id_documents:
@@ -65,6 +68,7 @@ ca:
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiqueu contra un altre exemple de controlador d'autorització
+            csv_census: Verifica contra el cens de l'organització
             dummy_authorization_handler: Verificar contra l'autorització d'exemple
             dummy_authorization_workflow: Verificar contra l'exemple de flux d'autorització
             id_documents: Verifica't carregant el teu document d'identitat
@@ -76,6 +80,33 @@ ca:
           authorize_with: Verifica amb %{authorizer}
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
+      csv_census:
+        admin:
+          census:
+            create:
+              error: S'ha produït un error en la importació del cens.
+              success: S'ha importat amb èxit %{count} elements (%{errors} errors)
+            destroy_all:
+              success: S'han eliminat totes les dades del cens
+          destroy:
+            confirm: No es pot desfer el total de censos. Esteu segur que voleu continuar?
+            title: Suprimeix totes les dades del cens
+          index:
+            data: Hi ha %{count} registres carregats en total. La darrera data de càrrega va ser el dia %{due_date}
+            empty: No hi ha dades del cens. Utilitzeu el formulari següent per importar-lo mitjançant un fitxer CSV.
+            title: Dades censals actuals
+          instructions:
+            body: Per fer-ho, heu d'introduir l'administració del sistema i afegir les autoritzacions de csv_census a l'organització
+            title: Heu d'activar el cens de CSV d'aquesta organització
+          new:
+            info: 'Ha de ser un fitxer amb format CSV amb una columna: correu electrònic'
+            file: Fitxer .csv amb dades de correus electrònics
+            submit: Penja el document
+            title: Penja un nou cens
+        authorizations:
+          new:
+            error: No hem pogut verificar el vostre compte o no esteu al cens de l'organització.
+            success: El vostre compte s'ha verificat correctament.
       dummy_authorization:
         extra_explanation:
           one: La participació està restringida als usuaris amb el codi postal %{postal_codes}.
@@ -175,8 +206,13 @@ ca:
             error: S'ha produït un problema amb la teva sol·licitud
             success: Gràcies! Hem enviat un SMS al teu telèfon.
           edit:
+            confirm_destroy: Esteu segur que voleu reiniciar el codi de verificació?
+            destroy: Restableix el codi de verificació
             send: Confirmar
+            resend: No heu rebut el codi de verificació?
             title: Introdueix el codi de verificació que has rebut
+          destroy:
+            success: S'ha restablert el codi de verificació amb èxit. Torneu a introduir el vostre número de telèfon.
           new:
             send: Envia'm un SMS
             title: Sol·licita el teu codi de verificació

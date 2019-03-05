@@ -36,6 +36,7 @@ es-PY:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
+        alert_color: Alerta
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
@@ -62,11 +63,15 @@ es-PY:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        primary_color: Primario
         reference_prefix: Prefijo de la referencia
+        secondary_color: Secundario
         show_statistics: Mostrar estadísticas
+        success_color: Éxito
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
+        warning_color: Advertencia
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -220,10 +225,6 @@ es-PY:
           error: Se ha producido un error al actualizar esta categoría.
           success: Categoría actualizada correctamente.
       component_permissions:
-        edit:
-          everyone: Todo el mundo
-          submit: Guardar permisos
-          title: Editar permisos
         update:
           success: Permisos actualizados con éxito.
       components:
@@ -510,6 +511,7 @@ es-PY:
         edit:
           update: Actualizar
         form:
+          colors_title: Colores de organizacion
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
@@ -536,6 +538,12 @@ es-PY:
         new:
           create: Crear
           title: Nuevo usuario privado en el espacio participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permisos
+        update:
+          success: Permisos actualizados con éxito.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -615,9 +623,9 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
-        impersonatable_users: Usuarios impersonables
-        impersonations: Suplantaciones
-        participants: Participantes
+        impersonatable_users: Usuarios manejables
+        impersonations: Gestion de usuarios
+        participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

@@ -84,7 +84,7 @@ module Decidim
       # Returns the result of authorization handler check. Check Decidim::Verifications::DefaultActionAuthorizer class docs.
       #
       def authorize(authorization, options, component, resource)
-        @action_authorizer = @manifest.action_authorizer_class.new(authorization, options, component, resource)
+        @action_authorizer = @manifest.action_authorizer_class.new(authorization, options_for_authorizer_class(options), component, resource)
         @action_authorizer.authorize
       end
 
@@ -99,6 +99,18 @@ module Decidim
       def redirect_params(params = {})
         # Could add redirect params if a ActionAuthorizer object was previously set.
         params.merge(@action_authorizer&.redirect_params || {})
+      end
+
+      def options_for_authorizer_class(options)
+        options = options.present? ? options.stringify_keys : {}
+
+        attributes_required_for_authorization.inject(options) do |options_for_authorizer_class, (key, _)|
+          options_for_authorizer_class.update(key => OpenStruct.new(required_for_authorization?: true, value: options[key]))
+        end
+      end
+
+      def attributes_required_for_authorization
+        @attributes_required_for_authorization ||= manifest.options.attributes.stringify_keys.select { |_, attribute| attribute.required_for_authorization? }
       end
     end
   end

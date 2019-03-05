@@ -258,15 +258,14 @@ tr:
         others: Diğerleri
         public: halka açık
       filter:
-        all: Herşey
+        all: Her tür montaj
         commission: komisyon
         consultative_advisory: Danışma / Danışma
         executive: yönetici
         government: hükümet
-        label: 'Göstermek:'
+        help: 'Göstermek:'
         others: Diğerleri
         participatory: katılımcı
-        placeholder: Türüne göre filtrele
         working_group: Çalışma Grubu
       index:
         title: meclisleri
@@ -357,6 +356,10 @@ tr:
           organizational_chart: Organizasyon şeması
           promoted_assemblies: Vurgulanan derlemeler
           reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} derleme"
+            other: "%{count} derleme"
         promoted_assembly:
           more_info: Daha fazla bilgi
           take_part: Yer almak

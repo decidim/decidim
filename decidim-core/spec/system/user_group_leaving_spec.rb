@@ -27,7 +27,7 @@ describe "User group leaving", type: :system do
 
       accept_confirm { click_link "Leave group" }
 
-      expect(page).to have_content("Group left successfully")
+      expect(page).to have_content("Group successfully abandoned")
       expect(page).to have_content("Request to join group")
     end
   end

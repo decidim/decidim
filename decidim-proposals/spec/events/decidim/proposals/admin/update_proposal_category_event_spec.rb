@@ -18,7 +18,7 @@ describe Decidim::Proposals::Admin::UpdateProposalCategoryEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("An admin has updated the category of your proposal \"#{resource.title}\", check it out:")
+        .to eq("An admin has updated the category of your proposal \"#{resource.title}\", check it out in this page:")
     end
   end
 

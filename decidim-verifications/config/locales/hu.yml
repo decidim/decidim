@@ -46,6 +46,9 @@ hu:
             - A kódot tartalmazó levelet a lakcímükre küldöd el.
             - Levél elküldöttként megjelölve.
             - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+      csv_census:
+        explanation: Ellenőrizze a szervezet népszámlálásával
+        name: A szervezet népszámlálása
       direct: Közvetlen
       help: Segítség
       id_documents:
@@ -65,6 +68,7 @@ hu:
         first_login:
           actions:
             another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
+            csv_census: Ellenőrizze a szervezet népszámlálását
             dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
             dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
             id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
@@ -76,6 +80,33 @@ hu:
           authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
         skip_verification: Most hagyd ki ezt a lépést és %{link}
         start_exploring: felfedezés indul
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Hiba történt a népszámlálás importálásakor.
+              success: Sikeresen importált %{count} elemet (%{errors} hiba)
+            destroy_all:
+              success: Az összes népszámlálási adatot törölték
+          destroy:
+            confirm: Az összes népszámlálás törlése nem vonható vissza. Biztos vagy benne, hogy folytatni akarod?
+            title: Törölje az összes népszámlálási adatot
+          index:
+            data: '%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}'
+            empty: Nincsenek népszámlálási adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
+            title: Jelenlegi népszámlálási adatok
+          instructions:
+            body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
+            title: Ennek a szervezetnek aktiválnia kell a csv népszámlálást
+          new:
+            info: 'CSV formátumú fájlnak kell lennie egy oszlopban: e-mail'
+            file: .csv fájl e-mail adatokkal
+            submit: Fájl feltöltés
+            title: Töltsön fel egy új népszámlálást
+        authorizations:
+          new:
+            error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet népszámlálásában.
+            success: Fiókját sikeresen ellenőrizték.
       dummy_authorization:
         extra_explanation:
           one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
@@ -85,9 +116,9 @@ hu:
           config:
             edit:
               title: Azonosító dokumentumok konfigurálása
-              update: frissítés
+              update: Frissítés
             update:
-              error: Hiba történt a konfiguráció frissítésében.
+              error: Hiba történt a konfiguráció frissítése során.
               success: A konfiguráció sikeresen frissült
           confirmations:
             create:
@@ -100,11 +131,11 @@ hu:
           offline_confirmations:
             create:
               error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
-              success: A felhasználó sikeresen ellenőrizte
+              success: A felhasználó sikeresen ellenőrizve
             new:
-              cancel: Megszünteti
+              cancel: Mégse
               introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
-              verify: Ellenőrizze
+              verify: Ellenőrzés
           pending_authorizations:
             index:
               config: config
@@ -175,10 +206,15 @@ hu:
             error: Probléma volt a kéréssel
             success: Kösz! SMS-t küldtünk telefonjára.
           edit:
-            send: megerősít
+            confirm_destroy: Biztosan vissza szeretné állítani az ellenőrző kódot?
+            destroy: Ellenőrző kód visszaállítása
+            send: Megerősítés
+            resend: Nem kapta meg az ellenőrző kódot?
             title: Vigye be a kapott ellenőrző kódot
+          destroy:
+            success: A hitelesítési kód sikeresen visszaáll. Kérjük, írja be újra a telefonszámát.
           new:
-            send: Küldj nekem egy SMS-t
+            send: Küldj nekem SMS-t
             title: Kérjen ellenőrző kódot
           update:
             error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze az SMS-t, amit elküldtek.

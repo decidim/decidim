@@ -36,6 +36,7 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
+        alert_color: Éber
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
@@ -62,11 +63,15 @@ hu:
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
+        primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
+        secondary_color: Másodlagos
         show_statistics: Statisztikák megjelenítése
+        success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
         user_groups_enabled: Felhasználói csoportok engedélyezése
+        warning_color: Figyelem
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -93,7 +98,7 @@ hu:
         title: Cím
         weight: Súly
       user_group_csv_verification:
-        file: fájl
+        file: Fájl
     errors:
       models:
         oauth_application:
@@ -220,10 +225,6 @@ hu:
           error: Hiba történt a kategória frissítése során.
           success: Kategória frissítése sikeres.
       component_permissions:
-        edit:
-          everyone: Mindenki
-          submit: Engedélyek mentése
-          title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
       components:
@@ -265,10 +266,10 @@ hu:
         export_as: "%{name} mint %{export_format}"
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       help_sections:
-        error: Hiba történt a súgóelemek frissítésében
+        error: Hiba történt a súgószakaszok frissítésekor
         form:
           save: Mentés
-        success: A súgóelemek sikeresen frissültek
+        success: A súgó szakaszok sikeresen frissültek
       impersonatable_users:
         index:
           filter:
@@ -322,12 +323,12 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
-        help_sections: Segítségrészek
+        help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
-        participants: résztvevők
+        participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -510,6 +511,7 @@ hu:
         edit:
           update: Frissítés
         form:
+          colors_title: Szervezet színei
           cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
@@ -536,6 +538,12 @@ hu:
         new:
           create: Létrehozás
           title: Új privát felhasználó a részvételi térben.
+      resource_permissions:
+        edit:
+          submit: Beküldés
+          title: Engedélyek szerkesztése
+        update:
+          success: Engedélyek frissítése sikeres.
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
@@ -615,9 +623,9 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
-        impersonatable_users: Felhatalmazható felhasználók
-        impersonations: Felhatalmazások
-        participants: résztvevők
+        impersonatable_users: Kezelhető felhasználók
+        impersonations: Felhasználók kezelése
+        participants: felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
@@ -677,7 +685,7 @@ hu:
         hide: Elrejt
         not_hidden: Nem rejtett
         title: Műveletek
-        unhide: felfedése
+        unhide: Felfedés
         unreport: Ne jelentse
       admin:
         reportable:
@@ -685,7 +693,7 @@ hu:
             invalid: Probléma történt az erőforrás elrejtésekor.
             success: Erőforrás sikeresen elrejtve.
           unhide:
-            invalid: Probléma volt az erőforrás elrejtése.
+            invalid: Probléma volt az erőforrás megmutatásával.
             success: Az erőforrás sikeresen elrejtve.
           unreport:
             invalid: Probléma történt az erőforrás elrejtésének visszavonásakor.

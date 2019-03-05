@@ -50,6 +50,7 @@ describe "Initiatives", type: :system do
 
       within "#initiatives" do
         expect(page).to have_content(translated(initiative.title, locale: :en))
+        expect(page).to have_content(initiative.author_name, count: 1)
         expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
       end
     end

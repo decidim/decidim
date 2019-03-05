@@ -13,6 +13,7 @@ fr:
           any: Mixte
           offline: En présentiel
           online: En ligne
+        state: Etat
         title: Titre
       initiative_author:
         address: Adresse
@@ -26,8 +27,20 @@ fr:
         user: Membre du Comité de promotion
       initiatives_type:
         banner_image: Image d'en-tête
+        collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
+        document_number_authorization_handler: Autorisation de vérifier le numéro de document sur les votes
+        extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
+        minimum_committee_members: Minimum de membres du comité
+        online_signature_enabled: Signature en ligne activée
         title: Titre
+        undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
+        validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
+      initiatives_vote:
+        name_and_surname: Nom et surnom
+        document_number: Numéro de document
+        date_of_birth: Date de naissance
+        postal_code: Code postal
       organization_data:
         address: Adresse
         id_document: Document d'identité
@@ -56,7 +69,7 @@ fr:
             created_at: Créé à
             id: ID
             state: État
-            supports_count: Soutiens
+            supports_count: Signatures
             title: Initiatives
         initiatives_type_scope:
           fields:
@@ -68,6 +81,20 @@ fr:
             created_at: Créé à
             title: Types d'initiative
           name: Type d'initiative
+        initiatives_votes:
+          fields:
+            date_of_birth: Date de naissance
+            document_number: Numéro de document
+            hash: Hacher
+            initiative_end_date: Date de fin
+            initiative_id: ID d'initiative
+            initiative_signatures_count: Nombre de signatures
+            initiative_start_date: Date de début
+            initiative_title: Titre de l'initiative
+            name_and_surname: Nom et surnom
+            postal_code: Code postal
+            time_and_date: Heure et date
+            timestamp: Horodatage
       titles:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
@@ -105,11 +132,23 @@ fr:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
+          contextual: "<p>Une <strong>initiative</strong> est une proposition qui peut être favorisée par toute personne de leur propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) pour l'organisation de mener une action spécifique (modifier un règlement, initier un projet, changer le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte des signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
           page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
           title: Quelles sont les initiatives?
     initiatives:
+      actions:
+        answer: Réponse
       admin:
+        answers:
+          edit:
+            title: Répondez pour %{title}
+            answer: Réponse
+          info_initiative:
+            created_at: Créé à
+            description: La description
+            initiative_votes_count: Les votes comptent
+            initiatives: Les initiatives
+            state: Etat
         committee_requests:
           index:
             approve: Approuver
@@ -126,6 +165,7 @@ fr:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
             discard: Dépublier la pétition
+            export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
@@ -241,12 +281,13 @@ fr:
           more_information: "(Plus d'informations)"
         promotal_committee:
           back: Retour
-          individual_help_text: Les initiatives nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          individual_help_text: Ce type d’initiative citoyenne nécessite une Commission de promotion composée d’au moins %{committee_size} personnes. Vous devez partager le lien suivant avec les autres personnes participant à cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
+          choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: "(Plus d'informations)"
-          select: Choisir
+          select: Je veux promouvoir cette initiative
           select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
@@ -269,9 +310,33 @@ fr:
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuer
+          date_select:
+            day: journée
+            month: Mois
+            year: Année
+          help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
+        finish:
+          back_to_initiative: Retour à l'initiative
+        sms_phone_number:
+          continue: Envoyez moi un SMS
+          help: Remplissez le formulaire avec votre numéro de téléphone vérifié pour demander votre code de vérification
+        sms_code:
+          continue: Vérifier le code et continuer
+          help: Vérifiez les SMS reçus sur votre téléphone
       initiative_votes:
         create:
           error: Il y a eu des erreurs lors de la signature de l'initiative.
+          invalid: Les données fournies pour signer l'initiative ne sont pas valides
+          success_html: Toutes nos félicitations! L'initiative <strong> %{title}</strong> a été signée correctement
+        personal_data:
+          invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
+        sms_code:
+          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+        sms_phone:
+          invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
         author:
           deleted: Supprimé
@@ -300,6 +365,11 @@ fr:
           unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle initiative
+        interactions:
+          comments_count:
+            count:
+              one: Commentaire
+              other: commentaires
         orders:
           label: 'Trier les initiatives par :'
           most_commented: Les plus commentées
@@ -307,32 +377,37 @@ fr:
           random: Aléatoire
           recent: Les plus récentes
         result:
-          initiative_accepted_reason: Cette initiative a été acceptée parce que
+          answer_title:
+            accepted: Cette proposition a été acceptée car
+            created: Cette proposition a été créée
+            discarded: Cette proposition a été rejetée car
+            published: Cette proposition est publiée parce que
+            rejected: Cette proposition a été rejetée parce que
+            validating: Cette proposition est en cours d'évaluation
           initiative_rejected_reason: Cette initiative a été rejetée en raison du manque de soutien.
         show:
           any_vote_method: Cette initiative recueille le soutien en ligne ainsi qu'en présentiel.
+          follow_description: Recevoir une notification lorsqu'il y a des nouvelles dans cette initiative
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
           one: " signature"
           other: " signatures"
-        statistics:
-          assistants_count_title: Audience
-          comments_count_title: Commentaires
-          meetings_count_title: Rencontres
-          supports_count_title: Signatures
         supports:
           title: Liste des signatures
         vote_cabin:
           already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"
+          verification_required: Vérifiez votre compte pour signer l'initiative
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
           count:
             one: SIGNATURE
             other: SIGNATURES
+          most_popular_initiative: Initiative la plus populaire
+          need_more_votes: Besoin de plus de signatures
       initiatives_mailer:
         creation_subject: Votre initiative '%{title}' a été créée
         initiative_link:
@@ -359,6 +434,11 @@ fr:
       unavailable_scope: Portée indisponible
     menu:
       initiatives: Initiatives
+    resources:
+      initiatives_type:
+        actions:
+          vote: Vote
+          title: actes
   layouts:
     decidim:
       admin:
@@ -368,6 +448,7 @@ fr:
           components: Fonctionnalités
           information: Informations
       initiative_creation_header:
+        back: Retour
         fill_data: Créer
         finish: Fin
         previous_form: Début
@@ -378,6 +459,17 @@ fr:
         title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Initiative
+      initiative_signature_creation_header:
+        back: Retour
+        fill_personal_data: Complétez vos données
+        finish: terminer
+        finished: Signature de l'initiative créée
+        select_identity: Sélectionner une identité
+        see_steps: voir les étapes
+        sms_code: Vérification du code SMS
+        sms_phone_number: numéro de téléphone portable
+        step: Étape %{current} sur %{total}
+        title: Signe %{initiative_title}
       initiatives:
         initiative:
           check: Découvrez l'initiative

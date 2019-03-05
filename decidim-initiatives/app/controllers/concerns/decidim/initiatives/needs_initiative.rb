@@ -13,7 +13,7 @@ module Decidim
         include NeedsOrganization
         include InitiativeSlug
 
-        helper_method :current_initiative
+        helper_method :current_initiative, :current_participatory_space, :signature_has_steps?
 
         # Public: Finds the current Initiative given this controller's
         # context.
@@ -24,6 +24,17 @@ module Decidim
         end
 
         alias_method :current_participatory_space, :current_initiative
+
+        # Public: Wether the current initiative belongs to an initiative type
+        # which requires one or more step before creating a signature
+        #
+        # Returns nil if there is no current_initiative, true or false
+        def signature_has_steps?
+          return unless current_initiative
+
+          initiative_type = current_initiative.scoped_type.type
+          initiative_type.collect_user_extra_fields? || initiative_type.validate_sms_code_on_votes?
+        end
 
         private
 

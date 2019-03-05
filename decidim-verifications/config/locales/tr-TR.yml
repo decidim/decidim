@@ -46,6 +46,9 @@ tr:
             - Mektubu adreslerine doğrulama koduyla gönderirsiniz.
             - Mektubu gönderildiği gibi işaretlersiniz.
             - Mektubu gönderildiği şekilde işaretledikten sonra, kullanıcı kodu tanıtabilir ve doğrulanabilir.
+      csv_census:
+        explanation: Kuruluşun sayımını kullanarak doğrulayın
+        name: Kuruluşun nüfus sayımı
       direct: direkt
       help: yardım et
       id_documents:
@@ -65,6 +68,7 @@ tr:
         first_login:
           actions:
             another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
+            csv_census: Kuruluşun sayımına göre doğrulayın
             dummy_authorization_handler: Örnek yetkilendirme işleyicisine karşı doğrulayın
             dummy_authorization_workflow: Örnek yetkilendirme iş akışına karşı doğrulayın
             id_documents: Kimlik belgenizi yükleyerek doğrulanma
@@ -76,6 +80,33 @@ tr:
           authorize_with: '%{authorizer}ile doğrulayın'
         skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
         start_exploring: keşfetmeye başla
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Sayım alınırken bir hata oluştu.
+              success: '%{count} öğe başarıyla içe aktarıldı (%{errors} hata)'
+            destroy_all:
+              success: Tüm nüfus sayımı verileri silindi
+          destroy:
+            confirm: Silinen tüm nüfus sayımı geri alınamaz. Devam etmek istediğine emin misin?
+            title: Tüm nüfus sayımı verilerini sil
+          index:
+            data: Toplam %{count} kayıt var. Son yükleme tarihi %{due_date}
+            empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
+            title: Mevcut nüfus sayımı verileri
+          instructions:
+            body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
+            title: Bu kuruluş için csv sayımını etkinleştirmeniz gerekir
+          new:
+            info: 'Tek sütunlu CSV biçiminde bir dosya olmalı: e-posta'
+            file: e-posta verileri içeren .csv dosyası
+            submit: Dosya yükleme
+            title: Yeni bir nüfus sayımı yükleyin
+        authorizations:
+          new:
+            error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
+            success: Hesabınız başarıyla doğrulandı.
       dummy_authorization:
         extra_explanation:
           one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
@@ -175,8 +206,13 @@ tr:
             error: İsteğiniz ile ilgili bir sorun vardı
             success: Teşekkürler! Telefonunuza bir SMS gönderdik.
           edit:
+            confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
+            destroy: Doğrulama kodunu sıfırla
             send: Onaylamak
+            resend: Doğrulama kodunu alamadınız mı?
             title: Aldığınız doğrulama kodunu tanıtın
+          destroy:
+            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           new:
             send: Bana bir SMS gönder
             title: Doğrulama kodunuzu isteyin

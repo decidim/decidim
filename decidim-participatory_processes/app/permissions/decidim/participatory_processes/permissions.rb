@@ -101,15 +101,17 @@ module Decidim
                       [:process, :participatory_space].include?(permission_action.subject) &&
                       process
 
-        return disallow! if cannot_view_private_space
+        return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if process.published?
         toggle_allow(can_manage_process?)
       end
 
-      def cannot_view_private_space
-        return unless process.private_space
-        !user || !user.admin && !process.users.include?(user)
+      def can_view_private_space?
+        return true unless process.private_space
+        return false unless user
+
+        user.admin || process.users.include?(user)
       end
 
       def public_report_content_action?
@@ -189,11 +191,11 @@ module Decidim
         allow! if permission_action.subject == :moderation
       end
 
-      # Collaborators can read/preview everything inside their process.
+      # Collaborators can only preview their own processes.
       def collaborator_action?
         return unless can_manage_process?(role: :collaborator)
 
-        allow! if permission_action.action == :read || permission_action.action == :preview
+        allow! if permission_action.action == :preview
       end
 
       # Process admins can eprform everything *inside* that process. They cannot

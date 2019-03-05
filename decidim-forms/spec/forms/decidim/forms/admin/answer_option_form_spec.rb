@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/dev/test/form_to_param_shared_examples"
 
 module Decidim
   module Forms
@@ -31,6 +32,8 @@ module Decidim
 
           it { is_expected.not_to be_valid }
         end
+
+        it_behaves_like "form to param", default_id: "questionnaire-question-answer-option-id"
       end
     end
   end

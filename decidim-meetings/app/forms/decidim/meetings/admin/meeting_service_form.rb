@@ -15,7 +15,9 @@ module Decidim
         validates :title, translatable_presence: true, unless: :deleted
 
         def to_param
-          id || "meeting-service-id"
+          return id if id.present?
+
+          "meeting-service-id"
         end
       end
     end

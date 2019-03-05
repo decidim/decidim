@@ -50,7 +50,7 @@ fi:
       actions:
         confirm: Vahvista
         new_conference: Uusi konferenssi
-        send_diplomas: Lähetä diplomit
+        send_diplomas: Lähetä läsnäolotodistukset
       conference_copies:
         new:
           copy: Kopio
@@ -149,10 +149,10 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin käyttäjät
+          conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
-          diploma: Diplomi
+          diploma: Läsnäolotodistus
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
@@ -250,10 +250,10 @@ fi:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
-        send_conference_diplomas: "%{user_name} lähetti diplomit konferenssin %{resource_name} käyttäjille"
+        send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
-        update_diploma: "%{user_name} päivitti diplomeita konferenssille %{resource_name}"
+        update_diploma: "%{user_name} päivitti läsnäolotodistusten asetuksia konferenssille %{resource_name}"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
@@ -334,7 +334,7 @@ fi:
         diplomas:
           edit:
             save: Tallenna
-            title: Diplomi
+            title: Läsnäolotodistus
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
@@ -350,14 +350,14 @@ fi:
             title: Ilmoittautumistyypit
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> diplomin liitteistä.
+            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> läsnäolotodistuksen tämän viestin liitteistä.
           diploma_user:
             attendance_verified_by: Osallistuminen vahvistettu
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin diplomeiden lähettämisessä esiintyi ongelma.
-          success: Konferenssin diplomit on lähetetty onnistuneesti
+          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -433,7 +433,7 @@ fi:
             subject: Kutsu konferenssiin
         send_conference_diploma_mailer:
           diploma:
-            subject: Konferenssin diplomit on lähetetty
+            subject: Konferenssin läsnäolotodistukset on lähetetty
       models:
         conference_invite:
           fields:
@@ -487,22 +487,22 @@ fi:
         related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallisuusprosessit
       statistics:
-        answers_count: Vastauksia
-        comments_count: Kommentteja
-        conference_count: Konferensseja
-        debates_count: Keskusteluita
-        endorsements_count: Suosituksia
+        answers_count: Vastausta
+        comments_count: Kommenttia
+        conference_count: Konferenssia
+        debates_count: Keskustelua
+        endorsements_count: Suositusta
         headline: Toiminta
-        meetings_count: Tapaamisia
-        orders_count: Ääniä
-        pages_count: Sivuja
-        posts_count: Viestejä
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
+        meetings_count: Tapaamista
+        orders_count: Ääntä
+        pages_count: Sivua
+        posts_count: Viestiä
+        projects_count: Suunnitelmaa
+        proposals_count: Ehdotusta
+        results_count: Tulosta
+        surveys_count: Kyselyä
+        users_count: Osallistujaa
+        votes_count: Ääntä
     events:
       conferences:
         conference_registration_validation_pending:

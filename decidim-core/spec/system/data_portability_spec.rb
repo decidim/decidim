@@ -30,7 +30,7 @@ describe "DataPortability", type: :system do
         perform_enqueued_jobs { click_button "Request data" }
 
         within_flash_messages do
-          expect(page).to have_content("Your data is currently in progress")
+          expect(page).to have_content("data is currently in progress")
         end
 
         expect(last_email.subject).to include("Hodor User")

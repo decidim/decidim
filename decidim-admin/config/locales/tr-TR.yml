@@ -36,6 +36,7 @@ tr:
         organization_url: Kuruluş URL'si
         redirect_uri: Yönlendiren URI
       organization:
+        alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
         cta_button_text: Harekete Geçirici Mesaj metni
@@ -62,11 +63,15 @@ tr:
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
+        primary_color: Birincil
         reference_prefix: Referans öneki
+        secondary_color: İkincil
         show_statistics: İstatistikleri göster
+        success_color: başarı
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
+        warning_color: Uyarı
         youtube_handler: YouTube işleyici
       scope:
         code: kod
@@ -220,10 +225,6 @@ tr:
           error: Bu kategori güncellenirken bir hata oluştu.
           success: Kategori başarıyla güncellendi.
       component_permissions:
-        edit:
-          everyone: Herkes
-          submit: İzinleri kaydet
-          title: İzinleri düzenle
         update:
           success: İzinler başarıyla güncellendi.
       components:
@@ -510,6 +511,7 @@ tr:
         edit:
           update: Güncelleştirme
         form:
+          colors_title: Organizasyon renkleri
           cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
@@ -536,6 +538,12 @@ tr:
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+      resource_permissions:
+        edit:
+          submit: Gönder
+          title: İzinleri düzenle
+        update:
+          success: İzinler başarıyla güncellendi.
       scope_types:
         create:
           error: Yeni kapsam türü oluştururken bir hata oluştu.
@@ -615,9 +623,9 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: gösterge paneli
-        impersonatable_users: Impersonatable kullanıcılar
-        impersonations: impersonations
-        participants: Katılımcılar
+        impersonatable_users: Yönetilebilir kullanıcılar
+        impersonations: Kullanıcılar yönetimi
+        participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar

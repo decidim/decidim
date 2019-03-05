@@ -36,6 +36,7 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
+        alert_color: Alerta
         badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
@@ -62,11 +63,15 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        primary_color: Primário
         reference_prefix: Prefixo de referência
+        secondary_color: Secundário
         show_statistics: Mostre estatisticas
+        success_color: Sucesso
         tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
+        warning_color: Aviso
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -220,10 +225,6 @@ pt:
           error: Ocorreu um erro ao atualizar esta categoria.
           success: Categoria atualizada com sucesso.
       component_permissions:
-        edit:
-          everyone: Todos
-          submit: Salvar permissões
-          title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
       components:
@@ -510,6 +511,7 @@ pt:
         edit:
           update: Actualizar
         form:
+          colors_title: Cores da organização
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
@@ -536,6 +538,12 @@ pt:
         new:
           create: Crio
           title: Novo usuário particular do Espaço Participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permissões
+        update:
+          success: Permissões atualizadas com sucesso.
       scope_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
@@ -615,9 +623,9 @@ pt:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
-        impersonatable_users: Usuários impersonáveis
-        impersonations: Personagens
-        participants: Participantes
+        impersonatable_users: Usuários gerenciáveis
+        impersonations: Gerenciamento de usuários
+        participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas

@@ -13,6 +13,7 @@ es:
           any: Mezclado
           offline: Cara a cara
           online: En línea
+        state: Estado
         title: Título
       initiative_author:
         address: Dirección
@@ -26,8 +27,20 @@ es:
         user: Miembro del Comité
       initiatives_type:
         banner_image: Imagen de banner
+        collect_user_extra_fields: Recopilar datos personales del usuario en la firma
         description: Descripción
+        document_number_authorization_handler: Autorización para verificar el número de documento en las votaciones.
+        extra_fields_legal_information: Información legal sobre la recogida de datos personales.
+        minimum_committee_members: Mínimo de miembros del comité.
+        online_signature_enabled: Firma en línea habilitada
         title: Título
+        undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
+        validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
+      initiatives_vote:
+        name_and_surname: Nombre y apellido
+        document_number: Número del Documento
+        date_of_birth: Fecha de nacimiento
+        postal_code: código postal
       organization_data:
         address: Dirección
         id_document: Documento de identidad
@@ -56,7 +69,7 @@ es:
             created_at: Creado en
             id: CARNÉ DE IDENTIDAD
             state: Estado
-            supports_count: Apoyos
+            supports_count: Firmas
             title: Iniciativas
         initiatives_type_scope:
           fields:
@@ -68,6 +81,20 @@ es:
             created_at: Creado en
             title: Tipos de Iniciativa
           name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Fecha de nacimiento
+            document_number: Número del Documento
+            hash: Picadillo
+            initiative_end_date: Fecha final
+            initiative_id: ID de la iniciativa
+            initiative_signatures_count: Número de firmas
+            initiative_start_date: Fecha de inicio
+            initiative_title: Título de la iniciativa
+            name_and_surname: Nombre y apellido
+            postal_code: código postal
+            time_and_date: Hora y fecha
+            timestamp: Marca de tiempo
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
@@ -109,7 +136,19 @@ es:
           page: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
           title: '¿Qué son las iniciativas?'
     initiatives:
+      actions:
+        answer: Responder
       admin:
+        answers:
+          edit:
+            title: Respuesta para %{title}
+            answer: Responder
+          info_initiative:
+            created_at: Creado en
+            description: Descripción
+            initiative_votes_count: Los votos cuentan
+            initiatives: Iniciativas
+            state: Estado
         committee_requests:
           index:
             approve: Aprobar
@@ -126,6 +165,7 @@ es:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
             discard: Descartar la iniciativa
+            export_pdf_signatures: Exportar PDF de Firmas.
             export_votes: Soportes de exportación
             reject: Rechazar la iniciativa
             send_to_technical_validation: Enviar a validación técnica
@@ -241,12 +281,13 @@ es:
           more_information: "(Más información)"
         promotal_committee:
           back: Volver
-          individual_help_text: Las iniciativas ciudadanas requieren una Comisión Promotora compuesta por al menos tres personas (certificadores). Debe compartir el siguiente enlace con las otras personas que forman parte de esta iniciativa. Cuando sus contactos reciban este enlace, deberán seguir los pasos indicados.
+          individual_help_text: Este tipo de iniciativa ciudadana requiere una Comisión de Promoción compuesta por al menos %{committee_size} personas (atestores). Debe compartir el siguiente enlace con las otras personas que forman parte de esta iniciativa. Cuando sus contactos reciban este enlace deberán seguir los pasos indicados.
           more_information: "(Más información)"
         select_initiative_type:
           back: Volver
+          choose_html: Quiero crear un <strong>%{title}</strong>
           more_information: "(Más información)"
-          select: Escoger
+          select: Quiero promover esta iniciativa.
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
@@ -269,9 +310,33 @@ es:
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue respaldada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          date_select:
+            day: Día
+            month: Mes
+            year: Año
+          help: Por favor, rellene los siguientes campos con sus datos personales para firmar la iniciativa.
+        finish:
+          back_to_initiative: Volver a la iniciativa
+        sms_phone_number:
+          continue: Mandame un SMS
+          help: Rellene el formulario con su número de teléfono verificado para solicitar su código de verificación
+        sms_code:
+          continue: Revisa el código y continúa
+          help: Consulta los SMS recibidos en tu teléfono.
       initiative_votes:
         create:
           error: Ha habido errores al firmar la iniciativa.
+          invalid: Los datos proporcionados para firmar la iniciativa no son válidos.
+          success_html: '¡Felicidades! La iniciativa <strong> %{title}</strong> ha sido firmada correctamente.'
+        personal_data:
+          invalid: Los datos personales no son consistentes con los datos proporcionados para la autorización.
+        sms_code:
+          invalid: Su código de verificación no coincide con el nuestro. Por favor, vuelva a comprobar los SMS que le enviamos.
+        sms_phone:
+          invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revise sus autorizaciones.
       initiatives:
         author:
           deleted: Eliminado
@@ -300,6 +365,11 @@ es:
           unfold: Desplegar
         index_header:
           new_initiative: Nueva iniciativa
+        interactions:
+          comments_count:
+            count:
+              one: Comentario
+              other: Comentarios
         orders:
           label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
@@ -307,32 +377,37 @@ es:
           random: Aleatorio
           recent: Más reciente
         result:
-          initiative_accepted_reason: Esta iniciativa ha sido aceptada porque
+          answer_title:
+            accepted: Esta propuesta ha sido aceptada porque
+            created: Esta propuesta ha sido creada.
+            discarded: Esta propuesta ha sido descartada porque.
+            published: Esta propuesta se publica porque
+            rejected: Esta propuesta ha sido rechazada porque
+            validating: Esta propuesta está siendo evaluada.
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
-          offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
+          follow_description: Recibir una notificación cuando haya novedades en esta iniciativa.
+          offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
         signature_identities:
           select_identity: Selecciona un identificador de usuario
         signatures_count:
           one: " firma"
           other: " firmas"
-        statistics:
-          assistants_count_title: Asistentes
-          comments_count_title: Comentarios
-          meetings_count_title: Reuniones
-          supports_count_title: Firmas
         supports:
           title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
           supports_required: "Se requieren %{total_supports} firmas"
+          verification_required: Verifica tu cuenta para firmar la iniciativa.
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
           count:
             one: FIRMA
             other: FIRMAS
+          most_popular_initiative: Iniciativa mas popular
+          need_more_votes: Necesito mas firmas
       initiatives_mailer:
         creation_subject: Su iniciativa ciudadana '%{title}' ha sido creada
         initiative_link:
@@ -359,6 +434,11 @@ es:
       unavailable_scope: Alcance no disponible
     menu:
       initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          vote: Votar
+          title: Comportamiento
   layouts:
     decidim:
       admin:
@@ -368,6 +448,7 @@ es:
           components: Componentes
           information: Información
       initiative_creation_header:
+        back: Espalda
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar
@@ -378,6 +459,17 @@ es:
         title: Crear nueva iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: Espalda
+        fill_personal_data: Completa tus datos
+        finish: Terminar
+        finished: Firma de iniciativa creada
+        select_identity: Seleccionar identidad
+        see_steps: ver los pasos
+        sms_code: Verificación de código SMS
+        sms_phone_number: Número de teléfono móvil
+        step: Paso %{current} de %{total}
+        title: Signo %{initiative_title}
       initiatives:
         initiative:
           check: Échale un vistazo
