@@ -206,8 +206,13 @@ pt-BR:
             error: Houve um problema com o seu pedido
             success: Obrigado! Enviamos um SMS para o seu telefone.
           edit:
+            confirm_destroy: Tem certeza de que deseja redefinir o código de verificação?
+            destroy: Redefinir código de verificação
             send: confirme
+            resend: Não recebeu o código de verificação?
             title: Introduza o código de verificação recebido
+          destroy:
+            success: O código de verificação foi redefinido com sucesso. Por favor, digite novamente o seu número de telefone.
           new:
             send: Envie-me um SMS
             title: Solicite seu código de verificação

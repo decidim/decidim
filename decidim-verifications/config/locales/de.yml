@@ -206,8 +206,13 @@ de:
             error: Es gab ein Problem mit ihrer Anfrage
             success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
           edit:
+            confirm_destroy: Möchten Sie den Bestätigungscode wirklich zurücksetzen?
+            destroy: Bestätigungscode zurücksetzen
             send: Bestätigen
+            resend: Sie haben den Bestätigungscode nicht erhalten?
             title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
+          destroy:
+            success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
           new:
             send: Senden Sie mir eine SMS
             title: Fordern Sie Ihren Bestätigungscode an

@@ -206,8 +206,13 @@ fr:
             error: Il y avait un problème avec votre demande
             success: Merci! Nous avons envoyé un SMS sur votre téléphone.
           edit:
+            confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
+            destroy: Réinitialiser le code de vérification
             send: Confirmer
+            resend: Vous n'avez pas reçu le code de vérification?
             title: Introduisez le code de vérification que vous avez reçu
+          destroy:
+            success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
           new:
             send: Envoyez moi un SMS
             title: Demander votre code de vérification

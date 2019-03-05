@@ -206,8 +206,13 @@ sv:
             error: Ett problem uppstod med din förfrågan
             success: Tack! Vi har skickat ett SMS till din telefon.
           edit:
+            confirm_destroy: Är du säker på att du vill återställa verifieringskoden?
+            destroy: Återställ verifieringskod
             send: Bekräfta
+            resend: Fick inte verifieringskoden?
             title: Presentera verifieringskoden du fick
+          destroy:
+            success: Verifieringskoden återställs väl. Ange ditt telefonnummer igen.
           new:
             send: Skicka mig ett SMS
             title: Begär din verifieringskod

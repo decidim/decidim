@@ -206,8 +206,13 @@ gl:
             error: Produciuse un problema coa túa solicitude
             success: Grazas Enviamos un SMS ao teu teléfono.
           edit:
+            confirm_destroy: '¿Estás seguro de que queres restablecer o código de verificación?'
+            destroy: Restablecer o código de verificación
             send: Confirmar
+            resend: Non recibiches o código de verificación?
             title: Introduce o código de verificación que recibiches
+          destroy:
+            success: Código de verificación restablecido con éxito. Volve ingresar o teu número de teléfono.
           new:
             send: Envíame un SMS
             title: Solicita o teu código de verificación
