@@ -30,7 +30,7 @@ ca:
       decidim/user:
         current_password: Contrasenya actual
         email: Correu electrònic
-        name: Nom d'usuari
+        name: Sobrenom
         password: Contrasenya
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
@@ -39,11 +39,11 @@ ca:
         one: Esmena
         other: Esmenes
       decidim/user:
-        one: Sense usuaris
-        other: Usuaris
+        one: Participants
+        other: Participants
       decidim/user_group:
-        one: Grup d'usuaris
-        other: Grups d'usuaris
+        one: Grup
+        other: Grups
   booleans:
     'false': 'No'
     'true': 'Sí'
