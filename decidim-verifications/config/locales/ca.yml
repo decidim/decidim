@@ -206,8 +206,13 @@ ca:
             error: S'ha produït un problema amb la teva sol·licitud
             success: Gràcies! Hem enviat un SMS al teu telèfon.
           edit:
+            confirm_destroy: Esteu segur que voleu reiniciar el codi de verificació?
+            destroy: Restableix el codi de verificació
             send: Confirmar
+            resend: No heu rebut el codi de verificació?
             title: Introdueix el codi de verificació que has rebut
+          destroy:
+            success: S'ha restablert el codi de verificació amb èxit. Torneu a introduir el vostre número de telèfon.
           new:
             send: Envia'm un SMS
             title: Sol·licita el teu codi de verificació

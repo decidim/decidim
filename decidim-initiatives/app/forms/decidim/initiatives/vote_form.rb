@@ -94,7 +94,9 @@ module Decidim
       def personal_data_consistent_with_metadata
         return if initiative.document_number_authorization_handler.blank?
 
-        errors.add(:base, :invalid) unless authorized? && authorization_handler && authorization.metadata.symbolize_keys == authorization_handler.metadata.symbolize_keys
+        errors.add(:base, :invalid) unless authorized? &&
+                                           authorization_handler &&
+                                           authorization_handler_metadata_variations.any? { |variation| authorization.metadata.symbolize_keys == variation.symbolize_keys }
       end
 
       def author
@@ -130,6 +132,19 @@ module Decidim
                                                                              date_of_birth: date_of_birth,
                                                                              postal_code: postal_code,
                                                                              scope_id: scope&.id)
+      end
+
+      def authorization_handler_metadata_variations
+        return [] unless authorization_handler && scope.present?
+
+        scope.children.map do |child_scope|
+          Decidim::AuthorizationHandler.handler_for(handler_name,
+                                                    document_number: document_number,
+                                                    name_and_surname: name_and_surname,
+                                                    date_of_birth: date_of_birth,
+                                                    postal_code: postal_code,
+                                                    scope_id: child_scope&.id)
+        end.unshift(authorization_handler).map(&:metadata)
       end
     end
   end
