@@ -312,8 +312,8 @@ ca:
           success: S'ha promogut amb èxit la participant.
         promotions:
           new:
-            explanation: Els usuaris gestionats es poden promocionar a usuaris estàndard. Significa que seran convidats al sistema i no podreu tornar a suplantar-los. L'usuari convidat rebrà un correu electrònic per acceptar la vostra invitació.
-            new_managed_user_promotion: Nova promoció d'usuari gestionat
+            explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
+            new_managed_user_promotion: Nova promoció de participant
             promote: Promocionar
       menu:
         admin_log: Registre d'activitat d'administració
@@ -333,8 +333,8 @@ ca:
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
-        user_groups: Grups d'usuaris
-        users: Usuaris
+        user_groups: Grups
+        users: Participants
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ ca:
             expired_at: Vençut el
             reason: Raó
             started_at: Va començar el
-            user: Usuari
+            user: Participant
         newsletter:
           fields:
             created_at: Data de creació
@@ -376,7 +376,7 @@ ca:
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:
-          name: Usuari privat de l'espai de participació
+          name: Participant privada de l'espai de participació
         scope:
           fields:
             name: Nom
@@ -398,7 +398,7 @@ ca:
             role: Rol
             roles:
               admin: Administrador
-              user_manager: Administrador d'usuaris
+              user_manager: Administrador de participants
           name: Usuari
         user_group:
           fields:
