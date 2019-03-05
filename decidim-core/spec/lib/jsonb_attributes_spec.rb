@@ -21,7 +21,10 @@ module Decidim
     describe "#jsonb_attribute do" do
       before do
         klass.class_eval do
-          jsonb_attribute :settings, [:custom_setting, :another_setting]
+          jsonb_attribute :settings, [
+            [:custom_setting, String],
+            [:another_setting, String]
+          ]
         end
       end
 
