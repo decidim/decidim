@@ -19,12 +19,10 @@ module Decidim
       # @return [String] the content ready to display (contains HTML)
       def render
         content.gsub(GLOBAL_ID_REGEX) do |user_gid|
-          begin
-            user = GlobalID::Locator.locate(user_gid)
-            Decidim::UserPresenter.new(user).display_mention
-          rescue ActiveRecord::RecordNotFound => _ex
-            ""
-          end
+          user = GlobalID::Locator.locate(user_gid)
+          Decidim::UserPresenter.new(user).display_mention
+        rescue ActiveRecord::RecordNotFound => _ex
+          ""
         end
       end
     end
