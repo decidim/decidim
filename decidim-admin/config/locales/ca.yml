@@ -693,10 +693,10 @@ ca:
             invalid: S'ha produït un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
           unhide:
-            invalid: Hi ha hagut un problema en tornar a mostrar el recurs.
+            invalid: S'ha produït un error en tornar a mostrar el recurs.
             success: S'ha tornat a mostrar el recurs correctament.
           unreport:
-            invalid: Hi ha hagut un problema cancel·lant la denúncia.
+            invalid: S'ha produït un error en cancel·lar la denúncia.
             success: Denúncia cancel·lada correctament.
       models:
         moderation:
@@ -718,4 +718,4 @@ ca:
         settings:
           title: Configuració
         users:
-          title: Usuaris
+          title: Participants
