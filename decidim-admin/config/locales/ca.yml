@@ -534,7 +534,7 @@ ca:
           error: S'ha produït un error en suprimir un usuari privat d'aquest espai participatiu.
           success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
         index:
-          title: Usuari privat de l'espai participatiu
+          title: Participant de l'espai participatiu privat
         new:
           create: Crear
           title: Nou usuari privat de l'espai participatiu.
