@@ -537,7 +537,7 @@ ca:
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
-          title: Nou usuari privat de l'espai participatiu.
+          title: Nova participant de l'espai participatiu privat.
       resource_permissions:
         edit:
           submit: Enviar
@@ -573,7 +573,7 @@ ca:
           title: Nou àmbit
         no_scopes: No hi ha àmbits a aquest nivell.
         update:
-          error: S'ha produït un error en l'actualització d'aquest àmbit.
+          error: S'ha produït un error en actualitzar aquest àmbit.
           success: Àmbit actualitzat correctament
       static_page_topics:
         create:
@@ -599,7 +599,7 @@ ca:
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
-          changed_notably_help: Si està marcada, els usuaris seran notificats per acceptar els nous termes i condicions.
+          changed_notably_help: Si està marcada, les participants seran notificades per a que acceptin els nous termes i condicions.
           title: Editar pàgina
           update: Actualitzar
         form:
@@ -615,7 +615,7 @@ ca:
           empty: No hi ha cap pàgina sobre aquest tema
           without_topic: Pàgines sense tema
         update:
-          error: S'ha produït un error en l'actualització d'aquests pàgina.
+          error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
         admin_log: Registre d'administració
@@ -623,24 +623,24 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
-        impersonatable_users: Usuaris manejables
-        impersonations: Gestió d'usuaris
-        participants: Usuaris
+        impersonatable_users: Participants que es poden gestionar
+        impersonations: Gestió de participants
+        participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
-        user_groups: Grups d'usuaris
-        users: Usuaris
+        user_groups: Grups
+        users: Participants
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
-          success: El fitxer CSV s'ha carregat correctament, estem verificant que els grups d'usuaris coincideixin amb els criteris. Això pot trigar una estona.
+          success: El fitxer CSV s'ha carregat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
-          invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.
-          success: Grup d'usuaris rebutjat amb èxit
+          invalid: S'ha produït un error en rebutjar aquest grup.
+          success: El grup s'ha rebutjat correctament
         verify:
-          invalid: Hi ha hagut un error en rebutjar aquest grup d'usuaris.
-          success: Grup d'usuaris verificat correctament
+          invalid: S'ha produït un error en rebutjar aquest grup.
+          success: Grup verificat correctament
       user_groups:
         index:
           filter:
@@ -657,28 +657,28 @@ ca:
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
-          explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups d'usuaris de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups d'usuaris que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
           title: Penja el fitxer CSV
           upload: Penja
       users:
         create:
-          error: Hi ha hagut un error en convidar a aquest usuari.
-          success: Usuari convidat amb èxit.
+          error: S'ha produït un error en convidar aquesta participant.
+          success: Participant convidada correctament.
         destroy:
-          error: S'ha produït un error en intentar eliminar aquest usuari.
-          success: L'usuari ja no és un administrador.
+          error: S'ha produït un error en intentar eliminar aquesta participant.
+          success: La participant ja no és una administradora.
         form:
           email: Correu electrònic
           name: Nom
           role: Rol
         new:
           create: Convidar
-          title: Convidar un usuari com a administrador
+          title: Convidar una participant com a administradora
       view_public_page: Mostra la pàgina pública
     forms:
       errors:
         impersonate_user:
-          reason: Heu d'indicar un motiu quan impersoneu un usuari no administrat
+          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
     moderations:
       actions:
         hidden: Ocults
@@ -690,7 +690,7 @@ ca:
       admin:
         reportable:
           hide:
-            invalid: Hi ha hagut un error en ocultar el contingut.
+            invalid: S'ha produït un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
           unhide:
             invalid: Hi ha hagut un problema en tornar a mostrar el recurs.
