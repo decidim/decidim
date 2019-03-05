@@ -134,6 +134,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-proposals**: Allow reporting official proposals [\#4930](https://github.com/decidim/decidim/pull/4930)
 - **decidim-participatory_processes**: Fix past processes filter [\#4932](https://github.com/decidim/decidim/pull/4932)
 - **decidim-verifications**: Redirect to previous url after verifying your mobile number via SMS. [\#4929](https://github.com/decidim/decidim/pull/4929)
+- **decidim-forms**: Keep correct answers of sinlge-choice question when there are errors [\#4934](https://github.com/decidim/decidim/pull/4934)
 
 **Removed**:
 
