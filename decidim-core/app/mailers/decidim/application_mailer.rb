@@ -13,7 +13,6 @@ module Decidim
     private
 
     def set_smtp
-      byebug
       return if @organization.nil? || @organization.smtp_settings.blank?
 
       mail.from = @organization.smtp_settings["from"] if @organization
@@ -21,7 +20,7 @@ module Decidim
         address: @organization.smtp_settings["address"],
         port: @organization.smtp_settings["port"],
         user_name: @organization.smtp_settings["user_name"],
-        password: Decidim::AttributeEncryptor.decrypt(@organization.smtp_settings["encrypted_password"]) 
+        password: Decidim::AttributeEncryptor.decrypt(@organization.smtp_settings["encrypted_password"])
       ) { |_k, o, v| v.presence || o }
     end
   end
