@@ -13,14 +13,14 @@ ca:
         attachment_collection_id: Carpeta
         description: Descripció
         file: Arxiu
-        title: Títol
+        title: Grup de processos participatius
       attachment_collection:
         description: Descripció
         name: Nom
       category:
         description: Descripció
         name: Nom
-        parent_id: Superior
+        parent_id: Pare
       component:
         name: Nom
         published_at: Publicat el
@@ -37,12 +37,12 @@ ca:
         redirect_uri: URL de redirecció
       organization:
         alert_color: Alerta
-        badges_enabled: Activa els distintius
+        badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
         default_locale: Idioma per defecte
         description: Descripció
-        enable_omnipresent_banner: Mostra pancarta omnipresent
+        enable_omnipresent_banner: Mostrar banner omnipresent
         facebook_handler: Nom a facebook
         favicon: Icona
         github_handler: Nom a GitHub
