@@ -70,7 +70,7 @@ ca:
         success_color: Èxit
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
-        user_groups_enabled: Activar els grups d'usuaris
+        user_groups_enabled: Habilitar grups
         warning_color: Avís
         youtube_handler: Nom d'usuari de YouTube
       scope:
