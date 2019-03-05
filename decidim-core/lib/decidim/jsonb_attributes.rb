@@ -17,7 +17,7 @@ module Decidim
       # fields - The attribute's child fields
       #
       # Example:
-      #   jsonb_attribute(:settings, [:custom_setting, :another_setting])
+      #   jsonb_attribute(:settings, [[:custom_setting, String], [:another_setting, Boolean])
       #   # This will generate `custom_setting`, `custom_setting=` and
       #   # `another_setting`, `another_setting=` and will keep them
       #   # syncronized with a hash in `settings`:
@@ -27,8 +27,8 @@ module Decidim
       def jsonb_attribute(name, fields, *options)
         attribute name, Hash, default: {}
 
-        fields.each do |f|
-          attribute f, String, *options
+        fields.each do |f, type|
+          attribute f, type, *options
           define_method f do
             field = public_send(name) || {}
             field[f.to_s] || field[f.to_sym]
