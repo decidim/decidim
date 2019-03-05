@@ -278,7 +278,7 @@ ca:
             not_managed: No gestionat
           filter_by: Filtra per
           impersonate: Suplantar
-          impersonate_new_managed_user: Administrar una nova participant
+          impersonate_new_managed_user: Gestionar una nova participant
           managed: Gestionat
           name: Nom
           needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
@@ -292,24 +292,24 @@ ca:
           error: S'ha produït un error en tancar la sessió actual de gestió de participants.
           success: La sessió de suplantació actual s'ha finalitzat amb èxit.
         create:
-          error: S'ha produït un error en administrar la participant.
-          success: L'usuari gestionat s'ha creat correctament.
+          error: S'ha produït un error en gestionar la participant.
+          success: La participant gestionada s'ha creat correctament.
         form:
           authorization_method: Mètode d'autorització
           name: Nom
           reason: Raó
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Impersonar l'usuari gestionat "%{name}"
-          impersonate_existing_user: Impersona l'usuari "%{name}"
-          impersonate_new_managed_user: Impersona un nou usuari administrat
+          impersonate_existing_managed_user: Gestionar la participant "%{name}"
+          impersonate_existing_user: Gestionar la participant "%{name}"
+          impersonate_new_managed_user: Gestionar una nova participant
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
       managed_users:
         promotion:
-          error: S'ha produït un error en promoure l'usuari gestionat.
-          success: S'ha promogut amb èxit l'usuari gestionat.
+          error: S'ha produït un error en promoure aquesta participant.
+          success: S'ha promogut amb èxit la participant.
         promotions:
           new:
             explanation: Els usuaris gestionats es poden promocionar a usuaris estàndard. Significa que seran convidats al sistema i no podreu tornar a suplantar-los. L'usuari convidat rebrà un correu electrònic per acceptar la vostra invitació.
