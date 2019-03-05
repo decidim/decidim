@@ -26,7 +26,7 @@ interface AddCommentFormProps {
   submitButtonClassName?: string;
   autoFocus?: boolean;
   arguable?: boolean;
-  userCanComment?: boolean;
+  userAllowedToComment?: boolean;
   addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
   orderBy: string;
@@ -46,9 +46,6 @@ export const MAX_LENGTH = 1000;
  * @class
  * @augments Component
  */
- /**
-  * COm dinamitzo això?
-*/
 export class AddCommentForm extends React.Component<AddCommentFormProps, AddCommentFormState> {
   public static defaultProps = {
     showTitle: true,
@@ -381,7 +378,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 comments: [],
                 hasComments: false,
                 acceptsNewComments: false,
-                userCanComment: false,
+                userAllowedToComment: false,
                 upVotes: 0,
                 upVoted: false,
                 downVotes: 0,

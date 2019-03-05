@@ -37,7 +37,7 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments, totalCommentsCount = 0, userCanComment }, reorderComments, orderBy, loading } = this.props;
+    const { commentable: { comments, totalCommentsCount = 0, userAllowedToComment }, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
 
@@ -73,9 +73,9 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
   private _renderBlockedCommentsWarning() {
-    const { commentable: { acceptsNewComments, userCanComment } } = this.props;
+    const { commentable: { acceptsNewComments, userAllowedToComment } } = this.props;
 
-    if (!acceptsNewComments && !userCanComment) {
+    if (!acceptsNewComments && !userAllowedToComment) {
       return (
         <div className="callout warning">
           <p>{I18n.t("components.comments.blocked_comments_warning")}</p>
@@ -93,10 +93,10 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
   private _renderBlockedCommentsForUserWarning() {
-    const { commentable: { acceptsNewComments, userCanComment } } = this.props;
+    const { commentable: { acceptsNewComments, userAllowedToComment } } = this.props;
 
     if (acceptsNewComments) {
-      if (!userCanComment){
+      if (!userAllowedToComment) {
         return (
           <div className="callout warning">
             <p>{I18n.t("components.comments.blocked_comments_for_user_warning")}</p>
@@ -136,9 +136,9 @@ export class Comments extends React.Component<CommentsProps> {
    */
   private _renderAddCommentForm() {
     const { session, commentable, orderBy } = this.props;
-    const { acceptsNewComments, commentsHaveAlignment, userCanComment } = commentable;
+    const { acceptsNewComments, commentsHaveAlignment, userAllowedToComment } = commentable;
 
-    if (acceptsNewComments && userCanComment) {
+    if (acceptsNewComments && userAllowedToComment) {
       return (
         <AddCommentForm
           session={session}

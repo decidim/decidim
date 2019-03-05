@@ -111,6 +111,11 @@ module Decidim
         followers
       end
 
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate?(user)
+      end
+
       def can_participate?(user)
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
@@ -155,13 +160,6 @@ module Decidim
       end
 
       private
-
-      def can_participate_in_space?(user)
-        return true unless participatory_space.try(:private_space?)
-        return false unless user
-
-        participatory_space.users.include?(user)
-      end
 
       def can_participate_in_meeting?(user)
         return true unless private_meeting?

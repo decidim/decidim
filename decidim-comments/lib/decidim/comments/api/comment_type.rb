@@ -75,9 +75,9 @@ module Decidim
         }
       end
 
-      field :userCanComment, !types.Boolean, "Check if the current user can comment" do
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
         resolve lambda { |obj, _args, ctx|
-          obj.root_commentable.commentable? && obj.root_commentable.can_participate?(ctx[:current_user])
+          obj.root_commentable.commentable? && obj.root_commentable.user_allowed_to_comment?(ctx[:current_user])
         }
       end
     end

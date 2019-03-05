@@ -77,7 +77,7 @@ module Decidim
       end
 
       # Public: Whether the object can have new comments or not.
-      def can_participate?(user)
+      def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
       end
 
@@ -86,13 +86,6 @@ module Decidim
       # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered
       def children_use_weighted_progress?
         children.length == 1 || children.pluck(:weight).none? { |weight| weight == 1.0 }
-      end
-
-      def can_participate_in_space?(user)
-        return true unless participatory_space.try(:private_space?)
-        return false unless user
-
-        participatory_space.users.include?(user)
       end
     end
   end

@@ -48,7 +48,7 @@ module Decidim
         end
 
         # Public: Whether the object can have new comments or not.
-        def can_participate?(_user)
+        def user_allowed_to_comment?(_user)
           true
         end
       end

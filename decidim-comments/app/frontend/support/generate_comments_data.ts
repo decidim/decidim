@@ -32,7 +32,7 @@ const generateCommentsData = (num = 1) => {
       hasComments: false,
       comments: [],
       acceptsNewComments: true,
-      userCanComment: true,
+      userAllowedToComment: true,
       alignment: 0,
       upVotes: random.number(),
       upVoted: false,

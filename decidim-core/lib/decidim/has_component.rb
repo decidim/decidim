@@ -12,6 +12,13 @@ module Decidim
       belongs_to :component, foreign_key: "decidim_component_id", class_name: "Decidim::Component", touch: true
       delegate :organization, to: :component, allow_nil: true
       delegate :participatory_space, to: :component, allow_nil: true
+
+      def can_participate_in_space?(user)
+        return true unless participatory_space.try(:private_space?)
+        return false unless user
+
+        participatory_space.users.include?(user)
+      end
     end
 
     class_methods do

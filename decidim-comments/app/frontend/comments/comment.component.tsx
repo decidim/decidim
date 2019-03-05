@@ -214,9 +214,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderReplyButton() {
-    const { comment: { acceptsNewComments, userCanComment }, session } = this.props;
+    const { comment: { acceptsNewComments, userAllowedToComment }, session } = this.props;
 
-    if (session && acceptsNewComments && userCanComment) {
+    if (session && acceptsNewComments && userAllowedToComment) {
       return (
         <button
           className="comment__reply muted-link"
@@ -237,9 +237,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderAdditionalReplyButton() {
-    const { comment: { acceptsNewComments, hasComments, userCanComment  }, session, isRootComment } = this.props;
+    const { comment: { acceptsNewComments, hasComments, userAllowedToComment  }, session, isRootComment } = this.props;
 
-    if (session && acceptsNewComments && userCanComment) {
+    if (session && acceptsNewComments && userAllowedToComment) {
       if (hasComments && isRootComment) {
         return (
           <div className="comment__additionalreply">
@@ -264,9 +264,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderVoteButtons() {
     const { session, comment, votable, rootCommentable, orderBy } = this.props;
-    const { comment: { userCanComment  } } = this.props;
+    const { comment: { userAllowedToComment  } } = this.props;
 
-    if (votable && userCanComment) {
+    if (votable && userAllowedToComment) {
       return (
         <div className="comment__votes">
           <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
@@ -322,9 +322,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderReplyForm() {
     const { session, comment, rootCommentable, orderBy } = this.props;
     const { showReplyForm } = this.state;
-    const { comment: { userCanComment  } } = this.props;
+    const { comment: { userAllowedToComment  } } = this.props;
 
-    if (session && showReplyForm && userCanComment) {
+    if (session && showReplyForm && userAllowedToComment) {
       return (
         <AddCommentForm
           session={session}
@@ -380,14 +380,14 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @return {Void|DOMElement} - The comment's report modal or not.
    */
   private _renderFlagModal() {
-    const { session, comment: { id, sgid, alreadyReported, userCanComment } } = this.props;
+    const { session, comment: { id, sgid, alreadyReported, userAllowedToComment } } = this.props;
     const authenticityToken = this._getAuthenticityToken();
 
     const closeModal = () => {
       window.$(`#flagModalComment${id}`).foundation("close");
     };
 
-    if (session && session.user && userCanComment) {
+    if (session && session.user && userAllowedToComment) {
       return (
         <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal={true}>
           <div className="reveal__header">
