@@ -154,6 +154,7 @@ administrators should keep in mind updating the help texts for each step.
 - **decidim-core**: Use custom sanitizer in views instead of the default one [\#3655](https://github.com/decidim/decidim/pull/3655)
 - **decidim-initiatives**: Use custom sanitizer in views instead of the default one [\#3655](https://github.com/decidim/decidim/pull/3655)
 - **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3655](https://github.com/decidim/decidim/pull/3655)
+- **decidim-core**: Fix nicknames migration [\#4936](https://github.com/decidim/decidim/pull/4936)
 
 **Removed**:
 
