@@ -399,7 +399,7 @@ ca:
             roles:
               admin: Administrador
               user_manager: Administrador de participants
-          name: Usuari
+          name: Participant
         user_group:
           fields:
             actions: Accions
@@ -408,7 +408,7 @@ ca:
             name: Nom
             phone: Telèfon
             state: Estat
-            users_count: Número d'usuaris
+            users_count: Nombre de participants
       moderations:
         index:
           title: Moderacions
@@ -422,7 +422,7 @@ ca:
           error: S'ha produït un error en crear aquest butlletí.
           success: Butlletí creat amb èxit. Si us plau, revisa'l abans d'enviar.
         deliver:
-          error: Hi ha hagut un error d'enviament d'aquest butlletí.
+          error: S'ha produït un error en enviar aquest butlletí.
           success: Butlletí enviat amb èxit.
         destroy:
           error_already_sent: 'No es pot destruir butlletí de notícies: Ja s''ha enviat.'
@@ -451,7 +451,7 @@ ca:
           error: S'ha produït un error en crear aquesta aplicació.
           success: L'aplicació s'ha creat correctament.
         destroy:
-          error: S'ha produït un error en destruir aquesta aplicació.
+          error: S'ha produït un error en eliminar aquesta aplicació.
           success: S'ha destruït l'aplicació amb èxit.
         edit:
           save: Desa
@@ -467,9 +467,9 @@ ca:
           success: S'ha actualitzat l'aplicació amb èxit.
       officializations:
         create:
-          success: L'usuari s'ha oficialitzat amb èxit
+          success: La participant s'ha oficialitzat correctament
         destroy:
-          success: La oficialització de l'usuari ha estat inhabilitada correctament
+          success: L'oficialització de la participant ha estat inhabilitada correctament
         index:
           actions: Accions
           badge: Insígnia
@@ -491,7 +491,7 @@ ca:
         new:
           badge: Insígnia d'oficialització
           officialize: Oficialitza
-          title: Oficialitza l'usuari "%{name}"
+          title: Oficialitza la participant "%{name}"
       organization:
         edit:
           title: Edita organització
@@ -528,7 +528,7 @@ ca:
           update: Actualitza
       participatory_space_private_users:
         create:
-          error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
+          error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
           success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
         destroy:
           error: S'ha produït un error en suprimir un usuari privat d'aquest espai participatiu.
