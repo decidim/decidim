@@ -43,14 +43,14 @@ ca:
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostrar banner omnipresent
-        facebook_handler: Nom a facebook
+        facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
-        github_handler: Nom a GitHub
-        header_snippets: Fragments de codi a la capçalera
+        github_handler: Nom d'usuari de GitHub
+        header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
         highlighted_content_banner_action_title: Títol del botó d'acció
         highlighted_content_banner_action_url: URL del botó d'acció
-        highlighted_content_banner_enabled: Mostra la pancarta de contingut ressaltat
+        highlighted_content_banner_enabled: Mostrar el banner de contingut destacat
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Descripció breu
         highlighted_content_banner_title: Títol
@@ -65,8 +65,8 @@ ca:
         omnipresent_banner_url: URL
         primary_color: Primària
         reference_prefix: Prefix de referència
-        secondary_color: Secundària
-        show_statistics: Mostra estadístiques
+        secondary_color: Secundari
+        show_statistics: Mostrar estadístiques
         success_color: Èxit
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
