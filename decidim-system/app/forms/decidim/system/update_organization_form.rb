@@ -17,7 +17,15 @@ module Decidim
       attribute :secondary_hosts, String
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
-      jsonb_attribute :smtp_settings, [:from, :user_name, :encrypted_password, :address, :port]
+      jsonb_attribute :smtp_settings, [
+        [:from, String],
+        [:user_name, String],
+        [:encrypted_password, String],
+        [:address, String],
+        [:port, Integer],
+        [:authentication, String],
+        [:enable_starttls_auto, Boolean]
+      ]
 
       attr_writer :password
 
