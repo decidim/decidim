@@ -3,11 +3,11 @@
 module Decidim
   class AttributeEncryptor
     def self.encrypt(string)
-      cryptor.encrypt_and_sign(string)
+      cryptor.encrypt_and_sign(string) if string.present?
     end
 
     def self.decrypt(string_encrypted)
-      cryptor.decrypt_and_verify(string_encrypted)
+      cryptor.decrypt_and_verify(string_encrypted) if string_encrypted.present?
     end
 
     def self.cryptor
