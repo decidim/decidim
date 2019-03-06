@@ -132,12 +132,12 @@ fi:
     amendments:
       accepted:
         error: Muutosten hyväksymisessä tapahtui virhe, yritä myöhemmin uudelleen.
-        success: Tämä muutos on hyväksytty onnistuneesti.
+        success: Muutos hyväksytty onnistuneesti.
       amendable:
         amended_by: 'Muuttanut:'
         button: Muuta %{model_name}
-        promote_button: Korosta kohteeksi %{model_name}
-        error: Tämän resurssin muuttamisessa tapahtui virhe.
+        promote_button: Julkaise uutena kohteena %{model_name}
+        error: Kohteen muuttamisessa tapahtui virhe.
         help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen uutena %{model_name} -kohteena
         no_amenders: Ei muutoksia tehneitä
