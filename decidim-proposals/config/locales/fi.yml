@@ -400,7 +400,7 @@ fi:
           info_proposal:
             body: Tekstin runko
             created_at: Luonnin ajankohta
-            proposal_votes_count: Äänten määrä
+            proposal_votes_count: Kannatusten määrä
             proposals: Ehdotukset
       admin_log:
         proposal:
@@ -632,7 +632,7 @@ fi:
           related_to: Liittyy aiheeseen
           search: Haku
           state: Tila
-          voted: Äänestetty
+          voted: Kannatettu
           amendment_type: Tyyppi
         filters_small_view:
           close_modal: Sulje ikkuna
@@ -646,14 +646,14 @@ fi:
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
-            one: ääni
-            other: ääntä
+            one: kannatus
+            other: kannatukset
         new:
           send: Jatka
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
-          most_voted: Eniten ääniä saaneet
+          most_voted: Eniten kannatuksia saaneet
           random: Satunnainen
           recent: Viimeisimmät
         participatory_texts:
@@ -691,34 +691,34 @@ fi:
           changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
           filed_as: Merkitty
         vote_button:
-          already_voted: Jo äänestetty
-          already_voted_hover: Peru äänesi
-          maximum_votes_reached: Kaikki äänet käytetty
-          no_votes_remaining: Ei ääniä jäljellä
-          vote: Äänestä
-          votes_blocked: Äänestys estetty
+          already_voted: Jo kannatettu
+          already_voted_hover: Peru kannatuksesi
+          maximum_votes_reached: Kaikki kannatukset käytetty
+          no_votes_remaining: Ei kannatuksia jäljellä
+          vote: Kannata
+          votes_blocked: Kannatus poissa käytöstä
         votes_count:
           count:
-            one: ÄÄNI
-            other: ÄÄNTÄ
+            one: KANNATUS
+            other: KANNATUKSET
           most_popular_proposal: Suosituin ehdotus
-          need_more_votes: Tarvitsee enemmän ääniä
+          need_more_votes: Tarvitsee enemmän kannatuksia
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           minimum_votes_per_user:
-            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
+            description: Sinun on annettava vähintään %{votes} kannatusta eri ehdotuksille.
             given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
-            supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
+            supports_remaining: Sinun on kannatettava %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
             description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} kannatusta
-          title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
+          title: 'Kannatukseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
-            description: Voit äänestää enintään %{limit} ehdotusta.
+            description: Voit kannattaa enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: Ääntä
+            votes: Kannatusta
         wizard_aside:
           back: Takaisin
           info: Olet luomassa <strong>ehdotusta</strong>.
