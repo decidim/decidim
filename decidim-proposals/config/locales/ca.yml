@@ -110,10 +110,10 @@ ca:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
-            suggested_hashtags: Etiquetes suggerides als usuaris per a noves propostes
-            votes_blocked: Suports deshabilitats
+            suggested_hashtags: Etiquetes suggerides a les participants per a noves propostes
+            votes_blocked: Suports bloquejats
             votes_enabled: Recollida de suport habilitada
-            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
+            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció s'amagarà el nombre de suports)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -210,12 +210,12 @@ ca:
             email_subject: S'ha rebutjat una proposta que segueixes
             notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
-          email_intro: 'Un administrador ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
+          email_intro: 'Una administradora ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autor de la proposta.
           email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
           notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per un administrador.
         voting_enabled:
-          email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}. Comença a participar a aquesta pàgina:'
+          email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -226,49 +226,49 @@ ca:
             - Tria l'espai de participació del teu interès amb la creació de propostes activada
             - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes i s'accepten.
-          description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
+          description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
           description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
           name: Propostes acceptades
           next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha aconseguit que s'accepti cap de les seves propostes.
+          unearned_another: Aquesta participant encara no ha aconseguit que s'accepti cap de les seves propostes.
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
             - Navega i passa un temps llegint les propostes d'altres persones
             - Dóna suport a les propostes que desitgis o troba'n d'interessants
           description: Aquest distintiu es concedeix quan dones suport a propostes d'altres persones.
-          description_another: Aquest usuari ha donat suport a %{score} propostes.
+          description_another: Aquesta participant ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
           name: Suports a propostes
           next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
+          unearned_another: Aquesta participant encara no ha donat suport a cap proposta.
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
             - Tria un espai de participació del teu interès amb la creació de propostes activada
             - Crea una proposta nova
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
-          description_another: Aquest usuari ha creat %{score} propostes.
+          description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
           name: Propostes
           next_level_in: Crea %{score} més propostes per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha creat cap proposta.
+          unearned_another: Aquesta participant encara no ha creat cap proposta.
           unearned_own: Encara no has creat cap proposta.
     metrics:
       accepted_proposals:
-        description: Nombre de propostes acceptades pels usuaris
+        description: Nombre de propostes acceptades
         object: propostes
         title: Propostes acceptades
       endorsements:
-        description: Nombre d'adhesions generades a les propostes
+        description: Nombre d'adhesions a les propostes
         object: adhesions
         title: Adhesions
       proposals:
-        description: Nombre de propostes generades
+        description: Nombre de propostes
         object: propostes
         title: Propostes
       votes:
-        description: Nombre de suports generats pels usuaris a les propostes
+        description: Nombre de suports a les propostes
         object: suports
         title: Suports
     participatory_processes:
@@ -298,9 +298,9 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
-            are_you_sure: Esteu segur de descartar tot l'esborrany de text participatiu?
+            are_you_sure: Segur que vols descartar l'esborrany sencer de text participatiu?
             import_doc: Importar document
-            discard_all: Descarta'ls tots
+            discard_all: Descarta'l sencer
           import:
             invalid: El formulari no és vàlid!
             success: Enhorabona, les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
