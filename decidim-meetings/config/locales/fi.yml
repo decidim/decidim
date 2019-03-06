@@ -187,7 +187,7 @@ fi:
             create: Luo
             title: Uusi esityslista
           update:
-            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
+            invalid: Virhe päivitettäessä esityslistaa
             success: Esityslista päivitettiin onnistuneesti
         exports:
           meetings: Tapahtumat
@@ -199,7 +199,7 @@ fi:
             join: Ilmoittaudu tapahtumaan "%{meeting_title}"
         invites:
           create:
-            error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
+            error: Virhe kutsuttaessa käyttäjää tapahtumaan.
             success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
