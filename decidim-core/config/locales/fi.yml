@@ -590,14 +590,14 @@ fi:
         are_you_sure: Oletko varma? Tämä ei poista osallistujaa ryhmästä.
         demote_admin: Poista ylläpitäjä
       demote:
-        error: Virhe poistettaessa tätä käyttäjää ylläpitäjistä
+        error: Virhe poistettaessa tätä käyttäjää hallintakäyttäjistä
         success: Käyttäjä on poistettu ylläpitäjistä onnistuneesti
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
     group_invites:
       accept:
-        error: Hyväksyttäessä kutsua esiintyi virhe
+        error: Virhe hyväksyttäessä kutsua
         success: Kutsu hyväksyttiin onnistuneesti
       accept_invitation: Hyväksy
       accept_or_reject_group_invitations: 'Seuraavat ryhmät ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
@@ -605,15 +605,15 @@ fi:
         invite: Kutsu
         invite_user: Kutsu osallistuja
       invite:
-        error: Tapahtui virhe kutsuttaessa tätä käyttäjää
+        error: Virhe kutsuttaessa käyttäjää
         success: Osallistuja kutsuttiin onnistuneesti
       reject:
-        error: Hylätessä tätä kutsua tapahtui virhe
+        error: Virhe hylätessä kutsua
         success: Kutsu hylättiin
       reject_invitation: Hylkää
     group_members:
       accept:
-        error: Tapahtui virhe hyväksyttäessä liittymispyyntöä
+        error: Virhe hyväksyttäessä liittymispyyntöä
         success: Liittymispyyntö hyväksyttiin onnistuneesti
       actions:
         are_you_sure: Oletko varma?
@@ -623,19 +623,19 @@ fi:
         current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
         manage_members: Hallinnoi jäseniä
       promote:
-        error: Tapahtui virhe nimitettäessä tätä käyttäjää
+        error: Virhe korotettaessa käyttäjän oikeuksia
         success: Käyttäjä nimitetty onnistuneesti
       reject:
-        error: Tapahtui virhe hylätessä liittymispyyntöä
+        error: Virhe hylätessä liittymispyyntöä
         success: Liittymispyyntö hylätty onnistuneesti
       remove:
-        error: Tapahtui virhe poistettaessa käyttäjää ryhmästä
+        error: Virhe poistettaessa käyttäjää ryhmästä
         success: Käyttäjä on poistettu ryhmästä onnistuneesti
     groups:
       actions:
         are_you_sure: Oletko varma?
       create:
-        error: Ryhmää luotaessa esiintyi ongelma
+        error: Virhe luotaessa ryhmää
         success: Ryhmä luotiin onnistuneesti
       edit:
         edit_user_group: Muokkaa ryhmää
@@ -648,10 +648,10 @@ fi:
         nickname_help: Käyttäjänimi organisaatiolle, yhdistykselle, ryhmälle, tms. Älä käytä välilyöntejä tai erikoismerkkejä.
         phone_help: Älä käytä viivoja tai välilyöntejä
       join:
-        error: Ryhmään liityttäessä esiintyi ongelma
+        error: Virhe liityttäessä ryhmään
         success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
-        error: Ryhmästä poistuttaessa esiintyi ongelma
+        error: Virhe poistuttaessa ryhmästä
         success: Ryhmä hylkäsi onnistuneesti.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
@@ -667,7 +667,7 @@ fi:
         creator: Luoja
         member: Jäsen
       update:
-        error: Ryhmää päivitettäessä esiintyi ongelma
+        error: Virhe päivitettäessä ryhmää
         success: Ryhmä päivitettiin onnistuneesti
     help:
       main_topic:
