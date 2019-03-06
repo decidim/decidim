@@ -131,7 +131,7 @@ fi:
           title: Kopioi osallisuusprosessi
       participatory_process_groups:
         destroy:
-          success: Osallisuusprosessiryhmä poistettiin onnistuneesti.
+          success: Osallisuusprosessien ryhmä poistettiin onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
