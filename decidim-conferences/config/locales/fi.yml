@@ -103,7 +103,7 @@ fi:
           success: Konferenssin käyttäjä päivitettiin onnistuneesti.
       conferences:
         create:
-          error: Uuden konferenssin luomisessa tapahtui virhe.
+          error: Uuden konferenssin luominen epäonnistui.
           success: Konferenssi luotu onnistuneesti.
         edit:
           update: Päivitä
