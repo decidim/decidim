@@ -183,11 +183,11 @@ fi:
           create: Luo
           title: Uusi kansio
         update:
-          error: Tämän kansion päivittämisessä tapahtui virhe.
+          error: Kansion päivittämisessä tapahtui virhe.
           success: Kansio päivitetty onnistuneesti.
       attachments:
         create:
-          error: Uuden liitteen luonnissa tapahtui virhe.
+          error: Uuden liitteen luonti epäonnistui.
           success: Liite luotu onnistuneesti.
         destroy:
           success: Liite tuhottu onnistuneesti.
@@ -200,7 +200,7 @@ fi:
           create: Luo liite
           title: Uusi liite
         update:
-          error: Tämän liitteen päivityksessä tapahtui virhe.
+          error: Liitteen päivitys epäonnistui.
           success: Liite luotu onnistuneesti.
       autocomplete:
         no_results: Ei tuloksia
