@@ -20,6 +20,6 @@ You need to create a file for this translation as [Ruby on Rails i18n documentat
 
 There is an external module [decidim-term_customizer](https://github.com/mainio/decidim-module-term_customizer), according with the project README:
 
-    The module allows administrators to add "translation sets" through the admin panel which contain customized terms for any module in the system. These sets can be applied against different scopes within the system, e.g. the whole system, participatory space scope (e.g. all participatory processes or a specific participatory process) or a specific component within a participatory space.
+> The module allows administrators to add "translation sets" through the admin panel which contain customized terms for any module in the system. These sets can be applied against different scopes within the system, e.g. the whole system, participatory space scope (e.g. all participatory processes or a specific participatory process) or a specific component within a participatory space.
 
 To implement this on your decidim installation follow the [documentation in the external module](https://github.com/mainio/decidim-module-term_customizer/blob/master/README.md).
