@@ -127,7 +127,7 @@ fi:
             email_subject: Uusi keskustelu "%{resource_title}" käyttäjältä %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'Keskustelujen luominen ei ole enää käytössä kohteessa %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tämän sivun kautta:'
+          email_intro: 'Keskustelun luominen ei ole enää aktiivinen %{participatory_space_title}. Voit silti osallistua avoimiin keskusteluihin tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Keskustelujen luominen on poistettu käytöstä kohteessa %{participatory_space_title}
           notification_title: Keskustelujen luominen on nyt poistettu käytöstä kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
