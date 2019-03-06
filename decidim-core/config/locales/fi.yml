@@ -531,10 +531,10 @@ fi:
     follows:
       create:
         button: Seuraa
-        error: Tämän resurssin seurauksena oli ongelma.
+        error: Tämän kohteen seuraamisessa tapahtui virhe.
       destroy:
         button: Lopeta seuranta
-        error: Tämän resurssin purkamisessa oli ongelma.
+        error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
     forms:
       current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
