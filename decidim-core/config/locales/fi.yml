@@ -879,7 +879,7 @@ fi:
       deleted: Poistettu käyttäjä
       view: Näytä
     profiles:
-      default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi vastaa oikeaa nimeä
+      default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu ja sen nimi vastaa oikeaa nimeä
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         activity: Aktiviteetti
@@ -1020,7 +1020,7 @@ fi:
     invitations:
       edit:
         header: Viimeistele tilisi
-        nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
+        nickname_help: Nimimerkkisi organisaatiossa %{organization}.
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
       invitation_removed: Kutsusi peruutettiin.
@@ -1036,7 +1036,7 @@ fi:
       confirmation_instructions:
         action: Vahvista käyttäjätilini
         greeting: Tervetuloa %{recipient}!
-        instruction: 'Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.'
+        instruction: 'Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin avulla:'
         subject: Vahvistusohjeet
       email_changed:
         greeting: Hei %{recipient}!
@@ -1099,7 +1099,7 @@ fi:
       updated: Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi on vaihdettu onnistuneesti.
     registrations:
-      destroyed: Hei hei! Tilisi on poistettu onnistuneesti. Toivomme näkevämme sinut pian uudelleen.
+      destroyed: Tilisi on poistettu onnistuneesti. Toivomme näkevämme sinut pian uudelleen.
       edit:
         are_you_sure: Oletko varma?
         cancel_my_account: Poista tilini
