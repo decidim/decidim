@@ -24,7 +24,7 @@ ca:
           title: Nou administrador
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
-          success: L'administrador s'ha actualitzat correctament
+          success: L'administradora s'ha actualitzat correctament
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
