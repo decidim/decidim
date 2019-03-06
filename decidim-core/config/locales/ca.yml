@@ -63,7 +63,7 @@ ca:
         file_no_exists: L'arxiu no existeix
         invalid_token: El símbol proporcionat no és vàlid.
         no_token: No s'ha proporcionat cap testimoni
-        notice: Les teves dades estan en curs. Rebràs un correu electrònic quan estigui complet.
+        notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
         alert: Aquesta acció no es pot desfer. Si elimines el teu compte no seràs capaç d'iniciar sessió.
         confirm:
@@ -73,14 +73,14 @@ ca:
           title: Eliminar el meu compte
         explanation: Si us plau, omple la raó per la qual vols eliminar el teu compte (opcional).
       destroy:
-        error: Hi ha hagut un error en eliminar el teu compte.
+        error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       show:
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
-        error: S'ha produït un error en actualitzar el seu compte.
-        success: El seu compte s'ha actualitzat correctament.
+        error: S'ha produït un error en actualitzar el teu compte.
+        success: El teu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     admin_log:
       area:
@@ -107,8 +107,8 @@ ca:
       organization:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       participatory_space_private_user:
-        create: "%{user_name} convidat %{resource_name} per ser usuari privat"
-        delete: "%{user_name} ha estat eliminat com a usuari privat de %{resource_name}"
+        create: "%{user_name} ha convidat %{resource_name} com a participant d'un espai privat"
+        delete: "%{user_name} ha eliminat %{resource_name} com a participant d'un espai privat"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"
         create_with_parent: "%{user_name} ha creat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
@@ -121,18 +121,18 @@ ca:
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
       user:
-        invite: "%{user_name} ha convidat l'usuari a %{resource_name} amb el rol: %{role}"
-        officialize: "%{user_name} ha oficialitzat l'usuari %{resource_name}"
-        remove_from_admin: "%{user_name} ha eliminat l'usuari %{resource_name} amb el rol: %{role}"
-        unofficialize: "%{user_name} ha desoficialitzat l'usuari %{resource_name}"
+        invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
+        officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
+        remove_from_admin: "%{user_name} ha eliminat la participant %{resource_name} amb el rol: %{role}"
+        unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
-        reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
-        verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
-        verify_via_csv: "%{user_name} va verificar el grup d'usuaris %{resource_name} a través d'un fitxer CSV"
+        reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
+        verify: "%{user_name} ha verificat el grup %{resource_name}"
+        verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
     amendments:
       accepted:
-        error: S'ha produït un error en acceptar l'esmena, torna-ho a provar més tard.
-        success: Aquesta esmena ha estat acceptada amb èxit.
+        error: S'ha produït un error en acceptar l'esmena, si us plau torna-ho a provar més tard.
+        success: Aquesta esmena ha estat acceptada correctament.
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
