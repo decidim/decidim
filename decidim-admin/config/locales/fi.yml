@@ -139,9 +139,9 @@ fi:
       area_types:
         create:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
-          success: Aluetyyppi luotu onnistuneesti.
+          success: Aluetyypin luonti onnistui.
         destroy:
-          success: Aluetyyppi tuhottu onnistuneesti
+          success: Aluetyypin tuhoaminen onnistui
         edit:
           title: Muokkaa aluetyyppiä
           update: Päivitä
@@ -150,13 +150,13 @@ fi:
           title: Uusi aluetyyppi
         update:
           error: Aluetyyppiä päivitettäessä tapahtui virhe.
-          success: Aluetyyppi päivitetty onnistuneesti
+          success: Aluetyypin päivitys onnistui
       areas:
         create:
           error: Uuden alueen luomisessa tapahtui virhe.
-          success: Alue luotu onnistuneesti.
+          success: Alueen luonti onnistui.
         destroy:
-          success: Alue tuhottu onnistuneesti
+          success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
           update: Päivitä
@@ -166,13 +166,13 @@ fi:
         no_areas: Ei alueita
         update:
           error: Virhe päivitettäessä tätä aluetta.
-          success: Alue päivitetty onnistuneesti
+          success: Alueen päivitys onnistui
       attachment_collections:
         create:
           error: Uuden kansion luomisessa tapahtui virhe.
-          success: Kansio luotu onnistuneesti.
+          success: Kansion luonti onnistui.
         destroy:
-          success: Kansio tuhottu onnistuneesti.
+          success: Kansion tuhoaminen onnistui.
         edit:
           title: Muokkaa kansiota
           update: Päivitä
@@ -184,13 +184,13 @@ fi:
           title: Uusi kansio
         update:
           error: Kansion päivittämisessä tapahtui virhe.
-          success: Kansio päivitetty onnistuneesti.
+          success: Kansion päivitys onnistui.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
-          success: Liite luotu onnistuneesti.
+          success: Liitteen luonti onnistui.
         destroy:
-          success: Liite tuhottu onnistuneesti.
+          success: Liitteen tuhoaminen onnistui.
         edit:
           title: Muokkaa liitettä
           update: Päivitä
@@ -201,17 +201,17 @@ fi:
           title: Uusi liite
         update:
           error: Tämän liitteen päivityksessä tapahtui virhe.
-          success: Liite luotu onnistuneesti.
+          success: Liitteen luonti onnistui.
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
-          success: Aihepiiri luotu onnistuneesti.
+          success: Aihepiirin luonti onnistui.
         destroy:
           error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
-          success: Aihepiiri poistettu onnistuneesti.
+          success: Aihepiirin poistaminen onnistui.
         edit:
           title: Muokkaa aihepiiriä
           update: Päivitä
@@ -223,17 +223,17 @@ fi:
           title: Uusi aihepiiri
         update:
           error: Virhe päivitettäessä aihepiiriä.
-          success: Aihepiiri päivitetty onnistuneesti.
+          success: Aihepiirin päivitys onnistui.
       component_permissions:
         update:
-          success: Käyttöoikeudet päivitetty onnistuneesti.
+          success: Käyttöoikeuksien päivitys onnistui.
       components:
         create:
           error: Virhe luotaessa komponenttia.
-          success: Komponentti luotu onnistuneesti.
+          success: Komponentin luonti onnistui.
         destroy:
           error: Tämän komponentin tuhoamisessa tapahtui virhe.
-          success: Komponentti poistettu onnistuneesti.
+          success: Komponentin poisto onnistui.
         edit:
           title: Muokkaa komponenttia
           update: Päivitä
@@ -251,10 +251,10 @@ fi:
           add: Lisää komponentti
           title: 'Lisää komponentti: %{name}'
         publish:
-          success: Komponentti julkaistu onnistuneesti.
+          success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentti julkaistu onnistuneesti.
+          success: Komponentin julkaisun peruminen onnistui.
         update:
           error: Tämän komponentin päivittämisessä tapahtui virhe.
           success: Komponentti päivitetty onnistuneesti.
