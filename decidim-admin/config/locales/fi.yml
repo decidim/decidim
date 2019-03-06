@@ -210,7 +210,7 @@ fi:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri luotu onnistuneesti.
         destroy:
-          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kooknaisuus ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
+          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
           success: Aihepiiri poistettu onnistuneesti.
         edit:
           title: Muokkaa aihepiiriä
@@ -222,14 +222,14 @@ fi:
           create: Luo aihepiiri
           title: Uusi aihepiiri
         update:
-          error: Tämän aihepiirin luonnissa tapahtui virhe.
+          error: Tämän aihepiirin päivityksessä tapahtui virhe.
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
         create:
-          error: Tämän komponentin luomisessa tapahtui virhe.
+          error: Tämän komponentin luonnissa tapahtui virhe.
           success: Komponentti luotu onnistuneesti.
         destroy:
           error: Tämän komponentin tuhoamisessa tapahtui virhe.
@@ -293,7 +293,7 @@ fi:
           success: Toisena käyttäjänä esiintymisen istunto on onnistuneesti päätetty.
         create:
           error: Esiinnyttäessä käyttäjänä tapahtui virhe.
-          success: Hallittu käyttäjä on luotu onnistuneesti.
+          success: Hallittu käyttäjä luotu onnistuneesti.
         form:
           authorization_method: Varmennustapa
           name: Nimi
@@ -309,10 +309,10 @@ fi:
       managed_users:
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
-          success: Hallitun käyttäjän taso on onnistuneesti korotettu.
+          success: Hallitun käyttäjän oikeudet on onnistuneesti korotettu.
         promotions:
           new:
-            explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään kutsu hakemusprosessiin ja tämän jälkeen kyseisinä tileinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla hän voi hyväksyä kutsusi.
+            explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään rekisteröitymiskutsu alustalle ja rekisteröitymisen jälkeen kyseisinä käyttäjinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla he voivat hyväksyä kutsusi.
             new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
       menu:
@@ -419,10 +419,10 @@ fi:
             spam: Roskaposti
       newsletters:
         create:
-          error: Tämän uutiskirjeen luonnissa tapahtui virhe.
+          error: Uutiskirjeen luonnissa tapahtui virhe.
           success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
         deliver:
-          error: Tämän uutiskirjeen toimituksessa tapahtui virhe.
+          error: Uutiskirjeen toimituksessa tapahtui virhe.
           success: Uutiskirje toimitettu onnistuneesti.
         destroy:
           error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
@@ -444,14 +444,14 @@ fi:
           preview: Esikatsele
           subject: Otsikko
         update:
-          error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
+          error: Uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       oauth_applications:
         create:
           error: Sovelluksen luonnissa tapahtui virhe.
           success: Sovellus luotu onnistuneesti.
         destroy:
-          error: Tämän sovelluksen tuhoamisessa tapahtui virhe.
+          error: Sovelluksen tuhoamisessa tapahtui virhe.
           success: Sovellus tuhottu onnistuneesti.
         edit:
           save: Tallenna
@@ -469,7 +469,7 @@ fi:
         create:
           success: Käyttäjä virallistettu onnistuneesti
         destroy:
-          success: Käyttäjän virallistaminen poistettu onnistuneesti
+          success: Käyttäjän virallistaminen peruutettu onnistuneesti
         index:
           actions: Toiminnot
           badge: Kunniamerkki
@@ -505,7 +505,7 @@ fi:
           url: URL
           youtube: YouTube
         update:
-          error: Tämän organisaation päivityksessä tapahtui virhe.
+          error: Organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
       organization_appearance:
         edit:
@@ -531,7 +531,7 @@ fi:
           error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
           success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
-          error: Tapahtui virhe poistettaessa osallisuustilan yksityistä käyttäjää.
+          error: Virhe poistettaessa osallisuustilan yksityistä käyttäjää.
           success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
           title: Osallisuustilan yksityinen käyttäjä
