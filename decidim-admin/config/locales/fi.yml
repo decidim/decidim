@@ -222,14 +222,14 @@ fi:
           create: Luo aihepiiri
           title: Uusi aihepiiri
         update:
-          error: Tämän aihepiirin päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä aihepiiriä.
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
         create:
-          error: Tämän komponentin luonnissa tapahtui virhe.
+          error: Virhe luotaessa komponenttia.
           success: Komponentti luotu onnistuneesti.
         destroy:
           error: Tämän komponentin tuhoamisessa tapahtui virhe.
@@ -289,7 +289,7 @@ fi:
           view_logs: Näytä lokitiedot
       impersonations:
         close_session:
-          error: Toisena käyttäjänä esiintymisen istunnon sulkemisessa tapahtui virhe.
+          error: Esitetyn käyttäjän istunnon sulkemisessa tapahtui virhe.
           success: Toisena käyttäjänä esiintymisen istunto on onnistuneesti päätetty.
         create:
           error: Esiinnyttäessä käyttäjänä tapahtui virhe.
@@ -546,7 +546,7 @@ fi:
           success: Käyttöoikeudet päivitetty onnistuneesti.
       scope_types:
         create:
-          error: Uuden teematyypin luomisessa tapahtui virhe.
+          error: Virhe luotaessa uutta teematyyppiä.
           success: Teematyyppi luotu onnistuneesti.
         destroy:
           success: Teematyyppi tuhottu onnistuneesti
@@ -557,11 +557,11 @@ fi:
           create: Luo teematyyppi
           title: Uusi teema
         update:
-          error: Teematyypin päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä teematyyppiä.
           success: Teematyyppi päivitetty onnistuneesti
       scopes:
         create:
-          error: Uuden teeman luonnissa tapahtui virhe.
+          error: Virhe luotaessa uutta teemaa.
           success: Teema luotu onnistuneesti.
         destroy:
           success: Teema tuhottu onnistuneesti
@@ -573,11 +573,11 @@ fi:
           title: Uusi teema
         no_scopes: Tällä tasolla ei ole teemoja.
         update:
-          error: Tämän teeman päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä teemaa.
           success: Teema päivitetty onnistuneesti
       static_page_topics:
         create:
-          error: Uuden aiheen luomisessa tapahtui virhe.
+          error: Virhe luotaessa uutta aihetta.
           success: Aihe luotiin onnistuneesti.
         destroy:
           success: Aihe tuhottu onnistuneesti
@@ -588,18 +588,18 @@ fi:
           create: Luo aihe
           title: Uusi aihe
         update:
-          error: Tämän aiheen päivittämisessä tapahtui virhe.
+          error: Virhe päivitettäessä aihetta.
           success: Aihe päivitettiin onnistuneesti
       static_pages:
         actions:
           view: Näytä julkinen sivu
         create:
-          error: Uuden sivun luonnissa tapahtui virhe.
+          error: Virhe luotaessa uutta sivua.
           success: Sivu luotu onnistuneesti.
         destroy:
           success: Sivu tuhottu onnistuneesti
         edit:
-          changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään uudet käyttöehdot.
+          changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään päivitetyt käyttöehdot.
           title: Muokkaa sivua
           update: Päivitä
         form:
@@ -615,7 +615,7 @@ fi:
           empty: Tämän aiheen alla ei ole sivuja
           without_topic: Sivut ilman aihetta
         update:
-          error: Tämän sivun päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä sivua.
           success: Sivu päivitetty onnistuneesti
       titles:
         admin_log: Hallintatoimintojen lokitiedot
@@ -633,8 +633,8 @@ fi:
         users: Käyttäjät
       user_group:
         csv_verify:
-          invalid: CSV-tiedoston käsittelyssä tapahtui virhe.
-          success: CSV-tiedosto on ladattu onnistuneesti, varmistamme kriteerien mukaiset käyttäjäryhmät. Tämä saattaa kestää jonkin aikaa.
+          invalid: Virhe käsiteltäessä CSV-tiedostoa.
+          success: CSV-tiedosto on ladattu onnistuneesti. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää jonkin aikaa.
         reject:
           invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.
           success: Käyttäjäryhmä hylätty onnistuneesti
