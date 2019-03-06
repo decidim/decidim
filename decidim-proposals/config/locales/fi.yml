@@ -337,7 +337,7 @@ fi:
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
-            error: Tämän ehdotusviestin luomisessa esiintyi ongelma
+            error: Virhe luotaessa muistiinpanoa ehdotukselle
             success: Ehdotusviesti luotu onnistuneesti
           form:
             note: Huomautus
