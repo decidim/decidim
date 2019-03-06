@@ -5,8 +5,17 @@ module Decidim
     # Exposes the survey resource so users can view and answer them.
     class SurveysController < Decidim::Surveys::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
+      helper Decidim::Surveys::SurveyHelper
 
       delegate :allow_answers?, to: :current_settings
+
+      before_action :check_permissions
+
+      def check_permissions
+        if !action_authorized_to(:answer, resource: survey).ok?
+          render :no_permission
+        end
+      end
 
       def questionnaire_for
         survey
