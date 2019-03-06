@@ -50,7 +50,7 @@ fi:
             success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
+            invalid: Virhe tuotaessa ehdotuksia suunnitelmiksi
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia suunnitelmiin
@@ -140,10 +140,10 @@ fi:
             votes_enabled: Äänestys on käytössä
     orders:
       checkout:
-        error: Äänesi käsittelyssä tapahtui virhe
+        error: Virhe käsiteltäessä ääntäsi
         success: Äänesi on hyväksytty onnistuneesti
       destroy:
-        error: Äänesi peruutuksen yhteydessä tapahtui virhe
+        error: Virhe peruutettaessa ääntäsi
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
