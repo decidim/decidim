@@ -43,14 +43,14 @@ fi:
     surveys:
       admin:
         exports:
-          survey_user_answers: Kyselyn vastaukset
+          survey_user_answers: Kyselyiden vastaukset
         surveys:
           update:
             invalid: Kyselyn tallennus epäonnistui.
-            success: Kysely tallennettu onnistuneesti.
+            success: Kyselyn tallennus onnistui.
       last_activity:
         new_survey_at_html: "<span>Uusi kysely osoitteessa %{link}</span>"
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
-          success: Kyselyyn vastattu onnistuneesti.
+          success: Kyselyyn vastaaminen onnistui.
