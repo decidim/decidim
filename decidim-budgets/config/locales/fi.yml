@@ -31,7 +31,7 @@ fi:
             name: Suunnitelma
         projects:
           create:
-            invalid: Suunnitelman luonnissa tapahtui virhe
+            invalid: Virhe luotaessa suunnitelmaa
             success: Suunnitelma lisätty onnistuneesti
           destroy:
             success: Suunnitelma poistettu onnistuneesti
@@ -46,7 +46,7 @@ fi:
             create: Luo
             title: Uusi suunnitelma
           update:
-            invalid: Tämän suunnitelman päivityksessä tapahtui virhe
+            invalid: Virhe päivitettäessä suunnitelmaa
             success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
