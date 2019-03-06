@@ -8,9 +8,7 @@ module Decidim
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
 
-          if consultation && (!consultation.is_a?(Decidim::Consultation) && !consultation.is_a?(Decidim::Consultations::Question))
-            return permission_action
-          end
+          return permission_action if consultation && (!consultation.is_a?(Decidim::Consultation) && !consultation.is_a?(Decidim::Consultations::Question))
 
           unless user.admin?
             disallow!
