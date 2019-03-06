@@ -356,7 +356,7 @@ fi:
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          error: Konferenssin osallistumissertifikaattien lähettämisessä oli ongelma.
           success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
@@ -427,7 +427,7 @@ fi:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
           pending_validation:
-            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
+            subject: Konferenssin rekisteröinti odottaa vahvistusta
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
