@@ -499,10 +499,10 @@ ca:
           recent: Recent
         requests:
           accepted_request:
-            error: No s'ha pogut acceptar com a contribuïdor, torna-ho a provar més tard.
+            error: No has pogut ser acceptada com a contribuïdora, si us plau torna-ho a provar més tard.
             success: "S'ha acceptat amb èxit @%{user} com a contribuïdor"
           access_requested:
-            error: No s'ha pogut completar la teva sol·licitud, torna-ho a provar més tard.
+            error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
             success: La teva sol·licitud de contribució s'ha enviat correctament
           collaboration_requests:
             accept_request: Accepta
