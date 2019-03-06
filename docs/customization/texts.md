@@ -14,7 +14,7 @@ en:
         footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
 ```
 
-You need to create a file for this translation as [Ruby on Rails i18n documentation](http://guides.rubyonrails.org/i18n.html) says, for instance config/locales/home.en.yml, you can see a currently working example in [this PR](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/206)
+You need to create a file for this translation as [Ruby on Rails i18n documentation](http://guides.rubyonrails.org/i18n.html) says, for instance config/locales/home.en.yml, you can see a currently working example in [this PR](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/206).
 
 ## Using external module
 
@@ -24,4 +24,4 @@ There is an external module [decidim-term_customizer](https://github.com/mainio/
 
 To implement this on your decidim installation follow the [documentation in the external module](https://github.com/mainio/decidim-module-term_customizer/blob/master/README.md).
 
-You can see an example in [this PR](https://github.com/decidim/metadecidim/pull/38)
+You can see an example in [this PR](https://github.com/decidim/metadecidim/pull/38).
