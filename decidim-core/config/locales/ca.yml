@@ -136,7 +136,7 @@ ca:
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
-        promote_button: Promocionar a %{model_name}
+        promote_button: Publicar com una nova %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
