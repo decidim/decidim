@@ -227,7 +227,7 @@ fi:
             existing_user: Olemassa oleva käyttäjä
             non_user: Ei käyttäjä
             select_a_position: Valitse asema
-            select_user: Valitse käyttäjä
+            select_user: Valitse osallistuja
             user_type: Käyttäjätyyppi
           index:
             filter:
