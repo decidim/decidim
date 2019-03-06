@@ -407,10 +407,10 @@ ca:
             notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho en aquesta pàgina:'
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
             email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
-            email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
-            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: S'ha publicat una esmena de %{emendation_author_nickname} com una nova proposta
+            notification_title: S'ha publicat una <a href="%{emendation_path}">esmena refusada</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} com una nova proposta de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -650,7 +650,7 @@ ca:
         error: Hi ha hagut un problema en unir-se al grup
         success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
-        error: Hi ha hagut un problema per abandonar el grup
+        error: S'ha produït un problema en abandonar el grup
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
@@ -667,7 +667,7 @@ ca:
         member: Membre
       update:
         error: S'ha produït un problema en actualitzar el grup
-        success: S'ha actualitzat el grup amb èxit
+        success: El grup s'ha actualitzat correctament
     help:
       main_topic:
         default_page:
@@ -702,9 +702,9 @@ ca:
         scope_type_presenter:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
     managed_users:
-      expired_session: La sessió de suplantació actual ha caducat.
+      expired_session: La sessió actual d'administració d'una participant ha caducat.
     members:
-      no_members: Aquest grup d'usuaris encara no té cap membre.
+      no_members: Aquest grup encara no té cap membre.
     menu:
       help: Ajuda
       home: Inici
@@ -740,17 +740,17 @@ ca:
       download:
         csv: Descarrega les dades (csv)
       followers:
-        description: Nombre d'usuaris que segueixen aquest espai de participació
+        description: Nombre de participants que segueixen aquest espai de participació
         object: seguidors
         title: Seguidors
       participants:
-        description: Nombre d'usuaris actius de l'organització
+        description: Nombre de participants actives a l'organització
         object: participants
         title: Participants
       users:
-        description: Nombre d'usuaris/àries de l'organització
-        object: usuaris
-        title: Usuaris
+        description: Nombre de participants a l'organització
+        object: participants
+        title: Participants
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -767,7 +767,7 @@ ca:
       unathorized: Ho sentim, aquest enllaç ja no està disponible
       update:
         error: S'ha produït un error
-        success: Configuració del butlletí de notícies actualitzada amb èxit
+        success: La configuració del butlletí de notícies s'ha actualitzat correctament
     newsletters_opt_in_mailer:
       notify:
         body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a tots nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un millor control sobre les seves dades personals. Per aquest motiu, necessitem el vostre "D'acord" per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
@@ -790,8 +790,8 @@ ca:
         send_notifications_by_email: Enviar notificacions per correu electrònic
         update_notifications_settings: Guardar canvis
       update:
-        error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
-        success: La configuració de les notificacions s'han actualitzat correctament.
+        error: S'ha produït un error en actualitzar la configuració de les notificacions.
+        success: La configuració de les notificacions s'ha actualitzat correctament.
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     own_user_groups:
@@ -875,10 +875,10 @@ ca:
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
-      deleted: Usuari eliminat
+      deleted: S'ha eliminat la participant
       view: Veure
     profiles:
-      default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el teu nom s'ha verificat per correspondre amb el teu nom real
+      default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
       default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         activity: Activitat
@@ -899,7 +899,7 @@ ca:
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grup
         fill_in_email_to_confirm_it: Ompliu el correu electrònic del teu grup per confirmar-lo
-        invite_user: Convida l'usuari
+        invite_user: Convida la participant
         join_user_group: Sol·licitud per unir-se al grup
         leave_user_group: Marxar del grup
         manage_user_group_admins: Administra els administradors
@@ -983,10 +983,10 @@ ca:
         share: Compartir
         share_link: Comparteix l'enllaç
       version_author:
-        deleted: Usuari eliminat
+        deleted: Participant eliminada
     user_activity:
       index:
-        no_activities_warning: Aquest usuari encara no ha tingut cap activitat.
+        no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
     user_interests:
       show:
         no_scopes: Aquesta organització encara no té cap abast!
