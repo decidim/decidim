@@ -657,7 +657,7 @@ fi:
           verify_via_csv: Vahvista CSV-tiedoston avulla
       user_groups_csv_verifications:
         new:
-          explanation: Lataa CSV-tiedosto. Siinä on oltava organisaatiosi käyttäjäryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa ilman otsikkoriviä. Ainoastaan käyttäjäryhmät, jotka ovat vahvistaneet sähköpostiosoitteensa ja joiden sähköpostiosoitteesi näkyvät CSV-tiedostossa, vahvistetaan.
+          explanation: Lataa CSV-tiedosto. Siinä on oltava organisaationne ryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa, ilman otsakkeita. Vain sellaiset ryhmät, jotka ovat vahvistaneet sähköpostinsa ja joilla on CSV-tiedostossa näkyvä sähköposti, vahvistetaan.
           title: Lataa CSV-tiedosto
           upload: Lähetä
       users:
@@ -678,7 +678,7 @@ fi:
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
+          reason: Sinun on annettava syy, kun hallitset ei-hallinnoitua osallistujaa
     moderations:
       actions:
         hidden: Piilotettu
