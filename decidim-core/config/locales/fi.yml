@@ -591,7 +591,7 @@ fi:
         demote_admin: Poista ylläpitäjä
       demote:
         error: Virhe poistettaessa tätä käyttäjää hallintakäyttäjistä
-        success: Käyttäjä on poistettu ylläpitäjistä onnistuneesti
+        success: Käyttäjä on poistettu onnistuneesti hallintakäyttäjistä
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
@@ -606,15 +606,15 @@ fi:
         invite_user: Kutsu osallistuja
       invite:
         error: Virhe kutsuttaessa käyttäjää
-        success: Osallistuja kutsuttiin onnistuneesti
+        success: Käyttäjä on kutsuttu onnistuneesti
       reject:
         error: Virhe hylätessä kutsua
-        success: Kutsu hylättiin
+        success: Kutsu hylätty onnistuneesti
       reject_invitation: Hylkää
     group_members:
       accept:
         error: Virhe hyväksyttäessä liittymispyyntöä
-        success: Liittymispyyntö hyväksyttiin onnistuneesti
+        success: Liittymispyyntö hyväksytty onnistuneesti
       actions:
         are_you_sure: Oletko varma?
         promote_to_admin: Nimitä ylläpitäjäksi
