@@ -80,7 +80,7 @@ fi:
         new_assembly: Uusi ryhmä
       assemblies:
         create:
-          error: Virhe luotaessa uutta ryhmää.
+          error: Uuden ryhmän luonti epäonnistui.
           success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
@@ -95,8 +95,8 @@ fi:
           create: Luo
           title: Uusi ryhmä
         update:
-          error: Ryhmän päivityksessä tapahtui virhe.
-          success: Ryhmä päivitettiin onnistuneesti.
+          error: Ryhmän päivitys epäonnistui.
+          success: Ryhmän päivitys onnistui.
       assemblies_copies:
         create:
           error: Virhe kopioitaessa ryhmää.
