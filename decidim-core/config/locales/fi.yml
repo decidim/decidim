@@ -652,7 +652,7 @@ fi:
         success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
         error: Ryhmästä poistuttaessa esiintyi ongelma
-        success: Ryhmästä poistuminen onnistui.
+        success: Ryhmä hylkäsi onnistuneesti.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
@@ -705,7 +705,7 @@ fi:
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     members:
-      no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
+      no_members: Tässä ryhmässä ei ole vielä jäseniä.
     menu:
       help: Tietoa
       home: Etusivu
@@ -745,11 +745,11 @@ fi:
         object: seuraajat
         title: Seuraajat
       participants:
-        description: Organisaation aktiivisten käyttäjien määrä
+        description: Organisaation aktiivisten osallistujien lukumäärä
         object: osallistujat
         title: Osallistujat
       users:
-        description: Organisaation käyttäjien määrä
+        description: Organisaation osallistujien lukumäärä
         object: käyttäjät
         title: Käyttäjät
     newsletter_mailer:
