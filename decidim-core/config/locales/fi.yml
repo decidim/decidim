@@ -531,10 +531,10 @@ fi:
     follows:
       create:
         button: Seuraa
-        error: Tämän kohteen seuraamisessa tapahtui virhe.
+        error: Tämän resurssin seurauksena oli ongelma.
       destroy:
         button: Lopeta seuranta
-        error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
+        error: Tämän resurssin purkamisessa oli ongelma.
     forms:
       current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
@@ -549,21 +549,21 @@ fi:
           conditions:
             - Käy täällä usein
           description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
-          description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
+          description_another: Tämä osallistuja on liittänyt %{score} peräkkäistä päivää jossakin vaiheessa.
           description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
           name: Jatkuvuus
           next_level_in: Vieraile alustalla %{score} peräkkäisenä päivänä päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä on kirjautunut sisään ainoastaan yhtenä peräkkäisenä päivänä.
+          unearned_another: Tämä osallistuja ei ole kirjautunut sisään useamman kuin yhden päivän ajan.
           unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
             - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
           description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
-          description_another: Tällä käyttäjällä on %{score} seuraajaa.
-          description_own: "%{score} käyttäjää seuraa sinua."
+          description_another: Tässä osallistujassa on %{score} seuraajaa.
+          description_own: "%{score} henkilöä seuraa sinua."
           name: Seuraajat
-          next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
-          unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
+          next_level_in: Saat %{score} enemmän ihmisiä seuraamaan sinua seuraavalle tasolle!
+          unearned_another: Tällä osallistujalla ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
@@ -587,7 +587,7 @@ fi:
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     group_admins:
       actions:
-        are_you_sure: Oletko varma? Tämä ei poista käyttäjää ryhmästä.
+        are_you_sure: Oletko varma? Tämä ei poista osallistujaa ryhmästä.
         demote_admin: Poista ylläpitäjä
       demote:
         error: Virhe poistettaessa tätä käyttäjää ylläpitäjistä
@@ -603,13 +603,13 @@ fi:
       accept_or_reject_group_invitations: 'Seuraavat ryhmät ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
       index:
         invite: Kutsu
-        invite_user: Kutsu käyttäjä
+        invite_user: Kutsu osallistuja
       invite:
         error: Tapahtui virhe kutsuttaessa tätä käyttäjää
-        success: Käyttäjä on kutsuttu onnistuneesti
+        success: Osallistuja kutsuttiin onnistuneesti
       reject:
         error: Hylätessä tätä kutsua tapahtui virhe
-        success: Kutsu hylätty onnistuneesti
+        success: Kutsu hylättiin
       reject_invitation: Hylkää
     group_members:
       accept:
@@ -618,7 +618,7 @@ fi:
       actions:
         are_you_sure: Oletko varma?
         promote_to_admin: Nimitä ylläpitäjäksi
-        remove_from_group: Poista käyttäjä
+        remove_from_group: Poista osallistuja
       index:
         current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
         manage_members: Hallinnoi jäseniä
