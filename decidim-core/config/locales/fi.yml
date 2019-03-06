@@ -30,7 +30,7 @@ fi:
       decidim/user:
         current_password: Nykyinen salasana
         email: Sähköposti
-        name: Käyttäjänimi
+        name: Nimimerkki
         password: Salasana
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
@@ -40,7 +40,7 @@ fi:
         other: Muutokset
       decidim/user:
         one: Ei käyttäjiä
-        other: Käyttäjää
+        other: Käyttäjät
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -73,15 +73,15 @@ fi:
           title: Poista tilini
         explanation: Syy tilisi poistoon (valinnainen).
       destroy:
-        error: Tilin poistossa tapahtui virhe.
+        error: Virhe poistettaessa tiliä.
         success: Tilisi poistaminen onnistui.
       show:
         change_password: Vaihda salasana
         update_account: Päivitä tili
       update:
-        error: Tilisi päivityksessä tapahtui virhe.
+        error: Virhe päivitettäessä tiliäsi.
         success: Tilisi on onnistuneesti päivitetty.
-        success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+        success_with_email_confirmation: Tilisi päivittäminen onnistui. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     admin_log:
       area:
         create: "%{user_name} loi %{resource_name} alueen"
@@ -760,7 +760,7 @@ fi:
     newsletters:
       unsubscribe:
         check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>
-        error: Tilauksen peruuttamisessa tapahtui virhe
+        error: Virhe peruutettaessa tilausta
         success: Tilauksen peruuttaminen onnistui.
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
