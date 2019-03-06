@@ -108,7 +108,7 @@ ca:
           title: Assemblea duplicada
       assembly_members:
         create:
-          error: S'ha produït un error en afegir un membre per a aquest assemblea.
+          error: S'ha produït un error en afegir un membre per a aquesta assemblea.
           success: Membre creat amb èxit per a aquesta assemblea.
         destroy:
           success: Membre eliminat amb èxit per a aquesta assemblea.
