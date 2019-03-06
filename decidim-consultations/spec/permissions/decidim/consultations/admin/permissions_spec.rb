@@ -240,4 +240,21 @@ describe Decidim::Consultations::Admin::Permissions do
       end
     end
   end
+
+  describe "participatory spaces" do
+    let(:action_subject) { :participatory_space }
+    let(:action_name) { :read }
+
+    it { is_expected.to eq true }
+  end
+
+  describe "components" do
+    let(:action_subject) { :component }
+    let(:action_name) { :manage }
+    let(:extra_context) do
+      { consultation: nil, participatory_space: question }
+    end
+
+    it { is_expected.to eq true }
+  end
 end
