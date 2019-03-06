@@ -205,7 +205,7 @@ fi:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
             invite: Kutsu
-            invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös organisaatioon.
+            invite_explanation: Käyttäjä kutsutaan osallistumaan tapahtumaan sekä liittymään organisaatioon.
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
@@ -228,10 +228,10 @@ fi:
             select_organizer: Valitse järjestäjä
         meetings:
           close:
-            invalid: Tapahtuman sulkemisessa tapahtui virhe
+            invalid: Virhe suljettaessa tapahtumaa
             success: Tapahtuma onnistuneesti suljettu
           create:
-            invalid: Tapahtuman luonnissa esiintyi ongelma
+            invalid: Virhe luotaessa tapahtumaa
             success: Tapahtuma onnistuneesti luotu
           destroy:
             success: Tapahtuma onnistuneesti luotu
@@ -255,11 +255,11 @@ fi:
             add_service: Lisää palvelu
             services: Palvelut
           update:
-            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
+            invalid: Virhe päivitettäessä tapahtumaa
             success: Tapahtuma luotiin onnistuneesti
         minutes:
           create:
-            invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
+            invalid: Virhe luotaessa pöytäkirjaa
             success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivitä
@@ -267,7 +267,7 @@ fi:
             create: Luo
             title: Luo pöytäkirja
           update:
-            invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
+            invalid: Virhe päivitettäessä pöytäkirjaa
             success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
@@ -287,7 +287,7 @@ fi:
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
-            invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
+            invalid: Virhe tallennettaessa rekisteröitymisasetuksia.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
@@ -406,13 +406,13 @@ fi:
           registration_code: Ilmoittautumiskoodisi on %{code}.
       registrations:
         create:
-          invalid: Tapahtumaan liittymisessä tapahtui virhe.
+          invalid: Virhe liityttäessä tapahtumaan.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Kutsun hyläämisessä esiintyi ongelma.
+          invalid: Virhe hylättäessä kutsua.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
+          invalid: Virhe poistuttaessa tapahtumasta.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen tapahtuma
