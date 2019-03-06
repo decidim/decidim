@@ -14,7 +14,7 @@ en:
         footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
 ```
 
-You need to create a file for this translation as [Ruby on Rails i18n documentation](http://guides.rubyonrails.org/i18n.html) says, for instance config/locales/home.en.yml
+You need to create a file for this translation as [Ruby on Rails i18n documentation](http://guides.rubyonrails.org/i18n.html) says, for instance config/locales/home.en.yml, you can see a currently working example in [this PR](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/206)
 
 ## Using external module
 
@@ -23,3 +23,5 @@ There is an external module [decidim-term_customizer](https://github.com/mainio/
 > The module allows administrators to add "translation sets" through the admin panel which contain customized terms for any module in the system. These sets can be applied against different scopes within the system, e.g. the whole system, participatory space scope (e.g. all participatory processes or a specific participatory process) or a specific component within a participatory space.
 
 To implement this on your decidim installation follow the [documentation in the external module](https://github.com/mainio/decidim-module-term_customizer/blob/master/README.md).
+
+You can see an example in [this PR](https://github.com/decidim/metadecidim/pull/38)
