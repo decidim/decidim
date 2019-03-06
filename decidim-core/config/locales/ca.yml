@@ -139,12 +139,12 @@ ca:
         promote_button: Publicar com una nova %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
+        promote_help_text: Pots publicar aquesta esmena com una proposta independent %{model_name}
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
         section_heading: Esmenes (%{count})
       created:
-        error: S'ha produït un error en crear aquesta esmena, torneu-ho a provar més tard
+        error: S'ha produït un error en crear aquesta esmena, si us plau torna-ho a provar més tard
         success: L'esmena s'ha creat correctament
       emendation:
         actions:
@@ -158,11 +158,11 @@ ca:
           evaluating: |-
             S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}.
           rejected: |-
-            Aquesta esmena del %{amendable_type} %{amendable_link}
-            va ser rebutjada en <strong>%{announcement_date}</strong>.
+            Aquesta esmena de la %{amendable_type} %{amendable_link}
+            ha estat rebutjada el <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Aquesta esmena del %{amendable_type} %{amendable_link}
-            ha estat retirada per l'autor.
+            Aquesta esmena de la %{amendable_type} %{amendable_link}
+            ha estat retirada per l'autora.
       new:
         amendment_author: Autor de l'esmena
         back: Tornar
@@ -170,11 +170,11 @@ ca:
         help_text: Estàs modificant el %{model_name}
         send: Enviar esmena
       rejected:
-        error: S'ha produït un error en rebutjar aquesta esmena, torna-ho a provar més tard
+        error: S'ha produït un error en rebutjar aquesta esmena, si us plau torna-ho a provar més tard
         success: L'esmena s'ha rebutjat correctament
       promoted:
-        success: L'esmena s'ha publicat com a proposta correctament
-        error: Hi ha hagut errors en publicar l'esmena com a proposta
+        success: L'esmena s'ha publicat com una nova proposta correctament
+        error: S'ha produït un error en publicar l'esmena com una nova proposta
       review:
         back: Tornar
         heading: Revisa l'esmena
@@ -189,7 +189,7 @@ ca:
       documents:
         related_documents: Documents relacionats
       photos:
-        related_photos: Fotos relacionades
+        related_photos: Imatges relacionades
     author:
       comments:
         one: comentari
@@ -209,7 +209,7 @@ ca:
       dummy_authorization_workflow:
         name: Flux de treball d'autorització d'exemple
       errors:
-        duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
+        duplicate_authorization: Una participant ja ha estat autoritzada amb les mateixes dades.
       expired_at: Vençut el %{timestamp}
       expires_at: Caduca el %{timestamp}
       foo_authorization:
@@ -317,7 +317,7 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          nickname_help: El vostre identificador curt i únic a %{organization}
+          nickname_help: El teu àlies (@sobrenom) a %{organization}
           sign_up: Si us plau completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -326,7 +326,7 @@ ca:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          nickname_help: El vostre identificador curt i únic a %{organization}
+          nickname_help: El teu àlies (@sobrenom) a %{organization}
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -341,7 +341,7 @@ ca:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern
-          sign_up_disabled: El registre està deshabilitat, pots accedir a un usuari existent
+          sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi
       shared:
         newsletter_modal:
           buttons:
@@ -368,7 +368,7 @@ ca:
           publish_content: Publica el contingut per a vosaltres
           see_email: Consultar el teu correu electrònic
           see_name: Veure el teu nom
-          see_username: Consultar el teu nom d'usuari
+          see_username: Consulta el teu sobrenom
           this_application_will_be_able_to: 'Aquesta aplicació podrà:'
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
