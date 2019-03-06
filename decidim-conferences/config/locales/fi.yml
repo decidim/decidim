@@ -306,7 +306,7 @@ fi:
               rejected: Hylätyt
               sent: Lähetetyt
             filter_by: Suodata
-            invite_attendee: Kutsu osallistuja
+            invite_attendee: Kutsu käyttäjä
             invites: Kutsut
             search: Hae
           new:
@@ -494,7 +494,7 @@ fi:
         endorsements_count: Suositusta
         headline: Toiminta
         meetings_count: Tapaamista
-        orders_count: Ääntä
+        orders_count: Kannatusta
         pages_count: Sivua
         posts_count: Viestiä
         projects_count: Suunnitelmaa
@@ -502,7 +502,7 @@ fi:
         results_count: Tulosta
         surveys_count: Kyselyä
         users_count: Osallistujaa
-        votes_count: Ääntä
+        votes_count: Kannatusta
     events:
       conferences:
         conference_registration_validation_pending:
