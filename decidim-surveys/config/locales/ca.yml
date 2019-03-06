@@ -46,11 +46,11 @@ ca:
           survey_user_answers: Respostes dels usuaris
         surveys:
           update:
-            invalid: Hi ha hagut errors en desar l'enquesta.
+            invalid: S'ha produït un error en desar l'enquesta.
             success: Enquesta desada correctament.
       last_activity:
         new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
       surveys:
         answer:
-          invalid: Hi ha hagut errors en respondre a l'enquesta.
+          invalid: S'ha produït un error en respondre a l'enquesta.
           success: Enquesta resposta correctament.
