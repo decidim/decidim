@@ -640,7 +640,7 @@ fi:
           success: Käyttäjäryhmä hylätty onnistuneesti
         verify:
           invalid: Käyttäjäryhmän vahvistuksessa tapahtui virhe.
-          success: Käyttäjäryhmä vahvistaminen onnistui
+          success: Käyttäjäryhmän vahvistaminen onnistui
       user_groups:
         index:
           filter:
@@ -662,18 +662,18 @@ fi:
           upload: Lähetä
       users:
         create:
-          error: Tämän käyttäjän kutsumisessa tapahtui virhe.
-          success: Käyttäjä kutsuttu onnistuneesti.
+          error: Virhe kutsuttaessa käyttäjää.
+          success: Käyttäjän kutsuminen onnistui.
         destroy:
-          error: Tämän käyttäjän poistamisessa tapahtui virhe.
-          success: Käyttäjä ei ole enää hallinnoija.
+          error: Virhe poistettaessa käyttäjää.
+          success: Käyttäjä ei ole enää hallinnointikäyttäjä.
         form:
           email: Sähköposti
           name: Nimi
           role: Rooli
         new:
           create: Kutsu
-          title: Kutsu käyttäjä hallinnoijaksi
+          title: Kutsu käyttäjä hallinnointikäyttäjäksi
       view_public_page: Näytä julkinen sivu
     forms:
       errors:
@@ -690,13 +690,13 @@ fi:
       admin:
         reportable:
           hide:
-            invalid: Resurssin piilotuksessa tapahtui virhe.
+            invalid: Virhe piilotettaessa kohdetta.
             success: Resurssi piilotettu onnistuneesti.
           unhide:
-            invalid: Resurssin piilotuksen poistossa esiintyi ongelma.
+            invalid: Virhe poistettaessa kohteen piilotusta.
             success: Resurssin piilotus poistettu onnistuneesti.
           unreport:
-            invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.
+            invalid: Virhe poistettaessa kohteen ilmoitusta.
             success: Resurssin raportointi onnistuneesti poistettu.
       models:
         moderation:
