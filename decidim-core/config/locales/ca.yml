@@ -1019,7 +1019,7 @@ ca:
     invitations:
       edit:
         header: Acabar de crear el teu compte
-        nickname_help: El teu identificador únic a %{organization}.
+        nickname_help: El teu sobrenom a %{organization}.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
       invitation_removed: S'ha eliminat la teva invitació.
@@ -1050,10 +1050,10 @@ ca:
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
-        invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
+        invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privata de %{application}. Pots acceptar a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
-        someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}. Pots acceptar-ho a través del següent enllaç.
+        someone_invited_you_as_private_user: Algú t'ha convidat com a participant privada de %{application}. Pots acceptar a través del següent enllaç.
         subject: Instruccions d'invitació
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
@@ -1098,7 +1098,7 @@ ca:
       updated: La teva contrasenya s'ha modificat correctament. Ja has iniciat la sessió.
       updated_not_active: La teva contrasenya s'ha modificat correctament.
     registrations:
-      destroyed: Adéu! El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
+      destroyed: El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
       edit:
         are_you_sure: Estàs segur/a?
         cancel_my_account: Cancel·lar el meu compte
@@ -1185,7 +1185,7 @@ ca:
         sign_up: Registra't
       impersonation_warning:
         close_session: Tanca la sessió
-        description_html: Esteu suplantant l'usuari <b>%{user_name}</b>.
+        description_html: Estàs gestionant la participant <b>%{user_name}</b>.
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Marca tots com a llegits
@@ -1203,7 +1203,7 @@ ca:
         my_data: Les meves dades
         my_interests: Els meus interessos
         notifications_settings: Configuració de les notificacions
-        title: Configuració d'usuari
+        title: Configuració de la participant
         user_groups: Grups
       widget:
         see_more: Veure més
