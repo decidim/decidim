@@ -108,10 +108,10 @@ fi:
         meeting_registration_confirmed:
           notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%.
+          email_intro: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
-          email_subject: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%
-          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
+          email_subject: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista
+          notification_title: Tapahtumasta <a href="%{resource_path}">%{resource_title}</a> on varattu yli %{percentage}% vapaista paikoista.
         meeting_updated:
           email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
@@ -173,7 +173,7 @@ fi:
             remove: Poista
             up: Ylös
           create:
-            invalid: Tämän esityslistan luomisessa esiintyi ongelma
+            invalid: Virhe luotaessa esityslistaa
             success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
