@@ -314,14 +314,14 @@ ca:
               md: Markdown
               odt: Odt
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
-            document_legend: 'Afegiu un document de menys de 2 MB, cadascuna de les seccions fins a 3 nivells de profunditat s''analitzaran a Propostes. Els formats suportats són: %{valid_mime_types}'
+            document_legend: 'Afegeix un document de menys de 2 MB, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: AGREGAR DOCUMENT
             upload_document: Penja el document
           publish:
             invalid: No s'han pogut publicar propostes
             success: S'han publicat totes les propostes
           discard:
-            success: S'han descartat tots els esborranys de text participatius.
+            success: S'han descartat tots els esborranys de textos participatius.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
@@ -337,7 +337,7 @@ ca:
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
-            error: Hi ha hagut un problema en crear aquesta nota
+            error: S'ha produït un error en crear aquesta nota
             success: La nota de la proposta s'ha creat correctament
           form:
             note: Nota
@@ -381,16 +381,16 @@ ca:
             success: 'Les propostes s''han actualitzat correctament a la categoria %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Hi ha hagut un problema important les propostes
+            invalid: S'ha produït un error en importar les propostes
             success: "%{number} propostes importades correctament"
           new:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un continent
-            select_states: Consulteu els estats de les propostes per importar
+            select_states: Consulta els estats de les propostes a importar
         proposals_merges:
           create:
-            invalid: S'ha produït un error en combinar les propostes seleccionades.
+            invalid: S'ha produït un error en fusionar les propostes seleccionades.
             success: S'han combinat amb èxit les propostes en una nova.
         proposals_splits:
           create:
@@ -421,7 +421,7 @@ ca:
           citizens: Ciutadania
           meetings: Trobades
           official: Oficial
-          user_groups: Grups d'usuaris
+          user_groups: Grups
         filter_state_values:
           accepted: Acceptat
           all: Tots
@@ -429,13 +429,13 @@ ca:
           except_rejected: Totes menys rebutjades
           rejected: Rebutjat
         filter_type_values:
-          all: Tots
-          amendments: Modificacions
+          all: Totes
+          amendments: Esmenes
           proposals: Propostes
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Hi ha hagut errors en publicar l'esborrany col·laboratiu.
+            error: S'ha produït un error en publicar l'esborrany col·laboratiu.
             irreversible_action_modal:
               body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà nous autors ni contribucions.
               cancel: Cancel·lar
@@ -463,7 +463,7 @@ ca:
             one: "%{count} esborrany de col·laboració"
             other: "%{count} esborrany de col·laboració"
         create:
-          error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
+          error: S'ha produït un error en crear aquests esborranys col·laboratiu
           success: S'ha creat un esborrany col·laboratiu.
         edit:
           attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
@@ -473,7 +473,7 @@ ca:
           title: Edita l'esborrany col·laboratiu
         filters:
           all: Tots
-          amendment: Modificacions
+          amendment: Esmenes
           category: Categoria
           category_prompt: Indicació de categoria
           open: Obert
