@@ -135,6 +135,8 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-participatory_processes**: Fix past processes filter [\#4932](https://github.com/decidim/decidim/pull/4932)
 - **decidim-verifications**: Redirect to previous url after verifying your mobile number via SMS. [\#4929](https://github.com/decidim/decidim/pull/4929)
 - **decidim-budgets**: Fix button updates [\#4941](https://github.com/decidim/decidim/pull/4941)
+- **decidim-comments**: Fix comment reply when comments blocked [\#4939](https://github.com/decidim/decidim/pull/4939)
+- **decidim-forms**: Keep correct answers of sinlge-choice question when there are errors [\#4934](https://github.com/decidim/decidim/pull/4934)
 
 **Removed**:
 

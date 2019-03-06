@@ -38,16 +38,13 @@
 
   &.hollow{
     background-color: transparent;
-    color: var(--secondary);
+    color: var(--primary);
     border-color: var(--primary);
   }
 
   &.secondary{
-    background-color: var(--secondary);
-
     &:hover,
     &:focus{
-      background-color: var(--secondary);
       filter: brightness(120%);
     }
 

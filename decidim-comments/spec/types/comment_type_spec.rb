@@ -65,12 +65,6 @@ module Decidim
           FactoryBot.create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
-
-        it "returns false if the comment depth is equal to MAX_DEPTH" do
-          FactoryBot.create(:comment, commentable: model)
-          model.update!(depth: Comment::MAX_DEPTH)
-          expect(response).to include("hasComments" => false)
-        end
       end
 
       describe "acceptsNewComments" do

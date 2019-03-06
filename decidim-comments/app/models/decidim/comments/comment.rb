@@ -50,7 +50,7 @@ module Decidim
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
-        depth < MAX_DEPTH
+        root_commentable.accepts_new_comments? && depth < MAX_DEPTH
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
@@ -96,7 +96,7 @@ module Decidim
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
       def commentable_can_have_comments
-        errors.add(:commentable, :cannot_have_comments) unless commentable.accepts_new_comments?
+        errors.add(:commentable, :cannot_have_comments) unless root_commentable.accepts_new_comments?
       end
 
       # Private: Compute comment depth inside the current comment tree
