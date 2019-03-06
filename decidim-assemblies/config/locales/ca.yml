@@ -109,9 +109,9 @@ ca:
       assembly_members:
         create:
           error: S'ha produït un error en afegir un membre per a aquesta assemblea.
-          success: Membre creat amb èxit per a aquesta assemblea.
+          success: El membre d'aquesta assemblea s'ha creat correctament.
         destroy:
-          success: Membre eliminat amb èxit per a aquesta assemblea.
+          success: El membre per a aquesta assemblea s'ha eliminat correctament.
         edit:
           title: Actualitza el membre de l'assemblea.
           update: Actualitza
