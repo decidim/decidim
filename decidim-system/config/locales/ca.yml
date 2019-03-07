@@ -65,7 +65,7 @@ ca:
           success: L'organització s'ha actualitzat correctament.
         users_registration_mode:
           disabled: Només es port accedir amb comptes externs
-          enabled: Permetre als usuaris registrar-se i iniciar sessió
+          enabled: Permetre a les participants registrar-se i iniciar sessió
           existing: No permetre que els usuaris es registrin, però permetre que els usuaris existents iniciïn sessió
       shared:
         notices:
