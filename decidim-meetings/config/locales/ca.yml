@@ -67,7 +67,7 @@ ca:
       meeting_copies:
         create:
           error: S'ha produït un error en duplicar aquesta trobada.
-          success: Trobada duplicada amb èxit.
+          success: Trobada duplicada correctament.
         new:
           copy: Copia
           select: Selecciona quines dades vols duplicar
