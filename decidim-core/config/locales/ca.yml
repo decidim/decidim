@@ -604,11 +604,11 @@ ca:
         invite: Convidar
         invite_user: Convidar a una participant
       invite:
-        error: S'ha produït un error al convidar aquest usuari
-        success: L'usuari s'ha convidat amb èxit
+        error: S'ha produït un error en convidar aquesta participant
+        success: S'ha convidat la participant correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta invitació
-        success: S'ha rebutjat la invitació amb èxit
+        success: S'ha rebutjat la invitació correctament
       reject_invitation: Rebutjar
     group_members:
       accept:
@@ -617,7 +617,7 @@ ca:
       actions:
         are_you_sure: Estàs segur?
         promote_to_admin: Fer administrador
-        remove_from_group: Elimina l'usuari
+        remove_from_group: Elimina la participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
         manage_members: Gestiona els membres
