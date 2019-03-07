@@ -224,7 +224,7 @@ it:
         name: Codice via SMS
       started_at: Iniziato a %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Rinnova con "%{authorization}"
           explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
