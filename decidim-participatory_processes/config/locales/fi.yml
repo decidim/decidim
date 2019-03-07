@@ -131,7 +131,7 @@ fi:
           title: Kopioi osallisuusprosessi
       participatory_process_groups:
         destroy:
-          success: Osallisuusprosessiryhmä poistettiin onnistuneesti.
+          success: Osallisuusprosessien ryhmä poistettiin onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -139,22 +139,22 @@ fi:
           create: Luo
           title: Uusi prosessiryhmä
         update:
-          error: Tämän osallisuusprosessien ryhmän päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä osallisuusprosessien ryhmää.
           success: Osallisuusprosessien ryhmä päivitetty onnistuneesti.
       participatory_process_publications:
         create:
-          error: Tämän osallisuusprosessin julkaisussa tapahtui virhe.
+          error: Virhe julkaistaessa osallisuusprosessia.
           success: Osallisuusprosessi julkaistu onnistuneesti.
         destroy:
-          error: Tämän osallisuusprosessin julkaisun perumisessa tapahtui virhe.
+          error: Virhe osallisuusprosessin julkaisun perumisessa.
           success: Osallisuusprosessin julkaisu lopetettu onnistuneesti.
       participatory_process_step_activations:
         create:
-          error: Tämän osallisuusprosessin vaiheen aktivoinnissa tapahtui virhe.
+          error: Virhe aktivoitaessa osallisuusprosessin vaihetta.
           success: Osallisuusprosessin vaihe aktivoitu onnistuneesti.
       participatory_process_steps:
         create:
-          error: Uuden osallisuusprosessin vaiheen luonnissa tapahtui virhe.
+          error: Virhe luotaessa uutta osallisuusprosessin vaihetta.
           success: Osallisuusprosessin vaihe luotu onnistuneesti.
         default_title: Johdanto
         destroy:
@@ -171,13 +171,13 @@ fi:
           create: Luo
           title: Uusi osallisuusprosessin vaihe
         ordering:
-          error: Tämän osallisuusprosessin vaiheiden järjestämisessä tapahtui virhe.
+          error: Virhe järjestettäessä osallisuusprosessin vaiheita.
         update:
-          error: Tämän osallisuusprosessin vaiheen päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä osallisuusprosessin vaihetta.
           success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
       participatory_process_user_roles:
         create:
-          error: Tapahtui virhe lisätessä käyttäjää osallisuusprosessiin.
+          error: Virhe lisätessä käyttäjää osallisuusprosessiin.
           success: Käyttäjä lisättiin onnistuneesti tähän osallisuusprosesssiin.
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
@@ -190,11 +190,11 @@ fi:
           create: Luo
           title: Uusi osallisuusprosessin käyttäjä.
         update:
-          error: Tapahtui virhe päivitettäessä käyttäjää tälle osallisuusprosessille.
+          error: Virhe päivitettäessä tämän osallisuusprosessin hallintakäyttäjää.
           success: Tämän osallisuusprosessin käyttäjä päivitetty onnistuneesti.
       participatory_processes:
         create:
-          error: Uuden osallisuusprosessin luonnissa tapahtui virhe.
+          error: Virhe luotaessa uutta osallisuusprosessia.
           success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         edit:
           update: Päivitä
@@ -209,22 +209,22 @@ fi:
           create: Luo
           title: Uusi osallisuusprosessi
         update:
-          error: Tämän osallisuusprosessin päivityksessä tapahtui virhe.
+          error: Virhe päivitettäessä osallisuusprosessia.
           success: Osallisuusprosessi päivitetty onnistuneesti.
       participatory_processes_copies:
         create:
-          error: Tämän osallisuusprosessin kopioinnissa tapahtui virhe.
+          error: Virhe kopioitaessa osallisuusprosessia.
           success: Osallisuusprosessi kopioitu onnistuneesti.
       participatory_processes_group:
         create:
-          error: Uuden osallisuusprosessiryhmän luonnissa tapahtui virhe.
+          error: Virhe luotaessa uutta osallisuusprosessien ryhmää.
           success: Osallisuusprosessiryhmä luotu onnistuneesti.
       titles:
         participatory_process_groups: Osallisuusprosessiryhmät
         participatory_processes: Osallisuusprosessit
       users:
         resend_invitation:
-          error: Virhe lähettää kutsun.
+          error: Virhe lähetettäessä kutsua uudestaan.
           success: Kutsu uudelleen onnistuneesti.
     admin_log:
       participatory_process:

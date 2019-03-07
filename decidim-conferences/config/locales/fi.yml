@@ -12,7 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        participatory_processes_ids: Liittyvät osallisuusprosessit
+        participatory_processes_ids: Aiheeseen liittyvät osallistumisprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -86,7 +86,7 @@ fi:
           success: Konferenssin puhuja päivitettiin onnistuneesti.
       conference_user_roles:
         create:
-          error: Käyttäjän lisääminen tähän konferenssiin ei onnistunut.
+          error: Käyttäjän lisääminen tähän konferenssiin epäonnistui.
           success: Käyttäjä lisätty onnistuneesti konferenssiin.
         destroy:
           success: Käyttäjä poistettiin onnistuneesti konferenssista.
@@ -103,7 +103,7 @@ fi:
           success: Konferenssin käyttäjä päivitettiin onnistuneesti.
       conferences:
         create:
-          error: Uuden konferenssin luomisessa tapahtui virhe.
+          error: Uuden konferenssin luominen epäonnistui.
           success: Konferenssi luotu onnistuneesti.
         edit:
           update: Päivitä
@@ -232,7 +232,7 @@ fi:
       registration_types:
         create:
           error: Tapahtui virhe lisätessä ilmoittautumistyyppiä tälle konferenssille.
-          success: Ilmoittautumistyyppi lisättiin onnistuneesti tähän konferenssiin.
+          success: Ilmoittautumistyypin lisääminen tähän konferenssiin onnistui.
         destroy:
           success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
         edit:
@@ -297,7 +297,7 @@ fi:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
             invite_explanation: Käyttäjää kutsutaan mukaan konferenssiin ja organisaatioon.
-            non_user: Käyttäjää ei ole olemassa
+            non_user: Ei olemassa olevaa osallistujaa
             select_user: Valitse käyttäjä
           index:
             filter:
@@ -310,7 +310,7 @@ fi:
             invites: Kutsut
             search: Hae
           new:
-            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
+            explanation: Osallistuja kutsutaan osallistumaan konferenssiin. Jos hänen sähköpostinsa ei ole rekisteröity, hänet kutsutaan myös organisaatioon.
             invite: Kutsu
             new_invite: Kutsu käyttäjä
         conference_registrations:
@@ -319,7 +319,7 @@ fi:
         conference_speakers:
           form:
             existing_user: Olemassa oleva käyttäjä
-            non_user: Ei käyttäjä
+            non_user: Ei osallistuja
             select_user: Valitse käyttäjä
             user_type: Käyttäjätyyppi
           index:
@@ -356,7 +356,7 @@ fi:
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          error: Konferenssin osallistumissertifikaattien lähettämisessä oli ongelma.
           success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
@@ -427,7 +427,7 @@ fi:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
           pending_validation:
-            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
+            subject: Konferenssin rekisteröinti odottaa vahvistusta
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
