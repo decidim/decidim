@@ -224,13 +224,13 @@ nl:
         name: Code per sms
       started_at: Gestart om %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Opnieuw autoriseren met "%{authorization}"
           explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
           title: Autorisatie is verlopen
         incomplete:
-          cancel: Annuleer
+          cancel: annuleren
           explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
           invalid_field: "%{field}"
           reauthorize: Opnieuw autoriseren
