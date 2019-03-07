@@ -133,7 +133,7 @@ ca:
       assembly_user_roles:
         create:
           error: S'ha produït un error en afegir una administradora per a aquesta assemblea.
-          success: L'usuari s'ha afegit correctament a aquesta assemblea.
+          success: L'administradora s'ha afegit correctament a aquesta assemblea.
         destroy:
           success: L'usuari s'ha eliminat d'aquesta assemblea correctament.
         edit:
