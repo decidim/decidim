@@ -139,6 +139,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-forms**: Keep correct answers of sinlge-choice question when there are errors [\#4934](https://github.com/decidim/decidim/pull/4934)
 - **decidim-consultations**: Allow admins to manage components [\#4942](https://github.com/decidim/decidim/pull/4942)
 - **decidim-comments**: Fix comments on IE11 [\#4946](https://github.com/decidim/decidim/pull/4946)
+- **decidim-surveys**: Ensure the user has authorization to render the survey [\#4943](https://github.com/decidim/decidim/pull/4943)
 
 **Removed**:
 
