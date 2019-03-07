@@ -267,7 +267,7 @@ ca:
             create: Crea
             title: Crea l'acta
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta acta
+            invalid: S'ha produït un error en actualitzar aquesta acta
             success: L'acta s'ha actualitzat correctament
         models:
           meeting:
@@ -287,7 +287,7 @@ ca:
             reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
-            invalid: S'ha produït un problema en desar la configuració de la inscripció.
+            invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
           validate_registration_code:
             invalid: Aquest codi de registre no és vàlid.
@@ -406,10 +406,10 @@ ca:
           registration_code: El teu codi de registre és %{code}.
       registrations:
         create:
-          invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
+          invalid: S'ha produït un error en inscriure's a aquesta trobada.
           success: T'has inscrit a la reunió amb èxit.
         decline_invitation:
-          invalid: Hi ha hagut un problema en declinar la invitació.
+          invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
