@@ -39,6 +39,25 @@ describe "Answer a survey", type: :system do
     end
   end
 
+  context "when the survey requires permissions to be answered" do
+    before do
+      permissions = {
+        answer: {
+          authorization_handlers: {
+            "dummy_authorization_handler" => { "options" => {} }
+          }
+        }
+      }
+
+      component.update!(permissions: permissions)
+      visit_component
+    end
+
+    it "shows a modal dialog" do
+      expect(page).to have_content("Authorization required")
+    end
+  end
+
   context "when the survey allow answers" do
     before do
       component.update!(
