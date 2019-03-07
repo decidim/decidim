@@ -107,7 +107,7 @@ ca:
             create: Crea element
             title: Nou element
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest element
+            invalid: S'ha produït un error en actualitzar aquest element
             success: El element ha estat actualitzat correctament
       admin_log:
         result:
