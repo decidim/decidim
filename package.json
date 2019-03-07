@@ -190,6 +190,7 @@
     }
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
     "@types/classnames": "^2.2.3",
@@ -213,7 +214,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "css-loader": "^0.28.11",
+    "css-loader": "^2.1.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^4.18.2",
