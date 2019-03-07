@@ -596,13 +596,13 @@ ca:
         manage_admins: Gestiona els administradors
     group_invites:
       accept:
-        error: S'ha produït un error en acceptar aquesta invitació
-        success: S'ha acceptat la invitació amb èxit
+        error: S'ha produït un problema en acceptar aquesta invitació
+        success: S'ha acceptat la invitació correctament
       accept_invitation: Accepta
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
         invite: Convidar
-        invite_user: Convidar a un usuari
+        invite_user: Convidar a una participant
       invite:
         error: S'ha produït un error al convidar aquest usuari
         success: L'usuari s'ha convidat amb èxit
