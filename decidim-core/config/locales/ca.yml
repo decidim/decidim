@@ -229,7 +229,7 @@ ca:
           explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
-          cancel: Cancel · lar
+          cancel: Cancel·lar
           explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que la reautoritzeu perquè no disposem de les dades següents:'
           invalid_field: "%{field}"
           reauthorize: Reautoritzar
