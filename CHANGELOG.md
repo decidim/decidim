@@ -140,6 +140,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-consultations**: Allow admins to manage components [\#4942](https://github.com/decidim/decidim/pull/4942)
 - **decidim-comments**: Fix comments on IE11 [\#4946](https://github.com/decidim/decidim/pull/4946)
 - **decidim-surveys**: Ensure the user has authorization to render the survey [\#4943](https://github.com/decidim/decidim/pull/4943)
+- **decidim-meetings**: Fix meeting questionnaire migration [\#4950](https://github.com/decidim/decidim/pull/4950/)
 
 **Removed**:
 
