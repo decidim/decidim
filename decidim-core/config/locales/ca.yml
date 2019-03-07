@@ -622,13 +622,13 @@ ca:
         current_members_without_admins: 'Membres actuals (sense administradors):'
         manage_members: Gestiona els membres
       promote:
-        error: S'ha produït un error en promoure aquest usuari
-        success: L'usuari s'ha promocionat correctament
+        error: S'ha produït un error en promoure aquesta participant
+        success: La participant s'ha promocionat correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
         success: La sol·licitud d'incorporació s'ha rebutjat correctament
       remove:
-        error: S'ha produït un error en eliminar aquest usuari del grup
+        error: S'ha produït un error en eliminar aquesta participant del grup
         success: L'usuari s'ha eliminat correctament del grup
     groups:
       actions:
