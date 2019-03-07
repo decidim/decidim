@@ -126,13 +126,13 @@ ca:
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
-          success: Assemblea publicada amb èxit.
+          success: Assemblea publicada correctament.
         destroy:
-          error: S'ha produït un error en despublicar aquesta assemblea.
-          success: Assemblea despublicada amb èxit.
+          error: S'ha produït un error en publicar aquesta assemblea.
+          success: Assemblea despublicada correctament.
       assembly_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari per a aquesta assamblea.
+          error: S'ha produït un error en afegir una administradora per a aquesta assemblea.
           success: L'usuari s'ha afegit correctament a aquesta assemblea.
         destroy:
           success: L'usuari s'ha eliminat d'aquesta assemblea correctament.
