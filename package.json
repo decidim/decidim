@@ -12,6 +12,13 @@
     "node": "^10.5.0",
     "npm": "^6.2.0"
   },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "IE 11",
+    "not dead"
+  ],
   "scripts": {
     "build": "webpack --env.dev",
     "build:prod": "NODE_ENV=production webpack -p --env.prod",
@@ -183,6 +190,8 @@
     }
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^3.1.0",
     "@types/enzyme-adapter-react-16": "^1.0.2",
