@@ -629,13 +629,13 @@ ca:
         success: La sol·licitud d'incorporació s'ha rebutjat correctament
       remove:
         error: S'ha produït un error en eliminar aquesta participant del grup
-        success: L'usuari s'ha eliminat correctament del grup
+        success: La participant s'ha eliminat correctament del grup
     groups:
       actions:
         are_you_sure: Estàs segur?
       create:
-        error: S'ha produït un problema en crear el grup
-        success: S'ha creat el grup amb èxit
+        error: S'ha produït un errot en crear el grup
+        success: S'ha creat el grup correctament
       edit:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
@@ -644,11 +644,11 @@ ca:
         email_help: Correu electrònic de la teva organització, associació, col·lectiu, grup, etc.
         fill_in_for_verification: 'Omple aquests camps si vols que el teu grup sigui verificat:'
         name_help: Nom de la teva organització, associació, col·lectiu, grup, etc.
-        nickname_help: Nom d'usuari de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
+        nickname_help: Sobrenom de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
         phone_help: No utilitzis guionets ni espais
       join:
-        error: Hi ha hagut un problema en unir-se al grup
-        success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
+        error: S'ha produït un error en unir-te al grup
+        success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
         error: S'ha produït un problema en abandonar el grup
         success: El grup s'ha abandonat correctament.
