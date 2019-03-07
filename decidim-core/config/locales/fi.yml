@@ -741,7 +741,7 @@ fi:
       download:
         csv: Lataa tiedot (csv)
       followers:
-        description: Organisaatiota seuraavien käyttäjien määrä
+        description: Tätä osallistumistilaa seuraavat käyttäjät
         object: seuraajat
         title: Seuraajat
       participants:
