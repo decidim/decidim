@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       collaborative_draft:
-        address: adreça
+        address: Adreça
         body: Cos
         category_id: Categoria
         decidim_scope_id: Àmbit
@@ -11,7 +11,7 @@ ca:
         title: Títol
         user_group_id: Crea un esborrany de col·laboració com a
       proposal:
-        address: adreça
+        address: Adreça
         answer: Resposta
         answered_at: Respost el
         automatic_hashtags: Etiquetes afegides automàticament
@@ -29,8 +29,8 @@ ca:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
-        import_proposals: Importa propostes
-        keep_authors: Manteniu els autors originals
+        import_proposals: Importar propostes
+        keep_authors: Mantenir l'autoria original
     errors:
       models:
         participatory_text:
