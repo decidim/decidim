@@ -12,9 +12,7 @@ module Decidim
       before_action :check_permissions
 
       def check_permissions
-        if !action_authorized_to(:answer, resource: survey).ok?
-          render :no_permission
-        end
+        render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
       end
 
       def questionnaire_for
