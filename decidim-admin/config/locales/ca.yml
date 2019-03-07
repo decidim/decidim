@@ -13,14 +13,14 @@ ca:
         attachment_collection_id: Carpeta
         description: Descripció
         file: Arxiu
-        title: Títol
+        title: Grup de processos participatius
       attachment_collection:
         description: Descripció
         name: Nom
       category:
         description: Descripció
         name: Nom
-        parent_id: Superior
+        parent_id: Pare
       component:
         name: Nom
         published_at: Publicat el
@@ -36,20 +36,20 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
-        badges_enabled: Activa els distintius
+        badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
         default_locale: Idioma per defecte
         description: Descripció
-        enable_omnipresent_banner: Mostra pancarta omnipresent
-        facebook_handler: Nom a facebook
+        enable_omnipresent_banner: Mostrar banner omnipresent
+        facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
-        github_handler: Nom a GitHub
-        header_snippets: Fragments de codi a la capçalera
+        github_handler: Nom d'usuari de GitHub
+        header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
         highlighted_content_banner_action_title: Títol del botó d'acció
         highlighted_content_banner_action_url: URL del botó d'acció
-        highlighted_content_banner_enabled: Mostra la pancarta de contingut ressaltat
+        highlighted_content_banner_enabled: Mostrar el banner de contingut destacat
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Descripció breu
         highlighted_content_banner_title: Títol
@@ -63,7 +63,7 @@ ca:
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
         reference_prefix: Prefix de referència
-        show_statistics: Mostra estadístiques
+        show_statistics: Mostrar estadístiques
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
         user_groups_enabled: Activar els grups d'usuaris
@@ -617,7 +617,7 @@ ca:
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
         impersonations: Impersonacions
-        participants: Usuaris
+        participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
