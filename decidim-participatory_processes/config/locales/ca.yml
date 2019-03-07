@@ -151,11 +151,11 @@ ca:
       participatory_process_step_activations:
         create:
           error: S'ha produït un error en activar aquesta fase del procés participatiu.
-          success: La fase de procés participatiu s'ha activat correctament.
+          success: La fase del procés participatiu s'ha activat correctament.
       participatory_process_steps:
         create:
-          error: S'ha produït un error en crear una nova fase de procés participatiu.
-          success: La fase de procés participatiu s'ha creat correctament.
+          error: S'ha produït un error en crear una nova fase del procés participatiu.
+          success: La fase del procés participatiu s'ha creat correctament.
         default_title: Introducció
         destroy:
           error:
