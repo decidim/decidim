@@ -1,0 +1,447 @@
+fi-pl:
+  activemodel:
+    attributes:
+      agenda:
+        description: Kuvaus
+        duration: Kesto
+        title: Otsikko
+      close_meeting:
+        attendees_count: Osallistujien määrä
+        attending_organizations: Osallistuvien organisaatioiden lista
+        closing_report: Raportti
+        contributions_count: Kontribuutioiden määrä
+        proposal_ids: Ehdotusta luotu tapaamisessa
+      meeting:
+        address: Osoite
+        available_slots: Tämän tapahtuman vapaiden paikkojen määrä
+        decidim_category_id: Aihepiiri
+        decidim_scope_id: Teema
+        description: Kuvaus
+        end_time: Lopetusaika
+        location: Paikka
+        location_hints: Paikan tarkemmat tiedot
+        organizer_id: Järjestäjä
+        private_meeting: Yksityinen tapahtuma
+        registration_form_enabled: Ilmoittautumislomake on käytössä
+        registration_terms: Ilmoittautumisehdot
+        registrations_enabled: Ilmoittautumiset ovat käytössä
+        start_time: Aloitusaika
+        title: Otsikko
+        transparent: Läpinäkyvä
+      minutes:
+        audio_url: Äänen URL-osoite
+        description: Kuvaus
+        video_url: Videon URL-osoite
+        visible: On näkyvissä
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Kohteiden kesto ylittää tapahtuman keston %{count} minuutilla
+              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Tämä sähköposti on jo kutsuttu
+    models:
+      decidim/meetings/close_meeting_event: Tapahtuma suljettu
+      decidim/meetings/create_meeting_event: Tapahtuma
+      decidim/meetings/meeting_registrations_enabled_event: Ilmoittautumiset ovat käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Ilmoittautumiset ylittävät rajan
+      decidim/meetings/upcoming_meeting_event: Tuleva tapahtuma
+      decidim/meetings/update_meeting_event: Tapahtuma päivitetty
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Tapahtuma
+        other: Tapahtumat
+      decidim/meetings/minutes:
+        one: Pöytäkirja
+        other: Pöytäkirjat
+      decidim/meetings/registration:
+        one: Ilmoittautuminen
+        other: Ilmoittautumiset
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Tämän tapahtuman monistamisessa tapahtui virhe.
+          success: Tapahtuman monistaminen onnistui.
+        new:
+          copy: Kopioi
+          select: Valitse, mitkä tiedot haluat monistaa
+          title: Monista tapahtuma
+    components:
+      meetings:
+        actions:
+          join: Liity mukaan
+        name: Tapahtumat
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentit ovat käytössä
+            default_registration_terms: Ilmoittautumisen oletusehdot
+            enable_pads_creation: Ota käyttöön muistioiden luominen
+            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentointi on estetty
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Tapahtumasi "%{resource_title}" on suljettu. Voit lukea johtopäätökset täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet järjestänyt tapahtuman "%{resource_title}".
+            email_subject: Tapahtuma "%{resource_title}" suljettiin
+            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+          follower:
+            email_intro: 'Tapahtuma "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+            email_subject: Tapahtuma "%{resource_title}" suljettiin
+            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+        meeting_created:
+          email_intro: Tapahtuma "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Uusi tapahtuma lisätty kohteeseen %{participatory_space_title}
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
+          email_subject: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%
+          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
+        meeting_updated:
+          email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Tapahtuma "%{resource_title}" päivitettiin
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
+        registration_code_validated:
+          email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapahtumaan "%{resource_title}" on vahvistettu.
+          email_subject: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu
+          notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
+        registrations_enabled:
+          email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Ilmoittautumiset on avattu tapahtumaan "%{resource_title}".
+          notification_title: Ilmoittautumiset on avattu tapahtumaan <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
+          description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
+          description_own: Olet osallistunut %{score} tapahtumaan.
+          name: Tapahtumiin osallistuminen
+          next_level_in: Osallistu %{score} uuteen tapahtumaan seuraavan tason saavuttamiseksi!
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapahtumaan.
+          unearned_own: Et ole vielä osallistunut yhteenkään tapahtumaan.
+    meetings:
+      actions:
+        agenda: Esityslista
+        attachment_collections: Kansiot
+        attachments: Liitteet
+        close: Sulje
+        confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
+        destroy: Poista
+        edit: Muokkaa
+        minutes: Pöytäkirja
+        new: Uusi kokous
+        preview: Esikatsele
+        registrations: Ilmoittautumiset
+        title: Toiminnot
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lisää esityslistan alakohta
+            agenda_item: Esityslistan kohta
+            agenda_item_children: Esityslistan alakohdat
+            down: Alas
+            remove: Poista
+            up: Ylös
+          agenda_item_child:
+            agenda_item_child: Esityslistan alakohta
+            down: Alas
+            remove: Poista
+            up: Ylös
+          create:
+            invalid: Tämän esityslistan luomisessa esiintyi ongelma
+            success: Esityslista luotiin onnistuneesti
+          edit:
+            title: Muokkaa esityslistaa
+            update: Päivitä
+          form:
+            add_agenda_item: Lisää esityslistan kohta
+            agenda_items: Esityslistan kohdat
+            end_date: Päättymispäivä
+            start_date: Alkamispäivä
+          new:
+            create: Luo
+            title: Uusi esityslista
+          update:
+            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
+            success: Esityslista päivitettiin onnistuneesti
+        exports:
+          meetings: Tapahtumat
+          registrations: Ilmoittautumiset
+        invite_join_meeting_mailer:
+          invite:
+            decline: Hylkää kutsu
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
+            join: Liity tapahtumaan "%{meeting_title}"
+        invites:
+          create:
+            error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
+            success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
+          form:
+            attendee_type: Osallistujatyyppi
+            existing_user: Olemassa oleva käyttäjä
+            invite: Kutsu
+            invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös organisaatioon.
+            non_user: Käyttäjää ei ole olemassa
+            select_user: Valitse käyttäjä
+          index:
+            filter:
+              accepted: Hyväksytyt
+              all: Kaikki
+              rejected: Hylätyt
+              sent: Lähetetyt
+            filter_by: Rajaa hakua
+            invite_attendee: Kutsu osallistuja
+            invites: Kutsut
+            registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
+            search: Hae
+        meeting_closes:
+          edit:
+            close: Sulje
+            title: Sulje tapahtuma
+        meeting_copies:
+          form:
+            select_organizer: Valitse järjestäjä
+        meetings:
+          close:
+            invalid: Tapahtuman sulkemisessa tapahtui virhe
+            success: Tapahtuma onnistuneesti suljettu
+          create:
+            invalid: Tapahtuman luonnissa esiintyi ongelma
+            success: Tapahtuma onnistuneesti luotu
+          destroy:
+            success: Tapahtuma onnistuneesti luotu
+          edit:
+            update: Päivitä
+          form:
+            select_organizer: Valitse järjestäjä
+          index:
+            title: Tapahtumat
+          new:
+            create: Luo
+            title: Luo tapahtuma
+          service:
+            description: Kuvaus
+            down: Alas
+            remove: Poista
+            service: Palvelu
+            title: Otsikko
+            up: Ylös
+          services:
+            add_service: Lisää palvelu
+            services: Palvelut
+          update:
+            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
+            success: Tapahtuma luotiin onnistuneesti
+        minutes:
+          create:
+            invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
+            success: Pöytäkirja luotiin onnistuneesti
+          edit:
+            update: Päivitä
+          new:
+            create: Luo
+            title: Luo pöytäkirja
+          update:
+            invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
+            success: Pöytäkirja päivitettiin onnistuneesti
+        models:
+          meeting:
+            name: Tapahtuma
+        registrations:
+          edit:
+            save: Tallenna
+            validate: Vahvista
+            validate_registration_code: Vahvista ilmoittautumiskoodi
+          form:
+            available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
+            invites: Kutsut
+            registration_form: Ilmoittautumislomake
+            registrations_count:
+              one: Tapahtumaan on %{count} ilmoittautuminen.
+              other: Tapahtumaan on %{count} ilmoittautumista.
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
+            reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
+          update:
+            invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
+            success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
+          validate_registration_code:
+            invalid: Tämä ilmoittautumiskoodi on virheellinen.
+            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
+      admin_log:
+        invite:
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
+          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilaan %{space_name}"
+        meeting:
+          close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tapahtuman %{resource_name} tilassa %{space_name}"
+          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset tilaan %{space_name}"
+          update: "%{user_name} päivitti tapahtuman %{resource_name} tilassa %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
+        minutes:
+          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+      calendar_modal:
+        calendar_url: Kalenterin URL
+        close_window: Sulje ikkuna
+        export_calendar: Vie kalenterin tiedot
+      conference_venues: Tapahtumapaikat
+      content_blocks:
+        upcoming_events:
+          name: Tulevat tapahtumat
+          upcoming_events: Tulevat tapahtumat
+          view_all_events: Näytä kaikki
+      directory:
+        meetings:
+          index:
+            all: Kaikki
+            date: Päivämäärä
+            meetings: Tapahtumat
+            past: Menneet
+            search: Hae
+            space_type: Osallisuustila
+            upcoming: Tulevat
+      last_activity:
+        new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Kutsu liittyä tapahtumaan
+        registration_mailer:
+          confirmation:
+            subject: Tapahtumailmoittautumisesi on vahvistettu
+      meeting:
+        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
+      meetings:
+        filters:
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
+          date: Päivämäärä
+          past: Menneet
+          search: Hae
+          upcoming: Tulevat
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Rajaa
+          filter_by: Rajaa hakua
+          unfold: Avaa
+        meeting_minutes:
+          meeting_minutes: Tapahtumapöytäkirja
+          related_information: Liittyviä tietoja
+        meetings:
+          no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapahtumaa ei ole suunniteltu.
+          upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
+        registration_confirm:
+          cancel: Peruuta
+          confirm: Vahvista
+        show:
+          attendees: Osallistujamäärä
+          contributions: Kontribuutioiden määrä
+          going: Osallistumassa
+          join: Liity tapahtumaan
+          meeting_report: Tapahtumaraportti
+          no_slots_available: Ei paikkoja vapaana
+          organizations: Osallistuvat järjestöt
+          registration_code_help_text: Ilmoittautumiskoodisi
+          registration_state:
+            validated: VAHVISTETTU
+            validation_pending: ODOTTAA VAHVISTUSTA
+          remaining_slots:
+            one: "%{count} paikka jäljellä"
+            other: "%{count} paikkaa jäljellä"
+          view: Näytä
+      meetings_map:
+        view_meeting: Näytä tapahtuma
+      models:
+        invite:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            sent_at: Lähetysaika
+            status: Tila
+          status:
+            accepted: Hyväksytty (%{at})
+            rejected: Hylätty (%{at})
+            sent: Lähetetyt
+        meeting:
+          fields:
+            closed: Suljettu
+            end_time: Päättymispäivä
+            map: Kartta
+            start_time: Alkamispäivä
+            title: Otsikko
+      read_more: "(lue lisää)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
+          details: Löydät tapahtuman tarkemmat tiedot liitteenä olevasta kalenterimerkinnästä.
+          registration_code: Ilmoittautumiskoodisi on %{code}.
+      registrations:
+        create:
+          invalid: Tapahtumaan liittymisessä tapahtui virhe.
+          success: Olet liittynyt tapahtumaan onnistuneesti.
+        decline_invitation:
+          invalid: Kutsun hyläämisessä esiintyi ongelma.
+          success: Olet hylännyt kutsun onnistuneesti.
+        destroy:
+          invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
+          success: Olet poistunut tapahtumasta onnistuneesti.
+      types:
+        private_meeting: Yksityinen tapahtuma
+        transparent: Läpinäkyvä
+    metrics:
+      meetings:
+        description: Tapahtumien määrä
+        object: tapahtumat
+        title: Tapahtumat
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Aiemmat tapahtumat
+          upcoming_meetings: Tulevat tapahtumat
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Aiemmat tapahtumat
+        see_all: Näytä kaikki (%{count})
+        upcoming_meetings: Tulevat tapahtumat
+      upcoming_meeting_for_card:
+        upcoming_meeting: Tuleva tapahtuma
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Liittyvät tulokset:'
+        result_meeting: 'Liittyvät tapahtumat:'
+      proposals_from_meeting:
+        meeting_proposal: 'Liittyvät ehdotukset:'
+        proposal_meeting: 'Liittyvät tapahtumat:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Kutsu tapahtumaan
