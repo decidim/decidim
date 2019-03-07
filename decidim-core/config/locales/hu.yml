@@ -226,26 +226,26 @@ hu:
     authorization_modals:
       show:
         expired:
-          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
-          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
-          title: Az engedélyed lejárt
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Engedélye lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a "%{authorization}" -ot.
+          title: Az engedélyezés lejárt
         incomplete:
           cancel: Mégse
-          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
+          explanation: 'Annak ellenére, hogy jelenleg "%{authorization}" -al engedélyezett, újra engedélyezni kell, mert nem rendelkezünk az alábbi adatokkal:'
           invalid_field: "%{field}"
           reauthorize: Újraengedélyezés
-          title: Kérjük, engedélyezd újra
+          title: Kérjük, engedélyezze újra
         missing:
-          authorize: 'Engedélyezés ezzel: "%{authorization}"'
-          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
+          authorize: Engedélyezzen a "%{authorization}"
+          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al.
           title: Engedély szükséges
         pending:
-          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
-          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
-          title: Engedélyezés folyamatban
+          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al, de engedélye még folyamatban van
+          resume: Ellenőrizze a "%{authorization}" engedélyezés előrehaladását
+          title: Az engedélyezés még folyamatban van
         unauthorized:
-          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
+          explanation: Sajnáljuk, ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "%{field} érték %{value} nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
