@@ -234,7 +234,7 @@ pl:
         name: Kod przez SMS
       started_at: Rozpoczęty pod adresem %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Ponownie autoryzuj, używając "%{authorization}"
           explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".

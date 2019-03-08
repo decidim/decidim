@@ -224,7 +224,7 @@ pt:
         name: Código por SMS
       started_at: Iniciado em %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Reautorize com "%{authorization}"
           explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".

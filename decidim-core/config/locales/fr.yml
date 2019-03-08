@@ -224,7 +224,7 @@ fr:
         name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Autoriser de nouveau avec "%{authorization}"
           explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".

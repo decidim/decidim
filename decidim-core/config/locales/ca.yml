@@ -223,33 +223,33 @@ ca:
         name: Codi per SMS
       started_at: Iniciat el %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
-          authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
+          authorize: Reautoritzar amb "%{authorization}"
+          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
-          cancel: Cancel·lar
-          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          cancel: Cancel · lar
+          explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que la reautoritzeu perquè no disposem de les dades següents:'
           invalid_field: "%{field}"
-          reauthorize: Reautoritzar-se
-          title: Si us plau, reautoritza't
+          reauthorize: Reautoritzar
+          title: Torna a autoritzar
         missing:
-          authorize: Autoritzar amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
-          title: Es requereix autorització
+          authorize: Autoritzeu-vos amb "%{authorization}"
+          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
+          title: Es necessita autorització
         pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
+          explanation: Per realitzar aquesta acció, heu d'estar autoritzats amb "%{authorization}", però la vostra autorització encara està en curs
+          resume: Comproveu el vostre progrés d'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
+          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
+          invalid_field: "%{field} valor %{value} no és vàlida."
           ok: D'acord
-          title: Acció no autoritzada
+          title: No autoritzat
         unconfirmed:
-          confirmation_instructions: 'Si no has rebut les instruccions de confirmació, pot tornar a demanar-les:'
-          explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
+          confirmation_instructions: 'Si no heu rebut les instruccions de confirmació, podeu tornar a sol·licitar-les:'
+          explanation_html: Per realitzar aquesta acció cal que estigueu autoritzada, abans de fer-ho, heu de confirmar el vostre correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
     collapsible_list:
@@ -418,7 +418,7 @@ ca:
             notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
-            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
+            email_intro: 'S''ha acceptat una modificació per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
             email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
             notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
@@ -454,7 +454,7 @@ ca:
           email_intro: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
           email_subject: Has arribat al nivell %{current_level} de la insígnia %{badge_name}!
-          notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
+          notification_title: Felicitacions Has arribat al nivell %{current_level} a la insígnia</a><a href="%{resource_path}">%{badge_name}!
       groups:
         demoted_membership:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administrador d'aquest grup.
@@ -596,19 +596,19 @@ ca:
         manage_admins: Gestiona els administradors
     group_invites:
       accept:
-        error: S'ha produït un error en acceptar aquesta invitació
-        success: S'ha acceptat la invitació amb èxit
+        error: S'ha produït un problema en acceptar aquesta invitació
+        success: S'ha acceptat la invitació correctament
       accept_invitation: Accepta
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
         invite: Convidar
-        invite_user: Convidar a un usuari
+        invite_user: Convidar a una participant
       invite:
-        error: S'ha produït un error al convidar aquest usuari
-        success: L'usuari s'ha convidat amb èxit
+        error: S'ha produït un error en convidar aquesta participant
+        success: S'ha convidat la participant correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta invitació
-        success: S'ha rebutjat la invitació amb èxit
+        success: S'ha rebutjat la invitació correctament
       reject_invitation: Rebutjar
     group_members:
       accept:
@@ -617,25 +617,25 @@ ca:
       actions:
         are_you_sure: Estàs segur?
         promote_to_admin: Fer administrador
-        remove_from_group: Elimina l'usuari
+        remove_from_group: Elimina la participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
         manage_members: Gestiona els membres
       promote:
-        error: S'ha produït un error en promoure aquest usuari
-        success: L'usuari s'ha promocionat correctament
+        error: S'ha produït un error en promoure aquesta participant
+        success: La participant s'ha promocionat correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
         success: La sol·licitud d'incorporació s'ha rebutjat correctament
       remove:
-        error: S'ha produït un error en eliminar aquest usuari del grup
-        success: L'usuari s'ha eliminat correctament del grup
+        error: S'ha produït un error en eliminar aquesta participant del grup
+        success: La participant s'ha eliminat correctament del grup
     groups:
       actions:
         are_you_sure: Estàs segur?
       create:
-        error: S'ha produït un problema en crear el grup
-        success: S'ha creat el grup amb èxit
+        error: S'ha produït un errot en crear el grup
+        success: S'ha creat el grup correctament
       edit:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
@@ -644,11 +644,11 @@ ca:
         email_help: Correu electrònic de la teva organització, associació, col·lectiu, grup, etc.
         fill_in_for_verification: 'Omple aquests camps si vols que el teu grup sigui verificat:'
         name_help: Nom de la teva organització, associació, col·lectiu, grup, etc.
-        nickname_help: Nom d'usuari de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
+        nickname_help: Sobrenom de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
         phone_help: No utilitzis guionets ni espais
       join:
-        error: Hi ha hagut un problema en unir-se al grup
-        success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
+        error: S'ha produït un error en unir-te al grup
+        success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
         error: S'ha produït un problema en abandonar el grup
         success: El grup s'ha abandonat correctament.

@@ -224,7 +224,7 @@ eu:
         name: Kodea SMS bidez
       started_at: Hasi zen %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
