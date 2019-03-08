@@ -289,9 +289,9 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
-            are_you_sure: Esteu segur de descartar tot l'esborrany de text participatiu?
+            are_you_sure: Segur que vols descartar l'esborrany sencer de text participatiu?
             import_doc: Importar document
-            discard_all: Descarta'ls tots
+            discard_all: Descarta'l sencer
           import:
             invalid: El formulari no és vàlid!
             success: Enhorabona, les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
@@ -417,8 +417,8 @@ ca:
           except_rejected: Totes menys rebutjades
           rejected: Rebutjat
         filter_type_values:
-          all: Tots
-          amendments: Modificacions
+          all: Totes
+          amendments: Esmenes
           proposals: Propostes
       collaborative_drafts:
         collaborative_draft:
@@ -461,7 +461,7 @@ ca:
           title: Edita l'esborrany col·laboratiu
         filters:
           all: Tots
-          amendment: Modificacions
+          amendment: Esmenes
           category: Categoria
           category_prompt: Indicació de categoria
           open: Obert
