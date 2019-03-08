@@ -94,7 +94,7 @@ fi:
             success: Tilan päivitys onnistui
         timeline_entries:
           create:
-            invalid: Merkinnän luomisessa tapahtui virhe
+            invalid: Merkinnän luonti epäonnistui
             success: Merkintä luotu onnistuneesti
           destroy:
             success: Merkintä poistettu onnistuneesti
@@ -107,7 +107,7 @@ fi:
             create: Luo merkintä
             title: Uusi merkintä
           update:
-            invalid: Merkinnän päivityksessä tapahtui virhe
+            invalid: Merkinnän päivitys epäonnistui
             success: Merkinnän päivitys onnistui
       admin_log:
         result:

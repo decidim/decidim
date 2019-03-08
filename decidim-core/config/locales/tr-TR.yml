@@ -224,7 +224,7 @@ tr:
         name: SMS ile kod
       started_at: '%{timestamp}başlıyor'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: '"%{authorization}" ile yeniden yetkilendirin'
           explanation: Yetkilendirme süreniz doldu. Bu eylemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir.

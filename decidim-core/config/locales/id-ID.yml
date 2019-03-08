@@ -219,7 +219,7 @@ id:
         name: Kode melalui SMS
       started_at: Dimulai pada %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Otorisasi ulang dengan "%{authorization}"
           explanation: Otorisasi Anda telah kedaluwarsa. Untuk melakukan tindakan ini, Anda harus diberi otorisasi ulang dengan "%{authorization}".

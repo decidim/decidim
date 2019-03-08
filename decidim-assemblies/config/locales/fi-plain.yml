@@ -1,0 +1,371 @@
+fi-pl:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Alue
+        assembly_type: Ryhmän tyyppi
+        assembly_type_other: Muu ryhmän tyyppi
+        banner_image: Bannerikuva
+        closing_date: Sulkeutumispäivä
+        closing_date_reason: Perustelu sulkemiselle
+        composition: Kokoonpano
+        copy_categories: Kopioi aihepiirit
+        copy_components: Kopioi komponentit
+        copy_features: Kopioi ominaisuudet
+        created_by: Luonut
+        created_by_other: Luotu muualta
+        creation_date: Luontipäivämäärä
+        decidim_area_id: alue
+        decidim_scope_id: Teema
+        description: Kuvaus
+        developer_group: Perustajaryhmä
+        domain: Toimintaympäristö
+        duration: Kesto
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Etusivun kuva
+        included_at: Mukana osoitteessa
+        instagram: Instagram
+        internal_organisation: Sisäinen organisaatio
+        is_transparent: On läpinäkyvä
+        local_area: Organisaatioalue
+        meta_scope: Teeman metadata
+        parent_id: Liittyvä ryhmä
+        participatory_processes_ids: Liittyvät osallisuusprosessit
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
+        private_space: Yksityinen tila
+        promoted: Korostettu
+        published_at: Julkaisuaika
+        purpose_of_action: Toiminnan tarkoitus
+        scope_id: Teema
+        scopes_enabled: Teemat käytössä
+        short_description: Lyhyt kuvaus
+        show_statistics: Näytä tilastot
+        slug: URL-tunniste
+        special_features: Lisäominaisuudet
+        subtitle: Alaotsikko
+        target: Kuka osallistuu
+        title: Otsikko
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Syntymäpäivä
+        birthplace: Syntymäpaikka
+        ceased_date: Päättymispäivä
+        designation_date: Nimityspäivä
+        designation_mode: Nimitystila
+        full_name: Koko nimi
+        gender: Sukupuoli
+        position: Asema
+      assembly_user_role:
+        email: Sähköposti
+        name: Nimi
+        role: Rooli
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Ryhmä
+        other: Ryhmät
+      decidim/assembly_member:
+        one: Ryhmän jäsen
+        other: Ryhmän jäsenet
+      decidim/assembly_user_role:
+        one: Ryhmän käyttäjärooli
+        other: Ryhmän käyttäjäroolit
+  decidim:
+    admin:
+      actions:
+        new_assembly: Uusi ryhmä
+      assemblies:
+        create:
+          error: Virhe luotaessa uutta ryhmää.
+          success: Ryhmän luonti onnistui.
+        edit:
+          update: Päivitä
+        form:
+          title: Yleiset tiedot
+        index:
+          not_published: Ei julkaistu
+          private: Yksityinen
+          public: Julkinen
+          published: Julkaistu
+        new:
+          create: Luo
+          title: Uusi ryhmä
+        update:
+          error: Ryhmän päivityksessä tapahtui virhe.
+          success: Ryhmä päivitettiin onnistuneesti.
+      assemblies_copies:
+        create:
+          error: Virhe kopioitaessa ryhmää.
+          success: Ryhmä kopioitu onnistuneesti.
+      assembly_copies:
+        new:
+          copy: Kopioi
+          select: Valitse, mitkä tiedot haluat kopioida
+          title: Kopioi ryhmä
+      assembly_members:
+        create:
+          error: Jäsenen lisääminen ryhmään ei onnistunut.
+          success: Jäsen lisättiin onnistuneesti ryhmään.
+        destroy:
+          success: Jäsen poistettiin onnistuneesti ryhmästä.
+        edit:
+          title: Päivitä ryhmän jäsenen tietoja.
+          update: Päivittää
+        index:
+          assembly_members_title: Ryhmän jäsenet
+        new:
+          create: Luoda
+          title: Uusi ryhmän jäsen.
+        update:
+          error: Ryhmän jäsenen päivityksessä tapahtui virhe.
+          success: Ryhmän jäsenen tiedot päivitettiin onnistuneesti.
+      assembly_publications:
+        create:
+          error: Ryhmän julkaisussa tapahtui virhe.
+          success: Ryhmä julkaistiin onnistuneesti.
+        destroy:
+          error: Ryhmän julkaisun perumisessa tapahtui virhe.
+          success: Ryhmän julkaisu lopetettu onnistuneesti.
+      assembly_user_roles:
+        create:
+          error: Virhe lisätessä käyttäjää tälle ryhmälle.
+          success: Käyttäjä lisätty onnistuneesti ryhmään.
+        destroy:
+          success: Käyttäjä poistettiin onnistuneesti ryhmästä.
+        edit:
+          title: Päivitä ryhmän käyttäjän tietoja.
+          update: Päivitä
+        index:
+          assembly_admins_title: Ryhmän käyttäjät
+        new:
+          create: Luo
+          title: Uusi ryhmän käyttäjä.
+        update:
+          error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
+          success: Ryhmän käyttäjä päivitetty onnistuneesti.
+      menu:
+        assemblies: Ryhmät
+        assemblies_submenu:
+          assembly_admins: Ryhmän käyttäjät
+          assembly_members: Jäsenet
+          attachment_collections: Kansiot
+          attachment_files: Tiedostot
+          attachments: Liitteet
+          categories: Aihepiirit
+          components: Komponentit
+          info: Tiedot
+          moderations: Moderoinnit
+          private_users: Yksityiset käyttäjät
+      models:
+        assembly:
+          fields:
+            created_at: Luonnin ajankohta
+            private: Yksityinen
+            promoted: Korostettu
+            published: Julkaistu
+            title: Otsikko
+          name: Ryhmä
+        assembly_member:
+          fields:
+            ceased_date: Päättymispäivä
+            designation_date: Nimityspäivä
+            full_name: Nimi
+            position: Asema
+          name: Jäsen
+          positions:
+            other: muut
+            president: Puhemies
+            secretary: Sihteeri
+            vice_president: Varapuheenjohtaja
+        assembly_user_role:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            role: Rooli
+          name: Ryhmän käyttäjä
+          roles:
+            admin: Hallinnointikäyttäjä
+            collaborator: Osallistumiskäyttäjä
+            moderator: Moderoija
+      titles:
+        assemblies: Ryhmät
+    admin_log:
+      assembly:
+        create: "%{user_name} loi %{resource_name} ryhmän"
+        publish: "%{user_name} julkaisi %{resource_name} ryhmän"
+        unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        update: "%{user_name} päivitti %{resource_name} ryhmän"
+      assembly_member:
+        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
+        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
+        update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
+      assembly_user_role:
+        create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
+        update: "%{user_name} muutti %{resource_name} roolia %{space_name} ryhmässä"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
+            select_a_created_by: Valitse luoja
+            select_an_area: Valitse alue
+            select_an_assembly_type: Valitse ryhmän tyyppi
+            select_parent_assembly: Valitse pääryhmä
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            social_handlers: Sosiaalinen media
+        assembly_copies:
+          form:
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+        assembly_members:
+          form:
+            existing_user: Olemassa oleva käyttäjä
+            non_user: Ei käyttäjä
+            select_a_position: Valitse asema
+            select_user: Valitse käyttäjä
+            user_type: Käyttäjätyyppi
+          index:
+            filter:
+              all: Kaikki
+              ceased: Lakkautettu
+              not_ceased: Ei lakkautettu
+            filter_by: Suodata
+            search: Hae
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Näytettävien elementtien enimmäismäärä
+      assembly_members:
+        index:
+          members: Jäsenet
+      assembly_types:
+        commission: Komissio
+        consultative_advisory: Neuvoa-antava
+        executive: Johtaja
+        government: Hallitus
+        others: Muut
+        participatory: Osallisuus
+        working_group: Työryhmä
+      content_blocks:
+        highlighted_assemblies:
+          name: Tärkeimmät ryhmät
+      created_by:
+        city_council: Kaupunginvaltuusto
+        others: Muut
+        public: Julkinen
+      filter:
+        all: Kaikentyyppiset ryhmät
+        commission: Komitea
+        consultative_advisory: Konsultti/neuvonantaja
+        executive: Johtaja
+        government: Hallinto
+        help: 'Show:'
+        others: Muut
+        participatory: Osallistava
+        working_group: Työryhmä
+      index:
+        title: Ryhmät
+      last_activity:
+        new_assembly: Uusi ryhmä
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktiiviset ryhmät
+            see_all_assemblies: Näytä kaikki ryhmät
+        user_profile:
+          member_of:
+            member_of: Jäsen ryhmässä
+      show:
+        area: alue
+        assembly_type: Ryhmän tyyppi
+        children: Ryhmät
+        closing_date: Sulkemispäivä
+        composition: Kokoonpano
+        created_by: Luonut
+        creation_date: Luontipäivämäärä
+        developer_group: Perustajaryhmä
+        duration: Kesto
+        included_at: Mukana osoitteessa
+        indefinite_duration: Määrittelemätön
+        internal_organisation: Sisäinen organisaatio
+        is_transparent:
+          'false': läpinäkymätön
+          'true': läpinäkyvä
+        local_area: Organisaatioalue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
+        private_space: Tämä on yksityinen ryhmä
+        purpose_of_action: Toiminnan tarkoitus
+        read_less: Vähennä tekstiä
+        read_more: Lue lisää
+        related_participatory_processes: Liittyvät osallisuusprosessit
+        scope: Teema
+        social_networks: Sosiaalinen media
+        target: Kuka osallistuu
+      statistics:
+        answers_count: Vastaukset
+        assemblies_count: Ryhmiä
+        comments_count: Kommentteja
+        debates_count: Keskusteluja
+        endorsements_count: Suosituksia
+        headline: Tilastot
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
+    assembly_members:
+      assembly_member:
+        designated_on: Nimetty
+      index:
+        title: Jäsenet
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>\n"
+          page: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>"
+          title: Mitä ovat ryhmät?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
+    menu:
+      assemblies: Ryhmät
+    metrics:
+      assemblies:
+        description: Ryhmien määrä
+        object: ryhmät
+        title: Ryhmät
+  errors:
+    messages:
+      cannot_be_blank: ei voi olla tyhjä
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Osallistu
+        index:
+          organizational_chart: Organisaatiokaavio
+          promoted_assemblies: Korostetut ryhmät
+          reset_chart: Palauta
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} ryhmä"
+            other: "%{count} ryhmää"
+        promoted_assembly:
+          more_info: Lisätiedot
+          take_part: Osallistu
+      assembly_navigation:
+        assembly_member_menu_item: Jäsenet
+        assembly_menu_item: Ryhmä
+      assembly_widgets:
+        show:
+          take_part: Osallistu

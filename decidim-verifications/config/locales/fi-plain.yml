@@ -1,0 +1,224 @@
+fi-pl:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Käytettävissä olevat menetelmät
+        offline: Offline
+        offline_explanation: Ohjeet offline-vahvistamiseen
+        online: Verkossa
+      id_document_information:
+        document_number: Asiakirjan numero (kirjeellä toimitettava)
+        document_type: Asiakirjan tyyppi
+      id_document_upload:
+        document_number: Asiakirjan numero (kirjeellä toimitettava)
+        document_type: Asiakirjan tyyppi
+        user: Käyttäjä
+        verification_attachment: Asiakirjan skannattu kopio
+      offline_confirmation:
+        email: Käyttäjän sähköposti
+      postal_letter_address:
+        full_address: Koko osoite
+      postal_letter_confirmation:
+        verification_code: Vahvistuskoodi
+      postal_letter_postage:
+        full_address: Koko osoite
+        verification_code: Vahvistuskoodi
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Vahvistukset
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} päivitti henkilöllisyystodistusvahvistuksen asetuksia"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
+            - Sinä täytät ladatussa kuvassa näkyvät tiedot.
+            - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
+        postal_letter:
+          help:
+            - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
+            - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
+            - Sinä merkitset kirjeen lähetetyksi.
+            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
+      csv_census:
+        explanation: Varmenna käyttäjätilisi organisaation rekisteritietojen avulla
+        name: Organisaation rekisteritiedot
+      direct: Suoraan
+      help: Ohjeet
+      id_documents:
+        explanation: Lataa henkilöllisyystodistuksesi, jotta voimme tarkistaa henkilöllisyytesi
+        name: Henkilöllisyystodistukset
+      multistep: Monivaiheinen
+      name: Nimi
+      postal_letter:
+        explanation: Lähetämme sinulle postissa kirjeen, joka sisältää koodin, jotta voimme vahvistaa osoitteesi
+        name: Koodi postissa lähetettävällä kirjeellä
+    verifications:
+      authorizations:
+        create:
+          error: Vahvistuksen luonnissa tapahtui virhe.
+          success: Tilisi on onnistuneesti vahvistettu.
+          unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
+            csv_census: Vahvista organisaation rekisteritietojen avulla
+            dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
+            dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
+            id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
+            postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
+          title: Vahvista henkilöllisyytesi
+          verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
+        new:
+          authorize: Lähetä
+          authorize_with: Vahvista palvelulla %{authorizer}
+        skip_verification: Voit ohittaa tämän nyt ja %{link}
+        start_exploring: aloittaa palveluun tutustumisen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Rekisteritietojen tuonnissa tapahtui virhe.
+              success: Onnistuneesti tuotu %{count} kohdetta (%{errors} virheellistä)
+            destroy_all:
+              success: Kaikki rekisteritiedot on poistettu
+          destroy:
+            confirm: Rekisteritietojen poistamista ei voi jälkikäteen peruuttaa. Haluatko varmasti jatkaa?
+            title: Poista kaikki rekisteritiedot
+          index:
+            data: Yhteensä %{count} tietuetta ladattu. Viimeisin latauspäivä oli %{due_date}
+            empty: Rekisteritietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi rekisteritiedot järjestelmään CSV-tiedostosta.
+            title: Nykyiset rekisteritiedot
+          instructions:
+            body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
+            title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
+          new:
+            info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
+            file: sähköpostiosoitteet sisältävä .csv-tiedosto
+            submit: Lataa tiedosto
+            title: Lataa uusi rekisteri
+        authorizations:
+          new:
+            error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
+            success: Tilisi on vahvistettu onnistuneesti.
+      dummy_authorization:
+        extra_explanation:
+          one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
+          other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Henkilöllisyystodistusten asetukset
+              update: Päivitä
+            update:
+              error: Asetusten päivittämisessä tapahtui virhe.
+              success: Asetukset päivitettiin onnistuneesti
+          confirmations:
+            create:
+              error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
+              success: Käyttäjä vahvistettu onnistuneesti
+            new:
+              introduce_user_data: Syötä kuvassa näkyvät tiedot
+              reject: Hylkää
+              verify: Vahvista
+          offline_confirmations:
+            create:
+              error: Vahvistus ei täsmää. Yritä uudelleen tai pyydä käyttäjää muuttamaan tietojaan
+              success: Käyttäjä vahvistettu onnistuneesti
+            new:
+              cancel: Peruuta
+              introduce_user_data: Lisää käyttäjän sähköposti ja asiakirjan tiedot
+              verify: Vahvista
+          pending_authorizations:
+            index:
+              config: Asetukset
+              offline_verification: Offline-vahvistus
+              title: Odottaa verkkotarkastuksia
+              verification_number: 'Vahvistus #%{n}'
+          rejections:
+            create:
+              success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
+        authorizations:
+          choose:
+            choose_a_type: "Valitse, kuinka haluat varmistaa henkilöllisyytesi:"
+            offline: Offline
+            online: Online
+            title: Varmista henkilöllisyytesi käyttämällä henkilöllisyystodistusta
+          create:
+            error: Asiakirjan lataamisessa tapahtui virhe
+            success: Asiakirja ladattu onnistuneesti
+          edit:
+            being_reviewed: Tarkistamme asiakirjojasi. Tilisi vahvistetaan pian
+            offline: Käytä offline-vahvistusta
+            online: Käytä online-vahvistusta
+            rejection_clarity: Varmista, että kaikki tiedot näkyvät selvästi ladatussa kuvassa
+            rejection_correctness: Varmista, että syötetyt tiedot ovat oikein
+            rejection_notice: Tilisi vahvistuksessa tapahtui ongelma. Yritä uudelleen
+            send: Pyydä vahvistusta uudelleen
+          new:
+            send: Pyydä vahvistusta
+            title: Lähetä henkilöllisyystodistuksesi
+          update:
+            error: Asiakirjan uudelleen lataaminen epäonnistui
+            success: Asiakirjan uudelleen lataaminen onnistui
+        dni: Henkilökortti
+        nie: HETU
+        passport: Passi
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Osoite
+              letter_sent_at: Kirje lähetetty osoitteeseen
+              mark_as_sent: Merkitse lähetetyksi
+              not_yet_sent: Ei vielä lähetetty
+              title: Käynnissä olevat vahvistukset
+              username: Käyttäjätunnus
+              verification_code: Vahvistuskoodi
+          postages:
+            create:
+              error: Virhe merkatessa kirjettä lähetetyksi
+              success: Kirje onnistuneesti merkitty lähetetyksi
+        authorizations:
+          create:
+            error: Pyynnössäsi oli ongelma
+            success: Kiitos! Lähetämme vahvistuskoodin osoiteeseesi
+          edit:
+            send: Vahvista
+            title: Syötä vastaanottamasi vahvistuskoodi
+            waiting_for_letter: Lähetämme vahvistuskoodin sisältävän kirjeen osoitteeseesi pian
+          new:
+            send: Lähetä kirje minulle
+            title: Pyydä vahvistuskoodia
+          update:
+            error: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan kirje, jonka olemme lähettäneet sinulle
+            success: Onnittelut. Olet vahvistanut tilisi
+      sms:
+        authorizations:
+          create:
+            error: Pyynnössäsi oli ongelma
+            success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
+          edit:
+            confirm_destroy: Haluatko varmasti palauttaa vahvistuskoodin?
+            destroy: Nollaa vahvistuskoodi
+            send: Vahvista
+            resend: Etkö saanut vahvistuskoodia?
+            title: Kirjoita vastaanottamasi vahvistuskoodi
+          destroy:
+            success: Vahvistuskoodi palautetaan onnistuneesti. Anna puhelinnumerosi uudelleen.
+          new:
+            send: Lähetä minulle tekstiviesti
+            title: Pyydä vahvistuskoodia
+          update:
+            error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
+            success: Onnittelut. Käyttäjätilisi on onnistuneesti vahvistettu.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot

@@ -135,6 +135,13 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-proposals**: Allow reporting official proposals [\#4930](https://github.com/decidim/decidim/pull/4930)
 - **decidim-participatory_processes**: Fix past processes filter [\#4932](https://github.com/decidim/decidim/pull/4932)
 - **decidim-verifications**: Redirect to previous url after verifying your mobile number via SMS. [\#4929](https://github.com/decidim/decidim/pull/4929)
+- **decidim-budgets**: Fix button updates [\#4941](https://github.com/decidim/decidim/pull/4941)
+- **decidim-comments**: Fix comment reply when comments blocked [\#4939](https://github.com/decidim/decidim/pull/4939)
+- **decidim-forms**: Keep correct answers of sinlge-choice question when there are errors [\#4934](https://github.com/decidim/decidim/pull/4934)
+- **decidim-consultations**: Allow admins to manage components [\#4942](https://github.com/decidim/decidim/pull/4942)
+- **decidim-comments**: Fix comments on IE11 [\#4946](https://github.com/decidim/decidim/pull/4946)
+- **decidim-surveys**: Ensure the user has authorization to render the survey [\#4943](https://github.com/decidim/decidim/pull/4943)
+- **decidim-meetings**: Fix meeting questionnaire migration [\#4950](https://github.com/decidim/decidim/pull/4950/)
 
 **Removed**:
 

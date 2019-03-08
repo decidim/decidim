@@ -224,7 +224,7 @@ gl:
         name: Código por SMS
       started_at: Comezou en %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Reautorizar con "%{authorization}"
           explanation: A túa autorización caducou. Para realizar esta acción, necesitas ser autorizado de novo con "%{authorization}".

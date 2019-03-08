@@ -68,7 +68,7 @@ fi:
           fields:
             created_at: Luontiaika
             id: ID
-            state: Maakunta/osavaltio
+            state: Tila
             supports_count: Allekirjoitusta
             title: Aloitteet
         initiatives_type_scope:
@@ -316,7 +316,7 @@ fi:
           date_select:
             day: Päivä
             month: Kuukausi
-            year: vuosi
+            year: Vuosi
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
         finish:
           back_to_initiative: Takaisin aloitteeseen
@@ -437,7 +437,7 @@ fi:
     resources:
       initiatives_type:
         actions:
-          vote: Äänestä
+          vote: Allekirjoita
           title: Toimet
   layouts:
     decidim:

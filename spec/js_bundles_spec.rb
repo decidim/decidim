@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "digest"
+
 describe "Js bundle sanity" do
   shared_examples "a valid bundle" do
     it "is up to date" do
@@ -30,6 +32,12 @@ describe "Js bundle sanity" do
 
   describe "javascript comments bundle" do
     let(:bundle_path) { "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js" }
+
+    it_behaves_like "a valid bundle"
+  end
+
+  describe "javascript core bundle" do
+    let(:bundle_path) { "decidim-core/app/assets/javascripts/decidim/core/bundle.js" }
 
     it_behaves_like "a valid bundle"
   end

@@ -223,7 +223,7 @@ en:
         name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
