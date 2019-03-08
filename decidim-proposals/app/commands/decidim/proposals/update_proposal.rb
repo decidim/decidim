@@ -53,9 +53,9 @@ module Decidim
           scope: form.scope,
           author: current_user,
           decidim_user_group_id: user_group.try(:id),
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude
+          address: has_address? ? form.address : nil,
+          latitude: has_address? ? form.latitude : nil,
+          longitude: has_address? ? form.longitude : nil
         )
       end
 
@@ -119,6 +119,10 @@ module Decidim
 
       def process_attachments?
         attachments_allowed? && attachment_present?
+      end
+
+      def has_address?
+        form.has_address && form.address.present?
       end
     end
   end

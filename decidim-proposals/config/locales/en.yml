@@ -347,6 +347,8 @@ en:
           most_voted: Most voted
           random: Random
           recent: Recent
+        placeholder:
+          address: "[n°] [street] [postal] [city]"
         preview:
           address: 'Address : %{address}'
           modify: Modify the proposal
