@@ -144,7 +144,7 @@ en:
         no_amendments: There are no amendments
         section_heading: Amendments (%{count})
       created:
-        error: An error ocurred creating this amendment, try again later
+        error: An error ocurred while creating the amendment
         success: The amendment has been created successfully
       emendation:
         actions:

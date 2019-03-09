@@ -24,7 +24,7 @@ module Decidim
 
         on(:invalid) do
           flash[:alert] = t("created.error", scope: "decidim.amendments")
-          redirect_to new_amend_path(amendable_gid: @form.amendable_gid)
+          render :new
         end
       end
     end
@@ -86,11 +86,11 @@ module Decidim
     private
 
     def amendable_gid
-      params[:amendable_gid]
+      params[:amendable_gid] || params[:amend][:amendable_gid]
     end
 
     def amendable
-      @amendable ||= if params[:amendable_gid]
+      @amendable ||= if amendable_gid
                        present(GlobalID::Locator.locate_signed(amendable_gid))
                      else
                        Decidim::Amendment.find_by(decidim_emendation_id: params[:id]).amendable

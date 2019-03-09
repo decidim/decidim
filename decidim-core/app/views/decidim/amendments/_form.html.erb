@@ -7,8 +7,13 @@
     <% @form.amendable.attributes.each do |key, value| %>
       <% key = key.to_sym %>
       <% if @form.amendable.fields.include?(key) %>
+      <% value =  params[:amend].present? ? params[:amend][key] : form.object.emendation_fields[key] %>
         <div class="field">
-          <%= emendation_form.form_field_for key %>
+          <% if key == :body %>
+            <%= form.text_area key, rows: 10, value: value %>
+          <% else %>
+            <%= form.text_field key, value: value %>
+          <% end %>
         </div>
       <% elsif @form.amendable.ignore_fields.include?(key) %>
         <%= emendation_form.hidden_field key, value: emendation_ignored_field_value(key) %>
