@@ -12,7 +12,6 @@ module Decidim
       end
 
       def body_with_hashtags
-        raise
         @body_with_hashtags ||= begin
           ret = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite.strip
           ret += "\n" + body_extra_hashtags.strip unless body_extra_hashtags.empty?
