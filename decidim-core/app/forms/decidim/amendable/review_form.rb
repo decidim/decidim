@@ -4,31 +4,22 @@ module Decidim
   module Amendable
     # A form object used to review emendations
     class ReviewForm < Decidim::Amendable::Form
-      mimic :amend
+      mimic :amendment
 
       attribute :id, String
-      attribute :title, String
-      attribute :body, String
-      attribute :emendation_fields, Object
+      attribute :emendation_params, Object
 
-      validates :id, presence: true
-      validates :title, :body, presence: true, etiquette: true
-      validates :title, length: { maximum: 150 }
+      validates :emendation_params, presence: true
+      validate :check_amendable_form_validations
 
-      def title
-        @title ||= emendation_fields[:title]
+      def emendation_author
+        return emendation.creator.user_group if emendation.creator.user_group
+        emendation.creator_author
       end
 
-      def body
-        @body ||= emendation_fields[:body]
-      end
-
-      def emendation_type
-        emendation.resource_manifest.model_class_name
-      end
-
-      def emendation_fields
-        @emendation_fields ||= emendation.form.from_model(emendation)
+      def reviewed_emendation
+        raise
+        amendable.amendable_type.constantize.new(@emendation_params)
       end
     end
   end

@@ -20,7 +20,23 @@
       <h2 class="section-heading"><%= t("heading", scope: "decidim.amendments.new") %></h2>
       <div class="card">
         <div class="card__content">
-          <%= render "form" %>
+          <%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
+            <%= form.hidden_field :amendable_gid %>
+
+            <%= render partial: "edit_form_fields",
+            locals: { form: form, original: :amendable } %>
+
+            <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
+              <div class="field">
+                <%= user_group_select_field form, :user_group_id %>
+              </div>
+            <% end %>
+
+            <div class="actions">
+              <%= form.submit t("send", scope: "decidim.amendments.new"),
+              class: "button expanded mt-s mb-none", data: { disable: true } %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

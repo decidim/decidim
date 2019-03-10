@@ -78,7 +78,7 @@ module Decidim
 
         on(:invalid) do
           flash[:alert] = t("accepted.error", scope: "decidim.amendments")
-          redirect_to review_amend_path(id: params[:id])
+          render :review
         end
       end
     end
@@ -86,7 +86,7 @@ module Decidim
     private
 
     def amendable_gid
-      params[:amendable_gid] || params[:amend][:amendable_gid]
+      params[:amendable_gid] || params[:amendment][:amendable_gid]
     end
 
     def amendable

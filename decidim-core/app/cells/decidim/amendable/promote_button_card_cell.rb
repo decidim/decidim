@@ -31,7 +31,7 @@ module Decidim
           t("promote_help_text",
             scope: "decidim.amendments.amendable",
             model_name: model_name.downcase,
-            amendable_fields: model.fields.to_sentence)
+            amendable_fields: model.amendable_fields.to_sentence)
         end
       end
 

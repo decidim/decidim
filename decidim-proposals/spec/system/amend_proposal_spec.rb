@@ -63,7 +63,7 @@ describe "Amend Proposal", type: :system do
             click_link "Amend Proposal"
           end
 
-          expect(page).to have_css(".new_amend", visible: true)
+          expect(page).to have_css(".new_amendment", visible: true)
           expect(page).to have_content("CREATE YOUR AMENDMENT")
         end
       end
@@ -88,14 +88,14 @@ describe "Amend Proposal", type: :system do
         end
       end
 
-      context "and the amend form is filled" do
+      context "and the amend form is filled correctly" do
         before do
           login_as user, scope: :user
           visit decidim.new_amend_path(amendable_gid: proposal.to_sgid.to_s)
-          within ".new_amend" do
-            fill_in "amend[emendation_fields][title]", with: "More sidewalks and less roads"
-            fill_in "amend[emendation_fields][body]", with: "Cities need more people, not more cars"
-            select user_group.name, from: :amend_user_group_id
+          within ".new_amendment" do
+            fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
+            fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
+            select user_group.name, from: :amendment_user_group_id
           end
           click_button "Send emendation"
         end
@@ -110,6 +110,26 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_content(emendation.title)
           expect(page).to have_content(emendation.body)
           expect(page).to have_css(".card__text--status", text: "EVALUATING")
+        end
+      end
+
+      context "and the amend form is filled incorrectly" do
+        before do
+          login_as user, scope: :user
+          visit decidim.new_amend_path(amendable_gid: proposal.to_sgid.to_s)
+          within ".new_amendment" do
+            fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
+            select user_group.name, from: :amendment_user_group_id
+          end
+          click_button "Send emendation"
+        end
+
+        it "is shown the Error Callout" do
+          expect(page).to have_css(".callout.alert", text: "An error ocurred while creating the amendment")
+        end
+
+        it "is shown the error message" do
+          expect(page).to have_css(".form-error.is-visible")
         end
       end
     end
@@ -138,7 +158,7 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is shown the review the amendment form" do
-            expect(page).to have_css(".edit_amend")
+            expect(page).to have_css(".edit_amendment")
             expect(page).to have_content("REVIEW THE AMENDMENT")
             expect(page).to have_field("Title", with: emendation.title.to_s)
             expect(page).to have_field("Body", with: emendation.body.to_s)
@@ -147,7 +167,7 @@ describe "Amend Proposal", type: :system do
 
           context "and the emendation is accepted" do
             before do
-              within ".edit_amend" do
+              within ".edit_amendment" do
                 click_button "Accept emendation"
               end
             end

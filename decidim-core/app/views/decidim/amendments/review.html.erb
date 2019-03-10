@@ -24,7 +24,15 @@
 
       <div class="card">
         <div class="card__content">
-          <%= render "review_form" %>
+          <%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
+            <%= render partial: "edit_form_fields",
+            locals: { form: form, original: :emendation } %>
+
+            <div class="actions">
+              <%= form.submit t("send", scope: "decidim.amendments.review"),
+              class: "button expanded mt-s mb-none", data: { disable: true } %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

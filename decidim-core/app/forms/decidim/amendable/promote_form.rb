@@ -4,7 +4,7 @@ module Decidim
   module Amendable
     # A form object used to promote emendations
     class PromoteForm < Decidim::Amendable::Form
-      mimic :amend
+      mimic :amendment
 
       attribute :id, String
 
@@ -12,14 +12,6 @@ module Decidim
 
       def emendation
         @emendation ||= Amendment.find_by(decidim_emendation_id: id).emendation
-      end
-
-      def amendable_type
-        emendation_type
-      end
-
-      def emendation_type
-        emendation.resource_manifest.model_class_name
       end
     end
   end

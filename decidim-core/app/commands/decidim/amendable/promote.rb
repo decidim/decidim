@@ -36,12 +36,12 @@ module Decidim
       def promote_emendation!
         @promoted_emendation = Decidim.traceability.perform_action!(
           "promote",
-          @form.amendable_type.constantize,
+          @amendable.amendable_type.constantize,
           @emendation.creator_author,
           visibility: "public-only",
           promoted_from: @emendation.id
         ) do
-          promoted_emendation = @form.amendable_type.constantize.new(emendation_attributes)
+          promoted_emendation = @amendable.amendable_type.constantize.new(emendation_attributes)
           promoted_emendation.add_coauthor(@emendation.creator_author, user_group: nil) if promoted_emendation.is_a?(Decidim::Coauthorable)
           promoted_emendation.save!
           promoted_emendation
@@ -57,7 +57,7 @@ module Decidim
         fields[:title] = parsed_title
         fields[:body] = parsed_body
         fields[:component] = @emendation.component
-        fields[:published_at] = Time.current if @form.emendation_type == "Decidim::Proposals::Proposal"
+        fields[:published_at] = Time.current if @amendable.amendable_type == "Decidim::Proposals::Proposal"
 
         fields
       end

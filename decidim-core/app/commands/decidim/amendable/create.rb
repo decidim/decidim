@@ -21,7 +21,6 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-        return broadcast(:invalid) if emendation_doesnt_change_amendable
 
         transaction do
           create_emendation!
@@ -36,34 +35,16 @@ module Decidim
 
       attr_reader :form
 
-      def emendation_doesnt_change_amendable
-        return unless form.title == @amendable.title && form.body.delete("\r") == @amendable.body
-
-        @form.errors[:title] << "cannot be identical"
-        @form.errors[:body] << "cannot be identical"
-      end
-
-      def emendation_attributes
-        fields = {}
-
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
-
-        fields[:title] = parsed_title
-        fields[:body] = parsed_body
-        fields[:component] = @amendable.component
-        fields[:published_at] = Time.current if form.emendation_type == "Decidim::Proposals::Proposal"
-        fields
-      end
-
       def create_emendation!
         @emendation = Decidim.traceability.perform_action!(
           "publish",
-          form.amendable_type.constantize,
+          @amendable.amendable_type.constantize,
           form.current_user,
           visibility: "public-only"
         ) do
-          emendation = form.amendable_type.constantize.new(emendation_attributes)
+          emendation = @amendable.amendable_type.constantize.new(form.emendation_params)
+          emendation.component = @amendable.component
+          emendation.published_at = Time.current if @amendable.amendable_type == "Decidim::Proposals::Proposal"
           emendation.add_coauthor(form.current_user, user_group: form.user_group) if emendation.is_a?(Decidim::Coauthorable)
           emendation.save!
           emendation

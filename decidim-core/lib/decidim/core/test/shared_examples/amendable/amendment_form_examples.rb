@@ -42,4 +42,11 @@ shared_examples "an amendment form" do
 
     it { is_expected.to be_invalid }
   end
+
+  context "when the emendation doens't change the amendable" do
+    let(:title) { amendable.title }
+    let(:body) { amendable.body }
+
+    it { is_expected.to be_invalid }
+  end
 end

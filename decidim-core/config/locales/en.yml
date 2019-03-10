@@ -131,7 +131,7 @@ en:
         verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
     amendments:
       accepted:
-        error: An error ocurred accepting the emendation, please try again later.
+        error: An error ocurred while accepting the emendation.
         success: This emendation has been accepted successfully.
       amendable:
         amended_by: Amended by
@@ -168,7 +168,7 @@ en:
         amendment_author: Amendment author
         back: Back
         heading: Create your amendment
-        help_text: You are modifying the %{model_name}
+        help_text: You are amending the %{model_name}
         send: Send emendation
       rejected:
         error: An error ocurred when rejecting this emendation, please try again later
@@ -179,7 +179,7 @@ en:
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are amending the %{model_name}
+        help_text: You are reviewing an amendment to the %{model_name}
         send: Accept emendation
     anonymous_user: Anonymous
     application:
