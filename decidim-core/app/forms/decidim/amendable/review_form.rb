@@ -16,11 +16,6 @@ module Decidim
         return emendation.creator.user_group if emendation.creator.user_group
         emendation.creator_author
       end
-
-      def reviewed_emendation
-        raise
-        amendable.amendable_type.constantize.new(@emendation_params)
-      end
     end
   end
 end
