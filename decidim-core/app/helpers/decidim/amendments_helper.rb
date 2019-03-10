@@ -3,8 +3,6 @@
 module Decidim
   # A Helper to render and link amendments to resources.
   module AmendmentsHelper
-    include Decidim::ResourceHelper
-
     def amendments_enabled?
       current_component.settings.amendments_enabled
     end
