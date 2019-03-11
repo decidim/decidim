@@ -554,7 +554,7 @@ ca:
         conference:
           take_part: Formar part
         index:
-          promoted_conferences: Conferències destacades
+          promoted_conferences: Jornades destacades
         order_by_conferences:
           conferences:
             one: "%{count} conferència"
