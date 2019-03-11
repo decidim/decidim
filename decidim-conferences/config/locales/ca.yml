@@ -298,7 +298,7 @@ ca:
             existing_user: Participant existent
             invite_explanation: La participant serà convidada a registrar-se a la jornada i també a l'organització.
             non_user: Participant no existent
-            select_user: Seleccionar una participant
+            select_user: Seleccionar participant
           index:
             filter:
               accepted: Acceptat
@@ -306,22 +306,22 @@ ca:
               rejected: Rebutjada
               sent: Enviat
             filter_by: Filtra per
-            invite_attendee: Convida l'assistent
+            invite_attendee: Convidar participant
             invites: Convida
             search: Cercar
           new:
-            explanation: L'usuari serà convidat a participar en una conferència. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
+            explanation: La participant serà convidada a registrar-se en una jornada. Si el correu electrònic no està registrat, també se la convidarà a l'organització.
             invite: Convidar
-            new_invite: Convida l'usuari
+            new_invite: Convidar participant
         conference_registrations:
           index:
             registrations: Inscripcions
         conference_speakers:
           form:
-            existing_user: Usuari existent
-            non_user: No usuari
-            select_user: Seleccioneu l'usuari
-            user_type: Tipus d'usuari
+            existing_user: Participant existent
+            non_user: No participant
+            select_user: Seleccionar participant
+            user_type: Tipus de participant
           index:
             search: Cercar
         conferences:
@@ -350,14 +350,14 @@ ca:
             title: Tipus de registre
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Trobareu el certificat d'assistència per a la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+            diploma_html: Trobaràs el certificat d'assistència per a la jornada <a href="%{url}">%{title}</a> als fitxers adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
             certificate_of_attendance: Certificat d'assistència
             certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Hi ha hagut un problema en enviar els certificats d'assistència de la conferència.
-          success: Certificats d'assistència de la conferència enviats correctament
+          error: S'ha produït un error en enviar els certificats d'assistència de la jornada.
+          success: Certificats d'assistència de la jornada enviats correctament
       conference:
         registration_confirm:
           cancel: Cancel·lar
@@ -384,7 +384,7 @@ ca:
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
           details: 'T''has inscrit a %{registration_type} tipus amb un cost de %{price} i pots assistir als següents esdeveniments:'
-          pending_html: La teva inscripció a la conferència <a href="%{url}">%{title}</a> està pendent de ser confirmada.
+          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de ser confirmada.
       conference_registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure't a aquesta conferència.
