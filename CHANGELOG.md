@@ -2,6 +2,28 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Upgrade notes
+
+#### User follow counters
+After running the migrations, please run this code from a console:
+
+```ruby
+Decidim::UserBaseEntity.find_each do |entity|
+  follower_count = Decidim::Follow.where(followable: entity).count
+  following_count = Decidim::Follow.where(decidim_user_id: entity.id).count
+  following_users_count = Decidim::Follow.where(decidim_user_id: entity.id, decidim_followable_type: ["Decidim::UserBaseEntity", "Decidim::User", "Decidim::UserGroup"]).count
+
+  # We use `update_columns` to skip Searchable callbacks
+  entity.update_columns(
+    followers_count: follower_count,
+    following_count: following_count,
+    following_users_count: following_users_count
+  )
+end
+```
+
+### Changes
+
 **Added**:
 
 - **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4817](https://github.com/decidim/decidim/pull/4817)
