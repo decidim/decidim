@@ -71,7 +71,7 @@ module Decidim
             add_to_index_as_search_resource
           else
             fields = self.class.search_resource_fields_mapper.mapped(self)
-            searchables_in_org.each do |sr|
+            searchables_in_org.find_each do |sr|
               sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
             end
           end
