@@ -37,8 +37,20 @@ tr:
           notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> açıktır.
     metrics:
       survey_answers:
+        description: Kullanıcılar tarafından yanıtlanan anket sayısı
         object: anketlerin cevapları
         title: Anketlere verilen cevaplar
     surveys:
+      admin:
+        exports:
+          survey_user_answers: Kullanıcı anket cevapları
+        surveys:
+          update:
+            invalid: Anketi kaydederken hatalar oluştu.
+            success: Anket başarıyla kaydedildi.
       last_activity:
         new_survey_at_html: "<span> %{link}</span>yeni anket"
+      surveys:
+        answer:
+          invalid: Anketi cevaplarken hatalar oldu.
+          success: Anket başarıyla yanıtlandı.
