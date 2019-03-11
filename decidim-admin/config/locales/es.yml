@@ -70,7 +70,7 @@ es:
         success_color: Éxito
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
-        user_groups_enabled: Habilitar grupos de usuarios
+        user_groups_enabled: Habilitar grupos
         warning_color: Advertencia
         youtube_handler: Nombre de YouTube
       scope:
@@ -98,7 +98,7 @@ es:
         title: Título
         weight: Peso
       user_group_csv_verification:
-        file: Expediente
+        file: Archivo
     errors:
       models:
         oauth_application:
