@@ -71,9 +71,9 @@ ca:
             title: Ja has respost
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
-            title: S'ha tancat el qüestionari
+            title: S'ha tancat el formulari
           questionnaire_for_private_users:
-            body: El qüestionari només està disponible per a usuaris privats
-            title: S'ha tancat el qüestionari
+            body: El formulari només està disponible per a participants privades
+            title: S'ha tancat el formulari
           submit: Enviar respostes
           tos_agreement: En participar, acceptes els Termes i condicions d'ús
