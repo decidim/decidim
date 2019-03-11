@@ -63,15 +63,15 @@ ca:
           error: S'ha produït un error en publicar aquesta consulta.
           success: S'ha publicat la consulta amb èxit.
         destroy:
-          error: S'ha produït un problema en publicar aquesta consulta.
-          success: La consulta no s'ha publicat correctament.
+          error: S'ha produït un error en despublicar aquesta consulta.
+          success: La consulta s'ha despublicat correctament.
       consultation_results_publications:
         create:
           error: S'ha produït un error en publicar els resultats d'aquesta consulta.
           success: Els resultats de la consulta s'han publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar els resultats d'aquesta consulta.
-          success: Els resultats de la consulta no s'han publicat correctament.
+          error: S'ha produït un error en despublicar els resultats d'aquesta consulta.
+          success: Els resultats de la consulta s'han despublicat correctament.
       consultations:
         create:
           error: S'ha produït un error en crear una nova consulta.
@@ -129,8 +129,8 @@ ca:
           error: S'ha produït un error en publicar aquesta pregunta.
           success: La pregunta s'ha publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar aquesta pregunta.
-          success: Pregunta despublicada amb èxit.
+          error: S'ha produït un error en despublicar aquesta pregunta.
+          success: Pregunta despublicada correctament.
       questions:
         create:
           error: S'ha produït un error en crear una pregunta nova.
