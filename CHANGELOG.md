@@ -261,6 +261,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-meetings**: Filter meeting by end time instead of start time [\#4701](https://github.com/decidim/decidim/pull/4701)
 - **decidim-core**: MetricResolver filtering corrected comparison between symbol and string [\#4736](https://github.com/decidim/decidim/pull/4736)
 - **decidim-meetings**: Fix meeting questionnaire migration [\#4949](https://github.com/decidim/decidim/pull/4949/)
+- **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
 
 **Removed**:
 
