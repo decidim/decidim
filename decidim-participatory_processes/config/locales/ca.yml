@@ -240,7 +240,7 @@ ca:
       participatory_process_user_role:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
-        update: "%{user_name} ha canviat el rol de l'usuari %{resource_name} en el procés participatiu %{space_name}"
+        update: "%{user_name} ha canviat el rol de la participant %{resource_name} en el procés participatiu %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -303,7 +303,7 @@ ca:
         home:
           highlighted_processes:
             active_processes: Processos actius
-            active_step: Pas actiu
+            active_step: Fase activa
             more_information: Més informació
             participate: Participa
             see_all_processes: Veure tots els processos
@@ -354,7 +354,7 @@ ca:
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
-        orders_count: Vots
+        orders_count: Suports
         pages_count: Pàgines
         processes_count: Processos
         projects_count: Projectes
