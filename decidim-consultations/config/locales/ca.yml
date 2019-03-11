@@ -63,7 +63,7 @@ ca:
           error: S'ha produït un error en publicar aquesta consulta.
           success: S'ha publicat la consulta amb èxit.
         destroy:
-          error: S'ha produït un error en publicar aquesta consulta.
+          error: S'ha produït un problema en publicar aquesta consulta.
           success: La consulta no s'ha publicat correctament.
       consultation_results_publications:
         create:
