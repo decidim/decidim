@@ -6,7 +6,7 @@ cs:
       report:
         details: Další komentáře
       user:
-        about: O
+        about: O nás
         email: Váš email
         name: Vaše jméno
         nickname: Přezdívka
@@ -29,7 +29,7 @@ cs:
     attributes:
       decidim/user:
         current_password: Aktuální heslo
-        email: E-mailem
+        email: E-mai
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
