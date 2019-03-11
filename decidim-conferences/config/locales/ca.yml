@@ -224,11 +224,11 @@ ca:
           success: Col·laborador actualitzat correctament per a aquesta jornada.
       registration_type_publications:
         create:
-          error: S'ha produït un error en publicar aquest tipus de registre.
-          success: El tipus de registre s'ha publicat correctament.
-        destroy:
           error: S'ha produït un error en publicar aquest tipus d'inscripció.
-          success: El tipus de registre no s'ha publicat correctament.
+          success: El tipus d'inscripció s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha despublicat correctament.
       registration_types:
         create:
           error: S'ha produït un error en afegir un tipus de registre per a aquesta conferència.
