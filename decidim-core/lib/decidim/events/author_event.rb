@@ -28,10 +28,18 @@ module Decidim
           author_presenter&.profile_url.to_s
         end
 
-        def author_presenter
-          return unless author
+        def official?
+          resource.respond_to?(:official?) && resource.official?
+        end
 
-          @author_presenter ||= Decidim::UserPresenter.new(author)
+        def author_presenter
+          if official?
+            @author_presenter ||= "#{resource.class.parent}::OfficialAuthorPresenter".constantize.new
+          elsif resource.respond_to?(:user_group) && resource.user_group
+            @author_presenter ||= Decidim::UserGroupPresenter.new(resource.user_group)
+          elsif resource.respond_to?(:author) && resource.author
+            @author_presenter ||= Decidim::UserPresenter.new(resource.author)
+          end
         end
 
         def author

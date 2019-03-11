@@ -120,7 +120,7 @@ fr:
             email_intro: 'Bonjour, un nouveau débat «%{resource_title}» a été créé sur l''espace participatif %{space_title}, consultez-le et contribuez :'
             email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
             email_subject: Nouveau débat "%{resource_title}" sur %{space_title}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé sur <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: 'Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat "%{resource_title}", prenez-en connaissance et contribuez :'
             email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.

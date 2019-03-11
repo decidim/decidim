@@ -22,7 +22,7 @@ module Decidim
 
           @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
 
-          CreateDebate.call(@form) do
+          Admin::CreateDebate.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("debates.create.success", scope: "decidim.debates.admin")
               redirect_to debates_path
