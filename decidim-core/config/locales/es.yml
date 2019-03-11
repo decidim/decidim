@@ -107,7 +107,7 @@ es:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
-        create: "%{user_name} ha invitado a %{resource_name} a ser un usuario privado"
+        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privado"
         delete: "%{user_name} ha eliminado el usuario %{resource_name} como usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
