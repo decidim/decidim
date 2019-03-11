@@ -127,13 +127,13 @@ ca:
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha publicat cap iniciativa.
+          unearned_another: Aquesta participant encara no ha publicat cap iniciativa.
           unearned_own: Encara no has publicat cap iniciativa.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Una iniciativa és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte , canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
-          page: "<p>Una iniciativa és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>\n<p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>\n"
+          contextual: "<p>Una <strong>iniciativa</strong> és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte, canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
+          page: "<p>Una <strong>iniciativa</strong> és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>\n<p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>\n"
           title: Què són les iniciatives?
     initiatives:
       actions:
@@ -146,14 +146,14 @@ ca:
           info_initiative:
             created_at: Creat a
             description: Descripció
-            initiative_votes_count: Recompte de vots
+            initiative_votes_count: Recompte de signatures
             initiatives: Iniciatives
             state: Estat
         committee_requests:
           index:
             approve: Aprova
             confirm_revoke: Estàs segur?
-            invite_to_committee_help: Comparteix aquest enllaç per convidar altres usuaris al comitè de promoció
+            invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
             title: Membres del comitè
@@ -166,7 +166,7 @@ ca:
             confirm: Estàs segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
-            export_votes: Suports d'exportació
+            export_votes: Exportar signatures
             reject: Rebutja la iniciativa
             send_to_technical_validation: Enviar a la validació tècnica
             success: La iniciativa s'ha enviat a la validació tècnica
@@ -257,18 +257,18 @@ ca:
         fill_data:
           back: Enrere
           continue: Continua
-          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. En persona, en línia o una combinació de tots dos.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
+          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. En persona, en línia o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
           initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_scope: Selecciona un àmbit d'aplicació
         finish:
           back: Enrere
           back_to_initiatives: Tornar a iniciatives
-          callout_text: Felicitats! La teva iniciativa ciutadana s'ha creat correctament.
+          callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
           go_to_my_initiatives: Vés a les meves iniciatives
           more_information: "(Més informació)"
         finish_help:
-          access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de l'usuari.
+          access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de participant.
           help_for_organizations: Si ets una associació, hauràs de carregar les actes del consell d'administració de totes les organitzacions que formen la Comissió Promotora
           help_in_person_signatures: Si has triat cobrar les signatures presencials o combinar-les en línia, hauràs de carregar la informació requerida.
           help_text: Recorda que per processar correctament la iniciativa, has d'accedir al panell d'administració on trobaràs el menú d'usuari, carregar la informació requerida i enviar-la per processar-la.
