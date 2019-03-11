@@ -463,7 +463,7 @@ ca:
         back: Enrere
         fill_personal_data: Completa les teves dades
         finish: Finalitzar
-        finished: S'ha creat la signatura d'iniciativa
+        finished: La iniciativa s'ha signat correctament
         select_identity: Selecciona identitat
         see_steps: vegeu els passos
         sms_code: Verificació per codi SMS
