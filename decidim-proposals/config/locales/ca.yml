@@ -94,7 +94,7 @@ ca:
             proposal_answering_enabled: Activar resposta oficial a propostes
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_length: Longitud màxima del cos de la proposta
-            proposal_limit: Límit de propostes per usuari
+            proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
             proposal_wizard_step_3_help_text: Text d'ajuda al pas de "completar" propostes
@@ -535,7 +535,7 @@ ca:
           published: Publicat
           withdrawn: Retirat
         update:
-          error: Hi ha hagut errors en desar l'esborrany col·laboratiu.
+          error: S'ha produït un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
         wizard_aside:
           back: Tornar
@@ -685,7 +685,7 @@ ca:
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
-          withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
+          withdraw_confirmation: Segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_category}</u> per un administrador)"
@@ -702,14 +702,14 @@ ca:
             one: SUPORT
             other: SUPORTS
           most_popular_proposal: Proposta més popular
-          need_more_votes: Necessita més vots
+          need_more_votes: Necessita més suports
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
             description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
-            supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
+            supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per a que els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
@@ -737,7 +737,7 @@ ca:
         success: La proposta s'ha actualitzat correctament.
       update_draft:
         error: Hi ha hagut errors en desar l'esborrany de la proposta.
-        success: El projecte de proposta s'ha actualitzat correctament.
+        success: L'esborrany col·laboratiu s'ha actualitzat correctament.
       versions:
         changes_at_title: Canvis a "%{title}"
         index:
