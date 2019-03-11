@@ -51,7 +51,7 @@ ca:
             name: Element
         results:
           create:
-            invalid: Hi ha hagut un problema en crear aquest resultat
+            invalid: S'ha produït un error en crear aquest resultat
             success: El resultat ha estat creat correctament
           destroy:
             success: El resultat ha estat eliminat correctament
