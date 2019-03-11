@@ -292,16 +292,16 @@ es:
           error: Se ha producido un error al cerrar la sesión actual de gestión de participantes.
           success: Se ha finalizado con éxito la sesión de suplantación actual.
         create:
-          error: Se ha producido un error al promocionar el usuario gestionado.
-          success: El usuario gestionado se ha creado correctamente.
+          error: Se ha producido un error en la gestión de la participante.
+          success: La participante gestionada se ha creado correctamente.
         form:
           authorization_method: Método de autorización
           name: Nombre
           reason: Razón
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
-          impersonate_existing_user: Impersonar usuario "%{name}"
+          impersonate_existing_managed_user: Gestionar participante "%{name}"
+          impersonate_existing_user: Gestionar participante "%{name}"
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
       logs:
         logs_list:
