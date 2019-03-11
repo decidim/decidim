@@ -177,21 +177,21 @@ ca:
           success: La fase de procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: L'usuari s'ha afegit amb èxit a aquest procés participatiu.
+          error: S'ha produït un error en afegir una administradora a aquest procés participatiu.
+          success: L'administradora s'ha afegit correctament a aquest procés participatiu.
         destroy:
-          success: L'usuari s'ha eliminat correctament d'aquest procés participatiu.
+          success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Editar usuari de procés participatiu.
+          title: Editar administradora de procés participatiu.
           update: Actualitzar
         index:
-          process_admins_title: Usuaris del procés participatiu
+          process_admins_title: Administradores del procés participatiu
         new:
           create: Crear
-          title: Nou usuari de procés participatiu.
+          title: Nova administradora de procés participatiu.
         update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquest procés participatiu.
-          success: Usuari actualitzat satisfactòriament per a aquest procés participatiu.
+          error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
+          success: Administradora actualitzada correctament per a aquest procés participatiu.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
@@ -209,23 +209,23 @@ ca:
           create: Crear
           title: Nou procés participatiu
         update:
-          error: S'ha produït un error en l'actualització d'aquest procés participatiu.
+          error: S'ha produït un error en actualitzar aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
       participatory_processes_copies:
         create:
-          error: Hi ha hagut un error duplicant el procés participatiu.
+          error: S'ha produït un error en duplicar el procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:
-          error: S'ha produït un error creant aquest grup de processos participatius.
+          error: S'ha produït un error en crear aquest grup de processos participatius.
           success: Grup de processos participatius creat correctament.
       titles:
         participatory_process_groups: Grups de processos participatius
         participatory_processes: Processos participatius
       users:
         resend_invitation:
-          error: Hi ha hagut un error reenviant la invitació.
-          success: Invitació reenviada amb èxit.
+          error: S'ha produït un error en reenviar la invitació.
+          success: Invitació reenviada correctament.
     admin_log:
       participatory_process:
         create: "%{user_name} ha creat el procés participatiu %{resource_name}"
@@ -238,8 +238,8 @@ ca:
         delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
         update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} ha convidat l'usuari %{resource_name} al procés participatiu %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} del procés participatiu %{space_name}"
+        create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
         update: "%{user_name} ha canviat el rol de l'usuari %{resource_name} en el procés participatiu %{space_name}"
     events:
       participatory_process:
