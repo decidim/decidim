@@ -58,21 +58,21 @@ ca:
           title: Conferència duplicada
       conference_publications:
         create:
-          error: S'ha produït un error en publicar aquesta conferència.
-          success: La conferència s'ha publicat correctament.
+          error: S'ha produït un error en publicar aquesta jornada.
+          success: La jornada s'ha publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar aquesta conferència.
-          success: La conferència no s'ha publicat correctament.
+          error: S'ha produït un error en publicar aquesta jornada.
+          success: La jornada s'ha despublicat correctament.
       conference_registration:
         confirm:
-          error: S'ha produït un error en confirmar aquest registre de la conferència.
-          success: El registre de la conferència s'ha confirmat amb èxit.
+          error: S'ha produït un error en confirmar aquesta inscripció a la jornada.
+          success: La inscripció a la jornada s'ha confirmat correctament.
       conference_speakers:
         create:
-          error: S'ha produït un error en afegir un ponent per a aquesta conferència.
-          success: Ponent creat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en afegir una ponent per a aquesta jornada.
+          success: Ponent creada correctament per a aquesta jornada.
         destroy:
-          success: El ponent s'ha eliminat correctament per a aquesta conferència.
+          success: La ponent s'ha eliminat correctament per a aquesta jornada.
         edit:
           title: Actualitza el ponent de la conferència.
           update: Actualitzar
@@ -82,16 +82,16 @@ ca:
           create: Crear
           title: Nou ponent de la conferència.
         update:
-          error: S'ha produït un error en actualitzar el ponent d'aquesta conferència.
-          success: Ponent actualitzat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en actualitzar la ponent d'aquesta jornada.
+          success: Ponent actualitzada correctament per a aquesta jornada.
       conference_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari a aquesta conferència.
-          success: L'usuari s'ha afegit amb èxit a aquesta conferència.
+          error: S'ha produït un error en afegir una administradora a aquesta jornada.
+          success: L'administradora s'ha afegit correctament a aquesta jornada.
         destroy:
-          success: L'usuari s'ha eliminat correctament d'aquesta conferència.
+          success: L'administradora s'ha eliminat correctament d'aquesta jornada.
         edit:
-          title: Actualitza l'usuari de la conferència.
+          title: Actualitzar l'administradora de la jornada.
           update: Actualitzar
         index:
           conference_admins_title: usuaris de conferències
