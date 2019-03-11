@@ -18,7 +18,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 
 - **Bump Ruby version**: As per [\#4927](https://github.com/decidim/decidim/pull/4927) we've bumped the minimum Ruby version to 2.5.x. Check you're running a suitable Ruby version.
 
-- **User follow counters**: After running the migrations, please run this code from a console:
+- **User follow counters**: If you're upgrading from 0.15 please run this code from a console after running the migrations:
 
 ```ruby
 Decidim::UserBaseEntity.find_each do |entity|
