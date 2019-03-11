@@ -94,17 +94,17 @@ ca:
           title: Actualitzar l'administradora de la jornada.
           update: Actualitzar
         index:
-          conference_admins_title: usuaris de conferències
+          conference_admins_title: administradores de jornada
         new:
           create: Crear
-          title: Nou usuari de la conferència.
+          title: Nova administradora de jornada.
         update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquesta conferència.
-          success: L'usuari s'ha actualitzat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en actualitzar una administradora per a aquesta jornada.
+          success: L'administradora s'ha actualitzat correctament per a aquesta jornada.
       conferences:
         create:
-          error: S'ha produït un error en crear una nova conferència.
-          success: La conferència s'ha creat correctament.
+          error: S'ha produït un error en crear una nova jornada.
+          success: La jornada s'ha creat correctament.
         edit:
           update: Actualitzar
         exports:
@@ -118,18 +118,18 @@ ca:
           create: Crear
           title: Conferència
         update:
-          error: S'ha produït un error en actualitzar aquesta conferència.
-          success: S'ha actualitzat la conferència amb èxit.
+          error: S'ha produït un error en actualitzar aquesta jornada.
+          success: S'ha actualitzat la jornada correctament.
       conferences_copies:
         create:
-          error: S'ha produït un error en duplicar aquesta conferència.
-          success: La conferència s'ha duplicat correctament.
+          error: S'ha produït un error en duplicar aquesta jornada.
+          success: La jornada s'ha duplicat correctament.
       media_links:
         create:
           error: S'ha produït un error en crear un nou enllaç multimèdia.
           success: Enllaç multimèdia creat correctament.
         destroy:
-          success: S'ha eliminat correctament l'enllaç de multimèdia.
+          success: S'ha eliminat correctament l'enllaç multimèdia.
         edit:
           title: Actualitza l'enllaç multimèdia.
           update: Actualitzar
@@ -178,7 +178,7 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de la conferència
+          name: Administradora de conferència
           roles:
             admin: Administrador
             collaborator: Col·laborador
