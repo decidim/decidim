@@ -387,14 +387,14 @@ ca:
           pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de ser confirmada.
       conference_registrations:
         create:
-          invalid: Hi ha hagut un problema en inscriure't a aquesta conferència.
-          success: T'has inscrit a la conferència amb èxit.
+          invalid: S'ha produït un error en inscriure't a aquesta jornada.
+          success: T'has inscrit a la jornada correctament.
         decline_invitation:
-          invalid: Hi ha hagut un problema al rebutjar la invitació.
-          success: Has rebutjat la invitació amb èxit.
+          invalid: S'ha produït un error en rebutjar la invitació.
+          success: Has rebutjat la invitació correctament.
         destroy:
-          invalid: Hi ha hagut un problema en abandonar aquesta conferència.
-          success: Heu abandonat la conferència amb èxit.
+          invalid: S'ha produït un error en abandonar aquesta jornada.
+          success: Has abandonat la jornada correctament.
       conference_speaker:
         go_to_twitter: Anar a Twitter
         more_info: més informació
@@ -427,13 +427,13 @@ ca:
           confirmation:
             subject: S'ha confirmat la teva inscripció a la conferència
           pending_validation:
-            subject: La teva inscripció a la conferència està pendent de confirmació
+            subject: La teva inscripció a la jornada està pendent de confirmació
         invite_join_conference_mailer:
           invite:
             subject: Invitació per participar a una conferència
         send_conference_diploma_mailer:
           diploma:
-            subject: S'ha enviat el certificat d'assistència de la vostra conferència
+            subject: S'ha enviat el teu certificat d'assistència a la jornada
       models:
         conference_invite:
           fields:
@@ -463,10 +463,10 @@ ca:
       photo:
         show:
           close_modal: Tanca el modal
-          photo: Foto
+          photo: Imatge
       photos_list:
         show:
-          related_photos: Fotografies
+          related_photos: Imatges
       registration_types:
         index:
           choose_an_option: 'Trieu l''opció de registre:'
@@ -494,7 +494,7 @@ ca:
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades
-        orders_count: Vots
+        orders_count: Suports
         pages_count: Pàgines
         posts_count: Publicacions
         projects_count: Projectes
@@ -502,7 +502,7 @@ ca:
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Vots
+        votes_count: Suports
     events:
       conferences:
         conference_registration_validation_pending:
