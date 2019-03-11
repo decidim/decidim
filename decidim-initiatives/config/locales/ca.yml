@@ -4,7 +4,7 @@ ca:
       initiative:
         decidim_user_group_id: Autor
         description: Descripció
-        offline_votes: Suports presencials
+        offline_votes: Signatures presencials
         scope_id: Abast
         signature_end_date: Fi del període de recollida de signatures
         signature_start_date: Inici del període de recollida de signatures
@@ -27,20 +27,20 @@ ca:
         user: Membre del comitè
       initiatives_type:
         banner_image: Imatge del bàner
-        collect_user_extra_fields: Recopila les dades personals de l'usuari amb la signatura
+        collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
         description: Descripció
-        document_number_authorization_handler: Autorització per verificar el número de document en els vots
+        document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Mínim de membres de la comissió
-        online_signature_enabled: S'ha activat la signatura en línia
+        online_signature_enabled: S'ha activat la signatura digital
         title: Títol
-        undo_online_signatures_enabled: Permetre als usuaris desfer les seves signatures en línia
+        undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
       initiatives_vote:
         name_and_surname: Nom i cognom
-        document_number: Número de Document
+        document_number: Número de document
         date_of_birth: Data de naixement
-        postal_code: Codi Postal
+        postal_code: Codi postal
       organization_data:
         address: Adreça
         id_document: Document d'identificació
@@ -74,7 +74,7 @@ ca:
         initiatives_type_scope:
           fields:
             scope: Abast
-            supports_required: Suports requerits
+            supports_required: Signatures requerides
           name: Àmbit del tipus d'iniciativa
         initiatives_types:
           fields:
@@ -84,7 +84,7 @@ ca:
         initiatives_votes:
           fields:
             date_of_birth: Data de naixement
-            document_number: Número de Document
+            document_number: Número de document
             hash: Hash
             initiative_end_date: Data de finalització
             initiative_id: Identificador de la iniciativa
@@ -92,7 +92,7 @@ ca:
             initiative_start_date: Data d'inici
             initiative_title: Títol de la iniciativa
             name_and_surname: Nom i cognom
-            postal_code: Codi Postal
+            postal_code: Codi postal
             time_and_date: Hora i data
             timestamp: Marca de temps
       titles:
@@ -123,7 +123,7 @@ ca:
             - Anar a Inciatives
             - Segueix els passos per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
-          description_another: Aquest usuari ha publicat %{score} iniciatives.
+          description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
