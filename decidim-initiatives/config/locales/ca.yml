@@ -285,7 +285,7 @@ ca:
           more_information: "(Més informació)"
         select_initiative_type:
           back: Enrere
-          choose_html: Vull crear un <strong>%{title}</strong>
+          choose_html: Vull <strong>%{title}</strong>
           more_information: "(Més informació)"
           select: Vull promoure aquesta iniciativa
           select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general que es troben dins dels àmbits de la jurisdicció municipal. Quina iniciativa vols llançar?
@@ -294,7 +294,7 @@ ca:
           invite_to_committee_help: Enllaç per convidar persones que formaran part del comitè promotor
         show_similar_initiatives:
           back: Enrere
-          compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats de fer-se.
+          compare_help: Si alguna de les següents iniciatives és similar a la teva, t'animem a que la signis. La teva proposta tindrà més possibilitats de portar-se a terme.
           continue: La meva iniciativa és diferent
           more_information: "(Més informació)"
       events:
@@ -328,7 +328,7 @@ ca:
           help: Consulteu els SMS rebuts del vostre telèfon mòbil
       initiative_votes:
         create:
-          error: Hi ha hagut errors en signar la iniciativa.
+          error: S'ha produït un error en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides
           success_html: Enhorabona! La iniciativa <strong> %{title}</strong> s'ha signat correctament
         personal_data:
@@ -384,13 +384,13 @@ ca:
             published: Aquesta proposta es publica perquè
             rejected: Aquesta proposta ha estat rebutjada perquè
             validating: S'està avaluant aquesta proposta
-          initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de suports.
+          initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de signatures.
         show:
-          any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
-          follow_description: Rebeu una notificació quan hi hagi notícies en aquesta iniciativa
+          any_vote_method: Aquesta iniciativa ciutadana recull signatures tant digitals com presencials.
+          follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
           offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
         signature_identities:
-          select_identity: Selecciona l'identificador d'usuari
+          select_identity: Selecciona l'identificador de la participant
         signatures_count:
           one: " signatura"
           other: " signatures"
@@ -399,7 +399,7 @@ ca:
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "%{total_supports} suports obligatoris"
-          verification_required: Verifiqueu el vostre compte per a signar la iniciativa
+          verification_required: Verifica el teu compte per a signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -407,7 +407,7 @@ ca:
             one: SIGNATURA
             other: SIGNATURES
           most_popular_initiative: Iniciativa més popular
-          need_more_votes: Necessiteu més signatures
+          need_more_votes: Necessita més signatures
       initiatives_mailer:
         creation_subject: S'ha creat la teva iniciativa ciutadana '%{title}'
         initiative_link:
