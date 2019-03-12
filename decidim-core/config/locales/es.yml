@@ -30,7 +30,7 @@ es:
       decidim/user:
         current_password: Contraseña actual
         email: Correo electrónico
-        name: Nombre de usuario
+        name: Alias
         password: Contraseña
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
@@ -42,8 +42,8 @@ es:
         one: No hay usuarios
         other: Participantes
       decidim/user_group:
-        one: Grupo de usuarios
-        other: Grupos de usuarios
+        one: Grupo
+        other: Grupos
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -63,7 +63,7 @@ es:
         file_no_exists: El archivo no existe
         invalid_token: El token proporcionado no es válido.
         no_token: No se proporciona token
-        notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
+        notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
@@ -107,7 +107,7 @@ es:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
-        create: "%{user_name} ha invitado a %{resource_name} a ser un usuario privado"
+        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privado"
         delete: "%{user_name} ha eliminado el usuario %{resource_name} como usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
