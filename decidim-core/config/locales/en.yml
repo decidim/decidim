@@ -171,12 +171,12 @@ en:
         heading: Create your amendment
         help_text: You are modifying the %{model_name}
         send: Send amendment
+      promoted:
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
       rejected:
         error: An error ocurred when rejecting this emendation, please try again later
         success: The emendation has been rejected successfully
-      promoted:
-        success: Emendation promoted successfully
-        error: There's been errors when promoting the emendation
       review:
         back: Back
         heading: Review the amendment
