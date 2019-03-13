@@ -376,7 +376,7 @@ ca:
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:
-          name: Participant privada de l'espai de participació
+          name: Usuari privat de l'espai de participació
         scope:
           fields:
             name: Nom
