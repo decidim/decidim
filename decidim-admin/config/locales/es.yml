@@ -70,7 +70,7 @@ es:
         success_color: Éxito
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
-        user_groups_enabled: Habilitar grupos de usuarios
+        user_groups_enabled: Habilitar grupos
         warning_color: Advertencia
         youtube_handler: Nombre de YouTube
       scope:
@@ -98,7 +98,7 @@ es:
         title: Título
         weight: Peso
       user_group_csv_verification:
-        file: Expediente
+        file: Archivo
     errors:
       models:
         oauth_application:
@@ -138,7 +138,7 @@ es:
         verify: Verificar
       area_types:
         create:
-          error: Hubo un error al crear un nuevo tipo de área.
+          error: Se ha producido un error al crear un nuevo tipo de área.
           success: Tipo de área creada con éxito.
         destroy:
           success: Tipo de área destruido con éxito
@@ -149,11 +149,11 @@ es:
           create: Crear tipo de área
           title: Nuevo tipo de área
         update:
-          error: Hubo un error al actualizar este tipo de área.
+          error: Se ha producido un error al actualizar este tipo de área.
           success: Tipo de área actualizado con éxito
       areas:
         create:
-          error: Hubo un error al crear una nueva área.
+          error: Se ha producido un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
           success: Área destruida correctamente
@@ -165,7 +165,7 @@ es:
           title: Nueva área
         no_areas: Sin áreas
         update:
-          error: Hubo un error al actualizar esta área.
+          error: Se ha producido un error al actualizar esta área.
           success: Área actualizada correctamente
       attachment_collections:
         create:
@@ -210,7 +210,7 @@ es:
           error: Se ha producido un error al crear esta categoría.
           success: Categoría creada correctamente.
         destroy:
-          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelva a intentarlo.
+          error: Se ha producido un error al eliminar esta categoría. Por favor, elimina cualquier subcategoría en primer lugar, asegúrate de que ninguna otra entidad pertenece a esta categoría y vuelve a intentarlo.
           success: Categoría eliminada correctamente.
         edit:
           title: Editar categoría
@@ -229,10 +229,10 @@ es:
           success: Permisos actualizados con éxito.
       components:
         create:
-          error: Hubo un error al crear este componente.
+          error: Se ha producido un error al crear este componente.
           success: Componente creado con éxito.
         destroy:
-          error: Ha habido un error al eliminar este componente.
+          error: Se ha producido un error al eliminar este componente.
           success: Componente borrado con éxito.
         edit:
           title: Editar componente
@@ -278,7 +278,7 @@ es:
             not_managed: No gestionado
           filter_by: Filtrado por
           impersonate: Suplantar
-          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+          impersonate_new_managed_user: Gestionar una nueva participante
           managed: Administrado
           name: Nombre
           needs_authorization_warning: Necesita al menos una autorización habilitada para esta organización.
@@ -289,19 +289,19 @@ es:
           view_logs: Ver los registros
       impersonations:
         close_session:
-          error: Se ha producido un error al cerrar la sesión de suplantación actual.
+          error: Se ha producido un error al cerrar la sesión actual de gestión de participantes.
           success: Se ha finalizado con éxito la sesión de suplantación actual.
         create:
-          error: Se ha producido un error al promocionar el usuario gestionado.
-          success: El usuario gestionado se ha creado correctamente.
+          error: Se ha producido un error en la gestión de la participante.
+          success: La participante gestionada se ha creado correctamente.
         form:
           authorization_method: Método de autorización
           name: Nombre
           reason: Razón
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
-          impersonate_existing_user: Impersonar usuario "%{name}"
+          impersonate_existing_managed_user: Gestionar participante "%{name}"
+          impersonate_existing_user: Gestionar participante "%{name}"
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
       logs:
         logs_list:

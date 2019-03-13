@@ -16,8 +16,24 @@ to
 ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |name, started, finished, unique_id, data|
 ```
 
-
 - **Bump Ruby version**: As per [\#4927](https://github.com/decidim/decidim/pull/4927) we've bumped the minimum Ruby version to 2.5.x. Check you're running a suitable Ruby version.
+
+- **User follow counters**: If you're upgrading from 0.15 please run this code from a console after running the migrations:
+
+```ruby
+Decidim::UserBaseEntity.find_each do |entity|
+  follower_count = Decidim::Follow.where(followable: entity).count
+  following_count = Decidim::Follow.where(decidim_user_id: entity.id).count
+  following_users_count = Decidim::Follow.where(decidim_user_id: entity.id, decidim_followable_type: ["Decidim::UserBaseEntity", "Decidim::User", "Decidim::UserGroup"]).count
+
+  # We use `update_columns` to skip Searchable callbacks
+  entity.update_columns(
+    followers_count: follower_count,
+    following_count: following_count,
+    following_users_count: following_users_count
+  )
+end
+```
 
 **Added**:
 
@@ -142,6 +158,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 - **decidim-comments**: Fix comments on IE11 [\#4946](https://github.com/decidim/decidim/pull/4946)
 - **decidim-surveys**: Ensure the user has authorization to render the survey [\#4943](https://github.com/decidim/decidim/pull/4943)
 - **decidim-meetings**: Fix meeting questionnaire migration [\#4950](https://github.com/decidim/decidim/pull/4950/)
+- **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
 
 **Removed**:
 
