@@ -227,32 +227,32 @@ sv:
       show:
         expired:
           authorize: Återauktorisera med "%{authorization}"
-          explanation: Ditt auktorisering har löpt ut. För att kunna utföra den här åtgärden måste du bli återauktoriserad med "%{authorization}".
-          title: Auktoriseringen har löpt ut
+          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          title: Godkännandet har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du återauktorisera dig eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: Återauktorisera
-          title: Vänligen återauktorisera
+          reauthorize: Omauktorisera
+          title: Vänligen omauktorisera
         missing:
-          authorize: Auktorisera med "%{authorization}"
-          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
-          title: Auktorisering krävs
+          authorize: Godkänn med "%{authorization}"
+          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
+          title: Godkännande krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering är fortfarande på gång
-          resume: Kolla hur din "%{authorization}" auktorisering avancerar
-          title: Auktoriseringen är fortfarande på gång
+          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
+          resume: Kolla din "%{authorization}" auktoriseringsprocess
+          title: Godkännandet är fortfarande på gång
         unauthorized:
-          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
-          invalid_field: "%{field} värdet %{value} är inte giltigt."
-          ok: OK
-          title: Ej auktoriserad
+          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          invalid_field: "%{field} värde %{value} är inte giltigt."
+          ok: Okej
+          title: Inte behörig
         unconfirmed:
-          confirmation_instructions: 'Om du inte har fått bekräftelseanvisningar kan du begära dem igen:'
-          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
+          confirmation_instructions: 'Om du inte har fått bekräftelsesinstruktionerna kan du begära dem igen:'
+          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad innan du gör det måste du bekräfta ditt mail <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
-          title: Bekräfta din e-postadress
+          title: bekräfta din email
     collapsible_list:
       hidden_elements_count:
         one: och %{count} mer

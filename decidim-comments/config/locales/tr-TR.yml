@@ -18,6 +18,9 @@ tr:
       comments: Yorumlar
       last_activity:
         new_comment_at_html: "<span> %{link}</span>yeni yorum"
+      votes:
+        create:
+          error: Gönderi kaydedilirken hatalar oluştu.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Yorumunuzu eklemek için</a> veya <a href="%{sign_up_url}">hesabınızla giriş yapın</a>.
@@ -38,6 +41,7 @@ tr:
         alignment:
           against: Karşısında
           in_favor: Lehine
+        deleted_user: Silinmiş kullanıcı
         reply: cevap
         report:
           action: Rapor
@@ -87,6 +91,7 @@ tr:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tarafından <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Kullanıcılar tarafından oluşturulan Yorum Sayısı
         object: yorumlar
         title: Yorumlar
   errors:

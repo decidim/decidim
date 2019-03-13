@@ -119,6 +119,28 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
 
+### Upgrade notes
+
+#### User follow counters
+After running the migrations, please run this code from a console:
+
+```ruby
+Decidim::UserBaseEntity.find_each do |entity|
+  follower_count = Decidim::Follow.where(followable: entity).count
+  following_count = Decidim::Follow.where(decidim_user_id: entity.id).count
+  following_users_count = Decidim::Follow.where(decidim_user_id: entity.id, decidim_followable_type: ["Decidim::UserBaseEntity", "Decidim::User", "Decidim::UserGroup"]).count
+
+  # We use `update_columns` to skip Searchable callbacks
+  entity.update_columns(
+    followers_count: follower_count,
+    following_count: following_count,
+    following_users_count: following_users_count
+  )
+end
+```
+
+### Changes
+
 **Added**:
 
 - **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4817](https://github.com/decidim/decidim/pull/4817)
@@ -765,6 +787,10 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Fix background-size on home page [\#4678](https://github.com/decidim/decidim/pull/4678)
 - **decidim-meetings**: Filter meeting by end time instead of start time [\#4701](https://github.com/decidim/decidim/pull/4701)
 - **decidim-core**: MetricResolver filtering corrected comparison between symbol and string [\#4736](https://github.com/decidim/decidim/pull/4736)
+- **decidim-meetings**: Fix meeting questionnaire migration [\#4949](https://github.com/decidim/decidim/pull/4949/)
+- **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
+- **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4963](https://github.com/decidim/decidim/pull/4963/)
+- **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4962](https://github.com/decidim/decidim/pull/4962/)
 
 **Removed**:
 

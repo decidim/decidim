@@ -230,7 +230,7 @@ de:
           explanation: Ihre Autorisierung ist abgelaufen. Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" erneut autorisiert werden.
           title: Die Autorisierung ist abgelaufen
         incomplete:
-          cancel: Abbrechen
+          cancel: Stornieren
           explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
           invalid_field: "%{field}"
           reauthorize: Erneut autorisieren
@@ -246,7 +246,7 @@ de:
         unauthorized:
           explanation: Leider können Sie diese Aktion nicht ausführen, da einige Ihrer Autorisierungsdaten nicht übereinstimmen.
           invalid_field: "%{field} Wert %{value} ist nicht gültig."
-          ok: Ok
+          ok: OK
           title: Nicht berechtigt
         unconfirmed:
           confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'

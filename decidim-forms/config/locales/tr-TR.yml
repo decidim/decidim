@@ -33,6 +33,7 @@ tr:
             title: Başlık
           form:
             add_question: Soru ekle
+            already_answered_warning: Anket bazı kullanıcılar tarafından zaten yanıtlanmıştır, bu nedenden dolayı sorularını değiştiremezsiniz.
           question:
             add_answer_option: Cevap seçeneği ekle
             any: herhangi
@@ -42,6 +43,9 @@ tr:
             remove: Kaldır
             statement: Beyan
             up: yukarı
+          update:
+            invalid: Anketi kaydederken hatalar oluştu.
+            success: Ayarlar başarıyla kaydedildi
       errors:
         answer:
           body: Vücut boş olamaz
@@ -52,11 +56,24 @@ tr:
         single_option: Tek seçenek
         sorting: sınıflandırma
       questionnaires:
+        answer:
+          invalid: Anketi cevaplarken hatalar oldu.
+          success: Anket başarıyla cevaplandı.
         question:
           max_choices: 'Maksimum seçenek: %{n}'
         show:
+          answer_questionnaire:
+            anonymous_user_message: Anketi cevaplamak için <a href="%{sign_in_link}">Hesabınızla giriş yapın</a>yada<a href="%{sign_up_link}">Kaydol</a>
+            title: Anketi cevapla
           are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
           questionnaire_answered:
+            body: Bu anketi zaten cevapladınız.
             title: Zaten cevaplandı
+          questionnaire_closed:
+            body: Anket kapandığı için cevaplayamazsınız.
+            title: Anket kapatıldı
+          questionnaire_for_private_users:
+            body: Anket sadece özel kullanıcılar için kullanılabilir.
+            title: Anket kapatıldı
           submit: Gönder
           tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
