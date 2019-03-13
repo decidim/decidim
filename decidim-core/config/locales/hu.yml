@@ -30,7 +30,7 @@ hu:
       decidim/user:
         current_password: Jelenlegi jelszó
         email: Email
-        name: Felhasználónév
+        name: Becenév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
