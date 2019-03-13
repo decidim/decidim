@@ -408,7 +408,7 @@ es:
             name: Nombre
             phone: Teléfono
             state: Estado
-            users_count: Número de usuarios
+            users_count: Número de participantes
       moderations:
         index:
           title: Moderaciones
