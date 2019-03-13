@@ -9,6 +9,7 @@ module Decidim
       attribute :body, String
 
       validates :body, presence: true
+      validates :body, length: { maximum: 1_000 }
     end
   end
 end
