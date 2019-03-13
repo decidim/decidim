@@ -216,27 +216,53 @@ shared_examples "comments" do
     end
   end
 
-  context "when participatory space is private and user is not allowed to comment" do
+  context "when participatory space is private" do
     before do
       component.participatory_space.private_space = true
       login_as user, scope: :user
-      visit resource_path
     end
 
-    it "not shows the form to add comments to user" do
-      expect(page).to have_no_selector(".add-comment form")
+    context "when user want to create a comment" do
+      it "shows the form to add comments or not" do
+        visit resource_path
+
+        if commentable.user_allowed_to_comment?(user)
+          expect(page).to have_selector(".add-comment form")
+        else
+          expect(page).to have_no_selector(".add-comment form")
+        end
+      end
     end
 
-    it "not shows reply to the user" do
-      expect(page).to have_no_selector(".comment__reply")
+    context "when a user replies to a comment", :slow do
+      let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+      let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
+
+      it "shows reply to the user or not" do
+        visit resource_path
+
+        if commentable.user_allowed_to_comment?(user)
+          expect(page).to have_selector(".comment__reply")
+        else
+          expect(page).to have_no_selector(".comment__reply")
+        end
+      end
     end
 
-    it "expexts page not to have upvote selector" do
-      expect(page).to have_no_selector(".comment__votes--up", text: /0/)
-    end
 
-    it "expexts page not to have downvote selector" do
-      expect(page).to have_no_selector(".comment__votes--down", text: /0/)
+    context "when a user votes to a comment" do
+      before do
+        visit resource_path
+      end
+      it "shows the vote block or not" do
+        if commentable.user_allowed_to_comment?(user)
+          expect(page).to have_selector(".comment__votes--up")
+          expect(page).to have_selector(".comment__votes--down")
+        else
+          expect(page).to have_no_selector(".comment__votes--up")
+          expect(page).to have_no_selector(".comment__votes--down")
+        end
+      end
     end
   end
 end
