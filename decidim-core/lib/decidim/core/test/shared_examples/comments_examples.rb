@@ -215,4 +215,28 @@ shared_examples "comments" do
       end
     end
   end
+
+  context "when participatory space is private and user is not allowed to comment" do
+    before do
+      component.participatory_space.private_space = true
+      login_as user, scope: :user
+      visit resource_path
+    end
+
+    it "not shows the form to add comments to user" do
+      expect(page).to have_no_selector(".add-comment form")
+    end
+
+    it "not shows reply to the user" do
+      expect(page).to have_no_selector(".comment__reply")
+    end
+
+    it "expexts page not to have upvote selector" do
+      expect(page).to have_no_selector(".comment__votes--up", text: /0/)
+    end
+
+    it "expexts page not to have downvote selector" do
+      expect(page).to have_no_selector(".comment__votes--down", text: /0/)
+    end
+  end
 end
