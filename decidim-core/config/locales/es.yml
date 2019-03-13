@@ -123,20 +123,20 @@ es:
       user:
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
-        remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
+        remove_from_admin: "%{user_name} eliminó a la participante %{resource_name} con el rol: %{role}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
-        reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
-        verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
-        verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
+        reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
+        verify: "%{user_name} verificado el grupo %{resource_name}"
+        verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
     amendments:
       accepted:
         error: Se ha producido un error al aceptar la enmienda. Inténtalo de nuevo más tarde.
-        success: Esta enmienda ha sido aceptada con éxito.
+        success: Esta enmienda ha sido aceptada correctamente.
       amendable:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
-        promote_button: Promocionar a %{model_name}
+        promote_button: Publicar como una nueva %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
@@ -144,7 +144,7 @@ es:
         no_amendments: No hay enmiendas
         section_heading: Enmiendas (%{count})
       created:
-        error: Se ha producido un error creando esta enmienda, inténtalo de nuevo más tarde
+        error: Se ha producido un error al crear esta enmienda, por favor inténtalo de nuevo más tarde
         success: La enmienda se ha creado correctamente
       emendation:
         actions:
@@ -154,16 +154,15 @@ es:
         announcement:
           accepted: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido
-            aceptada en <strong>%{announcement_date}</strong>.
+            aceptada el <strong>%{announcement_date}</strong>.
           evaluating: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             está siendo evaluada.
           rejected: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link}
-            fue rechazada en <strong>%{announcement_date}</strong>.
+            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido rechazada el <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
-            ha sido retirada por el autor.
+            ha sido retirada por su autora.
       new:
         amendment_author: Autor de la enmienda
         back: Volver
@@ -171,10 +170,10 @@ es:
         help_text: Estás modificando el %{model_name}
         send: Enviar enmienda
       rejected:
-        error: Se ha producido un error al rechazar esta enmienda. Inténtalo de nuevo más tarde.
-        success: La enmienda ha sido rechazada con éxito.
+        error: Se ha producido un error al rechazar esta enmienda, por favor inténtalo de nuevo más tarde
+        success: La enmienda se ha rechazado correctamente
       promoted:
-        success: La enmienda se promociona con éxito.
+        success: La enmienda se ha publicado como una nueva propuesta correctamente
         error: Ha habido errores al promocionar la enmienda.
       review:
         back: Volver
