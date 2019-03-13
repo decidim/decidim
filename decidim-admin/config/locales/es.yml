@@ -302,14 +302,14 @@ es:
           impersonate: Suplantar
           impersonate_existing_managed_user: Gestionar participante "%{name}"
           impersonate_existing_user: Gestionar participante "%{name}"
-          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+          impersonate_new_managed_user: Gestionar nueva participante
       logs:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
         promotion:
-          error: Se ha producido un error al promocionar el usuario gestionado.
-          success: El usuario gestionado se ha promocionado correctamente.
+          error: Se ha producido un error al promocionar a esta participante.
+          success: La participante se ha promocionado correctamente.
         promotions:
           new:
             explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
