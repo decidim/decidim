@@ -132,7 +132,7 @@ hu:
     amendments:
       accepted:
         error: Hiba történt az átvétel elfogadásával, kérjük, próbálkozzon újra később.
-        success: Ezt a módosítást sikeresen elfogadták.
+        success: Ezt az módosító javaslatot sikeresen elfogadták.
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
@@ -144,7 +144,7 @@ hu:
         no_amendments: Nincsenek módosítások
         section_heading: Módosítások (%{count})
       created:
-        error: Hiba történt a módosítás létrehozásával, próbálkozzon később
+        error: Hiba történt a módosító javaslat létrehozásával, próbálkozz később
         success: A módosítás sikeresen megtörtént
       emendation:
         actions:
@@ -153,8 +153,8 @@ hu:
           help_text: Tekintse át a módosításokat, és fogadja el, vagy utasítsa el ezt a módosítást. Értesítést küld a szerző (k) nek.
         announcement:
           accepted: |-
-            Ez a módosítás a %{amendable_type} %{amendable_link} re
-            elfogadott <strong>%{announcement_date}</strong>.
+            A %{amendable_type} %{amendable_link}
+            re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
           evaluating: |-
             Ezt a %{amendable_type} %{amendable_link}
             módosítást értékelik.
@@ -174,7 +174,7 @@ hu:
         error: Az emelés elutasításakor hiba történt, próbálkozzon később
         success: Az emelést sikeresen elutasították
       promoted:
-        success: Az emelés sikeresen előmozdult
+        success: A módosító javaslat sikeresen megjelent új javaslatként
         error: Az emelés előmozdításakor hiba történt
       review:
         back: Vissza
@@ -318,7 +318,7 @@ hu:
           email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
           complete_profile: Profil kiegészítése
-          nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
+          nickname_help: A te aliasod (@nickname) ebben a szervezetben %{organization}
           sign_up: Töltsd ki a hiányzó adatokat
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
