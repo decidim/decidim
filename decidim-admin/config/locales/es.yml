@@ -467,9 +467,9 @@ es:
           success: Aplicación actualizada con éxito.
       officializations:
         create:
-          success: Usuario oficializado con éxito
+          success: Partcipante oficializada correctamente
         destroy:
-          success: Usuario des-oficializado con éxito
+          success: Participante des-oficializada correctamente
         index:
           actions: Acciones
           badge: Distintivo
