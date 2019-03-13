@@ -422,7 +422,7 @@ es:
           error: Se ha producido un error al crear este boletín.
           success: Boletín creado con éxito. Por favor, revíselo antes de enviarlo.
         deliver:
-          error: Ha habido un error de entrega de este boletín.
+          error: Se ha producido un error al entregar este boletín.
           success: Boletín enviado con éxito.
         destroy:
           error_already_sent: 'No se puede destruir el boletín de noticias: Ya se ha enviado.'
