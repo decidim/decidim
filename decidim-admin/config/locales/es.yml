@@ -312,8 +312,8 @@ es:
           success: La participante se ha promocionado correctamente.
         promotions:
           new:
-            explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
-            new_managed_user_promotion: Nueva promoción de usuarios gestionados
+            explanation: Las participantes gestionadas se pueden promocionar a participantes estándar. Esto significa que serán invitadas a la aplicación y no podrás volver a administrarlas. La participante invitada recibirá un correo electrónico para aceptar tu invitación.
+            new_managed_user_promotion: Nueva promoción de participante
             promote: Promocionar
       menu:
         admin_log: Registro de actividad de administrador
@@ -333,8 +333,8 @@ es:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
-        user_groups: Grupos de usuarios
-        users: Usuarios
+        user_groups: Grupos
+        users: Participantes
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ es:
             expired_at: Caduca el
             reason: Razón
             started_at: Empezó a las
-            user: Usuario
+            user: Participante
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -376,7 +376,7 @@ es:
             name: Nombre
           name: Aplicación OAuth
         participatory_space_private_user:
-          name: Usuario privado de espacio participativo
+          name: Participante de espacio participativo privado
         scope:
           fields:
             name: Nombre
@@ -398,8 +398,8 @@ es:
             role: Rol
             roles:
               admin: Administrador
-              user_manager: Administrador de usuarios
-          name: Usuario
+              user_manager: Administrador de participantes
+          name: Participante
         user_group:
           fields:
             actions: Acciones
