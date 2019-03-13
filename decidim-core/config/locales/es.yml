@@ -174,7 +174,7 @@ es:
         success: La enmienda se ha rechazado correctamente
       promoted:
         success: La enmienda se ha publicado como una nueva propuesta correctamente
-        error: Ha habido errores al promocionar la enmienda.
+        error: Se ha producido un error al publicar la enmienda como una nueva propuesta
       review:
         back: Volver
         heading: Revisar la enmienda
@@ -189,7 +189,7 @@ es:
       documents:
         related_documents: Documentos relacionados
       photos:
-        related_photos: Fotos relacionadas
+        related_photos: Imágenes relacionadas
     author:
       comments:
         one: comentario
@@ -209,7 +209,7 @@ es:
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
       errors:
-        duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
+        duplicate_authorization: Ya se ha autorizado a una participante con los mismos datos.
       expired_at: Caducado el %{timestamp}
       expires_at: Caduca en %{timestamp}
       foo_authorization:
@@ -317,7 +317,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Tu identificador corto y único en %{organization}
+          nickname_help: Tu alias (@nickname) en %{organization}
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -326,7 +326,7 @@ es:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: Su identificador corto y único en %{organization}
+          nickname_help: Tu alias (@nickname) en %{organization}
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
