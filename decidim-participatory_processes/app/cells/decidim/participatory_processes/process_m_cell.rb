@@ -45,6 +45,14 @@ module Decidim
         end
       end
 
+      def step_cta_path
+        if model.active_step&.cta_path.present?
+          model.active_step.cta_path
+        else
+          resource_path
+        end
+      end
+
       def step_title
         translated_attribute model.active_step.title
       end
