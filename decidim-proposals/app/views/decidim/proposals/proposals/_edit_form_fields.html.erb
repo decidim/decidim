@@ -34,20 +34,35 @@
   <div class="field">
     <%= form.check_box :has_address, checked: form_has_address? %>
   </div>
-  <div class="field" id="address_input">
-    <%= form.text_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
+  <div class="field flex-input-group" id="address_input">
+    <div class="input-wrapper">
+      <%= form.text_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
+    </div>
     <% if has_position?(@proposal) %>
-      <div class="callout warning"><%= t("decidim.proposals.proposals.dynamic_map_instructions.primary") %></div>
-      <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
-        <%= stylesheet_link_tag "decidim/map" %>
-        <%= javascript_include_tag "decidim/map" %>
-      <% end %>
+      <div class="button-wrapper">
+        <button type="button" name="map-preview" class="button hollow" data-open="address_input_modal">
+          <%= icon "map-marker" %>
+        </button>
+      </div>
       <%= form.hidden_field :latitude, data: { type: "latitude" } %>
       <%= form.hidden_field :longitude, data: { type: "longitude" } %>
-    <% elsif form_has_address? %>
-      <div class="callout warning"><%= t("decidim.proposals.proposals.preview.not_geocoded") %></div>
+      <div class="reveal map-modal" id="address_input_modal" data-reveal>
+        <div class="row column">
+          <div class="callout warning"><b><%= t("decidim.proposals.proposals.dynamic_map_instructions.primary") %></b></div>
+        </div>
+        <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
+          <%= stylesheet_link_tag "decidim/map" %>
+          <%= javascript_include_tag "decidim/map" %>
+        <% end %>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <%= icon "x" %>
+        </button>
+      </div>
     <% end %>
   </div>
+  <% if form_has_address? && !has_position?(@proposal) %>
+    <div class="callout warning"><%= t("decidim.proposals.proposals.preview.not_geocoded") %></div>
+  <% end %>
 <% end %>
 
 <% if @form.categories&.any? %>

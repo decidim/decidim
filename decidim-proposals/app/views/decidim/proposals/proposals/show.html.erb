@@ -89,7 +89,7 @@ edit_link(
         <%= simple_format present(@proposal).body(links: true) %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "map-marker", geolocalizable: @proposal } %>
       <% end %>
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>

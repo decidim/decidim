@@ -51,3 +51,25 @@ label > [type='radio']{
     }
   }
 }
+
+.flex-input-group{
+  display: flex;
+  align-items: flex-end;
+
+  .input-wrapper{
+    flex-grow: 1;
+  }
+
+  .button-wrapper{
+    margin-left: .25rem;
+
+    .button{
+      padding: .5rem;
+    }
+
+    .icon{
+      height: 1.2rem;
+      width: 1.5rem;
+    }
+  }
+}
