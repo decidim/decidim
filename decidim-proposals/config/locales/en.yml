@@ -681,7 +681,7 @@ en:
           view_index:
             see_index: See index
         placeholder:
-          address: 32 rue des cascades 75020 Paris
+          address: "[n°] [street] [postal] [city]"
         preview:
           address: 'Address: %{address}'
           modify: Modify the proposal

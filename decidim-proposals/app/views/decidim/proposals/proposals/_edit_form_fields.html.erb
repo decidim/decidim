@@ -34,24 +34,20 @@
   <div class="field">
     <%= form.check_box :has_address, checked: form_has_address? %>
   </div>
-
   <div class="field" id="address_input">
-    <%= form.text_field :address %>
-  </div>
-
-  <% if has_position?(@form) %>
-    <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
-      <%= stylesheet_link_tag "decidim/map" %>
-      <%= javascript_include_tag "decidim/map" %>
+    <%= form.text_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
+    <% if has_position?(@proposal) %>
+      <div class="callout warning"><%= t("decidim.proposals.proposals.dynamic_map_instructions.primary") %></div>
+      <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
+        <%= stylesheet_link_tag "decidim/map" %>
+        <%= javascript_include_tag "decidim/map" %>
+      <% end %>
+      <%= form.hidden_field :latitude, data: { type: "latitude" } %>
+      <%= form.hidden_field :longitude, data: { type: "longitude" } %>
+    <% elsif form_has_address? %>
+      <div class="callout warning"><%= t("decidim.proposals.proposals.preview.not_geocoded") %></div>
     <% end %>
-    <%= form.hidden_field :latitude, data: { type: "latitude" } %>
-    <%= form.hidden_field :longitude, data: { type: "longitude" } %>
-  <% else %>
-    <div class="column text-center">
-      <p><%= t(".not_geocoded") %></p>
-      <p><%= t(".address", address: @form.address) %></p>
-    </div>
-  <% end %>
+  </div>
 <% end %>
 
 <% if @form.categories&.any? %>

@@ -78,9 +78,9 @@ module Decidim
           body: body_with_hashtags,
           category: form.category,
           scope: form.scope,
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude
+          address: has_address? ? form.address : nil,
+          latitude: has_address? ? form.latitude : nil,
+          longitude: has_address? ? form.longitude : nil
         }
       end
 
@@ -110,6 +110,10 @@ module Decidim
 
       def user_group_proposals
         Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).except_withdrawn
+      end
+
+      def has_address?
+        form.has_address && form.address.present?
       end
     end
   end

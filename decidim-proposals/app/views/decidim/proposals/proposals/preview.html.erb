@@ -8,8 +8,8 @@
         <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
 
         <% if component_settings.geocoding_enabled? %>
-          <%= render partial: "dynamic_map_instructions" %>
           <% if has_position?(@proposal) %>
+            <%= render partial: "dynamic_map_instructions" %>
             <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "column" do %>
               <%= stylesheet_link_tag "decidim/map" %>
               <%= javascript_include_tag "decidim/map" %>
@@ -35,10 +35,12 @@
                 <%= form.submit t(".update_pos"), class: "button expanded", data: { disable: true } %>
               </div>
             <% end %>
-          <% else %>
+          <% elsif form_has_address? %>
             <div class="column text-center">
-              <p><%= t(".not_geocoded") %></p>
-              <p><%= t(".address", address: @proposal.address) %></p>
+              <div class="callout warning">
+                <p><%= t(".not_geocoded") %></p>
+                <p><%= t(".address", address: @proposal.address) %></p>
+              </div>
             </div>
           <% end %>
         <% end %>
