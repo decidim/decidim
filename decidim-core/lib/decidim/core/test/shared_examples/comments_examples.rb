@@ -236,6 +236,7 @@ shared_examples "comments" do
     context "when a user replies to a comment", :slow do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
+      
       before do
         component.participatory_space.private_space = true
         login_as user, scope: :user
