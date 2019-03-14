@@ -36,8 +36,8 @@ ca:
       admin:
         csv_census:
           help:
-            - Els administradors carreguen un CSV amb els correus electrònics dels participants acceptats
-            - Només es pot verificar els participants amb un correu electrònic en aquest fitxer CSV
+            - Els administradors carreguen un CSV amb els correus electrònics de les participants acceptades
+            - Només es poden verificar les participants amb un correu electrònic en aquest fitxer CSV
         id_documents:
           help:
             - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
