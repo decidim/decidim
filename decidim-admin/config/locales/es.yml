@@ -625,22 +625,22 @@ es:
         dashboard: Panel de control
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
-        participants: Usuarios
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
-        user_groups: Grupos de usuarios
-        users: Usuarios
+        user_groups: Grupos
+        users: Participantes
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
           success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
         reject:
-          invalid: Se ha producido un error al rechazar este grupo de usuarios.
-          success: Grupo de usuarios rechazado correctamente
+          invalid: Se ha producido un error al rechazar este grupo.
+          success: Grupo rechazado correctamente
         verify:
-          invalid: Se ha producido un error al verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado correctamente
+          invalid: Se ha producido un error al verificar este grupo.
+          success: Grupo verificado correctamente
       user_groups:
         index:
           filter:
@@ -662,7 +662,7 @@ es:
           upload: Subir
       users:
         create:
-          error: Hubo un error al invitar a este usuario.
+          error: Se ha producido un error al invitar a esta administradora.
           success: Usuario invitado con éxito.
         destroy:
           error: Hubo un error al tratar de eliminar este usuario.
