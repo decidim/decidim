@@ -216,16 +216,15 @@ shared_examples "comments" do
     end
   end
 
-  context "when participatory space is private" do
-    before do
-      component.participatory_space.private_space = true
-      login_as user, scope: :user
-    end
-
+  describe "when participatory space is private" do
     context "when user want to create a comment" do
-      it "shows the form to add comments or not" do
+      before do
+        component.participatory_space.private_space = true
+        login_as user, scope: :user
         visit resource_path
+      end
 
+      it "shows the form to add comments or not" do
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".add-comment form")
         else
@@ -237,10 +236,13 @@ shared_examples "comments" do
     context "when a user replies to a comment", :slow do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
+      before do
+        component.participatory_space.private_space = true
+        login_as user, scope: :user
+        visit resource_path
+      end
 
       it "shows reply to the user or not" do
-        visit resource_path
-
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".comment__reply")
         else
@@ -251,6 +253,8 @@ shared_examples "comments" do
 
     context "when a user votes to a comment" do
       before do
+        component.participatory_space.private_space = true
+        login_as user, scope: :user
         visit resource_path
       end
 
