@@ -109,7 +109,7 @@ es:
       assembly_members:
         create:
           error: Se ha producido un error al agregar un miembro para esta asamblea.
-          success: Miembro creado con éxito para esta asamblea.
+          success: Miembro creado correctamene para esta asamblea.
         destroy:
           success: Miembro eliminado con éxito en esta asamblea.
         edit:
