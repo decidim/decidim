@@ -34,6 +34,10 @@ tr:
         grant_id_documents_offline_verification: "%{user_name} bir çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} doğrulandı"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Yöneticiler, kabul edilen katılımcıların e-postalarıyla bir CSV yükler
+            - Yalnızca bu CSV dosyasında e-posta adresine sahip katılımcılar doğrulanabilir
         id_documents:
           help:
             - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
