@@ -34,6 +34,10 @@ nl:
         grant_id_documents_offline_verification: "%{user_name} geverifieerd %{resource_name} met behulp van een offline verificatie van identiteitsdocumenten"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Beheerders uploaden een CSV met de e-mails van de geaccepteerde deelnemers
+            - Alleen deelnemers met een e-mail in dat CSV-bestand kunnen worden geverifieerd
         id_documents:
           help:
             - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
