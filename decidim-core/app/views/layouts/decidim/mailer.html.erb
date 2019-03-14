@@ -114,8 +114,7 @@
                       <th class="expander"></th>
                       <th class="small-12 first last columns footnote">
                         <center>
-                          <%= yield(:note) if content_for?(:note) %>
-                          <br/>
+                          <%= yield(:note) if content_for?(:note) %><br/>
                           <%= yield(:unsubscribe) if content_for?(:unsubscribe) %>
                         </center>
                       </th>
