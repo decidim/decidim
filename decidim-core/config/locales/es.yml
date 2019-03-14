@@ -426,7 +426,7 @@ es:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -446,15 +446,15 @@ es:
         email_subject: Una actualización de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: '¡Gran trabajo! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
+          email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
           email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
           notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
-          email_intro: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
+          email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
-          notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+          notification_title: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       groups:
         demoted_membership:
           email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
@@ -530,10 +530,10 @@ es:
     follows:
       create:
         button: Seguir
-        error: Ha habido un error siguiendo este recurso.
+        error: Se ha producido un error al seguir este recurso.
       destroy:
         button: Dejar de seguir
-        error: Ha habido un error dejando de seguir este recurso.
+        error: Se ha producido un error al dejar de seguir este recurso.
     forms:
       current_file: Archivo actual
       current_image: Imagen actual
@@ -548,21 +548,21 @@ es:
           conditions:
             - Viene aquí a menudo
           description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
-          description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
+          description_another: Esta participante se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado durante %{score} días consecutivos en algún momento.
           name: Continuidad
           next_level_in: '¡Conéctate durante %{score} días consecutivos para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no ha entrado durante más de un día consecutivo.
+          unearned_another: Esta participante no ha entrado durante más de un día consecutivo.
           unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
           description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
-          description_another: Este usuario tiene %{score} seguidores.
-          description_own: "%{score} usuarios te están siguiendo."
+          description_another: Esta participante tiene %{score} seguidores.
+          description_own: "%{score} personas te están siguiendo."
           name: Seguidores
-          next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no tiene seguidores todavía.
+          next_level_in: '¡Consigue que te sigan %{score} personas más para alcanzar el siguiente nivel!'
+          unearned_another: Esta participante no tiene seguidores todavía.
           unearned_own: Aún no tienes seguidores.
         index:
           badge_title: "Distintivo %{name}"
@@ -575,21 +575,21 @@ es:
             - Personaliza, si quieres, el mensaje que estás enviando.
             - Supera este nivel enviando invitaciones y registrándolas.
           description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
-          description_another: Este usuario ha invitado a %{score} usuarios.
-          description_own: Has invitado a %{score} usuarios.
+          description_another: Esta participante ha invitado a %{score} personas.
+          description_own: Has invitado a %{score} personas.
           name: Invitaciones
-          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha invitado a ningún usuario.
-          unearned_own: No has invitado aún a ningún usuario.
+          next_level_in: '¡Invita a %{score} personas más para alcanzar el siguiente nivel!'
+          unearned_another: Esta participante aún no ha invitado a nadie.
+          unearned_own: No has invitado a nadie aún.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
     group_admins:
       actions:
-        are_you_sure: '¿Estás seguro? Esto no eliminará al usuario del grupo.'
+        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
-        error: Se ha producido un error al eliminar este usuario de la lista de administradores.
+        error: Se ha producido un error al eliminar esta participante de la lista de administradoras
         success: Permisos de administración eliminados correctamente
       index:
         current_admins: 'Administradores actuales:'
