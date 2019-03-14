@@ -261,7 +261,7 @@ fr:
       filter:
         all: Toutes
         commission: Commission
-        consultative_advisory: Consultatif / consultatif
+        consultative_advisory: Consultatif/Consultatif
         executive: Exécutif
         government: Gouvernement
         help: 'Montrer :'

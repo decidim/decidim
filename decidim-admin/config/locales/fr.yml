@@ -67,7 +67,6 @@ fr:
         show_statistics: Afficher les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
-        user_groups_enabled: Activer les groupes d'utilisateurs
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -386,7 +385,6 @@ fr:
           fields:
             created_at: Créée le
             name: Titre
-          name: Application OAuth
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
@@ -411,7 +409,6 @@ fr:
             roles:
               admin: Administrateur
               user_manager: Représentant de l'utilisateur
-          name: Utilisateur
         user_group:
           fields:
             actions: Actions
@@ -666,8 +663,8 @@ fr:
         new: Nouvel utilisateur
       user_group:
         csv_verify:
-          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
+          invalid: Il y a eu une erreur dans la lecture du fichier CSV.
+          success: CSV téléchargé avec succès, nous vérifions que les groupes d'utilisateurs correspondent aux critères. Ça pourrait prendre du temps.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès

@@ -311,7 +311,7 @@ fr:
             invites: Invités
             search: Chercher
           new:
-            explanation: L'utilisateur sera invité à participer à une conférence. Si l'email n'est pas enregistré, ils seront également invités à l'organisation.
+            explanation: L'utilisateur sera invité à participer à une conférence. Si l'email n'est pas déjà associé à un compte, l'utilisateur sera également invité à s'inscrire sur la plateforme.
             invite: Inviter
             new_invite: Inviter un utilisateur
         conference_registrations:
