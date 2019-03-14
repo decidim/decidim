@@ -10,8 +10,8 @@ es:
         title: Acciones
       admins:
         create:
-          error: Se ha producido un error al crear un nuevo administrador.
-          success: Administrador creado correctamente
+          error: Se ha producido un error al crear una nueva administradora.
+          success: Administradora creado correctamente
         destroy:
           success: Administrador eliminado con éxito
         edit:
@@ -23,8 +23,8 @@ es:
           create: Crear
           title: Nuevo administrador
         update:
-          error: Se ha producido un error al actualizar este administrador.
-          success: Administrador actualizado correctamente
+          error: Se ha producido un error al actualizar esta administradora.
+          success: Administradora actualizada correctamente
       default_pages:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
