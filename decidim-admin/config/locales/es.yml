@@ -573,7 +573,7 @@ es:
           title: Nuevo ámbito
         no_scopes: No hay ámbitos en este nivel.
         update:
-          error: Se produjo un error en la actualización de este ámbito.
+          error: Se ha producido un error actualizando de este ámbito.
           success: Ámbito actualizado correctamente
       static_page_topics:
         create:
