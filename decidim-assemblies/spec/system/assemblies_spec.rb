@@ -257,14 +257,16 @@ describe "Assemblies", type: :system do
 
     context "when the assembly has a child" do
       let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
+      let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly }
 
       before do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
-      it "shows the children" do
+      it "shows the published children assemblies_path" do
         within("#assemblies-grid") do
           expect(page).to have_link translated(child_assembly.title)
+          expect(page).not_to have_link translated(unpublished_child_assembly.title)
         end
       end
     end
