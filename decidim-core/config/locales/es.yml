@@ -154,7 +154,7 @@ es:
         announcement:
           accepted: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido
-            aceptada en <strong>%{announcement_date}</strong>.
+            aceptada el <strong>%{announcement_date}</strong>.
           evaluating: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             está siendo evaluada.
@@ -163,7 +163,7 @@ es:
             fue rechazada en <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
-            ha sido retirada por el autor.
+            ha sido retirada por su autora.
       new:
         amendment_author: Autor de la enmienda
         back: Volver
