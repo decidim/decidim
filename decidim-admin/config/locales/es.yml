@@ -491,7 +491,7 @@ es:
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
-          title: Oficializar el usuario "%{name}"
+          title: Oficializar participante "%{name}"
       organization:
         edit:
           title: Editar organización
@@ -505,13 +505,13 @@ es:
           url: URL
           youtube: YouTube
         update:
-          error: Se produjo un error al actualizar esta organización.
+          error: Se ha producido un error al actualizar esta organización.
           success: Organización actualizada correctamente.
       organization_appearance:
         edit:
           update: Actualizar
         form:
-          colors_title: Colores de organizacion
+          colors_title: Colores de la organización
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
@@ -528,10 +528,10 @@ es:
           update: Actualizar
       participatory_space_private_users:
         create:
-          error: Hubo un error al agregar un usuario privado para este espacio participativo.
-          success: El acceso a usuarios privados de espacio participativo creado con éxito.
+          error: Se ha producido un error al agregar una participante a este espacio participativo privado.
+          success: Acceso privado a participantes del espacio participativo creado correctamente.
         destroy:
-          error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
+          error: Se ha producido un error al eliminar a una participante para este espacio participativo privado.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
           title: Usuario privado de espacio participativo.
