@@ -200,12 +200,6 @@ $datetime-bg: var(--primary);
   .card__content{
     display: flex;
   }
-
-  &.card__footer--spaces{
-    background: rgba($card-spaces, .2);
-    border-top-color: rgba($card-spaces, .6);
-    border-top-width: .25rem;
-  }
 }
 
 .card__footer--transparent{
