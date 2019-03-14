@@ -93,7 +93,7 @@ es:
         title: Título
         weight: Peso
       user_group_csv_verification:
-        file: Expediente
+        file: Archivo
     errors:
       models:
         oauth_application:
