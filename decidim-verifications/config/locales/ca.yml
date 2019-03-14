@@ -34,6 +34,10 @@ ca:
         grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant la verificació presencial mitjançant documents d'identitat"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Els administradors carreguen un CSV amb els correus electrònics dels participants acceptats
+            - Només es pot verificar els participants amb un correu electrònic en aquest fitxer CSV
         id_documents:
           help:
             - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
