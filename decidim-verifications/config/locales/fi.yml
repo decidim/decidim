@@ -34,6 +34,10 @@ fi:
         grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - 'Järjestelmänvalvojat lähettävät CSV: n hyväksyttyjen osallistujien sähköpostiviesteihin'
+            - Vain osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat saada vahvistuksen
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
