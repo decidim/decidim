@@ -31,6 +31,7 @@ tr:
             name: proje
         projects:
           create:
+            invalid: "Bu yayın oluştururken bir sorun oluştu\n \n"
             success: Proje başarıyla oluşturuldu
           destroy:
             success: Proje başarıyla silindi
@@ -45,9 +46,11 @@ tr:
             create: yaratmak
             title: Yeni proje
           update:
+            invalid: "Bu yayın oluştururken bir sorun oluştu\n \n"
             success: Proje başarıyla güncellendi
         proposals_imports:
           create:
+            invalid: Teklifleri projelere aktarırken bir sorun oluştu
             success: "%{number} teklif başarıyla projelere aktarıldı"
           new:
             create: Projelere teklif alma
@@ -135,6 +138,13 @@ tr:
             comments_blocked: Yorumlar engellendi
             show_votes: Oyları göster
             votes_enabled: Oylama etkin
+    orders:
+      checkout:
+        error: Oyunuz işlenirken bir hata oluştu
+        success: Oyunuz başarıyla kabul edildi
+      destroy:
+        error: Oyunuz iptal edilirken bir hata oluştu
+        success: Oyunuz başarıyla iptal edildi
     resource_links:
       included_proposals:
         project_proposal: 'Bu projede yer alan teklifler:'
