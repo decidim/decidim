@@ -80,7 +80,7 @@ es:
         new_assembly: Nueva asamblea
       assemblies:
         create:
-          error: Se produjo un error al crear una nueva asamblea.
+          error: Se ha producido un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
         edit:
           update: Actualizar
@@ -99,7 +99,7 @@ es:
           success: La asamblea se ha actualizado correctamente.
       assemblies_copies:
         create:
-          error: Se produjo un error al duplicar esta asamblea.
+          error: Se ha producido un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
       assembly_copies:
         new:
