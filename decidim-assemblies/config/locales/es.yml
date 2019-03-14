@@ -256,7 +256,7 @@ es:
         others: Otros
         public: Público
       filter:
-        all: Todo tipo de montajes.
+        all: Todos los tipos de asambleas
         commission: Comisión
         consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo
@@ -312,14 +312,14 @@ es:
         endorsements_count: Adhesiones
         headline: Actividad
         meetings_count: Encuentros
-        orders_count: Votos
+        orders_count: Apoyos
         pages_count: Páginas
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
         surveys_count: Encuestas
         users_count: Participantes
-        votes_count: Soportes
+        votes_count: Apoyos
     assembly_members:
       assembly_member:
         designated_on: Designado en
