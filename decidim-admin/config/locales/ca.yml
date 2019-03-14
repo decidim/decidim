@@ -276,7 +276,7 @@ ca:
             managed: Gestionat
             not_managed: No gestionat
           filter_by: Filtra per
-          impersonate: Suplantar
+          impersonate: Gestionar
           impersonate_new_managed_user: Substitueix un nou usuari administrat
           managed: Gestionat
           name: Nom
@@ -324,7 +324,7 @@ ca:
         dashboard: Tauler de control
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
-        impersonations: Impersonacions
+        impersonations: Gestió de participants
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
         participants: Participants
@@ -616,7 +616,7 @@ ca:
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
-        impersonations: Impersonacions
+        impersonations: Gestió de participants
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
