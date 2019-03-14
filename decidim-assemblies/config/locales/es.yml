@@ -145,11 +145,11 @@ es:
           title: Nueva administradora de la asamblea.
         update:
           error: Se ha producido un error al actualizar la administradora para esta asamblea.
-          success: Usuario actualizado con éxito para esta asamblea.
+          success: Administradora actualizada correctamente para esta asamblea.
       menu:
         assemblies: Asambleas
         assemblies_submenu:
-          assembly_admins: Usuarios de la asamblea
+          assembly_admins: Administradoras de la asamblea
           assembly_members: Miembros
           attachment_collections: Carpetas
           attachment_files: Archivos
@@ -185,7 +185,7 @@ es:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario de la asamblea
+          name: Administradora de la asamblea
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -204,7 +204,7 @@ es:
         update: "%{user_name} actualizó el miembro %{resource_name} de la asamblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
-        delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} de la asamblea %{space_name}"
         update: "%{user_name} cambió el rol de %{resource_name} en la asamblea %{space_name}"
     assemblies:
       admin:
@@ -223,11 +223,10 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuario existente
-            non_user: No usuario
+            existing_user: Participante existente
             select_a_position: Selecciona una posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
+            select_user: Selecciona una participante
+            user_type: Tipo de participante
           index:
             filter:
               all: Todas
