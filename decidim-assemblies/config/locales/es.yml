@@ -111,7 +111,7 @@ es:
           error: Se ha producido un error al agregar un miembro para esta asamblea.
           success: Miembro creado correctamene para esta asamblea.
         destroy:
-          success: Miembro eliminado con éxito en esta asamblea.
+          success: Miembro eliminado correctamente para esta asamblea.
         edit:
           title: Actualizar miembro de la asamblea.
           update: Actualizar
@@ -121,8 +121,8 @@ es:
           create: Crear
           title: Nuevo miembro de la asamblea.
         update:
-          error: Se produjo un error al actualizar el miembro para esta asamblea.
-          success: Miembro actualizado con éxito para esta asamblea.
+          error: Se ha producido un error al actualizar el miembro para esta asamblea.
+          success: Miembro actualizado correctamente para esta asamblea.
       assembly_publications:
         create:
           error: Se produjo un error al publicar esta asamblea.
