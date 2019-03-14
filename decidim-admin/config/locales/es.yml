@@ -663,17 +663,17 @@ es:
       users:
         create:
           error: Se ha producido un error al invitar a esta administradora.
-          success: Usuario invitado con éxito.
+          success: Participante invitada con éxito.
         destroy:
-          error: Hubo un error al tratar de eliminar este usuario.
-          success: El usuario ya no es un administrador.
+          error: Se ha producido un error al tratar de eliminar esta administradora.
+          success: La participante ya no es administradora.
         form:
           email: Correo electrónico
           name: Nombre
           role: Rol
         new:
           create: Invitar
-          title: Invitar a un usuario como administrador
+          title: Invitar a la participante como administradora
       view_public_page: Ver página pública
     forms:
       errors:
@@ -685,16 +685,16 @@ es:
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
-        unhide: Ocultar
+        unhide: Desocultar
         unreport: Cancelar denuncia
       admin:
         reportable:
           hide:
-            invalid: Ha habido un error al ocultar el contenido.
+            invalid: Se ha producido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
           unhide:
-            invalid: Ha habido un problema al no encontrar el recurso.
-            success: Recurso exitosamente no oculto.
+            invalid: Se ha producido un error desocultando el contenido.
+            success: Contenido exitosamente desocultado.
           unreport:
             invalid: Se ha producido un error cancelando la denuncia.
             success: Denuncia cancelada correctamente.
