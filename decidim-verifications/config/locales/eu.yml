@@ -34,6 +34,10 @@ eu:
         grant_id_documents_offline_verification: "%{user_name} egiaztatua %{resource_name} Lineako identitate dokumentuen egiaztapena erabiliz"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Onartzen diren onartutako parte-hartzaileen mezu elektronikoak igortzen dituzte CSVak
+            - CSV fitxategi horretan mezu elektroniko bat duten parte-hartzaileek soilik egiaztatu ahal izango dute
         id_documents:
           help:
             - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
