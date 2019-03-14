@@ -501,6 +501,7 @@ $datetime-bg: var(--primary);
   text-align: center;
   text-transform: uppercase;
   font-size: 85%;
+  min-width: 7rem;
   line-height: 1;
   color: $muted;
   padding: $card-padding-small;
