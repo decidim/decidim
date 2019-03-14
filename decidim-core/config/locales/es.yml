@@ -596,7 +596,7 @@ es:
         manage_admins: Gestionar administradores
     group_invites:
       accept:
-        error: Ha habido un error al aceptar esta invitación
+        error: Se ha producido un error al aceptar esta invitación
         success: Invitación aceptada correctamente
       accept_invitation: Aceptar
       accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Acepta o rechaza las invitaciones:'
