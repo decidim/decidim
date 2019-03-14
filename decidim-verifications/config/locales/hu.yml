@@ -34,6 +34,10 @@ hu:
         grant_id_documents_offline_verification: "%{user_name} ellenőrzött %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Az adminisztrátorok CSV-t töltenek be az elfogadott résztvevők e-mailjeivel
+            - Csak azok a résztvevők kaphatnak igazolást, akik e CSV-fájlban e-mailt tartalmaznak
         id_documents:
           help:
             - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
