@@ -3,51 +3,75 @@
 
   <div class="columns large-6">
     <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <div class="card">
-      <div class="p-l">
-        <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
+    <div class="card preview">
+      <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
+      <% if component_settings.geocoding_enabled? %>
 
-        <% if component_settings.geocoding_enabled? %>
-          <%= render partial: "dynamic_map_instructions" %>
-          <% if has_position?(@proposal) %>
-            <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "column" do %>
-              <%= stylesheet_link_tag "decidim/map" %>
-              <%= javascript_include_tag "decidim/map" %>
-            <% end %>
-            <%= decidim_form_for(@form, url: update_draft_proposal_path(@form), html: { method: :patch, class: "column" }) do |form| %>
-              <%= form.hidden_field :title %>
-              <%= form.hidden_field :body, rows: 10 %>
-              <%= form.hidden_field :address %>
-              <%= form.hidden_field :latitude, data: { type: "latitude" } %>
-              <%= form.hidden_field :longitude, data: { type: "longitude" } %>
-              <div class="preview--form__hidden">
-                <% if @form.categories&.any? %>
-                  <%= form.categories_select :category_id, @form.categories %>
-                <% end %>
-                <% if current_participatory_space.has_subscopes? %>
-                  <%= scopes_picker_field form, :scope_id %>
-                <% end %>
-                <% if current_user.user_groups.verified.any? %>
-                  <%= form.select :user_group_id, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
-                <% end %>
+        <% if form_has_address? %>
+          <div class="card-section">
+            <button type="button" class="button hollow expanded card--button" data-open="address_input_modal">
+              <div class="button-data">
+                <div class="button-data--icon">
+                  <%= icon "map-marker", class: "icon--big" %>
+                </div>
+                <div class="button-data--map">
+                  <%= image_tag decidim.static_map_path(sgid: @proposal.to_sgid.to_s) %>
+                </div>
+                <div class="button-data--info">
+                  <strong><%= @proposal.address %></strong>
+                </div>
               </div>
-              <div class="actions">
-                <%= form.submit t(".update_pos"), class: "button expanded", data: { disable: true } %>
-              </div>
-            <% end %>
-          <% else %>
-            <div class="column text-center">
-              <p><%= t(".not_geocoded") %></p>
-              <p><%= t(".address", address: @proposal.address) %></p>
+            </button>
+            <div class="reveal map-modal" id="address_input_modal" data-reveal>
+              <% if has_position?(@proposal) %>
+                <div class="row column">
+                  <%= render partial: "dynamic_map_instructions" %>
+                </div>
+                <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
+                  <%= stylesheet_link_tag "decidim/map" %>
+                  <%= javascript_include_tag "decidim/map" %>
+                <% end %>
+                <%= decidim_form_for(@form, url: update_draft_proposal_path(@form), html: { method: :patch, class: "column" }) do |form| %>
+                  <%= form.hidden_field :title %>
+                  <%= form.hidden_field :body, rows: 10 %>
+                  <%= form.hidden_field :has_address %>
+                  <%= form.hidden_field :address %>
+                  <%= form.hidden_field :latitude, data: { type: "latitude" } %>
+                  <%= form.hidden_field :longitude, data: { type: "longitude" } %>
+                  <div class="preview--form__hidden">
+                    <% if @form.categories&.any? %>
+                      <%= form.categories_select :category_id, @form.categories %>
+                    <% end %>
+                    <% if current_participatory_space.has_subscopes? %>
+                      <%= scopes_picker_field form, :scope_id %>
+                    <% end %>
+                    <% if current_user.user_groups.verified.any? %>
+                      <%= form.select :user_group_id, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
+                    <% end %>
+                  </div>
+                  <div class="actions">
+                    <%= form.submit t(".update_pos"), class: "button expanded small", data: { disable: true } %>
+                  </div>
+                <% end %>
+              <% elsif form_has_address? %>
+                <div class="column text-center">
+                  <div class="callout warning">
+                    <p><%= t(".not_geocoded") %></p>
+                    <p><%= t(".address", address: @proposal.address) %></p>
+                  </div>
+                </div>
+              <% end %>
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <%= icon "x" %>
+              </button>
             </div>
-          <% end %>
+          </div>
         <% end %>
+      <% end %>
 
-        <div class="row column flex-center">
-          <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
-
-          <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
-        </div>
+      <div class="row column flex-center pb-l">
+        <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
+        <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
       </div>
     </div>
   </div>

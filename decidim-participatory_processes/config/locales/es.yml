@@ -69,7 +69,6 @@ es:
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
         new_process_user_role: Nuevo usuario de proceso

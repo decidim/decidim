@@ -149,6 +149,9 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} началось голосование по предложениям
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">голосовать по предложениям</a>
+    metrics:
+      votes:
+        title: Голоса
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -243,6 +246,9 @@ ru:
           official: Служебные
         filter_state_values:
           except_rejected: Все, кроме отклоненных
+      collaborative_drafts:
+        filters:
+          state: Cостояние
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.

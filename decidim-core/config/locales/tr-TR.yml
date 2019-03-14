@@ -153,23 +153,23 @@ tr:
           help_text: Değişiklikleri gözden geçirin ve bu değişikliği kabul edin veya reddedin. Yazar (lar) a bir bildirim gönderilecektir.
         announcement:
           accepted: |-
-            %{amendable_type} %{amendable_link} için bu ödeme, <strong>%{announcement_date}</strong>
-            kabul edildi.
+            Bu değişiklik, %{amendable_type} %{amendable_link} olmuştur
+            kabul <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Bu, %{amendable_type} %{amendable_link}
-            için bir değerlendirmenin değerlendirilmesidir.
+            %{amendable_type} %{amendable_link}
+            için yapılan bu değişiklik değerlendiriliyor.
           rejected: |-
             %{amendable_type} %{amendable_link}
             için bu emenisyon <strong>%{announcement_date}</strong>reddedildi.
           withdrawn: |-
             %{amendable_type} %{amendable_link}
-            için bu ödeme, yazar tarafından geri çekildi.
+            için bu değişiklik yazar tarafından geri çekilmiştir.
       new:
         amendment_author: Değişiklik yazarı
         back: Geri
         heading: Değişikliğinizi oluşturun
         help_text: '%{model_name}değiştiriyorsunuz'
-        send: Emendation gönder
+        send: Değişiklik gönder
       rejected:
         error: Bu ödeme reddedilirken bir hata oluştu, lütfen daha sonra tekrar deneyin.
         success: Emendation başarıyla reddedildi
@@ -180,7 +180,7 @@ tr:
         back: Geri
         heading: Değişikliği gözden geçirin
         help_text: '%{model_name}değiştiriyorsun'
-        send: Emendation kabul
+        send: Değişikliği kabul et
     anonymous_user: Anonim
     application:
       collection:

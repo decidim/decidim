@@ -1,1 +1,60 @@
 id:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: apa kamu yakin ingin menghapus ini?
+        destroy: Menghapus
+        edit: Edit
+        new: Baru
+        save: Menyimpan
+        title: Tindakan
+      admins:
+        destroy:
+          success: Admin berhasil dihapus
+        edit:
+          title: Edit admin
+          update: Memperbarui
+        index:
+          title: Admin
+        new:
+          create: Membuat
+          title: Admin baru
+      default_pages:
+        placeholders:
+          content: Silakan tambahkan konten yang bermakna ke %{page} halaman statis di dasbor admin.
+          title: Judul default untuk %{page}
+      menu:
+        admins: Admin
+        dashboard: Dasbor
+        organizations: Organisasi
+      models:
+        admin:
+          fields:
+            created_at: Dibuat di
+            email: E-mail
+          name: Admin
+          validations:
+            email_uniqueness: admin lain dengan email yang sama sudah ada
+        organization:
+          actions:
+            save_and_invite: Buat organisasi & undang admin
+          fields:
+            created_at: Dibuat di
+            name: Nama
+          name: Organisasi
+      organizations:
+        edit:
+          secondary_hosts_hint: Masukkan masing-masing dari mereka di baris baru
+        index:
+          title: Organisasi
+        new:
+          secondary_hosts_hint: Masukkan masing-masing dari mereka di baris baru
+          title: Organisasi baru
+        users_registration_mode:
+          disabled: Akses hanya dapat dilakukan dengan akun eksternal
+      shared:
+        notices:
+          no_organization_warning_html: Anda harus membuat organisasi untuk memulai. Pastikan Anda membaca %{guide} sebelum melanjutkan.
+          our_getting_started_guide: panduan memulai kami
+      titles:
+        dashboard: Dasbor

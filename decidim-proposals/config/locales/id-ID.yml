@@ -284,13 +284,16 @@ id:
             name: Usul
         participatory_texts:
           bulk-actions:
+            are_you_sure: Apakah Anda yakin akan membuang seluruh konsep teks partisipatif?
             import_doc: Impor dokumen
+            discard_all: Buang semua
           import:
             invalid: Formulirnya tidak valid!
             success: Selamat, bagian berikut telah diuraikan dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
           index:
             info_1: Bagian berikut telah diurai dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
             publish_document: Publikasikan dokumen
+            save_draft: Menyimpan konsep
             title: TEKNIK PREVIEW TEKNIKAL
           new_import:
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
@@ -300,10 +303,14 @@ id:
           publish:
             invalid: Tidak dapat memublikasikan proposal
             success: Semua proposal telah dipublikasikan
+          discard:
+            success: Semua konsep teks Partisipatif telah dibuang.
           sections:
             article: "<em>Pasal</em>"
             section: "<em>Bagian:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sub-bagian:</em> %{title}"
+          update:
+            success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
           edit:
             accepted: Diterima

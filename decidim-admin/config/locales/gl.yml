@@ -617,7 +617,7 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios privilexiados
         impersonations: Impersonacións
-        participants: Participantes
+        participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas

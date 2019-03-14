@@ -617,7 +617,7 @@ es-PY:
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
         impersonations: Impersonaciones
-        participants: Participantes
+        participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

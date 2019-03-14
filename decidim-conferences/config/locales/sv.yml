@@ -50,7 +50,7 @@ sv:
       actions:
         confirm: Bekräfta
         new_conference: Ny konferens
-        send_diplomas: Skicka diplom
+        send_diplomas: Skicka deltagarbevis
       conference_copies:
         new:
           copy: Kopiera
@@ -152,7 +152,7 @@ sv:
           conference_admins: Konferensanvändare
           conference_invites: Inbjudningskort
           conference_speakers: högtalare
-          diploma: Diplom
+          diploma: Närvarointyg
           info: Info
           media_links: Media Länkar
           moderations: modere
@@ -250,10 +250,10 @@ sv:
       conference:
         create: "%{user_name} skapade %{resource_name} konferens"
         publish: "%{user_name} publicerade %{resource_name} konferens"
-        send_conference_diplomas: "%{user_name} skicka examensbevis till de %{resource_name} konferensanvändarna"
+        send_conference_diplomas: "%{user_name} skickade deltagarbevis till de %{resource_name} konferensdeltagarna"
         unpublish: "%{user_name} opublicerade %{resource_name} konferens"
         update: "%{user_name} uppdaterade %{resource_name} konferens"
-        update_diploma: "%{user_name} uppdaterade diplomkonfiguration %{resource_name} konferens"
+        update_diploma: "%{user_name} uppdaterade certifikat för deltagande konfiguration för %{resource_name} konferens"
       conference_speaker:
         create: "%{user_name} skapade %{resource_name} högtalare på %{space_name} konferensen"
         delete: "%{user_name} bort %{resource_name} högtalaren från %{space_name} konferens"
@@ -334,7 +334,7 @@ sv:
         diplomas:
           edit:
             save: Spara
-            title: Diplom
+            title: Närvarointyg
         invite_join_conference_mailer:
           invite:
             decline: Avvisa inbjudan '%{conference_title}'
@@ -350,7 +350,7 @@ sv:
             title: Registreringstyper
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Du kommer att hitta diplom för konferensen <a href="%{url}">%{title}</a> i bilagorna.
+            diploma_html: Du kommer att hitta bevis för närvaro för konferensen <a href="%{url}">%{title}</a> i bilagorna.
           diploma_user:
             attendance_verified_by: Närvaro verifierad av
             certificate_of_attendance: Närvarointyg
@@ -433,7 +433,7 @@ sv:
             subject: Inbjudan att delta i en konferens
         send_conference_diploma_mailer:
           diploma:
-            subject: Din konferens diplom har skickats
+            subject: Ditt konferensbevis har skickats
       models:
         conference_invite:
           fields:

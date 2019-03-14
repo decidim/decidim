@@ -617,7 +617,7 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Impersonatable användare
         impersonations: impersonations
-        participants: Deltagarna
+        participants: användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor

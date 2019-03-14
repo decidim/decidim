@@ -19,10 +19,12 @@ module Decidim
       end
 
       def title
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(root_commentable.title))
+        resource_title = renderer.render(links: false, extras: false).html_safe
         I18n.t(
           "decidim.comments.last_activity.new_comment_at_html",
           link: link_to(
-            translated_attribute(root_commentable.title),
+            resource_title,
             resource_locator(root_commentable).path
           )
         )

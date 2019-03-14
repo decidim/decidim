@@ -7,7 +7,7 @@
     disabled: true
   ) do %>
     <% unless current_settings.votes_hidden? %>
-      <div id="#{type}-votes-count">
+      <div class="<%= type %>-votes-count">
         <%= proposal.has_attribute?("#{type}_votes") ? proposal.read_attribute("#{type}_votes").count : 0 %>
       </div>
     <% end %>
@@ -25,7 +25,7 @@
     }
   ) do %>
     <% unless current_settings.votes_hidden? %>
-      <div class="#{type}-votes-count">
+      <div class="<%= type %>-votes-count">
         <% if type === 'up' %>
           <%= proposal.up_votes.count %>
         <% elsif type ===  'neutral' %>

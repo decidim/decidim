@@ -617,7 +617,7 @@ pl:
         dashboard: Deska rozdzielcza
         impersonatable_users: Niekodowalni użytkownicy
         impersonations: Podszywanie się pod inne osoby
-        participants: Uczestnicy
+        participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony

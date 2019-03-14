@@ -102,12 +102,7 @@ ru:
               verify: Подтвердить личность
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
-            new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              success: Литчность участника успешно подтверждена
           pending_authorizations:
             index:
               config: Config

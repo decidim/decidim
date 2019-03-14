@@ -299,13 +299,16 @@ cs:
             name: Návrh
         participatory_texts:
           bulk-actions:
+            are_you_sure: Opravdu chcete vyřadit celý participační text?
             import_doc: Importovat dokument
+            discard_all: Zlikvidujte vše
           import:
             invalid: Formulář je neplatný!
             success: Gratulujeme, následující části byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
           index:
             info_1: Následující oddíly byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
             publish_document: Publikujte dokument
+            save_draft: Uložit koncept
             title: PŘEHLED ÚČASTNÍHO TEXTU
           new_import:
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
@@ -315,10 +318,14 @@ cs:
           publish:
             invalid: Nelze publikovat návrhy
             success: Všechny návrhy byly zveřejněny
+          discard:
+            success: Všechny textové texty s účastí byly zrušeny.
           sections:
             article: "<em>Článek</em>"
             section: "<em>Sekce:</em> <strong>%{title}</strong>"
             sub-section: "<em>Pododdíl:</em> %{title}"
+          update:
+            success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
           edit:
             accepted: Přijato

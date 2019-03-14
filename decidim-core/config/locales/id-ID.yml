@@ -150,10 +150,10 @@ id:
           help_text: Tinjau perubahan dan terima atau tolak amandemen ini. Pemberitahuan akan dikirim ke penulisnya.
         announcement:
           accepted: |-
-            Perubahan ini untuk %{amendable_type} %{amendable_link} telah diterima
-            pada <strong>%{announcement_date}</strong>.
+            Amandemen untuk %{amendable_type} %{amendable_link} ini telah
+            diterima pada <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Ini merupakan perbaikan untuk %{amendable_type} %{amendable_link}
+            Perubahan ini untuk %{amendable_type} %{amendable_link}
             sedang dievaluasi.
           rejected: |-
             Perubahan ini untuk %{amendable_type} %{amendable_link}
@@ -166,7 +166,7 @@ id:
         back: Kembali
         heading: Buat amandemen Anda
         help_text: Anda memodifikasi %{model_name}
-        send: Kirim emendasi
+        send: Kirim amandemen
       rejected:
         error: Terjadi kesalahan saat menolak perubahan ini, silakan coba lagi nanti
         success: Amendemen tersebut telah ditolak dengan sukses
@@ -177,7 +177,7 @@ id:
         back: Kembali
         heading: Tinjau amandemennya
         help_text: Anda mengubah %{model_name}
-        send: Terima emendasi
+        send: Terima amandemen
     anonymous_user: Anonim
     application:
       collection:

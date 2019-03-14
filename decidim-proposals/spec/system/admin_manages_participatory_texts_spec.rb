@@ -82,11 +82,8 @@ describe "Admin manages particpatory texts", type: :system do
   end
 
   def edit_participatory_text_body(index, new_body)
-    elem = Array.wrap(find("#participatory-text li"))[index]
-    elem.find("a.accordion-title").click
-
-    elem.fill_in(
-      "Body",
+    fill_in(
+      "preview_participatory_text_proposals_attributes_#{index}_body",
       with: new_body
     )
   end

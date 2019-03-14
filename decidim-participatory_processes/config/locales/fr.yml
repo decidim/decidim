@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -18,6 +19,7 @@ fr:
         participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
         participatory_structure: Modalités de participation
+        private_space: Concertation privée
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Secteur
@@ -206,8 +208,8 @@ fr:
           not_published: Non publiée
           private: Privée
           promoted:
-            'false': 'Non'
-            'true': 'Oui'
+            'false': Non
+            'true': Oui
           public: Publique
           published: Publiée
         new:
@@ -250,12 +252,12 @@ fr:
       participatory_process:
         step_activated:
           email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
           notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     help:
@@ -279,7 +281,7 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 concertation pour %{group}
+          one: "%{count} concertation pour %{group}"
           other: "%{count} concertations pour %{group}"
         title: Groupes de concertations
     participatory_process_steps:
@@ -323,16 +325,16 @@ fr:
         filters:
           counters:
             active:
-              one: 1 concertation en cours
+              one: "%{count} concertation en cours"
               other: "%{count} concertations en cours"
             all:
-              one: 1 concertation
+              one: "%{count} concertation"
               other: "%{count} concertations"
             past:
-              one: 1 concertation archivée
+              one: "%{count} concertation archivée"
               other: "%{count} concertations archivées"
             upcoming:
-              one: 1 concertation à venir
+              one: "%{count} concertation à venir"
               other: "%{count} concertations à venir"
           explanations:
             no_active: Aucune concertation active

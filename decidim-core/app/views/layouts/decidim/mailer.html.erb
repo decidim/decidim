@@ -11,7 +11,7 @@
     <table class="body">
       <% if content_for?(:see_on_website) %>
         <table class="container">
-          <th class="small-12 first columns headnote float-right">
+          <th class="small-12 first columns headnote text-center">
             <%= yield(:see_on_website) %>
           </th>
         </table>
@@ -114,7 +114,7 @@
                       <th class="expander"></th>
                       <th class="small-12 first last columns footnote">
                         <center>
-                          <%= yield(:note) if content_for?(:note) %>
+                          <%= yield(:note) if content_for?(:note) %><br/>
                           <%= yield(:unsubscribe) if content_for?(:unsubscribe) %>
                         </center>
                       </th>

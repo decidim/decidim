@@ -107,4 +107,10 @@ $(() => {
   if ($map.length > 0) {
     window.Decidim.currentMap = loadMap(mapId, markersData);
   }
+
+  $("#address_input_modal").on("open.zf.reveal", () => {
+    setTimeout(() => {
+      window.Decidim.currentMap.invalidateSize();
+    }, 10);
+  })
 });

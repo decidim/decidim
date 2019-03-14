@@ -56,7 +56,7 @@ pl:
       actions:
         confirm: Potwierdzać
         new_conference: Nowa konferencja
-        send_diplomas: Wyślij dyplomy
+        send_diplomas: Wyślij certyfikaty uczestnictwa
       conference_copies:
         new:
           copy: Kopiuj
@@ -158,7 +158,7 @@ pl:
           conference_admins: Użytkownicy konferencji
           conference_invites: Zaprasza
           conference_speakers: Głośniki
-          diploma: Dyplom
+          diploma: Certyfikat uczestnictwa
           info: Informacje
           media_links: Media Links
           moderations: Moderacje
@@ -256,10 +256,10 @@ pl:
       conference:
         create: "%{user_name} utworzyło %{resource_name} konferencję"
         publish: "%{user_name} opublikowało %{resource_name} konferencję"
-        send_conference_diplomas: "%{user_name} wysyłaj dyplomy do użytkowników %{resource_name} konferencji"
+        send_conference_diplomas: "%{user_name} wysłanych certyfikatów obecności na %{resource_name} konferencję atendees"
         unpublish: "%{user_name} nie opublikowano %{resource_name} konferencji"
         update: "%{user_name} zaktualizowano %{resource_name} konferencję"
-        update_diploma: "%{user_name} zaktualizował konferencję konfiguracji dyplomu %{resource_name}"
+        update_diploma: "%{user_name} zaktualizowało konfigurację certyfikatów obecności dla %{resource_name} konferencji"
       conference_speaker:
         create: "%{user_name} utworzyło %{resource_name} głośnik w %{space_name} konferencjach"
         delete: "%{user_name} usunął %{resource_name} głośnik z %{space_name} konferencji"
@@ -342,7 +342,7 @@ pl:
         diplomas:
           edit:
             save: Zapisać
-            title: Dyplom
+            title: Certyfikat uczestnictwa
         invite_join_conference_mailer:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
@@ -358,7 +358,7 @@ pl:
             title: Rodzaje rejestracji
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: W załącznikach znajdziesz dyplom z konferencji <a href="%{url}">%{title}</a>.
+            diploma_html: W załącznikach znajdziesz certyfikat uczestnictwa w konferencji <a href="%{url}">%{title}</a>.
           diploma_user:
             attendance_verified_by: Frekwencja zweryfikowana przez
             certificate_of_attendance: Certyfikat uczestnictwa
@@ -441,7 +441,7 @@ pl:
             subject: Zaproszenie do przyłączenia się do konferencji
         send_conference_diploma_mailer:
           diploma:
-            subject: Twój dyplom konferencji został wysłany
+            subject: Twój certyfikat uczestnictwa w konferencji został wysłany
       models:
         conference_invite:
           fields:

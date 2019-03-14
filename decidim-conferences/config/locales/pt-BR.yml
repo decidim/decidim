@@ -50,7 +50,7 @@ pt-BR:
       actions:
         confirm: confirme
         new_conference: Nova conferência
-        send_diplomas: Envie Diplomas
+        send_diplomas: Envie certificados de participação
       conference_copies:
         new:
           copy: cópia de
@@ -152,7 +152,7 @@ pt-BR:
           conference_admins: Usuários da conferência
           conference_invites: Convites
           conference_speakers: caixas de som
-          diploma: Diploma
+          diploma: Certificado de participação
           info: Informações
           media_links: Links de Mídia
           moderations: Moderações
@@ -250,10 +250,10 @@ pt-BR:
       conference:
         create: "%{user_name} criou a conferência %{resource_name}"
         publish: "%{user_name} publicou a conferencia%{resource_name}"
-        send_conference_diplomas: "%{user_name} enviar diplomas para os %{resource_name} usuários da conferência"
+        send_conference_diplomas: "%{user_name} enviou certificados de participação para os %{resource_name} participantes da conferência"
         unpublish: "%{user_name} despublicou a conferencia%{resource_name}"
         update: "%{user_name} Atualizou a conferência %{resource_name}"
-        update_diploma: "%{user_name} atualizou a configuração do diploma %{resource_name} conference"
+        update_diploma: "%{user_name} atualizou a configuração dos certificados de participação para %{resource_name} conferência"
       conference_speaker:
         create: "%{user_name} criou o %{resource_name} alto-falante na conferência de %{space_name}"
         delete: "%{user_name} removeu o %{resource_name} alto-falante da conferência de %{space_name}"
@@ -334,7 +334,7 @@ pt-BR:
         diplomas:
           edit:
             save: Salve 
-            title: Diploma
+            title: Certificado de participação
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
@@ -350,7 +350,7 @@ pt-BR:
             title: Tipos de registro
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Você encontrará o diploma para a conferência <a href="%{url}">%{title}</a> nos anexos.
+            diploma_html: Você encontrará o certificado de participação para a conferência <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Atendimento verificado por
             certificate_of_attendance: Certificado de participação
@@ -433,7 +433,7 @@ pt-BR:
             subject: Convite para participar de uma conferência
         send_conference_diploma_mailer:
           diploma:
-            subject: O diploma da sua conferência foi enviado
+            subject: O seu certificado de participação na conferência foi enviado
       models:
         conference_invite:
           fields:

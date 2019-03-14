@@ -289,13 +289,16 @@ tr:
             name: öneri
         participatory_texts:
           bulk-actions:
+            are_you_sure: Katılımcı metin taslağının tamamını atadığınızdan emin misiniz?
             import_doc: Dokümanı içe aktar
+            discard_all: Hepsini at
           import:
             invalid: Form geçersiz!
             success: Tebrikler, aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
           index:
             info_1: Aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
             publish_document: Belge yayınla
+            save_draft: Taslağı kaydet
             title: ÖNEMLİ KATILIMCI METİN
           new_import:
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
@@ -305,10 +308,14 @@ tr:
           publish:
             invalid: Teklifler yayınlanamadı
             success: Tüm teklifler yayınlandı
+          discard:
+            success: Tüm Katılımcı metin taslakları atıldı.
           sections:
             article: "<em>Madde</em>"
             section: "<em>Bölüm:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alt Bölüm:</em> %{title}"
+          update:
+            success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
           edit:
             accepted: Kabul edilmiş

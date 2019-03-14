@@ -313,8 +313,10 @@ en:
         participatory_texts:
           bulk-actions:
             are_you_sure: Are you sure to discard the whole participatory text draft?
-            import_doc: Import document
             discard_all: Discard all
+            import_doc: Import document
+          discard:
+            success: All Participatory text drafts have been discarded.
           import:
             invalid: The form is invalid!
             success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
@@ -331,14 +333,12 @@ en:
           publish:
             invalid: Could not publish proposals
             success: All proposals have been published
-          discard:
-            success: All Participatory text drafts have been discarded.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsection:</em> %{title}"
           update:
-             success: Participatory text updated successfully.
+            success: Participatory text updated successfully.
         proposal_answers:
           edit:
             accepted: Accepted
@@ -636,9 +636,6 @@ en:
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
           title: Edit Proposal Draft
-        edit_form_fields:
-          address: Address
-          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:
@@ -681,7 +678,7 @@ en:
           view_index:
             see_index: See index
         placeholder:
-          address: 32 rue des cascades 75020 Paris
+          address: "[n°] [street] [postal] [city]"
         preview:
           address: 'Address: %{address}'
           modify: Modify the proposal

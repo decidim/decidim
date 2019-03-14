@@ -30,7 +30,6 @@ module Decidim
 
         def author_presenter
           return unless author
-
           @author_presenter ||= Decidim::UserPresenter.new(author)
         end
 

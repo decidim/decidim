@@ -263,6 +263,7 @@ fi-pl:
         consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
         government: Hallinto
+        help: 'Show:'
         label: 'Näytä:'
         others: Muut
         participatory: Osallistava

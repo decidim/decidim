@@ -617,7 +617,7 @@ hu:
         dashboard: Vezérlőpult
         impersonatable_users: Felhatalmazható felhasználók
         impersonations: Felhatalmazások
-        participants: Résztvevők
+        participants: felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak

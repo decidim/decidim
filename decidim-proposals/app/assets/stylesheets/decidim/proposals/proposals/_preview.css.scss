@@ -1,3 +1,84 @@
 .preview--form__hidden{
   display: none;
 }
+
+.preview{
+  padding-top: 1rem;
+
+  .card--proposal{
+    margin-bottom: .5rem;
+  }
+
+  button.card--button{
+    padding: 0;
+
+    .button-data{
+      display: flex;
+      width: 100%;
+      list-style: none;
+      align-items: center;
+      // margin: 1rem .9375rem;
+
+      & > *{
+        padding: .75rem;
+      }
+
+      .button-data--map{
+        padding: 0;
+        flex-grow: 0;
+
+        img{
+          margin: 0;
+          height: 3.2rem;
+          width: auto;
+        }
+      }
+
+      .button-data--info{
+        color: #777;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .google-map{
+    margin-bottom: .5rem;
+  }
+
+  .dynamic-map-instructions{
+    margin-bottom: .5rem;
+  }
+
+  .actions{
+    margin: 1rem;
+  }
+}
+
+.map-modal{
+  outline: 0;
+  padding: 2.3rem .25rem 1rem;
+
+  .close-button{
+    outline: 0;
+    right: .6rem;
+    top: 0;
+
+    .icon{
+      height: .5em;
+      width: .5em;
+    }
+  }
+
+  .google-map{
+    margin-bottom: 0;
+  }
+
+  .actions{
+    margin: .5rem 0;
+
+    .button{
+      margin: 0;
+    }
+  }
+}

@@ -96,15 +96,11 @@ en:
             email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
-          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Зустріч "%{resource_title}" було завершено
           follower:
             email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
             email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
         meeting_created:
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.

@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -106,7 +107,7 @@ fr:
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registration_confirmed:
@@ -140,7 +141,7 @@ fr:
       badges:
         attended_meetings:
           conditions:
-            - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
+          - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
           description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
           description_another: Cet utilisateur a participé à %{score} réunions.
           description_own: Vous avez assisté à %{score} réunions.
@@ -327,7 +328,7 @@ fr:
         meetings:
           index:
             all: Tout
-            date: Rendez-vous amoureux
+            date: Date
             meetings: Rencontres
             past: Passées
             search: Rechercher
@@ -379,7 +380,7 @@ fr:
             validated: VALIDÉE
             validation_pending: VALIDATION EN ATTENTE
           remaining_slots:
-            one: "%{count} emplacement disponible"
+            one: Dernière place disponible
             other: "%{count} places disponibles"
           view: Voir
       meetings_map:

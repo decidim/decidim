@@ -213,7 +213,7 @@ cs:
           notification_title: Výsledek <a href="%{resource_path}">%{resource_title}</a>, který zahrnuje návrh <a href="%{proposal_path}">%{proposal_title}</a>, je nyní %{progress}% dokončen.
     metrics:
       results:
-        description: Počet získaných výsledků odpovědnosti
+        description: Počet vygenerovaných výsledků
         object: Výsledek
         title: Výsledek
     participatory_processes:

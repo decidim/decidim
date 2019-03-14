@@ -617,7 +617,7 @@ fi-pl:
         dashboard: Hallintapaneeli
         impersonatable_users: Käyttäjien puolesta tehdyt istunnot
         impersonations: Esiintymiset toisena käyttäjänä
-        participants: Osallistujat
+        participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut

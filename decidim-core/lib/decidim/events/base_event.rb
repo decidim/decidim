@@ -89,7 +89,8 @@ module Decidim
         return unless resource
 
         if resource.respond_to?(:title)
-          translated_attribute(resource.title)
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_attribute(resource.title))
+          renderer.render(links: false)
         elsif resource.respond_to?(:name)
           translated_attribute(resource.name)
         end

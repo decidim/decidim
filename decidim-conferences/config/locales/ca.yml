@@ -250,10 +250,10 @@ ca:
       conference:
         create: "%{user_name} ha creat la conferènica %{resource_name}"
         publish: "%{user_name} ha publicat la conferència %{resource_name}"
-        send_conference_diplomas: "%{user_name} ha enviat els certificats d'assistència als assistents de la conferència %{resource_name}"
+        send_conference_diplomas: "%{user_name} enviar certificats d'assistència als %{resource_name} assistents de la conferència"
         unpublish: "%{user_name} no publicada la conferència %{resource_name}"
         update: "%{user_name} actualitzem la conferència %{resource_name}"
-        update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per la conferència %{resource_name}"
+        update_diploma: "%{user_name} actualitzar els certificats de configuració d'assistència per a %{resource_name} conferència"
       conference_speaker:
         create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
         delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
@@ -334,7 +334,7 @@ ca:
         diplomas:
           edit:
             save: Desa
-            title: Certificat d'assitència
+            title: Certificat d'assistència
         invite_join_conference_mailer:
           invite:
             decline: Rebutjar la invitació '%{conference_title}'
@@ -350,7 +350,7 @@ ca:
             title: Tipus de registre
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Trobaràs el certificat d'assistència a la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+            diploma_html: Trobareu el certificat d'assistència per a la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
             certificate_of_attendance: Certificat d'assistència
@@ -433,7 +433,7 @@ ca:
             subject: Invitació per participar a una conferència
         send_conference_diploma_mailer:
           diploma:
-            subject: S'ha enviat el teu certificat d'assistència a la conferència
+            subject: S'ha enviat el certificat d'assistència de la vostra conferència
       models:
         conference_invite:
           fields:

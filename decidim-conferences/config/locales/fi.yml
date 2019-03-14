@@ -50,7 +50,7 @@ fi:
       actions:
         confirm: Vahvista
         new_conference: Uusi konferenssi
-        send_diplomas: Lähetä diplomit
+        send_diplomas: Lähetä läsnäolotodistukset
       conference_copies:
         new:
           copy: Kopio
@@ -152,7 +152,7 @@ fi:
           conference_admins: Konferenssin käyttäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
-          diploma: Diplomi
+          diploma: Läsnäolotodistus
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
@@ -250,10 +250,10 @@ fi:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
-        send_conference_diplomas: "%{user_name} lähetti diplomit konferenssin %{resource_name} käyttäjille"
+        send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
-        update_diploma: "%{user_name} päivitti diplomeita konferenssille %{resource_name}"
+        update_diploma: "%{user_name} päivitti läsnäolotodistusten asetuksia konferenssille %{resource_name}"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
@@ -334,7 +334,7 @@ fi:
         diplomas:
           edit:
             save: Tallenna
-            title: Diplomi
+            title: Läsnäolotodistus
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
@@ -350,7 +350,7 @@ fi:
             title: Ilmoittautumistyypit
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> diplomin liitteistä.
+            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> läsnäolotodistuksen tämän viestin liitteistä.
           diploma_user:
             attendance_verified_by: Osallistuminen vahvistettu
             certificate_of_attendance: Läsnäolotodistus
@@ -433,7 +433,7 @@ fi:
             subject: Kutsu konferenssiin
         send_conference_diploma_mailer:
           diploma:
-            subject: Konferenssin diplomit on lähetetty
+            subject: Konferenssin läsnäolotodistukset on lähetetty
       models:
         conference_invite:
           fields:

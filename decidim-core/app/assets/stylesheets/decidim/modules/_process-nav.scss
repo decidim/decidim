@@ -145,6 +145,7 @@ $nav-border-width: 3px;
   font-weight: $global-weight-bold;
   display: flex;
   align-items: center;
+  white-space: normal;
 
   svg{
     margin-right: .4em;

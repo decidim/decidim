@@ -289,13 +289,16 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Segur que vols descartar l'esborrany sencer de text participatiu?
             import_doc: Importar document
+            discard_all: Descarta'l sencer
           import:
             invalid: El formulari no és vàlid!
             success: Enhorabona, les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
           index:
             info_1: Les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
             publish_document: Publicar el document
+            save_draft: Desa l'esborrany
             title: PREVISUALITZAR EL TEXT PARTICIPATIU
           new_import:
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
@@ -305,10 +308,14 @@ ca:
           publish:
             invalid: No s'han pogut publicar propostes
             success: S'han publicat totes les propostes
+          discard:
+            success: S'han descartat tots els esborranys de text participatius.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsecció:</em> %{title}"
+          update:
+            success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           edit:
             accepted: Acceptada
@@ -410,8 +417,8 @@ ca:
           except_rejected: Totes menys rebutjades
           rejected: Rebutjat
         filter_type_values:
-          all: Tots
-          amendments: Modificacions
+          all: Totes
+          amendments: Esmenes
           proposals: Propostes
       collaborative_drafts:
         collaborative_draft:
@@ -454,7 +461,7 @@ ca:
           title: Edita l'esborrany col·laboratiu
         filters:
           all: Tots
-          amendment: Modificacions
+          amendment: Esmenes
           category: Categoria
           category_prompt: Indicació de categoria
           open: Obert

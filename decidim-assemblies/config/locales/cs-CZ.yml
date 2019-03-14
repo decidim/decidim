@@ -269,6 +269,7 @@ cs:
         consultative_advisory: Poradní / poradní
         executive: Výkonný
         government: Vláda
+        help: 'Show:'
         label: 'Show:'
         others: Ostatní
         participatory: Účastní se
@@ -365,7 +366,7 @@ cs:
           reset_chart: Resetovat
         order_by_assemblies:
           assemblies:
-            one: "%{count}"
+            one: "%{count} sestav"
             few: "%{count} sestav"
             many: "%{count} sestav"
             other: "%{count} sestav"

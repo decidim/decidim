@@ -261,7 +261,7 @@ it:
       votes:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
-        title: voti
+        title: Voti
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -289,13 +289,16 @@ it:
             name: Proposta
         participatory_texts:
           bulk-actions:
+            are_you_sure: Sei sicuro di scartare l'intera bozza del testo partecipativo?
             import_doc: Importa il documento
+            discard_all: Scarta tutto
           import:
             invalid: Il modulo non è valido!
             success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
           index:
             info_1: Le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
             publish_document: Pubblica un documento
+            save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
@@ -305,10 +308,14 @@ it:
           publish:
             invalid: Impossibile pubblicare proposte
             success: Tutte le proposte sono state pubblicate
+          discard:
+            success: Tutte le bozze di testo partecipativo sono state scartate.
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sottosezione:</em> %{title}"
+          update:
+            success: Testo partecipativo aggiornato correttamente.
         proposal_answers:
           edit:
             accepted: Accettata

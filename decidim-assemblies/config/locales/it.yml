@@ -263,6 +263,7 @@ it:
         consultative_advisory: Consultivo / Advisory
         executive: Esecutivo
         government: Governo
+        help: 'Mostrare:'
         label: 'Mostrare:'
         others: Altri
         participatory: Participatory
@@ -360,7 +361,7 @@ it:
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"
-            other: "%{count} assemblies"
+            other: "%{count} assemblaggi"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa

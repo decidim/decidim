@@ -263,6 +263,7 @@ tr:
         consultative_advisory: Danışma / Danışma
         executive: yönetici
         government: hükümet
+        help: 'Göstermek:'
         label: 'Göstermek:'
         others: Diğerleri
         participatory: katılımcı
@@ -360,7 +361,7 @@ tr:
         order_by_assemblies:
           assemblies:
             one: "%{count} derleme"
-            other: "%{count} derlemeler"
+            other: "%{count} derleme"
         promoted_assembly:
           more_info: Daha fazla bilgi
           take_part: Yer almak
