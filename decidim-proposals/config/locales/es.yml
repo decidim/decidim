@@ -29,8 +29,8 @@ es:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente desde dónde copiar las propuestas
       proposals_import:
-        import_proposals: Propuestas de importación
-        keep_authors: Mantener autores originales
+        import_proposals: Importar propuestas
+        keep_authors: Mantener autoría original
     errors:
       models:
         participatory_text:
