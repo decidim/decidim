@@ -252,12 +252,12 @@ fr:
       participatory_process:
         step_activated:
           email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
           notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     help:

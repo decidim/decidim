@@ -28,7 +28,7 @@ fr:
       sortitions:
         sortition_created:
           email_intro: Le tirage au sort "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment ne plus suivre cet espace participatif en cliquant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Un nouveau tirage au sort vient d'être ajouté à %{participatory_space_title}
           notification_title: Le tirage au sort <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
     pages:

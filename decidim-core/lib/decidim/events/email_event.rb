@@ -31,7 +31,7 @@ module Decidim
         end
 
         def email_outro
-          I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title)
+          I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title, resource_url: resource_url)
         end
       end
     end

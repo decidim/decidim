@@ -517,17 +517,17 @@ fr:
           notification_title: Les créneaux occupés par la conférence <a href="%{resource_path}">%{resource_title}</a> sont supérieurs à %{percentage}%.
         conference_updated:
           email_intro: 'La conférence "%{resource_title}" a été mise à jour. Vous pouvez lire la nouvelle version depuis sa page:'
-          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez cesser de la suivre sur cette <a href="%{resource_url}">page</a>.
           email_subject: La conférence "%{resource_title}" a été mise à jour
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> été mise à jour.
         registrations_enabled:
           email_intro: 'La conférence "%{resource_title}" a permis les enregistrements. Vous pouvez vous inscrire sur sa page:'
-          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez cesser de la suivre sur cette <a href="%{resource_url}">page</a>.
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
         upcoming_conference:
           email_intro: 'La conférence "%{resource_title}" se déroule dans 2 jours. Vous pouvez lire la description de sa page:'
-          email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez le désabonner du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez cesser de la suivre sur cette <a href="%{resource_url}">page</a>.
           email_subject: La conférence "%{resource_title}" arrive!
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> arrive dans 2 jours.
     log:

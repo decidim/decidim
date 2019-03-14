@@ -150,12 +150,12 @@ fr:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> la proposition collaborative <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
@@ -200,12 +200,12 @@ fr:
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans les commentaires de cet espace</a>.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition. Découvrez-la et contribuez :"
-          email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez vous désabonner de cet utilisateur depuis sa <a href="%{author_path}">page de profil</a>.
           email_subject: Nouvelle proposition de %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Nouvelle proposition publiée dans %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
         proposal_rejected:
@@ -230,7 +230,7 @@ fr:
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:

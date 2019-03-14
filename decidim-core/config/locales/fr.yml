@@ -427,19 +427,19 @@ fr:
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez vous désabonnez sur cette <a href="%{resource_url}">page</a>.
           email_subject: Une mise à jour de %{resource_title}
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'La fonctionnalité %{resource_title} est maintenant active dans %{participatory_space_title}. Vous pouvez y accéder ici :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
           email_subject: Une mise à jour de %{participatory_space_title}
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
-        email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+        email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez vous désabonnez sur cette <a href="%{resource_url}">page</a>.
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
@@ -493,7 +493,7 @@ fr:
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
-          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
+          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez vous désabonner de cet utilisateur depuis sa <a href="%{resource_path}">page de profil</a>.
           email_subject: "%{nickname} a mis à jour son profil public"
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
@@ -750,9 +750,9 @@ fr:
         title: Utilisateurs
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné à la newsletter de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        note: Vous avez reçu cet email parce que vous êtes abonné à la newsletter de %{organization_name}.
         see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
-        unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+        unsubscribe: Vous pouvez vous désabonnez en cliquant sur ce <a href="%{link}" target="_blank" class="unsubscribe">lien</a>.
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
