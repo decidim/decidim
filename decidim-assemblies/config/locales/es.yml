@@ -125,11 +125,11 @@ es:
           success: Miembro actualizado correctamente para esta asamblea.
       assembly_publications:
         create:
-          error: Se produjo un error al publicar esta asamblea.
-          success: Asamblea publicada con éxito.
+          error: Se ha producido un error al publicar esta asamblea.
+          success: Asamblea publicada correctamente.
         destroy:
-          error: Se produjo un error al despublicar esta asamblea.
-          success: Asamblea despublicada con éxito.
+          error: Se ha producido un error al despublicar esta asamblea.
+          success: Asamblea despublicada correctamente.
       assembly_user_roles:
         create:
           error: Se ha producido un error al agregar un usuario para esta asamblea.
