@@ -34,6 +34,10 @@ fr:
         grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} aide d'une vérification hors ligne des documents d'identité"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
+            - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
