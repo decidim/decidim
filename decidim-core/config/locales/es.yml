@@ -602,12 +602,12 @@ es:
       accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Acepta o rechaza las invitaciones:'
       index:
         invite: Invitación
-        invite_user: Invitar a un usuario
+        invite_user: Invitar a una participante
       invite:
-        error: Se ha producido un error al invitar a este usuario.
-        success: Usuario invitado correctamente
+        error: Se ha producido un error al invitar a esta participante
+        success: Participante invitada correctamente
       reject:
-        error: Ha habido un error al rechazar esta invitación
+        error: Se ha producido un error al rechazar esta invitación
         success: Invitación rechazada correctamente
       reject_invitation: Rechazar
     group_members:
@@ -648,9 +648,9 @@ es:
         phone_help: No utilices guiones ni espacios
       join:
         error: Se ha producido un error al unirte al grupo
-        success: Solicitud enviada correctamente. Un administrador la revisará antes de aceptarte en el grupo.
+        success: Solicitud enviada correctamente. Una administradora la revisará antes de aceptarte en el grupo.
       leave:
-        error: Ha habido un problema al dejar el grupo
+        error: Se ha producido un error al dejar el grupo
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
