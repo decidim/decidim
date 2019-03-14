@@ -34,6 +34,10 @@ es-PY:
         grant_id_documents_offline_verification: "%{user_name} ha verificado %{resource_name} utilizando una verificación presencial mediante documentos de identidad"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Los administradores cargan un CSV con los correos electrónicos de los participantes aceptados
+            - Solo los participantes con un correo electrónico en ese archivo CSV pueden ser verificados
         id_documents:
           help:
             - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
