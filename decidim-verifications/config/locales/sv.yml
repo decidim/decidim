@@ -34,6 +34,10 @@ sv:
         grant_id_documents_offline_verification: "%{user_name} verifierad %{resource_name} hjälp av en offline ID-dokument verifiering"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Admins laddar upp en CSV med e-postadresserna till de accepterade deltagarna
+            - Endast deltagare med ett e-postmeddelande i den CSV-filen kan verifieras
         id_documents:
           help:
             - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
