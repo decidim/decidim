@@ -249,11 +249,11 @@ shared_examples "comments" do
       end
     end
 
-
     context "when a user votes to a comment" do
       before do
         visit resource_path
       end
+
       it "shows the vote block or not" do
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".comment__votes--up")
