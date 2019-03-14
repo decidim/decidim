@@ -36,8 +36,8 @@ fi:
       admin:
         csv_census:
           help:
-            - 'Järjestelmänvalvojat lähettävät CSV: n hyväksyttyjen osallistujien sähköpostiviesteihin'
-            - Vain osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat saada vahvistuksen
+            - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta
+            - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
