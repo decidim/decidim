@@ -132,7 +132,7 @@ es:
           success: Asamblea despublicada correctamente.
       assembly_user_roles:
         create:
-          error: Se ha producido un error al agregar un usuario para esta asamblea.
+          error: Se ha producido un error al añadir una administradora para esta asamblea.
           success: Usuario agregado conéxito a esta asamblea.
         destroy:
           success: Usuario eliminado con éxito de esta asamblea.
