@@ -23,7 +23,6 @@ module Decidim
           member do
             get :compare
             get :complete
-            get :edit_draft
             patch :update_draft
             get :preview
             post :publish

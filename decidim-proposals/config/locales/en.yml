@@ -452,7 +452,7 @@ en:
               title: The following action is irreversible
             success: Collaborative draft withdrawn successfully.
         compare:
-          mine_is_different: My collaborative draft is different
+          continue: Continue
           no_similars_found: Well done! No similar collaborative drafts found
           title: Similar collaborative drafts
         complete:
@@ -599,11 +599,13 @@ en:
           error: There was a problem supporting the proposal.
       proposals:
         compare:
-          mine_is_different: My proposal is different
+          continue: Continue
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
-          send: Send
+          discard: Discard the proposal
+          discard_confirmation: Are you sure you want to discard this proposal?
+          send: Preview
           title: Complete your proposal
         count:
           proposals_count:
@@ -615,11 +617,6 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
-        edit_draft:
-          discard: Discard this draft
-          discard_confirmation: Are you sure you want to discard this proposal draft?
-          send: Preview
-          title: Edit Proposal Draft
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:

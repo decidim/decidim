@@ -124,31 +124,37 @@ module Decidim
       end
 
       def wizard_aside_info_text
-        case type_of
-        when :collaborative_drafts
-          t("info", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
-        else
-          t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
+        t("wizard_aside.info", scope: "decidim.proposals.#{type_of}").html_safe
+      end
+
+      # Renders the back link except for step_2: compare
+      def wizard_aside_link_to_back(url = nil)
+        singular = type_of == :proposals
+
+        case action_name.to_sym
+        when :new
+          url = send("#{type_of}_path")
+        when :complete
+          url = send("compare_#{type_of(singular)}_path")
+        when :preview
+          url = send("complete_#{type_of(singular)}_path")
+        end
+
+        if url
+          link_to url do
+            concat icon("chevron-left", class: "icon--small")
+            concat wizard_aside_back_text
+          end
         end
       end
 
       def wizard_aside_back_text
-        case type_of
-        when :collaborative_drafts
-          t("back", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
-        else
-          t("back", scope: "decidim.proposals.proposals.wizard_aside").html_safe
-        end
+        t("wizard_aside.back", scope: "decidim.proposals.#{type_of}").html_safe
       end
 
-      def type_of
-        if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
-          :collaborative_drafts
-        elsif @collaborative_draft.present?
-          :collaborative_drafts
-        else
-          :proposals
-        end
+      def type_of(singular = false)
+        return controller_name.singularize.to_sym if singular
+        controller_name.to_sym
       end
     end
   end

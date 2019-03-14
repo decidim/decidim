@@ -25,6 +25,7 @@ describe "Proposal", type: :system do
            manifest: manifest,
            participatory_space: participatory_process)
   end
+  let(:component_path) { Decidim::EngineRouter.main_proxy(component) }
 
   context "when creating a new proposal" do
     before do
@@ -33,7 +34,7 @@ describe "Proposal", type: :system do
       click_link "New proposal"
     end
 
-    context "when in step_1: Start" do
+    context "when in step_1: Create your proposal" do
       it "show current step_1 highlighted" do
         within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
@@ -47,6 +48,17 @@ describe "Proposal", type: :system do
           fill_in :proposal_title, with: proposal_title
           fill_in :proposal_body, with: proposal_body
           find("*[type=submit]").click
+        end
+      end
+
+      context "when the back button is clicked" do
+        before do
+          click_link "Back"
+        end
+
+        it "redirects to proposals_path" do
+          expect(page).to have_content("PROPOSALS")
+          expect(page).to have_content("New proposal")
         end
       end
     end
@@ -75,12 +87,17 @@ describe "Proposal", type: :system do
         end
 
         it "shows similar proposals" do
+          expect(page).to have_content("SIMILAR PROPOSALS (2)")
           expect(page).to have_css(".card--proposal", text: "More sidewalks and less roads")
           expect(page).to have_css(".card--proposal", count: 2)
         end
 
         it "show continue button" do
-          expect(page).to have_content("My proposal is different")
+          expect(page).to have_content("Continue")
+        end
+
+        it "does not show the back button" do
+          expect(page).not_to have_link("Back")
         end
       end
 
@@ -96,7 +113,7 @@ describe "Proposal", type: :system do
           end
         end
 
-        it "redirects to the complete step" do
+        it "redirects to step_3: compare" do
           within ".section-heading" do
             expect(page).to have_content("COMPLETE YOUR PROPOSAL")
           end
@@ -134,18 +151,46 @@ describe "Proposal", type: :system do
       it "show form and submit button" do
         expect(page).to have_field("Title", with: proposal_title)
         expect(page).to have_field("Body", with: proposal_body)
-        expect(page).to have_button("Send")
+        expect(page).to have_button("Preview")
+      end
+
+      it "can discard the proposal" do
+        within ".card__content" do
+          expect(page).to have_content("Discard the proposal")
+          click_link "Discard the proposal"
+        end
+
+        page.accept_alert
+
+        within_flash_messages do
+          expect(page).to have_content "successfully"
+        end
+        expect(page).to have_css(".step--active.step_1")
+      end
+
+      it "renders a Preview button" do
+        within ".card__content" do
+          expect(page).to have_content("Preview")
+        end
+      end
+
+      context "when the back button is clicked" do
+        before do
+          create(:proposal, title: proposal_title, component: component)
+          click_link "Back"
+        end
+
+        it "redirects to step_3: compare" do
+          expect(page).to have_content("SIMILAR PROPOSALS (1)")
+        end
       end
     end
 
     context "when in step_4: Publish" do
       let!(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: proposal_title, body: proposal_body) }
-      let!(:preview_proposal_path) do
-        Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/preview"
-      end
 
       before do
-        visit preview_proposal_path
+        visit component_path.preview_proposal_path(proposal_draft)
       end
 
       it "show current step_4 highlighted" do
@@ -157,7 +202,9 @@ describe "Proposal", type: :system do
       end
 
       it "shows a preview" do
-        expect(page).to have_css(".card.card--proposal", count: 1)
+        expect(page).to have_content(proposal_title)
+        expect(page).to have_content(user.name)
+        expect(page).to have_content(proposal_body)
       end
 
       it "shows a publish button" do
@@ -167,45 +214,31 @@ describe "Proposal", type: :system do
       it "shows a modify proposal link" do
         expect(page).to have_selector("a", text: "Modify the proposal")
       end
+
+      context "when the back button is clicked" do
+        before do
+          click_link "Back"
+        end
+
+        it "redirects to step_3: compare" do
+          expect(page).to have_content("COMPLETE YOUR PROPOSAL")
+        end
+      end
     end
 
-    context "when editing a proposal draft" do
-      context "when in step_4: edit proposal draft" do
-        let!(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: proposal_title, body: proposal_body) }
-        let!(:edit_draft_proposal_path) do
-          Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/edit_draft"
-        end
+    context "when a proposal draft exists for current users" do
+      context "when visiting step_1: Create your proposal" do
+        let!(:proposal_draft) { create(:proposal, :draft, users: [user], component: component) }
 
         before do
-          visit edit_draft_proposal_path
+          visit component_path.new_proposal_path
         end
 
-        it "show current step_4 highlighted" do
-          within ".wizard__steps" do
-            expect(page).to have_css(".step--active", count: 1)
-            expect(page).to have_css(".step--past", count: 2)
-            expect(page).to have_css(".step--active.step_3")
+        it "redirects to step_3: compare" do
+          within ".section-heading" do
+            expect(page).to have_content("COMPLETE YOUR PROPOSAL")
           end
-        end
-
-        it "can discard the draft" do
-          within ".card__content" do
-            expect(page).to have_content("Discard this draft")
-            click_link "Discard this draft"
-          end
-
-          page.accept_alert
-
-          within_flash_messages do
-            expect(page).to have_content "successfully"
-          end
-          expect(page).to have_css(".step--active.step_1")
-        end
-
-        it "renders a Preview button" do
-          within ".card__content" do
-            expect(page).to have_content("Preview")
-          end
+          expect(page).to have_content(proposal_draft.body)
         end
       end
     end

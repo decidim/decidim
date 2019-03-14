@@ -16,9 +16,9 @@ module Decidim
       helper_method :form_presenter
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
-      before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
+      before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
-      before_action :edit_form, only: [:edit_draft, :edit]
+      before_action :edit_form, only: [:edit]
 
       before_action :set_participatory_text
 
@@ -61,7 +61,7 @@ module Decidim
         enforce_permission_to :create, :proposal
         @step = :step_1
         if proposal_draft.present?
-          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
+          redirect_to complete_proposal_path(proposal_draft)
         else
           @form = form(ProposalWizardCreateStepForm).from_params({})
         end
@@ -76,7 +76,7 @@ module Decidim
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
+            redirect_to compare_proposal_path(proposal)
           end
 
           on(:invalid) do
@@ -94,16 +94,14 @@ module Decidim
 
         if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
-          redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path + "/complete"
+          redirect_to complete_proposal_path(@proposal)
         end
       end
 
       def complete
-        enforce_permission_to :create, :proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_3
-
         @form = form_proposal_model
-
         @form.attachment = form_attachment_new
       end
 
@@ -121,14 +119,9 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            render :edit_draft
+            render :complete
           end
         end
-      end
-
-      def edit_draft
-        @step = :step_3
-        enforce_permission_to :edit, :proposal, proposal: @proposal
       end
 
       def update_draft
@@ -139,7 +132,7 @@ module Decidim
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path + "/preview"
+            redirect_to preview_proposal_path(proposal)
           end
 
           on(:invalid) do
@@ -190,24 +183,26 @@ module Decidim
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
         if @proposal.emendation?
           Decidim::Amendable::Withdraw.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
+            on(:ok) do |proposal_emendation|
               flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+              redirect_to proposal_path(proposal_emendation)
             end
+
             on(:invalid) do
               flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+              redirect_to proposal_path(proposal_emendation)
             end
           end
         else
           WithdrawProposal.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
+            on(:ok) do |proposal|
               flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+              redirect_to proposal_path(proposal)
             end
+
             on(:invalid) do
               flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+              redirect_to proposal_path(proposal)
             end
           end
         end
