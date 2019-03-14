@@ -34,6 +34,10 @@ pt:
         grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando uma verificação de documentos de identidade off-line"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Administra o upload de um arquivo CSV com os e-mails dos participantes aceitos
+            - Somente participantes com um e-mail nesse arquivo CSV podem ser verificados
         id_documents:
           help:
             - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
