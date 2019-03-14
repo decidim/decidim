@@ -341,7 +341,7 @@ es:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa
-          sign_up_disabled: El registro está deshabilitado, puedes usar un usuario existente para acceder
+          sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder
       shared:
         newsletter_modal:
           buttons:
@@ -368,7 +368,7 @@ es:
           publish_content: Publique contenido para usted
           see_email: Ver tu correo electrónico
           see_name: Ver tu nombre
-          see_username: Ver tu nombre de usuario
+          see_username: Ver tu alias
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
@@ -385,9 +385,9 @@ es:
       amendments:
         amendment_created:
           affected_user:
-            email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
-            email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
-            email_subject: Una nueva enmienda para %{amendable_title} de %{emendation_author_nickname}
+            email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
+            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_subject: Nueva enmienda para %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nueva enmienda</a> ha sido creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
