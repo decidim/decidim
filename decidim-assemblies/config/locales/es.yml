@@ -133,19 +133,18 @@ es:
       assembly_user_roles:
         create:
           error: Se ha producido un error al añadir una administradora para esta asamblea.
-          success: Usuario agregado conéxito a esta asamblea.
         destroy:
-          success: Usuario eliminado con éxito de esta asamblea.
+          success: Usuaria eliminada correctamente de esta asamblea.
         edit:
-          title: Actualizar el usuario de la asamblea.
+          title: Actualizar administradora de la asamblea.
           update: Actualizar
         index:
-          assembly_admins_title: Usuarios de la Asamblea
+          assembly_admins_title: Administradoras de la asamblea
         new:
           create: Crear
-          title: Nuevo usuario de la asamblea.
+          title: Nueva administradora de la asamblea.
         update:
-          error: Ha habido un error al actualizar un usuario para esta asamblea.
+          error: Se ha producido un error al actualizar la administradora para esta asamblea.
           success: Usuario actualizado con éxito para esta asamblea.
       menu:
         assemblies: Asambleas
