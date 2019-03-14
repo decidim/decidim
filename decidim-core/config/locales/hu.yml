@@ -153,8 +153,8 @@ hu:
           help_text: Tekintse át a módosításokat, és fogadja el, vagy utasítsa el ezt a módosítást. Értesítést küld a szerző (k) nek.
         announcement:
           accepted: |-
-            Ez a módosítás a %{amendable_type} %{amendable_link} re
-            elfogadott <strong>%{announcement_date}</strong>.
+            A %{amendable_type} %{amendable_link}
+            re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
           evaluating: |-
             Ezt a %{amendable_type} %{amendable_link}
             módosítást értékelik.
