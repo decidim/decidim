@@ -991,7 +991,7 @@ ca:
       show:
         no_scopes: Aquesta organització encara no té cap abast!
         my_interests: Els meus interessos
-        select_your_interests: Seleccioneu els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
+        select_your_interests: Selecciona els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
         update_my_interests: Actualitza els meus interessos
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
