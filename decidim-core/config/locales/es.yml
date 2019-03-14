@@ -759,7 +759,7 @@ es:
     newsletters:
       unsubscribe:
         check_subscription: Si deseas cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>
-        error: Ha habido un error al cancelar la suscripción
+        error: Se ha producido un error al cancelar la suscripción
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
@@ -790,8 +790,8 @@ es:
         send_notifications_by_email: Enviar notificaciones por correo electrónico
         update_notifications_settings: Guardar cambios
       update:
-        error: Ha habido un error al actualizar la configuración de las notificaciones.
-        success: La configuración de las notificaciones se han actualizado correctamente.
+        error: Se ha producido un error al actualizar la configuración de las notificaciones.
+        success: La configuración de las notificaciones se ha actualizado correctamente.
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
     own_user_groups:
@@ -856,7 +856,7 @@ es:
           link: Mostrar todas las estadísticas
       terms_and_conditions:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones.
+          error: Se ha producido un error al aceptar los Términos y Condiciones.
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
@@ -875,10 +875,10 @@ es:
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
     profile:
-      deleted: Usuario eliminado
+      deleted: Participante eliminada
       view: Ver
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, tu nombre se ha verificado para que se corresponda con tu nombre real
+      default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         activity: Actividad
@@ -898,13 +898,13 @@ es:
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
         edit_user_group: Editar el perfil del grupo
-        fill_in_email_to_confirm_it: Por favor, rellene el correo electrónico de su grupo para confirmarlo
-        invite_user: Invitar al usuario
+        fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo
+        invite_user: Invitar participante
         join_user_group: Solicitar unirse al grupo
         leave_user_group: Dejar el grupo
         manage_user_group_admins: Gestionar los administradores
         manage_user_group_users: Gestionar los miembros
-        resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
+        resend_email_confirmation_instructions: Vuelve a enviar las instrucciones de confirmación por correo electrónico
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -983,19 +983,19 @@ es:
         share: Compartir
         share_link: Compartir enlace
       version_author:
-        deleted: Usuario eliminado
+        deleted: Participante eliminada
     user_activity:
       index:
-        no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+        no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
     user_interests:
       show:
-        no_scopes: '¡Esta organización aún no tiene ningún alcance!'
+        no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
         my_interests: Mis intereses
-        select_your_interests: Seleccione los temas que le interesan para recibir eventos relacionados con ellos en la pestaña Línea de tiempo de su perfil.
+        select_your_interests: Selecciona los temas que te interesan para recibir eventos relacionados con ellos en la pestaña Timeline de tu perfil.
         update_my_interests: Actualizar mis intereses
       update:
-        error: Hubo un error al actualizar tus intereses.
-        success: Sus intereses se han actualizado con éxito.
+        error: Se ha producido un error al actualizar tus intereses.
+        success: Tus intereses se han actualizado correctamente.
     welcome_notification:
       default_body: <p>Hola {{name}}, ¡gracias por unirte a {{organization}} y bienvenido/a!</p><ul><li>Si quieres hacerte una idea ràpida de lo que puedes hacer aquí, echa un vistazo a la sección de <a href="{{help_url}}">Ayuda</a>.</li><li>Una vez la hayas leído obtendrás tu primera insignia. Aquí tienes <a href="{{badges_url}}">la lista</a> de todas las que puedes ir consiguiendo a medida que participes en {{organization}}</li><li>Finalmente, pero no por ello menos importante, únete a otras personas, comparte con ellas la experiencia de implicarte y participar en {{organization}}. Haz propuestas, comenta, debate, piensa en cómo contribuir al bien común, aporta argumentos para convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y mantén la mente abierta a colaborar y sumarte a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1019,7 +1019,7 @@ es:
     invitations:
       edit:
         header: Termina de crear tu cuenta
-        nickname_help: Tu identificador único en %{organization}.
+        nickname_help: Tu alias en %{organization}.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
       invitation_removed: Tu invitación fue eliminada.
@@ -1050,10 +1050,10 @@ es:
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br />
           Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuario/a y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
+        invited_you_as_private_user: "%{invited_by} te ha invitado como participante privada de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
-        someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
+        someone_invited_you_as_private_user: Alguien te ha invitado como participante privada de %{application}, puedes aceptar a través del siguiente enlace.
         subject: Instrucciones de invitación
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}
@@ -1095,10 +1095,10 @@ es:
       no_token: No puedes acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si vienes de un correo electrónico de restablecimiento de contraseña, asegúrate de haber utilizado la URL provista completa.
       send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos.
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos minutos.
-      updated: Tu contraseña ha sido cambiada con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña ha sido cambiada con éxito.
+      updated: Tu contraseña se ha modificado correctamente. Ya has iniciado sesión.
+      updated_not_active: Tu contraseña se ha modificado correctamente.
     registrations:
-      destroyed: '¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos volverte a ver pronto.'
+      destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
       edit:
         are_you_sure: '¿Estás seguro?'
         cancel_my_account: Cancelar mi cuenta
@@ -1115,7 +1115,7 @@ es:
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
       update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo electrónico. Verifica tu correo electrónico y sigue el enlace confirmar para confirmar tu nueva dirección de correo electrónico.
-      updated: Tu cuenta ha sido actualizada con éxito.
+      updated: Tu cuenta se ha actualizado correctamente.
     sessions:
       already_signed_out: Sesión finalizada con éxito.
       new:
@@ -1139,7 +1139,7 @@ es:
         resend_unlock_instructions: Reenviar instrucciones de desbloqueo
       send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo desbloquear tu cuenta en unos minutos.
       send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
-      unlocked: Tu cuenta ha sido desbloqueada con éxito. Por favor inicia sesión para continuar.
+      unlocked: Tu cuenta se ha desbloqueado correctamente. Por favor inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
@@ -1185,7 +1185,7 @@ es:
         sign_up: Regístrate
       impersonation_warning:
         close_session: Cerrar la sesión
-        description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
+        description_html: Estás gestionando la participante <b>%{user_name}</b>.
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
@@ -1203,7 +1203,7 @@ es:
         my_data: Mis datos
         my_interests: Mis intereses
         notifications_settings: Configuracion de notificaciones
-        title: Ajustes de usuario
+        title: Ajustes de participante
         user_groups: Grupos
       widget:
         see_more: Ver más
