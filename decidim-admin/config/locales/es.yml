@@ -696,7 +696,7 @@ es:
             invalid: Ha habido un problema al no encontrar el recurso.
             success: Recurso exitosamente no oculto.
           unreport:
-            invalid: Ha habido un problema cancelando la denuncia.
+            invalid: Se ha producido un error cancelando la denuncia.
             success: Denuncia cancelada correctamente.
       models:
         moderation:
@@ -718,4 +718,4 @@ es:
         settings:
           title: Ajustes
         users:
-          title: Usuarios
+          title: Partipantes
