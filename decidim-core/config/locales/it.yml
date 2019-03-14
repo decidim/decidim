@@ -1137,7 +1137,7 @@ it:
         other: "(Minimo%{count} caratteri)"
     unlocks:
       new:
-        resend_unlock_instructions: Rinvia le istruzioni di sblocco
+        resend_unlock_instructions: Inviami nuovamente le istruzioni di sblocco
       send_instructions: Riceverai un'email con le istruzioni su come sbloccare il tuo account in pochi minuti.
       send_paranoid_instructions: Se il tuo account esiste, riceverai un'email con le istruzioni su come sbloccarlo in pochi minuti.
       unlocked: Il tuo account è stato sbloccato correttamente. Per favore accedi per continuare.
