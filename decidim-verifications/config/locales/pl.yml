@@ -34,6 +34,10 @@ pl:
         grant_id_documents_offline_verification: "%{user_name} zweryfikowanych %{resource_name} przy użyciu weryfikacji dokumentów tożsamości offline"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Administratorzy przesyłają plik CSV z wiadomościami e-mail akceptowanych uczestników
+            - Tylko uczestnicy z e-mailem w tym pliku CSV mogą zostać zweryfikowani
         id_documents:
           help:
             - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
