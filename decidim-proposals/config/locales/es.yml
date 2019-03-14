@@ -201,23 +201,23 @@ es:
         proposal_rejected:
           affected_user:
             email_intro: 'Tu propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Su propuesta ha sido rechazada
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
+            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_subject: Tu propuesta ha sido rechazada
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
             email_subject: Una propuesta que estás siguiendo ha sido rechazada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
-          email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
+          email_intro: 'Una administradora ha actualizado la categoría de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: '¡Puedes apoyar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
+          email_subject: El apoyo a propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -226,51 +226,51 @@ es:
             - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
             - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y estas sean aceptadas.
-          description_another: '%{score} propuestas de este usuario han sido aceptadas.'
+          description_another: '%{score} propuestas de esta participante han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
           name: Propuestas aceptadas
           next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
+          unearned_another: Esta participante aún no ha conseguido ninguna propuesta aceptada.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
             - Navega y dedica un tiempo leyendo las propuestas de otras personas
             - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
           description: Este distintivo se otorga cuando apoyas propuestas de otras personas.
-          description_another: Este usuario ha dado soporte a %{score} propuestas.
+          description_another: Esta participante ha apoyado %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
           next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
+          unearned_another: Esta participante aún no ha apoyado ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
             - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
             - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
-          description_another: Este usuario ha creado %{score} propuestas.
+          description_another: Esta participante ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no ha creado ninguna propuesta todavía.
+          unearned_another: Esta participante no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
-        description: Número de propuestas aceptadas por los usuarios
+        description: Número de propuestas aceptadas
         object: propuestas
         title: Propuestas aceptadas
       endorsements:
-        description: Número de adhesiones generadas en las propuestas
+        description: Número de adhesiones a propuestas
         object: adhesiones
         title: Adhesiones
       proposals:
-        description: Número de propuestas generadas
+        description: Número de propuestas
         object: propuestas
         title: Propuestas
       votes:
-        description: Número de apoyos generados en las propuestas por los usuarios
-        object: votos
-        title: Votos
+        description: Número de apoyos a propuestas
+        object: apoyos
+        title: Apoyos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -298,7 +298,7 @@ es:
             name: Propuesta
         participatory_texts:
           bulk-actions:
-            are_you_sure: '¿Estás seguro de descartar todo el borrador del texto participativo?'
+            are_you_sure: '¿Seguro que quieres descartar todo el borrador de texto participativo?'
             import_doc: Importar documento
             discard_all: Descartar todo
           import:
@@ -696,7 +696,7 @@ es:
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
-          votes_blocked: Apoyos desactivados
+          votes_blocked: Apoyos deshabilitados
         votes_count:
           count:
             one: APOYO
@@ -709,7 +709,7 @@ es:
           minimum_votes_per_user:
             description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
             given_enough_votes: Has dado suficientes apoyos.
-            supports_remaining: Tienes que apoyar %{remaining_votes} propuestas más para que tus apoyos se tengan en cuenta.
+            supports_remaining: Debes apoyar %{remaining_votes} propuestas más para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
@@ -730,21 +730,21 @@ es:
           step_4: Publicar tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
       publish:
-        error: Ha habido errores al publicar la propuesta.
-        success: Propuesta publicada con éxito.
+        error: Se ha producido un error al publicar la propuesta.
+        success: Propuesta publicada correctamente.
       update:
-        error: Ha habido errores al guardar la propuesta.
-        success: Propuesta actualizada con éxito.
+        error: Se ha producido un error al guardar la propuesta.
+        success: Propuesta actualizada correctamente.
       update_draft:
-        error: Ha habido errores al guardar el borrador de la propuesta.
-        success: Borrador de propuesta actualizado con éxito.
+        error: Se ha producido un error al guardar el borrador colaborativo.
+        success: Borrador colaborativo actualizado correctamente.
       versions:
         changes_at_title: Cambios en "%{title}"
         index:
           title: Versiones
         stats:
           back_to_collaborative_draft: Volver al borrador colaborativo
-          back_to_proposal: Volver a propuesta
+          back_to_proposal: Volver a la propuesta
           number_of_versions: Versiones
           show_all_versions: Mostrar todas las versiones
           version_author: Autor de la versión
