@@ -22,41 +22,7 @@ module Decidim
 
       before_action :set_participatory_text
 
-      def index
-        if component_settings.participatory_texts_enabled?
-          @proposals = Decidim::Proposals::Proposal
-                       .where(component: current_component)
-                       .published
-                       .not_hidden
-                       .includes(:category, :scope)
-                       .order(position: :asc)
-          render "decidim/proposals/proposals/participatory_texts/participatory_text"
-        else
-          @proposals = search
-                       .results
-                       .published
-                       .not_hidden
-                       .includes(:category)
-                       .includes(:scope)
-
-          @voted_proposals = if current_user
-                               ProposalVote.where(
-                                 author: current_user,
-                                 proposal: @proposals.pluck(:id)
-                               ).pluck(:decidim_proposal_id)
-                             else
-                               []
-                             end
-          @proposals = paginate(@proposals)
-          @proposals = reorder(@proposals)
-        end
-      end
-
-      def show
-        raise ActionController::RoutingError, "Not Found" unless set_proposal
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
-      end
-
+      # Controller actions related to WizardCreateStepForm
       def new
         enforce_permission_to :create, :proposal
         @step = :step_1
@@ -105,6 +71,41 @@ module Decidim
         @form.attachment = form_attachment_new
       end
 
+      def update_draft
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+        @step = :step_3
+
+        @form = form_proposal_params
+        UpdateProposal.call(@form, current_user, @proposal) do
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
+            redirect_to preview_proposal_path(proposal)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
+
+      def destroy_draft
+        enforce_permission_to :edit, :proposal, proposal: @proposal
+        @step = :step_3
+
+        DestroyProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.destroy_draft.success", scope: "decidim")
+            redirect_to new_proposal_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
+
       def preview
         @step = :step_4
       end
@@ -124,38 +125,40 @@ module Decidim
         end
       end
 
-      def update_draft
-        @step = :step_1
-        enforce_permission_to :edit, :proposal, proposal: @proposal
+      # Standard controller actions
+      def index
+        if component_settings.participatory_texts_enabled?
+          @proposals = Decidim::Proposals::Proposal
+                       .where(component: current_component)
+                       .published
+                       .not_hidden
+                       .includes(:category, :scope)
+                       .order(position: :asc)
+          render "decidim/proposals/proposals/participatory_texts/participatory_text"
+        else
+          @proposals = search
+                       .results
+                       .published
+                       .not_hidden
+                       .includes(:category)
+                       .includes(:scope)
 
-        @form = form_proposal_params
-        UpdateProposal.call(@form, current_user, @proposal) do
-          on(:ok) do |proposal|
-            flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
-            redirect_to preview_proposal_path(proposal)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
-            render :edit_draft
-          end
+          @voted_proposals = if current_user
+                               ProposalVote.where(
+                                 author: current_user,
+                                 proposal: @proposals.pluck(:id)
+                               ).pluck(:decidim_proposal_id)
+                             else
+                               []
+                             end
+          @proposals = paginate(@proposals)
+          @proposals = reorder(@proposals)
         end
       end
 
-      def destroy_draft
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-
-        DestroyProposal.call(@proposal, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("proposals.destroy_draft.success", scope: "decidim")
-            redirect_to new_proposal_path
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
-            render :edit_draft
-          end
-        end
+      def show
+        raise ActionController::RoutingError, "Not Found" unless set_proposal
+        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
       def edit
