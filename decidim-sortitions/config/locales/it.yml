@@ -65,7 +65,7 @@ it:
             destroy: Annulla la scelta
             title: Annullamento della sortizione
           create:
-            error: Si è verificato un errore durante la creazione di una nuova sortizione.
+            error: Si è verificato un errore durante la creazione di un sorteggio.
             success: Sortition creato con successo
           destroy:
             error: Impossibile cancellare la sortizione.
@@ -86,7 +86,7 @@ it:
           show:
             selected_proposals: Proposte selezionate per l'estrazione
           update:
-            error: Si è verificato un errore durante l'aggiornamento della sortizione.
+            error: Si è verificato un errore durante l'aggiornamento del sorteggio.
             success: Sortition aggiornato con successo
       admin_log:
         sortition:
@@ -122,7 +122,7 @@ it:
             one: proposta selezionata
             other: proposte selezionate
         show:
-          algorithm: Il codice dell'algoritmo di Sortition
+          algorithm: Il codice dell'algoritmo di sorteggio
           any_category: da tutte le categorie
           cancelled: Ordinamento annullato
           candidate_proposal_ids: Ordine e ID di proposte di ordinamento
