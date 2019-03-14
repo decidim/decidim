@@ -12,6 +12,8 @@ module Decidim
       def author
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
+                    elsif official_meeting?
+                      Decidim::Meetings::MeetingPresenter.new(authors.first)
                     else
                       coauthorship = coauthorships.first
                       if coauthorship.user_group
