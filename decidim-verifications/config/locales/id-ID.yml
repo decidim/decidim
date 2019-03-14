@@ -34,6 +34,10 @@ id:
         grant_id_documents_offline_verification: "%{user_name} diverifikasi %{resource_name} menggunakan verifikasi Dokumen Identitas offline"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Admin mengunggah CSV dengan email dari peserta yang diterima
+            - Hanya peserta dengan email di file CSV yang dapat diverifikasi
         id_documents:
           help:
             - Pengguna mengisi informasi identitas mereka dan mengunggah salinan dokumen mereka.
