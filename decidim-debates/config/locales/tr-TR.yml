@@ -33,6 +33,7 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
+            creation_enabled: "Etkin kullanıcılar tarafından tartışma oluştur\n"
     debates:
       actions:
         confirm_destroy: Emin misiniz?
@@ -42,6 +43,11 @@ tr:
         title: Eylemler
       admin:
         debates:
+          create:
+            invalid: Tartışma oluşturulurken bir sorun oluştu.
+            success: Tartışma başarıyla oluşturuldu.
+          destroy:
+            success: Tartışma başarıyla silindi.
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
@@ -50,6 +56,9 @@ tr:
           new:
             create: Tartışma oluştur
             title: Yeni tartışma
+          update:
+            invalid: Bu tartışmayı güncellerken bir sorun oluştu.
+            success: Tartışma başarıyla güncellendi.
         models:
           debate:
             name: tartışma
@@ -62,6 +71,9 @@ tr:
           debates_count:
             one: "%{count} tartışma"
             other: "%{count} tartışmalar"
+        create:
+          invalid: Tartışma oluşturulurken bir sorun oluştu.
+          success: Tartışma başarıyla oluşturuldu.
         debate:
           participate: Katıl
         filters:
@@ -115,6 +127,7 @@ tr:
             email_subject: Yeni tartışma "%{resource_title}" ile %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> tartışmasını yarattı.
         creation_disabled:
+          email_intro: 'Tartışma oluşturma %{participatory_space_title} artık etkin değil. Bu sayfadan açılan tartışmalara hala katılabilirsiniz:'
           email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
           email_subject: Tartışma oluşturma %{participatory_space_title}devre dışı
           notification_title: Tartışma oluşturma şimdi <a href="%{participatory_space_url}">%{participatory_space_title}</a>devre dışı bırakıldı
@@ -129,9 +142,11 @@ tr:
           conditions:
             - Katılmak için açık bir tartışma seçin
           description: Bu rozet, yorumlarınızı bırakarak farklı tartışmalara aktif olarak katıldığınızda verilir.
+          description_another: Bu kullanıcı %{score} tartışmaya katıldı.
           description_own: '%{score} tartışmaya katıldınız.'
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
+          unearned_another: Bu kullanıcı henüz herhangi bir tartışmaya katılmadı.
           unearned_own: Henüz herhangi bir tartışmaya katılamadınız.
     metrics:
       debates:
