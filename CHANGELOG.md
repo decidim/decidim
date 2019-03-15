@@ -91,6 +91,7 @@ end
 **Fixed**:
 
 - **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
+- **decidim-meetings**: Fix card list data displays. [#4972](https://github.com/decidim/decidim/pull/4972)
 - **decidim-assemblies**: Fix only show published children assemblies in public view [#4969](https://github.com/decidim/decidim/pull/4969)
 - **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
 - **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events [#4895](https://github.com/decidim/decidim/pull/4895)
@@ -162,6 +163,7 @@ end
 - **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
 - **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4964](https://github.com/decidim/decidim/pull/4964/)
 - **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4964](https://github.com/decidim/decidim/pull/4964/)
+- **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
 
 **Removed**:
 
