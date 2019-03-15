@@ -107,9 +107,9 @@ fr:
               must_be_ssl: L'URI de redirection doit être un URI SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Fichier image invalide
             official_img_footer:
+              allowed_file_content_types: Fichier image invalide
+            official_img_header:
               allowed_file_content_types: Fichier image invalide
   activerecord:
     attributes:
