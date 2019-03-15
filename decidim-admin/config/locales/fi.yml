@@ -302,7 +302,7 @@ fi:
           impersonate: Esiinny käyttäjänä
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
-          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjää
+          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
       logs:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja
