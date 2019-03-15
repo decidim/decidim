@@ -138,10 +138,10 @@ fi:
         verify: Vahvista
       area_types:
         create:
-          error: Uuden aluetyypin luomisessa tapahtui virhe.
-          success: Aluetyyppi luotu onnistuneesti.
+          error: Uuden aluetyypin luonti epäonnistui.
+          success: Aluetyypin luonti onnistui.
         destroy:
-          success: Aluetyyppi tuhottu onnistuneesti
+          success: Aluetyypin tuhoaminen onnistui
         edit:
           title: Muokkaa aluetyyppiä
           update: Päivitä
@@ -149,14 +149,14 @@ fi:
           create: Luo aluetyyppi
           title: Uusi aluetyyppi
         update:
-          error: Aluetyyppiä päivitettäessä tapahtui virhe.
-          success: Aluetyyppi päivitetty onnistuneesti
+          error: Aluetyyppiä päivitys epäonnistui.
+          success: Aluetyypin päivitys onnistui
       areas:
         create:
-          error: Uuden alueen luomisessa tapahtui virhe.
-          success: Alue luotu onnistuneesti.
+          error: Uuden alueen luonti epäonnistui.
+          success: Alueen luonti onnistui.
         destroy:
-          success: Alue tuhottu onnistuneesti
+          success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
           update: Päivitä
@@ -165,14 +165,14 @@ fi:
           title: Uusi alue
         no_areas: Ei alueita
         update:
-          error: Virhe päivitettäessä tätä aluetta.
-          success: Alue päivitetty onnistuneesti
+          error: Alueen päivitys epäonnistui.
+          success: Alueen päivitys onnistui
       attachment_collections:
         create:
-          error: Uuden kansion luomisessa tapahtui virhe.
-          success: Kansio luotu onnistuneesti.
+          error: Uuden kansion luonti epäonnistui.
+          success: Kansion luonti onnistui.
         destroy:
-          success: Kansio tuhottu onnistuneesti.
+          success: Kansion tuhoaminen onnistui.
         edit:
           title: Muokkaa kansiota
           update: Päivitä
@@ -183,14 +183,14 @@ fi:
           create: Luo
           title: Uusi kansio
         update:
-          error: Kansion päivittämisessä tapahtui virhe.
-          success: Kansio päivitetty onnistuneesti.
+          error: Kansion päivitys epäonnistui.
+          success: Kansion päivitys onnistui.
       attachments:
         create:
-          error: Uuden liitteen luonnissa tapahtui virhe.
-          success: Liite luotu onnistuneesti.
+          error: Uuden liitteen luonti epäonnistui.
+          success: Liitteen luonti onnistui.
         destroy:
-          success: Liite tuhottu onnistuneesti.
+          success: Liitteen tuhoaminen onnistui.
         edit:
           title: Muokkaa liitettä
           update: Päivitä
@@ -200,18 +200,18 @@ fi:
           create: Luo liite
           title: Uusi liite
         update:
-          error: Tämän liitteen päivityksessä tapahtui virhe.
-          success: Liite luotu onnistuneesti.
+          error: Liitteen päivitys epäonnistui.
+          success: Liitteen luonti onnistui.
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
       categories:
         create:
-          error: Tämän aihepiirin luonnissa tapahtui virhe.
-          success: Aihepiiri luotu onnistuneesti.
+          error: Aihepiirin luonti epäonnistui.
+          success: Aihepiirin luonti onnistui.
         destroy:
-          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
-          success: Aihepiiri poistettu onnistuneesti.
+          error: Tämän aihepiirin poistaminen epäonnistui. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
+          success: Aihepiirin poistaminen onnistui.
         edit:
           title: Muokkaa aihepiiriä
           update: Päivitä
@@ -222,18 +222,18 @@ fi:
           create: Luo aihepiiri
           title: Uusi aihepiiri
         update:
-          error: Virhe päivitettäessä aihepiiriä.
-          success: Aihepiiri päivitetty onnistuneesti.
+          error: Aihepiirin päivitys epäonnistui.
+          success: Aihepiirin päivitys onnistui.
       component_permissions:
         update:
-          success: Käyttöoikeudet päivitetty onnistuneesti.
+          success: Käyttöoikeuksien päivitys onnistui.
       components:
         create:
-          error: Virhe luotaessa komponenttia.
-          success: Komponentti luotu onnistuneesti.
+          error: Komponentin luonti epäonnistui.
+          success: Komponentin luonti onnistui.
         destroy:
-          error: Tämän komponentin tuhoamisessa tapahtui virhe.
-          success: Komponentti poistettu onnistuneesti.
+          error: Komponentin tuhoaminen epäonnistui.
+          success: Komponentin poisto onnistui.
         edit:
           title: Muokkaa komponenttia
           update: Päivitä
@@ -251,13 +251,13 @@ fi:
           add: Lisää komponentti
           title: 'Lisää komponentti: %{name}'
         publish:
-          success: Komponentti julkaistu onnistuneesti.
+          success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentti julkaistu onnistuneesti.
+          success: Komponentin julkaisun peruminen onnistui.
         update:
-          error: Tämän komponentin päivittämisessä tapahtui virhe.
-          success: Komponentti päivitetty onnistuneesti.
+          error: Komponentin päivitys epäonnistui.
+          success: Komponentin päivitys onnistui.
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
@@ -266,10 +266,10 @@ fi:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       help_sections:
-        error: Ohjeosioiden päivittämisessä tapahtui virhe
+        error: Ohjeosioiden päivitys epäonnistui
         form:
           save: Tallenna
-        success: Ohjeosiot päivitetty onnistuneesti
+        success: Ohjeosioiden päivitys onnistui
       impersonatable_users:
         index:
           filter:
@@ -289,11 +289,11 @@ fi:
           view_logs: Näytä lokitiedot
       impersonations:
         close_session:
-          error: Esitetyn käyttäjän istunnon sulkemisessa tapahtui virhe.
-          success: Toisena käyttäjänä esiintymisen istunto on onnistuneesti päätetty.
+          error: Esitetyn käyttäjän istunnon sulkeminen epäonnistui.
+          success: Toisena käyttäjänä esiintymisen istunnon päättäminen onnistui.
         create:
-          error: Esiinnyttäessä käyttäjänä tapahtui virhe.
-          success: Hallittu käyttäjä luotu onnistuneesti.
+          error: Käyttäjänä esiintyminen epäonnistui.
+          success: Hallitun käyttäjän luonti onnistui.
         form:
           authorization_method: Varmennustapa
           name: Nimi
@@ -308,8 +308,8 @@ fi:
           no_logs_yet: Ei vielä lokitietoja
       managed_users:
         promotion:
-          error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
-          success: Hallitun käyttäjän oikeudet on onnistuneesti korotettu.
+          error: Hallitun käyttäjän oikeuksien korotus epäonnistui.
+          success: Hallitun käyttäjän oikeuksien korotus onnistui.
         promotions:
           new:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään rekisteröitymiskutsu alustalle ja rekisteröitymisen jälkeen kyseisinä käyttäjinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla he voivat hyväksyä kutsusi.
@@ -419,14 +419,14 @@ fi:
             spam: Roskaposti
       newsletters:
         create:
-          error: Uutiskirjeen luonnissa tapahtui virhe.
-          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
+          error: Uutiskirjeen luonti epäonnistui.
+          success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
         deliver:
-          error: Uutiskirjeen toimituksessa tapahtui virhe.
-          success: Uutiskirje toimitettu onnistuneesti.
+          error: Uutiskirjeen toimitus epäonnistui.
+          success: Uutiskirjeen toimitus onnistui.
         destroy:
           error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
-          success: Uutiskirje tuhottu onnistuneesti.
+          success: Uutiskirjeen tuhoaminen onnistui.
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
@@ -444,15 +444,15 @@ fi:
           preview: Esikatsele
           subject: Otsikko
         update:
-          error: Uutiskirjeen päivityksessä tapahtui virhe.
-          success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+          error: Uutiskirjeen päivitys epäonnistui.
+          success: Uutiskirjeen päivitys onnistui. Tarkasta se läpi ennen lähetystä.
       oauth_applications:
         create:
-          error: Sovelluksen luonnissa tapahtui virhe.
-          success: Sovellus luotu onnistuneesti.
+          error: Sovelluksen luonti epäonnistui.
+          success: Sovelluksen luonti onnistui.
         destroy:
-          error: Sovelluksen tuhoamisessa tapahtui virhe.
-          success: Sovellus tuhottu onnistuneesti.
+          error: Sovelluksen tuhoaminen epäonnistui.
+          success: Sovelluksen tuhoaminen onnistui.
         edit:
           save: Tallenna
           title: Muokkaa sovellusta
@@ -463,13 +463,13 @@ fi:
           save: Tallenna
           title: Uusi sovellus
         update:
-          error: Sovelluksen päivittämisessä tapahtui virhe.
-          success: Sovellus päivitetty onnistuneesti.
+          error: Sovelluksen päivitys epäonnistui.
+          success: Sovelluksen päivitys onnistui.
       officializations:
         create:
-          success: Käyttäjä virallistettu onnistuneesti
+          success: Käyttäjän virallistaminen onnistui
         destroy:
-          success: Käyttäjän virallistaminen peruutettu onnistuneesti
+          success: Käyttäjän virallistamisen peruutus onnistui
         index:
           actions: Toiminnot
           badge: Kunniamerkki
@@ -505,8 +505,8 @@ fi:
           url: URL
           youtube: YouTube
         update:
-          error: Organisaation päivityksessä tapahtui virhe.
-          success: Organisaatio päivitetty onnistuneesti.
+          error: Organisaation päivitys epäonnistui.
+          success: Organisaation päivitys onnistui.
       organization_appearance:
         edit:
           update: Päivitä
@@ -528,11 +528,11 @@ fi:
           update: Päivitä
       participatory_space_private_users:
         create:
-          error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
-          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
+          error: Yksityisen käyttäjän lisääminen tähän osallisuustilaan epäonnistui.
+          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
         destroy:
-          error: Virhe poistettaessa osallisuustilan yksityistä käyttäjää.
-          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
+          error: Osallisuustilan yksityisen käyttäjän poistaminen epäonnistui.
+          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
         index:
           title: Osallisuustilan yksityinen käyttäjä
         new:
@@ -543,13 +543,13 @@ fi:
           submit: Lähetä
           title: Muokkaa käyttöoikeuksia
         update:
-          success: Käyttöoikeudet päivitetty onnistuneesti.
+          success: Käyttöoikeuksien päivitys onnistui.
       scope_types:
         create:
-          error: Virhe luotaessa uutta teematyyppiä.
-          success: Teematyyppi luotu onnistuneesti.
+          error: Uuden teematyypin luonti epäonnistui.
+          success: Teematyypin luonti onnistui.
         destroy:
-          success: Teematyyppi tuhottu onnistuneesti
+          success: Teematyypin tuhoaminen onnistui
         edit:
           title: Muokkaa teematyyppiä
           update: Päivitä
@@ -557,14 +557,14 @@ fi:
           create: Luo teematyyppi
           title: Uusi teema
         update:
-          error: Virhe päivitettäessä teematyyppiä.
-          success: Teematyyppi päivitetty onnistuneesti
+          error: Teematyyppin päivitys epäonnistui.
+          success: Teematyypin päivitys onnistui
       scopes:
         create:
-          error: Virhe luotaessa uutta teemaa.
-          success: Teema luotu onnistuneesti.
+          error: Uuden teeman luonti epäonnistui.
+          success: Teeman luonti onnistui.
         destroy:
-          success: Teema tuhottu onnistuneesti
+          success: Teeman tuhoaminen onnistui
         edit:
           title: Muokkaa teemaa
           update: Päivitä
@@ -573,14 +573,14 @@ fi:
           title: Uusi teema
         no_scopes: Tällä tasolla ei ole teemoja.
         update:
-          error: Virhe päivitettäessä teemaa.
-          success: Teema päivitetty onnistuneesti
+          error: Teeman päivitys epäonnistui.
+          success: Teeman päivitys onnistui
       static_page_topics:
         create:
-          error: Virhe luotaessa uutta aihetta.
-          success: Aihe luotiin onnistuneesti.
+          error: Uuden aiheen luonti epäonnistui.
+          success: Aiheen luonti onnistui.
         destroy:
-          success: Aihe tuhottu onnistuneesti
+          success: Aiheen tuhoaminen onnistui
         edit:
           title: Muokkaa aihetta
           update: Päivitä aihe
@@ -588,16 +588,16 @@ fi:
           create: Luo aihe
           title: Uusi aihe
         update:
-          error: Virhe päivitettäessä aihetta.
-          success: Aihe päivitettiin onnistuneesti
+          error: Aiheen päivitys epäonnistui.
+          success: Aiheen päivitys onnistui
       static_pages:
         actions:
           view: Näytä julkinen sivu
         create:
-          error: Virhe luotaessa uutta sivua.
-          success: Sivu luotu onnistuneesti.
+          error: Uuden sivun luonti epäonnistui.
+          success: Sivun luonti onnistui.
         destroy:
-          success: Sivu tuhottu onnistuneesti
+          success: Sivun tuhoaminen onnistui
         edit:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään päivitetyt käyttöehdot.
           title: Muokkaa sivua
@@ -615,8 +615,8 @@ fi:
           empty: Tämän aiheen alla ei ole sivuja
           without_topic: Sivut ilman aihetta
         update:
-          error: Virhe päivitettäessä sivua.
-          success: Sivu päivitetty onnistuneesti
+          error: Sivun päivitys epäonnistui.
+          success: Sivun päivitys onnistui
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
@@ -633,13 +633,13 @@ fi:
         users: Käyttäjät
       user_group:
         csv_verify:
-          invalid: Virhe käsiteltäessä CSV-tiedostoa.
-          success: CSV-tiedosto on ladattu onnistuneesti. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää jonkin aikaa.
+          invalid: CSV-tiedoston käsittely epäonnistui.
+          success: CSV-tiedoston lataaminen onnistui. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää jonkin aikaa.
         reject:
-          invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.
-          success: Käyttäjäryhmä hylätty onnistuneesti
+          invalid: Käyttäjäryhmän hylkäys epäonnistui.
+          success: Käyttäjäryhmän hylkääminen onnistui
         verify:
-          invalid: Käyttäjäryhmän vahvistuksessa tapahtui virhe.
+          invalid: Käyttäjäryhmän vahvistus epäonnistui.
           success: Käyttäjäryhmän vahvistaminen onnistui
       user_groups:
         index:
@@ -657,15 +657,15 @@ fi:
           verify_via_csv: Vahvista CSV-tiedoston avulla
       user_groups_csv_verifications:
         new:
-          explanation: Lataa CSV-tiedosto. Siinä on oltava organisaationne ryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa, ilman otsakkeita. Vain sellaiset ryhmät, jotka ovat vahvistaneet sähköpostinsa ja joilla on CSV-tiedostossa näkyvä sähköposti, vahvistetaan.
+          explanation: Lataa CSV-tiedosto. Siinä on oltava organisaatiosi käyttäjäryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa ilman otsikkoriviä. Ainoastaan käyttäjäryhmät, jotka ovat vahvistaneet sähköpostiosoitteensa ja joiden sähköpostiosoitteesi näkyvät CSV-tiedostossa, vahvistetaan.
           title: Lataa CSV-tiedosto
           upload: Lähetä
       users:
         create:
-          error: Virhe kutsuttaessa käyttäjää.
+          error: Hallintakäyttäjän kutsuminen epäonnistui.
           success: Käyttäjän kutsuminen onnistui.
         destroy:
-          error: Virhe poistettaessa käyttäjää.
+          error: Hallintakäyttäjän poisto epäonnistui.
           success: Käyttäjä ei ole enää hallinnointikäyttäjä.
         form:
           email: Sähköposti
@@ -678,7 +678,7 @@ fi:
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy, kun hallitset ei-hallinnoitua osallistujaa
+          reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
     moderations:
       actions:
         hidden: Piilotettu
@@ -690,14 +690,14 @@ fi:
       admin:
         reportable:
           hide:
-            invalid: Virhe piilotettaessa kohdetta.
-            success: Resurssi piilotettu onnistuneesti.
+            invalid: Kohteen piilotus epäonnistui.
+            success: Resurssin piilotus onnistui.
           unhide:
-            invalid: Virhe poistettaessa kohteen piilotusta.
-            success: Resurssin piilotus poistettu onnistuneesti.
+            invalid: Kohteen piilotuksen poisto epäonnistui.
+            success: Resurssin piilotuksen poistaminen onnistui.
           unreport:
-            invalid: Virhe poistettaessa kohteen ilmoitusta.
-            success: Resurssin raportointi onnistuneesti poistettu.
+            invalid: Kohteen ilmoituksen poisto epäonnistui.
+            success: Resurssin ilmoituksen poisto onnistui.
       models:
         moderation:
           fields:
