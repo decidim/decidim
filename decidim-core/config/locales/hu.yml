@@ -30,7 +30,7 @@ hu:
       decidim/user:
         current_password: Jelenlegi jelszó
         email: Email
-        name: Becenév
+        name: Felhasználónév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
@@ -39,10 +39,10 @@ hu:
         one: Módosítás
         other: Módosítások
       decidim/user:
-        one: Nincsenek felhasználók
+        one: Nincsenek résztvevők
         other: Felhasználók
       decidim/user_group:
-        one: Felhasználói csoport
+        one: Csoport
         other: Felhasználói csoportok
   booleans:
     'false': 'Nem'
@@ -63,7 +63,7 @@ hu:
         file_no_exists: Fájl nem létezik
         invalid_token: A megadott token érvénytelen.
         no_token: Nincs token megadva
-        notice: Az adatok feldolgozása folyamatban. Kapni fogsz egy emailt, amint kész van.
+        notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
         alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
         confirm:
@@ -74,14 +74,14 @@ hu:
         explanation: Nevezd meg az okot, amiért törölni szeretnéd a fiókod (nem kötelező).
       destroy:
         error: Hiba történt a fiók törlése során.
-        success: Fiókját sikeresen törölte.
+        success: Fiók törlése sikeres.
       show:
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
-        error: Hiba történt a fiók frissítésekor.
-        success: Fiókját sikeresen frissítették.
-        success_with_email_confirmation: Fiókját sikeresen frissítették. E-mailt fog kapni az új e-mail címének megerősítésére.
+        error: Hiba történt a fiók frissítése során.
+        success: A fiók sikeresen frissült.
+        success_with_email_confirmation: A fiók frissítése sikeres. Az új email cím megerősítéséhez az email címedre küldtünk egy levelet.
     admin_log:
       area:
         create: "%{user_name} létrehozta a(z) %{resource_name} területet"
@@ -107,8 +107,8 @@ hu:
       organization:
         update: "%{user_name} frissítette a szervezet beállításait"
       participatory_space_private_user:
-        create: "%{user_name} meghívott %{resource_name} , hogy privát résztvevő legyen"
-        delete: "%{user_name} eltávolította a résztvevőt %{resource_name} magánszemélyként"
+        create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
+        delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
         create_with_parent: "%{user_name} létrehozta a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
@@ -121,18 +121,18 @@ hu:
         delete: "%{user_name} törölte a(z) %{resource_name} statikus oldalt"
         update: "%{user_name} frissítette a(z) %{resource_name} statikus oldalt"
       user:
-        invite: "%{user_name} meghívta %{resource_name} felhasználót, %{role} szereppel"
-        officialize: "%{user_name} hivatalosan hivatalba léptette a résztvevőt %{resource_name}"
-        remove_from_admin: "%{user_name} eltávolította az %{resource_name} résztvevő szerepét: %{role}"
-        unofficialize: "%{user_name} nem aktiválta a résztvevőt %{resource_name}"
+        invite: "%{user_name} meghívta %{resource_name} felhasználót (szerep: %{role})"
+        officialize: "%{user_name} hivatalossá tette %{resource_name} felhasználót"
+        remove_from_admin: "%{user_name} eltávolította %{resource_name} felhasználót, %{role} szereppel"
+        unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
-        reject: "%{user_name} elutasította az %{resource_name} csoportos ellenőrzést"
-        verify: "%{user_name} ellenőrizte az %{resource_name}csoportot"
-        verify_via_csv: "%{user_name} ellenőrzött az %{resource_name} csoportot egy CSV fájl segítségével"
+        reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
+        verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
+        verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
     amendments:
       accepted:
-        error: Hiba történt az átvétel elfogadásával, kérjük, próbálkozzon újra később.
-        success: Ezt az módosító javaslatot sikeresen elfogadták.
+        error: Hiba történt a módosító javaslat elfogadásával, kérjük, próbálkozz később.
+        success: Ez a módosító javaslat sikeresen elfogadásra került.
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
@@ -140,11 +140,11 @@ hu:
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
         no_amenders: Nincsenek módosítások
         no_amendments: Nincsenek módosítások
-        promote_button: Kezdeményezze a %{model_name}
-        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
+        promote_button: Közzététel új %{model_name}ként
+        promote_help_text: Ezt a módosító javaslatot önálló %{model_name}-ként is közzéteheted
         section_heading: Módosítások (%{count})
       created:
-        error: Hiba történt a módosító javaslat létrehozásával, próbálkozz később
+        error: Hiba történt a módosítás létrehozása közben, próbálkozz később
         success: A módosítás sikeresen megtörtént
       emendation:
         actions:
@@ -157,28 +157,28 @@ hu:
             re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
           evaluating: |-
             Ezt a %{amendable_type} %{amendable_link}
-            módosítást értékelik.
-          rejected: "A %{amendable_type} %{amendable_link}\nre vonatkozó módosítást <strong>%{announcement_date}</strong>én elutasították."
+            módosító javaslat értékelés alatt van.
+          rejected: "A %{amendable_type} %{amendable_link}\nre vonatkozó módosító javaslatot <strong>%{announcement_date}</strong>én elutasították."
           withdrawn: |-
             Ezt a %{amendable_type} %{amendable_link}
-            módosítást a szerző visszavonta.
+            módosító javaslatot a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
         back: Vissza
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
-        send: Módosítás küldése
+        send: Módosító javaslat elküldése
       promoted:
-        error: Az emelés előmozdításakor hiba történt
-        success: A módosító javaslat sikeresen megjelent új javaslatként
+        error: Problémát történt a módosító javaslat új javaslatként való közzététele során
+        success: A módosító javaslat új javaslatként sikeresen megjelent
       rejected:
-        error: Az emelés elutasításakor hiba történt, próbálkozzon később
-        success: Az emelést sikeresen elutasították
+        error: Hiba történt a módosító javaslat elutasításakor, próbálkozz később
+        success: A módosító javaslat sikeresen elutasításra került
       review:
         back: Vissza
         heading: Tekintse át a módosítást
-        help_text: Ön módosítja a %{model_name}
-        send: Elfogadja a módosítást
+        help_text: A %{model_name}-t módosítja
+        send: Módosítás elfogadása
     anonymous_user: Névtelen
     application:
       collection:
@@ -188,7 +188,7 @@ hu:
       documents:
         related_documents: Kapcsolódó dokumentumok
       photos:
-        related_photos: Kapcsolódó fotók
+        related_photos: Kapcsolódó képek
     author:
       comments:
         one: megjegyzés
@@ -208,7 +208,7 @@ hu:
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
       errors:
-        duplicate_authorization: Egy felhasználó ezekkel az adatokkal már feljogosítva.
+        duplicate_authorization: Egy résztvevő ezekkel az adatokkal már engedélyezésre került.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
@@ -218,32 +218,32 @@ hu:
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
       sms:
-        explanation: Küldje el mobiltelefonszámát, hogy ellenőrizhessük személyazonosságát.
-        name: Kód SMS szerint
+        explanation: Küldd el mobiltelefonszámodat, hogy ellenőrizhessük személyazonosságod.
+        name: Kód SMS-ben
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       content:
         expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Engedélye lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a "%{authorization}" -ot.
-          title: Az engedélyezés lejárt
+          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
+          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
+          title: Az engedélyed lejárt
         incomplete:
-          cancel: Megszünteti
-          explanation: 'Annak ellenére, hogy jelenleg "%{authorization}" -al engedélyezett, újra engedélyezni kell, mert nem rendelkezünk az alábbi adatokkal:'
+          cancel: Mégse
+          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
           invalid_field: "%{field}"
           reauthorize: Újraengedélyezés
-          title: Kérjük, engedélyezze újra
+          title: Kérjük, engedélyezd újra
         missing:
-          authorize: Engedélyezzen a "%{authorization}"
-          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al.
+          authorize: 'Engedélyezés ezzel: "%{authorization}"'
+          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
           title: Engedély szükséges
         pending:
-          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al, de engedélye még folyamatban van
-          resume: Ellenőrizze a "%{authorization}" engedélyezés előrehaladását
-          title: Az engedélyezés még folyamatban van
+          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
+          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
+          title: Engedélyezés folyamatban
         unauthorized:
-          explanation: Sajnáljuk, ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "%{field} érték %{value} nem érvényes."
+          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
@@ -265,7 +265,7 @@ hu:
         name: Dummy elem
         settings:
           global:
-            amendments_enabled: Engedélyezett módosítások
+            amendments_enabled: A módosítások engedélyezve vannak
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
@@ -316,7 +316,7 @@ hu:
           email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
           complete_profile: Profil kiegészítése
-          nickname_help: A te aliasod (@nickname) ebben a szervezetben %{organization}
+          nickname_help: A te beceneved (@nickname) ebben a szervezetben %{organization}
           sign_up: Töltsd ki a hiányzó adatokat
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
@@ -325,7 +325,7 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
+          nickname_help: A te beceneved (@nickname) ebben a szervezetben %{organization}
           sign_in: Belépés
           sign_up: Regisztráció
           sign_up_as:
@@ -339,8 +339,8 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
-          sign_in_disabled: Külső fiókkal érhető el
-          sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználó hozzáférhet
+          sign_in_disabled: Külső fiókkal is hozzáférhetsz
+          sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználói fiókoddal hozzáférhetsz
       shared:
         newsletter_modal:
           buttons:
@@ -394,9 +394,9 @@ hu:
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} elfogadásra került.
         amendment_created:
           affected_user:
-            email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
+            email_intro: 'Új módosítási javaslat érkezett - %{amendable_title}. Erről az oldalról tudod megnézni:'
+            email_outro: Ezt az értesítést kaptad, mert szerzője vagy ennek %{amendable_title}.
+            email_subject: Új módosítási javaslat érkezett ide %{amendable_title} %{emendation_author_nickname} felhasználótól
             notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
