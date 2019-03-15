@@ -36,7 +36,7 @@ fi:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}"
+              invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ fi:
         participatory_texts:
           bulk-actions:
             are_you_sure: Haluatko varmasti hylätä koko ehdotusaineiston luonnoksen?
-            import_doc: Tuo aineisto
             discard_all: Hylkää kaikki
+            import_doc: Tuo aineisto
+          discard:
+            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           import:
             invalid: Lomake on virheellinen!
             success: Onnittelut, seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
@@ -320,8 +322,6 @@ fi:
           publish:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
-          discard:
-            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ fi:
           comments: Kommentit
         filters:
           activity: Aktiivisuus
+          amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
           origin: Alkuperä
@@ -633,7 +634,6 @@ fi:
           search: Haku
           state: Tila
           voted: Kannatettu
-          amendment_type: Tyyppi
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata
