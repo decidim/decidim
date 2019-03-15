@@ -157,19 +157,19 @@ hu:
             re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
           evaluating: |-
             Ezt a %{amendable_type} %{amendable_link}
-            módosítást értékelik.
+            módosító javaslat értékelés alatt van.
           rejected: |-
             A %{amendable_type} %{amendable_link}
             re vonatkozó módosítást <strong>%{announcement_date}</strong>én elutasították.
           withdrawn: |-
             Ezt a %{amendable_type} %{amendable_link}
-            módosítást a szerző visszavonta.
+            módosító javaslatot a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
         back: Vissza
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
-        send: Módosítás küldése
+        send: Módosító javaslat elküldése
       rejected:
         error: Az emelés elutasításakor hiba történt, próbálkozzon később
         success: Az emelést sikeresen elutasították
@@ -179,8 +179,8 @@ hu:
       review:
         back: Vissza
         heading: Tekintse át a módosítást
-        help_text: Ön módosítja a %{model_name}
-        send: Elfogadja a módosítást
+        help_text: A %{model_name}-t módosítja
+        send: Módosítás elfogadása
     anonymous_user: Névtelen
     application:
       collection:
@@ -220,32 +220,32 @@ hu:
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
       sms:
-        explanation: Küldje el mobiltelefonszámát, hogy ellenőrizhessük személyazonosságát.
-        name: Kód SMS szerint
+        explanation: Küldd el mobiltelefonszámodat, hogy ellenőrizhessük személyazonosságod.
+        name: Kód SMS-ben
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       show:
         expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Engedélye lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a "%{authorization}" -ot.
-          title: Az engedélyezés lejárt
+          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
+          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
+          title: Az engedélyed lejárt
         incomplete:
           cancel: Mégse
-          explanation: 'Annak ellenére, hogy jelenleg "%{authorization}" -al engedélyezett, újra engedélyezni kell, mert nem rendelkezünk az alábbi adatokkal:'
+          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
           invalid_field: "%{field}"
           reauthorize: Újraengedélyezés
-          title: Kérjük, engedélyezze újra
+          title: Kérjük, engedélyezd újra
         missing:
-          authorize: Engedélyezzen a "%{authorization}"
-          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al.
+          authorize: 'Engedélyezés ezzel: "%{authorization}"'
+          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
           title: Engedély szükséges
         pending:
-          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al, de engedélye még folyamatban van
-          resume: Ellenőrizze a "%{authorization}" engedélyezés előrehaladását
-          title: Az engedélyezés még folyamatban van
+          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
+          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
+          title: Engedélyezés folyamatban
         unauthorized:
-          explanation: Sajnáljuk, ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "%{field} érték %{value} nem érvényes."
+          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
@@ -267,7 +267,7 @@ hu:
         name: Dummy elem
         settings:
           global:
-            amendments_enabled: Engedélyezett módosítások
+            amendments_enabled: A módosítások engedélyezve vannak
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
@@ -341,7 +341,7 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
-          sign_in_disabled: Külső fiókkal érhető el
+          sign_in_disabled: Külső fiókkal is hozzáférhetsz
           sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználó hozzáférhet
       shared:
         newsletter_modal:
@@ -386,7 +386,7 @@ hu:
         amendment_created:
           affected_user:
             email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
+            email_outro: Ezt az értesítést kaptad, mert szerzője vagy ennek %{amendable_title}.
             email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
