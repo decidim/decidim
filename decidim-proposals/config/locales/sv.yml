@@ -36,7 +36,7 @@ sv:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}"
+              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ sv:
         participatory_texts:
           bulk-actions:
             are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
-            import_doc: Importera dokument
             discard_all: Kassera allt
+            import_doc: Importera dokument
+          discard:
+            success: Alla deltagande textförslag har kasseras.
           import:
             invalid: Blanketten är ogiltig!
             success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
@@ -320,8 +322,6 @@ sv:
           publish:
             invalid: Kunde inte publicera förslag
             success: Alla förslag har publicerats
-          discard:
-            success: Alla deltagande textförslag har kasseras.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ sv:
           comments: Kommentarer
         filters:
           activity: Aktivitet
+          amendment_type: Typ
           category: Kategori
           category_prompt: Välj en kategori
           origin: Ursprung
@@ -633,7 +634,6 @@ sv:
           search: Sök
           state: Status
           voted: Röstade
-          amendment_type: Typ
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
