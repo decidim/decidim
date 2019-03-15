@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -189,7 +188,7 @@ fr:
           recent: Les plus récentes
       content_blocks:
         highlighted_consultations:
-          name: Consultations surlignées
+          name: Consultations mises en avant
       count:
         title:
           one: "%{count} votation"

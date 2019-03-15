@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -62,7 +61,7 @@ fr:
         position: Rôle
       assembly_user_role:
         email: email
-        name: Nom
+        name: Nom 
         role: Fonction
   activerecord:
     models:
@@ -166,7 +165,7 @@ fr:
           fields:
             created_at: Créée le
             private: Assemblée privée
-            promoted: Mise en évidence
+            promoted: Mise en avant
             published: Publiée
             title: Titre
           name: Assemblée
@@ -264,7 +263,6 @@ fr:
         consultative_advisory: Consultatif/Consultatif
         executive: Exécutif
         government: Gouvernement
-        help: 'Montrer :'
         label: 'Afficher :'
         others: Autres
         participatory: Participatif
