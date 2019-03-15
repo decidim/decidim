@@ -36,7 +36,7 @@ ca:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}"
+              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ ca:
         participatory_texts:
           bulk-actions:
             are_you_sure: Segur que vols descartar l'esborrany sencer de text participatiu?
-            import_doc: Importar document
             discard_all: Descarta'l sencer
+            import_doc: Importar document
+          discard:
+            success: S'han descartat tots els esborranys de textos participatius.
           import:
             invalid: El formulari no és vàlid!
             success: Enhorabona, les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
@@ -320,8 +322,6 @@ ca:
           publish:
             invalid: No s'han pogut publicar propostes
             success: S'han publicat totes les propostes
-          discard:
-            success: S'han descartat tots els esborranys de textos participatius.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ ca:
           comments: Comentaris
         filters:
           activity: Activitat
+          amendment_type: Escriu
           category: Categoria
           category_prompt: Selecciona una categoria
           origin: Origen
@@ -633,7 +634,6 @@ ca:
           search: Cerca
           state: Estat
           voted: Has donat suport
-          amendment_type: Escriu
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
