@@ -36,7 +36,7 @@ nl:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}"
+              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ nl:
         participatory_texts:
           bulk-actions:
             are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
-            import_doc: Document importeren
             discard_all: Gooi alles weg
+            import_doc: Document importeren
+          discard:
+            success: Alle participatieve tekstconcepten zijn genegeerd.
           import:
             invalid: Het formulier is ongeldig!
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
@@ -320,8 +322,6 @@ nl:
           publish:
             invalid: Kan voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
-          discard:
-            success: Alle participatieve tekstconcepten zijn genegeerd.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ nl:
           comments: Comments
         filters:
           activity: Activiteit
+          amendment_type: Type
           category: Categorie
           category_prompt: Kies een categorie
           origin: Oorsprong
@@ -633,7 +634,6 @@ nl:
           search: Zoeken
           state: staat
           voted: Gestemd
-          amendment_type: Type
         filters_small_view:
           close_modal: Dialoogvenster sluiten
           filter: Filter
