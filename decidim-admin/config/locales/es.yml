@@ -532,12 +532,12 @@ es:
           success: Acceso privado a participantes del espacio participativo creado correctamente.
         destroy:
           error: Se ha producido un error al eliminar a una participante para este espacio participativo privado.
-          success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
+          success: El acceso de la participante al espacio de participación privado se ha eliminado correctamente.
         index:
-          title: Usuario privado de espacio participativo.
+          title: Participante de espacio de participación privado
         new:
           create: Crear
-          title: Nuevo usuario privado en el espacio participativo.
+          title: Nueva participante de espacio de participación privado.
       resource_permissions:
         edit:
           submit: Enviar
@@ -599,7 +599,7 @@ es:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
-          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
+          changed_notably_help: Si se marca, se notificará a las participantes que acepten los nuevos Términos y Condiciones.
           title: Editar página
           update: Actualizar
         form:
@@ -623,8 +623,8 @@ es:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
-        impersonatable_users: Usuarios manejables
-        impersonations: Gestion de usuarios
+        impersonatable_users: Participantes que se pueden gestionar
+        impersonations: Gestión de participantes
         participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
@@ -634,7 +634,7 @@ es:
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
-          success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
+          success: Archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
         reject:
           invalid: Se ha producido un error al rechazar este grupo.
           success: Grupo rechazado correctamente
@@ -657,7 +657,7 @@ es:
           verify_via_csv: Verificar a través de CSV
       user_groups_csv_verifications:
         new:
-          explanation: Sube tu archivo CSV. Debe tener los correos electrónicos oficiales de los grupos de usuarios en su organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos de usuarios que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
+          explanation: Sube tu archivo CSV. Debe tener los correos oficiales de los grupos en tu organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
           title: Sube tu archivo CSV
           upload: Subir
       users:
