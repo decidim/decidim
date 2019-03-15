@@ -47,7 +47,7 @@ fi:
         name: Nimi
         role: Rooli
     models:
-      decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
+      decidim/participatory_process_step_activated_event: Vaihe aktivoitu
       decidim/participatory_process_step_changed_event: Vaihe muutettu
   activerecord:
     models:
@@ -72,7 +72,7 @@ fi:
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
-        new_process_user_role: Uusi prosessikäyttäjä
+        new_process_user_role: Uusi prosessin hallintakäyttäjä
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
@@ -89,7 +89,7 @@ fi:
           info: Tiedot
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
-          process_admins: Prosessin käyttäjät
+          process_admins: Prosessin hallintakäyttäjät
           steps: Vaiheet
       models:
         participatory_process:
@@ -131,7 +131,7 @@ fi:
           title: Kopioi osallisuusprosessi
       participatory_process_groups:
         destroy:
-          success: Osallisuusprosessien ryhmä poistettiin onnistuneesti.
+          success: Osallisuusprosessien ryhmän poisto onnistui.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -139,29 +139,29 @@ fi:
           create: Luo
           title: Uusi prosessiryhmä
         update:
-          error: Virhe päivitettäessä osallisuusprosessien ryhmää.
-          success: Osallisuusprosessien ryhmä päivitetty onnistuneesti.
+          error: Osallisuusprosessien ryhmän päivitys epäonnistui.
+          success: Osallisuusprosessien ryhmän päivitys onnistui.
       participatory_process_publications:
         create:
-          error: Virhe julkaistaessa osallisuusprosessia.
-          success: Osallisuusprosessi julkaistu onnistuneesti.
+          error: Osallisuusprosessin julkaisu epäonnistui.
+          success: Osallisuusprosessin julkaisu onnistui.
         destroy:
-          error: Virhe osallisuusprosessin julkaisun perumisessa.
-          success: Osallisuusprosessin julkaisu lopetettu onnistuneesti.
+          error: Osallisuusprosessin julkaisun peruminen epäonnistui.
+          success: Osallisuusprosessin julkaisun lopetus onnistui.
       participatory_process_step_activations:
         create:
-          error: Virhe aktivoitaessa osallisuusprosessin vaihetta.
-          success: Osallisuusprosessin vaihe aktivoitu onnistuneesti.
+          error: Osallisuusprosessin vaiheen aktivointi epäonnistui.
+          success: Osallisuusprosessin vaiheen aktivointi onnistui.
       participatory_process_steps:
         create:
-          error: Virhe luotaessa uutta osallisuusprosessin vaihetta.
-          success: Osallisuusprosessin vaihe luotu onnistuneesti.
+          error: Uuden osallisuusprosessin vaiheen luonti epäonnistui.
+          success: Osallisuusprosessin vaiheen luonti onnistui.
         default_title: Johdanto
         destroy:
           error:
             active_step: Aktiivista vaihetta ei voi poistaa.
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
-          success: Osallisuusprosessin vaihe poistettiin onnistuneesti.
+          success: Osallisuusprosessin vaiheen poisto onnistui.
         edit:
           title: Muokkaa osallisuusprosessin vaihetta
           update: Päivitä
@@ -171,31 +171,31 @@ fi:
           create: Luo
           title: Uusi osallisuusprosessin vaihe
         ordering:
-          error: Virhe järjestettäessä osallisuusprosessin vaiheita.
+          error: Osallisuusprosessin vaiheiden järjestäminen epäonnistui.
         update:
-          error: Virhe päivitettäessä osallisuusprosessin vaihetta.
-          success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
+          error: Osallisuusprosessin vaiheen päivitys epäonnistui.
+          success: Osallisuusprosessin vaiheen päivitys onnistui.
       participatory_process_user_roles:
         create:
-          error: Virhe lisätessä käyttäjää osallisuusprosessiin.
-          success: Käyttäjä lisättiin onnistuneesti tähän osallisuusprosesssiin.
+          error: Osallisuusprosessin käyttäjän lisääminen epäonnistui.
+          success: Käyttäjä lisättiin onnistuneesti tähän osallisuusprosessiin.
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallisuusprosessista.
         edit:
-          title: Päivitä osallisuusprosessin käyttäjä.
+          title: Päivitä osallisuusprosessin hallintakäyttäjä.
           update: Päivitä
         index:
-          process_admins_title: Osallisuusprosessin käyttäjät
+          process_admins_title: Osallisuusprosessin hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi osallisuusprosessin käyttäjä.
+          title: Uusi osallisuusprosessin hallintakäyttäjä.
         update:
-          error: Virhe päivitettäessä tämän osallisuusprosessin hallintakäyttäjää.
-          success: Tämän osallisuusprosessin käyttäjä päivitetty onnistuneesti.
+          error: Tämän osallisuusprosessin hallintakäyttäjän päivitys epäonnistui.
+          success: Osallisuusprosessin hallintakäyttäjän päivitys onnistui.
       participatory_processes:
         create:
-          error: Virhe luotaessa uutta osallisuusprosessia.
-          success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
+          error: Uuden osallisuusprosessin luonti epäonnistui.
+          success: Osallisuusprosessin luonti onnistui. Määritä nyt sen vaiheet.
         edit:
           update: Päivitä
         form:
@@ -209,23 +209,23 @@ fi:
           create: Luo
           title: Uusi osallisuusprosessi
         update:
-          error: Virhe päivitettäessä osallisuusprosessia.
-          success: Osallisuusprosessi päivitetty onnistuneesti.
+          error: Osallisuusprosessin päivitys epäonnistui.
+          success: Osallisuusprosessin päivitys onnistui.
       participatory_processes_copies:
         create:
-          error: Virhe kopioitaessa osallisuusprosessia.
-          success: Osallisuusprosessi kopioitu onnistuneesti.
+          error: Osallisuusprosessin kopiointi epäonnistui.
+          success: Osallisuusprosessin kopiointi onnistui.
       participatory_processes_group:
         create:
-          error: Virhe luotaessa uutta osallisuusprosessien ryhmää.
-          success: Osallisuusprosessiryhmä luotu onnistuneesti.
+          error: Uuden osallisuusprosessien ryhmän luonti epäonnistui.
+          success: Osallisuusprosessien ryhmän luonti onnistui.
       titles:
         participatory_process_groups: Osallisuusprosessiryhmät
         participatory_processes: Osallisuusprosessit
       users:
         resend_invitation:
-          error: Virhe lähetettäessä kutsua uudestaan.
-          success: Kutsu uudelleen onnistuneesti.
+          error: Kutsun uudelleenlähetys epäonnistui.
+          success: Kutsun uudelleenlähetys onnistui.
     admin_log:
       participatory_process:
         create: "%{user_name} loi osallisuusprosessin %{resource_name}"
@@ -244,12 +244,12 @@ fi:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Vaihe %{resource_title} on nyt käytössä kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit nähdä sen tällä sivulla:'
+          email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Näet sen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
