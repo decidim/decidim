@@ -22,6 +22,7 @@ ca:
             announcement: Anunci
           step:
             allow_answers: Permetre respostes
+            allow_unregistered: Permet respondre a usuaris sense registrar-se
             announcement: Anunci
     events:
       surveys:

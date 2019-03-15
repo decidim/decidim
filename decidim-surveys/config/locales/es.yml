@@ -22,6 +22,7 @@ es:
             announcement: Anuncio
           step:
             allow_answers: Permitir respuestas
+            allow_unregistered: Permitir responder a usuarios sin registrar-se
             announcement: Anuncio
     events:
       surveys:

@@ -23,6 +23,7 @@ en:
             announcement: Announcement
           step:
             allow_answers: Allow answers
+            allow_unregistered: Allow unregistered users to answer the survey
             announcement: Announcement
     events:
       surveys:
