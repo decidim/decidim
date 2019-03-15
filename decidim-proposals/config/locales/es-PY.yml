@@ -36,7 +36,7 @@ es-PY:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}"
+              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ es-PY:
         participatory_texts:
           bulk-actions:
             are_you_sure: '¿Estás seguro de descartar todo el borrador del texto participativo?'
-            import_doc: Importar documento
             discard_all: Descartar todo
+            import_doc: Importar documento
+          discard:
+            success: Todos los borradores de textos participativos han sido descartados.
           import:
             invalid: El formulario no es válido!
             success: Enhorabuena, las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
@@ -320,8 +322,6 @@ es-PY:
           publish:
             invalid: No se pudieron publicar propuestas.
             success: Todas las propuestas han sido publicadas.
-          discard:
-            success: Todos los borradores de textos participativos han sido descartados.
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ es-PY:
           comments: Comentarios
         filters:
           activity: Actividad
+          amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona una categoría
           origin: Origen
@@ -633,7 +634,6 @@ es-PY:
           search: Buscar
           state: Estado
           voted: Votado
-          amendment_type: Tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
