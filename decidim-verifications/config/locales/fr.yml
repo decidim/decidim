@@ -103,8 +103,8 @@ fr:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
+            file: "Fichier .csv avec données de courrier électronique"
             info: 'Doit être un fichier au format CSV avec une colonne: email'
-            file: Fichier .csv avec données de courrier électronique
             submit: Téléverser un fichier
             title: Télécharger un nouveau recensement
         authorizations:
@@ -151,7 +151,7 @@ fr:
               success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
-            choose_a_type: "Veuillez sélectionner comment vous souhaitez être vérifié:"
+            choose_a_type: 'Veuillez sélectionner comment vous souhaitez être vérifié:'
             offline: Hors ligne
             online: En ligne
             title: Vérifiez-vous en utilisant votre pièce d'identité
@@ -209,14 +209,14 @@ fr:
           create:
             error: Il y avait un problème avec votre demande
             success: Merci! Nous avons envoyé un SMS sur votre téléphone.
+          destroy:
+            success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
           edit:
             confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
             destroy: Réinitialiser le code de vérification
-            send: Confirmer
             resend: Vous n'avez pas reçu le code de vérification?
+            send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
-          destroy:
-            success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
           new:
             send: Envoyez moi un SMS
             title: Demander votre code de vérification
