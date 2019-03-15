@@ -103,8 +103,8 @@ es-MX:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
             title: Necesitas activar el censo csv para esta organización.
           new:
+            file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo con formato CSV con una columna: correo electrónico'
-            file: archivo .csv con datos de correos electrónicos
             submit: Subir archivo
             title: Subir un nuevo censo
         authorizations:
@@ -151,7 +151,7 @@ es-MX:
               success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
         authorizations:
           choose:
-            choose_a_type: "Por favor selecciona como quieres ser verificado:"
+            choose_a_type: 'Por favor selecciona como quieres ser verificado:'
             offline: Presencial
             online: Online
             title: Verifícate utilizando tu documento de identidad
@@ -209,14 +209,14 @@ es-MX:
           create:
             error: Hubo un problema con tu solicitud
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
+          destroy:
+            success: Código de verificación restablecido con éxito. Por favor vuelva a ingresar su número de teléfono.
           edit:
             confirm_destroy: '¿Estás seguro de que quieres restablecer el código de verificación?'
             destroy: Restablecer código de verificación
-            send: Confirmar
             resend: '¿No recibió el código de verificación?'
+            send: Confirmar
             title: Introduce el código de verificación que has recibido
-          destroy:
-            success: Código de verificación restablecido con éxito. Por favor vuelva a ingresar su número de teléfono.
           new:
             send: Mándame un SMS
             title: Solicita tu código de verificación
