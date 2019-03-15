@@ -133,6 +133,7 @@ es:
       assembly_user_roles:
         create:
           error: Se ha producido un error al añadir una administradora para esta asamblea.
+          success: Administrador agregado exitosamente a este ensamblaje.
         destroy:
           success: Administradora eliminada correctamente de esta asamblea.
         edit:
@@ -224,6 +225,7 @@ es:
         assembly_members:
           form:
             existing_user: Participante existente
+            non_user: No participante
             select_a_position: Selecciona una posición
             select_user: Selecciona una participante
             user_type: Tipo de participante
