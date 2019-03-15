@@ -107,9 +107,9 @@ fi:
               must_be_ssl: Uudelleenohjausosoitteen (URI) on oltava SSL-protokollaa käyttävä URI
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_footer:
+              allowed_file_content_types: Virheellinen kuvatiedosto
+            official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
   activerecord:
     attributes:
