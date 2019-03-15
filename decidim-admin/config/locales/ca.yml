@@ -107,9 +107,9 @@ ca:
               must_be_ssl: L'URL de redirecció ha de ser SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_footer:
+              allowed_file_content_types: Fitxer d'imatge no vàlid
+            official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
   activerecord:
     attributes:
