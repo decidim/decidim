@@ -244,7 +244,7 @@ de:
         unauthorized:
           explanation: Leider können Sie diese Aktion nicht ausführen, da einige Ihrer Autorisierungsdaten nicht übereinstimmen.
           invalid_field: "%{field} Wert %{value} ist nicht gültig."
-          ok: OK
+          ok: Ok
           title: Nicht berechtigt
         unconfirmed:
           confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'
