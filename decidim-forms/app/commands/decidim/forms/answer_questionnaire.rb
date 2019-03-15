@@ -8,10 +8,11 @@ module Decidim
       #
       # form - The form from which to get the data.
       # questionnaire - The current instance of the questionnaire to be answered.
-      def initialize(form, current_user, questionnaire)
+      def initialize(form, current_user, questionnaire, session_token=nil)
         @form = form
         @current_user = current_user
         @questionnaire = questionnaire
+        @session_token = session_token || create_signature(current_user&.id || Time.now.getutc)
       end
 
       # Answers a questionnaire if it is valid
@@ -33,7 +34,8 @@ module Decidim
               user: @current_user,
               questionnaire: @questionnaire,
               question: form_answer.question,
-              body: form_answer.body
+              body: form_answer.body,
+              session_token: @session_token
             )
 
             form_answer.selected_choices.each do |choice|
@@ -49,6 +51,11 @@ module Decidim
           end
         end
       end
+
+      def create_signature(id)
+        @session_token ||= Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+      end
+
     end
   end
 end

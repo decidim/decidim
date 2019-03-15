@@ -42,7 +42,7 @@ Decidim.register_component(:surveys) do |component|
     answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
     answers = answers.where("created_at >= ?", start_at) if start_at.present?
     answers = answers.where("created_at <= ?", end_at) if end_at.present?
-    answers.group(:decidim_user_id).count.size
+    answers.group(:session_token).count.size
   end
 
   # These actions permissions can be configured in the admin panel
