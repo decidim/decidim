@@ -37,9 +37,9 @@ sv:
         undo_online_signatures_enabled: Aktivera användarna att ångra sina online-signaturer
         validate_sms_code_on_votes: Lägg till SMS-kodvalideringssteg till signaturprocess
       initiatives_vote:
-        name_and_surname: Namn och efternamn
-        document_number: Dokumentnummer
         date_of_birth: Födelsedatum
+        document_number: Dokumentnummer
+        name_and_surname: Namn och efternamn
         postal_code: Postnummer
       organization_data:
         address: Adress
@@ -141,8 +141,8 @@ sv:
       admin:
         answers:
           edit:
-            title: Svar för %{title}
             answer: Svar
+            title: Svar för %{title}
           info_initiative:
             created_at: Skapad vid
             description: Beskrivning
@@ -320,12 +320,12 @@ sv:
           help: Vänligen fyll i följande fält med dina personuppgifter för att underteckna initiativet
         finish:
           back_to_initiative: Tillbaka till initiativet
-        sms_phone_number:
-          continue: Skicka mig ett SMS
-          help: Fyll i formuläret med ditt verifierade telefonnummer för att begära din verifieringskod
         sms_code:
           continue: Kontrollera koden och fortsätt
           help: Kontrollera det SMS som mottas i telefonen
+        sms_phone_number:
+          continue: Skicka mig ett SMS
+          help: Fyll i formuläret med ditt verifierade telefonnummer för att begära din verifieringskod
       initiative_votes:
         create:
           error: Det har varit fel när du undertecknade initiativet.
@@ -437,8 +437,8 @@ sv:
     resources:
       initiatives_type:
         actions:
-          vote: Rösta
           title: Åtgärder
+          vote: Rösta
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ sv:
         fill_personal_data: Fyll i dina uppgifter
         finish: Avsluta
         finished: Initiativ signatur skapad
-        select_identity: Välj identitet
         see_steps: se steg
+        select_identity: Välj identitet
         sms_code: SMS-kod verifiering
         sms_phone_number: mobilnummer
         step: Steg %{current} av %{total}
