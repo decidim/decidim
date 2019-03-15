@@ -678,7 +678,7 @@ es:
     forms:
       errors:
         impersonate_user:
-          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     moderations:
       actions:
         hidden: Ocultas
@@ -696,7 +696,7 @@ es:
             invalid: Se ha producido un error desocultando el contenido.
             success: Contenido exitosamente desocultado.
           unreport:
-            invalid: Se ha producido un error cancelando la denuncia.
+            invalid: Se ha producido un error al cancelar la denuncia.
             success: Denuncia cancelada correctamente.
       models:
         moderation:
