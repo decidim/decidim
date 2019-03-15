@@ -128,16 +128,25 @@ module Decidim
       end
 
       # Renders the back link except for step_2: compare
-      def wizard_aside_link_to_back(url = nil)
+      #
+      # The default `options` parameter is for :collaborative_drafts;
+      # Since they are not created until the last step, we fill the form
+      # fields with params instead of attributes.
+      #
+      # This is the same reason why some route helpers are singular for
+      # proposals (member routes) and plural for collabs (collection routes)
+      def wizard_aside_link_to_back(options = {})
         singular = type_of == :proposals
 
         case action_name.to_sym
         when :new
           url = send("#{type_of}_path")
+        when :compare
+          url = nil
         when :complete
-          url = send("compare_#{type_of(singular)}_path")
+          url = send("compare_#{type_of(singular)}_path", options)
         when :preview
-          url = send("complete_#{type_of(singular)}_path")
+          url = send("complete_#{type_of(singular)}_path", options)
         end
 
         if url
@@ -152,6 +161,7 @@ module Decidim
         t("wizard_aside.back", scope: "decidim.proposals.#{type_of}").html_safe
       end
 
+      # Returns the resource name
       def type_of(singular = false)
         return controller_name.singularize.to_sym if singular
         controller_name.to_sym

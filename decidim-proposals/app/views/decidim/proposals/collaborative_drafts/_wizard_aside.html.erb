@@ -1,0 +1,15 @@
+<div class="columns large-3">
+  <div class="m-bottom">
+    <%= wizard_aside_link_to_back(collaborative_draft: { title: @form.title,
+                                                         body: @form.body }) %>
+  </div>
+  <div class="section">
+    <p>
+      <%= wizard_aside_info_text %>
+    </p>
+  </div>
+  <div class="show-for-large">
+    <%= proposal_wizard_stepper(@step) %>
+  </div>
+</div>
+<% console %>

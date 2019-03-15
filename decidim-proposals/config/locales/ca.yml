@@ -452,10 +452,13 @@ ca:
               title: La següent acció és irreversible
             success: L'esborrany col·laboratiu s'ha retirat amb èxit.
         compare:
-          mine_is_different: El meu esborrany col·laboratiu és diferent
+          continue: Continua
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
+          discard: Descarta aquest esborrany
+          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
+          send: Vista prèvia
           send: Enviar
           title: Completa el teu esborrany col·laboratiu
         count:
@@ -599,7 +602,7 @@ ca:
           error: Hi ha hagut errors en donar suport a la proposta.
       proposals:
         compare:
-          mine_is_different: La meva proposta és diferent
+          continue: Continua
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
@@ -615,11 +618,6 @@ ca:
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Editar proposta
-        edit_draft:
-          discard: Descarta aquest esborrany
-          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
-          send: Vista prèvia
-          title: Edició l'esborrany de proposta
         endorsement_identities_cabin:
           endorse: Adherir-se
         endorsements_card_row:
