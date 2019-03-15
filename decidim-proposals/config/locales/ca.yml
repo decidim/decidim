@@ -87,7 +87,7 @@ ca:
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
-            minimum_votes_per_user: Suports mínims per usuari
+            minimum_votes_per_user: Suports mínims per participant
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             participatory_texts_enabled: Texts participatius habilitats
@@ -101,7 +101,7 @@ ca:
             proposal_wizard_step_4_help_text: Text del pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             threshold_per_proposal: Llindar per proposta
-            vote_limit: Límit de suports per usuari
+            vote_limit: Límit de suports per participant
           step:
             announcement: Anunci
             automatic_hashtags: Etiquetes afegides a totes les propostes
@@ -503,19 +503,19 @@ ca:
             success: "S'ha acceptat amb èxit @%{user} com a contribuïdor"
           access_requested:
             error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
-            success: La teva sol·licitud de contribució s'ha enviat correctament
+            success: La teva sol·licitud de col·laboració s'ha enviat correctament
           collaboration_requests:
             accept_request: Accepta
             reject_request: Rebutja
             title: Sol·licituds de col·laboració
           rejected_request:
-            error: No s'ha pogut rebutjar aquest contribuïdor, tornau-ho a provar més tard.
-            success: "@%{user} s'ha rebutjat correctament com a contribuïdor"
+            error: No s'ha pogut rebutjar aquesta contribuïdora, si us plau tornau-ho a provar més tard.
+            success: "@%{user} s'ha rebutjat correctament com a contribuïdora"
         show:
           back: Tornar
           edit: Edita l'esborrany col·laboratiu
           final_proposal: proposta final
-          final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
+          final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
           hidden_authors_count:
             one: i %{count} persones més
             other: i %{count} persones més
