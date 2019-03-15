@@ -103,8 +103,8 @@ de:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
             title: Sie müssen die csv-Zählung für diese Organisation aktivieren
           new:
+            file: "CSV-Datei mit E-Mail-Daten"
             info: 'Muss eine Datei im CSV-Format mit einer Spalte sein: E-Mail'
-            file: CSV-Datei mit E-Mail-Daten
             submit: Datei hochladen
             title: Laden Sie eine neue Volkszählung hoch
         authorizations:
@@ -151,7 +151,7 @@ de:
               success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
         authorizations:
           choose:
-            choose_a_type: "Bitte wählen Sie aus, wie Sie verifiziert werden möchten:"
+            choose_a_type: 'Bitte wählen Sie aus, wie Sie verifiziert werden möchten:'
             offline: Offline
             online: Online
             title: Überprüfen Sie sich anhand Ihres Ausweisdokuments
@@ -209,14 +209,14 @@ de:
           create:
             error: Es gab ein Problem mit ihrer Anfrage
             success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
+          destroy:
+            success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
           edit:
             confirm_destroy: Möchten Sie den Bestätigungscode wirklich zurücksetzen?
             destroy: Bestätigungscode zurücksetzen
-            send: Bestätigen
             resend: Sie haben den Bestätigungscode nicht erhalten?
+            send: Bestätigen
             title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
-          destroy:
-            success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
           new:
             send: Senden Sie mir eine SMS
             title: Fordern Sie Ihren Bestätigungscode an
