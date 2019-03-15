@@ -264,6 +264,9 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
 - **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4963](https://github.com/decidim/decidim/pull/4963/)
 - **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4962](https://github.com/decidim/decidim/pull/4962/)
+- **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4964](https://github.com/decidim/decidim/pull/4964/)
+- **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4964](https://github.com/decidim/decidim/pull/4964/)
+- **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
 
 **Removed**:
 

@@ -55,5 +55,23 @@ module Decidim
           have_selector(".user-mention")
       end
     end
+
+    context "when user is a group" do
+      let(:user) { build(:user_group) }
+
+      describe "#profile_path" do
+        subject { described_class.new(user).profile_path }
+
+        it { is_expected.to eq("/profiles/#{user.nickname}") }
+      end
+
+      describe "#profile_url" do
+        subject { described_class.new(user).profile_url }
+
+        let(:host) { user.organization.host }
+
+        it { is_expected.to eq("http://#{host}/profiles/#{user.nickname}") }
+      end
+    end
   end
 end
