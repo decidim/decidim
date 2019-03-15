@@ -103,8 +103,8 @@ eu:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
             title: Erakunde honetarako Csv errolda aktibatu behar duzu
           new:
+            file: ".csv fitxategia helbide elektronikoen datuekin"
             info: 'Fitxategi bat CSV formatuarekin izan behar da zutabe batekin: posta elektronikoa'
-            file: .csv fitxategia helbide elektronikoen datuekin
             submit: Kargatu fitxategia
             title: Kargatu zentsu berri bat
         authorizations:
@@ -151,7 +151,7 @@ eu:
               success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
-            choose_a_type: "Hautatu nola egiaztatu nahi duzun:"
+            choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
             title: Egiaztatu zure identifikazio dokumentua
@@ -209,14 +209,14 @@ eu:
           create:
             error: Arazo bat izan da eskaera zurekin
             success: Eskerrik asko! SMS bat bidali dizugu telefonoan.
+          destroy:
+            success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           edit:
             confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
             destroy: Berrezarri egiaztapen-kodea
-            send: Berretsi
             resend: Ez al duzu egiaztapen-kodea jaso?
+            send: Berretsi
             title: Jasotako egiaztapen-kodea sartu
-          destroy:
-            success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           new:
             send: Bidal iezadazu SMS bat
             title: Eskatu egiaztapen-kodea
