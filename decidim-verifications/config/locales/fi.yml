@@ -121,7 +121,7 @@ fi:
             online: Online
             title: Varmista henkilöllisyytesi käyttämällä henkilöllisyystodistusta
           create:
-            error: Asiakirjan lataamisessa tapahtui virhe
+            error: Asiakirjan laatiminen epäonnistui
             success: Asiakirja ladattu onnistuneesti
           edit:
             being_reviewed: Tarkistamme asiakirjojasi. Tilisi vahvistetaan pian
@@ -153,7 +153,7 @@ fi:
               verification_code: Vahvistuskoodi
           postages:
             create:
-              error: Virhe merkatessa kirjettä lähetetyksi
+              error: Kirjeen lähetetyksi merkkaaminen epäonnistui
               success: Kirje onnistuneesti merkitty lähetetyksi
         authorizations:
           create:
