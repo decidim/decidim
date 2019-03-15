@@ -136,12 +136,12 @@ ca:
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
-        promote_button: Publicar com una nova %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        promote_help_text: Pots publicar aquesta esmena com una proposta independent %{model_name}
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
+        promote_button: Publicar com una nova %{model_name}
+        promote_help_text: Pots publicar aquesta esmena com una proposta independent %{model_name}
         section_heading: Esmenes (%{count})
       created:
         error: S'ha produït un error en crear aquesta esmena, si us plau torna-ho a provar més tard
@@ -157,9 +157,7 @@ ca:
             acceptada a <strong>%{announcement_date}</strong>.
           evaluating: |-
             S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}.
-          rejected: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link}
-            ha estat rebutjada el <strong>%{announcement_date}</strong>.
+          rejected: "Aquesta esmena de la %{amendable_type} %{amendable_link}\nha estat rebutjada el <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Aquesta esmena de la %{amendable_type} %{amendable_link}
             ha estat retirada per l'autora.
@@ -169,12 +167,12 @@ ca:
         heading: Crea la teva esmena
         help_text: Estàs modificant el %{model_name}
         send: Enviar esmena
+      promoted:
+        error: S'ha produït un error en publicar l'esmena com una nova proposta
+        success: L'esmena s'ha publicat com una nova proposta correctament
       rejected:
         error: S'ha produït un error en rebutjar aquesta esmena, si us plau torna-ho a provar més tard
         success: L'esmena s'ha rebutjat correctament
-      promoted:
-        success: L'esmena s'ha publicat com una nova proposta correctament
-        error: S'ha produït un error en publicar l'esmena com una nova proposta
       review:
         back: Tornar
         heading: Revisa l'esmena
@@ -383,39 +381,6 @@ ca:
         title: No s'ha trobat la pàgina que busques
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
-            email_subject: Nova esmena per a %{amendable_title} de %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nova esmena per a %{amendable_title} de %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
-            email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
-            notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
-            notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
-            email_subject: S'ha publicat una esmena de %{emendation_author_nickname} com una nova proposta
-            notification_title: S'ha publicat una <a href="%{emendation_path}">esmena refusada</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} com una nova proposta de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
-            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
             email_intro: 'S''ha acceptat una modificació per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
@@ -427,6 +392,39 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
             notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
+            email_subject: Nova esmena per a %{amendable_title} de %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nova esmena per a %{amendable_title} de %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
+            email_subject: S'ha publicat una esmena de %{emendation_author_nickname} com una nova proposta
+            notification_title: S'ha publicat una <a href="%{emendation_path}">esmena refusada</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} com una nova proposta de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
+            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
+            email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
+            notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. La pots veure des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
+            notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
@@ -783,8 +781,8 @@ ca:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
-        newsletters: Butlletins informatius
         newsletter_notifications: Vull rebre butlletins
+        newsletters: Butlletins informatius
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
         receive_notifications_about: Vull rebre notificacions
         send_notifications_by_email: Enviar notificacions per correu electrònic
@@ -989,8 +987,8 @@ ca:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
     user_interests:
       show:
-        no_scopes: Aquesta organització encara no té cap abast!
         my_interests: Els meus interessos
+        no_scopes: Aquesta organització encara no té cap abast!
         select_your_interests: Selecciona els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
         update_my_interests: Actualitza els meus interessos
       update:
