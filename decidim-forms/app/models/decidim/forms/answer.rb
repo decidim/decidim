@@ -6,7 +6,7 @@ module Decidim
     class Answer < Forms::ApplicationRecord
       include Decidim::DataPortability
 
-      belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+      belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
       belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
 
@@ -33,7 +33,7 @@ module Decidim
       private
 
       def user_questionnaire_same_organization
-        return if user&.organization == questionnaire.questionnaire_for&.organization
+        return if user.nil? || user&.organization == questionnaire.questionnaire_for&.organization
         errors.add(:user, :invalid)
       end
 
