@@ -337,7 +337,7 @@ fi:
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
-            error: Virhe luotaessa muistiinpanoa ehdotukselle
+            error: Ehdotuksen muistiinpanojen luonti epäonnistui
             success: Ehdotusviesti luotu onnistuneesti
           form:
             note: Huomautus
@@ -346,10 +346,10 @@ fi:
           title: Omat muistiinpanot
         proposals:
           answer:
-            invalid: Ehdotukseen vastaamisessa esiintyi virhe
+            invalid: Ehdotukseen vastaaminen epäonnistui
             success: Ehdotukseen vastattu onnistuneesti
           create:
-            invalid: Ehdotuksen luonnissa tapahtui virhe
+            invalid: Ehdotuksen luonti epäonnistui
             success: Ehdotus luotu onnistuneesti
           edit:
             title: Päivitä ehdotusta
@@ -381,7 +381,7 @@ fi:
             success: 'Ehdotukset päivitettiin onnistuneesti aihepiiriin %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ehdotuksien tuomisessa esiintyi ongelma
+            invalid: Ehdotuksien tuominen epäonnistui
             success: "%{number} ehdotusta tuotu onnistuneesti"
           new:
             create: Tuo ehdotuksia
@@ -390,11 +390,11 @@ fi:
             select_states: Tarkista tuotavien ehdotusten tilat
         proposals_merges:
           create:
-            invalid: Yhdistettäessä ehdotuksia tapahtui virhe.
+            invalid: Valittujen ehdotusten yhdistäminen epäonnistui.
             success: Ehdotukset yhdistettiin onnistuneesti uudeksi ehdotukseksi.
         proposals_splits:
           create:
-            invalid: Jaettaessa ehdotuksia esiintyi virhe.
+            invalid: Valittujen ehdotusten jakaminen epäonnistui.
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         shared:
           info_proposal:
@@ -435,7 +435,7 @@ fi:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Yhteistyöluonnoksen julkaisemisessa on tapahtunut virheitä.
+            error: Yhteistyöluonnoksen julkaiseminen epäonnistui.
             irreversible_action_modal:
               body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia tekijöitä tai osallistumisia.
               cancel: Peruuta
@@ -444,7 +444,7 @@ fi:
             success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
           view_collaborative_draft: Katso yhteistyöluonnosta
           withdraw:
-            error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
+            error: Yhteistyöluonnoksen sulkeminen epäonnistui.
             irreversible_action_modal:
               body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
               cancel: Peruuta
@@ -463,7 +463,7 @@ fi:
             one: "%{count} yhteistyöluonnos"
             other: "%{count} yhteistyöluonnosta"
         create:
-          error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
+          error: Yhteistyöluonnoksen luonti epäonnistui
           success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
@@ -499,23 +499,23 @@ fi:
           recent: Viimeisimmät
         requests:
           accepted_request:
-            error: Yhteistyökumppania ei voitu hyväksyä, yritä myöhemmin uudelleen.
+            error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudelleen.
             success: "@%{user} on hyväksytty yhteistyökumppaniksi onnistuneesti"
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
-            success: Yhteistyöpyyntösi on lähetetty onnistuneesti
+            success: Pyyntösi päästä osallistumaan on lähetetty onnistuneesti
           collaboration_requests:
             accept_request: Hyväksy
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
-            error: Ei voitu hylätä osallistujaa, yritä myöhemmin uudelleen.
-            success: "@%{user} on hylätty osallistujana onnistuneesti"
+            error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudelleen.
+            success: "@%{user} osallistumispyynnön hylkäys onnistui"
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
           final_proposal: lopullinen ehdotus
-          final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
+          final_proposal_help_text: Tämä luonnos on valmis. Tutustu lopulliseen ehdotukseen
           hidden_authors_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
@@ -535,8 +535,8 @@ fi:
           published: Julkaistu
           withdrawn: Peruutettu
         update:
-          error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
-          success: Yhteistyöluonnos on päivitetty onnistuneesti.
+          error: Yhteistyöluonnoksen tallennus epäonnistui.
+          success: Yhteistyöluonnoksen päivitys onnistui.
         wizard_aside:
           back: Takaisin
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
@@ -547,10 +547,10 @@ fi:
           step_3: Tee yhteistyöluonnoksesi valmiiksi
           step_of: Vaihe %{current_step_num} / %{total_steps}
       create:
-        error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotiin tallennettu luonnoksena.
+        error: Ehdotuksen tallennus epäonnistui.
+        success: Ehdotuksen luonti onnistui. Ehdotus on tallennettu luonnoksena.
       destroy_draft:
-        error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
+        error: Ehdotusluonnoksen poistaminen epäonnistui.
         success: Ehdotusluonnos poistettiin onnistuneesti.
       last_activity:
         new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
@@ -584,7 +584,7 @@ fi:
           endorse: Suosittele
       proposal_endorsements:
         create:
-          error: Ehdotuksen suosittelemisessa on esiintynyt virheitä.
+          error: Ehdotuksen suositteleminen epäonnistui.
         identities:
           done: Valmis
           select_identity: Valitse henkilöllisyys
@@ -596,7 +596,7 @@ fi:
           endorse: Suosittele
       proposal_votes:
         create:
-          error: Äänestettäessä ehdotusta tapahtui virhe.
+          error: Ehdotuksen kannattaminen epäonnistui.
       proposals:
         compare:
           mine_is_different: Ehdotukseni on erilainen
@@ -730,14 +730,14 @@ fi:
           step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} / %{total_steps}
       publish:
-        error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.
-        success: Ehdotus julkaistiin onnistuneesti.
+        error: Ehdotuksen julkaisu epäonnistui.
+        success: Ehdotuksen julkaisu onnistui.
       update:
-        error: Ehdotuksen tallentamisessa tapahtui virheitä.
-        success: Ehdotus on päivitetty onnistuneesti.
+        error: Ehdotuksen tallentaminen epäonnistui.
+        success: Ehdotuksen päivitys onnistui.
       update_draft:
-        error: Ehdotusluonnoksen tallentamisessa tapahtui virheitä.
-        success: Ehdotusluonnos päivitetty onnistuneesti.
+        error: Yhteistyöluonnoksen tallennus epäonnistui.
+        success: Ehdotusluonnoksen päivitys onnistui.
       versions:
         changes_at_title: Muutokset kohdassa "%{title}"
         index:
