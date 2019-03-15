@@ -356,8 +356,8 @@ fi:
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin diplomeiden lähettämisessä esiintyi ongelma.
-          success: Konferenssin diplomit on lähetetty onnistuneesti
+          error: Konferenssin osallistumistodistusten lähetys epäonnistui.
+          success: Konferenssin osallistumistodistusten lähetys onnistui
       conference:
         registration_confirm:
           cancel: Peruuta
