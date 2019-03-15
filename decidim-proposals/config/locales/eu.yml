@@ -452,7 +452,7 @@ eu:
               title: Hurrengo ekintza ez da atzeraezina
             success: Kolaborazio zirriborroa arrakastaz kendu da.
         compare:
-          mine_is_different: Nire lankidetza zirriborroa desberdina da
+          continue: Jarraitu
           no_similars_found: Ongi egina! Ez da antzeko lankidetza zirriborro aurkitu
           title: Antzeko zirriborro kolaboratzaileak
         complete:
@@ -599,11 +599,13 @@ eu:
           error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
         compare:
-          mine_is_different: Nire proposamena desberdina da
+          continue: Jarraitu
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
           title: Proposamen antzekoak
         complete:
-          send: Bidali
+          discard: Ezabatu zirriborro hau
+          discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
+          send: Aurreikusi
           title: Zure proposamena osatzea
         count:
           proposals_count:
@@ -615,11 +617,6 @@ eu:
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
-        edit_draft:
-          discard: Ezabatu zirriborro hau
-          discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
-          send: Aurreikusi
-          title: Editatu proposamenaren zirriborroa
         endorsement_identities_cabin:
           endorse: gatoz
         endorsements_card_row:

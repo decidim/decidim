@@ -282,11 +282,13 @@ uk:
           error: При голосуванні щодо пропозиції сталися помилки.
       proposals:
         compare:
-          mine_is_different: Моя пропозиція інша
+          continue: Продовжити
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:
-          send: Надіслати
+          discard: Відкинути цю чернетку
+          discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
+          send: Попередній перегляд
           title: Завершіть свою пропозицію
         edit:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -294,11 +296,6 @@ uk:
           select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Редагувати пропозицію
-        edit_draft:
-          discard: Відкинути цю чернетку
-          discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
-          send: Попередній перегляд
-          title: Редагувати чернетку пропозиції
         endorsement_identities_cabin:
           endorse: Підтримати
         endorsements_card_row:

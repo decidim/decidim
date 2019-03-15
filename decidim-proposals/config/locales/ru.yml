@@ -282,11 +282,13 @@ ru:
           error: При голосовании по этому предложению произошли ошибки.
       proposals:
         compare:
-          mine_is_different: Мое предложение отличается
+          continue: Продолжить
           no_similars_found: Хорошая работа! Подобных предложений не найдено
           title: Похожие предложения
         complete:
-          send: Отправить
+          discard: Отбросить этот черновик
+          discard_confirmation: Вы действительно хотите отбросить этот черновик предложения?
+          send: Предпросмотр
           title: Завершите свое предложение
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
@@ -294,11 +296,6 @@ ru:
           select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Редактировать предложение
-        edit_draft:
-          discard: Отбросить этот черновик
-          discard_confirmation: Вы действительно хотите отбросить этот черновик предложения?
-          send: Предпросмотр
-          title: Редактировать черновик предложения
         endorsement_identities_cabin:
           endorse: Поддержать
         endorsements_card_row:

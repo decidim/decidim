@@ -452,7 +452,7 @@ sv:
               title: Följande åtgärd är oåterkallelig
             success: Samarbetsutkast återkallades.
         compare:
-          mine_is_different: Mitt samarbetsutkast är annorlunda
+          continue: Fortsätt
           no_similars_found: Bra gjort! Inga liknande samarbetsutkast hittades
           title: Liknande samarbetsförslag
         complete:
@@ -599,11 +599,13 @@ sv:
           error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
-          mine_is_different: Mitt förslag är annorlunda
+          continue: Fortsätt
           no_similars_found: Bra gjort! Inga liknande förslag hittades
           title: Liknande förslag
         complete:
-          send: Skicka
+          discard: Kassera detta utkast
+          discard_confirmation: Är du säker på att du vill kassera detta förslagsutkast?
+          send: Förhandsvisa
           title: Färdigställ ditt förslag
         count:
           proposals_count:
@@ -615,11 +617,6 @@ sv:
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
-        edit_draft:
-          discard: Kassera detta utkast
-          discard_confirmation: Är du säker på att du vill kassera detta förslagsutkast?
-          send: Förhandsvisa
-          title: Redigera förslagsutkast
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:

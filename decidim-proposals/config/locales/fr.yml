@@ -452,7 +452,7 @@ fr:
               title: L'action suivante est irréversible
             success: Projet de collaboration retiré avec succès.
         compare:
-          mine_is_different: Mon projet de collaboration est différent
+          continue: Continuer
           no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
           title: Projets collaboratifs similaires
         complete:
@@ -599,11 +599,13 @@ fr:
           error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         compare:
-          mine_is_different: Ma proposition est différente
+          continue: Continuer
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
-          send: Envoyer
+          discard: Supprimer ce brouillon
+          discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
+          send: Aperçu
           title: Complétez votre proposition
         count:
           proposals_count:
@@ -615,11 +617,6 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
-        edit_draft:
-          discard: Supprimer ce brouillon
-          discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
-          send: Aperçu
-          title: Modifier le brouillon de votre proposition
         endorsement_identities_cabin:
           endorse: Soutenir
         endorsements_card_row:

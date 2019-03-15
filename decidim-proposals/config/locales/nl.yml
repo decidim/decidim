@@ -452,7 +452,7 @@ nl:
               title: De volgende actie is onomkeerbaar
             success: Gezamenlijk concept is succesvol ingetrokken.
         compare:
-          mine_is_different: Mijn samenwerkingsconcept is anders
+          continue: Doorgaan met
           no_similars_found: Goed gedaan! Geen vergelijkbare samenwerkingsconcepten gevonden
           title: Vergelijkbare samenwerkende concepten
         complete:
@@ -599,11 +599,13 @@ nl:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
         compare:
-          mine_is_different: Mijn voorstel is anders
+          continue: Doorgaan met
           no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
           title: Vergelijkbare voorstellen
         complete:
-          send: Sturen
+          discard: Verwijder dit concept
+          discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
+          send: Voorbeeldweergave
           title: Maak uw voorstel af
         count:
           proposals_count:
@@ -614,11 +616,6 @@ nl:
           back: Terug
           select_a_category: Selecteer een categorie
           send: Verzenden
-          title: Bewerk voorstel
-        edit_draft:
-          discard: Verwijder dit concept
-          discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
-          send: Voorbeeldweergave
           title: Bewerk voorstel
         endorsement_identities_cabin:
           endorse: Aanbevelen

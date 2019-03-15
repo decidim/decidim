@@ -452,7 +452,7 @@ fi:
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos peruutettiin onnistuneesti.
         compare:
-          mine_is_different: Yhteistyöehdotukseni on erilainen
+          continue: Jatka
           no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
           title: Vastaavia yhteistyöluonnoksia
         complete:
@@ -599,11 +599,13 @@ fi:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
         compare:
-          mine_is_different: Ehdotukseni on erilainen
+          continue: Jatka
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
-          send: Lähetä
+          discard: Hylkää tämä luonnos
+          discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
+          send: Esikatselu
           title: Viimeistele ehdotuksesi
         count:
           proposals_count:
@@ -615,11 +617,6 @@ fi:
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
-        edit_draft:
-          discard: Hylkää tämä luonnos
-          discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
-          send: Esikatselu
-          title: Muokkaa ehdotusluonnosta
         endorsement_identities_cabin:
           endorse: Suosittele
         endorsements_card_row:

@@ -447,7 +447,7 @@ id:
               title: Tindakan berikut tidak dapat diubah
             success: Draf kolaboratif berhasil ditarik.
         compare:
-          mine_is_different: Draf kolaboratif saya berbeda
+          continue: Terus
           no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ditemukan draf kolaboratif yang serupa
           title: Draf kolaboratif serupa
         complete:
@@ -592,11 +592,13 @@ id:
           error: Ada kesalahan saat memilih proposal.
       proposals:
         compare:
-          mine_is_different: Proposal saya berbeda
+          continue: Terus
           no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ada proposal serupa yang ditemukan
           title: Proposal serupa
         complete:
-          send: Kirim
+          discard: Buang draf ini
+          discard_confirmation: Anda yakin ingin membuang draf proposal ini?
+          send: Preview
           title: Selesaikan proposal Anda
         count:
           proposals_count:
@@ -607,11 +609,6 @@ id:
           select_a_category: Silakan pilih kategori
           send: Kirim
           title: Edit proposal
-        edit_draft:
-          discard: Buang draf ini
-          discard_confirmation: Anda yakin ingin membuang draf proposal ini?
-          send: Preview
-          title: Edit Draf Proposal
         endorsement_identities_cabin:
           endorse: Mengesahkan
         endorsements_card_row:

@@ -449,7 +449,7 @@ de:
               title: Die folgende Aktion ist irreversibel
             success: Kollaborativer Entwurf erfolgreich zurückgezogen.
         compare:
-          mine_is_different: Mein gemeinsamer Entwurf ist anders
+          continue: Fortsetzen
           no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
           title: Ähnliche kollaborative Entwürfe
         complete:
@@ -596,11 +596,13 @@ de:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
       proposals:
         compare:
-          mine_is_different: Mein Vorschlag ist anders
+          continue: Fortsetzen
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
-          send: Senden
+          discard: Verwerfen Sie diesen Entwurf
+          discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
+          send: Vorschau
           title: Vervollständigen Sie Ihren Vorschlag
         count:
           proposals_count:
@@ -612,11 +614,6 @@ de:
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Angebot bearbeiten
-        edit_draft:
-          discard: Verwerfen Sie diesen Entwurf
-          discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
-          send: Vorschau
-          title: Angebotsentwurf bearbeiten
         endorsement_identities_cabin:
           endorse: Unterstützung
         endorsements_card_row:

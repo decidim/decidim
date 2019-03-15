@@ -452,7 +452,7 @@ tr:
               title: Aşağıdaki işlem geri alınamaz
             success: İşbirlikçi taslak başarıyla geri çekildi.
         compare:
-          mine_is_different: Ortak çalışma taslağım farklı
+          continue: Devam et
           no_similars_found: Aferin! Benzer ortak taslak bulunamadı
           title: Benzer işbirliği taslakları
         complete:
@@ -599,11 +599,13 @@ tr:
           error: Teklif oylanırken hatalar oluştu.
       proposals:
         compare:
-          mine_is_different: Teklifim farklı
+          continue: Devam et
           no_similars_found: Aferin! Benzer teklif bulunamadı
           title: Benzer teklifler
         complete:
-          send: göndermek
+          discard: Bu taslağı sil
+          discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
+          send: Ön izleme
           title: Teklifinizi tamamlayın
         count:
           proposals_count:
@@ -615,11 +617,6 @@ tr:
           select_a_category: Lütfen bir kategori seçin
           send: göndermek
           title: Teklifi düzenle
-        edit_draft:
-          discard: Bu taslağı sil
-          discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
-          send: Ön izleme
-          title: Teklif Taslaklarını Düzenle
         endorsement_identities_cabin:
           endorse: desteklemek
         endorsements_card_row:

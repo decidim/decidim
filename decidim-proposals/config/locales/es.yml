@@ -452,7 +452,7 @@ es:
               title: La siguiente acción es irreversible
             success: Borrador colaborativo retirado con éxito.
         compare:
-          mine_is_different: Mi borrador colaborativo es diferente
+          continue: Continuar
           no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
           title: Borradores colaborativos similares
         complete:
@@ -599,11 +599,13 @@ es:
           error: Ha habido errores al apoyar la propuesta.
       proposals:
         compare:
-          mine_is_different: Mi propuesta es diferente
+          continue: Continuar
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
-          send: Enviar
+          discard: Descartar este borrador
+          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
+          send: Previsualizar
           title: Completa tu propuesta
         count:
           proposals_count:
@@ -615,11 +617,6 @@ es:
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta
-        edit_draft:
-          discard: Descartar este borrador
-          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
-          send: Previsualizar
-          title: Editar el borrador de la propuesta
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:

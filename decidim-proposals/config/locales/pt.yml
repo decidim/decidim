@@ -452,7 +452,7 @@ pt:
               title: A ação a seguir é irreversível
             success: Esboço colaborativo retirado com sucesso.
         compare:
-          mine_is_different: Meu rascunho colaborativo é diferente
+          continue: Continuar
           no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
           title: Rascunhos colaborativos semelhantes
         complete:
@@ -599,11 +599,13 @@ pt:
           error: Houve erros ao votar a proposta.
       proposals:
         compare:
-          mine_is_different: Minha proposta é diferente
+          continue: Continuar
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
-          send: Enviar
+          discard: Descarte este rascunho
+          discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
+          send: Visualização
           title: Complete sua proposta
         count:
           proposals_count:
@@ -615,11 +617,6 @@ pt:
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
-        edit_draft:
-          discard: Descarte este rascunho
-          discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
-          send: Visualização
-          title: Editar proposta de rascunho
         endorsement_identities_cabin:
           endorse: Endossar
         endorsements_card_row:

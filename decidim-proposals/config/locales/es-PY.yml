@@ -452,7 +452,7 @@ es-PY:
               title: La siguiente acción es irreversible
             success: Borrador colaborativo retirado con éxito.
         compare:
-          mine_is_different: Mi borrador colaborativo es diferente
+          continue: Continuar
           no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
           title: Borradores colaborativos similares
         complete:
@@ -599,7 +599,7 @@ es-PY:
           error: Ha habido errores al votar la propuesta.
       proposals:
         compare:
-          mine_is_different: Mi propuesta es diferente
+          continue: Continuar
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:

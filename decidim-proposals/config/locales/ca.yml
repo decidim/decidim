@@ -456,9 +456,6 @@ ca:
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
-          discard: Descarta aquest esborrany
-          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
-          send: Vista prèvia
           send: Enviar
           title: Completa el teu esborrany col·laboratiu
         count:
@@ -606,7 +603,9 @@ ca:
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
-          send: Enviar
+          discard: Descarta aquesta proposta
+          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
+          send: Vista prèvia
           title: Completa la teva proposta
         count:
           proposals_count:

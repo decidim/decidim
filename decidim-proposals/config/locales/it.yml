@@ -452,7 +452,7 @@ it:
               title: La seguente azione è irreversibile
             success: Bozza collaborativa ritirata con successo.
         compare:
-          mine_is_different: La mia bozza di collaborazione è diversa
+          continue: Continua
           no_similars_found: Molto bene! Nessuna bozza collaborativa simile trovata
           title: Bozze collaborative simili
         complete:
@@ -599,11 +599,13 @@ it:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         compare:
-          mine_is_different: La mia proposta è diversa
+          continue: Continua
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:
-          send: Inviare
+          discard: Scarta questa bozza
+          discard_confirmation: Sei sicuro di voler eliminare questa bozza di proposta?
+          send: Anteprima
           title: Completa la tua proposta
         count:
           proposals_count:
@@ -615,11 +617,6 @@ it:
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
-        edit_draft:
-          discard: Scarta questa bozza
-          discard_confirmation: Sei sicuro di voler eliminare questa bozza di proposta?
-          send: Anteprima
-          title: Modifica bozza di proposta
         endorsement_identities_cabin:
           endorse: Approvare
         endorsements_card_row:

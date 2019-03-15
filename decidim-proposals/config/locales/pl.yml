@@ -462,7 +462,7 @@ pl:
               title: Poniższe działanie jest nieodwracalne
             success: Wersja robocza wycofana pomyślnie.
         compare:
-          mine_is_different: Mój projekt współpracy jest inny
+          continue: dalej
           no_similars_found: Dobra robota! Nie znaleziono podobnych projektów współpracy
           title: Podobne wersje robocze
         complete:
@@ -613,11 +613,13 @@ pl:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
       proposals:
         compare:
-          mine_is_different: Moja propozycja jest inna
+          continue: dalej
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
         complete:
-          send: Wysłać
+          discard: Odrzuć tę wersję roboczą
+          discard_confirmation: Czy na pewno chcesz odrzucić ten projekt propozycji?
+          send: Zapowiedź
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
@@ -631,11 +633,6 @@ pl:
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Edytuj propozycję
-        edit_draft:
-          discard: Odrzuć tę wersję roboczą
-          discard_confirmation: Czy na pewno chcesz odrzucić ten projekt propozycji?
-          send: Zapowiedź
-          title: Edytuj wersję roboczą oferty
         endorsement_identities_cabin:
           endorse: Podpisać się
         endorsements_card_row:

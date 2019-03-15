@@ -452,7 +452,7 @@ hu:
               title: A következő művelet visszavonhatatlan
             success: Közös vázlat visszavonása sikeres.
         compare:
-          mine_is_different: A közös vázlatom eltér ettől
+          continue: Tovább
           no_similars_found: Szép munka! Nincsen hasonló közös vázlat
           title: Hasonló közös vázlatok
         complete:
@@ -599,11 +599,13 @@ hu:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          mine_is_different: Javaslatom más jellegű
+          continue: Tovább
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
-          send: Küldés
+          discard: Vázlat elvetése
+          discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
+          send: Előnézet
           title: Fejezd be a javaslatod
         count:
           proposals_count:
@@ -615,11 +617,6 @@ hu:
           select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése
-        edit_draft:
-          discard: Vázlat elvetése
-          discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
-          send: Előnézet
-          title: Javaslat vázlatok szerkesztése
         endorsement_identities_cabin:
           endorse: Jóváhagy
         endorsements_card_row:

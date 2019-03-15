@@ -462,7 +462,7 @@ cs:
               title: Následující akce je nevratná
             success: Kolaborativní návrh byl úspěšně zrušen.
         compare:
-          mine_is_different: Můj návrh spolupráce je jiný
+          continue: Pokračovat
           no_similars_found: Výborně! Žádný podobný návrh spolupráce nebyl nalezen
           title: Podobné návrhy spolupráce
         complete:
@@ -613,11 +613,13 @@ cs:
           error: Při hlasování o návrhu došlo k chybám.
       proposals:
         compare:
-          mine_is_different: Můj návrh je jiný
+          continue: Pokračovat
           no_similars_found: Výborně! Nebyly nalezeny žádné podobné návrhy
           title: Podobné návrhy
         complete:
-          send: Poslat
+          discard: Zrušte tento návrh
+          discard_confirmation: Opravdu chcete tuto návrh zakázat?
+          send: Náhled
           title: Dokončete svůj návrh
         count:
           proposals_count:
@@ -631,11 +633,6 @@ cs:
           select_a_category: Vyberte kategorii
           send: Poslat
           title: Upravit návrh
-        edit_draft:
-          discard: Zrušte tento návrh
-          discard_confirmation: Opravdu chcete tuto návrh zakázat?
-          send: Náhled
-          title: Upravit koncept návrhu
         endorsement_identities_cabin:
           endorse: Potvrďte
         endorsements_card_row:
