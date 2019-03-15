@@ -103,8 +103,8 @@ pl:
             body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
             title: Musisz aktywować spis csv dla tej organizacji
           new:
+            file: "Plik .csv z danymi e-maili"
             info: 'Musi to być plik w formacie CSV z jedną kolumną: e-mail'
-            file: Plik .csv z danymi e-maili
             submit: Przesyłanie pliku
             title: Prześlij nowy spis ludności
         authorizations:
@@ -153,7 +153,7 @@ pl:
               success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o zmianę swoich dokumentów
         authorizations:
           choose:
-            choose_a_type: "Wybierz sposób weryfikacji:"
+            choose_a_type: 'Wybierz sposób weryfikacji:'
             offline: Offline
             online: online
             title: Zweryfikuj się, używając swojego dokumentu tożsamości
@@ -211,14 +211,14 @@ pl:
           create:
             error: Był problem z Twoją prośbą
             success: Dzięki! Wysłaliśmy SMS-a na Twój telefon.
+          destroy:
+            success: Kod weryfikacyjny został pomyślnie zresetowany. Wprowadź ponownie swój numer telefonu.
           edit:
             confirm_destroy: Czy na pewno chcesz zresetować kod weryfikacyjny?
             destroy: Zresetuj kod weryfikacyjny
-            send: Potwierdzać
             resend: Nie otrzymałeś kodu weryfikacyjnego?
+            send: Potwierdzać
             title: Wprowadź kod weryfikacyjny, który otrzymałeś
-          destroy:
-            success: Kod weryfikacyjny został pomyślnie zresetowany. Wprowadź ponownie swój numer telefonu.
           new:
             send: Wyślij mi SMS-a
             title: Poproś o kod weryfikacyjny
