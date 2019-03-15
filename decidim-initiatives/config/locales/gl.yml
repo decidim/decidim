@@ -37,9 +37,9 @@ gl:
         undo_online_signatures_enabled: Habilita os usuarios para desfacer as súas sinaturas en liña
         validate_sms_code_on_votes: Engada o paso de validación do código SMS ao proceso de sinatura
       initiatives_vote:
-        name_and_surname: Nome e apelidos
-        document_number: Número de documento
         date_of_birth: Data de nacemento
+        document_number: Número de documento
+        name_and_surname: Nome e apelidos
         postal_code: Código postal
       organization_data:
         address: Enderezo
@@ -141,8 +141,8 @@ gl:
       admin:
         answers:
           edit:
-            title: Resposta para %{title}
             answer: Resposta
+            title: Resposta para %{title}
           info_initiative:
             created_at: Creado en
             description: Descrición
@@ -320,12 +320,12 @@ gl:
           help: Complete os seguintes campos cos seus datos persoais para asinar a iniciativa
         finish:
           back_to_initiative: Volver á iniciativa
-        sms_phone_number:
-          continue: Envíame un SMS
-          help: Encha o formulario co número de teléfono verificado para solicitar o teu código de verificación
         sms_code:
           continue: Comprobe o código e continúe
           help: Comprobe o SMS recibido no seu teléfono
+        sms_phone_number:
+          continue: Envíame un SMS
+          help: Encha o formulario co número de teléfono verificado para solicitar o teu código de verificación
       initiative_votes:
         create:
           error: Houbo erros ao asinar a iniciativa.
@@ -437,8 +437,8 @@ gl:
     resources:
       initiatives_type:
         actions:
-          vote: Vota
           title: Accións
+          vote: Vota
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ gl:
         fill_personal_data: Completa os teus datos
         finish: Finalizar
         finished: Creouse a sinatura da iniciativa
-        select_identity: Seleccionar identidade
         see_steps: ver pasos
+        select_identity: Seleccionar identidade
         sms_code: Verificación do código SMS
         sms_phone_number: Número de teléfono
         step: Paso %{current} de %{total}
