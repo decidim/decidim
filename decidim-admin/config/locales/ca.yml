@@ -13,7 +13,7 @@ ca:
         attachment_collection_id: Carpeta
         description: Descripció
         file: Arxiu
-        title: Grup de processos participatius
+        title: Títol
       attachment_collection:
         description: Descripció
         name: Nom
@@ -376,7 +376,7 @@ ca:
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:
-          name: Usuari privat de l'espai de participació
+          name: Participant d'espai de participació privat
         scope:
           fields:
             name: Nom
@@ -532,7 +532,7 @@ ca:
           success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
         destroy:
           error: S'ha produït un error en eliminar una participant d'aquest espai participatiu privat.
-          success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
+          success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
           title: Participant de l'espai participatiu privat
         new:
