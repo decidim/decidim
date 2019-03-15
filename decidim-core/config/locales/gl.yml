@@ -136,12 +136,12 @@ gl:
       amendable:
         amended_by: Modificado por
         button: Modificar %{model_name}
-        promote_button: Promoción a %{model_name}
         error: Produciuse un erro ao modificar este recurso.
         help_text: Mellora este %{model_name} modificando o seu %{amendable_fields}
-        promote_help_text: Pode promover esta modificación e publicala como un %{model_name}independente
         no_amenders: Non hai amortidores
         no_amendments: Non hai emendas
+        promote_button: Promoción a %{model_name}
+        promote_help_text: Pode promover esta modificación e publicala como un %{model_name}independente
         section_heading: Enmendas (%{count})
       created:
         error: Produciuse un erro ao crear esta emenda, téntao de novo máis tarde
@@ -158,9 +158,7 @@ gl:
           evaluating: |-
             Esta enquisa para o %{amendable_type} %{amendable_link}
             está sendo avaliada.
-          rejected: |-
-            Esta modificación do %{amendable_type} %{amendable_link}
-            foi rexeitada en <strong>%{announcement_date}</strong>.
+          rejected: "Esta modificación do %{amendable_type} %{amendable_link}\nfoi rexeitada en <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Esta autorización foi retirada esta enmenda do %{amendable_type} %{amendable_link}
             .
@@ -170,12 +168,12 @@ gl:
         heading: Crea a túa emenda
         help_text: Está a modificar o %{model_name}
         send: Enviar a emenda
+      promoted:
+        error: Houbo erros ao promover a modificación
+        success: Emendación promovida con éxito
       rejected:
         error: Produciuse un erro ao rexeitar esta emenda, téntao de novo máis tarde
         success: A emenda foi rexeitada con éxito
-      promoted:
-        success: Emendación promovida con éxito
-        error: Houbo erros ao promover a modificación
       review:
         back: De volta
         heading: Revisa a modificación
@@ -384,39 +382,6 @@ gl:
         title: Non se pode atopar a páxina que buscas
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
-            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
-            email_subject: Unha nova enmenda para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nova emenda</a> foi creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Unha nova enmenda para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nova emenda</a> foi creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
-            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
-            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendación</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendación</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
-            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
-            email_subject: Engadiuse unha emenda de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendación rexeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} foi promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Engadiuse unha emenda de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendación rexeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} foi promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
             email_intro: 'A emenda foi aceptada para %{amendable_title}. Podes velo desde esta páxina:'
@@ -428,6 +393,39 @@ gl:
             email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
             email_subject: Unha enmenda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">emendación</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceptada para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Unha nova enmenda para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">nova emenda</a> foi creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Unha nova enmenda para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">nova emenda</a> foi creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Engadiuse unha emenda de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">emendación rexeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} foi promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Engadiuse unha emenda de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">emendación rexeitada</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} foi promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">emendación</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">emendación</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Engadiuse un novo documento a %{resource_title}. Podes velo desde esta páxina:'
@@ -784,8 +782,8 @@ gl:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
         everything_followed: Todo o que segue
-        newsletters: Boletíns informativos
         newsletter_notifications: Quero recibir boletíns
+        newsletters: Boletíns informativos
         own_activity: A miña propia actividade, como cando alguén comenta na miña proposta ou me menciona
         receive_notifications_about: Quero recibir notificacións sobre
         send_notifications_by_email: Envíe notificacións por correo electrónico
@@ -990,8 +988,8 @@ gl:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     user_interests:
       show:
-        no_scopes: Esta organización aínda non ten ningún alcance.
         my_interests: Os meus intereses
+        no_scopes: Esta organización aínda non ten ningún alcance.
         select_your_interests: Selecciona os temas que che interesan para recibir eventos relacionados con eles na pestana Timeline do teu perfil.
         update_my_interests: Actualiza os meus intereses
       update:
