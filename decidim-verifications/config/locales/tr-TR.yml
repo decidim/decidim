@@ -103,8 +103,8 @@ tr:
             body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
             title: Bu kuruluş için csv sayımını etkinleştirmeniz gerekir
           new:
+            file: "e-posta verileri içeren .csv dosyası"
             info: 'Tek sütunlu CSV biçiminde bir dosya olmalı: e-posta'
-            file: e-posta verileri içeren .csv dosyası
             submit: Dosya yükleme
             title: Yeni bir nüfus sayımı yükleyin
         authorizations:
@@ -151,7 +151,7 @@ tr:
               success: Doğrulama reddedildi. Kullanıcı dokümanlarını değiştirmek için istenecektir
         authorizations:
           choose:
-            choose_a_type: "Lütfen nasıl doğrulanmak istediğinizi seçin:"
+            choose_a_type: 'Lütfen nasıl doğrulanmak istediğinizi seçin:'
             offline: Çevrimdışı
             online: İnternet üzerinden
             title: Kimlik belgenizi kullanarak kendinizi doğrulayın
@@ -209,14 +209,14 @@ tr:
           create:
             error: İsteğiniz ile ilgili bir sorun vardı
             success: Teşekkürler! Telefonunuza bir SMS gönderdik.
+          destroy:
+            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           edit:
             confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
             destroy: Doğrulama kodunu sıfırla
-            send: Onaylamak
             resend: Doğrulama kodunu alamadınız mı?
+            send: Onaylamak
             title: Aldığınız doğrulama kodunu tanıtın
-          destroy:
-            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           new:
             send: Bana bir SMS gönder
             title: Doğrulama kodunuzu isteyin
