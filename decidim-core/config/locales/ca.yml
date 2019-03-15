@@ -225,31 +225,31 @@ ca:
     authorization_modals:
       show:
         expired:
-          authorize: Reautoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
+          authorize: Torna a autoritzar amb "%{authorization}"
+          explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
-          explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que la reautoritzeu perquè no disposem de les dades següents:'
+          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
           invalid_field: "%{field}"
-          reauthorize: Reautoritzar
-          title: Torna a autoritzar
+          reauthorize: Reautoritzar-se
+          title: Si us plau, reautoritza't
         missing:
-          authorize: Autoritzeu-vos amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
-          title: Es necessita autorització
+          authorize: Autoritzar amb "%{authorization}"
+          explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
+          title: Es requereix autorització
         pending:
-          explanation: Per realitzar aquesta acció, heu d'estar autoritzats amb "%{authorization}", però la vostra autorització encara està en curs
-          resume: Comproveu el vostre progrés d'autorització "%{authorization}"
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "%{field} valor %{value} no és vàlida."
+          explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
+          invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
-          title: No autoritzat
+          title: Acció no autoritzada
         unconfirmed:
-          confirmation_instructions: 'Si no heu rebut les instruccions de confirmació, podeu tornar a sol·licitar-les:'
-          explanation_html: Per realitzar aquesta acció cal que estigueu autoritzada, abans de fer-ho, heu de confirmar el vostre correu electrònic <strong>%{email}</strong>.
+          confirmation_instructions: 'Si no has rebut les instruccions de confirmació, pot tornar a demanar-les:'
+          explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
     collapsible_list:
