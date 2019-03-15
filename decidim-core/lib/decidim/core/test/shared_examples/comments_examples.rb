@@ -221,10 +221,10 @@ shared_examples "comments" do
       before do
         component.participatory_space.private_space = true
         login_as user, scope: :user
-        visit resource_path
       end
 
       it "shows the form to add comments or not" do
+        visit resource_path
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".add-comment form")
         else
@@ -240,10 +240,10 @@ shared_examples "comments" do
       before do
         component.participatory_space.private_space = true
         login_as user, scope: :user
-        visit resource_path
       end
 
       it "shows reply to the user or not" do
+        visit resource_path
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".comment__reply")
         else
@@ -256,11 +256,11 @@ shared_examples "comments" do
       before do
         component.participatory_space.private_space = true
         login_as user, scope: :user
-        visit resource_path
       end
 
       it "shows the vote block or not" do
-        if commentable.user_allowed_to_comment?(user)
+        visit resource_path
+        if commentable.user_allowed_to_comment?(user) && commentable.comments_have_votes?
           expect(page).to have_selector(".comment__votes--up")
           expect(page).to have_selector(".comment__votes--down")
         else
