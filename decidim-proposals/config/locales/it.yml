@@ -36,7 +36,7 @@ it:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}"
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ it:
         participatory_texts:
           bulk-actions:
             are_you_sure: Sei sicuro di scartare l'intera bozza del testo partecipativo?
-            import_doc: Importa il documento
             discard_all: Scarta tutto
+            import_doc: Importa il documento
+          discard:
+            success: Tutte le bozze di testo partecipativo sono state scartate.
           import:
             invalid: Il modulo non è valido!
             success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
@@ -320,8 +322,6 @@ it:
           publish:
             invalid: Impossibile pubblicare proposte
             success: Tutte le proposte sono state pubblicate
-          discard:
-            success: Tutte le bozze di testo partecipativo sono state scartate.
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ it:
           comments: Commenti
         filters:
           activity: Attività
+          amendment_type: genere
           category: Categoria
           category_prompt: Scegli una categoria
           origin: Origine
@@ -633,7 +634,6 @@ it:
           search: Cerca
           state: Stato
           voted: Votata
-          amendment_type: genere
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
