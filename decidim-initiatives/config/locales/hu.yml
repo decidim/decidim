@@ -37,9 +37,9 @@ hu:
         undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
         validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
       initiatives_vote:
-        name_and_surname: Keresztnév, Vezetéknév
-        document_number: Dokumentum szám
         date_of_birth: Születési dátum
+        document_number: Dokumentum szám
+        name_and_surname: Keresztnév, Vezetéknév
         postal_code: Irányítószám
       organization_data:
         address: Lakcím
@@ -141,8 +141,8 @@ hu:
       admin:
         answers:
           edit:
-            title: Válasz %{title}
             answer: Válasz
+            title: Válasz %{title}
           info_initiative:
             created_at: 'Létrehozva:'
             description: Leírás
@@ -320,12 +320,12 @@ hu:
           help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
         finish:
           back_to_initiative: Vissza a kezdeményezéshez
-        sms_phone_number:
-          continue: Küldj nekem SMS-t
-          help: Töltse ki az űrlapot a hitelesített telefonszámával, a hitelesítési kódjának igényléséhez
         sms_code:
           continue: Ellenőrizze a kódot és folytassa
           help: Ellenőrizze a telefonon kapott SMS-t
+        sms_phone_number:
+          continue: Küldj nekem SMS-t
+          help: Töltse ki az űrlapot a hitelesített telefonszámával, a hitelesítési kódjának igényléséhez
       initiative_votes:
         create:
           error: Hiba történt a kezdeményezés aláírása során.
@@ -437,8 +437,8 @@ hu:
     resources:
       initiatives_type:
         actions:
-          vote: Szavazás
           title: Hozzászólások
+          vote: Szavazás
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ hu:
         fill_personal_data: Add meg az adataidat
         finish: Befejezés
         finished: Kezdeményezés aláírása létrehozva
-        select_identity: Válasszon identitást
         see_steps: lásd a lépéseket
+        select_identity: Válasszon identitást
         sms_code: SMS-kód ellenőrzése
         sms_phone_number: Mobiltelefonszám
         step: '%{current} lépés a %{total} lépésből'
