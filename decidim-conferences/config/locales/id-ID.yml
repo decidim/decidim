@@ -501,10 +501,10 @@ id:
         votes_count: Suara
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Pendaftaran Anda untuk konferensi <a href="%{resource_url}">%{resource_title}</a> masih menunggu untuk dikonfirmasi.
         conference_registration_confirmed:
           notification_title: Pendaftaran Anda untuk konferensi <a href="%{resource_url}">%{resource_title}</a> telah dikonfirmasi.
+        conference_registration_validation_pending:
+          notification_title: Pendaftaran Anda untuk konferensi <a href="%{resource_url}">%{resource_title}</a> masih menunggu untuk dikonfirmasi.
         conference_registrations_over_percentage:
           email_intro: Slot "%{resource_title}" konferensi yang ditempati lebih dari %{percentage}%.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah admin ruang partisipatif konferensi.
