@@ -37,9 +37,9 @@ fi:
         undo_online_signatures_enabled: Salli käyttäjien peruuttaa verkossa tehdyt allekirjoitukset
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
       initiatives_vote:
-        name_and_surname: Nimi ja sukunimi
-        document_number: Asiakirjan numero
         date_of_birth: Syntymäaika
+        document_number: Asiakirjan numero
+        name_and_surname: Nimi ja sukunimi
         postal_code: Postinumero
       organization_data:
         address: Osoite
@@ -141,8 +141,8 @@ fi:
       admin:
         answers:
           edit:
-            title: Vastaus kohteelle %{title}
             answer: Vastaus
+            title: Vastaus kohteelle %{title}
           info_initiative:
             created_at: Luonnin ajankohta
             description: Kuvaus
@@ -320,12 +320,12 @@ fi:
           help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
         finish:
           back_to_initiative: Takaisin aloitteeseen
-        sms_phone_number:
-          continue: Lähetä minulle tekstiviesti
-          help: Täytä lomake vahvistetun puhelinnumerosi avulla pyytääksesi vahvistuskoodin
         sms_code:
           continue: Tarkista koodi ja jatka
           help: Tarkista vastaanotetut tekstiviestit puhelimestasi
+        sms_phone_number:
+          continue: Lähetä minulle tekstiviesti
+          help: Täytä lomake vahvistetun puhelinnumerosi avulla pyytääksesi vahvistuskoodin
       initiative_votes:
         create:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
@@ -437,8 +437,8 @@ fi:
     resources:
       initiatives_type:
         actions:
-          vote: Allekirjoita
           title: Toimet
+          vote: Allekirjoita
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ fi:
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
         finished: Allekirjoitus luotu aloitteelle
-        select_identity: Valitse identiteetti
         see_steps: katso vaiheet
+        select_identity: Valitse identiteetti
         sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero
         step: Vaihe %{current} / %{total}
