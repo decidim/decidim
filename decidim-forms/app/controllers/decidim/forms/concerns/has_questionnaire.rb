@@ -15,7 +15,7 @@ module Decidim
         included do
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :update_url
+          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :allow_unregistered?, :update_url
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
@@ -46,6 +46,12 @@ module Decidim
           # return true if the questionnaire can receive answers
           def allow_answers?
             raise "#{self.class.name} is expected to implement #allow_answers?"
+          end
+
+          # Public: Method to be implemented at the controller if needed. You need to
+          # return true if the questionnaire can receive answers by unregistered users
+          def allow_unregistered?
+            false
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after

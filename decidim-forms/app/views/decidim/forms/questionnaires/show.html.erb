@@ -19,7 +19,7 @@
     <div class="card">
       <div class="card__content">
         <% if allow_answers? %>
-          <% if current_user %>
+          <% if current_user || allow_unregistered? %>
             <% if questionnaire.answered_by?(current_user) %>
               <div class="section">
                 <div class="callout success">
