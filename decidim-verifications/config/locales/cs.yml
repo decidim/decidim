@@ -103,8 +103,8 @@ cs:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění csv_census organizaci
             title: Pro tuto organizaci musíte aktivovat csv sčítání
           new:
+            file: ".csv soubor s daty e-mailů"
             info: 'Musí být soubor ve formátu CSV s jedním sloupcem: e-mail'
-            file: .csv soubor s daty e-mailů
             submit: Nahrát soubor
             title: Nahrajte nové sčítání
         authorizations:
@@ -153,7 +153,7 @@ cs:
               success: Ověření bylo zamítnuto. Uživatel bude vyzván, aby změnil své dokumenty
         authorizations:
           choose:
-            choose_a_type: "Vyberte, jak chcete ověřit:"
+            choose_a_type: 'Vyberte, jak chcete ověřit:'
             offline: Offline
             online: Online
             title: Ověřte svou identitu
@@ -211,14 +211,14 @@ cs:
           create:
             error: Při vašem požadavku došlo k potížím
             success: Dík! Do telefonu jsme poslali SMS.
+          destroy:
+            success: Ověřovací kód úspěšně resetovat. Opět zadejte své telefonní číslo.
           edit:
             confirm_destroy: Opravdu chcete obnovit ověřovací kód?
             destroy: Obnovit ověřovací kód
-            send: Potvrdit
             resend: Nezískal jste ověřovací kód?
+            send: Potvrdit
             title: Zadejte ověřovací kód, který jste obdrželi
-          destroy:
-            success: Ověřovací kód úspěšně resetovat. Opět zadejte své telefonní číslo.
           new:
             send: Pošlete mi SMS
             title: Požádejte o ověřovací kód
