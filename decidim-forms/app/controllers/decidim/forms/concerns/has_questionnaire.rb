@@ -19,6 +19,7 @@ module Decidim
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
+            @signature = create_signature
             render template: "decidim/forms/questionnaires/show"
           end
 
