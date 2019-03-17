@@ -499,23 +499,23 @@ es:
           recent: Reciente
         requests:
           accepted_request:
-            error: No se te ha podido aceptar como contribuidora. Por favor inténtalo de nuevo más tarde.
+            error: No se tha podido aceptar como colaboradora. Por favor inténtalo de nuevo más tarde.
             success: "@%{user} ha sido aceptado como contribuidor con éxito"
           access_requested:
-            error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
-            success: Tu solicitud para colaborar ha sido enviada con éxito
+            error: Tu solicitud no pudo ser completada, por favor inténtalo de nuevo más tarde.
+            success: Tu solicitud para colaborar ha sido enviada correctamente
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rechazar
             title: Solicitudes de contribuciones
           rejected_request:
-            error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido rechazado como contribuidor con éxito"
+            error: No ha podido rechazar como colaboradora, por favor inténtalo de nuevo más tarde.
+            success: "@%{user} ha sido rechazada como colaboradora correctamente"
         show:
           back: Volver
           edit: Editar borrador colaborativo
           final_proposal: propuesta final
-          final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
+          final_proposal_help_text: Este borrador está terminado. Consulta la propuesta definitiva
           hidden_authors_count:
             one: y %{count} persona más
             other: y %{count} personas más
@@ -535,8 +535,8 @@ es:
           published: Publicado
           withdrawn: Retirado
         update:
-          error: Ha habido errores al guardar el borrador colaborativo.
-          success: Borrador colaborativo actualizado con éxito.
+          error: Se ha producido un error al guardar el borrador colaborativo.
+          success: Borrador colaborativo actualizado correctamente.
         wizard_aside:
           back: Volver
           info: Estás creando un borrador colaborativo <strong></strong>.
@@ -547,10 +547,10 @@ es:
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
       create:
-        error: Ha habido errores al guardar la propuesta.
-        success: Propuesta creada con éxito. Guardada como borrador.
+        error: Se ha producido un error al guardar la propuesta.
+        success: Propuesta creada correctamente. Guardada como borrador.
       destroy_draft:
-        error: Se han producido errores al eliminar el borrador de la propuesta.
+        error: Se ha producido un error al eliminar el borrador colaborativo.
         success: El borrador de la propuesta fue eliminado con éxito.
       last_activity:
         new_proposal_at_html: "<span>Nueva propuesta en %{link}</span>"
@@ -584,7 +584,7 @@ es:
           endorse: Adherirse
       proposal_endorsements:
         create:
-          error: Ha habido errores al adherirse a la propuesta.
+          error: Se ha producido un error al adherirte a la propuesta.
         identities:
           done: Hecho
           select_identity: Seleccionar identidad
@@ -596,7 +596,7 @@ es:
           endorse: Adherirse
       proposal_votes:
         create:
-          error: Ha habido errores al apoyar la propuesta.
+          error: Se ha producido un error al apoyar la propuesta.
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
@@ -646,7 +646,7 @@ es:
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
-            one: dar apoyo
+            one: apoyo
             other: apoyos
         new:
           send: Continuar
@@ -685,7 +685,7 @@ es:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
+          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
@@ -694,7 +694,7 @@ es:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
-          no_votes_remaining: No hay votos restantes
+          no_votes_remaining: No quedan apoyos
           vote: Dar apoyo
           votes_blocked: Apoyos deshabilitados
         votes_count:
