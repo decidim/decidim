@@ -406,16 +406,16 @@ es:
           count:
             one: FIRMA
             other: FIRMAS
-          most_popular_initiative: Iniciativa mas popular
-          need_more_votes: Necesito mas firmas
+          most_popular_initiative: Iniciativa más popular
+          need_more_votes: Necesita más firmas
       initiatives_mailer:
-        creation_subject: Su iniciativa ciudadana '%{title}' ha sido creada
+        creation_subject: Tu iniciativa ciudadana '%{title}' ha sido creada
         initiative_link:
           check_initiative_details: Puedes ver los detalles de la iniciativa
           here: aquí
         more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
-        progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
-        progress_report_for: 'Currículum sobre la iniciativa: %{title}'
+        progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de firmas requeridas.
+        progress_report_for: 'Resumen de la iniciativa: %{title}'
         promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la Comisión Promotora. Reenvia el siguiente enlace para invitarlas.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
@@ -431,14 +431,14 @@ es:
       states:
         accepted: Aceptado
         expired: Caducado
-      unavailable_scope: Alcance no disponible
+      unavailable_scope: Ámbito no disponible
     menu:
       initiatives: Iniciativas
     resources:
       initiatives_type:
         actions:
-          title: Comportamiento
-          vote: Votar
+          title: Acciones
+          vote: Firmar
   layouts:
     decidim:
       admin:
@@ -448,7 +448,7 @@ es:
           components: Componentes
           information: Información
       initiative_creation_header:
-        back: Espalda
+        back: Volver
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar
@@ -460,7 +460,7 @@ es:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Espalda
+        back: Volver
         fill_personal_data: Completa tus datos
         finish: Terminar
         finished: Firma de iniciativa creada correctamente
