@@ -72,7 +72,7 @@ ar:
         twitter_handler: التغريد معالج
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
-        youtube_handler: يوتيوب معالج
+        youtube_handler: معالج YouTube
       scope:
         code: الشفرة
         name: اسم
@@ -317,24 +317,24 @@ ar:
             promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
       menu:
         admin_log: سجل نشاط المسؤول
-        admins: مدراء
-        appearance: مظهر خارجي
+        admins: المدراء
+        appearance: المظهر
         area_types: أنواع المناطق
         areas: المناطق
-        configuration: ترتيب
+        configuration: الإعدادات
         dashboard: لوحة القيادة
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
-        newsletters: النشرات الإخبارية
+        newsletters: الرسائل الإخبارية
         oauth_applications: تطبيقات OAuth
-        participants: المشاركين
+        participants: المشاركون
         scope_types: أنواع النطاق
         scopes: نطاقات
         settings: الإعدادات
         static_pages: صفحات
         user_groups: المجموعات
-        users: المشاركين
+        users: المشاركون
       models:
         area:
           fields:
@@ -348,7 +348,7 @@ ar:
           fields:
             collection: مجلد
             content_type: نوع
-            file_size: بحجم
+            file_size: الحجم
             title: عنوان
           name: المرفق
         attachment_collection:
@@ -357,7 +357,7 @@ ar:
           name: الفئة
         impersonation_log:
           fields:
-            admin: مشرف
+            admin: المُدير
             ended_at: انتهى في
             expired_at: انتهت في
             reason: السبب
@@ -434,7 +434,7 @@ ar:
           interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في الجسم أو الموضوع وسيتم استبداله باسم المستلم.'
         index:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
-          title: النشرات الإخبارية
+          title: الرسائل الإخبارية
         new:
           save: حفظ
           title: رسالة إخبارية جديدة
@@ -442,7 +442,7 @@ ar:
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
           preview: معاينة
-          subject: موضوع
+          subject: الموضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
@@ -497,13 +497,13 @@ ar:
           title: تحرير المنظمة
           update: تحديث
         form:
-          facebook: فيس بوك
-          github: جيثب
+          facebook: فيسبوك
+          github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: اجتماعي
-          twitter: تغريد
+          twitter: تويتر
           url: رابط
-          youtube: موقع YouTube
+          youtube: يوتيوب
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
           success: تم تحديث المنظمة بنجاح.
