@@ -275,12 +275,12 @@ es:
         vote: Votar
       vote_modal:
         contextual_help: Por favor, selecciona una opción.
-        title: 'Consulta: soporte de preguntas'
+        title: 'Consulta: votación de la pregunta'
       vote_modal_confirm:
         change: Cambio
         confirm: Confirmar
         contextual_help: Por favor confirma la opción seleccionada.
-        title: 'Consulta: confirma el apoyo'
+        title: 'Consulta: confirmación del voto'
   layouts:
     decidim:
       admin:
