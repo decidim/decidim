@@ -127,18 +127,18 @@ es:
           confirmations:
             create:
               error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla
-              success: El usuario ha sido verificado correctamente
+              success: La participante ha sido verificado correctamente
             new:
               introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
             create:
-              error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
-              success: Usuario verificado correctamente
+              error: La verificación no coincide. Por favor inténtalo de nuevo o dile a la participante que la modifique
+              success: Participante verificado correctamente
             new:
               cancel: Cancelar
-              introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
+              introduce_user_data: Introduce el correo electrónico de la participante y los datos del documento
               verify: Verificar
           pending_authorizations:
             index:
@@ -148,7 +148,7 @@ es:
               verification_number: 'Verificación #%{n}'
           rejections:
             create:
-              success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
+              success: Verificación rechazada. Se le pedirá a la participante que modifique sus documentos
         authorizations:
           choose:
             choose_a_type: 'Por favor selecciona como quieres ser verificado:'
@@ -171,7 +171,7 @@ es:
             title: Sube tu documento de Identidad
           update:
             error: Hubo un problema al volver a subir tu documento
-            success: El documento se ha resubido correctamente
+            success: El documento se ha vuelto a subir correctamente
         dni: DNI
         nie: NIE
         passport: Pasaporte
@@ -184,7 +184,7 @@ es:
               mark_as_sent: Marcar como enviada
               not_yet_sent: Aún no se ha enviado
               title: Verificaciones en curso
-              username: Nombre de usuario
+              username: Alias
               verification_code: Código de verificación
           postages:
             create:
@@ -210,11 +210,11 @@ es:
             error: Hubo un problema con tu solicitud
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           destroy:
-            success: Código de verificación restablecido con éxito. Por favor vuelva a ingresar su número de teléfono.
+            success: Código de verificación restablecido correctamente. Por favor vuelve a introducir tu número de teléfono.
           edit:
-            confirm_destroy: '¿Estás seguro de que quieres restablecer el código de verificación?'
+            confirm_destroy: '¿Seguro que quieres restablecer el código de verificación?'
             destroy: Restablecer código de verificación
-            resend: '¿No recibió el código de verificación?'
+            resend: '¿No has recibido el código de verificación?'
             send: Confirmar
             title: Introduce el código de verificación que has recibido
           new:
