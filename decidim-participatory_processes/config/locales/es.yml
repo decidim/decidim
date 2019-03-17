@@ -274,7 +274,7 @@ es:
         title: Grupos de procesos participativos
     participatory_process_steps:
       index:
-        process_steps: Las fases de proceso
+        process_steps: Fases del proceso
         title: Fases del proceso participativo
     participatory_processes:
       admin:
@@ -303,7 +303,7 @@ es:
         home:
           highlighted_processes:
             active_processes: Procesos activos
-            active_step: Paso activo
+            active_step: Fase activa
             more_information: Más información
             participate: Participar
             see_all_processes: Ver todos los procesos
