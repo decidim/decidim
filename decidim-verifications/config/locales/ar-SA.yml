@@ -13,6 +13,8 @@ ar:
         document_number: رقم الوثيقة (مع خطاب)
         document_type: نوع المستند الخاص بك
         verification_attachment: نسخة ممسوحة ضوئيًا من المستند
+      offline_confirmation:
+        email: البريد الإلكتروني للمستخدم
       postal_letter_address:
         full_address: العنوان الكامل
       postal_letter_confirmation:
