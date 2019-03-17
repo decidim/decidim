@@ -61,18 +61,18 @@ es:
           error: Se ha producido un error al publicar esta jornada.
           success: Jornada publicada correctamente.
         destroy:
-          error: Se ha producido un error al despublicar de esta conferencia.
-          success: Conferencia despublicada correctamente.
+          error: Se ha producido un error al despublicar de esta jornada.
+          success: Jornada despublicada correctamente.
       conference_registration:
         confirm:
-          error: Hubo un error al confirmar la inscripción a esta conferencia.
-          success: Inscripción a la conferencia confirmada con éxito.
+          error: Se ha producido un error al confirmar la inscripción a esta jornada.
+          success: Inscripción a la jornada confirmada correctamente.
       conference_speakers:
         create:
-          error: Hubo un error al agregar un ponente en esta conferencia.
-          success: Ponente creado con éxito en esta conferencia.
+          error: Se ha producido un error al añadir una ponente a esta jornada.
+          success: Ponente de la jornada creada correctamente.
         destroy:
-          success: Ponente eliminado con éxito en esta conferencia.
+          success: Ponente de la jornada eliminada correctamente.
         edit:
           title: Actualizar ponente en esta conferencia.
           update: Actualizar
@@ -82,29 +82,29 @@ es:
           create: Crear
           title: Nuevo ponente.
         update:
-          error: Hubo un error al actualizar el ponente en esta conferencia.
-          success: Ponente actualizado con éxito en esta conferencia.
+          error: Se ha producido un error al actualizar esta ponente de la jornada.
+          success: Ponente de la jornada actualizada correctamente.
       conference_user_roles:
         create:
-          error: Hubo un error al agregar un usuario a esta conferencia.
-          success: Usuario añadido con éxito a esta conferencia.
+          error: Se ha producido un error al añadir una administradora a esta jornada.
+          success: Administradora de la jornada añadida correctamente.
         destroy:
-          success: Usuario eliminado con éxito de esta conferencia.
+          success: Administradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar usuario de la conferencia.
+          title: Actualizar administradora de la jornada.
           update: Actualizar
         index:
-          conference_admins_title: usuarios de la conferencia
+          conference_admins_title: administradoras de la jornada
         new:
           create: Crear
-          title: Nuevo usuario de la conferencia.
+          title: Nueva administradora de la jornada.
         update:
-          error: Hubo un error al actualizar un usuario de esta conferencia.
-          success: Actualizado con éxito el usuario para esta conferencia.
+          error: Se ha producido un error al actualizar una administradora de esta jornada.
+          success: Administradora de la jornada actualizada correctamente.
       conferences:
         create:
-          error: Hubo un error al crear una nueva conferencia.
-          success: Conferencia creada con éxito.
+          error: Se ha producido un error al crear esta jornada.
+          success: Jornada creada correctamente.
         edit:
           update: Actualizar
         exports:
@@ -118,7 +118,7 @@ es:
           create: Crear
           title: Conferencia
         update:
-          error: Hubo un error al actualizar esta conferencia.
+          error: Se ha producido un error al actualizar esta jornada.
           success: Conferencia actualizada con éxito.
       conferences_copies:
         create:
