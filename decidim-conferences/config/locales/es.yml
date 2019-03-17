@@ -119,17 +119,17 @@ es:
           title: Conferencia
         update:
           error: Se ha producido un error al actualizar esta jornada.
-          success: Conferencia actualizada con éxito.
+          success: Jornada actualizada correctamente.
       conferences_copies:
         create:
-          error: Hubo un error al duplicar esta conferencia.
-          success: Conferencia duplicada con éxito.
+          error: Se ha producido un error al duplicar esta jornada.
+          success: Jornada duplicada correctamente.
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace multimedia.
-          success: Enlace de multimedia creado con éxito.
+          success: Enlace multimedia creado correctamente.
         destroy:
-          success: Enlace de multimedia eliminado con éxito.
+          success: Enlace multimedia eliminado correctamente.
         edit:
           title: Actualizar enlace multimedia.
           update: Actualizar
@@ -139,8 +139,8 @@ es:
           create: Crear
           title: Enlace multimedia
         update:
-          error: Hubo un error al actualizar este enlace multimedia.
-          success: Enlace multimedia actualizado con éxito.
+          error: Se ha producido un error al actualizar este enlace multimedia.
+          success: Enlace multimedia actualizado correctamente.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -178,7 +178,7 @@ es:
             email: Correo electrònico
             name: Nombre
             role: Rol
-          name: Usuario de conferencia
+          name: Administradora de jornada
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -209,10 +209,10 @@ es:
           name: Tipo de inscripción
       partners:
         create:
-          error: Se ha producido un error al añadir un colaborador a esta jornada.
-          success: Se ha añadido correctamente un colaborador a esta jornada.
+          error: Se ha producido un error al añadir una colaboradora a esta jornada.
+          success: Colaboradora de la jornada añadida correctamente.
         destroy:
-          success: Colaborador eliminado correctamente de esta jornada.
+          success: Colaboradora de la jornada eliminada correctamente.
         edit:
           title: Actualizar colaborador.
           update: Actualizar
@@ -220,14 +220,14 @@ es:
           create: Crear
           title: Nuevo colaborador
         update:
-          error: Se ha producido un error al actualizar un colaborador de esta jornada.
-          success: Colaborador actualizado correctamente en esta jornada.
+          error: Se ha producido un error al actualizar una colaboradora de esta jornada.
+          success: Colaboradora de la jornada actualizada correctamente.
       registration_type_publications:
         create:
-          error: Se ha producido un error al publicar este tipo de registro.
-          success: Tipo de registro publicado con éxito.
+          error: Se ha producido un error al publicar este tipo de inscripción.
+          success: Tipo de inscripción publicado correctamente.
         destroy:
-          error: Se ha producido un error al publicar este tipo de registro.
+          error: Se ha producido un error al publicar este tipo de inscripción.
           success: Tipo de registro despublicado con éxito.
       registration_types:
         create:
