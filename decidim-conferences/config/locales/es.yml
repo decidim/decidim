@@ -50,7 +50,7 @@ es:
       actions:
         confirm: Confirmar
         new_conference: Nueva conferencia
-        send_diplomas: Enviar certificados de asistencia.
+        send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
           copy: Copiar
@@ -58,11 +58,11 @@ es:
           title: Conferencia duplicada
       conference_publications:
         create:
-          error: Hubo un error al publicar esta conferencia.
-          success: Conferencia publicada con éxito.
+          error: Se ha producido un error al publicar esta conferencia.
+          success: Conferencia publicada correctamente.
         destroy:
-          error: Hubo un error al despublicar de esta conferencia.
-          success: Conferencia despublicada con éxito.
+          error: Se ha producido un error al despublicar de esta conferencia.
+          success: Conferencia despublicada correctamente.
       conference_registration:
         confirm:
           error: Hubo un error al confirmar la inscripción a esta conferencia.
