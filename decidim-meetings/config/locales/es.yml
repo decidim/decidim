@@ -67,7 +67,7 @@ es:
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
-          success: El encuentro se ha duplicado con éxito.
+          success: El encuentro se ha duplicado correctamente.
         new:
           copy: Copiar
           select: Selecciona qué datos quieres duplicar
@@ -91,13 +91,13 @@ es:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Tu reunión "%{resource_title}" fue cerrada. Puedes leer las conclusiones desde su página:'
-            email_outro: Ha recibido esta notificación porque organizó la reunión "%{resource_title}".
+            email_intro: 'Tu encuentro "%{resource_title}" se ha cerrado. Puedes leer las conclusiones desde su página:'
+            email_outro: Has recibido esta notificación porque organizaste el encuentro "%{resource_title}".
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
           follower:
             email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
-            email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el encuentro "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_created:
@@ -106,12 +106,12 @@ es:
           email_subject: Nuevo encuentro añadido a %{participatory_space_title}
           notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Su inscripción para la reunión <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Su código de registro es %{registration_code}.
+          notification_title: Tu inscripción al encuentro <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
+          email_intro: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%.
           email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
-          email_subject: Las inscripciones en "%{resource_title}" están por encima del %{percentage}%
-          notification_title: Las inscripciones de <a href="%{resource_path}">%{resource_title}</a> están por encima del %{percentage}%.
+          email_subject: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%
+          notification_title: Las inscripciones para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
         meeting_updated:
           email_intro: 'Se ha cerrado el encuentro "%{resource_title}". Puedes leer las conclusiones en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
