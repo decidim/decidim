@@ -313,10 +313,10 @@ es:
             title: PREVISUALIZAR TEXTO PARTICIPATIVO
           new_import:
             accepted_mime_types:
-              md: Reducción
+              md: Markdown
               odt: Odt
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos soportados son: %{valid_mime_types}'
+            document_legend: 'Sube un documento de menos de 2 Mb, cada párrafo o sección hasta 3 niveles de profundidad se convertirá en propuesta. Los formatos soportados son: %{valid_mime_types}'
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:
@@ -327,7 +327,7 @@ es:
             section: "<em>Sección:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsección:</em> %{title}"
           update:
-            success: Texto participativo actualizado con éxito.
+            success: Texto participativo actualizado correctamente.
         proposal_answers:
           edit:
             accepted: Aceptada
@@ -337,7 +337,7 @@ es:
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
-            error: Ha habido un problema al crear esta nota de propuesta
+            error: Se ha producido un error al crear esta nota de propuesta
             success: Nota de propuesta creada con éxito
           form:
             note: Nota
@@ -381,20 +381,20 @@ es:
             success: 'Propuestas actualizadas correctamente en la categoría %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ha habido un problema al importar las propuestas
+            invalid: Se ha producido un error al importar las propuestas
             success: "%{number} propuestas importadas correctamente"
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
-            select_states: Verifica los estados de las propuestas para importar
+            select_states: Comprueba los estados de las propuestas a importar
         proposals_merges:
           create:
-            invalid: Se produjo un error al fusionar las propuestas seleccionadas.
+            invalid: Se ha producido un error al fusionar las propuestas seleccionadas.
             success: Las propuestas se fusionaron en una nueva con éxito.
         proposals_splits:
           create:
-            invalid: Hubo un error dividiendo las propuestas seleccionadas.
+            invalid: Se ha producido un error al dividir las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
         shared:
           info_proposal:
@@ -421,7 +421,7 @@ es:
           citizens: Ciudadanía
           meetings: Encuentros
           official: Oficial
-          user_groups: Grupos de Usuarios
+          user_groups: Grupos
         filter_state_values:
           accepted: Aceptado
           all: Todos
@@ -435,7 +435,7 @@ es:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Ha habido errores al publicar el borrador colaborativo.
+            error: Se ha producido un error al publicar el borrador colaborativo.
             irreversible_action_modal:
               body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
@@ -444,7 +444,7 @@ es:
             success: Borrador de colaborativo publicado con éxito como una propuesta.
           view_collaborative_draft: Ver borrador colaborativo
           withdraw:
-            error: Ha habido errores al cerrar el borrador colaborativo.
+            error: Se ha producido un error al cerrar el borrador colaborativo.
             irreversible_action_modal:
               body: Después de cerrar el borrador, dejara de ser editable. El borrador no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
@@ -463,7 +463,7 @@ es:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Ha habido un problema al crear este borradores colaborativo
+          error: Se ha producido un error al crear este borrador colaborativo
           success: Borrador colaborativo creado con éxito.
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
@@ -499,7 +499,7 @@ es:
           recent: Reciente
         requests:
           accepted_request:
-            error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
+            error: No se te ha podido aceptar como contribuidora. Por favor inténtalo de nuevo más tarde.
             success: "@%{user} ha sido aceptado como contribuidor con éxito"
           access_requested:
             error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
