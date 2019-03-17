@@ -58,8 +58,8 @@ es:
           title: Conferencia duplicada
       conference_publications:
         create:
-          error: Se ha producido un error al publicar esta conferencia.
-          success: Conferencia publicada correctamente.
+          error: Se ha producido un error al publicar esta jornada.
+          success: Jornada publicada correctamente.
         destroy:
           error: Se ha producido un error al despublicar de esta conferencia.
           success: Conferencia despublicada correctamente.
