@@ -245,6 +245,10 @@ ar:
       content:
         incomplete:
           cancel: إلغاء
+        unauthorized:
+          ok: موافق
+        unconfirmed:
+          title: تأكيد البريد الإلكتروني
     collapsible_list:
       hidden_elements_count:
         zero: و %{count} أخرى
@@ -729,6 +733,7 @@ ar:
           title: المحادثات
         reply:
           send: إرسال
+          title: رد
         show:
           title: المحادثة مع %{usernames}
         start:
@@ -1245,7 +1250,7 @@ ar:
     reddit: رديت
     share_to: شارك في %{name}
     tumblr: نعرفكم
-    twitter: تغريد
+    twitter: تويتر
     vkontakte: فكونتاكتي
     wechat: WeChat
     wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
