@@ -4,14 +4,14 @@ ar:
       account:
         delete_reason: سبب حذف حسابك
       report:
-        details: تعليقات اضافية
+        details: تعليقات إضافية
       user:
-        about: حول
-        email: بريدك الالكتروني
+        about: عن
+        email: بريدك الإلكتروني
         name: اسمك
-        nickname: كنية
+        nickname: الاسم المستعار
         password: كلمه السر
-        password_confirmation: أكد رقمك السري
+        password_confirmation: أكد كلمتك السرية
         personal_url: عنوان URL الشخصي
         remove_avatar: إزالة الصورة الرمزية
     models:
@@ -58,7 +58,7 @@ ar:
         other: المجموعات
   booleans:
     'false': 'لا'
-    'true': 'نعم فعلا'
+    'true': 'نعم'
   carrierwave:
     errors:
       image_too_big: الصورة كبيرة جدا
