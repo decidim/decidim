@@ -157,7 +157,7 @@ ca:
           media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Col·laboradors
-          registration_types: Tipus de registre
+          registration_types: Tipus d'inscripcions
           registrations: Inscripcions
           user_registrations: Registre d'usuaris
       models:
@@ -206,7 +206,7 @@ ca:
             registrations_count: Contador d'inscripcions
             title: Títol
             weight: Pes
-          name: Tipus de registre
+          name: Tipus d'inscripció
       partners:
         create:
           error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
