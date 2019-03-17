@@ -72,7 +72,7 @@ es:
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
-        new_process_user_role: Nuevo usuario de proceso
+        new_process_user_role: Nueva administradora de proceso
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -88,8 +88,8 @@ es:
           components: Componentes
           info: Información
           moderations: Moderaciones
-          private_users: Usuarios privados
-          process_admins: Usuarios del proceso
+          private_users: Participantes privadas
+          process_admins: Administradoras del proceso
           steps: Fases del proceso
       models:
         participatory_process:
@@ -109,13 +109,13 @@ es:
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
-          name: Fase de proceso participativo
+          name: Fase del proceso participativo
         participatory_process_user_role:
           fields:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario de proceso participativo
+          name: Administradora del proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -131,7 +131,7 @@ es:
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
-          success: El grupo de proceso participativo se eliminó con éxito.
+          success: Grupo de procesos participativos eliminado correctamente.
         edit:
           title: Editar grupo de procesos
           update: Actualizar
@@ -139,8 +139,8 @@ es:
           create: Crear
           title: Nuevo grupo de procesos
         update:
-          error: Se ha producido un error actualizando este grupo.
-          success: Grupo actualizado correctamente.
+          error: Se ha producido un error al actualizar este grupo de procesos participativos.
+          success: Grupo de procesos participativos actualizado correctamente.
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
