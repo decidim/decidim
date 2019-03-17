@@ -281,20 +281,20 @@ es:
           more_information: "(Más información)"
         promotal_committee:
           back: Volver
-          individual_help_text: Este tipo de iniciativa ciudadana requiere una Comisión de Promoción compuesta por al menos %{committee_size} personas (atestores). Debe compartir el siguiente enlace con las otras personas que forman parte de esta iniciativa. Cuando sus contactos reciban este enlace deberán seguir los pasos indicados.
+          individual_help_text: Este tipo de iniciativa ciudadana requiere un comité promotor compuesto por al menos %{committee_size} personas (atestores). Debes compartir el siguiente enlace con las otras personas que forman parte de esta iniciativa. Cuando tus contactos reciban este enlace deberán seguir los pasos indicados.
           more_information: "(Más información)"
         select_initiative_type:
           back: Volver
-          choose_html: Quiero crear un <strong>%{title}</strong>
+          choose_html: Quiero <strong>%{title}</strong>
           more_information: "(Más información)"
-          select: Quiero promover esta iniciativa.
+          select: Quiero promover esta iniciativa
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
         show_similar_initiatives:
           back: Volver
-          compare_help: Si alguna de las siguientes iniciativas es similar a la suya, lo alentamos a que la respalde. Su propuesta tendrá más posibilidades de hacerse.
+          compare_help: Si alguna de las siguientes iniciativas es similar a la tuya te animamos a que la firmes. Tu propuesta tendrá más posibilidades de llevarse a cabo.
           continue: Mi iniciativa es diferente
           more_information: "(Más información)"
       events:
@@ -317,26 +317,26 @@ es:
             day: Día
             month: Mes
             year: Año
-          help: Por favor, rellene los siguientes campos con sus datos personales para firmar la iniciativa.
+          help: Por favor, rellena los siguientes campos con tus datos personales para firmar la iniciativa
         finish:
           back_to_initiative: Volver a la iniciativa
         sms_code:
-          continue: Revisa el código y continúa
-          help: Consulta los SMS recibidos en tu teléfono.
+          continue: Comprueba el código y continúa
+          help: Consulta el SMS recibido en tu teléfono
         sms_phone_number:
-          continue: Mandame un SMS
-          help: Rellene el formulario con su número de teléfono verificado para solicitar su código de verificación
+          continue: Envíame un SMS
+          help: Rellena el formulario con tu número de teléfono verificado para solicitar tu código de verificación
       initiative_votes:
         create:
-          error: Ha habido errores al firmar la iniciativa.
-          invalid: Los datos proporcionados para firmar la iniciativa no son válidos.
-          success_html: '¡Felicidades! La iniciativa <strong> %{title}</strong> ha sido firmada correctamente.'
+          error: Se ha producido un error al firmar la iniciativa.
+          invalid: Los datos proporcionados para firmar la iniciativa no son válidos
+          success_html: '¡Enhorabuena! Has firmado la iniciativa <strong> %{title}</strong> correctamente'
         personal_data:
           invalid: Los datos personales no son consistentes con los datos proporcionados para la autorización.
         sms_code:
-          invalid: Su código de verificación no coincide con el nuestro. Por favor, vuelva a comprobar los SMS que le enviamos.
+          invalid: Tu código de verificación no coincide con el nuestro. Por favor, vuelve a comprobar el SMS que te enviamos.
         sms_phone:
-          invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revise sus autorizaciones.
+          invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revisa tus autorizaciones.
       initiatives:
         author:
           deleted: Eliminado
@@ -378,19 +378,19 @@ es:
           recent: Más reciente
         result:
           answer_title:
-            accepted: Esta propuesta ha sido aceptada porque
-            created: Esta propuesta ha sido creada.
-            discarded: Esta propuesta ha sido descartada porque.
-            published: Esta propuesta se publica porque
+            accepted: Esta propuesta se ha aceptado porque
+            created: Esta propuesta ha sido creada
+            discarded: Esta propuesta se ha descartado porque
+            published: Esta propuesta se ha publicado porque
             rejected: Esta propuesta ha sido rechazada porque
-            validating: Esta propuesta está siendo evaluada.
-          initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
+            validating: Esta propuesta está siendo evaluada
+          initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
-          any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
-          follow_description: Recibir una notificación cuando haya novedades en esta iniciativa.
+          any_vote_method: Esta iniciativa ciudadana recoge firmas en línea y presenciales.
+          follow_description: Recibir una notificación cuando haya novedades sobre esta iniciativa
           offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
         signature_identities:
-          select_identity: Selecciona un identificador de usuario
+          select_identity: Selecciona el identificador de la participante
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -399,7 +399,7 @@ es:
         vote_cabin:
           already_voted: Ha sido firmado
           supports_required: "Se requieren %{total_supports} firmas"
-          verification_required: Verifica tu cuenta para firmar la iniciativa.
+          verification_required: Verifica tu cuenta para firmar la iniciativa
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
