@@ -228,13 +228,13 @@ es:
           success: Tipo de inscripción publicado correctamente.
         destroy:
           error: Se ha producido un error al publicar este tipo de inscripción.
-          success: Tipo de registro despublicado con éxito.
+          success: Tipo de inscripción despublicado correctamente.
       registration_types:
         create:
-          error: Se produjo un error al agregar un tipo de registro para esta conferencia.
-          success: Tipo de registro agregado con éxtio a esta conferencia.
+          error: Se ha producido un error al añadir un tipo de inscripción para esta jornada.
+          success: Tipo de inscripción añadido correctamente a esta jornada.
         destroy:
-          success: Tipo de registro eliminado con éxito de esta conferencia.
+          success: Tipo de inscripción eliminado correctamente de esta jornada.
         edit:
           title: Actualizar el tipo de registro.
           update: Actualizar
@@ -242,8 +242,8 @@ es:
           create: Crear
           title: Nuevo tipo de registro
         update:
-          error: Hubo un error al actualizar un tipo de registro para esta conferencia.
-          success: Tipo de registro actualizado con éxito para esta conferencia.
+          error: Se ha producido un error al actualizar un tipo de inscripción para esta jornada.
+          success: Tipo de inscripción actualizado correctamente para esta jornada.
       titles:
         conferences: Conferencias
     admin_log:
