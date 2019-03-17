@@ -257,18 +257,18 @@ es:
         fill_data:
           back: Volver
           continue: Continuar
-          fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa? ¿Distrito de la ciudad?</li> </ul>"
+          fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. presencial, en línea o una combinación de ambas</li> <li>¿Cuál es el alcance geográfico de la iniciativa? ¿distrito, ciudad?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_scope: Seleccione un alcance
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
-          callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
+          callout_text: '¡Enhorabuena! Tu iniciativa ciudadana se ha creado correctamente.'
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
-          access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de usuario.
+          access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de participante.
           help_for_organizations: Si sois una asociación, tendréis que facilitar los datos de los miembros de la junta de todas las organizaciones que conforman la Comisión Promotora.
           help_in_person_signatures: Si eliges recolectar las firmas en persona o combinadas en línea, tendrás que cargar la información requerida.
           help_text: Recuerda que para procesar correctamente la iniciativa debes acceder al panel de administración donde encontrarás el menú de usuario, cargar la información solicitada y enviarla para su tramitación.
