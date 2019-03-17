@@ -250,24 +250,24 @@ es:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
-        send_conference_diplomas: "%{user_name} certificados de asistencia enviados a los asistentes a %{resource_name} conferencia"
+        send_conference_diplomas: "%{user_name} ha enviado certificados de asistencia a las asistentes a la jornada %{resource_name}"
         unpublish: "%{user_name} ha despublicado la conferencia %{resource_name}"
         update: "%{user_name} ha actualizado la conferencia %{resource_name}"
-        update_diploma: "%{user_name} actualización de la configuración de certificados de asistencia para %{resource_name} conferencia."
+        update_diploma: "%{user_name} ha actualizado la configuración de los certificados de asistencia para la jornada %{resource_name}"
       conference_speaker:
         create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
         update: "%{user_name} ha actualizado el ponente %{resource_name} en la conferencia %{space_name}"
       conference_user_role:
         create: "%{user_name} ha invitado %{resource_name} a la conferencia %{space_name}"
-        delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
+        delete: "%{user_name} ha eliminado a la administradora %{resource_name} de la jornada %{space_name}"
         update: "%{user_name} ha cambiado el rol de %{resource_name} en la conferencia %{space_name}"
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
         partner:
           create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
-          delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
+          delete: "%{user_name} ha eliminado a la administradora %{resource_name} de la jornada %{space_name}"
           update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
