@@ -4,14 +4,14 @@ es:
       initiative:
         decidim_user_group_id: Autor
         description: Descripción
-        offline_votes: Apoyo cara a cara
+        offline_votes: Firmas presenciales
         scope_id: Alcance
         signature_end_date: Fin del período de recogida de firmas
         signature_start_date: Inicio del período de recogida de firmas
         signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
-          offline: Cara a cara
+          offline: Presencial
           online: En línea
         state: Estado
         title: Título
@@ -27,20 +27,20 @@ es:
         user: Miembro del Comité
       initiatives_type:
         banner_image: Imagen de banner
-        collect_user_extra_fields: Recopilar datos personales del usuario en la firma
+        collect_user_extra_fields: Recopilar datos personales de la participante durante la firma
         description: Descripción
-        document_number_authorization_handler: Autorización para verificar el número de documento en las votaciones.
-        extra_fields_legal_information: Información legal sobre la recogida de datos personales.
-        minimum_committee_members: Mínimo de miembros del comité.
+        document_number_authorization_handler: Autorización para verificar el número de documento en las votaciones
+        extra_fields_legal_information: Información legal sobre la recogida de datos personales
+        minimum_committee_members: Mínimo de miembros del comité
         online_signature_enabled: Firma en línea habilitada
         title: Título
-        undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
+        undo_online_signatures_enabled: Permitir a las participantes deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
       initiatives_vote:
         date_of_birth: Fecha de nacimiento
-        document_number: Número del Documento
+        document_number: Número de documento
         name_and_surname: Nombre y apellido
-        postal_code: código postal
+        postal_code: Código postal
       organization_data:
         address: Dirección
         id_document: Documento de identidad
@@ -67,14 +67,14 @@ es:
         initiatives:
           fields:
             created_at: Creado en
-            id: CARNÉ DE IDENTIDAD
+            id: ID
             state: Estado
             supports_count: Firmas
             title: Iniciativas
         initiatives_type_scope:
           fields:
             scope: Alcance
-            supports_required: Se requieren apoyos
+            supports_required: Firmas requeridas
           name: Alcance del tipo de iniciativa
         initiatives_types:
           fields:
@@ -85,14 +85,14 @@ es:
           fields:
             date_of_birth: Fecha de nacimiento
             document_number: Número del Documento
-            hash: Picadillo
+            hash: Hash
             initiative_end_date: Fecha final
             initiative_id: ID de la iniciativa
             initiative_signatures_count: Número de firmas
             initiative_start_date: Fecha de inicio
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
-            postal_code: código postal
+            postal_code: Código postal
             time_and_date: Hora y fecha
             timestamp: Marca de tiempo
       titles:
@@ -101,14 +101,14 @@ es:
     events:
       initiatives:
         initiative_extended:
-          email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
+          email_intro: '¡El plazo de finalización de la iniciativa %{resource_title} se ha ampliado!'
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
-          notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
+          notification_title: El plazo de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
           affected_user:
             email_intro: '¡Tu iniciativa %{resource_title} ha conseguido el %{percentage}% de firmas!'
-            email_outro: Has recibido esta notificación porque eres el autor de la iniciativa %{resource_title}.
+            email_outro: Has recibido esta notificación porque eres la autora de la iniciativa %{resource_title}.
             email_subject: '¡Nuevo hito completado!'
             notification_title: Tu iniciativa <a href="%{resource_path}">%{resource_title}</a> ha conseguido el %{percentage}% de firmas.
           follower:
@@ -123,7 +123,7 @@ es:
             - Ir al espacio de participación de Iniciativas
             - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otros para llevarlas a cabo.
-          description_another: Este usuario ha publicado %{score} iniciativas.
+          description_another: Esta participante ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
