@@ -3,14 +3,14 @@ ar:
     attributes:
       area:
         area_type: نوع المنطقة
-        name: اسم
-        organization: منظمة
+        name: الاسم
+        organization: المنظمة
       area_type:
-        name: اسم
+        name: الاسم
         organization: منظمة
-        plural: جمع
+        plural: الجمع
       attachment:
-        attachment_collection_id: مجلد
+        attachment_collection_id: المجلد
         description: وصف
         file: ملف
         title: عنوان
@@ -27,8 +27,8 @@ ar:
         weight: وزن
       id: هوية شخصية
       newsletter:
-        body: الجسم
-        subject: موضوع
+        body: المحتوى
+        subject: الموضوع
       oauth_application:
         name: اسم
         organization_logo: شعار المنظمة (مربع)
@@ -36,7 +36,7 @@ ar:
         organization_url: عنوان URL للمؤسسة
         redirect_uri: إعادة توجيه URI
       organization:
-        alert_color: محزر
+        alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
@@ -45,7 +45,7 @@ ar:
         enable_omnipresent_banner: عرض لافتة في كل مكان
         facebook_handler: معالج فيسبوك
         favicon: أيقونة
-        github_handler: جيثب معالج
+        github_handler: معالج جيثب
         header_snippets: قصاصات رأس
         highlighted_content_banner_action_subtitle: عمل زر الترجمة
         highlighted_content_banner_action_title: عنوان زر العمل
@@ -68,7 +68,7 @@ ar:
         secondary_color: ثانوي
         show_statistics: عرض إحصائيات
         success_color: نجاح
-        tos_version: شروط إصدار الخدمة
+        tos_version: شروط وأحكام الخدمة
         twitter_handler: التغريد معالج
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
@@ -133,7 +133,7 @@ ar:
         export: تصدير
         manage: تدبير
         new: جديد %{name}
-        permissions: أذونات
+        permissions: تصريحات
         reject: رفض
         verify: التحقق
       area_types:
