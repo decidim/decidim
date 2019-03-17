@@ -127,13 +127,13 @@ es:
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
-          unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
+          unearned_another: Esta participante aún no ha publicado ninguna iniciativa.
           unearned_own: Aún no tienes ninguna iniciativa publicada.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
-          page: "<p>Una iniciativa es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
+          contextual: "<p>Una <strong>iniciativa</strong> es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
+          page: "<p>Una <strong>iniciativa</strong> es una propuesta que puede impulsar cualquier persona por iniciativa propia (independientemente del resto de canales o espacios de participación) mediante la recogida de firmas (digitales) para que la organización lleve a cabo una acción específica (modificar un reglamento, iniciar un proyecto, cambiar el nombre de un departamento o una calle, etc.).</p> <p>Las personas promotoras de una iniciativa pueden definir los objetivos de la misma, recoger apoyos, debatir, difundirla y definir puntos de encuentro donde se puedan recoger firmas de los asistentes o debates abiertos a otras participantes.</p> <p>Ejemplos: Una iniciativa puede recoger firmas para convocar una consulta entre todas las personas de una organización, o para crear o convocar una asamblea, o para iniciar un proceso de aumento de presupuesto para un territorio o ámbito de la organización. Durante el proceso de recogida de firmas se pueden sumar más personas a esta demanda y lograr llevarla adelante en la organización.</p>\n"
           title: '¿Qué son las iniciativas?'
     initiatives:
       actions:
@@ -144,16 +144,16 @@ es:
             answer: Responder
             title: Respuesta para %{title}
           info_initiative:
-            created_at: Creado en
+            created_at: Creada el
             description: Descripción
-            initiative_votes_count: Los votos cuentan
+            initiative_votes_count: Recuento de firmas
             initiatives: Iniciativas
             state: Estado
         committee_requests:
           index:
             approve: Aprobar
             confirm_revoke: '¿Estás seguro?'
-            invite_to_committee_help: Comparte este enlace para invitar a otros usuarios al comité de promoción
+            invite_to_committee_help: Comparte este enlace para invitar a otras participantes al comité promotor
             no_members_yet: No hay miembros en el comité promotor
             revoke: Revocar
             title: Miembros del comité
@@ -165,8 +165,8 @@ es:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
             discard: Descartar la iniciativa
-            export_pdf_signatures: Exportar PDF de Firmas.
-            export_votes: Soportes de exportación
+            export_pdf_signatures: Exportar PDF de Firmas
+            export_votes: Exportar firmas
             reject: Rechazar la iniciativa
             send_to_technical_validation: Enviar a validación técnica
             success: La iniciativa ha sido enviada a validación técnica
@@ -191,7 +191,7 @@ es:
             print: Impresión
           update:
             error: Se ha producido un error
-            success: La iniciativa ciudadana se ha actualizado con éxito
+            success: La iniciativa se ha actualizado correctamente
         initiatives_type_scopes:
           create:
             error: Se ha producido un error
@@ -463,13 +463,13 @@ es:
         back: Espalda
         fill_personal_data: Completa tus datos
         finish: Terminar
-        finished: Firma de iniciativa creada
+        finished: Firma de iniciativa creada correctamente
         see_steps: ver los pasos
         select_identity: Seleccionar identidad
-        sms_code: Verificación de código SMS
+        sms_code: Verificación por código SMS
         sms_phone_number: Número de teléfono móvil
         step: Paso %{current} de %{total}
-        title: Signo %{initiative_title}
+        title: Firmar %{initiative_title}
       initiatives:
         initiative:
           check: Échale un vistazo
