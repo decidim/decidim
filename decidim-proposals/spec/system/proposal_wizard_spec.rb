@@ -93,7 +93,7 @@ describe "Proposal", type: :system do
         end
 
         it "show continue button" do
-          expect(page).to have_content("Continue")
+          expect(page).to have_button("Continue")
         end
 
         it "does not show the back button" do
@@ -113,7 +113,7 @@ describe "Proposal", type: :system do
           end
         end
 
-        it "redirects to step_3: compare" do
+        it "redirects to step_3: complete" do
           within ".section-heading" do
             expect(page).to have_content("COMPLETE YOUR PROPOSAL")
           end
