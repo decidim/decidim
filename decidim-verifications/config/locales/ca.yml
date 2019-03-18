@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -37,16 +36,16 @@ ca:
       admin:
         id_documents:
           help:
-          - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
-          - Emplenes la informació que es mostra a la imatge penjada.
-          - La informació ha de coincidir amb el que hagi omplert l'usuari.
-          - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
+            - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
+            - Emplenes la informació que es mostra a la imatge penjada.
+            - La informació ha de coincidir amb el que hagi omplert l'usuari.
+            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-          - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-          - Envies la carta a la seva adreça amb el codi de verificació.
-          - Marques la carta com a enviada.
-          - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
+            - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Envies la carta a la seva adreça amb el codi de verificació.
+            - Marques la carta com a enviada.
+            - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
       csv_census:
         explanation: Verifica't mitjançant el cens de l'organització
         name: Cens de l'organització
@@ -100,8 +99,8 @@ ca:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Has d'activar el cens csv d'aquesta organització
           new:
-            file: Fitxer .csv amb dades de correus electrònics
             info: 'Ha de ser un fitxer amb format CSV amb una columna: correu electrònic'
+            file: Fitxer .csv amb dades de correus electrònics
             submit: Penja el document
             title: Penja un nou cens
         authorizations:
@@ -148,7 +147,7 @@ ca:
               success: S'ha rebutjat la verificació. Es demanarà a la participant que modifiqui els seus documents
         authorizations:
           choose:
-            choose_a_type: 'Si us plau selecciona com et vols verificar:'
+            choose_a_type: "Si us plau selecciona com et vols verificar:"
             offline: Presencial
             online: Online
             title: Verifica't utilitzant el teu document d'identitat
@@ -206,14 +205,14 @@ ca:
           create:
             error: S'ha produït un problema amb la teva sol·licitud
             success: Gràcies! Hem enviat un SMS al teu telèfon.
-          destroy:
-            success: S'ha restablert el codi de verificació amb èxit. Torna a introduir el teu número de telèfon.
           edit:
             confirm_destroy: Segur que vols reiniciar el codi de verificació?
             destroy: Restableix el codi de verificació
-            resend: No has rebut el codi de verificació?
             send: Confirmar
+            resend: No has rebut el codi de verificació?
             title: Introdueix el codi de verificació que has rebut
+          destroy:
+            success: S'ha restablert el codi de verificació amb èxit. Torna a introduir el teu número de telèfon.
           new:
             send: Envia'm un SMS
             title: Sol·licita el teu codi de verificació
