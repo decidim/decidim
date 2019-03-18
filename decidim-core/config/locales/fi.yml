@@ -145,7 +145,7 @@ fi:
         section_heading: Muutokset (%{count})
       created:
         error: Virhe luotaessa muutosta, yritä myöhemmin uudelleen
-        success: Muutos luotu onnistuneesti
+        success: Muutoksen luonti onnistui
       emendation:
         actions:
           button_accept: Hyväksy
@@ -226,9 +226,9 @@ fi:
     authorization_modals:
       show:
         expired:
-          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
-          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
-          title: Valtuutus on umpeutunut
+          authorize: Varmenna varmennustavalla "%{authorization}"
+          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
+          title: Varmennus on vanhentunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
@@ -240,19 +240,19 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
         pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen kesken
+          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
+          resume: Tarkista "%{authorization}" varmennuksen eteneminen
+          title: Varmennus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
         unconfirmed:
           confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää niitä uudelleen:'
-          explanation_html: Jotta voit suorittaa tämän toiminnon, sinulla on oltava lupa, ennen kuin teet sen, sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
+          explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
-          title: vahvista sähköpostiosoitteesi
+          title: Vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -430,19 +430,19 @@ fi:
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
-          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
+          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Näet sen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Päivitys kohteeseen %{resource_title}
+          email_subject: Päivitys kohteessa %{resource_title}
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_intro: 'Osio %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
-          notification_title: Komponentti %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Osio %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hei %{user_name},
-        email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
+        email_intro: 'Kohteessa ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
@@ -741,7 +741,7 @@ fi:
       download:
         csv: Lataa tiedot (csv)
       followers:
-        description: Tätä osallistumistilaa seuraavat käyttäjät
+        description: Organisaatiota seuraavien käyttäjien määrä
         object: seuraajat
         title: Seuraajat
       participants:
@@ -919,8 +919,8 @@ fi:
         subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
-        success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+        error: Raportin luonti epäonnistui. Yritä uudestaan.
+        success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
     scopes:
       global: Yleinen teema
       picker:
@@ -996,7 +996,7 @@ fi:
         update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
         error: Kiinnostuksen kohteiden päivittämisessä tapahtui virhe.
-        success: Kiinnostuksen kohteet on päivitetty onnistuneesti.
+        success: Kiinnostuksen kohteiden päivitys onnistui.
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
@@ -1030,8 +1030,8 @@ fi:
         submit_button: Lähetä kutsu
       no_invitations_remaining: Ei kutsuja jäljellä
       send_instructions: Kutsuviesti on lähetetty %{email}.
-      updated: Salasanasi on asetettu onnistuneesti. Olet nyt kirjautunut sisään.
-      updated_not_active: Salasanasi on asetettu onnistuneesti.
+      updated: Salasanasi asettaminen onnistui. Olet nyt kirjautunut sisään.
+      updated_not_active: Salasanasi asettaminen onnistui.
     mailer:
       confirmation_instructions:
         action: Vahvista käyttäjätilini
@@ -1111,18 +1111,18 @@ fi:
         we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset
       new:
         sign_up: Rekisteröidy
-      signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
-      signed_up_but_inactive: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi ei ole vielä aktivoitu.
-      signed_up_but_locked: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi on lukittu.
+      signed_up: Tervetuloa! Sisäänkirjautuminen onnistui.
+      signed_up_but_inactive: Palveluun rekisteröityminen onnistui. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi ei ole vielä aktivoitu.
+      signed_up_but_locked: Palveluun rekisteröityminen onnistui. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi on lukittu.
       signed_up_but_unconfirmed: Sähköpostiosoitteeseesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
-      update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
+      update_needs_confirmation: Tilisi päivitys onnistui, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
       updated: Tilisi on päivitetty onnistuneesti.
     sessions:
-      already_signed_out: Kirjaudut ulos onnistuneesti.
+      already_signed_out: Uloskirjautuminen onnistui.
       new:
         sign_in: Kirjaudu sisään
-      signed_in: Kirjauduit sisään onnistuneesti.
-      signed_out: Kirjauduit ulos onnistuneesti.
+      signed_in: Sisäänkirjautuminen onnistui.
+      signed_out: Uloskirjautuminen onnistui.
     shared:
       links:
         back: Takaisin

@@ -157,7 +157,7 @@ ca:
           media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Col·laboradors
-          registration_types: Tipus de registre
+          registration_types: Tipus d'inscripcions
           registrations: Inscripcions
           user_registrations: Registre d'usuaris
       models:
@@ -206,7 +206,7 @@ ca:
             registrations_count: Contador d'inscripcions
             title: Títol
             weight: Pes
-          name: Tipus de registre
+          name: Tipus d'inscripció
       partners:
         create:
           error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
@@ -250,10 +250,10 @@ ca:
       conference:
         create: "%{user_name} ha creat la conferènica %{resource_name}"
         publish: "%{user_name} ha publicat la conferència %{resource_name}"
-        send_conference_diplomas: "%{user_name} enviar certificats d'assistència als %{resource_name} assistents de la conferència"
+        send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència als %{resource_name} assistents de la jornada"
         unpublish: "%{user_name} no publicada la conferència %{resource_name}"
         update: "%{user_name} actualitzem la conferència %{resource_name}"
-        update_diploma: "%{user_name} actualitzar els certificats de configuració d'assistència per a %{resource_name} conferència"
+        update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per a la jornada %{resource_name}"
       conference_speaker:
         create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
         delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
@@ -350,7 +350,7 @@ ca:
             title: Tipus de registre
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Trobareu el certificat d'assistència per a la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+            diploma_html: Trobaràs el certificat d'assistència per a la jornada <a href="%{url}">%{title}</a> als fitxers adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
             certificate_of_attendance: Certificat d'assistència
@@ -433,7 +433,7 @@ ca:
             subject: Invitació per participar a una conferència
         send_conference_diploma_mailer:
           diploma:
-            subject: S'ha enviat el certificat d'assistència de la vostra conferència
+            subject: S'ha enviat el teu certificat d'assistència a la jornada
       models:
         conference_invite:
           fields:

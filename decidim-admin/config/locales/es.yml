@@ -93,7 +93,7 @@ es:
         title: Título
         weight: Peso
       user_group_csv_verification:
-        file: Expediente
+        file: Archivo
     errors:
       models:
         oauth_application:
@@ -617,7 +617,7 @@ es:
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
         impersonations: Impersonaciones
-        participants: Usuarios
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

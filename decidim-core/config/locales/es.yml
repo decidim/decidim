@@ -154,7 +154,7 @@ es:
         announcement:
           accepted: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido
-            aceptada en <strong>%{announcement_date}</strong>.
+            aceptada el <strong>%{announcement_date}</strong>.
           evaluating: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             está siendo evaluada.
@@ -163,7 +163,7 @@ es:
             fue rechazada en <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
-            ha sido retirada por el autor.
+            ha sido retirada por su autora.
       new:
         amendment_author: Autor de la enmienda
         back: Volver
@@ -227,32 +227,32 @@ es:
       show:
         expired:
           authorize: Volver a autorizar con "%{authorization}"
-          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          explanation: Tu autorización ha expirado. Para realizar esta acción, tienes que volver a obtener la autorización con "%{authorization}".
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
-          explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
+          explanation: 'A pesar de que actualmente estás autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque nos faltan los datos siguientes:'
           invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Por favor, re-autorízate
+          reauthorize: Reautorizarse
+          title: Por favor, reautorízate
         missing:
           authorize: Autorizar con "%{authorization}"
-          explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
+          explanation: Para llevar a cabo esta acción, tienes que disponer de la autorización "%{authorization}".
           title: Autorización requerida
         pending:
-          explanation: Para realizar esta acción, debe estar autorizado con "%{authorization}", pero su autorización aún está en progreso.
-          resume: Verifica el progreso de la autorización "%{authorization}"
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
+          resume: Comprueba el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
-          explanation: Lo sentimos, no puede realizar esta acción ya que algunos de sus datos de autorización no coinciden.
+          explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
-          confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
-          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
-          request_confirmation_instructions: Solicitar instrucciones de confirmación.
-          title: confirme su email
+          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación
+          title: Confirma tu email
     collapsible_list:
       hidden_elements_count:
         one: y %{count} más
@@ -387,7 +387,7 @@ es:
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
-            email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
             email_subject: Una nueva enmienda para %{amendable_title} de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nueva enmienda</a> ha sido creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
@@ -398,7 +398,7 @@ es:
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
-            email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
@@ -409,7 +409,7 @@ es:
         amendment_promoted:
           affected_user:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
-            email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
             email_subject: Se ha promocionado una enmienda de %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">rechazaron enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} ha sido promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
@@ -420,7 +420,7 @@ es:
         amendment_accepted:
           affected_user:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
-            email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
             email_subject: Una enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
@@ -899,13 +899,13 @@ es:
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
         edit_user_group: Editar el perfil del grupo
-        fill_in_email_to_confirm_it: Por favor, rellene el correo electrónico de su grupo para confirmarlo
+        fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo
         invite_user: Invitar al usuario
         join_user_group: Solicitar unirse al grupo
         leave_user_group: Dejar el grupo
         manage_user_group_admins: Gestionar los administradores
         manage_user_group_users: Gestionar los miembros
-        resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
+        resend_email_confirmation_instructions: Vuelve a enviar las instrucciones de confirmación por correo electrónico
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -990,13 +990,13 @@ es:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
     user_interests:
       show:
-        no_scopes: '¡Esta organización aún no tiene ningún alcance!'
+        no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
         my_interests: Mis intereses
-        select_your_interests: Seleccione los temas que le interesan para recibir eventos relacionados con ellos en la pestaña Línea de tiempo de su perfil.
+        select_your_interests: Selecciona los temas que te interesan para recibir eventos relacionados con ellos en la pestaña Timeline de tu perfil.
         update_my_interests: Actualizar mis intereses
       update:
         error: Hubo un error al actualizar tus intereses.
-        success: Sus intereses se han actualizado con éxito.
+        success: Tus intereses se han actualizado correctamente.
     welcome_notification:
       default_body: <p>Hola {{name}}, ¡gracias por unirte a {{organization}} y bienvenido/a!</p><ul><li>Si quieres hacerte una idea ràpida de lo que puedes hacer aquí, echa un vistazo a la sección de <a href="{{help_url}}">Ayuda</a>.</li><li>Una vez la hayas leído obtendrás tu primera insignia. Aquí tienes <a href="{{badges_url}}">la lista</a> de todas las que puedes ir consiguiendo a medida que participes en {{organization}}</li><li>Finalmente, pero no por ello menos importante, únete a otras personas, comparte con ellas la experiencia de implicarte y participar en {{organization}}. Haz propuestas, comenta, debate, piensa en cómo contribuir al bien común, aporta argumentos para convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y mantén la mente abierta a colaborar y sumarte a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
