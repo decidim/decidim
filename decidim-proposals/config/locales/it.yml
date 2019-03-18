@@ -753,6 +753,9 @@ it:
           version_number_out_of_total: "%{current_version} su %{total_count}"
         version:
           version_index: Versione %{index}
+      withdraw:
+        errors:
+          has_supports: Questa proposta non può essere ritirata perché ha già dei supporti.
     resource_links:
       copied_from_component:
         proposal_proposal: Proposte correlate
