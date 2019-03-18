@@ -753,6 +753,9 @@ fi-pl:
           version_number_out_of_total: "%{current_version} osuus %{total_count}:sta"
         version:
           version_index: Versio %{index}
+      withdraw:
+        errors:
+          has_supports: Tätä ehdotusta ei voida peruuttaa, koska sillä on jo tukea.
     resource_links:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
