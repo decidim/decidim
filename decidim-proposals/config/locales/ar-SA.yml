@@ -79,6 +79,7 @@ ar:
         actions:
           create: خلق
           endorse: تأييد
+          vote: تصويت
           withdraw: سحب
         name: اقتراحات
         settings:
@@ -612,6 +613,7 @@ ar:
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
           report: أبلغ عن
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
+          withdraw_confirmation: هل أنت متأكد من سحب هذا الاقتراح؟
           withdraw_proposal: سحب الاقتراح
         tags:
           changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
