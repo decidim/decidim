@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -37,9 +38,9 @@ en:
         undo_online_signatures_enabled: Enable participants to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
       initiatives_vote:
-        name_and_surname: Name and surname
-        document_number: Document number
         date_of_birth: Date of birth
+        document_number: Document number
+        name_and_surname: Name and surname
         postal_code: Postal code
       organization_data:
         address: Address
@@ -120,8 +121,8 @@ en:
       badges:
         initiatives:
           conditions:
-            - Go to the participation space of Intiatives
-            - Follow the steps to create a new initiative
+          - Go to the participation space of Intiatives
+          - Follow the steps to create a new initiative
           description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
           description_another: This participant has gotten %{score} initiatives published.
           description_own: You've got %{score} initiatives published.
@@ -141,8 +142,8 @@ en:
       admin:
         answers:
           edit:
-            title: Answer for %{title}
             answer: Answer
+            title: Answer for %{title}
           info_initiative:
             created_at: Created at
             description: Description
@@ -320,12 +321,12 @@ en:
           help: Please, fill the following fields with your personal data to sign the initiative
         finish:
           back_to_initiative: Back to initiative
-        sms_phone_number:
-          continue: Send me an SMS
-          help: Fill the form with your verified phone number to request your verification code
         sms_code:
           continue: Check code and continue
           help: Check the SMS received at your phone
+        sms_phone_number:
+          continue: Send me an SMS
+          help: Fill the form with your verified phone number to request your verification code
       initiative_votes:
         create:
           error: There was a problem signing the initiative.
@@ -437,8 +438,8 @@ en:
     resources:
       initiatives_type:
         actions:
-          vote: Sign
           title: Actions
+          vote: Sign
   layouts:
     decidim:
       admin:
@@ -464,8 +465,8 @@ en:
         fill_personal_data: Complete your data
         finish: Finish
         finished: Initiative signature created
-        select_identity: Select identity
         see_steps: see steps
+        select_identity: Select identity
         sms_code: SMS code verification
         sms_phone_number: Mobile phone number
         step: Step %{current} of %{total}

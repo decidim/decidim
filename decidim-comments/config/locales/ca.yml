@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     models:
@@ -34,8 +35,8 @@ ca:
             label: Comentar com a
         opinion:
           neutral: Neutral
-        remaining_characters: "Queden %{count} caràcters"
-        remaining_characters_1: "Queda %{count} caràcter"
+        remaining_characters: Queden %{count} caràcters
+        remaining_characters_1: Queda %{count} caràcter
         title: Deixa el teu comentari
       comment:
         alignment:
@@ -75,7 +76,7 @@ ca:
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "S'ha comentat %{resource_title}. Pots llegir el comentari d'aquesta pàgina:"
+          email_intro: 'S''ha comentat %{resource_title}. Pots llegir el comentari d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o el seu autor. Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
           notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
