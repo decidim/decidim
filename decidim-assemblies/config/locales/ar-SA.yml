@@ -35,6 +35,7 @@ ar:
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: مساحة خاصة
+        promoted: تمت ترقيته
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
         scope_id: نطاق
@@ -46,8 +47,8 @@ ar:
         subtitle: عنوان فرعي
         target: من يشارك
         title: عنوان
-        twitter: تغريد
-        youtube: موقع YouTube
+        twitter: تويتر
+        youtube: يوتيوب
       assembly_member:
         birthday: عيد الميلاد
         birthplace: مسقط الرأس
@@ -196,6 +197,7 @@ ar:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         assembly_members:
           form:
+            existing_user: مستخدم موجود
             select_a_position: اختر المنصب
           index:
             filter:
@@ -281,6 +283,7 @@ ar:
         endorsements_count: موافقات
         headline: نشاط
         meetings_count: اجتماعات
+        orders_count: الأصوات
         pages_count: صفحات
         projects_count: مشاريع
         proposals_count: اقتراحات
@@ -324,6 +327,7 @@ ar:
           take_part: خذ جزء
       assembly_navigation:
         assembly_member_menu_item: أفراد
+        assembly_menu_item: الجمعية
       assembly_widgets:
         show:
           take_part: خذ جزء
