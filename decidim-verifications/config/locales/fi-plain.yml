@@ -210,10 +210,10 @@ fi-pl:
             error: Pyynnössäsi oli ongelma
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
           destroy:
-            success: Vahvistuskoodi palautetaan onnistuneesti. Anna puhelinnumerosi uudelleen.
+            success: Uuden vahvistuskoodin luonti onnistui. Kirjoita puhelinnumerosi uudelleen.
           edit:
-            confirm_destroy: Haluatko varmasti palauttaa vahvistuskoodin?
-            destroy: Nollaa vahvistuskoodi
+            confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
+            destroy: Luo uusi vahvistuskoodi
             resend: Etkö saanut vahvistuskoodia?
             send: Vahvista
             title: Kirjoita vastaanottamasi vahvistuskoodi
