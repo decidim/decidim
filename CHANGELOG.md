@@ -163,6 +163,7 @@ end
 - **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4964](https://github.com/decidim/decidim/pull/4964/)
 - **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4964](https://github.com/decidim/decidim/pull/4964/)
 - **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
+- **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
 
 **Removed**:
 
