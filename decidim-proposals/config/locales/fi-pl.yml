@@ -599,7 +599,7 @@ fi-pl:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
         compare:
-          continue: Jatka
+          mine_is_different: Ehdotukseni on erilainen
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:

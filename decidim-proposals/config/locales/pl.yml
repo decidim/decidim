@@ -613,7 +613,7 @@ pl:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
       proposals:
         compare:
-          continue: dalej
+          mine_is_different: Moja propozycja jest inna
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
         complete:

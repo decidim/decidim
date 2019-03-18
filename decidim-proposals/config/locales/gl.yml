@@ -599,7 +599,7 @@ gl:
           error: Houbo erros ao votar a proposta.
       proposals:
         compare:
-          continue: Continuar
+          mine_is_different: A miña proposta é diferente
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:

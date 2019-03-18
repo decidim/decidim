@@ -599,7 +599,7 @@ pt-BR:
           error: Houve erros ao votar a proposta.
       proposals:
         compare:
-          continue: Continuar
+          mine_is_different: Minha proposta é diferente
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:

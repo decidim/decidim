@@ -613,7 +613,7 @@ cs:
           error: Při hlasování o návrhu došlo k chybám.
       proposals:
         compare:
-          continue: Pokračovat
+          mine_is_different: Můj návrh je jiný
           no_similars_found: Výborně! Nebyly nalezeny žádné podobné návrhy
           title: Podobné návrhy
         complete:

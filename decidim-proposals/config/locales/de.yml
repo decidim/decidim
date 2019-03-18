@@ -596,7 +596,7 @@ de:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
       proposals:
         compare:
-          continue: Fortsetzen
+          mine_is_different: Mein Vorschlag ist anders
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:

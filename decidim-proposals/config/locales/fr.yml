@@ -599,7 +599,7 @@ fr:
           error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         compare:
-          continue: Continuer
+          mine_is_different: Ma proposition est différente
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
