@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ ca:
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes en projectes
-            success: "S'ha importat amb èxit %{number} propostes en projectes"
+            success: S'ha importat amb èxit %{number} propostes en projectes
           new:
             create: Importa propostes a projectes
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.

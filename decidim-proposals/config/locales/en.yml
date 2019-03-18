@@ -38,8 +38,7 @@ en:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are:
-                %{valid_mime_types}'
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -315,12 +314,9 @@ en:
       badges:
         accepted_proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals
-            enabled
-          - Try to make proposals that can be carried out. This way they are more
-            likely to be accepted.
-          description: This badge is granted when you actively participate with new
-            proposals and these are accepted.
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+          description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This participant had %{score} accepted proposals.
           description_own: You got %{score} proposals accepted.
           name: Accepted proposals
@@ -342,11 +338,9 @@ en:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals
-            enabled
+          - Choose the participation space of your interest with submission for proposals enabled
           - Create a new proposal
-          description: This badge is granted when you actively participate with new
-            proposals.
+          description: This badge is granted when you actively participate with new proposals.
           description_another: This participant has created %{score} proposals.
           description_own: You have created %{score} proposals.
           name: Proposals

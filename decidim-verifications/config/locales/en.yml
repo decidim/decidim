@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -34,18 +35,22 @@ en:
         grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+          - Admins upload a CSV with the emails of the accepted participants
+          - Only participants with an email in that CSV file can get verified
         id_documents:
           help:
-            - Users fill in their identity information and upload a copy of their document.
-            - You fill in the information present in the uploaded image.
-            - The information should match whatever the user filled in.
-            - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+          - Users fill in their identity information and upload a copy of their document.
+          - You fill in the information present in the uploaded image.
+          - The information should match whatever the user filled in.
+          - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
-            - Participants request a verification code to be sent to their address.
-            - You send the letter to their address with the verification code.
-            - You mark the letter as sent.
-            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+          - Participants request a verification code to be sent to their address.
+          - You send the letter to their address with the verification code.
+          - You mark the letter as sent.
+          - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
         explanation: Get verified using the organization's census
         name: Organization's census
@@ -99,8 +104,8 @@ en:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the csv census for this organization
           new:
+            file: ".csv file with emails data"
             info: 'Must be a file with CSV format with one column: email'
-            file: .csv file with emails data
             submit: Upload file
             title: Upload a new census
         authorizations:
@@ -147,7 +152,7 @@ en:
               success: Verification rejected. Participant will be prompted to amend her documents
         authorizations:
           choose:
-            choose_a_type: "Please select how you want to be verified:"
+            choose_a_type: 'Please select how you want to be verified:'
             offline: Offline
             online: Online
             title: Verify yourself using your identity document
@@ -205,14 +210,14 @@ en:
           create:
             error: There was a problem with your request
             success: Thanks! We've sent an SMS to your phone.
+          destroy:
+            success: Verification code sucessfully reset. Please re-enter your phone number.
           edit:
             confirm_destroy: Are you sure you want to reset the verification code?
             destroy: Reset verification code
-            send: Confirm
             resend: Didn't receive the verification code?
+            send: Confirm
             title: Introduce the verification code you received
-          destroy:
-            success: Verification code sucessfully reset. Please re-enter your phone number.
           new:
             send: Send me an SMS
             title: Request your verification code
