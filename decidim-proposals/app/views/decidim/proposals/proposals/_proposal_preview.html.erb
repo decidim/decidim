@@ -4,9 +4,8 @@
     <%= cell("decidim/coauthorships", @proposal) %>
   <% end %>
 </div>
-
 <div class="row column">
   <%= simple_format present(@proposal).body(links: true) %>
 </div>
-
-<br><%= attachments_for @proposal %>
+<br />
+<%= attachments_for(@proposal) %>
