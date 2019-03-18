@@ -753,6 +753,9 @@ tr:
           version_number_out_of_total: "%{current_version} üzerinden %{total_count}"
         version:
           version_index: Sürüm %{index}
+      withdraw:
+        errors:
+          has_supports: Zaten destekleri olduğu için bu teklif geri çekilemez.
     resource_links:
       copied_from_component:
         proposal_proposal: İlgili teklifler
