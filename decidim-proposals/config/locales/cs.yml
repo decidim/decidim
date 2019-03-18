@@ -777,6 +777,9 @@ cs:
           version_number_out_of_total: "%{current_version} z %{total_count}"
         version:
           version_index: Verze %{index}
+      withdraw:
+        errors:
+          has_supports: Tento návrh nelze stáhnout, protože již má podporu.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy
