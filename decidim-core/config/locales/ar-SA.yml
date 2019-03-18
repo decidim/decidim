@@ -4,14 +4,14 @@ ar:
       account:
         delete_reason: سبب حذف حسابك
       report:
-        details: تعليقات اضافية
+        details: تعليقات إضافية
       user:
-        about: حول
-        email: بريدك الالكتروني
+        about: عن
+        email: بريدك الإلكتروني
         name: اسمك
-        nickname: كنية
+        nickname: الاسم المستعار
         password: كلمه السر
-        password_confirmation: أكد رقمك السري
+        password_confirmation: أكد كلمتك السرية
         personal_url: عنوان URL الشخصي
         remove_avatar: إزالة الصورة الرمزية
     models:
@@ -30,6 +30,7 @@ ar:
       decidim/user:
         current_password: كلمة المرور الحالي
         email: البريد الإلكتروني
+        name: اسم المستخدم
         password: كلمه السر
         password_confirmation: تأكيد كلمة المرور
         remember_me: تذكرنى
@@ -43,7 +44,7 @@ ar:
         other: تعديلات
   booleans:
     'false': 'لا'
-    'true': 'نعم فعلا'
+    'true': 'نعم'
   carrierwave:
     errors:
       image_too_big: الصورة كبيرة جدا
@@ -192,6 +193,10 @@ ar:
       show:
         incomplete:
           cancel: إلغاء
+        unauthorized:
+          ok: موافق
+        unconfirmed:
+          title: تأكيد البريد الإلكتروني
     collapsible_list:
       hidden_elements_count:
         zero: و %{count} أخرى
@@ -498,6 +503,7 @@ ar:
       accept_or_reject_group_invitations: 'لقد دعوتك المجموعات التالية للانضمام إليهم. قبول أو رفض طلباتهم:'
       index:
         invite: دعا
+        invite_user: دعوة مستخدم
       reject_invitation: رفض
     group_members:
       actions:
@@ -587,6 +593,7 @@ ar:
           title: المحادثات
         reply:
           send: إرسال
+          title: رد
         show:
           title: المحادثة مع %{usernames}
         start:
@@ -743,6 +750,7 @@ ar:
         edit_profile: تعديل الملف الشخصي
         edit_user_group: تحرير ملف تعريف المجموعة
         fill_in_email_to_confirm_it: يرجى ملء البريد الإلكتروني لمجموعتك لتأكيدها
+        invite_user: دعوة مستخدم
         join_user_group: طلب الانضمام إلى المجموعة
         leave_user_group: غادر المجموعة
         manage_user_group_admins: إدارة المشرفين
@@ -1042,6 +1050,7 @@ ar:
         my_data: بياناتي
         my_interests: اهتماماتي
         notifications_settings: إعدادات الإخطارات
+        title: إعدادات المستخدم
         user_groups: المجموعات
       widget:
         see_more: شاهد المزيد
@@ -1071,7 +1080,7 @@ ar:
     reddit: رديت
     share_to: شارك في %{name}
     tumblr: نعرفكم
-    twitter: تغريد
+    twitter: تويتر
     vkontakte: فكونتاكتي
     wechat: WeChat
     wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
