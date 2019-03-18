@@ -90,6 +90,7 @@ end
 
 **Fixed**:
 
+- **decidim-proposals**: Update error message when a Proposal can not be withdrawn due to already existing supports.  [#4961](https://github.com/decidim/decidim/pull/4961)
 - **decidim-meetings**: Fix card list data displays. [#4972](https://github.com/decidim/decidim/pull/4972)
 - **decidim-assemblies**: Fix only show published children assemblies in public view [#4969](https://github.com/decidim/decidim/pull/4969)
 - **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
