@@ -3,14 +3,14 @@ ar:
     attributes:
       area:
         area_type: نوع المنطقة
-        name: اسم
-        organization: منظمة
+        name: الاسم
+        organization: المنظمة
       area_type:
-        name: اسم
+        name: الاسم
         organization: منظمة
-        plural: جمع
+        plural: الجمع
       attachment:
-        attachment_collection_id: مجلد
+        attachment_collection_id: المجلد
         description: وصف
         file: ملف
         title: عنوان
@@ -27,8 +27,8 @@ ar:
         weight: وزن
       id: هوية شخصية
       newsletter:
-        body: الجسم
-        subject: موضوع
+        body: المحتوى
+        subject: الموضوع
       oauth_application:
         name: اسم
         organization_logo: شعار المنظمة (مربع)
@@ -44,7 +44,7 @@ ar:
         enable_omnipresent_banner: عرض لافتة في كل مكان
         facebook_handler: معالج فيسبوك
         favicon: أيقونة
-        github_handler: جيثب معالج
+        github_handler: معالج جيثب
         header_snippets: قصاصات رأس
         highlighted_content_banner_action_subtitle: عمل زر الترجمة
         highlighted_content_banner_action_title: عنوان زر العمل
@@ -64,9 +64,9 @@ ar:
         omnipresent_banner_url: URL
         reference_prefix: بادئة المرجع
         show_statistics: عرض إحصائيات
-        tos_version: شروط إصدار الخدمة
+        tos_version: شروط وأحكام الخدمة
         twitter_handler: التغريد معالج
-        youtube_handler: يوتيوب معالج
+        youtube_handler: معالج YouTube
       scope:
         code: الشفرة
         name: اسم
@@ -127,7 +127,7 @@ ar:
         export: تصدير
         manage: تدبير
         new: جديد %{name}
-        permissions: أذونات
+        permissions: تصريحات
         reject: رفض
         verify: التحقق
       area_types:
@@ -283,22 +283,23 @@ ar:
             promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
       menu:
         admin_log: سجل نشاط المسؤول
-        admins: مدراء
-        appearance: مظهر خارجي
+        admins: المدراء
+        appearance: المظهر
         area_types: أنواع المناطق
         areas: المناطق
-        configuration: ترتيب
+        configuration: الإعدادات
         dashboard: لوحة القيادة
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
-        newsletters: النشرات الإخبارية
+        newsletters: الرسائل الإخبارية
         oauth_applications: تطبيقات OAuth
-        participants: المشاركين
+        participants: المشاركون
         scope_types: أنواع النطاق
         scopes: نطاقات
         settings: الإعدادات
         static_pages: صفحات
+        users: المستخدمون
       models:
         area:
           fields:
@@ -312,7 +313,7 @@ ar:
           fields:
             collection: مجلد
             content_type: نوع
-            file_size: بحجم
+            file_size: الحجم
             title: عنوان
           name: المرفق
         attachment_collection:
@@ -321,11 +322,12 @@ ar:
           name: الفئة
         impersonation_log:
           fields:
-            admin: مشرف
+            admin: المُدير
             ended_at: انتهى في
             expired_at: انتهت في
             reason: السبب
             started_at: بدأت في
+            user: المستخدم
         newsletter:
           fields:
             created_at: أنشئت في
@@ -390,7 +392,7 @@ ar:
           interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في الجسم أو الموضوع وسيتم استبداله باسم المستلم.'
         index:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
-          title: النشرات الإخبارية
+          title: الرسائل الإخبارية
         new:
           save: حفظ
           title: رسالة إخبارية جديدة
@@ -398,7 +400,7 @@ ar:
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
           preview: معاينة
-          subject: موضوع
+          subject: الموضوع
         update:
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
       oauth_applications:
@@ -444,13 +446,13 @@ ar:
           title: تحرير المنظمة
           update: تحديث
         form:
-          facebook: فيس بوك
-          github: جيثب
+          facebook: فيسبوك
+          github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: اجتماعي
-          twitter: تغريد
+          twitter: تويتر
           url: رابط
-          youtube: موقع YouTube
+          youtube: يوتيوب
         update:
           success: تم تحديث المنظمة بنجاح.
       organization_appearance:
@@ -549,6 +551,7 @@ ar:
         scope_types: أنواع النطاق
         scopes: نطاقات
         static_pages: صفحات
+        users: المستخدمون
       user_groups:
         index:
           filter:
@@ -607,3 +610,5 @@ ar:
           title: النشرات الإخبارية
         settings:
           title: الإعدادات
+        users:
+          title: المستخدمون
