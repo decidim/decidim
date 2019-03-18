@@ -134,14 +134,14 @@ module Decidim
 
       # Renders the back link except for step_2: compare
       def proposal_wizard_aside_link_to_back(step)
-        case step
-        when :step_1
-          url = proposals_path
-        when :step_3
-          url = compare_proposal_path
-        when :step_4
-          url = edit_draft_proposal_path
-        end
+        url = case step
+              when :step_1
+                proposals_path
+              when :step_3
+                compare_proposal_path
+              when :step_4
+                edit_draft_proposal_path
+              end
         url
       end
 
