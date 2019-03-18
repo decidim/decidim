@@ -10,6 +10,7 @@ ar:
         signature_type: نوع جمع التوقيع
         signature_type_values:
           any: مختلط
+          offline: وجها لوجه
         title: عنوان
       initiative_author:
         address: عنوان
@@ -305,6 +306,10 @@ ar:
           few: " التوقيعات"
           many: " التوقيعات"
           other: " التوقيعات"
+        statistics:
+          comments_count_title: تعليقات
+          meetings_count_title: اجتماعات
+          supports_count_title: توقيعات
         supports:
           title: قائمة التوقيعات
         vote_cabin:
