@@ -453,7 +453,7 @@ ca:
               title: La següent acció és irreversible
             success: L'esborrany col·laboratiu s'ha retirat amb èxit.
         compare:
-          mine_is_different: El meu esborrany col·laboratiu és diferent
+          continue: Continua
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:

@@ -599,7 +599,7 @@ nl:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
         compare:
-          mine_is_different: Mijn voorstel is anders
+          continue: Doorgaan met
           no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
           title: Vergelijkbare voorstellen
         complete:

@@ -600,7 +600,7 @@ es-MX:
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
+          continue: Continuar
           title: Propuestas similares
         complete:
           send: Enviar
