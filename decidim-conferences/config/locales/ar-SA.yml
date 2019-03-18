@@ -12,6 +12,7 @@ ar:
         description: وصف
         hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
+        promoted: تمت ترقيته
         published_at: نشرت في
         scope_id: نطاق
         scopes_enabled: تم تمكين النطاقات
@@ -236,10 +237,14 @@ ar:
             search: بحث
           new:
             invite: دعا
+            new_invite: دعوة مستخدم
         conference_registrations:
           index:
             registrations: التسجيلات
         conference_speakers:
+          form:
+            select_user: اختيار مستخدم
+            user_type: نوع المستخدم
           index:
             search: بحث
         conferences:
@@ -302,7 +307,7 @@ ar:
           confirmation_pending: سوف تتلقى التأكيد قريبا
           details: 'لقد قمت بالتسجيل إلى %{registration_type} نوع بتكلفة %{price} ويمكنك حضور الأحداث التالية:'
       conference_speaker:
-        go_to_twitter: الذهاب إلى تويتر
+        go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
         personal_website: موقع شخصي
         show:
@@ -311,7 +316,7 @@ ar:
         personal_url:
           personal_website: موقع شخصي
         twitter_handle:
-          go_to_twitter: الذهاب إلى تويتر
+          go_to_twitter: انتقل إلى تويتر
       conference_speakers:
         index:
           speakers: مكبرات الصوت
@@ -366,6 +371,10 @@ ar:
       photo:
         show:
           close_modal: إغلاق مشروط
+          photo: صورة
+      photos_list:
+        show:
+          related_photos: الصور
       registration_types:
         index:
           choose_an_option: 'اختر خيار التسجيل الخاص بك:'
@@ -374,6 +383,7 @@ ar:
           title: أنواع التسجيل
       shared:
         conference_user_login:
+          new_user: مستخدم جديد؟
           sign_in: تسجيل الدخول للتسجيل في المؤتمر
           sign_up: إنشاء حساب في decidim للتسجيل في المؤتمر
       show:
@@ -390,6 +400,7 @@ ar:
         endorsements_count: موافقات
         headline: نشاط
         meetings_count: اجتماعات
+        orders_count: الأصوات
         pages_count: صفحات
         posts_count: المشاركات
         projects_count: مشاريع
@@ -397,6 +408,7 @@ ar:
         results_count: النتائج
         surveys_count: الدراسات الاستقصائية
         users_count: المشاركين
+        votes_count: الأصوات
     events:
       conferences:
         conference_registration_validation_pending:
