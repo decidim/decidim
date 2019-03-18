@@ -36,8 +36,8 @@ es-MX:
       admin:
         csv_census:
           help:
-            - Los administradores cargan un CSV con los correos electrónicos de los participantes aceptados
-            - Solo los participantes con un correo electrónico en ese archivo CSV pueden ser verificados
+            - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas
+            - Solo las participantes con un correo electrónico en ese archivo CSV pueden ser verificadas
         id_documents:
           help:
             - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
@@ -210,11 +210,11 @@ es-MX:
             error: Hubo un problema con tu solicitud
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           destroy:
-            success: Código de verificación restablecido con éxito. Por favor vuelva a ingresar su número de teléfono.
+            success: Código de verificación restablecido correctamente. Por favor vuelve a introducir tu número de teléfono.
           edit:
-            confirm_destroy: '¿Estás seguro de que quieres restablecer el código de verificación?'
+            confirm_destroy: '¿Seguro que quieres restablecer el código de verificación?'
             destroy: Restablecer código de verificación
-            resend: '¿No recibió el código de verificación?'
+            resend: '¿No has recibido el código de verificación?'
             send: Confirmar
             title: Introduce el código de verificación que has recibido
           new:
