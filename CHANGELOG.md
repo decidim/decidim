@@ -5,6 +5,7 @@
 ### Upgrade notes
 
 #### User follow counters
+
 After running the migrations, please run this code from a console:
 
 ```ruby
@@ -61,7 +62,6 @@ end
 - **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-core**: Fix process filters [\#4872](https://github.com/decidim/decidim/pull/4872)
-
 
 ## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
 
@@ -264,6 +264,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
 - **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4963](https://github.com/decidim/decidim/pull/4963/)
 - **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4962](https://github.com/decidim/decidim/pull/4962/)
+- **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
 
 **Removed**:
 
