@@ -40,6 +40,7 @@ module Decidim
                                                   .left_outer_joins(:category)
           @query = @query.where("decidim_accountability_results.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.decidim_category_id",
+                                "decidim_accountability_results.id",
                                 :participatory_space_type,
                                 :participatory_space_id,
                                 "decidim_components.id")
