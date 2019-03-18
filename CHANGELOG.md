@@ -90,8 +90,8 @@ end
 
 **Fixed**:
 
+- **decidim-proposals**: Fix proposal wizard back button [\#4976](https://github.com/decidim/decidim/pull/4976)
 - **decidim-meetings**: Fix card list data displays. [#4972](https://github.com/decidim/decidim/pull/4972)
-- **decidim-proposals**: Fix proposal wizard back button [\#4971](https://github.com/decidim/decidim/pull/4971)
 - **decidim-assemblies**: Fix only show published children assemblies in public view [#4969](https://github.com/decidim/decidim/pull/4969)
 - **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
 - **decidim-core**: Don't mix omniauth notifications with `Decidim::EventManager` events [#4895](https://github.com/decidim/decidim/pull/4895)

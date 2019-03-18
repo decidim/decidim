@@ -200,8 +200,8 @@ describe "Proposal", type: :system do
           click_link "Back"
         end
 
-        it "redirects to step_3: compare" do
-          expect(page).to have_content("COMPLETE YOUR PROPOSAL")
+        it "redirects to edit the proposal draft" do
+          expect(page).to have_content("EDIT PROPOSAL DRAFT")
         end
       end
     end
