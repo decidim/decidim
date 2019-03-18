@@ -753,6 +753,9 @@ eu:
           version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
           version_index: '%{index}bertsioa'
+      withdraw:
+        errors:
+          has_supports: Proposamen hau ezin da kendu, dagoeneko onartzen duelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
