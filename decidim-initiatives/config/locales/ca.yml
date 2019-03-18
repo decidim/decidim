@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -37,9 +38,9 @@ ca:
         undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
       initiatives_vote:
-        name_and_surname: Nom i cognom
-        document_number: Número de document
         date_of_birth: Data de naixement
+        document_number: Número de document
+        name_and_surname: Nom i cognom
         postal_code: Codi postal
       organization_data:
         address: Adreça
@@ -120,8 +121,8 @@ ca:
       badges:
         initiatives:
           conditions:
-            - Anar a Inciatives
-            - Segueix els passos per crear una nova iniciativa
+          - Anar a Inciatives
+          - Segueix els passos per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
@@ -133,7 +134,9 @@ ca:
       participatory_spaces:
         initiatives:
           contextual: "<p>Una <strong>iniciativa</strong> és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte, canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
-          page: "<p>Una <strong>iniciativa</strong> és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>\n<p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>\n"
+          page: |
+            <p>Una <strong>iniciativa</strong> és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>
+            <p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>
           title: Què són les iniciatives?
     initiatives:
       actions:
@@ -141,8 +144,8 @@ ca:
       admin:
         answers:
           edit:
-            title: Resposta per %{title}
             answer: Resposta
+            title: Resposta per %{title}
           info_initiative:
             created_at: Creat a
             description: Descripció
@@ -320,12 +323,12 @@ ca:
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa
         finish:
           back_to_initiative: Torna a la iniciativa
-        sms_phone_number:
-          continue: Envia'm un SMS
-          help: Ompliu el formulari amb el vostre número de telèfon mòbil verificat per sol·licitar el vostre codi de verificació
         sms_code:
           continue: Comprova el codi i continua
           help: Consulteu els SMS rebuts del vostre telèfon mòbil
+        sms_phone_number:
+          continue: Envia'm un SMS
+          help: Ompliu el formulari amb el vostre número de telèfon mòbil verificat per sol·licitar el vostre codi de verificació
       initiative_votes:
         create:
           error: S'ha produït un error en signar la iniciativa.
@@ -437,8 +440,8 @@ ca:
     resources:
       initiatives_type:
         actions:
-          vote: Signar
           title: Accions
+          vote: Signar
   layouts:
     decidim:
       admin:
@@ -464,8 +467,8 @@ ca:
         fill_personal_data: Completa les teves dades
         finish: Finalitzar
         finished: La iniciativa s'ha signat correctament
-        select_identity: Selecciona identitat
         see_steps: vegeu els passos
+        select_identity: Selecciona identitat
         sms_code: Verificació per codi SMS
         sms_phone_number: Número de telèfon mòbil
         step: Pas %{current} de %{total}
