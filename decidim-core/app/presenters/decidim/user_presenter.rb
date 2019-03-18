@@ -13,7 +13,7 @@ module Decidim
     # nickname presented in a twitter-like style
     #
     def nickname
-      __getobj__.is_a?(Decidim::Organization) ? "" : "@#{__getobj__.nickname}"
+      __getobj__.respond_to?(:nickname) ? "@#{__getobj__.nickname}" : ""
     end
 
     def badge
@@ -26,12 +26,14 @@ module Decidim
 
     def profile_url
       return "" if respond_to?(:deleted?) && deleted?
+      return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
       decidim.profile_url(__getobj__.nickname, host: __getobj__.organization.host)
     end
 
     def profile_path
       return "" if respond_to?(:deleted?) && deleted?
+      return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
       decidim.profile_path(__getobj__.nickname)
     end
@@ -54,7 +56,8 @@ module Decidim
     end
 
     def has_tooltip?
-      true
+      respond_to?(:deleted?) && deleted? &&
+        __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
     end
   end
 end
