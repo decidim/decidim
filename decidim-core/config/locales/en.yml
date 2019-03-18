@@ -16,6 +16,10 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
       decidim/demoted_membership: No longer a group admin

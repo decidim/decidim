@@ -17,9 +17,9 @@
         <div class="card__content row collapse">
           <div class="large-6 large-offset-6 columns">
             <% if promoted_process.active_step&.cta_path.present? %>
-              <%= cta_link = participatory_process_path(promoted_process) + "/" + promoted_process.active_step.cta_path %>
+              <% cta_link = participatory_process_path(promoted_process) + "/" + promoted_process.active_step.cta_path %>
             <% else %>
-              <%= cta_link = participatory_process_path(promoted_process) %>
+              <% cta_link = participatory_process_path(promoted_process) %>
             <% end %>
             <%= link_to cta_link, class: "button expanded button--sc" do %>
               <% if translated_in_current_locale(promoted_process.active_step&.cta_text) %>
