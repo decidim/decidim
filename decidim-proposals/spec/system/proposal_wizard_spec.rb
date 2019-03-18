@@ -93,7 +93,7 @@ describe "Proposal", type: :system do
         end
 
         it "show continue button" do
-          expect(page).to have_button("Continue")
+          expect(page).to have_link("Continue")
         end
 
         it "does not show the back button" do
