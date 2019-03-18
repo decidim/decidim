@@ -785,7 +785,7 @@ ar:
           version_index: الإصدار %{index}
       withdraw:
         errors:
-          has_supports: لا يمكن سحب هذا الاقتراح لأنه يدعم بالفعل.
+          has_supports: لا يمكن سحب هذا الاقتراح لأنه تلقى دعما مِن قَبل.
     resource_links:
       copied_from_component:
         proposal_proposal: المقترحات ذات الصلة
