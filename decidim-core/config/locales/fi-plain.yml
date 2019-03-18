@@ -228,7 +228,7 @@ fi-pl:
           explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
           title: Varmennus on vanhentunut
         incomplete:
-          cancel: Peruuttaa
+          cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
           reauthorize: Varmenna uudestaan
