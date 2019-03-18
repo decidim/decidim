@@ -73,6 +73,7 @@ ar:
         edit: تصحيح
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
+        new_process_step: خطوة جديدة
         preview: معاينة
         publish: نشر
         resend_invitation: اعادة ارسال الدعوة
@@ -88,6 +89,7 @@ ar:
           components: المكونات
           info: معلومات
           moderations: الإعتدال
+          steps: الخطوات
       models:
         participatory_process:
           fields:
@@ -135,6 +137,8 @@ ar:
         default_title: المقدمة
         edit:
           update: تحديث
+        index:
+          steps_title: الخطوات
         new:
           create: خلق
       participatory_process_user_roles:
@@ -305,3 +309,5 @@ ar:
         promoted_process:
           more_info: مزيد من المعلومات
           take_part: خذ جزء
+      process_header_steps:
+        view_steps: عرض الخطوات
