@@ -124,7 +124,7 @@ module Decidim
         context "when content has a link that is not in a proposals component" do
           let(:proposal) { create(:proposal, component: component) }
           let(:content) do
-            url = proposal_url(proposal).sub(/\/proposals\//, "/something-else/")
+            url = proposal_url(proposal).sub(%r{/proposals/}, "/something-else/")
             "This content references a non-proposal with same ID as a proposal #{url}."
           end
 
