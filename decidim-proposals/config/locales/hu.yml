@@ -753,6 +753,9 @@ hu:
           version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
           version_index: '%{index} verzió'
+      withdraw:
+        errors:
+          has_supports: Ez a javaslat nem vonható vissza, mert már rendelkezik támogatással.
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
