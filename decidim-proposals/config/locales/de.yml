@@ -36,7 +36,7 @@ de:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}"
+              invalid_document_type: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -296,8 +296,10 @@ de:
         participatory_texts:
           bulk-actions:
             are_you_sure: Sind Sie sicher, den gesamten Entwurf des partizipativen Textes zu verwerfen?
-            import_doc: Dokument importieren
             discard_all: Alle verwerfen
+            import_doc: Dokument importieren
+          discard:
+            success: Alle Mitentscheidungsentwürfe wurden verworfen.
           import:
             invalid: Das Formular ist ungültig!
             success: Herzlichen Glückwunsch, die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
@@ -317,8 +319,6 @@ de:
           publish:
             invalid: Vorschläge konnten nicht veröffentlicht werden
             success: Alle Vorschläge wurden veröffentlicht
-          discard:
-            success: Alle Mitentscheidungsentwürfe wurden verworfen.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
@@ -623,6 +623,7 @@ de:
           comments: Bemerkungen
         filters:
           activity: Aktivität
+          amendment_type: Art
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
           origin: Ursprung
@@ -630,7 +631,6 @@ de:
           search: Suche
           state: Zustand
           voted: Gewählt
-          amendment_type: Art
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -750,6 +750,9 @@ de:
           version_number_out_of_total: "%{current_version} von %{total_count}"
         version:
           version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits Unterstützung hat.
     resource_links:
       copied_from_component:
         proposal_proposal: Ähnliche Vorschläge

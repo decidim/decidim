@@ -36,7 +36,7 @@ tr:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Geçersiz doküman tipi Kabul edilen formatlar: %{valid_mime_types}"
+              invalid_document_type: 'Geçersiz doküman tipi Kabul edilen formatlar: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ tr:
         participatory_texts:
           bulk-actions:
             are_you_sure: Katılımcı metin taslağının tamamını atadığınızdan emin misiniz?
-            import_doc: Dokümanı içe aktar
             discard_all: Hepsini at
+            import_doc: Dokümanı içe aktar
+          discard:
+            success: Tüm Katılımcı metin taslakları atıldı.
           import:
             invalid: Form geçersiz!
             success: Tebrikler, aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
@@ -320,8 +322,6 @@ tr:
           publish:
             invalid: Teklifler yayınlanamadı
             success: Tüm teklifler yayınlandı
-          discard:
-            success: Tüm Katılımcı metin taslakları atıldı.
           sections:
             article: "<em>Madde</em>"
             section: "<em>Bölüm:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ tr:
           comments: Yorumlar
         filters:
           activity: Aktivite
+          amendment_type: tip
           category: Kategori
           category_prompt: bir kategori seç
           origin: Menşei
@@ -633,7 +634,6 @@ tr:
           search: Arama
           state: Belirtmek, bildirmek
           voted: oy
-          amendment_type: tip
         filters_small_view:
           close_modal: Yakın kalıcı
           filter: filtre
@@ -753,6 +753,9 @@ tr:
           version_number_out_of_total: "%{current_version} üzerinden %{total_count}"
         version:
           version_index: Sürüm %{index}
+      withdraw:
+        errors:
+          has_supports: Zaten destekleri olduğu için bu teklif geri çekilemez.
     resource_links:
       copied_from_component:
         proposal_proposal: İlgili teklifler

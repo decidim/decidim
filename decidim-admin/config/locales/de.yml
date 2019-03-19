@@ -107,9 +107,9 @@ de:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Ungültige Bilddatei
             official_img_footer:
+              allowed_file_content_types: Ungültige Bilddatei
+            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:

@@ -107,9 +107,9 @@ es:
               must_be_ssl: El URI de redirección debe ser un URI SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Archivo de imagen no válido
             official_img_footer:
+              allowed_file_content_types: Archivo de imagen no válido
+            official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
   activerecord:
     attributes:
@@ -302,18 +302,18 @@ es:
           impersonate: Suplantar
           impersonate_existing_managed_user: Gestionar participante "%{name}"
           impersonate_existing_user: Gestionar participante "%{name}"
-          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+          impersonate_new_managed_user: Gestionar nueva participante
       logs:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
         promotion:
-          error: Se ha producido un error al promocionar el usuario gestionado.
-          success: El usuario gestionado se ha promocionado correctamente.
+          error: Se ha producido un error al promocionar a esta participante.
+          success: La participante se ha promocionado correctamente.
         promotions:
           new:
-            explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
-            new_managed_user_promotion: Nueva promoción de usuarios gestionados
+            explanation: Las participantes gestionadas se pueden promocionar a participantes estándar. Esto significa que serán invitadas a la aplicación y no podrás volver a administrarlas. La participante invitada recibirá un correo electrónico para aceptar tu invitación.
+            new_managed_user_promotion: Nueva promoción de participante
             promote: Promocionar
       menu:
         admin_log: Registro de actividad de administrador
@@ -333,8 +333,8 @@ es:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
-        user_groups: Grupos de usuarios
-        users: Usuarios
+        user_groups: Grupos
+        users: Participantes
       models:
         area:
           fields:
@@ -362,7 +362,7 @@ es:
             expired_at: Caduca el
             reason: Razón
             started_at: Empezó a las
-            user: Usuario
+            user: Participante
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -376,7 +376,7 @@ es:
             name: Nombre
           name: Aplicación OAuth
         participatory_space_private_user:
-          name: Usuario privado de espacio participativo
+          name: Participante de espacio participativo privado
         scope:
           fields:
             name: Nombre
@@ -398,8 +398,8 @@ es:
             role: Rol
             roles:
               admin: Administrador
-              user_manager: Administrador de usuarios
-          name: Usuario
+              user_manager: Administrador de participantes
+          name: Participante
         user_group:
           fields:
             actions: Acciones
@@ -408,7 +408,7 @@ es:
             name: Nombre
             phone: Teléfono
             state: Estado
-            users_count: Número de usuarios
+            users_count: Número de participantes
       moderations:
         index:
           title: Moderaciones
@@ -422,7 +422,7 @@ es:
           error: Se ha producido un error al crear este boletín.
           success: Boletín creado con éxito. Por favor, revíselo antes de enviarlo.
         deliver:
-          error: Ha habido un error de entrega de este boletín.
+          error: Se ha producido un error al entregar este boletín.
           success: Boletín enviado con éxito.
         destroy:
           error_already_sent: 'No se puede destruir el boletín de noticias: Ya se ha enviado.'
@@ -467,9 +467,9 @@ es:
           success: Aplicación actualizada con éxito.
       officializations:
         create:
-          success: Usuario oficializado con éxito
+          success: Partcipante oficializada correctamente
         destroy:
-          success: Usuario des-oficializado con éxito
+          success: Participante des-oficializada correctamente
         index:
           actions: Acciones
           badge: Distintivo
@@ -491,7 +491,7 @@ es:
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
-          title: Oficializar el usuario "%{name}"
+          title: Oficializar participante "%{name}"
       organization:
         edit:
           title: Editar organización
@@ -505,13 +505,13 @@ es:
           url: URL
           youtube: YouTube
         update:
-          error: Se produjo un error al actualizar esta organización.
+          error: Se ha producido un error al actualizar esta organización.
           success: Organización actualizada correctamente.
       organization_appearance:
         edit:
           update: Actualizar
         form:
-          colors_title: Colores de organizacion
+          colors_title: Colores de la organización
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
@@ -528,16 +528,16 @@ es:
           update: Actualizar
       participatory_space_private_users:
         create:
-          error: Hubo un error al agregar un usuario privado para este espacio participativo.
-          success: El acceso a usuarios privados de espacio participativo creado con éxito.
+          error: Se ha producido un error al agregar una participante a este espacio participativo privado.
+          success: Acceso privado a participantes del espacio participativo creado correctamente.
         destroy:
-          error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
-          success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
+          error: Se ha producido un error al eliminar a una participante para este espacio participativo privado.
+          success: El acceso de la participante al espacio de participación privado se ha eliminado correctamente.
         index:
-          title: Usuario privado de espacio participativo.
+          title: Participante de espacio de participación privado
         new:
           create: Crear
-          title: Nuevo usuario privado en el espacio participativo.
+          title: Nueva participante de espacio de participación privado.
       resource_permissions:
         edit:
           submit: Enviar
@@ -573,7 +573,7 @@ es:
           title: Nuevo ámbito
         no_scopes: No hay ámbitos en este nivel.
         update:
-          error: Se produjo un error en la actualización de este ámbito.
+          error: Se ha producido un error actualizando de este ámbito.
           success: Ámbito actualizado correctamente
       static_page_topics:
         create:
@@ -599,7 +599,7 @@ es:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
-          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
+          changed_notably_help: Si se marca, se notificará a las participantes que acepten los nuevos Términos y Condiciones.
           title: Editar página
           update: Actualizar
         form:
@@ -623,24 +623,24 @@ es:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
-        impersonatable_users: Usuarios manejables
-        impersonations: Gestion de usuarios
-        participants: Usuarios
+        impersonatable_users: Participantes que se pueden gestionar
+        impersonations: Gestión de participantes
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
-        user_groups: Grupos de usuarios
-        users: Usuarios
+        user_groups: Grupos
+        users: Participantes
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
-          success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
+          success: Archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
         reject:
-          invalid: Se ha producido un error al rechazar este grupo de usuarios.
-          success: Grupo de usuarios rechazado correctamente
+          invalid: Se ha producido un error al rechazar este grupo.
+          success: Grupo rechazado correctamente
         verify:
-          invalid: Se ha producido un error al verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado correctamente
+          invalid: Se ha producido un error al verificar este grupo.
+          success: Grupo verificado correctamente
       user_groups:
         index:
           filter:
@@ -657,46 +657,46 @@ es:
           verify_via_csv: Verificar a través de CSV
       user_groups_csv_verifications:
         new:
-          explanation: Sube tu archivo CSV. Debe tener los correos electrónicos oficiales de los grupos de usuarios en su organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos de usuarios que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
+          explanation: Sube tu archivo CSV. Debe tener los correos oficiales de los grupos en tu organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
           title: Sube tu archivo CSV
           upload: Subir
       users:
         create:
-          error: Hubo un error al invitar a este usuario.
-          success: Usuario invitado con éxito.
+          error: Se ha producido un error al invitar a esta administradora.
+          success: Participante invitada con éxito.
         destroy:
-          error: Hubo un error al tratar de eliminar este usuario.
-          success: El usuario ya no es un administrador.
+          error: Se ha producido un error al tratar de eliminar esta administradora.
+          success: La participante ya no es administradora.
         form:
           email: Correo electrónico
           name: Nombre
           role: Rol
         new:
           create: Invitar
-          title: Invitar a un usuario como administrador
+          title: Invitar a la participante como administradora
       view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
-          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     moderations:
       actions:
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
-        unhide: Ocultar
+        unhide: Desocultar
         unreport: Cancelar denuncia
       admin:
         reportable:
           hide:
-            invalid: Ha habido un error al ocultar el contenido.
+            invalid: Se ha producido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
           unhide:
-            invalid: Ha habido un problema al no encontrar el recurso.
-            success: Recurso exitosamente no oculto.
+            invalid: Se ha producido un error desocultando el contenido.
+            success: Contenido exitosamente desocultado.
           unreport:
-            invalid: Ha habido un problema cancelando la denuncia.
+            invalid: Se ha producido un error al cancelar la denuncia.
             success: Denuncia cancelada correctamente.
       models:
         moderation:
@@ -718,4 +718,4 @@ es:
         settings:
           title: Ajustes
         users:
-          title: Usuarios
+          title: Partipantes

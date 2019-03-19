@@ -34,6 +34,10 @@ sv:
         grant_id_documents_offline_verification: "%{user_name} verifierad %{resource_name} hjälp av en offline ID-dokument verifiering"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Admins laddar upp en CSV med e-postadresserna till de accepterade deltagarna
+            - Endast deltagare med ett e-postmeddelande i den CSV-filen kan verifieras
         id_documents:
           help:
             - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
@@ -99,8 +103,8 @@ sv:
             body: För att göra detta måste du ange systemadministration och lägga till csv_census-godkännandena till organisationen
             title: Du måste aktivera csv-folkräkningen för den här organisationen
           new:
+            file: ".csv-fil med e-postdata"
             info: 'Måste vara en fil med CSV-format med en kolumn: e-post'
-            file: .csv-fil med e-postdata
             submit: Ladda upp fil
             title: Ladda upp en ny folkräkning
         authorizations:
@@ -147,7 +151,7 @@ sv:
               success: Verifieringen avvisades. Användaren kommer att uppmanas att ändra sina dokument
         authorizations:
           choose:
-            choose_a_type: "Var god välj hur du vill verifieras:"
+            choose_a_type: 'Var god välj hur du vill verifieras:'
             offline: Off-line
             online: Uppkopplad
             title: Verifiera dig själv med ditt identitetsdokument
@@ -205,14 +209,14 @@ sv:
           create:
             error: Ett problem uppstod med din förfrågan
             success: Tack! Vi har skickat ett SMS till din telefon.
+          destroy:
+            success: Verifieringskoden återställs väl. Ange ditt telefonnummer igen.
           edit:
             confirm_destroy: Är du säker på att du vill återställa verifieringskoden?
             destroy: Återställ verifieringskod
-            send: Bekräfta
             resend: Fick inte verifieringskoden?
+            send: Bekräfta
             title: Presentera verifieringskoden du fick
-          destroy:
-            success: Verifieringskoden återställs väl. Ange ditt telefonnummer igen.
           new:
             send: Skicka mig ett SMS
             title: Begär din verifieringskod

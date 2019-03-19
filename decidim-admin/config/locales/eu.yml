@@ -107,9 +107,9 @@ eu:
               must_be_ssl: Birbideratze URI SSL URI izan behar du
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Irudi fitxategi baliogabea
             official_img_footer:
+              allowed_file_content_types: Irudi fitxategi baliogabea
+            official_img_header:
               allowed_file_content_types: Irudi fitxategi baliogabea
   activerecord:
     attributes:
