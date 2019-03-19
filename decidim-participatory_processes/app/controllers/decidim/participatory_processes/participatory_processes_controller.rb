@@ -69,7 +69,7 @@ module Decidim
       end
 
       def filtered_participatory_process_groups(filter_name = filter)
-        OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter_name)
+        OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter_name, current_user)
       end
 
       def participatory_process_groups

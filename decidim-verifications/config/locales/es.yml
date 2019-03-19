@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -37,16 +36,16 @@ es:
       admin:
         id_documents:
           help:
-          - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
-          - Rellenas la información presente en la imagen subida.
-          - La información debe coincidir con lo que el usuario envió.
-          - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+            - Rellenas la información presente en la imagen subida.
+            - La información debe coincidir con lo que el usuario envió.
+            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
         postal_letter:
           help:
-          - Los usuarios solicitan que se envíe un código de verificación a su dirección.
-          - Envías la carta a su dirección con el código de verificación.
-          - Marcas la carta como enviada.
-          - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+            - Envías la carta a su dirección con el código de verificación.
+            - Marcas la carta como enviada.
+            - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
       csv_census:
         explanation: Verifíquese utilizando el censo de la organización.
         name: Censo de la organización
@@ -86,7 +85,7 @@ es:
           census:
             create:
               error: Hubo un error al importar el censo.
-              success: "%{count} artículos importados exitosamente (%{errors} errores)"
+              success: '%{count} artículos importados exitosamente (%{errors} errores)'
             destroy_all:
               success: Todos los datos del censo han sido eliminados
           destroy:
@@ -100,8 +99,8 @@ es:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
             title: Necesitas activar el censo csv para esta organización.
           new:
-            file: archivo .csv con datos de correos electrónicos
             info: 'Debe ser un archivo con formato CSV con una columna: correo electrónico'
+            file: archivo .csv con datos de correos electrónicos
             submit: Subir archivo
             title: Subir un nuevo censo
         authorizations:
@@ -148,7 +147,7 @@ es:
               success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
         authorizations:
           choose:
-            choose_a_type: 'Por favor selecciona como quieres ser verificado:'
+            choose_a_type: "Por favor selecciona como quieres ser verificado:"
             offline: Presencial
             online: Online
             title: Verifícate utilizando tu documento de identidad
@@ -190,7 +189,7 @@ es:
         authorizations:
           create:
             error: Hubo un problema con su petición
-            success: "¡Gracias! Te enviaremos un código de verificación a tu dirección"
+            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
             title: Introduce el código de verificación que recibiste
@@ -205,15 +204,15 @@ es:
         authorizations:
           create:
             error: Hubo un problema con tu solicitud
-            success: "¡Gracias! Hemos enviado un SMS a tu teléfono."
+            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
+          edit:
+            confirm_destroy: '¿Estás seguro de que quieres restablecer el código de verificación?'
+            destroy: Restablecer código de verificación
+            send: Confirmar
+            resend: '¿No recibió el código de verificación?'
+            title: Introduce el código de verificación que has recibido
           destroy:
             success: Código de verificación restablecido con éxito. Por favor vuelva a ingresar su número de teléfono.
-          edit:
-            confirm_destroy: "¿Estás seguro de que quieres restablecer el código de verificación?"
-            destroy: Restablecer código de verificación
-            resend: "¿No recibió el código de verificación?"
-            send: Confirmar
-            title: Introduce el código de verificación que has recibido
           new:
             send: Mándame un SMS
             title: Solicita tu código de verificación

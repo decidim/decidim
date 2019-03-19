@@ -91,6 +91,8 @@ end
 **Fixed**:
 
 - **decidim-comments**: Fixes that as a normal user (no private user) I can comment on a private assembly where is available. [#4924](https://github.com/decidim/decidim/pull/4924)
+- **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
+- **decidim-proposals**: Update error message when a Proposal can not be withdrawn due to already existing supports.  [#4961](https://github.com/decidim/decidim/pull/4961)
 - **decidim-meetings**: Fix card list data displays. [#4972](https://github.com/decidim/decidim/pull/4972)
 - **decidim-assemblies**: Fix only show published children assemblies in public view [#4969](https://github.com/decidim/decidim/pull/4969)
 - **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
@@ -164,6 +166,8 @@ end
 - **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4964](https://github.com/decidim/decidim/pull/4964/)
 - **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4964](https://github.com/decidim/decidim/pull/4964/)
 - **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
+- **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
+- **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
 
 **Removed**:
 

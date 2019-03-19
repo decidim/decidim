@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -476,8 +475,8 @@ es:
           title: Tipos de inscripción
       shared:
         conference_user_login:
-          already_account: "¿Ya tienes una cuenta en decidim?"
-          new_user: "¿Eres nuevo?"
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Eres nuevo?'
           sign_in: Inicia sesión para inscribirte en la conferencia
           sign_up: Crea una cuenta de usuario para inscribirte en la conferencia
       show:
@@ -506,10 +505,10 @@ es:
         votes_count: Votos
     events:
       conferences:
-        conference_registration_confirmed:
-          notification_title: Su registro para la conferencia <a href="%{resource_url}">%{resource_title}</a> ha sido confirmado.
         conference_registration_validation_pending:
           notification_title: Su inscripción para la conferencia <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
+        conference_registration_confirmed:
+          notification_title: Su registro para la conferencia <a href="%{resource_url}">%{resource_title}</a> ha sido confirmado.
         conference_registrations_over_percentage:
           email_intro: Las plazas ocupadas para la conferencia "%{resource_title}" superan el %{percentage}%.
           email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la conferencia.
@@ -528,7 +527,7 @@ es:
         upcoming_conference:
           email_intro: 'La conferencia "%{resource_title}" se lleva a cabo en 2 días. Puedes leer la descripción de su página:'
           email_outro: Ha recibido esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: ¡Se acerca la conferencia "%{resource_title}"!
+          email_subject: '¡Se acerca la conferencia "%{resource_title}"!'
           notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> llegará en 2 días.
     log:
       value_types:
