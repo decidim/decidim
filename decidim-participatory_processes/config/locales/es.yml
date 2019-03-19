@@ -72,7 +72,7 @@ es:
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
-        new_process_user_role: Nuevo usuario de proceso
+        new_process_user_role: Nueva administradora de proceso
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -88,8 +88,8 @@ es:
           components: Componentes
           info: Información
           moderations: Moderaciones
-          private_users: Usuarios privados
-          process_admins: Usuarios del proceso
+          private_users: Participantes privadas
+          process_admins: Administradoras del proceso
           steps: Fases del proceso
       models:
         participatory_process:
@@ -109,13 +109,13 @@ es:
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
-          name: Fase de proceso participativo
+          name: Fase del proceso participativo
         participatory_process_user_role:
           fields:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario de proceso participativo
+          name: Administradora del proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -131,7 +131,7 @@ es:
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
-          success: El grupo de proceso participativo se eliminó con éxito.
+          success: Grupo de procesos participativos eliminado correctamente.
         edit:
           title: Editar grupo de procesos
           update: Actualizar
@@ -139,8 +139,8 @@ es:
           create: Crear
           title: Nuevo grupo de procesos
         update:
-          error: Se ha producido un error actualizando este grupo.
-          success: Grupo actualizado correctamente.
+          error: Se ha producido un error al actualizar este grupo de procesos participativos.
+          success: Grupo de procesos participativos actualizado correctamente.
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -150,48 +150,48 @@ es:
           success: El proceso participativo se ha despublicado correctamente.
       participatory_process_step_activations:
         create:
-          error: Se ha producido un error al activar esta fase de proceso participativo.
-          success: La fase de proceso participativo se ha activado correctamente.
+          error: Se ha producido un error al activar esta fase del proceso participativo.
+          success: La fase del proceso participativo se ha activado correctamente.
       participatory_process_steps:
         create:
-          error: Se ha producido un error al crear una nueva fase de proceso participativo.
-          success: La fase de proceso participativo se ha creado correctamente.
+          error: Se ha producido un error al crear una nueva fase del proceso participativo.
+          success: La fase del proceso participativo se ha creado correctamente.
         default_title: Introducción
         destroy:
           error:
             active_step: No se puede eliminar la fase activa.
             last_step: No se puede eliminar la última fase de un proceso.
-          success: Fase de proceso participativo eliminada con éxito.
+          success: Fase del proceso participativo eliminada correctamente.
         edit:
-          title: Editar fase de proceso participativo
+          title: Editar fase del proceso participativo
           update: Actualizar
         index:
           steps_title: Fases del proceso
         new:
           create: Crear
-          title: Nuevo fase de proceso participativo
+          title: Nueva fase del proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
-          error: Se ha producido un error en la actualización de esta fase de proceso participativo.
-          success: La fase de proceso participativo se ha actualizado correctamente.
+          error: Se ha producido un error en la actualización de esta fase del proceso participativo.
+          success: La fase del proceso participativo se ha actualizado correctamente.
       participatory_process_user_roles:
         create:
-          error: Ha habido un error al agregar un usuario a este proceso participativo.
-          success: Usuario añadido con éxito a este proceso participativo.
+          error: Ha habido un error al añadir una participante a este proceso participativo.
+          success: Participante añadida correctamente a este proceso participativo.
         destroy:
-          success: Usuario eliminado con éxito de este proceso participativo.
+          success: Participante eliminado correctamente de este proceso participativo.
         edit:
-          title: Editar usuario del proceso
+          title: Editar administradora del proceso.
           update: Actualizar
         index:
-          process_admins_title: Usuarios del proceso
+          process_admins_title: Administradoras del proceso
         new:
           create: Crear
-          title: Nuevo usuario del proceso
+          title: Nueva administradora del proceso.
         update:
-          error: Ha habido un error al actualizar un usuario para este proceso participativo.
-          success: Usuario actualizado correctamente para este proceso participativo.
+          error: Se ha producido un error al actualizar una administradora para este proceso participativo.
+          success: Administradora actualizada correctamente para este proceso participativo.
       participatory_processes:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
@@ -209,23 +209,23 @@ es:
           create: Crear
           title: Nuevo proceso participativo
         update:
-          error: Se ha producido un error en la actualización de este proceso participativo.
+          error: Se ha producido un error al actualizar este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
       participatory_processes_copies:
         create:
-          error: Hubo un error al duplicar este proceso participativo.
-          success: El proceso participativo se duplicó con éxito.
+          error: Se ha producido un error al duplicar este proceso participativo.
+          success: El proceso participativo se ha duplicado correctamente.
       participatory_processes_group:
         create:
-          error: Se ha producido un error al crear este grupo.
-          success: Grupo creado correctamente.
+          error: Se ha producido un error al crear este grupo de procesos participativos.
+          success: Grupo de procesos participativos creado correctamente.
       titles:
         participatory_process_groups: Grupos de procesos participativos
         participatory_processes: Procesos participativos
       users:
         resend_invitation:
-          error: Hubo un error al volver a enviar la invitación.
-          success: Invitación reenviada con éxito.
+          error: Se ha producido un error al volver a enviar la invitación.
+          success: Invitación reenviada correctamente.
     admin_log:
       participatory_process:
         create: "%{user_name} creó el proceso participativo %{resource_name}"
@@ -238,9 +238,9 @@ es:
         delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
         update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"
-        delete: "%{user_name} eliminó al usuario %{resource_name} del proceso participativo %{space_name}"
-        update: "%{user_name} cambió el rol del usuario %{resource_name} en el proceso participativo %{space_name}"
+        create: "%{user_name} invitó a la participante %{resource_name} al proceso participativo %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} del proceso participativo %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en el proceso participativo %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -269,12 +269,12 @@ es:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 proceso para %{group}
-          other: "%{count} procesos para %{group}"
+          one: 1 proceso en %{group}
+          other: "%{count} procesos en %{group}"
         title: Grupos de procesos participativos
     participatory_process_steps:
       index:
-        process_steps: Las fases de proceso
+        process_steps: Fases del proceso
         title: Fases del proceso participativo
     participatory_processes:
       admin:
@@ -303,7 +303,7 @@ es:
         home:
           highlighted_processes:
             active_processes: Procesos activos
-            active_step: Paso activo
+            active_step: Fase activa
             more_information: Más información
             participate: Participar
             see_all_processes: Ver todos los procesos

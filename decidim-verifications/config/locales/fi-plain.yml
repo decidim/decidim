@@ -34,6 +34,10 @@ fi-pl:
         grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta
+            - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
@@ -99,8 +103,8 @@ fi-pl:
             body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
             title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
           new:
+            file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
             info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
-            file: sähköpostiosoitteet sisältävä .csv-tiedosto
             submit: Lataa tiedosto
             title: Lataa uusi rekisteri
         authorizations:
@@ -147,7 +151,7 @@ fi-pl:
               success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
         authorizations:
           choose:
-            choose_a_type: "Valitse, kuinka haluat varmistaa henkilöllisyytesi:"
+            choose_a_type: 'Valitse, kuinka haluat varmistaa henkilöllisyytesi:'
             offline: Offline
             online: Online
             title: Varmista henkilöllisyytesi käyttämällä henkilöllisyystodistusta
@@ -205,14 +209,14 @@ fi-pl:
           create:
             error: Pyynnössäsi oli ongelma
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
-          edit:
-            confirm_destroy: Haluatko varmasti palauttaa vahvistuskoodin?
-            destroy: Nollaa vahvistuskoodi
-            send: Vahvista
-            resend: Etkö saanut vahvistuskoodia?
-            title: Kirjoita vastaanottamasi vahvistuskoodi
           destroy:
-            success: Vahvistuskoodi palautetaan onnistuneesti. Anna puhelinnumerosi uudelleen.
+            success: Uuden vahvistuskoodin luonti onnistui. Kirjoita puhelinnumerosi uudelleen.
+          edit:
+            confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
+            destroy: Luo uusi vahvistuskoodi
+            resend: Etkö saanut vahvistuskoodia?
+            send: Vahvista
+            title: Kirjoita vastaanottamasi vahvistuskoodi
           new:
             send: Lähetä minulle tekstiviesti
             title: Pyydä vahvistuskoodia

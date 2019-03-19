@@ -31,7 +31,7 @@ fi:
             name: Suunnitelma
         projects:
           create:
-            invalid: Virhe luotaessa suunnitelmaa
+            invalid: Suunnitelman luonti epäonnistui
             success: Suunnitelma lisätty onnistuneesti
           destroy:
             success: Suunnitelma poistettu onnistuneesti
@@ -46,11 +46,11 @@ fi:
             create: Luo
             title: Uusi suunnitelma
           update:
-            invalid: Virhe päivitettäessä suunnitelmaa
+            invalid: Suunnitelman päivitys epäonnistui
             success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Virhe tuotaessa ehdotuksia suunnitelmiksi
+            invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia suunnitelmiin
@@ -140,10 +140,10 @@ fi:
             votes_enabled: Äänestys on käytössä
     orders:
       checkout:
-        error: Virhe käsiteltäessä ääntäsi
+        error: Äänen käsittely epäonnistui
         success: Äänesi on hyväksytty onnistuneesti
       destroy:
-        error: Virhe peruutettaessa ääntäsi
+        error: Äänen peruutus epäonnistui
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:

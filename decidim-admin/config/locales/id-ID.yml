@@ -107,9 +107,9 @@ id:
               must_be_ssl: URI pengalihan harus berupa URI SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: File gambar tidak valid
             official_img_footer:
+              allowed_file_content_types: File gambar tidak valid
+            official_img_header:
               allowed_file_content_types: File gambar tidak valid
   activerecord:
     attributes:

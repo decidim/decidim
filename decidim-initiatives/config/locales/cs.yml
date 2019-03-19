@@ -37,9 +37,9 @@ cs:
         undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
       initiatives_vote:
-        name_and_surname: Jméno a příjmení
-        document_number: Číslo dokumentu
         date_of_birth: Datum narození
+        document_number: Číslo dokumentu
+        name_and_surname: Jméno a příjmení
         postal_code: Poštovní směrovací číslo
       organization_data:
         address: Adresa
@@ -147,8 +147,8 @@ cs:
       admin:
         answers:
           edit:
-            title: Odpověď na %{title}
             answer: Odpovědět
+            title: Odpověď na %{title}
           info_initiative:
             created_at: Vytvořeno u
             description: Popis
@@ -326,12 +326,12 @@ cs:
           help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
         finish:
           back_to_initiative: Zpět na iniciativu
-        sms_phone_number:
-          continue: Pošlete mi SMS
-          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód
         sms_code:
           continue: Zkontrolujte kód a pokračujte
           help: Zkontrolujte SMS přijaté v telefonu
+        sms_phone_number:
+          continue: Pošlete mi SMS
+          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód
       initiative_votes:
         create:
           error: Při podpisu iniciativy došlo k chybám.
@@ -453,8 +453,8 @@ cs:
     resources:
       initiatives_type:
         actions:
-          vote: Hlasování
           title: Akce
+          vote: Hlasování
   layouts:
     decidim:
       admin:
@@ -480,8 +480,8 @@ cs:
         fill_personal_data: Dokončete své údaje
         finish: Dokončit
         finished: Vytvoření podpisu iniciativy
-        select_identity: Vyberte identitu
         see_steps: viz kroky
+        select_identity: Vyberte identitu
         sms_code: Ověření kódu SMS
         sms_phone_number: Číslo mobilního telefonu
         step: Krok %{current} z %{total}

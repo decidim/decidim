@@ -136,12 +136,12 @@ ca:
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
-        promote_button: Publicar com una nova %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        promote_help_text: Pots publicar aquesta esmena com una proposta independent %{model_name}
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
+        promote_button: Publicar com una nova %{model_name}
+        promote_help_text: Pots publicar aquesta esmena com una proposta independent %{model_name}
         section_heading: Esmenes (%{count})
       created:
         error: S'ha produït un error en crear aquesta esmena, si us plau torna-ho a provar més tard
@@ -157,9 +157,7 @@ ca:
             acceptada a <strong>%{announcement_date}</strong>.
           evaluating: |-
             S'està avaluant aquesta esmena del %{amendable_type} %{amendable_link}.
-          rejected: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link}
-            ha estat rebutjada el <strong>%{announcement_date}</strong>.
+          rejected: "Aquesta esmena de la %{amendable_type} %{amendable_link}\nha estat rebutjada el <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Aquesta esmena de la %{amendable_type} %{amendable_link}
             ha estat retirada per l'autora.
@@ -169,12 +167,12 @@ ca:
         heading: Crea la teva esmena
         help_text: Estàs modificant el %{model_name}
         send: Enviar esmena
+      promoted:
+        error: S'ha produït un error en publicar l'esmena com una nova proposta
+        success: L'esmena s'ha publicat com una nova proposta correctament
       rejected:
         error: S'ha produït un error en rebutjar aquesta esmena, si us plau torna-ho a provar més tard
         success: L'esmena s'ha rebutjat correctament
-      promoted:
-        success: L'esmena s'ha publicat com una nova proposta correctament
-        error: S'ha produït un error en publicar l'esmena com una nova proposta
       review:
         back: Tornar
         heading: Revisa l'esmena
@@ -225,31 +223,31 @@ ca:
     authorization_modals:
       content:
         expired:
-          authorize: Reautoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
+          authorize: Torna a autoritzar amb "%{authorization}"
+          explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
-          cancel: Cancel · lar
-          explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que la reautoritzeu perquè no disposem de les dades següents:'
+          cancel: Cancel·lar
+          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
           invalid_field: "%{field}"
-          reauthorize: Reautoritzar
-          title: Torna a autoritzar
+          reauthorize: Reautoritzar-se
+          title: Si us plau, reautoritza't
         missing:
-          authorize: Autoritzeu-vos amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
-          title: Es necessita autorització
+          authorize: Autoritzar amb "%{authorization}"
+          explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
+          title: Es requereix autorització
         pending:
-          explanation: Per realitzar aquesta acció, heu d'estar autoritzats amb "%{authorization}", però la vostra autorització encara està en curs
-          resume: Comproveu el vostre progrés d'autorització "%{authorization}"
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "%{field} valor %{value} no és vàlida."
+          explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
+          invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
-          title: No autoritzat
+          title: Acció no autoritzada
         unconfirmed:
-          confirmation_instructions: 'Si no heu rebut les instruccions de confirmació, podeu tornar a sol·licitar-les:'
-          explanation_html: Per realitzar aquesta acció cal que estigueu autoritzada, abans de fer-ho, heu de confirmar el vostre correu electrònic <strong>%{email}</strong>.
+          confirmation_instructions: 'Si no has rebut les instruccions de confirmació, pot tornar a demanar-les:'
+          explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
     collapsible_list:
@@ -383,6 +381,17 @@ ca:
         title: No s'ha trobat la pàgina que busques
     events:
       amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
+            email_subject: Esmena acceptada per %{amendable_title} a %{emendation_author_nickname}
+            notification_title: S'ha acceptat l' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
+            notification_title: S'ha acceptat l' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
           affected_user:
             email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
@@ -394,6 +403,17 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nova esmena per a %{amendable_title} de %{emendation_author_nickname}
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha creat una <a href="%{emendation_path}">nova esmena</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
+            email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
+            email_subject: S'ha publicat una esmena de %{emendation_author_nickname} com una nova proposta
+            notification_title: S'ha publicat una <a href="%{emendation_path}">esmena refusada</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} com una nova proposta de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Una esmena de %{emendation_author_nickname} ha estat publicada com una nova proposta
+            notification_title: L' <a href="%{emendation_path}">esmena rebutjada</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat pùblicada com una nova proposta.
         amendment_rejected:
           affected_user:
             email_intro: 'S''ha rebutjat una esmena per %{amendable_title}. La pots veure des d''aquesta pàgina:'
@@ -405,28 +425,6 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè n'ets l'autor/a de %{amendable_title}.
-            email_subject: S'ha publicat una esmena de %{emendation_author_nickname} com una nova proposta
-            notification_title: S'ha publicat una <a href="%{emendation_path}">esmena refusada</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} com una nova proposta de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat promoguda a una d''independent %{amendable_type}. Pots veure-ho des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: S'ha promogut una esmena de %{emendation_author_nickname}
-            notification_title: S'ha promogut una esmena de <a href="%{emendation_path}">rebuig</a> per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} per part de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-        amendment_accepted:
-          affected_user:
-            email_intro: 'S''ha acceptat una modificació per a %{amendable_title}. Podeu veure-ho des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
-            email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
-            notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Una esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
-            notification_title: S'ha acceptat la <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> per a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
@@ -454,7 +452,7 @@ ca:
           email_intro: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
           email_subject: Has arribat al nivell %{current_level} de la insígnia %{badge_name}!
-          notification_title: Felicitacions Has arribat al nivell %{current_level} a la insígnia</a><a href="%{resource_path}">%{badge_name}!
+          notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administrador d'aquest grup.
@@ -530,10 +528,10 @@ ca:
     follows:
       create:
         button: Seguir
-        error: Hi ha hagut un error seguint aquest recurs.
+        error: S'ha produït un error en seguir aquest recurs.
       destroy:
         button: Deixar de seguir
-        error: Hi ha hagut un error deixar seguint aquest recurs.
+        error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
       current_file: Fitxer actual
       current_image: Imatge actual
@@ -548,21 +546,21 @@ ca:
           conditions:
             - Vine aquí sovint
           description: Aquest distintiu es concedeix al visitar la plataforma de forma regular. Ens agrada tenir-te per aquí!
-          description_another: Aquesta usuària s'ha connectat durant %{score} dies consecutius en algun moment.
+          description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
           name: Continuïtat
           next_level_in: Connecta't per %{score} dies consecutius per arribar al següent nivell!
-          unearned_another: Aquesta usuària no ha iniciat la sessió durant més d'un dia consecutiu.
+          unearned_another: Aquesta participant no ha iniciat la sessió durant més d'un dia consecutiu.
           unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
             - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
-          description_another: Aquesta usuària té %{score} seguidors.
-          description_own: "%{score} usuàries et segueixen."
+          description_another: Aquesta participant té %{score} seguidores.
+          description_own: "%{score} participants et segueixen."
           name: Seguidors
-          next_level_in: Aconsegueix %{score} usuàries més que et segueixin per passar al següent nivell!
-          unearned_another: Aquesta usuària encara no té cap seguidor.
+          next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
+          unearned_another: Aquesta participant encara no té cap seguidora.
           unearned_own: Encara no tens seguidors.
         index:
           badge_title: "%{name} distintiu"
@@ -575,28 +573,28 @@ ca:
             - Personalitza, si vols, el missatge que envies
             - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
           description: Aquest distintiu es concedeix quan has convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i es converteixen en participants. Gràcies per donar a conèixer %{organization_name} als altres i ajudar a ampliar la comunitat!
-          description_another: Aquest usuari ha convidat a %{score} usuaris.
-          description_own: Has convidat %{score} usuaris.
+          description_another: Aquesta participant ha convidat a %{score} persones.
+          description_own: Has convidat %{score} persones.
           name: Invitacions
-          next_level_in: Convida a %{score} usuaris més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha convidat cap usuari.
-          unearned_own: Encara no has convidat cap usuari.
+          next_level_in: Convida a %{score} persones més per arribar al següent nivell!
+          unearned_another: Aquesta participant encara no ha convidat ningú.
+          unearned_own: Encara no has convidat ningú.
       description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
       level: Nivell %{level}
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
     group_admins:
       actions:
-        are_you_sure: Estàs segur? Això no eliminarà l'usuari del grup.
+        are_you_sure: Segur que vols fer aquesta acció? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administrador
       demote:
-        error: S'ha produït un error a l'eliminar aquest usuari de la llista d'administradors
-        success: S'ha eliminat l'usuari de l'administrador amb èxit
+        error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
+        success: S'ha eliminat correctament la participant del panell d'administració
       index:
         current_admins: 'Administradors actuals:'
         manage_admins: Gestiona els administradors
     group_invites:
       accept:
-        error: S'ha produït un problema en acceptar aquesta invitació
+        error: S'ha produït un error en acceptar aquesta invitació
         success: S'ha acceptat la invitació correctament
       accept_invitation: Accepta
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
@@ -783,8 +781,8 @@ ca:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
-        newsletters: Butlletins informatius
         newsletter_notifications: Vull rebre butlletins
+        newsletters: Butlletins informatius
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
         receive_notifications_about: Vull rebre notificacions
         send_notifications_by_email: Enviar notificacions per correu electrònic
@@ -989,9 +987,9 @@ ca:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
     user_interests:
       show:
-        no_scopes: Aquesta organització encara no té cap abast!
         my_interests: Els meus interessos
-        select_your_interests: Seleccioneu els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
+        no_scopes: Aquesta organització encara no té cap abast!
+        select_your_interests: Selecciona els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
         update_my_interests: Actualitza els meus interessos
       update:
         error: S'ha produït un error en actualitzar els teus interessos.

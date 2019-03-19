@@ -34,6 +34,10 @@ it:
         grant_id_documents_offline_verification: "%{user_name} verificato %{resource_name} utilizzando una verifica dei documenti di identità offline"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Gli amministratori caricano un CSV con le e-mail dei partecipanti accettati
+            - Solo i partecipanti con un'email in quel file CSV possono essere verificati
         id_documents:
           help:
             - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
@@ -99,8 +103,8 @@ it:
             body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
             title: È necessario attivare il censimento CSV per questa organizzazione
           new:
+            file: "file .csv con dati di posta elettronica"
             info: 'Deve essere un file con formato CSV con una colonna: email'
-            file: file .csv con dati di posta elettronica
             submit: Caricare un file
             title: Carica un nuovo censimento
         authorizations:
@@ -147,7 +151,7 @@ it:
               success: Verifica respinta. L'utente serà richiesto di modificare i suoi documenti
         authorizations:
           choose:
-            choose_a_type: "Si prega di selezionare come si desidera essere verificato:"
+            choose_a_type: 'Si prega di selezionare come si desidera essere verificato:'
             offline: disconnesso
             online: in linea
             title: Verifica te stesso usando il tuo documento di identità
@@ -205,14 +209,14 @@ it:
           create:
             error: c'è stato un problema con la tua richiesta
             success: Grazie! Abbiamo inviato un SMS al tuo telefono.
+          destroy:
+            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           edit:
             confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
             destroy: Reimposta il codice di verifica
-            send: Confermare
             resend: Non hai ricevuto il codice di verifica?
+            send: Confermare
             title: Inserisci il codice di verifica che hai ricevuto
-          destroy:
-            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           new:
             send: Mandami un sms
             title: Richiedi il tuo codice di verifica

@@ -107,9 +107,9 @@ tr:
               must_be_ssl: Yönlendirme URI bir SSL URI'sı olmalıdır
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Geçersiz resim dosyası
             official_img_footer:
+              allowed_file_content_types: Geçersiz resim dosyası
+            official_img_header:
               allowed_file_content_types: Geçersiz resim dosyası
   activerecord:
     attributes:

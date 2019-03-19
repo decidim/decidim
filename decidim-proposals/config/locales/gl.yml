@@ -36,7 +36,7 @@ gl:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}"
+              invalid_document_type: 'Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ gl:
         participatory_texts:
           bulk-actions:
             are_you_sure: '¿Está seguro de descartar o borrador de texto participativo enteiro?'
-            import_doc: Importar documento
             discard_all: Descartar todo
+            import_doc: Importar documento
+          discard:
+            success: Todos os borradores de texto participativos foron descartados.
           import:
             invalid: O formulario non é válido.
             success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
@@ -320,8 +322,6 @@ gl:
           publish:
             invalid: Non se puideron publicar propostas
             success: Todas as propostas foron publicadas
-          discard:
-            success: Todos os borradores de texto participativos foron descartados.
           sections:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ gl:
           comments: Comentarios
         filters:
           activity: Actividade
+          amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona unha categoría
           origin: Orixe
@@ -633,7 +634,6 @@ gl:
           search: Busca
           state: Estado
           voted: Votado
-          amendment_type: Tipo
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -753,6 +753,9 @@ gl:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
+      withdraw:
+        errors:
+          has_supports: Esta proposta non pode ser retirada porque xa ten apoio.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas

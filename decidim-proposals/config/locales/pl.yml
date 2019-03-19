@@ -36,7 +36,7 @@ pl:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}"
+              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -309,8 +309,10 @@ pl:
         participatory_texts:
           bulk-actions:
             are_you_sure: Czy na pewno chcesz odrzucić cały szkic tekstu dla uczestników?
-            import_doc: Zaimportuj dokument
             discard_all: Odrzuć wszystko
+            import_doc: Zaimportuj dokument
+          discard:
+            success: Wszystkie projekty tekstowe z uczestnictwem zostały odrzucone.
           import:
             invalid: Formularz jest nieprawidłowy!
             success: Gratulacje, z importowanego dokumentu zostały przeanalizowane następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
@@ -330,8 +332,6 @@ pl:
           publish:
             invalid: Nie można publikować propozycji
             success: Wszystkie wnioski zostały opublikowane
-          discard:
-            success: Wszystkie projekty tekstowe z uczestnictwem zostały odrzucone.
           sections:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
@@ -642,6 +642,7 @@ pl:
           comments: Komentarze
         filters:
           activity: Czynność
+          amendment_type: Rodzaj
           category: Kategoria
           category_prompt: Wybierz kategorię
           origin: Pochodzenie
@@ -649,7 +650,6 @@ pl:
           search: Szukanie
           state: Stan
           voted: Głosował
-          amendment_type: Rodzaj
         filters_small_view:
           close_modal: Zamknij modal
           filter: Filtr
@@ -777,6 +777,9 @@ pl:
           version_number_out_of_total: "%{current_version} z %{total_count}"
         version:
           version_index: Wersja %{index}
+      withdraw:
+        errors:
+          has_supports: Ta propozycja nie może zostać wycofana, ponieważ ma już wsparcie.
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje

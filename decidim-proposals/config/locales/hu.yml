@@ -36,7 +36,7 @@ hu:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}"
+              invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ hu:
         participatory_texts:
           bulk-actions:
             are_you_sure: Biztos, hogy elveti az egész részvételi szöveg tervezet?
-            import_doc: Dokumentum importálása
             discard_all: Összes elvetése
+            import_doc: Dokumentum importálása
+          discard:
+            success: Az összes résztvevő szövegtervezetet elvetették.
           import:
             invalid: Az űrlap érvénytelen!
             success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
@@ -320,8 +322,6 @@ hu:
           publish:
             invalid: Nem sikerült közzé tenni a javaslatokat
             success: Minden pályázat megjelent
-          discard:
-            success: Az összes résztvevő szövegtervezetet elvetették.
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
@@ -626,6 +626,7 @@ hu:
           comments: Hozzászólások
         filters:
           activity: Tevékenység
+          amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
           origin: Kiindulópont
@@ -633,7 +634,6 @@ hu:
           search: Keresés
           state: Állapot
           voted: Szavazott
-          amendment_type: Típus
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrés
@@ -753,6 +753,9 @@ hu:
           version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
           version_index: '%{index} verzió'
+      withdraw:
+        errors:
+          has_supports: Ez a javaslat nem vonható vissza, mert már rendelkezik támogatással.
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
