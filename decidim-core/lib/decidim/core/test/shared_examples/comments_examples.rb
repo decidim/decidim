@@ -251,23 +251,5 @@ shared_examples "comments" do
         end
       end
     end
-
-    context "when a user votes to a comment" do
-      before do
-        component.participatory_space.private_space = true
-        login_as user, scope: :user
-      end
-
-      it "shows the vote block or not" do
-        visit resource_path
-        if commentable.user_allowed_to_comment?(user) && commentable.comments_have_votes?
-          expect(page).to have_selector(".comment__votes--up")
-          expect(page).to have_selector(".comment__votes--down")
-        else
-          expect(page).to have_no_selector(".comment__votes--up")
-          expect(page).to have_no_selector(".comment__votes--down")
-        end
-      end
-    end
   end
 end
