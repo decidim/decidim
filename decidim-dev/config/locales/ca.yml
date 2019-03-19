@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -17,7 +16,7 @@ ca:
       badges:
         test:
           conditions:
-          - Utilitza un entorn de prova per decidim.
+            - Utilitza un entorn de prova per decidim.
           description: Les participants obtenen aquesta insígnia creant proves.
           description_another: Aquesta participant ha creat %{score} proves.
           description_own: Heu creat %{score} proves.
