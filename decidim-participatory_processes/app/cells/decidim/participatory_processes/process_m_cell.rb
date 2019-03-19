@@ -47,7 +47,7 @@ module Decidim
 
       def step_cta_path
         if model.active_step&.cta_path.present?
-          model.active_step.cta_path
+          resource_path + "/" + model.active_step.cta_path
         else
           resource_path
         end

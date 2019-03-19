@@ -16,7 +16,8 @@ module Decidim
       end
 
       def resource_text
-        comment.body
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(comment.body)
+        renderer.render
       end
 
       private
