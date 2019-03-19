@@ -91,6 +91,7 @@ end
 **Fixed**:
 
 - **decidim-comments**: Fixes that as a normal user (no private user) I can comment on a private assembly where is available. [#4924](https://github.com/decidim/decidim/pull/4924)
+- **decidim-proposals**: Fix proposal wizard back button [\#4976](https://github.com/decidim/decidim/pull/4976)
 - **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
 - **decidim-proposals**: Update error message when a Proposal can not be withdrawn due to already existing supports.  [#4961](https://github.com/decidim/decidim/pull/4961)
 - **decidim-meetings**: Fix card list data displays. [#4972](https://github.com/decidim/decidim/pull/4972)

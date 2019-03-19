@@ -1,10 +1,8 @@
 <div class="columns large-3">
   <div class="m-bottom">
-    <% unless @step == :step_2 %>
-      <%= link_to proposal_wizard_aside_link_to_back(@step) do %>
-        <%= icon "chevron-left", class: "icon--small" %>
-        <%= wizard_aside_back_text %>
-      <% end %>
+    <%= link_to :back do %>
+      <%= icon "chevron-left", class: "icon--small" %>
+      <%= wizard_aside_back_text %>
     <% end %>
   </div>
   <div class="section">
