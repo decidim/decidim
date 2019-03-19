@@ -599,7 +599,7 @@ fi:
           error: Ehdotuksen kannattaminen epäonnistui.
       proposals:
         compare:
-          continue: Jatkaa
+          continue: Jatka
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
