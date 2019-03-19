@@ -121,6 +121,21 @@ module Decidim
           end
         end
 
+        context "when content has a link that is not in a proposals component" do
+          let(:proposal) { create(:proposal, component: component) }
+          let(:content) do
+            url = proposal_url(proposal).sub(%r{/proposals/}, "/something-else/")
+            "This content references a non-proposal with same ID as a proposal #{url}."
+          end
+
+          it { is_expected.to eq(content) }
+          it "has metadata with no reference to the proposal" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.linked_proposals).to be_empty
+          end
+        end
+
         context "when content has words similar to links but not links" do
           let(:similars) do
             %w(AA:aaa AA:sss aa:aaa aa:sss aaa:sss aaaa:sss aa:ssss aaa:ssss)
