@@ -307,6 +307,7 @@ ar:
           many: " التوقيعات"
           other: " التوقيعات"
         statistics:
+          assistants_count_title: مساعدون
           comments_count_title: تعليقات
           meetings_count_title: اجتماعات
           supports_count_title: توقيعات
