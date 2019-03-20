@@ -312,7 +312,7 @@ fi:
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
-        export_calendar: Vie kalenterin tiedot
+        export_calendar: Vie kalenteriin
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_events:
