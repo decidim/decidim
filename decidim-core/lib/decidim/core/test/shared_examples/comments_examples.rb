@@ -215,4 +215,59 @@ shared_examples "comments" do
       end
     end
   end
+
+  describe "when participatory space is private" do
+    context "when user want to create a comment" do
+      before do
+        component.participatory_space.private_space = true
+        login_as user, scope: :user
+      end
+
+      it "shows the form to add comments or not" do
+        visit resource_path
+        if commentable.user_allowed_to_comment?(user)
+          expect(page).to have_selector(".add-comment form")
+        else
+          expect(page).to have_no_selector(".add-comment form")
+        end
+      end
+    end
+
+    context "when a user replies to a comment", :slow do
+      let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+      let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
+
+      before do
+        component.participatory_space.private_space = true
+        login_as user, scope: :user
+      end
+
+      it "shows reply to the user or not" do
+        visit resource_path
+        if commentable.user_allowed_to_comment?(user)
+          expect(page).to have_selector(".comment__reply")
+        else
+          expect(page).to have_no_selector(".comment__reply")
+        end
+      end
+    end
+
+    context "when a user votes to a comment" do
+      before do
+        component.participatory_space.private_space = true
+        login_as user, scope: :user
+      end
+
+      it "shows the vote block or not" do
+        visit resource_path
+        if commentable.user_allowed_to_comment?(user) && commentable.comments_have_votes?
+          expect(page).to have_selector(".comment__votes--up")
+          expect(page).to have_selector(".comment__votes--down")
+        else
+          expect(page).to have_no_selector(".comment__votes--up")
+          expect(page).to have_no_selector(".comment__votes--down")
+        end
+      end
+    end
+  end
 end
