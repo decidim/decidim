@@ -609,7 +609,7 @@ ar:
           error: كانت هناك مشكلة في دعم الاقتراح.
       proposals:
         compare:
-          mine_is_different: اقتراحي مختلف
+          continue: استمر
           no_similars_found: أحسنت! لم يتم العثور على مقترحات مماثلة
           title: مقترحات مماثلة
         complete:

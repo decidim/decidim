@@ -599,7 +599,7 @@ tr:
           error: Teklif oylanırken hatalar oluştu.
       proposals:
         compare:
-          mine_is_different: Teklifim farklı
+          continue: Devam et
           no_similars_found: Aferin! Benzer teklif bulunamadı
           title: Benzer teklifler
         complete:

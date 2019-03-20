@@ -599,7 +599,7 @@ es:
           error: Se ha producido un error al apoyar la propuesta.
       proposals:
         compare:
-          mine_is_different: Mi propuesta es diferente
+          continue: Continuar
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:

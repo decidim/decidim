@@ -592,7 +592,7 @@ id:
           error: Ada kesalahan saat memilih proposal.
       proposals:
         compare:
-          mine_is_different: Proposal saya berbeda
+          continue: Terus
           no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ada proposal serupa yang ditemukan
           title: Proposal serupa
         complete:

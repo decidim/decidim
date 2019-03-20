@@ -599,7 +599,7 @@ eu:
           error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
         compare:
-          mine_is_different: Nire proposamena desberdina da
+          continue: Jarraitu
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
           title: Proposamen antzekoak
         complete:

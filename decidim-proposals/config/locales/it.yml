@@ -599,7 +599,7 @@ it:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         compare:
-          mine_is_different: La mia proposta è diversa
+          continue: Continua
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:
