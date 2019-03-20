@@ -81,7 +81,7 @@ module Decidim
       return resource.component if resource.is_a?(Decidim::HasComponent)
       return resource if resource.is_a?(Decidim::Component)
     end
-    
+
     def participatory_space
       return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
       component&.participatory_space
