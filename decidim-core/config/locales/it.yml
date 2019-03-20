@@ -9,13 +9,13 @@ it:
         about: Di
         email: La tua email
         name: Il tuo nome
-        nickname: soprannome
-        password: Parola d'ordine
+        nickname: Nome utente
+        password: Password
         password_confirmation: Conferma la tua password
         personal_url: URL personale
         remove_avatar: Rimuovi avatar
     models:
-      decidim/attachment_created_event: attaccamento
+      decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
       decidim/demoted_membership: Non è più un amministratore di gruppo
       decidim/gamification/badge_earned_event: Badge guadagnato
