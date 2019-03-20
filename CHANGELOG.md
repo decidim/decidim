@@ -90,6 +90,7 @@ end
 
 **Fixed**:
 
+- **decidim-core**: Don't send email if user can not participate in space [/#4988](https://github.com/decidim/decidim/pull/4988)
 - **decidim-proposals**: Fix proposal wizard back button [\#4976](https://github.com/decidim/decidim/pull/4976)
 - **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
 - **decidim-proposals**: Update error message when a Proposal can not be withdrawn due to already existing supports.  [#4961](https://github.com/decidim/decidim/pull/4961)
