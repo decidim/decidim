@@ -78,3 +78,6 @@ en:
             title: Form closed
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service
+      user_answers_serializer:
+        created_at: Answered on
+        id: Answer ID
