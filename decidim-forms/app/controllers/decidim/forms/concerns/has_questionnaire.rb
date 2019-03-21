@@ -19,7 +19,7 @@ module Decidim
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-            @signature = create_signature
+            @signature = session_token
             render template: "decidim/forms/questionnaires/show"
           end
 
@@ -28,7 +28,7 @@ module Decidim
 
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
 
-            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire, create_signature) do
+            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire, session_token) do
               on(:ok) do
                 # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
                 flash[:notice] = I18n.t("answer.success", scope: i18n_flashes_scope)
@@ -85,7 +85,7 @@ module Decidim
             @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)
           end
 
-          def create_signature
+          def session_token
             @session_token ||= Digest::MD5.hexdigest("#{session[:session_id]}-#{Rails.application.secrets.secret_key_base}")
           end
         end

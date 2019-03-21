@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddSessionTokenToDecidimFormsAnswers < ActiveRecord::Migration[5.2]
   class Answer < ApplicationRecord
     self.table_name = :decidim_forms_answers

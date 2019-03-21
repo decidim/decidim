@@ -16,7 +16,7 @@ module Decidim
 
       # Public: returns whether the questionnaire is answered by the user or not.
       def answered_by?(user)
-        query = user.is_a?(String) ? {session_token: user} : {user: user}
+        query = user.is_a?(String) ? { session_token: user } : { user: user }
         answers.where(query).any? if questions.present?
       end
     end
