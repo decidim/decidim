@@ -34,7 +34,7 @@ describe "Answer a survey", type: :system do
 
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(page).to have_content("The questionnaire is closed and cannot be answered.")
+      expect(page).to have_content("The form is closed and cannot be answered.")
     end
   end
 
@@ -67,7 +67,7 @@ describe "Answer a survey", type: :system do
       end
 
       # Unregistered users are tracked with their session_id so they won't be allowed to repeat easily
-      expect(page).to have_content("You have already answered this questionnaire.")
+      expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
     end
 
