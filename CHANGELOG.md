@@ -67,6 +67,7 @@ end
 - **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 - **decidim-verifications**: Allow definition of attributes in settings manifest to be required always on authorizations. [\#4911](https://github.com/decidim/decidim/pull/4911)
 - **decidim-verifications**: Allow resending SMS code. [\#4928](https://github.com/decidim/decidim/pull/4928)
+- **decidim-forms** Render readonly questionnaire to non logged participants [\#4991](https://github.com/decidim/decidim/pull/4991)
 
 **Changed**:
 

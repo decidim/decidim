@@ -55,7 +55,11 @@ describe "Private Space Answer a survey", type: :system do
           expect(page).to have_i18n_content(questionnaire.title, upcase: true)
           expect(page).to have_i18n_content(questionnaire.description)
 
-          expect(page).to have_no_i18n_content(question.body)
+          expect(page).not_to have_css(".form.answer-questionnaire")
+
+          within ".questionnaire-question_readonly" do
+            expect(page).to have_i18n_content(question.body)
+          end
 
           expect(page).to have_content("Sign in with your account or sign up to answer the form.")
         end
