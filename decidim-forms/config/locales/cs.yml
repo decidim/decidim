@@ -77,3 +77,6 @@ cs:
             title: Dotazník byl uzavřen
           submit: Předložit
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
+      user_answers_serializer:
+        created_at: Zodpovězeno
+        id: ID odpovědi
