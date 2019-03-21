@@ -77,3 +77,6 @@ id:
             title: Formulir ditutup
           submit: Menyerahkan
           tos_agreement: Dengan berpartisipasi Anda menerima Ketentuan Layanannya
+      user_answers_serializer:
+        created_at: Dijawab pada
+        id: ID jawaban
