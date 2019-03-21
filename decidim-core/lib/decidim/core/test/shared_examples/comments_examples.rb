@@ -224,6 +224,22 @@ shared_examples "comments" do
       end
 
       it "shows the form to add comments or not" do
+        puts "11111 --------------------"
+        puts "user: #{user.as_json}"
+        puts "--------------------"
+        puts "user is admin?: #{user.admin?}"
+        puts "--------------------"
+        puts "participatory space private: #{component.participatory_space.private_space}"
+        puts "--------------------"
+        puts "commentable: #{commentable.as_json}"
+        puts "--------------------"
+        puts "have votes: #{commentable.comments_have_votes?}"
+        puts "--------------------"
+        puts "allowed?: #{commentable.user_allowed_to_comment?(user)}"
+        puts "--------------------"
+        puts "resource_path: #{resource_path}"
+        puts "111111--------------------"
+
         visit resource_path
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".add-comment form")
@@ -243,6 +259,21 @@ shared_examples "comments" do
       end
 
       it "shows reply to the user or not" do
+        puts "2222222 --------------------"
+        puts "user: #{user.as_json}"
+        puts "--------------------"
+        puts "user is admin?: #{user.admin?}"
+        puts "--------------------"
+        puts "participatory space private: #{component.participatory_space.private_space}"
+        puts "--------------------"
+        puts "commentable: #{commentable.as_json}"
+        puts "--------------------"
+        puts "have votes: #{commentable.comments_have_votes?}"
+        puts "--------------------"
+        puts "allowed?: #{commentable.user_allowed_to_comment?(user)}"
+        puts "--------------------"
+        puts "resource_path: #{resource_path}"
+        puts "2222222 --------------------"
         visit resource_path
         if commentable.user_allowed_to_comment?(user)
           expect(page).to have_selector(".comment__reply")
@@ -259,6 +290,21 @@ shared_examples "comments" do
       end
 
       it "shows the vote block or not" do
+        puts "33333 --------------------"
+        puts "user: #{user.as_json}"
+        puts "--------------------"
+        puts "user is admin?: #{user.admin?}"
+        puts "--------------------"
+        puts "participatory space private: #{component.participatory_space.private_space}"
+        puts "--------------------"
+        puts "commentable: #{commentable.as_json}"
+        puts "--------------------"
+        puts "have votes: #{commentable.comments_have_votes?}"
+        puts "--------------------"
+        puts "allowed?: #{commentable.user_allowed_to_comment?(user)}"
+        puts "--------------------"
+        puts "resource_path: #{resource_path}"
+        puts "33333 --------------------"
         visit resource_path
         if commentable.user_allowed_to_comment?(user) && commentable.comments_have_votes?
           expect(page).to have_selector(".comment__votes--up")
