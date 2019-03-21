@@ -292,7 +292,7 @@ shared_examples "comments" do
 
       it "shows the vote block or not", :slow do
         Rails.logger.debug "333333 ==========="
-        Rails.logger.debug "user: #{user.as_json }"
+        Rails.logger.debug "user: #{user.as_json}"
         Rails.logger.debug "--------------------"
         Rails.logger.debug "user is admin?: #{user.admin?}"
         Rails.logger.debug "--------------------"
