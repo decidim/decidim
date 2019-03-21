@@ -77,3 +77,6 @@ fi:
             title: Kyselylomake on suljettu
           submit: Lähetä
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
+      user_answers_serializer:
+        created_at: Vastattu
+        id: Vastaa tunnus
