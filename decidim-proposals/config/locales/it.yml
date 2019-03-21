@@ -599,7 +599,7 @@ it:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         compare:
-          continue: Continua
+          continue: Prosegui
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:

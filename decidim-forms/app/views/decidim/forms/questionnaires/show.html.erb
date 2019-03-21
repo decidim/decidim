@@ -66,6 +66,10 @@
               <p>
                 <%= t(".answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
               </p>
+
+              <ol>
+                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions) %>
+              </ol>
             </div>
           <% end %>
         <% else %>

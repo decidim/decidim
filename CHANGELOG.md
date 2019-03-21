@@ -67,6 +67,8 @@ end
 - **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 - **decidim-verifications**: Allow definition of attributes in settings manifest to be required always on authorizations. [\#4911](https://github.com/decidim/decidim/pull/4911)
 - **decidim-verifications**: Allow resending SMS code. [\#4928](https://github.com/decidim/decidim/pull/4928)
+- **decidim-forms**: Add `:created_at` and `:id` to survey particpant answers (UserAnswersSerializer) [ \#4990](https://github.com/decidim/decidim/pull/4990)
+- **decidim-forms** Render readonly questionnaire to non logged participants [\#4991](https://github.com/decidim/decidim/pull/4991)
 
 **Changed**:
 
@@ -91,6 +93,7 @@ end
 **Fixed**:
 
 - **decidim-comments**: Fixes that as a normal user (no private user) I can comment on a private assembly where is available. [#4924](https://github.com/decidim/decidim/pull/4924)
+- **decidim-core**: Don't send email if user can not participate in space [/#4988](https://github.com/decidim/decidim/pull/4988)
 - **decidim-proposals**: Fix proposal wizard back button [\#4976](https://github.com/decidim/decidim/pull/4976)
 - **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
 - **decidim-proposals**: Update error message when a Proposal can not be withdrawn due to already existing supports.  [#4961](https://github.com/decidim/decidim/pull/4961)

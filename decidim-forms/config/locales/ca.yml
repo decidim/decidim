@@ -77,3 +77,6 @@ ca:
             title: S'ha tancat el formulari
           submit: Enviar respostes
           tos_agreement: En participar, acceptes els Termes i condicions d'ús
+      user_answers_serializer:
+        created_at: Respost el
+        id: Identificador de resposta
