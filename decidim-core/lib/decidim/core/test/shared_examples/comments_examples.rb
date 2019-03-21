@@ -217,13 +217,13 @@ shared_examples "comments" do
   end
 
   describe "when participatory space is private" do
-    context "when user want to create a comment" do
+    context "when user want to create a comment", :slow do
       before do
         component.participatory_space.private_space = true
         login_as user, scope: :user
       end
 
-      it "shows the form to add comments or not" do
+      it "shows the form to add comments or not", :slow do
         Rails.logger.debug "11111 ==========="
         Rails.logger.debug "user: #{user.as_json}"
         Rails.logger.debug "--------------------"
@@ -258,7 +258,7 @@ shared_examples "comments" do
         login_as user, scope: :user
       end
 
-      it "shows reply to the user or not" do
+      it "shows reply to the user or not", :slow do
         Rails.logger.fatal "2222222 ==========="
         Rails.logger.fatal "user: #{user.as_json}"
         Rails.logger.fatal "--------------------"
@@ -284,15 +284,15 @@ shared_examples "comments" do
       end
     end
 
-    context "when a user votes to a comment" do
+    context "when a user votes to a comment", :slow do
       before do
         component.participatory_space.private_space = true
         login_as user, scope: :user
       end
 
-      it "shows the vote block or not" do
+      it "shows the vote block or not", :slow do
         Rails.logger.debug "333333 ==========="
-        Rails.logger.debug "user: #{user.as_json}"
+        Rails.logger.debug "user: #{user.as_json }"
         Rails.logger.debug "--------------------"
         Rails.logger.debug "user is admin?: #{user.admin?}"
         Rails.logger.debug "--------------------"
