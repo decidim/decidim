@@ -165,7 +165,7 @@ ca:
           create: Crea
           title: Nova resposta
         update:
-          error: S'ha produït un problema en actualitzar aquesta resposta.
+          error: S'ha produït un error en actualitzar aquesta resposta.
           success: La resposta s'ha actualitzat correctament.
       titles:
         consultations: Consultes
@@ -229,7 +229,7 @@ ca:
           other: vots d'un total de
       question_votes:
         create:
-          error: Hi va haver un problema per votar la pregunta
+          error: Hi ha hagut errors en votar la pregunta
       regular_questions:
         title: Preguntes per a aquesta consulta
       show:
@@ -265,7 +265,7 @@ ca:
         assistants_count_title: Assistents
         comments_count_title: Comentaris
         meetings_count_title: Reunions
-        supports_count_title: Vots
+        supports_count_title: Suports
       technical_info:
         technical_data: Dades tècniques
       vote_button:

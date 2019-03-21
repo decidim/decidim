@@ -36,7 +36,7 @@ sv:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}"
+              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ sv:
         participatory_texts:
           bulk-actions:
             are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
-            import_doc: Importera dokument
             discard_all: Kassera allt
+            import_doc: Importera dokument
+          discard:
+            success: Alla deltagande textförslag har kasseras.
           import:
             invalid: Blanketten är ogiltig!
             success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
@@ -320,8 +322,6 @@ sv:
           publish:
             invalid: Kunde inte publicera förslag
             success: Alla förslag har publicerats
-          discard:
-            success: Alla deltagande textförslag har kasseras.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -599,7 +599,7 @@ sv:
           error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
-          mine_is_different: Mitt förslag är annorlunda
+          continue: Fortsätta
           no_similars_found: Bra gjort! Inga liknande förslag hittades
           title: Liknande förslag
         complete:
@@ -626,6 +626,7 @@ sv:
           comments: Kommentarer
         filters:
           activity: Aktivitet
+          amendment_type: Typ
           category: Kategori
           category_prompt: Välj en kategori
           origin: Ursprung
@@ -633,7 +634,6 @@ sv:
           search: Sök
           state: Status
           voted: Röstade
-          amendment_type: Typ
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -753,6 +753,9 @@ sv:
           version_number_out_of_total: "%{current_version} av %{total_count}"
         version:
           version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: Detta förslag kan inte återkallas eftersom det redan har stöd.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag

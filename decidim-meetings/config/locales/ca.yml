@@ -136,13 +136,13 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriu-te a les reunions que vulguis assistir
+            - Inscriu-te a les trobades a les que vols assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
-          description_another: Aquest usuari ha assistit a %{score} trobades.
+          description_another: Aquesta participant ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
           name: Trobades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha assistit a cap reunió.
+          unearned_another: Aquesta participant encara no ha assistit a cap trobada.
           unearned_own: Encara no has assistit a cap reunió.
     meetings:
       actions:
@@ -173,7 +173,7 @@ ca:
             remove: Eliminar
             up: Pujar
           create:
-            invalid: Hi ha hagut un problema en crear aquesta agenda
+            invalid: S'ha produït un error en crear aquesta agenda
             success: S'ha creat l'agenda correctament
           edit:
             title: Edita l'agenda
@@ -187,7 +187,7 @@ ca:
             create: Crear
             title: Nova agenda
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta agenda
+            invalid: S'ha produït un error en actualitzar aquesta agenda
             success: L'agenda s'ha actualitzat correctament
         exports:
           meetings: Trobades
@@ -199,15 +199,15 @@ ca:
             join: Uneix-te a la trobada '%{meeting_title}'
         invites:
           create:
-            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
-            success: L'usuari s'ha convidat correctament a unir-se a la trobada.
+            error: S'ha produït un error en convidar la participant a unir-se a la trobada.
+            success: S'ha convidat correctament la participant a unir-se a la trobada.
           form:
             attendee_type: Tipus d'assistent
-            existing_user: Usuari existent
+            existing_user: Participant existent
             invite: Convidar
-            invite_explanation: L'usuari serà convidat a participar a la trobada i també a l'organització.
-            non_user: Usuari no existent
-            select_user: Selecciona l'usuari
+            invite_explanation: La participant serà convidada a unir-se a la trobada i també a l'organització.
+            non_user: Participant no existent
+            select_user: Selecciona la participant
           index:
             filter:
               accepted: Acceptades
@@ -228,10 +228,10 @@ ca:
             select_organizer: Selecciona l'organitzador
         meetings:
           close:
-            invalid: Hi ha hagut un problema en tancar aquesta trobada
+            invalid: S'ha produït un error en tancar aquesta trobada
             success: Trobada tancada amb èxit
           create:
-            invalid: Hi ha hagut un problema en crear aquesta trobada
+            invalid: S'ha produït un error en crear aquesta trobada
             success: Trobada creada amb èxit
           destroy:
             success: La trobada s'ha eliminat correctament
@@ -255,11 +255,11 @@ ca:
             add_service: Afegeix servei
             services: Serveis
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta trobada
+            invalid: S'ha produït un error en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
         minutes:
           create:
-            invalid: Hi ha hagut un problema en crear aquesta acta
+            invalid: S'ha produït un error en crear aquesta acta
             success: S'ha creat l'acta amb èxit
           edit:
             update: Actualitza
@@ -412,7 +412,7 @@ ca:
           invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.
         destroy:
-          invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
+          invalid: S'ha produït un error en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
       types:
         private_meeting: Trobada privada

@@ -36,7 +36,7 @@ fr:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Type de document invalide. Les formats acceptés sont: %{valid_mime_types}"
+              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ fr:
         participatory_texts:
           bulk-actions:
             are_you_sure: Etes-vous sûr de supprimer le brouillon du texte participatif?
-            import_doc: Document d'importation
             discard_all: Jeter tout
+            import_doc: Document d'importation
+          discard:
+            success: Tous les brouillons de texte participatifs ont été rejetés.
           import:
             invalid: Le formulaire est invalide!
             success: Félicitations, les sections suivantes ont été analysées à partir du document importé, elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
@@ -320,8 +322,6 @@ fr:
           publish:
             invalid: Impossible de publier des propositions
             success: Toutes les propositions ont été publiées
-          discard:
-            success: Tous les brouillons de texte participatifs ont été rejetés.
           sections:
             article: "<em>article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
@@ -599,7 +599,7 @@ fr:
           error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         compare:
-          mine_is_different: Ma proposition est différente
+          continue: Continuer
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
@@ -626,6 +626,7 @@ fr:
           comments: Commentaires
         filters:
           activity: Activité
+          amendment_type: Type
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           origin: Auteurs
@@ -633,7 +634,6 @@ fr:
           search: Rechercher
           state: État
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
-          amendment_type: Type
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -753,6 +753,9 @@ fr:
           version_number_out_of_total: "%{current_version} sur %{total_count}"
         version:
           version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de supports.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées

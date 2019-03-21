@@ -36,7 +36,7 @@ cs:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Neplatný typ dokumentu. Přijaté formáty jsou: %{valid_mime_types}"
+              invalid_document_type: 'Neplatný typ dokumentu. Přijaté formáty jsou: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -309,8 +309,10 @@ cs:
         participatory_texts:
           bulk-actions:
             are_you_sure: Opravdu chcete vyřadit celý participační text?
-            import_doc: Importovat dokument
             discard_all: Zlikvidujte vše
+            import_doc: Importovat dokument
+          discard:
+            success: Všechny textové texty s účastí byly zrušeny.
           import:
             invalid: Formulář je neplatný!
             success: Gratulujeme, následující části byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
@@ -330,8 +332,6 @@ cs:
           publish:
             invalid: Nelze publikovat návrhy
             success: Všechny návrhy byly zveřejněny
-          discard:
-            success: Všechny textové texty s účastí byly zrušeny.
           sections:
             article: "<em>Článek</em>"
             section: "<em>Sekce:</em> <strong>%{title}</strong>"
@@ -613,7 +613,7 @@ cs:
           error: Při hlasování o návrhu došlo k chybám.
       proposals:
         compare:
-          mine_is_different: Můj návrh je jiný
+          continue: Pokračovat
           no_similars_found: Výborně! Nebyly nalezeny žádné podobné návrhy
           title: Podobné návrhy
         complete:
@@ -642,6 +642,7 @@ cs:
           comments: Komentáře
         filters:
           activity: Aktivita
+          amendment_type: Typ
           category: Kategorie
           category_prompt: Vyberte kategorii
           origin: Původ
@@ -649,7 +650,6 @@ cs:
           search: Vyhledávání
           state: Stát
           voted: Hlasoval
-          amendment_type: Typ
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
@@ -777,6 +777,9 @@ cs:
           version_number_out_of_total: "%{current_version} z %{total_count}"
         version:
           version_index: Verze %{index}
+      withdraw:
+        errors:
+          has_supports: Tento návrh nelze stáhnout, protože již má podporu.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy

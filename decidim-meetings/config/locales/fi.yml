@@ -66,7 +66,7 @@ fi:
     admin:
       meeting_copies:
         create:
-          error: Tämän tapahtuman monistamisessa tapahtui virhe.
+          error: Tapahtuman monistaminen epäonnistui.
           success: Tapahtuman monistaminen onnistui.
         new:
           copy: Kopioi
@@ -173,7 +173,7 @@ fi:
             remove: Poista
             up: Ylös
           create:
-            invalid: Virhe luotaessa esityslistaa
+            invalid: Esityslistan luonti epäonnistui
             success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
@@ -187,7 +187,7 @@ fi:
             create: Luo
             title: Uusi esityslista
           update:
-            invalid: Virhe päivitettäessä esityslistaa
+            invalid: Esityslistan päivitys epäonnistui
             success: Esityslista päivitettiin onnistuneesti
         exports:
           meetings: Tapahtumat
@@ -199,7 +199,7 @@ fi:
             join: Ilmoittaudu tapahtumaan "%{meeting_title}"
         invites:
           create:
-            error: Virhe kutsuttaessa käyttäjää tapahtumaan.
+            error: Käyttäjän kutsuminen tapahtumaan epäonnistui.
             success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
@@ -228,10 +228,10 @@ fi:
             select_organizer: Valitse järjestäjä
         meetings:
           close:
-            invalid: Virhe suljettaessa tapahtumaa
+            invalid: Tapahtuman sulkeminen epäonnistui
             success: Tapahtuma onnistuneesti suljettu
           create:
-            invalid: Virhe luotaessa tapahtumaa
+            invalid: Tapahtuman luonti epäonnistui
             success: Tapahtuma onnistuneesti luotu
           destroy:
             success: Tapahtuma onnistuneesti luotu
@@ -255,11 +255,11 @@ fi:
             add_service: Lisää palvelu
             services: Palvelut
           update:
-            invalid: Virhe päivitettäessä tapahtumaa
+            invalid: Tapahtuman päivitys epäonnistui
             success: Tapahtuma luotiin onnistuneesti
         minutes:
           create:
-            invalid: Virhe luotaessa pöytäkirjaa
+            invalid: Pöytäkirjan luonti epäonnistui
             success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivitä
@@ -267,7 +267,7 @@ fi:
             create: Luo
             title: Luo pöytäkirja
           update:
-            invalid: Virhe päivitettäessä pöytäkirjaa
+            invalid: Pöytäkirjan päivitys epäonnistui
             success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
@@ -287,7 +287,7 @@ fi:
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
-            invalid: Virhe tallennettaessa rekisteröitymisasetuksia.
+            invalid: Rekisteröitymisasetusten päivitys epäonnistui.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
@@ -312,7 +312,7 @@ fi:
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
-        export_calendar: Vie kalenterin tiedot
+        export_calendar: Vie kalenteriin
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_events:
@@ -406,13 +406,13 @@ fi:
           registration_code: Ilmoittautumiskoodisi on %{code}.
       registrations:
         create:
-          invalid: Virhe liityttäessä tapahtumaan.
+          invalid: Tapahtumaan liittyminen epäonnistui.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Virhe hylättäessä kutsua.
+          invalid: Kutsun hylkääminen epäonnistui.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Virhe poistuttaessa tapahtumasta.
+          invalid: Tapahtumasta poistuminen epäonnistui.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen tapahtuma

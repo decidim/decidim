@@ -513,10 +513,10 @@ cs:
         votes_count: Hlasy
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Vaše registrace pro konferenci <a href="%{resource_url}">%{resource_title}</a> čeká na potvrzení.
         conference_registration_confirmed:
           notification_title: Vaše registrace pro konferenci <a href="%{resource_url}">%{resource_title}</a> byla potvrzena.
+        conference_registration_validation_pending:
+          notification_title: Vaše registrace pro konferenci <a href="%{resource_url}">%{resource_title}</a> čeká na potvrzení.
         conference_registrations_over_percentage:
           email_intro: Konference obsazené konferencí "%{resource_title}" jsou nad %{percentage}%.
           email_outro: Toto oznámení jste obdrželi, protože jste administrátorem participačního prostoru konference.

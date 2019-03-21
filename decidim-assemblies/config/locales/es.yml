@@ -80,7 +80,7 @@ es:
         new_assembly: Nueva asamblea
       assemblies:
         create:
-          error: Se produjo un error al crear una nueva asamblea.
+          error: Se ha producido un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
         edit:
           update: Actualizar
@@ -99,7 +99,7 @@ es:
           success: La asamblea se ha actualizado correctamente.
       assemblies_copies:
         create:
-          error: Se produjo un error al duplicar esta asamblea.
+          error: Se ha producido un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
       assembly_copies:
         new:
@@ -108,10 +108,10 @@ es:
           title: Duplicar asamblea
       assembly_members:
         create:
-          error: Se produjo un error al agregar un miembro para esta asamblea.
-          success: Miembro creado con éxito para esta asamblea.
+          error: Se ha producido un error al agregar un miembro para esta asamblea.
+          success: Miembro creado correctamene para esta asamblea.
         destroy:
-          success: Miembro eliminado con éxito en esta asamblea.
+          success: Miembro eliminado correctamente para esta asamblea.
         edit:
           title: Actualizar miembro de la asamblea.
           update: Actualizar
@@ -121,36 +121,36 @@ es:
           create: Crear
           title: Nuevo miembro de la asamblea.
         update:
-          error: Se produjo un error al actualizar el miembro para esta asamblea.
-          success: Miembro actualizado con éxito para esta asamblea.
+          error: Se ha producido un error al actualizar el miembro para esta asamblea.
+          success: Miembro actualizado correctamente para esta asamblea.
       assembly_publications:
         create:
-          error: Se produjo un error al publicar esta asamblea.
-          success: Asamblea publicada con éxito.
+          error: Se ha producido un error al publicar esta asamblea.
+          success: Asamblea publicada correctamente.
         destroy:
-          error: Se produjo un error al despublicar esta asamblea.
-          success: Asamblea despublicada con éxito.
+          error: Se ha producido un error al despublicar esta asamblea.
+          success: Asamblea despublicada correctamente.
       assembly_user_roles:
         create:
-          error: Se ha producido un error al agregar un usuario para esta asamblea.
-          success: Usuario agregado conéxito a esta asamblea.
+          error: Se ha producido un error al añadir una administradora para esta asamblea.
+          success: Administradora añadida correctamente a esta asamblea.
         destroy:
-          success: Usuario eliminado con éxito de esta asamblea.
+          success: Administradora eliminada correctamente de esta asamblea.
         edit:
-          title: Actualizar el usuario de la asamblea.
+          title: Actualizar administradora de la asamblea.
           update: Actualizar
         index:
-          assembly_admins_title: Usuarios de la Asamblea
+          assembly_admins_title: Administradoras de la asamblea
         new:
           create: Crear
-          title: Nuevo usuario de la asamblea.
+          title: Nueva administradora de la asamblea.
         update:
-          error: Ha habido un error al actualizar un usuario para esta asamblea.
-          success: Usuario actualizado con éxito para esta asamblea.
+          error: Se ha producido un error al actualizar la administradora para esta asamblea.
+          success: Administradora actualizada correctamente para esta asamblea.
       menu:
         assemblies: Asambleas
         assemblies_submenu:
-          assembly_admins: Usuarios de la asamblea
+          assembly_admins: Administradoras de la asamblea
           assembly_members: Miembros
           attachment_collections: Carpetas
           attachment_files: Archivos
@@ -186,7 +186,7 @@ es:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario de la asamblea
+          name: Administradora de la asamblea
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -205,7 +205,7 @@ es:
         update: "%{user_name} actualizó el miembro %{resource_name} de la asamblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
-        delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} de la asamblea %{space_name}"
         update: "%{user_name} cambió el rol de %{resource_name} en la asamblea %{space_name}"
     assemblies:
       admin:
@@ -224,11 +224,11 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuario existente
-            non_user: No usuario
+            existing_user: Participante existente
+            non_user: No participante
             select_a_position: Selecciona una posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
+            select_user: Selecciona una participante
+            user_type: Tipo de participante
           index:
             filter:
               all: Todas
@@ -258,9 +258,9 @@ es:
         others: Otros
         public: Público
       filter:
-        all: Todo tipo de montajes.
+        all: Todos los tipos de asambleas
         commission: Comisión
-        consultative_advisory: Consultivo / Asesoramiento
+        consultative_advisory: Consultiva / Asesora
         executive: Ejecutivo
         government: Gobierno
         help: 'Show:'
@@ -314,14 +314,14 @@ es:
         endorsements_count: Adhesiones
         headline: Actividad
         meetings_count: Encuentros
-        orders_count: Votos
+        orders_count: Apoyos
         pages_count: Páginas
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
         surveys_count: Encuestas
         users_count: Participantes
-        votes_count: Soportes
+        votes_count: Apoyos
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -330,8 +330,8 @@ es:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Una asamblea es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p> <p>Las asambleas realizan encuentros, algunas son privadas y otras son abiertas. Si son abiertas se puede participar en ellas (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o una órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
-          page: "<p>Una asamblea es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p> <p>Las asambleas realizan encuentros, algunas son privadas y otras son abiertas. Si son abiertas se puede participar en ellas (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o una órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
+          contextual: "<p>Una <strong>asamblea</strong> es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p><p>Las asambleas realizan encuentros, algunos son privados y otros son abiertos. Si son abiertos se puede participar en ellos (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como para escojer a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o un órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
+          page: "<p>Una <strong>asamblea</strong> es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p><p>Las asambleas realizan encuentros, algunos son privados y otros son abiertos. Si son abiertos se puede participar en ellos (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como para escojer a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o un órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
           title: '¿Qué son las asambleas?'
     log:
       value_types:

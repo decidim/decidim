@@ -157,7 +157,7 @@ ca:
           media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Col·laboradors
-          registration_types: Tipus de registre
+          registration_types: Tipus d'inscripcions
           registrations: Inscripcions
           user_registrations: Registre d'usuaris
       models:
@@ -206,7 +206,7 @@ ca:
             registrations_count: Contador d'inscripcions
             title: Títol
             weight: Pes
-          name: Tipus de registre
+          name: Tipus d'inscripció
       partners:
         create:
           error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
@@ -505,10 +505,10 @@ ca:
         votes_count: Suports
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: El registre de la conferència <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registration_confirmed:
           notification_title: S'ha confirmat el teu registre a la conferència <a href="%{resource_url}">%{resource_title}</a>.
+        conference_registration_validation_pending:
+          notification_title: El registre de la conferència <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la conferència "%{resource_title}" ocupen més del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets administrador de la conferència.

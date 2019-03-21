@@ -36,7 +36,7 @@ pt-BR:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}"
+              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ pt-BR:
         participatory_texts:
           bulk-actions:
             are_you_sure: Tem certeza de descartar todo o rascunho do texto participativo?
-            import_doc: Importar documento
             discard_all: Descartar tudo
+            import_doc: Importar documento
+          discard:
+            success: Todos os rascunhos de texto participativos foram descartados.
           import:
             invalid: O formato é inválido!
             success: Parabéns, as seções a seguir foram analisadas do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
@@ -320,8 +322,6 @@ pt-BR:
           publish:
             invalid: Não foi possível publicar propostas
             success: Todas as propostas foram publicadas
-          discard:
-            success: Todos os rascunhos de texto participativos foram descartados.
           sections:
             article: "<em>Artigo</em>"
             section: "<em>Seção:</em> <strong>%{title}</strong>"
@@ -599,7 +599,7 @@ pt-BR:
           error: Houve erros ao votar a proposta.
       proposals:
         compare:
-          mine_is_different: Minha proposta é diferente
+          continue: Continuar
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
@@ -626,6 +626,7 @@ pt-BR:
           comments: Comentários
         filters:
           activity: Atividade
+          amendment_type: Tipo
           category: Categoria
           category_prompt: Selecionar uma categoria
           origin: Origem
@@ -633,7 +634,6 @@ pt-BR:
           search: Pesquisa
           state: Estado
           voted: Votado
-          amendment_type: Tipo
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
@@ -753,6 +753,9 @@ pt-BR:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versão %{index}
+      withdraw:
+        errors:
+          has_supports: Esta proposta não pode ser retirada porque já tem suporte.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas
