@@ -77,3 +77,6 @@ ar:
             title: شكل مغلق
           submit: خضع
           tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة
+      user_answers_serializer:
+        created_at: أجاب على
+        id: معرف الإجابة

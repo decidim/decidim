@@ -77,3 +77,6 @@ es-PY:
             title: Cuestionario cerrado
           submit: Enviar
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
+      user_answers_serializer:
+        created_at: Respondido en
+        id: ID de respuesta
