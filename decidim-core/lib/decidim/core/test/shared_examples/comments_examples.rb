@@ -259,21 +259,21 @@ shared_examples "comments" do
       end
 
       it "shows reply to the user or not" do
-        Rails.logger.debug "2222222 ==========="
-        Rails.logger.debug "user: #{user.as_json}"
-        Rails.logger.debug "--------------------"
-        Rails.logger.debug "user is admin?: #{user.admin?}"
-        Rails.logger.debug "--------------------"
-        Rails.logger.debug "participatory space private: #{component.participatory_space.private_space}"
-        Rails.logger.debug "--------------------"
-        Rails.logger.debug "commentable: #{commentable.as_json}"
-        Rails.logger.debug "--------------------"
-        Rails.logger.debug "have votes: #{commentable.comments_have_votes?}"
-        Rails.logger.debug "--------------------"
-        Rails.logger.debug "allowed?: #{commentable.user_allowed_to_comment?(user)}"
-        Rails.logger.debug "--------------------"
-        Rails.logger.debug "resource_path: #{resource_path}"
-        Rails.logger.debug "2222 ==========="
+        Rails.logger.fatal "2222222 ==========="
+        Rails.logger.fatal "user: #{user.as_json}"
+        Rails.logger.fatal "--------------------"
+        Rails.logger.fatal "user is admin?: #{user.admin?}"
+        Rails.logger.fatal "--------------------"
+        Rails.logger.fatal "participatory space private: #{component.participatory_space.private_space}"
+        Rails.logger.fatal "--------------------"
+        Rails.logger.fatal "commentable: #{commentable.as_json}"
+        Rails.logger.fatal "--------------------"
+        Rails.logger.fatal "have votes: #{commentable.comments_have_votes?}"
+        Rails.logger.fatal "--------------------"
+        Rails.logger.fatal "allowed?: #{commentable.user_allowed_to_comment?(user)}"
+        Rails.logger.fatal "--------------------"
+        Rails.logger.fatal "resource_path: #{resource_path}"
+        Rails.logger.fatal "2222 ==========="
 
         visit resource_path
         if commentable.user_allowed_to_comment?(user)
