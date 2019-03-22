@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix repeated amendments notifications. [\#5001](https://github.com/decidim/decidim/pull/5001)
+
 **Removed**:
 
 ## Previous versions
