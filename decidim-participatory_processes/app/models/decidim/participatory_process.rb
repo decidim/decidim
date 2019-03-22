@@ -22,6 +22,10 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
+               optional: true
     belongs_to :participatory_process_group,
                foreign_key: "decidim_participatory_process_group_id",
                class_name: "Decidim::ParticipatoryProcessGroup",

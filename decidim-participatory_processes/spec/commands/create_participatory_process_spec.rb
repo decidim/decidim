@@ -9,6 +9,7 @@ module Decidim::ParticipatoryProcesses
     let(:organization) { create :organization }
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
+    let(:area) { create :area, organization: organization }
     let(:current_user) { create :user, :admin, organization: organization }
     let(:errors) { double.as_null_object }
     let(:form) do
@@ -37,6 +38,7 @@ module Decidim::ParticipatoryProcesses
         scopes_enabled: true,
         private_space: false,
         scope: scope,
+        area: area,
         errors: errors,
         participatory_process_group: participatory_process_group
       )

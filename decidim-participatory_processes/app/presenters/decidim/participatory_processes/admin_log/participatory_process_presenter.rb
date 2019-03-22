@@ -20,6 +20,7 @@ module Decidim
             description: :i18n,
             developer_group: :i18n,
             hashtag: :string,
+            decidim_area_id: :area,
             local_area: :i18n,
             meta_scope: :i18n,
             participatory_scope: :i18n,
