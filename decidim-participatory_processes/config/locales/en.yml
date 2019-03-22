@@ -341,6 +341,7 @@ en:
         index:
           loading: Loading results...
       show:
+        area: Area
         developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
