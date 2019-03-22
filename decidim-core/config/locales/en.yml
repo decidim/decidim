@@ -136,12 +136,13 @@ en:
       amendable:
         amended_by: Amended by
         button: Amend %{model_name}
-        promote_button: Promote to %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         no_amenders: There are no amenders
         no_amendments: There are no amendments
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        promote_button: Promote to %{model_name}
+        promote_confirm_text: Are you sure you want to promote this emendation?
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
       created:
         error: An error ocurred while creating the amendment

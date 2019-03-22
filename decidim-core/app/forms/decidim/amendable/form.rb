@@ -22,14 +22,6 @@ module Decidim
         @emendation ||= amendment.emendation
       end
 
-      def presenter(object)
-        "#{amendable.amendable_type}Presenter".constantize.new(object)
-      end
-
-      def get_value(object, attr)
-        presenter(object).send(attr)
-      end
-
       def check_amendable_form_validations
         parse_hashtaggable_params
         return if amendable_form.valid?

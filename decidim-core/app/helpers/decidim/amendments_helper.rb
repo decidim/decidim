@@ -121,5 +121,11 @@ module Decidim
         label: t("new.amendment_author", scope: "decidim.amendments")
       )
     end
+
+    # Return the edited field value or presents the original amendable attribute
+    def field_value_for(form, original, key)
+      return params[:amendment][:emendation_params][key] if params[:amendment].present?
+      present(form.object.send(original))[key]
+    end
   end
 end
