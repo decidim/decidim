@@ -17,7 +17,7 @@
         <div class="card__content row collapse">
           <div class="large-6 large-offset-6 columns">
             <%= link_to conference_path(promoted_conference), class: "button expanded button--sc" do %>
-              <%= t("conferences.promoted_conference.take_part", scope: "layouts.decidim") %>
+              <%= t(promoted_conference.cta_button_text_key, scope: "layouts.decidim.conferences.promoted_conference") %>
             <% end %>
           </div>
         </div>
