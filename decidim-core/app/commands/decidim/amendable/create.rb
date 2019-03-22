@@ -11,6 +11,8 @@ module Decidim
       def initialize(form)
         @form = form
         @amendable = form.amendable
+        @amender = form.current_user
+        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
       end
 
       # Executes the command. Broadcasts these events:
@@ -45,7 +47,7 @@ module Decidim
           emendation = @amendable.amendable_type.constantize.new(form.emendation_params)
           emendation.component = @amendable.component
           emendation.published_at = Time.current if @amendable.amendable_type == "Decidim::Proposals::Proposal"
-          emendation.add_coauthor(form.current_user, user_group: form.user_group) if emendation.is_a?(Decidim::Coauthorable)
+          emendation.add_coauthor(@amender, user_group: @user_group)
           emendation.save!
           emendation
         end

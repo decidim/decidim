@@ -13,7 +13,8 @@ module Decidim
         @amendment = form.amendment
         @amendable = form.amendable
         @emendation = form.emendation
-        @amender = form.emendation_author
+        @amender = form.emendation.creator_author
+        @user_group = form.emendation.creator.user_group
       end
 
       # Executes the command. Broadcasts these events:
@@ -39,22 +40,17 @@ module Decidim
       attr_reader :form
 
       def accept_amendment!
-        @amendment = Decidim.traceability.update!(
-          @amendment,
-          @amendable.creator_author,
-          { state: "accepted" },
-          visibility: "public-only"
-        )
+        @amendment.update!(state: "accepted")
       end
 
       def update_amendable!
         @amendable = Decidim.traceability.update!(
           @amendable,
-          @amender,
+          @user_group || @amender,
           form.emendation_params,
           visibility: "public-only"
         )
-        @amendable.add_coauthor(@amender)
+        @amendable.add_coauthor(@amender, user_group: @user_group)
       end
 
       def notify_amendable_and_emendation_authors_and_followers
