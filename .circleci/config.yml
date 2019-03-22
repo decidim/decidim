@@ -48,7 +48,7 @@ references:
       name: Extract failure logs
       command: |
         mkdir -p /app/spec/decidim_dummy_app/tmp/logs/
-        tail -50000 /app/spec/decidim_dummy_app/log/test.log > /app/spec/decidim_dummy_app/tmp/logs/failures.log
+        tail -1000 /app/spec/decidim_dummy_app/log/test.log > /app/spec/decidim_dummy_app/tmp/logs/failures.log
       when: on_fail
   store_screenshot_artifacts: &store_screenshot_artifacts
     store_artifacts:
