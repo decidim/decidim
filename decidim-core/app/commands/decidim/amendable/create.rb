@@ -92,10 +92,7 @@ module Decidim
           event_class: Decidim::Amendable::AmendmentCreatedEvent,
           resource: @amendable,
           affected_users: affected_users,
-          followers: @amendable.followers - affected_users,
-          extra: {
-            amendment_id: @amendment.id
-          }
+          followers: @amendable.followers - affected_users
         )
       end
     end
