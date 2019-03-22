@@ -10,6 +10,7 @@ module Decidim
 
         attribute :origin_component_id, Integer
         attribute :import_proposals, Boolean
+        attribute :keep_authors, Boolean
         attribute :states, Array
 
         validates :origin_component_id, :origin_component, :states, :current_component, presence: true

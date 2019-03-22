@@ -10,8 +10,6 @@ module Decidim
         return if translated_attribute(current_organization.description).blank?
         render
       end
-
-      delegate :current_organization, to: :controller
     end
   end
 end

@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
+require "virtus/multiparams"
+
 module Decidim
   module Initiatives
     # A form object used to collect the data for a new initiative.
     class VoteForm < Form
       include TranslatableAttributes
+      include Virtus::Multiparams
 
       mimic :initiatives_vote
 
       attribute :name_and_surname, String
       attribute :document_number, String
-      attribute :date_of_birth, Decidim::Attributes::LocalizedDate
+      attribute :date_of_birth, Date
+
       attribute :postal_code, String
       attribute :encrypted_metadata, String
       attribute :hash_id, String

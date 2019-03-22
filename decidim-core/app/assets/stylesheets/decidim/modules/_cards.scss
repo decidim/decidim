@@ -14,13 +14,13 @@ $card-margin-bottom: map-get($grid-column-gutter, medium);
 
 $card-footer-bg: $light-gray-dark;
 
-$card-proposal: $proposals;
-$card-action: $actions;
-$card-debate: $debates;
-$card-meeting: $meetings;
-$card-spaces: $card-meeting;
+$card-proposal: var(--proposals);
+$card-action: var(--actions);
+$card-debate: var(--debates);
+$card-meeting: var(--meetings);
+$card-spaces: var(--meetings);
 
-$datetime-bg: $primary;
+$datetime-bg: var(--primary);
 
 /* Cards */
 .card{
@@ -170,7 +170,7 @@ $datetime-bg: $primary;
   font-weight: 600;
   display: flex;
   align-items: baseline;
-  border-left: 4px solid $primary;
+  border-left: 4px solid var(--primary);
   background: $card-secondary-bg;
   line-height: 1;
 }
@@ -806,7 +806,7 @@ $datetime-bg: $primary;
     }
 
     li:first-child{
-      color: $primary;
+      color: var(--primary);
       flex: 0;
     }
 

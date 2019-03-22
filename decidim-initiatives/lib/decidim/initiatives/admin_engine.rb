@@ -39,6 +39,8 @@ module Decidim
               delete :revoke
             end
           end
+
+          resource :answer, only: [:edit, :update]
         end
 
         scope "/initiatives/:initiative_slug" do
@@ -49,6 +51,14 @@ module Decidim
               put :unpublish
             end
             resources :exports, only: :create
+          end
+
+          resources :moderations do
+            member do
+              put :unreport
+              put :hide
+              put :unhide
+            end
           end
         end
 

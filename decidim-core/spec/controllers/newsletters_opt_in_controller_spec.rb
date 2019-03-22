@@ -25,7 +25,7 @@ module Decidim
           expect(user.reload.newsletter_notifications_at).not_to be_nil
           expect(user.reload.newsletter_token).to eq("")
           expect(response).to redirect_to("/")
-          expect(flash[:notice]).to include("Newsletter settings updated successfully")
+          expect(flash[:notice]).to include("Newsletter settings successfully updated")
         end
       end
 

@@ -258,15 +258,14 @@ sv:
         others: Övriga
         public: Offentligt
       filter:
-        all: Allt
+        all: Alla typer av aggregat
         commission: Provision
         consultative_advisory: Rådgivande / rådgivande
         executive: Verkställande
         government: Regering
-        label: 'Show:'
+        help: 'Show:'
         others: Övriga
         participatory: Deltagande
-        placeholder: Filtrera efter typ
         working_group: Arbetsgrupp
       index:
         title: Möten

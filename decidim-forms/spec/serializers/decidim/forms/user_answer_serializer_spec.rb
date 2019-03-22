@@ -37,7 +37,7 @@ module Decidim
       end
       let!(:singlechoice_answer_choice) do
         answer_option = singlechoice_answer_options.first
-        create :answer_choice, answer: singlechoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s]
+        create :answer_choice, answer: singlechoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s], custom_body: "Free text"
       end
 
       describe "#serialize" do
@@ -55,7 +55,7 @@ module Decidim
           )
 
           expect(serialized).to include(
-            "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
+            "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => ["Free text"]
           )
         end
       end

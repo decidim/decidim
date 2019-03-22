@@ -83,7 +83,12 @@ module Decidim
 
           context "and filtering by query" do
             let(:initiative) { create(:initiative, organization: organization, author: user) }
-            let(:query) { initiative.title["en"] }
+            let(:query) { "foo" }
+
+            before do
+              initiative.title["en"] = "Bar foo baz something"
+              initiative.save
+            end
 
             it "includes the initiative with the given title" do
               expect(subject).not_to include(*admin_initiatives)

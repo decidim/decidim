@@ -36,6 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
+        alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
@@ -62,11 +63,15 @@ fi:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
+        primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
+        secondary_color: Toissijainen
         show_statistics: Näytä tilastot
+        success_color: Onnistuminen
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        warning_color: Varoitus
         youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
@@ -220,10 +225,6 @@ fi:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
-        edit:
-          everyone: Jokainen
-          submit: Tallenna käyttöoikeudet
-          title: Muokkaa käyttöoikeuksia
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
@@ -510,6 +511,7 @@ fi:
         edit:
           update: Päivitä
         form:
+          colors_title: Organisaation värit
           cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
@@ -536,6 +538,12 @@ fi:
         new:
           create: Luo
           title: Uusi osallisuustilan yksityinen käyttäjä.
+      resource_permissions:
+        edit:
+          submit: Lähetä
+          title: Muokkaa käyttöoikeuksia
+        update:
+          success: Käyttöoikeudet päivitetty onnistuneesti.
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
@@ -615,9 +623,9 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        impersonatable_users: Käyttäjien puolesta tehdyt istunnot
-        impersonations: Esiintymiset toisena käyttäjänä
-        participants: Osallistujat
+        impersonatable_users: Hallittavat käyttäjät
+        impersonations: Käyttäjien hallinta
+        participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut
@@ -677,7 +685,7 @@ fi:
         hide: Piilota
         not_hidden: Näkyvillä
         title: Toiminnot
-        unhide: unhide
+        unhide: Poista piilotus
         unreport: Poista ilmoitus
       admin:
         reportable:
@@ -685,8 +693,8 @@ fi:
             invalid: Resurssin piilotuksessa tapahtui virhe.
             success: Resurssi piilotettu onnistuneesti.
           unhide:
-            invalid: Resurssin irrottamisessa on ollut ongelma.
-            success: Resurssi hylättiin onnistuneesti.
+            invalid: Resurssin piilotuksen poistossa esiintyi ongelma.
+            success: Resurssin piilotus poistettu onnistuneesti.
           unreport:
             invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.
             success: Resurssin raportointi onnistuneesti poistettu.

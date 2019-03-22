@@ -7,8 +7,6 @@ module Decidim
     class LastActivityCell < Decidim::ViewModel
       include Decidim::Core::Engine.routes.url_helpers
 
-      delegate :current_organization, to: :controller
-
       def show
         return if activities.empty?
         render

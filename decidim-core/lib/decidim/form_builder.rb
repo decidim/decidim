@@ -279,10 +279,7 @@ module Decidim
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
-      template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
-      template += @template.text_field(
-        @object_name,
+      template = text_field(
         attribute,
         options.merge(data: data)
       )
@@ -300,10 +297,7 @@ module Decidim
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
-      template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
-      template += @template.text_field(
-        @object_name,
+      template = text_field(
         attribute,
         options.merge(data: data)
       )

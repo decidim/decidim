@@ -23,7 +23,9 @@ module Decidim
         validates :body, translatable_presence: true, unless: :deleted
 
         def to_param
-          id || "questionnaire-question-id"
+          return id if id.present?
+
+          "questionnaire-question-id"
         end
 
         def number_of_options

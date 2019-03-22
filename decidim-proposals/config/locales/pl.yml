@@ -2,6 +2,7 @@ pl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adres
         body: Ciało
         category_id: Kategoria
         decidim_scope_id: Zakres
@@ -10,6 +11,7 @@ pl:
         title: Tytuł
         user_group_id: Utwórz roboczą wersję roboczą jako
       proposal:
+        address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
         automatic_hashtags: Hashtagi zostały automatycznie dodane
@@ -26,8 +28,15 @@ pl:
       proposals_copy:
         copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent do skopiowania propozycji z
+      proposals_import:
+        import_proposals: Importuj propozycje
+        keep_authors: Zachowaj oryginalnych autorów
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -299,26 +308,36 @@ pl:
             name: Wniosek
         participatory_texts:
           bulk-actions:
+            are_you_sure: Czy na pewno chcesz odrzucić cały szkic tekstu dla uczestników?
             import_doc: Zaimportuj dokument
+            discard_all: Odrzuć wszystko
           import:
             invalid: Formularz jest nieprawidłowy!
             success: Gratulacje, z importowanego dokumentu zostały przeanalizowane następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
           index:
             info_1: Z importowanego dokumentu przeanalizowano następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
             publish_document: Opublikuj dokument
+            save_draft: Zapisz Projekt
             title: PREVIEW TEKST UCZESTNIKA
           new_import:
+            accepted_mime_types:
+              md: Obniżka cen
+              odt: Odt
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
-            document_legend: 'Dodaj dokument o wielkości mniejszej niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: Markdown'
+            document_legend: 'Dodaj dokument mniejszy niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: %{valid_mime_types}'
             title: DODAJ DOKUMENT
             upload_document: Prześlij dokument
           publish:
             invalid: Nie można publikować propozycji
             success: Wszystkie wnioski zostały opublikowane
+          discard:
+            success: Wszystkie projekty tekstowe z uczestnictwem zostały odrzucone.
           sections:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
             sub-section: "<em>Podsekcja:</em> %{title}"
+          update:
+            success: Tekst uczestnictwa został zaktualizowany pomyślnie.
         proposal_answers:
           edit:
             accepted: Przyjęty

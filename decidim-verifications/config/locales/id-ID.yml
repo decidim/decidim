@@ -46,6 +46,9 @@ id:
             - Anda mengirim surat ke alamat mereka dengan kode verifikasi.
             - Anda menandai surat yang dikirim.
             - Setelah Anda menandai surat yang dikirim, pengguna akan dapat memperkenalkan kode dan diverifikasi.
+      csv_census:
+        explanation: Dapatkan diverifikasi menggunakan sensus organisasi
+        name: Sensus organisasi
       direct: Langsung
       help: Membantu
       id_documents:
@@ -65,6 +68,7 @@ id:
         first_login:
           actions:
             another_dummy_authorization_handler: Verifikasi terhadap contoh lain dari pengendali otorisasi
+            csv_census: Verifikasi terhadap sensus organisasi
             dummy_authorization_handler: Verifikasi terhadap contoh handler otorisasi
             dummy_authorization_workflow: Verifikasi terhadap contoh alur kerja otorisasi
             id_documents: Dapatkan verifikasi dengan mengunggah dokumen identitas Anda
@@ -76,6 +80,33 @@ id:
           authorize_with: Verifikasi dengan %{authorizer}
         skip_verification: Anda dapat melewati ini untuk sekarang dan %{link}
         start_exploring: mulai menjelajah
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Terjadi kesalahan saat mengimpor sensus.
+              success: Berhasil mengimpor %{count} item (%{errors} kesalahan)
+            destroy_all:
+              success: Semua data sensus telah dihapus
+          destroy:
+            confirm: Hapus semua sensus tidak bisa dibatalkan. Apakah anda yakin ingin melanjutkan?
+            title: Hapus semua data sensus
+          index:
+            data: Ada %{count} catatan yang dimuat secara total. Tanggal unggah terakhir pada %{due_date}
+            empty: Tidak ada data sensus. Gunakan formulir di bawah ini untuk mengimpornya menggunakan file CSV.
+            title: Data sensus saat ini
+          instructions:
+            body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
+            title: Anda perlu mengaktifkan sensus csv untuk organisasi ini
+          new:
+            info: 'Harus berupa file dengan format CSV dengan satu kolom: email'
+            file: File .csv dengan data email
+            submit: Unggah data
+            title: Unggah sensus baru
+        authorizations:
+          new:
+            error: Kami tidak dapat memverifikasi akun Anda atau Anda tidak ada dalam sensus organisasi.
+            success: Akun Anda telah berhasil diverifikasi.
       dummy_authorization:
         extra_explanation:
           other: 'Partisipasi dibatasi untuk pengguna dengan salah satu kode pos berikut: %{postal_codes}.'

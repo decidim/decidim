@@ -81,7 +81,7 @@ module Decidim
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }
 
               expect(response).to render_template(:unsubscribe)
-              expect(controller.flash.alert).to have_content("error")
+              expect(controller.flash.alert).to have_content("problem")
             end
           end
         end

@@ -31,7 +31,7 @@ en:
             name: Project
         projects:
           create:
-            invalid: There's been a problem creating this project
+            invalid: There was a problem creating this project
             success: Project successfully created
           destroy:
             success: Project successfully deleted
@@ -46,11 +46,11 @@ en:
             create: Create
             title: New project
           update:
-            invalid: There's been a problem updating this project
+            invalid: There was a problem updating this project
             success: Project successfully updated
         proposals_imports:
           create:
-            invalid: There's been a problem importing the proposals into projects
+            invalid: There was a problem importing the proposals into projects
             success: "%{number} proposals successfully imported into projects"
           new:
             create: Import proposals to projects
@@ -140,11 +140,11 @@ en:
             votes_enabled: Voting enabled
     orders:
       checkout:
-        error: An error ocurred while processing your vote
-        success: Your vote has been accepted successfully
+        error: There was a problem processing your vote
+        success: Your vote has been successfully accepted
       destroy:
-        error: An error ocurred while canceling your vote
-        success: Your vote has been canceled successfully
+        error: There was a problem canceling your vote
+        success: Your vote has been successfully canceled
     resource_links:
       included_proposals:
         project_proposal: 'Proposals included in this project:'

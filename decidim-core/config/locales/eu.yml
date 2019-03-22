@@ -153,23 +153,23 @@ eu:
           help_text: Aldaketak berrikustea eta aldaketa hori onartzea edo arbuiatzea. Jakinarazpen bat bere egileei bidaliko zaie.
         announcement:
           accepted: |-
-            %{amendable_type} %{amendable_link} aldatze hau
-            <strong>%{announcement_date}</strong>onartu da.
+            For the Aldaketa hori %{amendable_type} %{amendable_link} izan da
+            onartu <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Hau %{amendable_type} %{amendable_link}
-            aldaketaren ebaluazioa da.
+            For the Aldaketa hori %{amendable_type} %{amendable_link}
+            ebaluatu dago.
           rejected: |-
             %{amendable_type} %{amendable_link}
             aldatze hau <strong>%{announcement_date}</strong>baztertu egin zen.
           withdrawn: |-
             %{amendable_type} %{amendable_link}
-            aldirako aldaketa hori egilearen arabera kendu da.
+            ren aldaketa hori egilearen arabera kendu da.
       new:
         amendment_author: Egile aldaketa
         back: Back
         heading: Sortu zure aldaketa
         help_text: '%{model_name}aldatzen ari zara'
-        send: Bidali aldatzea
+        send: Bidali aldaketa
       rejected:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
@@ -180,7 +180,7 @@ eu:
         back: Back
         heading: Aldaketa berrikustea
         help_text: '%{model_name}aldatzen ari zara'
-        send: Onartu aldatzea
+        send: Onartu aldaketa
     anonymous_user: Anonimoa
     application:
       collection:
@@ -500,6 +500,11 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> ofiziala izan da.
+          email_outro: Jakinarazpen hau jaso duzu %{nickname}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: "%{nickname} ofiziala izan da"
+          notification_title: <a href="%{resource_path}">%{name} (%{nickname})</a>jarraitzen ari zarenak ofizializatu egin dira.
     export_mailer:
       data_portability_export:
         click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
@@ -741,7 +746,7 @@ eu:
       download:
         csv: Deskargatu datuak (csv)
       followers:
-        description: Antolakuntzan jarraitzen duen erabiltzaile kopurua
+        description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
         title: Jarraitzaileak
       participants:

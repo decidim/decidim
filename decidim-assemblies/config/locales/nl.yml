@@ -258,15 +258,14 @@ nl:
         others: Overige
         public: Openbaar
       filter:
-        all: Allemaal
+        all: Alle soorten vergaderingen
         commission: Commissie
         consultative_advisory: Consultative / Advisory
         executive: uitvoerend
         government: Regering
-        label: 'Laten zien:'
+        help: 'Laten zien:'
         others: anderen
         participatory: deelnemend
-        placeholder: Filteren op type
         working_group: Werkgroep
       index:
         title: Events

@@ -264,15 +264,14 @@ pl:
         others: Inni
         public: Publiczny
       filter:
-        all: Wszystko
+        all: Wszystkie rodzaje złożeń
         commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
         executive: Wykonawczy
         government: Rząd
-        label: 'Pokazać:'
+        help: 'Pokazać:'
         others: Inni
         participatory: Uczestniczy
-        placeholder: Filtruj według typu
         working_group: Grupa robocza
       index:
         title: Zespoły

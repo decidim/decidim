@@ -258,15 +258,14 @@ fr:
         others: Autres
         public: Public
       filter:
-        all: Tout
+        all: Tous types de montages
         commission: Commission
         consultative_advisory: Consultatif / consultatif
         executive: Exécutif
         government: Gouvernement
-        label: 'Spectacle:'
+        help: 'Spectacle:'
         others: Autres
         participatory: Participatif
-        placeholder: Filtrer par type
         working_group: Groupe de travail
       index:
         title: Assemblées

@@ -153,23 +153,23 @@ de:
           help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
         announcement:
           accepted: |-
-            Diese emendation für die %{amendable_type} %{amendable_link} wurde
+            Durch diese Änderung für die %{amendable_type} %{amendable_link} wurde
             auf akzeptiert <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Dies ist eine Ausgabe für die %{amendable_type} %{amendable_link}
-            , die gerade ausgewertet wird.
+            Diese Änderung für die %{amendable_type} %{amendable_link}
+            wird bewertet.
           rejected: |-
             Diese Änderung für die %{amendable_type} %{amendable_link}
             wurde am <strong>%{announcement_date}</strong>abgelehnt.
           withdrawn: |-
-            Diese Ausgabe für die %{amendable_type} %{amendable_link}
+            Diese Änderung für die %{amendable_type} %{amendable_link}
             wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
         back: Zurück
         heading: Erstellen Sie Ihre Änderung
         help_text: Sie ändern die %{model_name}
-        send: Sendung senden
+        send: Änderung senden
       rejected:
         error: Beim Ablehnen dieser Änderung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut
         success: Die Emendation wurde erfolgreich abgelehnt
@@ -180,7 +180,7 @@ de:
         back: Zurück
         heading: Überprüfen Sie die Änderung
         help_text: Sie ändern die %{model_name}
-        send: Akzeptiere Emendation
+        send: Akzeptieren Sie den Änderungsantrag
     anonymous_user: Anonym
     application:
       collection:
@@ -500,6 +500,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: "%{nickname} hat ihr Profil aktualisiert"
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> wurde amtlich gemacht.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+          email_subject: "%{nickname} wurde amtlich gemacht"
+          notification_title: Die <a href="%{resource_path}">%{name} (%{nickname})</a>, der Sie folgen, wurde offiziell bestätigt.
     export_mailer:
       data_portability_export:
         click_button: Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.
@@ -741,7 +746,7 @@ de:
       download:
         csv: Daten herunterladen (csv)
       followers:
-        description: Anzahl der Benutzer, die in der Organisation folgen
+        description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
         title: Anhänger
       participants:

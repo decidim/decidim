@@ -78,7 +78,7 @@ shared_examples "manage processes examples" do
 
     it "publishes the process" do
       click_link "Publish"
-      expect(page).to have_content("published successfully")
+      expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
@@ -96,7 +96,7 @@ shared_examples "manage processes examples" do
 
     it "unpublishes the process" do
       click_link "Unpublish"
-      expect(page).to have_content("unpublished successfully")
+      expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 

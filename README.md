@@ -111,7 +111,7 @@ As a base you can use these modules, although check first that the version is co
 | Module                                                                                                                 | Version |  Description                                                                                                                                                  |
 | -----------------------------------------------------------------------------------------------------------------------| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Age Action Authorization](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-age_action_authorization)  |  0.9.3   | A Decidim based action authorization to check user's age inside actions.                                                                                     |
-| [Antivirus](https://github.com/mainio/decidim-module-antivirus) |  0.15.0 | Virus scanning validation for uploaded attachments based on ClamAV. |
+| [Antivirus](https://github.com/mainio/decidim-module-antivirus) | 0.15.x-0.16.x | Virus scanning validation for uploaded attachments based on ClamAV. |
 | [Calendar](https://github.com/castilla-lamancha/participa-castillalamancha/tree/master/decidim-calendar)               |  0.14.1  | Adds a calendar view for all the Meetings, without regarding the Participatory Process or Assembly that they belong.                                         |
 | [Crowdfunding](https://github.com/podemos-infoparticipa2/tree/master/decidim-module-crowdfundings)                     |  0.14.1  | This rails engine implements a Decidim component that allows to the administrators to configure crowfunding campaigns for a participatory space.             |
 | [DataViz](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-dataviz)                      |  0.13.1  | The Dataviz module adds the PAM data visualizations to any participatory process but it is intended to be used just for the PAM participatory process.       |
@@ -120,9 +120,11 @@ As a base you can use these modules, although check first that the version is co
 | [News](https://github.com/castilla-lamancha/participa-castillalamancha/tree/master/decidim-news)                       |  0.14.1  | This will add an admin dashboard to manage news posts and front-end views for posts.                                                                         |
 | [Members](https://github.com/ElectricThings/decidim-members)                                                           |  0.13.1  | Members list and search plugin for Decidim                                                                                                                   |
 | [Personal Number](https://github.com/PierreMesure/decidim-module-personal_number)                                      |  0.11.0.pre | This module allows users to register with a personal number and to log in with it.                                                                        |
+| [Plans](https://github.com/mainio/decidim-module-plans) | 0.15.x-0.16.x | Collaborative planning phase for the participatory budgeting projects based on the proposals submitted by people. People can participate on creating the actual plans and collaborate on them before the budgeting voting starts. |
 | [Pol.is](https://github.com/OpenSourcePolitics/decidim-polis)                                                          |  0.7.1   | Pol.is integration on Decidim                                                                                                                                |
 | [Questions](https://github.com/OpenSourcePolitics/decidim-questions)                                                   |  0.12.2  | Questions / Views / Inputs based on decidim-proposals.                                                                                                       |
 | [Riksdagen](https://github.com/DinRiksdag/decidim-module-riksdagen)                                                    |  0.11.0.pre | A Decidim module to integrate some of the open data produced by the Swedish parliament                                                                    |
+| [Term Customizer](https://github.com/mainio/decidim-module-term_customizer) | 0.16.x | Module that allows customizing the translatable terms in the system. The admins can also limit where these customizations apply, e.g. in the whole organization, a specific participatory space or a specific component. |
 | [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                               |  0.8.3   | Allow user export                                                                                                                                            |
 | [Votings](https://github.com/podemos-info/participa2/tree/master/decidim-module-votings)                               |  0.14.1  | An administrator can add one or more votings to a participatory process or assambly                                                                          |
 
@@ -149,6 +151,7 @@ Other special verifications:
 * [Podemos](https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector)
 * [FundAction](https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb)
 * [CSV emails](https://github.com/CodiTramuntana/decidim-verifications-csv_emails)
+* [Access Requests](https://github.com/mainio/decidim-module-access_requests)
 
 ## Following our license
 

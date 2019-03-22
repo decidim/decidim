@@ -1,0 +1,379 @@
+cs:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Plocha
+        assembly_type: Typ sestavy
+        assembly_type_other: Typ sestavy jiná
+        banner_image: Obrázek banneru
+        closing_date: Uzávěrka
+        closing_date_reason: Datum ukončení
+        composition: Složení
+        copy_categories: Kopírovat kategorie
+        copy_components: Kopírování komponent
+        copy_features: Funkce kopírování
+        created_by: Vytvořil
+        created_by_other: Vytvořil jiný
+        creation_date: Datum vytvoření
+        decidim_area_id: Plocha
+        decidim_scope_id: Rozsah
+        description: Popis
+        developer_group: Skupina promotérů
+        domain: Doména
+        duration: Doba trvání
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Domácí obrázek
+        included_at: Zahrnuty v
+        instagram: Instagram
+        internal_organisation: Interní organizace
+        is_transparent: Je průhledná
+        local_area: Oblast organizace
+        meta_scope: Rozsah metadat
+        parent_id: Sestavení rodičů
+        participatory_processes_ids: Související procesy účasti
+        participatory_scope: Co se rozhodlo
+        participatory_structure: Jak se to rozhoduje
+        private_space: Soukromý prostor
+        promoted: Propagováno
+        published_at: Publikováno v
+        purpose_of_action: Účel akce
+        scope_id: Rozsah
+        scopes_enabled: Schopnosti povoleny
+        short_description: Stručný popis
+        show_statistics: Zobrazit statistiky
+        slug: URL slug
+        special_features: Speciální funkce
+        subtitle: Titulky
+        target: Kdo se účastní
+        title: Titul
+        twitter: Cvrlikání
+        youtube: Youtube
+      assembly_member:
+        birthday: Narozeniny
+        birthplace: Rodiště
+        ceased_date: Datum ukončení
+        designation_date: Datum označení
+        designation_mode: Režim označení
+        full_name: Celé jméno
+        gender: Rod
+        position: Pozice
+      assembly_user_role:
+        email: E-mailem
+        name: název
+        role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Shromáždění
+        few: Sestavy
+        many: Sestavy
+        other: Sestavy
+      decidim/assembly_member:
+        one: Montážní člen
+        few: Členové shromáždění
+        many: Členové shromáždění
+        other: Členové shromáždění
+      decidim/assembly_user_role:
+        one: Sestavení role uživatele
+        few: Sestavení uživatelských rolí
+        many: Sestavení uživatelských rolí
+        other: Sestavení uživatelských rolí
+  decidim:
+    admin:
+      actions:
+        new_assembly: Nová montáž
+      assemblies:
+        create:
+          error: Při vytváření nové sestavy došlo k chybě.
+          success: Shromáždění bylo úspěšně vytvořeno.
+        edit:
+          update: Aktualizace
+        form:
+          title: Obecná informace
+        index:
+          not_published: Není zveřejněno
+          private: Soukromé
+          public: Veřejnost
+          published: Publikováno
+        new:
+          create: Vytvořit
+          title: Nová montáž
+        update:
+          error: Při aktualizaci této sestavy došlo k chybě.
+          success: Sestavení se úspěšně aktualizovalo.
+      assemblies_copies:
+        create:
+          error: Při kopírování této sestavy došlo k chybě.
+          success: Sestavení úspěšně duplikováno.
+      assembly_copies:
+        new:
+          copy: kopírovat
+          select: Vyberte, která data chcete duplikovat
+          title: Duplicitní sestavení
+      assembly_members:
+        create:
+          error: Při přidávání člena této sestavy došlo k chybě.
+          success: Člen vytvořen úspěšně pro tuto sestavu.
+        destroy:
+          success: Člen byl úspěšně smazán pro tuto sestavu.
+        edit:
+          title: Aktualizovat člen sestavení.
+          update: Aktualizace
+        index:
+          assembly_members_title: Členové shromáždění
+        new:
+          create: Vytvořit
+          title: Nový montážní člen.
+        update:
+          error: Při aktualizaci člena této sestavy došlo k chybě.
+          success: Člen byl úspěšně aktualizován pro tuto sestavu.
+      assembly_publications:
+        create:
+          error: Při publikování této sestavy došlo k chybě.
+          success: Shromáždění bylo úspěšně zveřejněno.
+        destroy:
+          error: Při odebrání této sestavy došlo k chybě.
+          success: Shromáždění bylo nepublikováno úspěšně.
+      assembly_user_roles:
+        create:
+          error: Při přidávání uživatele této sestavy došlo k chybě.
+          success: Uživatel byl úspěšně přidán do této sestavy.
+        destroy:
+          success: Uživatel byl z této sestavy úspěšně odstraněn.
+        edit:
+          title: Aktualizovat uživatele sestavy.
+          update: Aktualizace
+        index:
+          assembly_admins_title: Uživatelé sestav
+        new:
+          create: Vytvořit
+          title: Nový uživatel sestavení.
+        update:
+          error: Došlo k chybě uživatele aktualizované pro tuto sestavu.
+          success: Uživatel úspěšně aktualizován pro tuto sestavu.
+      menu:
+        assemblies: Sestavy
+        assemblies_submenu:
+          assembly_admins: Uživatelé sestav
+          assembly_members: Členové
+          attachment_collections: Složky
+          attachment_files: Soubory
+          attachments: Přílohy
+          categories: Kategorie
+          components: Komponenty
+          info: Info
+          moderations: Moderování
+          private_users: Soukromí uživatelé
+      models:
+        assembly:
+          fields:
+            created_at: Vytvořeno u
+            private: Soukromé
+            promoted: Zvýrazněno
+            published: Publikováno
+            title: Titul
+          name: Shromáždění
+        assembly_member:
+          fields:
+            ceased_date: Datum ukončení
+            designation_date: Datum označení
+            full_name: název
+            position: Pozice
+          name: Člen
+          positions:
+            other: jiný
+            president: Prezident
+            secretary: Tajemník
+            vice_president: Víceprezident
+        assembly_user_role:
+          fields:
+            email: E-mailem
+            name: název
+            role: Role
+          name: Uspořádání uživatele
+          roles:
+            admin: Správce
+            collaborator: Spolupracovník
+            moderator: Moderátor
+      titles:
+        assemblies: Sestavy
+    admin_log:
+      assembly:
+        create: "%{user_name} vytvořila %{resource_name} sestavu"
+        publish: "%{user_name} publikoval %{resource_name} sestavu"
+        unpublish: "%{user_name} nepublikováno %{resource_name} sestavu"
+        update: "%{user_name} aktualizovala sestavu %{resource_name}"
+      assembly_member:
+        create: "%{user_name} vytvořil %{resource_name} člen v sestavě %{space_name}"
+        delete: "%{user_name} odstranila %{resource_name} člen ze sestavy %{space_name}"
+        update: "%{user_name} aktualizoval %{resource_name} člen v sestavě %{space_name}"
+      assembly_user_role:
+        create: "%{user_name} pozváno %{resource_name} do sestavy %{space_name}"
+        delete: "%{user_name} odstranil uživatele %{resource_name} ze sestavy %{space_name}"
+        update: "%{user_name} změnila roli %{resource_name} v sestavě %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: Je-li trvání této sestavy omezené, vyberte datum ukončení. V opačném případě se bude zobrazovat jako neurčitá.
+            included_at_help: Vyberte datum, kdy byla tato sestava přidána do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
+            select_a_created_by: Vyberte vytvořenou službu
+            select_an_area: Vyberte oblast
+            select_an_assembly_type: Vyberte typ sestavy
+            select_parent_assembly: Vyberte sestavu rodiče
+            slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            social_handlers: Sociální
+        assembly_copies:
+          form:
+            slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        assembly_members:
+          form:
+            existing_user: Existující uživatel
+            non_user: Není uživatel
+            select_a_position: Vyberte pozici
+            select_user: Vyberte uživatele
+            user_type: Typ uživatele
+          index:
+            filter:
+              all: Všechno
+              ceased: Přestala
+              not_ceased: Nekončí
+            filter_by: Filtrovat podle
+            search: Vyhledávání
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximální množství prvků, které chcete zobrazit
+      assembly_members:
+        index:
+          members: Členové
+      assembly_types:
+        commission: Komise
+        consultative_advisory: Poradní / poradní
+        executive: Výkonný
+        government: Vláda
+        others: Ostatní
+        participatory: Účastní se
+        working_group: Pracovní skupina
+      content_blocks:
+        highlighted_assemblies:
+          name: Zvýrazněné sestavy
+      created_by:
+        city_council: Městská rada
+        others: Ostatní
+        public: Veřejnost
+      filter:
+        all: Všechny typy sestav
+        commission: Komise
+        consultative_advisory: Poradní / poradní
+        executive: Výkonný
+        government: Vláda
+        help: 'Show:'
+        others: Ostatní
+        participatory: Účastní se
+        working_group: Pracovní skupina
+      index:
+        title: Sestavy
+      last_activity:
+        new_assembly: Nová montáž
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktivní sestavy
+            see_all_assemblies: Podívejte se na všechny sestavy
+        user_profile:
+          member_of:
+            member_of: Člen
+      show:
+        area: Plocha
+        assembly_type: Typ sestavy
+        children: Sestavy
+        closing_date: Uzávěrka
+        composition: Složení
+        created_by: Vytvořil
+        creation_date: Datum vytvoření
+        developer_group: Skupina promotérů
+        duration: Doba trvání
+        included_at: Zahrnuty v
+        indefinite_duration: Neurčitý
+        internal_organisation: Interní organizace
+        is_transparent:
+          'false': neprůhledný
+          'true': průhledný
+        local_area: Oblast organizace
+        participatory_scope: Co se rozhodlo
+        participatory_structure: Jak se to rozhoduje
+        private_space: Toto je soukromé shromáždění
+        purpose_of_action: Účel akce
+        read_less: Číst méně
+        read_more: Přečtěte si více
+        related_participatory_processes: Související procesy participace
+        scope: Rozsah
+        social_networks: Sociální sítě
+        target: Kdo se účastní
+      statistics:
+        answers_count: Odpovědi
+        assemblies_count: Sestavy
+        comments_count: Komentáře
+        debates_count: Debaty
+        endorsements_count: Potvrzení
+        headline: Aktivita
+        meetings_count: Setkání
+        orders_count: Hlasy
+        pages_count: Stránky
+        projects_count: Projekty
+        proposals_count: Návrhy
+        results_count: Výsledek
+        surveys_count: Průzkumy
+        users_count: Účastníci
+        votes_count: Hlasy
+    assembly_members:
+      assembly_member:
+        designated_on: Určeno pro
+      index:
+        title: Členové
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          page: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          title: Co jsou shromáždění?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Sestava nebyla nalezena v databázi (ID: %{id})'
+    menu:
+      assemblies: Sestavy
+    metrics:
+      assemblies:
+        description: Počet sestav vytvořených
+        object: sestav
+        title: Sestavy
+  errors:
+    messages:
+      cannot_be_blank: nemůže být prázdný
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Zúčastnit se
+        index:
+          organizational_chart: Organizační schéma
+          promoted_assemblies: Zvýrazněné sestavy
+          reset_chart: Resetovat
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} sestav"
+            few: "%{count} sestav"
+            many: "%{count} sestav"
+            other: "%{count} sestav"
+        promoted_assembly:
+          more_info: Více informací
+          take_part: Zúčastnit se
+      assembly_navigation:
+        assembly_member_menu_item: Členové
+        assembly_menu_item: Shromáždění
+      assembly_widgets:
+        show:
+          take_part: Zúčastnit se

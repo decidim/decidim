@@ -6,8 +6,6 @@ module Decidim
       class UpcomingEventsCell < Decidim::ViewModel
         include Decidim::CardHelper
 
-        delegate :current_organization, to: :controller
-
         def show
           return if upcoming_events.blank?
           render

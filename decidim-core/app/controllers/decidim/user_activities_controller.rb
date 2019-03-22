@@ -12,7 +12,7 @@ module Decidim
     private
 
     def user
-      @user ||= Decidim::User.find_by(nickname: params[:nickname])
+      @user ||= current_organization.users.find_by(nickname: params[:nickname])
     end
 
     def activities

@@ -11,6 +11,8 @@ module Decidim
         end
 
         include ActiveModel::Model
+
+        attr_accessor :test_attribute
       end.new
     end
 
@@ -34,9 +36,43 @@ module Decidim
       it "calls form_for helper with specific arguments" do
         expect(helper)
           .to receive(:form_for)
-          .with(filter, { builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true, html: { id: nil } }, any_args)
+          .with(filter, { namespace: match(/^filters_[a-z0-9-]+$/), builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true, html: { id: nil } }, any_args)
 
         helper.filter_form_for(filter) do
+        end
+      end
+
+      it "applies a namespace for the form field IDs to avoid duplicate IDs in the DOM" do
+        namespaces = []
+        original_form_for = helper.method(:form_for)
+        allow(helper).to receive(:form_for) do |inner_filter, options, &block|
+          namespaces << options[:namespace]
+          original_form_for.call(inner_filter, options, &block)
+        end
+
+        dom = Array.new(2).collect do
+          helper.filter_form_for(filter) do |form|
+            form.text_field :test_attribute
+          end
+        end.join("")
+
+        expect(dom).to have_tag(
+          "input",
+          count: 2,
+          with: {
+            type: "text",
+            name: "filter[test_attribute]"
+          }
+        )
+        namespaces.each do |ns|
+          expect(dom).to have_tag(
+            "input",
+            count: 1,
+            with: {
+              type: "text",
+              id: "#{ns}_filter_test_attribute"
+            }
+          )
         end
       end
     end

@@ -206,7 +206,7 @@
 
 .subhero-cta{
   margin-top: 2rem;
-  color: $primary;
+  color: var(--primary);
   display: inline-block;
 
   .icon{
@@ -244,7 +244,7 @@
   svg{
     width: 30px;
     height: 30px;
-    fill: $primary;
+    fill: var(--primary);
   }
 }
 

@@ -35,7 +35,7 @@ describe "Answer a survey", type: :system do
 
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(page).to have_content("The questionnaire is closed and cannot be answered.")
+      expect(page).to have_content("The form is closed and cannot be answered.")
     end
   end
 

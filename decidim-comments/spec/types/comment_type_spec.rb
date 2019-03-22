@@ -8,8 +8,34 @@ module Decidim
     describe CommentType do
       include_context "with a graphql type"
 
-      let(:model) { FactoryBot.create(:comment) }
+      let(:model) { create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }
+
+      describe "author" do
+        let(:query) { "{ author { name } }" }
+        let(:commentable) { build(:dummy_resource) }
+        let(:model) do
+          create(:comment, author: author, user_group: user_group, commentable: commentable)
+        end
+
+        context "when the author is a user" do
+          let(:author) { create(:user, organization: commentable.organization) }
+          let(:user_group) { nil }
+
+          it "returns the user" do
+            expect(response).to include("author" => { "name" => author.name })
+          end
+        end
+
+        context "when the author is a user group" do
+          let(:user_group) { create(:user_group, :verified, organization: commentable.organization, users: [create(:user, organization: commentable.organization)]) }
+          let(:author) { user_group.managers.first }
+
+          it "returns the user" do
+            expect(response).to include("author" => { "name" => user_group.name })
+          end
+        end
+      end
 
       describe "sgid" do
         let(:query) { "{ sgid }" }

@@ -112,8 +112,9 @@ module Decidim
 
     def can_participate?(user)
       return true unless private_space?
-      return true if private_space? && users.include?(user)
-      return false if private_space? && is_transparent?
+      return false unless user
+
+      users.include?(user)
     end
 
     def translated_title

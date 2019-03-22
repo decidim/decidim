@@ -55,7 +55,8 @@ module Decidim
       end
 
       def can_join_meeting?
-        meeting.registrations_enabled? && meeting.has_available_slots?
+        meeting.registrations_enabled? && meeting.has_available_slots? &&
+          !meeting.has_registration_for?(user)
       end
 
       def send_email_confirmation

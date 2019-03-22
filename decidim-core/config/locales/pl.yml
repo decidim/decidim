@@ -159,23 +159,23 @@ pl:
           help_text: Przejrzyj zmiany i zaakceptuj lub odrzuć tę poprawkę. Powiadomienie zostanie wysłane do jego autora (ów).
         announcement:
           accepted: |-
-            Ta emisja dla %{amendable_type} %{amendable_link} została
+            Ta poprawka do %{amendable_type} %{amendable_link} została
             zaakceptowana na <strong>%{announcement_date}</strong>.
           evaluating: |-
-            To jest emisja do oceny %{amendable_type} %{amendable_link}
-            .
+            Niniejsza poprawka do oceny %{amendable_type} %{amendable_link}
+            jest przedmiotem oceny.
           rejected: |-
             Ta emisja dla %{amendable_type} %{amendable_link}
             została odrzucona na <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Ta emisja dla %{amendable_type} %{amendable_link}
+            Ta poprawka do %{amendable_type} %{amendable_link}
             została wycofana przez autora.
       new:
         amendment_author: Autor poprawki
         back: Z powrotem
         heading: Utwórz poprawkę
         help_text: Modyfikujesz %{model_name}
-        send: Wyślij emendation
+        send: Wyślij poprawkę
       rejected:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Emendacja została odrzucona pomyślnie
@@ -186,7 +186,7 @@ pl:
         back: Z powrotem
         heading: Przejrzyj poprawkę
         help_text: Zmieniasz %{model_name}
-        send: Zaakceptuj emendację
+        send: Przyjmij poprawkę
     anonymous_user: Anonim
     application:
       collection:
@@ -512,6 +512,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: "%{nickname} zaktualizował (a) swój profil"
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
+        user_officialized:
+          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> zostało zdyskwalifikowane.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: "%{nickname} zostało zsynchronizowane"
+          notification_title: Lista <a href="%{resource_path}">%{name} (%{nickname})</a>, którą obserwujesz, została oficjalnie zatwierdzona.
     export_mailer:
       data_portability_export:
         click_button: Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.
@@ -753,7 +758,7 @@ pl:
       download:
         csv: Pobierz dane (csv)
       followers:
-        description: Liczba użytkowników następujących po organizacji
+        description: Liczba użytkowników obserwujących to miejsce uczestnictwa
         object: Obserwujący
         title: Obserwujący
       participants:

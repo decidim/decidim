@@ -17,10 +17,6 @@ module Decidim
 
       private
 
-      def current_user
-        context[:current_user]
-      end
-
       def card_size
         "decidim/proposals/proposal_m"
       end

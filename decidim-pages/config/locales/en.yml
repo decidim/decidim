@@ -26,5 +26,5 @@ en:
             save: Update
             title: Edit page
           update:
-            invalid: There's been errors when saving the page.
-            success: Page saved successfully.
+            invalid: There was a problem saving the page.
+            success: Page successfully saved.

@@ -106,6 +106,20 @@ module Decidim
           expect(controller.helpers.collection)
             .to match_array([*published, *organization_groups])
         end
+
+        describe "filter" do
+          it "ignores invalid filters" do
+            controller.params = { filter: "foo-filter" }
+
+            expect(controller.helpers.filter).to eq("active")
+          end
+
+          it "allows known filters" do
+            controller.params = { filter: "past" }
+
+            expect(controller.helpers.filter).to eq("past")
+          end
+        end
       end
 
       describe "GET show" do

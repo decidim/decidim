@@ -7,10 +7,10 @@ module Decidim
     class SpawnCommitteeRequest < Rectify::Command
       # Public: Initializes the command.
       #
-      # initiative - Decidim::Initiative
+      # form - Decidim::Initiative::CommitteeMemberForm
       # current_user - Decidim::User
-      def initialize(initiative, current_user)
-        @initiative = initiative
+      def initialize(form, current_user)
+        @form = form
         @current_user = current_user
       end
 
@@ -21,6 +21,7 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if form.invalid?
         request = create_request
 
         if request.persisted?
@@ -32,13 +33,13 @@ module Decidim
 
       private
 
-      attr_reader :initiative, :current_user
+      attr_reader :form, :current_user
 
       def create_request
         request = InitiativesCommitteeMember.new(
-          decidim_initiatives_id: initiative&.id,
-          decidim_users_id: current_user&.id,
-          state: "requested"
+          decidim_initiatives_id: form.initiative_id,
+          decidim_users_id: form.user_id,
+          state: form.state
         )
         return request unless request.valid?
 

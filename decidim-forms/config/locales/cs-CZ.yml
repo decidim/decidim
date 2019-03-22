@@ -1,0 +1,79 @@
+cs:
+  activemodel:
+    attributes:
+      answer:
+        body: Odpovědět
+      question:
+        max_choices: Maximální počet možností
+        question_type: Typ
+      questionnaire_question:
+        mandatory: Povinné
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nejsou úplné
+              too_many: jsou příliš mnoho
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Popis
+            tos: Podmínky služby
+        questionnaires:
+          answer_option:
+            answer_option: Možnost odpovědi
+            free_text: Volný text
+            remove: Odstranit
+            statement: Prohlášení
+          edit:
+            save: Uložit
+            title: Titul
+          form:
+            add_question: Přidat otázku
+            already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
+          question:
+            add_answer_option: Přidat možnost odpovědi
+            any: Žádný
+            description: Popis
+            down: Dolů
+            question: Otázka
+            remove: Odstranit
+            statement: Prohlášení
+            up: Nahoru
+          update:
+            invalid: Při ukládání dotazníku došlo k chybám.
+            success: Dotazníky byly úspěšně uloženy.
+      errors:
+        answer:
+          body: Tělo nemůže být prázdné
+      question_types:
+        long_answer: Dlouhá odpověď
+        multiple_option: Více možností
+        short_answer: Stručná odpověď
+        single_option: Jedna možnost
+        sorting: Třídění
+      questionnaires:
+        answer:
+          invalid: Při odpovědi na dotazník došlo k chybám.
+          success: Dotazník úspěšně odpověděl.
+        question:
+          max_choices: 'Max možnosti: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
+            title: Odpovězte na dotazník
+          are_you_sure: Tato akce nemůže být odvolána a vaše odpovědi nebudete moci upravovat. Jsi si jistá?
+          questionnaire_answered:
+            body: Již jste odpověděli na tento dotazník.
+            title: Již jste odpověděli
+          questionnaire_closed:
+            body: Dotazník je uzavřen a nelze jej zodpovědět.
+            title: Dotazník byl uzavřen
+          questionnaire_for_private_users:
+            body: Dotazník je k dispozici pouze pro soukromé uživatele
+            title: Dotazník byl uzavřen
+          submit: Předložit
+          tos_agreement: Účastí přijímáte jeho smluvní podmínky

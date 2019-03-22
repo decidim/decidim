@@ -6,20 +6,18 @@ module Decidim
       class AuthorizationsController < ApplicationController
         helper_method :authorization
 
-        before_action :load_authorization
-
         def new
-          enforce_permission_to :create, :authorization, authorization: @authorization
+          enforce_permission_to :create, :authorization, authorization: authorization
 
           @form = MobilePhoneForm.new
         end
 
         def create
-          enforce_permission_to :create, :authorization, authorization: @authorization
+          enforce_permission_to :create, :authorization, authorization: authorization
 
           @form = MobilePhoneForm.from_params(params.merge(user: current_user))
 
-          PerformAuthorizationStep.call(@authorization, @form) do
+          PerformAuthorizationStep.call(authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.sms")
               authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
@@ -33,17 +31,17 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :authorization, authorization: @authorization
+          enforce_permission_to :update, :authorization, authorization: authorization
 
           @form = ConfirmationForm.from_params(params)
         end
 
         def update
-          enforce_permission_to :update, :authorization, authorization: @authorization
+          enforce_permission_to :update, :authorization, authorization: authorization
 
           @form = ConfirmationForm.from_params(params)
 
-          ConfirmUserAuthorization.call(@authorization, @form) do
+          ConfirmUserAuthorization.call(authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.sms")
               redirect_to decidim_verifications.authorizations_path
@@ -58,14 +56,8 @@ module Decidim
 
         private
 
-        # rubocop:disable Naming/MemoizedInstanceVariableName
         def authorization
-          @authorization_presenter ||= AuthorizationPresenter.new(@authorization)
-        end
-        # rubocop:enable Naming/MemoizedInstanceVariableName
-
-        def load_authorization
-          @authorization = Decidim::Authorization.find_or_initialize_by(
+          @authorization ||= Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "sms"
           )

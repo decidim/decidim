@@ -27,7 +27,7 @@ fi:
     pages:
       home:
         statistics:
-          bar: Bar
+          bar: Palkki
           dummies_count_high: Esimerkkiluku, korkea
           dummies_count_medium: Esimerkkiluku, keskitaso
           foo: Foo

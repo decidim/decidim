@@ -11,6 +11,84 @@ describe Decidim::Initiatives::Permissions do
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
+  shared_examples "votes permissions" do
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
+    let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+    let(:initiative) { create :initiative, organization: organization }
+    let(:context) do
+      { initiative: initiative }
+    end
+    let(:votes_enabled?) { true }
+
+    before do
+      allow(initiative).to receive(:votes_enabled?).and_return(votes_enabled?)
+    end
+
+    context "when initiative has votes disabled" do
+      let(:votes_enabled?) { false }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when user belongs to another organization" do
+      let(:user) { create :user }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when user has already voted the initiative" do
+      before do
+        create :initiative_user_vote, initiative: initiative, author: user
+      end
+
+      it { is_expected.to eq false }
+    end
+
+    context "when user has verified user groups" do
+      before do
+        create :user_group, :verified, users: [user], organization: user.organization
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when the initiative type has permissions to vote" do
+      before do
+        initiative.type.create_resource_permission(
+          permissions: {
+            "vote" => {
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => { "options" => {} },
+                "another_dummy_authorization_handler" => { "options" => {} }
+              }
+            }
+          }
+        )
+      end
+
+      context "when user is not verified" do
+        it { is_expected.to eq false }
+      end
+
+      context "when user is not fully verified" do
+        before do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+        end
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is fully verified" do
+        before do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+        end
+
+        it { is_expected.to eq true }
+      end
+    end
+  end
+
   context "when reading the admin dashboard" do
     let(:action) do
       { scope: :admin, action: :read, subject: :admin_dashboard }
@@ -206,82 +284,71 @@ describe Decidim::Initiatives::Permissions do
   end
 
   context "when voting an initiative" do
-    let(:organization) { create(:organization, available_authorizations: authorizations) }
-    let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
-    let(:action) do
-      { scope: :public, action: :vote, subject: :initiative }
+    it_behaves_like "votes permissions" do
+      let(:action) do
+        { scope: :public, action: :vote, subject: :initiative }
+      end
     end
-    let(:initiative) { create :initiative, organization: organization }
-    let(:context) do
-      { initiative: initiative }
-    end
-    let(:votes_enabled?) { true }
+  end
 
-    before do
-      allow(initiative).to receive(:votes_enabled?).and_return(votes_enabled?)
-    end
-
-    context "when initiative has votes disabled" do
-      let(:votes_enabled?) { false }
-
-      it { is_expected.to eq false }
+  context "when signing an initiative" do
+    context "when initiative signature has steps" do
+      it_behaves_like "votes permissions" do
+        let(:action) do
+          { scope: :public, action: :sign_initiative, subject: :initiative }
+        end
+        let(:context) do
+          { initiative: initiative, signature_has_steps: true }
+        end
+      end
     end
 
-    context "when user belongs to another organization" do
-      let(:user) { create :user }
-
-      it { is_expected.to eq false }
-    end
-
-    context "when user has already voted the initiative" do
-      before do
-        create :initiative_user_vote, initiative: initiative, author: user
+    context "when initiative signature doesn't have steps" do
+      let(:organization) { create(:organization, available_authorizations: authorizations) }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+      let(:initiative) { create :initiative, organization: organization }
+      let(:votes_enabled?) { true }
+      let(:action) do
+        { scope: :public, action: :sign_initiative, subject: :initiative }
+      end
+      let(:context) do
+        { initiative: initiative, signature_has_steps: false }
       end
 
-      it { is_expected.to eq false }
-    end
-
-    context "when user has verified user groups" do
       before do
-        create :user_group, :verified, users: [user], organization: user.organization
+        allow(initiative).to receive(:votes_enabled?).and_return(votes_enabled?)
       end
 
-      it { is_expected.to eq true }
-    end
+      context "when user has verified user groups" do
+        before do
+          create :user_group, :verified, users: [user], organization: user.organization
+        end
 
-    context "when the initiative type has permissions to vote" do
-      before do
-        initiative.type.create_resource_permission(
-          permissions: {
-            "vote" => {
-              "authorization_handlers" => {
-                "dummy_authorization_handler" => { "options" => {} },
-                "another_dummy_authorization_handler" => { "options" => {} }
+        it { is_expected.to eq false }
+      end
+
+      context "when the initiative type has permissions to vote" do
+        before do
+          initiative.type.create_resource_permission(
+            permissions: {
+              "vote" => {
+                "authorization_handlers" => {
+                  "dummy_authorization_handler" => { "options" => {} },
+                  "another_dummy_authorization_handler" => { "options" => {} }
+                }
               }
             }
-          }
-        )
-      end
-
-      context "when user is not verified" do
-        it { is_expected.to eq false }
-      end
-
-      context "when user is not fully verified" do
-        before do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          )
         end
 
-        it { is_expected.to eq false }
-      end
+        context "when user is fully verified" do
+          before do
+            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+            create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          end
 
-      context "when user is fully verified" do
-        before do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
-          create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          it { is_expected.to eq false }
         end
-
-        it { is_expected.to eq true }
       end
     end
   end
@@ -295,13 +362,21 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
     let(:votes_enabled?) { true }
+    let(:accepts_online_unvotes?) { true }
 
     before do
       allow(initiative).to receive(:votes_enabled?).and_return(votes_enabled?)
+      allow(initiative).to receive(:accepts_online_unvotes?).and_return(accepts_online_unvotes?)
     end
 
     context "when initiative has votes disabled" do
       let(:votes_enabled?) { false }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when initiative has unvotes disabled" do
+      let(:accepts_online_unvotes?) { false }
 
       it { is_expected.to eq false }
     end

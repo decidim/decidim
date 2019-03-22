@@ -92,6 +92,13 @@ module Decidim::Budgets
           expect(subject.proposals)
             .to eq([[proposal.title, proposal.id]])
         end
+
+        it "does not return the draft proposals" do
+          create_list(:proposal, 10, :draft, component: proposals_component)
+
+          expect(subject.proposals)
+            .to eq([[proposal.title, proposal.id]])
+        end
       end
 
       describe "#map_model" do

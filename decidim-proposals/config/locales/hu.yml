@@ -2,6 +2,7 @@ hu:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Cím
         body: Szöveg
         category_id: Kategória
         decidim_scope_id: Hatáskör
@@ -10,15 +11,16 @@ hu:
         title: Cím
         user_group_id: Közösen szerkesztett vázlat
       proposal:
+        address: Cím
         answer: Válasz
         answered_at: 'Megválaszolva:'
-        automatic_hashtags: Hashtags automatikusan hozzáadva
+        automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
         category_id: Kategória
         has_address: Van lakcíme
         scope_id: Hatáskör
         state: Állapot
-        suggested_hashtags: Javasolt hashtagok
+        suggested_hashtags: Javasolt hashtagek
         title: Cím
         user_group_id: Készíts javaslatot
       proposal_answer:
@@ -26,8 +28,15 @@ hu:
       proposals_copy:
         copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
+      proposals_import:
+        import_proposals: Import-javaslatok
+        keep_authors: Tartsa meg az eredeti szerzőket
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -71,7 +80,7 @@ hu:
         name: Javaslatok
         settings:
           global:
-            amendments_enabled: Engedélyezett módosítások
+            amendments_enabled: A módosítások engedélyezve vannak
             announcement: Közlemény
             attachments_allowed: Mellékletek engedélyezése
             can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
@@ -95,13 +104,13 @@ hu:
             vote_limit: Szavazási limit felhasználónként
           step:
             announcement: Közlemény
-            automatic_hashtags: Hashtags hozzáadva minden javaslathoz
+            automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
             creation_enabled: Javaslat létrehozása engedélyezve
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
-            suggested_hashtags: A Hashtags javasolta a felhasználóknak új javaslatokat
+            suggested_hashtags: Hashtagek javasolva a felhasználóknak új javaslatokra
             votes_blocked: Szavazás letiltva
             votes_enabled: Szavazás engedélyezve
             votes_hidden: Szavazatok elrejtése (ha a szavazás engedélyezett, ez elrejti a szavazatok számát)
@@ -151,7 +160,7 @@ hu:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elfogadva. A válasz ezen az oldalon olvasható:'
             email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
-            email_subject: A javaslatot elfogadták
+            email_subject: A javaslatodat elfogadták
             notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elfogadva.
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
@@ -247,7 +256,7 @@ hu:
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
-        description: A felhasználók által elfogadott pályázatok száma
+        description: A felhasználók által elfogadott javaslatok száma
         object: javaslatok
         title: Elfogadott javaslatok
       endorsements:
@@ -289,26 +298,36 @@ hu:
             name: Javaslat
         participatory_texts:
           bulk-actions:
+            are_you_sure: Biztos, hogy elveti az egész részvételi szöveg tervezet?
             import_doc: Dokumentum importálása
+            discard_all: Összes elvetése
           import:
             invalid: Az űrlap érvénytelen!
             success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
           index:
             info_1: Az importált dokumentumból az alábbi részek kerültek feldolgozásra, amelyek javaslatokká lettek alakítva. Mostantól megtekintheted és módosíthatod, amire szükséged van a közzététel előtt.
             publish_document: Dokumentum közzététele
+            save_draft: Vázlat mentése
             title: RÉSZTVEVŐ SZÖVEG előnézete
           new_import:
+            accepted_mime_types:
+              md: Árleszállítás
+              odt: ODT
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adj hozzá egy dokumentumot, amely kisebb, mint 2 MB -minden egyes szakasz 3 szint mélységig javaslattá lesz alakítva. A támogatott formátum a szöveghez: Markdown'
+            document_legend: 'Adjon hozzá egy 2 MB-nál kisebb dokumentumot, mindegyik szekciót addig, amíg a 3 szint mélyen meg nem jelenik a Javaslatokba. A választott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:
             invalid: Nem sikerült közzé tenni a javaslatokat
             success: Minden pályázat megjelent
+          discard:
+            success: Az összes résztvevő szövegtervezetet elvetették.
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alszakasz:</em> %{title}"
+          update:
+            success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
           edit:
             accepted: Elfogadva
@@ -400,19 +419,19 @@ hu:
         filter_origin_values:
           all: Minden
           citizens: Állampolgárok
-          meetings: találkozók
+          meetings: Találkozók
           official: Hivatalos
           user_groups: Felhasználói csoportok
         filter_state_values:
-          accepted: Elfogadott
+          accepted: Elfogadva
           all: Minden
-          evaluating: Értékelő
+          evaluating: Értékelés
           except_rejected: Összes elutasítva
           rejected: Elutasítva
         filter_type_values:
           all: Minden
           amendments: Módosítások
-          proposals: javaslatok
+          proposals: Javaslatok
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -441,7 +460,7 @@ hu:
           title: Fejezd be a közös vázlatot
         count:
           drafts_count:
-            one: "%{count} együttműködési tervezet"
+            one: "%{count} közös vázlat"
             other: "%{count} együttműködési tervezet"
         create:
           error: Hiba a közösen szerkesztett vázlatok létrehozásakor
@@ -614,7 +633,7 @@ hu:
           search: Keresés
           state: Állapot
           voted: Szavazott
-          amendment_type: típus
+          amendment_type: Típus
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrés

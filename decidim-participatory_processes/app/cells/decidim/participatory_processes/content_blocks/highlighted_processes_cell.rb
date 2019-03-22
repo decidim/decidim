@@ -6,7 +6,6 @@ module Decidim
       class HighlightedProcessesCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
 
-        delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
 
         def show

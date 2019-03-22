@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::TagsCell, type: :cell do
+  controller Decidim::PagesController
+
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization: organization) }
   let(:component_proposals) { create(:proposal_component, participatory_space: participatory_space) }

@@ -1,0 +1,35 @@
+<%= render partial: "info_initiative", locals: { initiative: current_initiative } %>
+
+<%= decidim_form_for(@form, url: initiative_answer_path(current_initiative), html: { class: "form edit_initiative_answer" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title", title: translated_attribute(current_initiative.title) %></h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <%= f.translated :editor, :answer, autofocus: true, rows: 15 %>
+      </div>
+
+      <div class="row column">
+        <%= f.text_field :answer_url %>
+      </div>
+
+      <% if @form.signature_dates_required? %>
+        <div class="row">
+          <div class="columns xlarge-6">
+            <%= f.date_field :signature_start_date, disabled: !@form.signature_dates_required? %>
+          </div>
+
+          <div class="columns xlarge-6">
+            <%= f.date_field :signature_end_date, disabled: !@form.signature_dates_required? %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".answer") %>
+  </div>
+<% end %>

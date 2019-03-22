@@ -57,7 +57,7 @@ describe "Private Space Answer a survey", type: :system do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("Sign in with your account or sign up to answer the questionnaire.")
+          expect(page).to have_content("Sign in with your account or sign up to answer the form.")
         end
       end
     end
@@ -84,7 +84,7 @@ describe "Private Space Answer a survey", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page).to have_content("You have already answered this questionnaire.")
+          expect(page).to have_content("You have already answered this form.")
           expect(page).to have_no_i18n_content(question.body)
         end
       end
@@ -100,8 +100,8 @@ describe "Private Space Answer a survey", type: :system do
           within ".wrapper" do
             expect(page).to have_i18n_content(questionnaire.title, upcase: true)
             expect(page).to have_i18n_content(questionnaire.description)
-            expect(page).to have_content "The questionnaire is available only for private users"
-            expect(page).to have_content "Questionnaire closed"
+            expect(page).to have_content "The form is available only for private users"
+            expect(page).to have_content "Form closed"
 
             expect(page).to have_selector(".button[disabled]")
           end
@@ -147,7 +147,7 @@ describe "Private Space Answer a survey", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page).to have_content("You have already answered this questionnaire.")
+          expect(page).to have_content("You have already answered this form.")
           expect(page).to have_no_i18n_content(question.body)
         end
       end

@@ -21,8 +21,8 @@ describe "Admin verifies user groups via CSV", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.root_path
-    click_link "Users"
-    click_link "User groups"
+    click_link "Participants"
+    click_link "Groups"
     click_link "Verify via CSV"
   end
 

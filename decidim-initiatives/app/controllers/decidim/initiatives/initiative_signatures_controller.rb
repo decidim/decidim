@@ -72,7 +72,7 @@ module Decidim
       end
 
       def sms_phone_number_step(parameters)
-        if parameters.has_key? :initiatives_vote
+        if parameters.has_key?(:initiatives_vote) || !fill_personal_data_step?
           build_vote_form(parameters)
         else
           check_session_personal_data
@@ -81,7 +81,7 @@ module Decidim
 
         if @vote_form.invalid?
           flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
-          jump_to(:fill_personal_data)
+          jump_to(previous_step)
         end
 
         @form = Decidim::Verifications::Sms::MobilePhoneForm.new
@@ -89,7 +89,7 @@ module Decidim
       end
 
       def sms_code_step(parameters)
-        check_session_personal_data
+        check_session_personal_data if fill_personal_data_step?
         @phone_form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(parameters.merge(user: current_user))
         @form = Decidim::Verifications::Sms::ConfirmationForm.new
         render_wizard && return if session_sms_code.present?
@@ -107,8 +107,8 @@ module Decidim
         end
       end
 
-      def wicked_finish_step(parameters)
-        if parameters.has_key? :initiatives_vote
+      def finish_step(parameters)
+        if parameters.has_key?(:initiatives_vote) || !fill_personal_data_step?
           build_vote_form(parameters)
         else
           check_session_personal_data
@@ -131,16 +131,15 @@ module Decidim
         VoteInitiative.call(@vote_form, current_user) do
           on(:ok) do
             session[:initiative_vote_form] = {}
-            flash[:notice] = I18n.t("create.success", scope: "decidim.initiatives.initiative_votes")
-            redirect_to initiative_path(current_initiative)
           end
 
           on(:invalid) do |vote|
             logger.fatal "Failed creating signature: #{vote.errors.full_messages.join(", ")}" if vote
             flash[:alert] = I18n.t("create.invalid", scope: "decidim.initiatives.initiative_votes")
-            redirect_to wizard_path(steps.last)
+            jump_to previous_step
           end
         end
+        render_wizard
       end
 
       def build_vote_form(parameters)
@@ -192,8 +191,16 @@ module Decidim
         current_initiative.validate_sms_code_on_votes?
       end
 
+      def fill_personal_data_step?
+        initiative_type.collect_user_extra_fields?
+      end
+
       def set_wizard_steps
-        self.steps = sms_step? ? [:fill_personal_data, :sms_phone_number, :sms_code] : [:fill_personal_data]
+        initial_wizard_steps = [:finish]
+        initial_wizard_steps.unshift(:sms_phone_number, :sms_code) if sms_step?
+        initial_wizard_steps.unshift(:fill_personal_data) if fill_personal_data_step?
+
+        self.steps = initial_wizard_steps
       end
     end
   end

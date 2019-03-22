@@ -7,7 +7,16 @@ module Decidim
     describe SpawnCommitteeRequest do
       let(:initiative) { create(:initiative, :created) }
       let(:current_user) { create(:user, organization: initiative.organization) }
-      let(:command) { described_class.new(initiative, current_user) }
+      let(:state) { "requested" }
+      let(:form) do
+        Decidim::Initiatives::CommitteeMemberForm
+          .from_params(initiative_id: initiative.id, user_id: current_user.id, state: state)
+          .with_context(
+            current_organization: initiative.organization,
+            current_user: current_user
+          )
+      end
+      let(:command) { described_class.new(form, current_user) }
 
       context "when duplicated request" do
         let!(:committee_request) { create(:initiatives_committee_member, user: current_user, initiative: initiative) }

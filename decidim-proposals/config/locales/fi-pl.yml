@@ -2,6 +2,7 @@ fi-pl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Osoite
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
@@ -10,6 +11,7 @@ fi-pl:
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
+        address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
         automatic_hashtags: Hashtagit lisätty automaattisesti
@@ -26,8 +28,15 @@ fi-pl:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
+      proposals_import:
+        import_proposals: Tuo ehdotuksia
+        keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -289,26 +298,36 @@ fi-pl:
             name: Ehdotus
         participatory_texts:
           bulk-actions:
+            are_you_sure: Haluatko varmasti hylätä koko ehdotusaineiston luonnoksen?
             import_doc: Tuo aineisto
+            discard_all: Hylkää kaikki
           import:
             invalid: Lomake on virheellinen!
             success: Onnittelut, seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
           index:
             info_1: Seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
             publish_document: Julkaise aineisto
+            save_draft: Tallenna luonnos
             title: ESIKATSELE EHDOTUSAINEISTOA
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
-            document_legend: 'Lisää tiedosto, joka on pienempi kuin 2 MB. Jokaisesta osiosta aineiston kolmannelle tasolle asti luodaan uusi ehdotus. Tuetut tiedostomuodot ovat: Markdown'
+            document_legend: 'Lisää alle 2 Mt:n kokoinen tiedosto, josta jokainen osio kolmannelle tasolle saakka lisätään uusiksi ehdotuksiksi. Tuetut tiedostomuodot ovat: %{valid_mime_types}'
             title: LISÄÄ AINEISTO
             upload_document: Lataa aineisto
           publish:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
+          discard:
+            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alaosio:</em> %{title}"
+          update:
+            success: Ehdotusaineisto päivitettiin onnistuneesti.
         proposal_answers:
           edit:
             accepted: Hyväksytty

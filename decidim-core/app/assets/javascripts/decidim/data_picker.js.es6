@@ -127,6 +127,12 @@
     }
 
     _choose(data, user = true) {
+      // Prevent choosing is nothing has been selected. This would otherwise
+      // cause an empty checkbox to appear in the selected values list.
+      if (!data.value || data.value.length < 1) {
+        return;
+      }
+
       // Add or update value appearance
       if (this.current.div) {
         let link = $("a", this.current.div);

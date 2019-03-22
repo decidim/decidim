@@ -98,7 +98,7 @@ describe("<Comment />", () => {
       comment.author.deleted = true;
     });
 
-    it("should render 'Deleted user' inside a badge", () => {
+    it("should render 'Deleted participant' inside a badge", () => {
       const wrapper = shallow(
         <Comment
           comment={comment}
@@ -109,7 +109,7 @@ describe("<Comment />", () => {
       );
       expect(
         wrapper.find("span.label.label--small.label--basic").text()
-      ).toEqual("Deleted user");
+      ).toEqual("Deleted participant");
     });
   });
 

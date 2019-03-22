@@ -44,6 +44,8 @@ id:
         other: Pertanyaan
       decidim/consultations/response:
         other: Tanggapan
+      decidim/consultations/vote:
+        other: Voting
   decidim:
     admin:
       actions:
@@ -236,7 +238,7 @@ id:
       participatory_spaces:
         consultations:
           contextual: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas untuk semua orang yang membentuk sebuah organisasi, membuat panggilan untuk berpartisipasi dalam konsultasi, percikan dan memesan perdebatan untuk atau terhadap tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat.</p>\n"
-          page: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas untuk semua orang yang membentuk sebuah organisasi, membuat panggilan untuk berpartisipasi dalam konsultasi, percikan dan memesan perdebatan untuk atau terhadap tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat.</p>ard dalam organisasi.</p>\n"
+          page: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas kepada semua orang yang membentuk organisasi, melakukan panggilan untuk berpartisipasi dalam konsultasi, memicu dan memesan debat untuk atau melawan suatu tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat dalam organisasi.</p>\n"
           title: Apa itu konsultasi?
     menu:
       consultations: Konsultasi

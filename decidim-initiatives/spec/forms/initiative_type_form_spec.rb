@@ -17,6 +17,7 @@ module Decidim
             title: title,
             description: Decidim::Faker::Localized.sentence(25),
             online_signature_enabled: false,
+            undo_online_signatures_enabled: false,
             minimum_committee_members: minimum_committee_members,
             banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
           }

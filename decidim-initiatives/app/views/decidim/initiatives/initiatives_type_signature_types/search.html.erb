@@ -1,0 +1,1 @@
+<%= options_for_select allowed_signature_types_for_initiatives.map { |type| [t(type, scope: "activemodel.attributes.initiative.signature_type_values"), type] }, params[:selected] %>

@@ -1,4 +1,4 @@
-<% if proposal.rejected? %>
+<% if proposal.rejected? || proposal.withdrawn? %>
   <div></div>
 <% else %>
   <% if component_settings.participatory_texts_enabled? && from_proposals_list %>

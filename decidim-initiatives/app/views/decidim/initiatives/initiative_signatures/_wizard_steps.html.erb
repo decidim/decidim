@@ -1,0 +1,19 @@
+<div class="hide-for-large m-bottom">
+  <span class="text-small">
+    <%= t("step", scope: "layouts.decidim.initiative_signature_creation_header", current: (wizard_steps.index(step) + 1), total: wizard_steps.length) %>
+    (<a data-toggle="steps"><%= t("see_steps", scope: "layouts.decidim.initiative_signature_creation_header") %></a>)
+  </span>
+  <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+    <% wizard_steps.each do |wizard_step| %>
+      <% if step == wizard_step %>
+        <li class="step--active">
+          <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
+        </li>
+      <% else %>
+        <li>
+          <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
+        </li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>

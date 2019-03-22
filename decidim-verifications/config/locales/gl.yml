@@ -46,6 +46,9 @@ gl:
             - Envía a carta ao seu enderezo co código de verificación.
             - Marca a letra como enviada.
             - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+      csv_census:
+        explanation: Verifícase mediante o censo da organización
+        name: Censo da organización
       direct: Directo
       help: Axuda
       id_documents:
@@ -65,6 +68,7 @@ gl:
         first_login:
           actions:
             another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
+            csv_census: Comprobe contra o censo da organización
             dummy_authorization_handler: Verifique contra o controlador de autorización de exemplo
             dummy_authorization_workflow: Verifique contra o fluxo de traballo de autorización de exemplo
             id_documents: Verifique a carga do documento de identidade
@@ -76,6 +80,33 @@ gl:
           authorize_with: Verifica con %{authorizer}
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Produciuse un erro ao importar o censo.
+              success: Importado con éxito %{count} elementos (%{errors} erro)
+            destroy_all:
+              success: Todos os datos do censo foron eliminados
+          destroy:
+            confirm: Non se pode desfacer todo o censo. Estás seguro de que queres continuar?
+            title: Elimine todos os datos do censo
+          index:
+            data: Hai %{count} rexistros cargados en total. A última data de carga foi o %{due_date}
+            empty: Non hai datos censuais. Usa o seguinte formulario para importalo usando un ficheiro CSV.
+            title: Datos censuais actuais
+          instructions:
+            body: Para iso debes ingresar na administración do sistema e engadir as autorizacións csv_census á organización
+            title: Debe activar o censo de csv para esta organización
+          new:
+            info: 'Debe ser un ficheiro con formato CSV cunha columna: correo electrónico'
+            file: Ficheiro .csv con datos de correo electrónico
+            submit: Cargar ficheiro
+            title: Suba un novo censo
+        authorizations:
+          new:
+            error: Non puidemos verificar a túa conta ou non estás no censo da organización.
+            success: Verificouse correctamente a túa conta.
       dummy_authorization:
         extra_explanation:
           one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.

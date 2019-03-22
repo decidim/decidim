@@ -33,7 +33,7 @@ module Decidim
         scope = Comment
                 .where(commentable: commentable)
                 .not_hidden
-                .includes(:author, :up_votes, :down_votes)
+                .includes(:author, :user_group, :up_votes, :down_votes)
 
         scope = case @options[:order_by]
                 when "older"

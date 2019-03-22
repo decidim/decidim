@@ -102,9 +102,13 @@ module Decidim
       end
 
       def redirect_after_path
-        referer = request.headers["Referer"]
-        return redirect_to(meeting_path(meeting)) if referer =~ /invitation_token/
-        redirect_back fallback_location: meeting_path(meeting)
+        redirect_to meeting_path(meeting)
+      end
+
+      def user_has_no_permission_path
+        return meeting_path(meeting) if user_signed_in?
+
+        decidim.new_user_session_path
       end
     end
   end

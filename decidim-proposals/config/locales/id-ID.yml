@@ -2,6 +2,7 @@ id:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Alamat
         body: Tubuh
         category_id: Kategori
         decidim_scope_id: Cakupan
@@ -10,6 +11,7 @@ id:
         title: Judul
         user_group_id: Buat draf kolaboratif sebagai
       proposal:
+        address: Alamat
         answer: Menjawab
         answered_at: Dijawab di
         automatic_hashtags: Hashtag secara otomatis ditambahkan
@@ -26,8 +28,15 @@ id:
       proposals_copy:
         copy_proposals: Saya memahami bahwa ini akan mengimpor semua proposal dari komponen yang dipilih ke komponen saat ini dan bahwa tindakan ini tidak dapat dibatalkan.
         origin_component_id: Komponen untuk menyalin proposal dari
+      proposals_import:
+        import_proposals: Impor proposal
+        keep_authors: Simpan penulis asli
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Jenis dokumen tidak valid. Format yang diterima adalah: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -284,26 +293,36 @@ id:
             name: Usul
         participatory_texts:
           bulk-actions:
+            are_you_sure: Apakah Anda yakin akan membuang seluruh konsep teks partisipatif?
             import_doc: Impor dokumen
+            discard_all: Buang semua
           import:
             invalid: Formulirnya tidak valid!
             success: Selamat, bagian berikut telah diuraikan dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
           index:
             info_1: Bagian berikut telah diurai dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
             publish_document: Publikasikan dokumen
+            save_draft: Menyimpan konsep
             title: TEKNIK PREVIEW TEKNIKAL
           new_import:
+            accepted_mime_types:
+              md: Penurunan harga
+              odt: Ganjil
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
-            document_legend: 'Tambahkan dokumen yang lebih kecil dari 2MB, setiap bagian hingga 3 level akan diolah menjadi Proposal. Format yang ditawar adalah: Penurunan harga'
+            document_legend: 'Tambahkan dokumen yang kurang dari 2MB, setiap bagian hingga 3 level akan diuraikan menjadi Proposal. Format yang didukung adalah: %{valid_mime_types}'
             title: TAMBAHKAN DOKUMEN
             upload_document: Unggah dokumen
           publish:
             invalid: Tidak dapat memublikasikan proposal
             success: Semua proposal telah dipublikasikan
+          discard:
+            success: Semua konsep teks Partisipatif telah dibuang.
           sections:
             article: "<em>Pasal</em>"
             section: "<em>Bagian:</em> <strong>%{title}</strong>"
             sub-section: "<em>Sub-bagian:</em> %{title}"
+          update:
+            success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
           edit:
             accepted: Diterima

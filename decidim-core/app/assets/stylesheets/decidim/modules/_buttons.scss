@@ -27,27 +27,67 @@
   }
 }
 
+.button{
+  background-color: var(--primary);
+
+  &:hover,
+  &:focus{
+    background-color: var(--primary);
+    filter: brightness(120%);
+  }
+
+  &.hollow{
+    background-color: transparent;
+    color: var(--secondary);
+    border-color: var(--primary);
+  }
+
+  &.secondary{
+    background-color: var(--secondary);
+
+    &:hover,
+    &:focus{
+      background-color: var(--secondary);
+      filter: brightness(120%);
+    }
+
+    &.hollow{
+      background-color: transparent;
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+  }
+}
+
+.progress-meter{
+  background-color: var(--primary);
+}
+
 // Overwrite Foundation hover styles in hollow disabled buttons
 .button.hollow:disabled:hover,
 .button.hollow.disabled:hover{
   background-color: transparent;
-  border-color: inherit;
-  color: $primary;
+  border-color: var(--primary);
+  color: var(--primary);
 
   &.secondary{
-    color: $secondary;
+    border-color: var(--secondary);
+    color: var(--secondary);
   }
 
   &.success{
-    color: $success;
+    border-color: var(--success);
+    color: var(--success);
   }
 
   &.alert{
-    color: $alert;
+    border-color: var(--alert);
+    color: var(--alert);
   }
 
   &.warning{
-    color: $warning;
+    border-color: var(--warning);
+    color: var(--warning);
   }
 }
 
@@ -140,14 +180,14 @@
 
 .button--frosted{
   background-color: rgba($white, .65);
-  color: $primary;
+  color: var(--primary);
 }
 
 .button--muted{
   background-color: $muted;
 
   &:hover{
-    background-color: $secondary;
+    background-color: var(--secondary);
   }
 
   &.hollow{
@@ -212,25 +252,25 @@
 }
 
 .button--twitter{
-  background-color: $twitter;
+  background-color: var(--twitter);
 
   &:hover{
-    background-color: lighten($twitter, 5);
+    filter: brightness(50%);
   }
 }
 
 .button--facebook{
-  background-color: $facebook;
+  background-color: var(--facebook);
 
   &:hover{
-    background-color: lighten($facebook, 5);
+    filter: brightness(50%);
   }
 }
 
 .button--google{
-  background-color: $google;
+  background-color: var(--google);
 
   &:hover{
-    background-color: lighten($google, 5);
+    filter: brightness(50%);
   }
 }

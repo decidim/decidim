@@ -111,17 +111,9 @@ module Decidim
         followers
       end
 
-      # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
       def can_participate?(user)
-        return true unless participatory_space.try(:private_space?) || private_meeting?
-        return true if (participatory_space.try(:private_space?) &&
-                        participatory_space.users.include?(user)) ||
-                       (private_meeting? && registrations.exists?(decidim_user_id: user.try(:id)))
-        return false if (participatory_space.try(:private_space?) &&
-                        participatory_space.try(:transparent?)) ||
-                        (private_meeting? && transparent?)
+        can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
-      # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
       def organizer_belongs_to_organization
         return if !organizer || !organization
@@ -160,6 +152,22 @@ module Decidim
         return false unless pad_is_visible?
 
         (Time.current - end_time) < 72.hours
+      end
+
+      private
+
+      def can_participate_in_space?(user)
+        return true unless participatory_space.try(:private_space?)
+        return false unless user
+
+        participatory_space.users.include?(user)
+      end
+
+      def can_participate_in_meeting?(user)
+        return true unless private_meeting?
+        return false unless user
+
+        registrations.exists?(decidim_user_id: user.id)
       end
     end
   end

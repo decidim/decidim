@@ -10,7 +10,7 @@ module Decidim
       let(:subject) { "Instruccions de confirmació" }
       let(:body) { "Pots confirmar el correu electrònic del teu compte" }
       let(:default_subject) { "Confirmation instructions" }
-      let(:default_body) { "You can confirm your account email through the link below" }
+      let(:default_body) { "You can confirm your email account through the link below" }
 
       include_examples "localised email"
     end

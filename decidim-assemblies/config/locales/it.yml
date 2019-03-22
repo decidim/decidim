@@ -258,15 +258,14 @@ it:
         others: Altri
         public: Pubblico
       filter:
-        all: Tutti
+        all: Tutti i tipi di assiemi
         commission: Commissione
         consultative_advisory: Consultivo / Advisory
         executive: Esecutivo
         government: Governo
-        label: 'Mostrare:'
+        help: 'Mostrare:'
         others: Altri
         participatory: Participatory
-        placeholder: Filtra per tipo
         working_group: Gruppo di lavoro
       index:
         title: assemblee
@@ -360,7 +359,7 @@ it:
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"
-            other: "%{count} assemblies"
+            other: "%{count} assemblaggi"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa

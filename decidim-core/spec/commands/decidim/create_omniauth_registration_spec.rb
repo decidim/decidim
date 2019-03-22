@@ -94,7 +94,7 @@ module Decidim
             expect(ActiveSupport::Notifications)
               .to receive(:publish)
               .with(
-                "decidim.events.user.omniauth_registration",
+                "decidim.user.omniauth_registration",
                 user_id: user.id,
                 identity_id: 1234,
                 provider: provider,

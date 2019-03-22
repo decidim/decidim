@@ -46,6 +46,9 @@ fr:
             - Vous envoyez la lettre à leur adresse avec le code de vérification.
             - Vous marquez la lettre comme envoyée.
             - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+      csv_census:
+        explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
+        name: Recensement de l'organisation
       direct: Direct
       help: Texte d'aide
       id_documents:
@@ -65,6 +68,7 @@ fr:
         first_login:
           actions:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
+            csv_census: Vérifier par rapport au recensement de l'organisation
             dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
             id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
@@ -76,6 +80,33 @@ fr:
           authorize_with: Vérifier votre identité avec %{authorizer}
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Une erreur est survenue lors du recensement.
+              success: '%{count} articles importés avec succès (%{errors} erreur)'
+            destroy_all:
+              success: Toutes les données du recensement ont été supprimées
+          destroy:
+            confirm: Supprimer tout le recensement ne peut pas être annulé. Es-tu sur de vouloir continuer?
+            title: Supprimer toutes les données du recensement
+          index:
+            data: Il y a %{count} enregistrements chargés au total. La dernière date de mise en ligne était le %{due_date}
+            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
+            title: Données de recensement actuelles
+          instructions:
+            body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
+            title: Vous devez activer le recensement CSV pour cette organisation
+          new:
+            info: 'Doit être un fichier au format CSV avec une colonne: email'
+            file: Fichier .csv avec données de courrier électronique
+            submit: Téléverser un fichier
+            title: Télécharger un nouveau recensement
+        authorizations:
+          new:
+            error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
+            success: Votre compte a été vérifié avec succès.
       dummy_authorization:
         extra_explanation:
           one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.

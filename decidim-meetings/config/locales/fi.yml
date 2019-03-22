@@ -196,7 +196,7 @@ fi:
           invite:
             decline: Hylkää kutsu
             invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
-            join: Liity tapahtumaan "%{meeting_title}"
+            join: Ilmoittaudu tapahtumaan "%{meeting_title}"
         invites:
           create:
             error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
@@ -365,8 +365,8 @@ fi:
         show:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
-          going: Osallistumassa
-          join: Liity tapahtumaan
+          going: Ilmoittautunut
+          join: Ilmoittaudu tapahtumaan
           meeting_report: Tapahtumaraportti
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt

@@ -14,6 +14,9 @@
           <%= f.collection_check_boxes :states, @form.states_collection, :value, :name %>
         </div>
         <div class="row column">
+          <%= f.check_box :keep_authors %>
+        </div>
+        <div class="row column">
           <%= f.check_box :import_proposals %>
         </div>
       </div>

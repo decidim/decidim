@@ -1,0 +1,9 @@
+<%= cell(
+  "decidim/progress_bar",
+  current_initiative.supports_count,
+  total: current_initiative.supports_required,
+  units_name: "decidim.initiatives.initiatives.votes_count.count",
+  element_id: "initiative-#{current_initiative.id}-votes-count",
+  subtitle_text: current_initiative.supports_goal_reached? ? t("decidim.initiatives.initiatives.votes_count.most_popular_initiative") : t("decidim.initiatives.initiatives.votes_count.need_more_votes"),
+  small: false
+) %>

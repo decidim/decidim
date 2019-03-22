@@ -14,7 +14,7 @@ shared_examples "manage process steps examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Steps"
+    click_link "Phases"
   end
 
   it "creates a new participatory_process" do

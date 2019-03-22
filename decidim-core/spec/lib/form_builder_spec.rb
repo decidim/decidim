@@ -26,6 +26,8 @@ module Decidim
         attribute :min_number, Integer
         attribute :conditional_presence, String
         attribute :image
+        attribute :born_at, Date
+        attribute :start_time, DateTime
 
         translatable_attribute :name, String
         translatable_attribute :short_description, String
@@ -35,6 +37,8 @@ module Decidim
         validates :max_number, length: { maximum: 50 }
         validates :min_number, length: { minimum: 10 }
         validates :conditional_presence, presence: true, if: :validate_presence
+        validates :born_at, presence: true
+        validates :start_time, presence: true
 
         def validate_presence
           false
@@ -252,6 +256,38 @@ module Decidim
             '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
           "</label>"
         )
+      end
+    end
+
+    describe "date_field" do
+      context "when the resource has errors" do
+        before do
+          resource.valid?
+        end
+
+        let(:output) do
+          builder.date_field :born_at
+        end
+
+        it "renders the input with the proper class" do
+          expect(parsed.css("input.is-invalid-input")).not_to be_empty
+        end
+      end
+    end
+
+    describe "datetime_field" do
+      context "when the resource has errors" do
+        before do
+          resource.valid?
+        end
+
+        let(:output) do
+          builder.datetime_field :start_time
+        end
+
+        it "renders the input with the proper class" do
+          expect(parsed.css("input.is-invalid-input")).not_to be_empty
+        end
       end
     end
 

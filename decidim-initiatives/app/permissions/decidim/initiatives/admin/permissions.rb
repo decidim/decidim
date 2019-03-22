@@ -35,6 +35,7 @@ module Decidim
           initiative_type_scope_action?
           initiative_committee_action?
           initiative_admin_user_action?
+          moderator_action?
           allow! if permission_action.subject == :attachment
 
           permission_action
@@ -137,7 +138,7 @@ module Decidim
           when :discard
             toggle_allow(initiative.validating?)
           when :export_pdf_signatures
-            toggle_allow(initiative.published?)
+            toggle_allow(initiative.published? || initiative.accepted? || initiative.rejected?)
           when :export_votes
             toggle_allow(initiative.offline? || initiative.any?)
           when :accept
@@ -153,6 +154,12 @@ module Decidim
           else
             allow!
           end
+        end
+
+        def moderator_action?
+          return unless permission_action.subject == :moderation
+
+          allow!
         end
 
         def read_initiative_list_action?
