@@ -21,18 +21,13 @@ module Decidim
         return unless amendable.amendable_fields == [:title, :body]
         return unless present(amendable).title == present(emendation).title
         return unless present(amendable).body.delete("\r") == present(emendation).body.delete("\r")
+
         errors.add(:title, "AND body cannot be identical")
         errors.add(:body, "AND title cannot be identical")
       end
 
       def emendation
         amendable.amendable_type.constantize.new(@emendation_params)
-      end
-
-      def user_group
-        return unless current_organization.user_groups_enabled? && user_group_id
-
-        @user_group ||= Decidim::UserGroup.find_by(id: user_group_id, organization: current_organization)
       end
     end
   end

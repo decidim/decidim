@@ -180,7 +180,7 @@ en:
         back: Back
         heading: Review the amendment
         help_text: You are reviewing an amendment to the %{model_name}
-        send: Accept emendation
+        send: Accept amendment
     anonymous_user: Anonymous
     application:
       collection:

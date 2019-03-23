@@ -4,12 +4,12 @@
       <div class="m-bottom">
         <%= link_to :back do %>
           <%= icon "chevron-left", class: "icon--small" %>
-          <%= t("back", scope: "decidim.amendments.new") %>
+          <%= t(".back") %>
         <% end %>
       </div>
       <div class="section">
         <p>
-          <%= t("help_text", scope: "decidim.amendments.new", model_name: amendable.model_name.human.downcase ) %>
+          <%= t(".help_text", model_name: amendable.model_name.human.downcase ) %>
           <strong>
             <%= amendable.title %>
           </strong>
@@ -17,14 +17,13 @@
       </div>
     </div>
     <div class="columns large-6">
-      <h2 class="section-heading"><%= t("heading", scope: "decidim.amendments.new") %></h2>
+      <h2 class="section-heading"><%= t(".heading") %></h2>
       <div class="card">
         <div class="card__content">
           <%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
             <%= form.hidden_field :amendable_gid %>
 
-            <%= render partial: "edit_form_fields",
-            locals: { form: form, original: :amendable } %>
+            <%= render partial: "edit_form_fields", locals: { form: form, original: :amendable } %>
 
             <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
               <div class="field">
@@ -33,8 +32,7 @@
             <% end %>
 
             <div class="actions">
-              <%= form.submit t("send", scope: "decidim.amendments.new"),
-              class: "button expanded mt-s mb-none", data: { disable: true } %>
+              <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
             </div>
           <% end %>
         </div>

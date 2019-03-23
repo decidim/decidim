@@ -121,7 +121,7 @@ describe "Amend Proposal", type: :system do
             fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
             select user_group.name, from: :amendment_user_group_id
           end
-          click_button "Send emendation"
+          click_button "Send amendment"
         end
 
         it "is shown the Error Callout" do
@@ -173,7 +173,7 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success", text: "This amendment has been successfully accepted.")
+              expect(page).to have_css(".callout.success", text: "The amendment has been accepted successfully.")
             end
 
             it "is changed the state of the emendation" do
@@ -213,7 +213,8 @@ describe "Amend Proposal", type: :system do
         end
 
         it "is shown the promote button" do
-          expect(page).to have_content("PUBLISH AS A NEW PROPOSAL")
+          expect(page).to have_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_content("You can promote this emendation and publish it as an independent proposal")
         end
 
         context "when the user clicks on the promote button" do
@@ -221,17 +222,24 @@ describe "Amend Proposal", type: :system do
             find("a[href='#{decidim.promote_amend_path(emendation)}']").click
           end
 
-          it "is shown the Success Callout" do
+          it "is shown the alert text" do
+            expect(accept_alert).to eq("Are you sure you want to promote this emendation?")
+          end
+
+          it "is shown the Success Callout when the alert text is accepted" do
+            page.driver.browser.switch_to.alert.accept
             expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
             before do
+              page.driver.browser.switch_to.alert.accept
               visit emendation_path
             end
 
             it "is NOT shown the promote button" do
-              expect(page).not_to have_content("PUBLISH AS A NEW PROPOSAL")
+              expect(page).not_to have_content("PROMOTE TO PROPOSAL")
+              expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
             end
           end
         end

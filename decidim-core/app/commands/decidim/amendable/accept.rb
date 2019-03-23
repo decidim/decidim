@@ -44,12 +44,7 @@ module Decidim
       end
 
       def update_amendable!
-        @amendable = Decidim.traceability.update!(
-          @amendable,
-          @user_group || @amender,
-          form.emendation_params,
-          visibility: "public-only"
-        )
+        @amendable.update!(form.emendation_params)
         @amendable.add_coauthor(@amender, user_group: @user_group)
       end
 

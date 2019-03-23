@@ -6,7 +6,7 @@
         <% if [:title, :body].include?(key) %>
           <div class="field hashtags__container">
             <%= emendation_form.form_field_for key, class: "js-hashtags",
-                hashtaggable: true, value: field_value_for(form, original, key) %>
+                hashtaggable: true, value: emendation_field_value(form, original, key) %>
           </div>
         <% end %>
 

@@ -19,7 +19,7 @@ shared_examples "create amendment" do
         .to receive(:perform_action!)
         .with(
           "publish",
-          form.amendable_type.constantize,
+          form.amendable.amendable_type.constantize,
           form.current_user,
           kind_of(Hash)
         ).and_call_original
