@@ -46,7 +46,7 @@ module Decidim
         ) do
           emendation = @amendable.amendable_type.constantize.new(form.emendation_params)
           emendation.component = @amendable.component
-          emendation.published_at = Time.current if @amendable.amendable_type == "Decidim::Proposals::Proposal"
+          emendation.published_at = Time.current if proposal?
           emendation.add_coauthor(@amender, user_group: @user_group)
           emendation.save!
           emendation
@@ -83,6 +83,10 @@ module Decidim
             amendment_id: @amendment.id
           }
         )
+      end
+
+      def proposal?
+        @amendable.amendable_type == "Decidim::Proposals::Proposal"
       end
     end
   end

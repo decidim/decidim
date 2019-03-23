@@ -7,11 +7,19 @@ module Decidim
       mimic :amendment
 
       attribute :id, String
+      attribute :emendation_params, Object
 
       validates :id, presence: true
 
       def emendation
         @emendation ||= Amendment.find_by(decidim_emendation_id: id).emendation
+      end
+
+      def emendation_params
+        {
+          title: emendation.title,
+          body: emendation.body
+        }
       end
     end
   end
