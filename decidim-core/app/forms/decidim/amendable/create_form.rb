@@ -26,6 +26,10 @@ module Decidim
         errors.add(:body, "AND title cannot be identical")
       end
 
+      def amendable
+        @amendable ||= GlobalID::Locator.locate_signed(amendable_gid)
+      end
+
       def emendation
         amendable.amendable_type.constantize.new(@emendation_params)
       end

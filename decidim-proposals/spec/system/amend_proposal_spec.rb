@@ -219,7 +219,7 @@ describe "Amend Proposal", type: :system do
 
         context "when the user clicks on the promote button" do
           before do
-            find("a[href='#{decidim.promote_amend_path(emendation)}']").click
+            find("a[href='#{decidim.promote_amend_path(amendment)}']").click
           end
 
           it "is shown the alert text" do

@@ -11,15 +11,11 @@ module Decidim
       end
 
       def amendable
-        @amendable ||= if amendment.present?
-                         amendment.amendable
-                       else
-                         GlobalID::Locator.locate_signed(amendable_gid)
-                       end
+        @amendable ||= amendment&.amendable
       end
 
       def emendation
-        @emendation ||= amendment.emendation
+        @emendation ||= amendment&.emendation
       end
 
       def check_amendable_form_validations
@@ -42,7 +38,8 @@ module Decidim
           next unless [:title, :body].include?(key)
           emendation_params[key] = Decidim::ContentProcessor
                                    .parse_with_processor(
-                                     :hashtag, value,
+                                     :hashtag,
+                                     value,
                                      current_organization: amendable.organization
                                    ).rewrite
         end

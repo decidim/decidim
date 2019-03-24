@@ -19,7 +19,7 @@ module Decidim
       end
 
       def promote_amend_path
-        decidim.promote_amend_path(model)
+        decidim.promote_amend_path(model.amendment)
       end
 
       def promote_amend_button_label

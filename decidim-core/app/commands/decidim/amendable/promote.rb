@@ -11,7 +11,7 @@ module Decidim
       def initialize(form)
         @form = form
         @emendation = form.emendation
-        @amendable = form.emendation.amendable
+        @amendable = form.amendable
       end
 
       # Executes the command. Broadcasts these events:
