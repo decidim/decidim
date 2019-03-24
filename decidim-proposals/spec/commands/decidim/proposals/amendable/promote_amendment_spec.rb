@@ -25,7 +25,7 @@ module Decidim
 
       let(:form_params) do
         {
-          id: amendment.id,
+          id: amendment.id
         }
       end
 
