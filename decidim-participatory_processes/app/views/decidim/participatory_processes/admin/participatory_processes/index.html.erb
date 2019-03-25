@@ -9,10 +9,21 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.participatory_process.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.participatory_process.fields.private", scope: "decidim.admin") %></th>
-            <th class="table-list__actions"><%= t("models.participatory_process.fields.published", scope: "decidim.admin") %></th>
+            <th>
+              <%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %>
+            </th>
+            <th>
+              <%= sort_link(query, :decidim_participatory_process_group_id, t("models.participatory_process.fields.process_group", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %>
+            </th>
+            <th class="table-list__actions">
+              <%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %>
+            </th>
             <th></th>
           </tr>
         </thead>
@@ -33,6 +44,18 @@
                   <%= link_to translated_attribute(process.title), moderations_path(process) %><br />
                 <% else %>
                   <%= translated_attribute(process.title) %>
+                <% end %>
+              </td>
+              <td>
+                <% group = process.participatory_process_group %>
+                <% if group %>
+                  <% if allowed_to? :update, :process, process: process %>
+                    <%= link_to translated_attribute(group.name), edit_participatory_process_group_path(group) %><br />
+                  <% elsif allowed_to? :preview, :process, process: process %>
+                    <%= link_to translated_attribute(group.name), decidim_participatory_processes.participatory_process_group_path(group) %><br />
+                  <% else %>
+                    <%= translated_attribute(group.name) %>
+                  <% end %>
                 <% end %>
               </td>
               <td>
@@ -69,6 +92,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @participatory_processes, theme: "decidim" %>
     </div>
   </div>
 </div>

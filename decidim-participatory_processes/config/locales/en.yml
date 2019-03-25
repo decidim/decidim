@@ -97,6 +97,7 @@ en:
           fields:
             created_at: Created at
             private: Private
+            process_group: Process Group
             promoted: Highlighted
             published: Published
             title: Title

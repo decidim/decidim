@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
-        helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space
+        helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space, :query
         layout "decidim/admin/assemblies"
 
         before_action :set_all_assemblies, except: [:index]
@@ -71,6 +71,17 @@ module Decidim
 
         private
 
+        def query
+          OrganizationAssemblies.new(current_user.organization)
+                                .query
+                                .where(parent_id: params[:parent_id])
+                                .ransack(params[:q])
+        end
+
+        def collection
+          @collection ||= query.result.page(params[:page]).per(15)
+        end
+
         def set_all_assemblies
           @all_assemblies = OrganizationAssemblies.new(current_user.organization).query
         end
@@ -90,11 +101,6 @@ module Decidim
 
         def parent_assemblies
           @parent_assemblies ||= OrganizationAssemblies.new(current_user.organization).query.where(parent_id: nil)
-        end
-
-        def collection
-          parent_id = params[:parent_id].presence
-          @collection ||= OrganizationAssemblies.new(current_user.organization).query.where(parent_id: parent_id)
         end
 
         def assembly_params

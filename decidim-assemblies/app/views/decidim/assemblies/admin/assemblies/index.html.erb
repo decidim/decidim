@@ -13,10 +13,18 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.assembly.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.assembly.fields.created_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.assembly.fields.private", scope: "decidim.admin") %></th>
-            <th class="table-list__actions"><%= t("models.assembly.fields.published", scope: "decidim.admin") %></th>
+            <th>
+              <%= sort_link(query, :title, t("models.assembly.fields.title", scope: "decidim.admin")) %>
+            </th>
+            <th>
+              <%= sort_link(query, :created_at, t("models.assembly.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
+            </th>
+            <th>
+              <%= sort_link(query, :private_space, t("models.assembly.fields.private", scope: "decidim.admin")) %>
+            </th>
+            <th class="table-list__actions">
+              <%= sort_link(query, :published_at, t("models.assembly.fields.published", scope: "decidim.admin")) %>
+            </th>
             <th></th>
           </tr>
         </thead>
@@ -77,6 +85,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @assemblies, theme: "decidim" %>
     </div>
   </div>
 </div>

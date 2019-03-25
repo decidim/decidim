@@ -11,13 +11,13 @@ module Decidim
 
         helper ProcessGroupsForSelectHelper
 
-        helper_method :current_participatory_process, :current_participatory_space
+        helper_method :current_participatory_process, :current_participatory_space, :query
 
         layout "decidim/admin/participatory_processes"
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = collection
+          @participatory_processes = collection.includes(:participatory_process_group)
         end
 
         def new
@@ -74,6 +74,14 @@ module Decidim
 
         private
 
+        def query
+          @query ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user).ransack(params[:q])
+        end
+
+        def collection
+          @collection ||= query.result.page(params[:page]).per(15)
+        end
+
         def current_participatory_process
           @current_participatory_process ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
@@ -81,10 +89,6 @@ module Decidim
         end
 
         alias current_participatory_space current_participatory_process
-
-        def collection
-          @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)
-        end
 
         def participatory_process_params
           {
