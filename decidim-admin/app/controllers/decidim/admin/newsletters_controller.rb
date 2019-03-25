@@ -5,6 +5,7 @@ module Decidim
     # Controller that allows managing newsletters.
     class NewslettersController < Decidim::Admin::ApplicationController
       include Decidim::NewslettersHelper
+      include Decidim::Admin::NewslettersHelper
 
       def index
         enforce_permission_to :read, :newsletter
@@ -91,7 +92,17 @@ module Decidim
         end
       end
 
+      def select_recipients_to_deliver
+        @newsletter = collection.find(params[:id])
+        enforce_permission_to :update, :newsletter, newsletter: @newsletter
+        # @form = form(SelectRecipientsNewsletterForm).from_model(@newsletter)
+        @select_recipients_to_deliver = form(SelectRecipientsNewsletterForm).from_model(@newsletter)
+        # raise
+
+      end
+
       def deliver
+        raise
         @newsletter = collection.find(params[:id])
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
 

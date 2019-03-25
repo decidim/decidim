@@ -440,10 +440,13 @@ en:
         new:
           save: Save
           title: New newsletter
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
           deliver: Deliver newsletter
+          title: Select recipients to deliver
+        show:
           preview: Preview
+          select_recipients_to_deliver: Select recipients to deliver
           subject: Subject
         update:
           error: There was a problem updating this newsletter.

@@ -1,0 +1,40 @@
+<%= decidim_form_for(@select_recipients_to_deliver, url: deliver_newsletter_path(@newsletter), html: { class: "form new_newsletter_deliver" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title" %></h2>
+    </div>
+    <div class="card-section">
+      <%#= render partial: "form", object: f %>
+      <%= participatory_spaces_for_select %>
+
+        <div class="row column">
+          Followers
+          <%= f.check_box :send_to_followers, label: "Followers", value:  true %>
+          Participants
+          <%= f.check_box :send_to_participants, label: "Participants", value: true %>
+
+        </div>
+
+        <% if current_user.admin? %>
+          Scopes
+          <%= render partial: "scopes", locals: { scopes: @select_recipients_to_deliver.scopes, f: f } %>
+        <% end %>
+      </div>
+
+      Aquesta selecció s'envia a tants emails: X
+    </div>
+  </div>
+  <div class="button--double form-general-submit">
+    <%#= f.submit t(".save") %>
+  </div>
+  <div class="button--double form-general-submit">
+    <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
+      <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
+    <% end %>
+    <% unless @newsletter.sent? %>
+      <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button alert", data: { confirm: t(".confirm_deliver") } %>
+    <% end %>
+  </div>
+
+
+<% end %>

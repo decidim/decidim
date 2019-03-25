@@ -17,6 +17,6 @@
     <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
   <% end %>
   <% unless @newsletter.sent? %>
-    <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button alert", data: { confirm: t(".confirm_deliver") } %>
+    <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button alert" %>
   <% end %>
 </div>
