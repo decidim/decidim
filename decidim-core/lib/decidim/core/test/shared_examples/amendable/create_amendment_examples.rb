@@ -34,9 +34,8 @@ shared_examples "create amendment" do
           event: "decidim.events.amendments.amendment_created",
           event_class: Decidim::Amendable::AmendmentCreatedEvent,
           resource: amendable,
-          followers: kind_of(Array),
-          affected_users: kind_of(Array),
-          extra: kind_of(Hash)
+          affected_users: [amendable.creator_author],
+          followers: []
         )
 
       command.call
