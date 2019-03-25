@@ -42,7 +42,7 @@ shared_examples "amendment created event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("A new amendment has been created for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type}.")
+        .to include("A new amendment has been created for the #{amendable_type} <a href=\"#{amendable_path}\">#{amendable_title}</a>.")
     end
   end
 end
