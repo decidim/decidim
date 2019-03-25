@@ -1,6 +1,16 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.17-stable)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+**Removed**:
+
+## [0.16.1](https://github.com/decidim/decidim/tree/v0.16.1)
 
 ### Upgrade notes
 
