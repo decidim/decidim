@@ -16,7 +16,7 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :current_filter
       helper_method :process_count_by_filter
 
       def index
@@ -56,24 +56,24 @@ module Decidim
         @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
-      def filtered_participatory_processes(filter_name = filter)
-        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter_name, current_user)
+      def filtered_participatory_processes(filter_name = current_filter)
+        published_processes | FilteredParticipatoryProcesses.new(filter_name)
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_participatory_processes(filter).query.where(decidim_participatory_process_group_id: nil)
+        @participatory_processes ||= filtered_participatory_processes
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= filtered_participatory_processes("all") | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= published_processes | PromotedParticipatoryProcesses.new
       end
 
-      def filtered_participatory_process_groups(filter_name = filter)
+      def filtered_participatory_process_groups(filter_name = current_filter)
         OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter_name, current_user)
       end
 
       def participatory_process_groups
-        @participatory_process_groups ||= filtered_participatory_process_groups(filter)
+        @participatory_process_groups ||= filtered_participatory_process_groups
       end
 
       def stats
@@ -84,9 +84,9 @@ module Decidim
         @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
       end
 
-      def filter
+      def current_filter
         return default_filter unless ProcessFiltersCell::ALL_FILTERS.include?(params[:filter])
-        @filter ||= params[:filter] || default_filter
+        @current_filter ||= params[:filter] || default_filter
       end
 
       def default_filter
@@ -100,7 +100,7 @@ module Decidim
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          processes = filtered_participatory_processes(filter_name).query.where(decidim_participatory_process_group_id: nil)
+          processes = filtered_participatory_processes(filter_name)
           groups = filtered_participatory_process_groups(filter_name)
           collection_by_filter.merge(filter_name.to_s => processes.count + groups.count)
         end

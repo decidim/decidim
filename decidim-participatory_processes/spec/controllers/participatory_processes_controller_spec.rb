@@ -22,7 +22,7 @@ module Decidim
           request.env["decidim.current_organization"] = organization
         end
 
-        it "orders them by end_date" do
+        it "orders them by start_date (descendingly)" do
           unpublished = create(
             :participatory_process,
             :with_steps,
@@ -35,7 +35,7 @@ module Decidim
             :with_steps,
             :published,
             organization: organization,
-            end_date: nil
+            start_date: 1.month.ago
           )
           last.active_step.update!(end_date: nil)
 
@@ -44,7 +44,7 @@ module Decidim
             :with_steps,
             :published,
             organization: organization,
-            end_date: Date.current.advance(days: 10)
+            start_date: 1.day.ago
           )
           first.active_step.update!(end_date: Date.current.advance(days: 2))
 
@@ -53,7 +53,7 @@ module Decidim
             :with_steps,
             :published,
             organization: organization,
-            end_date: Date.current.advance(days: 20)
+            start_date: 1.week.ago
           )
           second.active_step.update!(end_date: Date.current.advance(days: 4))
 
@@ -111,13 +111,13 @@ module Decidim
           it "ignores invalid filters" do
             controller.params = { filter: "foo-filter" }
 
-            expect(controller.helpers.filter).to eq("active")
+            expect(controller.helpers.current_filter).to eq("active")
           end
 
           it "allows known filters" do
             controller.params = { filter: "past" }
 
-            expect(controller.helpers.filter).to eq("past")
+            expect(controller.helpers.current_filter).to eq("past")
           end
         end
       end

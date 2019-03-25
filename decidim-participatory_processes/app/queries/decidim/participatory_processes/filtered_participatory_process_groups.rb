@@ -11,7 +11,7 @@ module Decidim
       end
 
       def query
-        processes = Decidim::ParticipatoryProcess.all
+        processes = Decidim::ParticipatoryProcess
 
         processes = case @filter
                     when "past"
