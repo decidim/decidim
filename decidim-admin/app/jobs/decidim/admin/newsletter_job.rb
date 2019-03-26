@@ -7,14 +7,16 @@ module Decidim
     class NewsletterJob < ApplicationJob
       queue_as :newsletter
 
-      def perform(newsletter)
+      def perform(newsletter, form)
         @newsletter = newsletter
+        @form = form
 
         @newsletter.with_lock do
           raise "Newsletter already sent" if @newsletter.sent?
 
           @newsletter.update!(
             sent_at: Time.current,
+            extended_data: extended_data,
             total_recipients: recipients.count,
             total_deliveries: 0
           )
@@ -26,6 +28,10 @@ module Decidim
       end
 
       private
+
+      def extended_data
+        raise
+      end
 
       def recipients
         @recipients ||= User.where(organization: @newsletter.organization)

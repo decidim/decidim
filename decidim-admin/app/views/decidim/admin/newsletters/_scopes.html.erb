@@ -3,7 +3,6 @@
     <li class="switch tiny switch-with-label">
       <%= f.fields_for "scopes[]", scope do |form| %>
         <label>
-          <%#raise%>
           <%= form.check_box :checked, label: false, class: "switch-input" %>
           <span class="switch-paddle"></span>
           <span class="switch-label"><%= translated_attribute scope.name %></span>

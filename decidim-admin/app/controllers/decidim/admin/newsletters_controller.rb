@@ -95,18 +95,33 @@ module Decidim
       def select_recipients_to_deliver
         @newsletter = collection.find(params[:id])
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
-        # @form = form(SelectRecipientsNewsletterForm).from_model(@newsletter)
-        @select_recipients_to_deliver = form(SelectRecipientsNewsletterForm).from_model(@newsletter)
         # raise
-
+        @form = form(SelectiveNewsletterForm).from_model(@newsletter)
+        # @form = form(SelectiveNewsletterForm).instance
+        # raise
       end
 
       def deliver
-        raise
         @newsletter = collection.find(params[:id])
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
+        @form = form(SelectiveNewsletterForm).from_params(params)
 
-        DeliverNewsletter.call(@newsletter, current_user) do
+
+        spaces = @form.participatory_space_types.map do |type|
+          next if type.ids.blank?
+          object_class = "Decidim::#{type.manifest_name.classify}"
+          object_class.constantize.where(id: type.ids.reject(&:blank?))
+        end.flatten.compact
+
+        followers = spaces.map do |space|
+          space.followers
+        end.flatten.compact.uniq
+        
+        raise
+        recipients = Decidim::Admin::SelectiveNewsletterRecipients.new(@newsletter.organization, @form)
+
+        raise
+        DeliverNewsletter.call(@newsletter, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index
