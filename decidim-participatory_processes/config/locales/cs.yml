@@ -3,10 +3,12 @@ cs:
     attributes:
       participatory_process:
         announcement: Oznámení
+        area_id: Plocha
         banner_image: Obrázek banneru
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
         copy_steps: Kopírování kroků
+        decidim_area_id: Plocha
         description: Popis
         developer_group: Skupina promotérů
         domain: Doména
@@ -299,6 +301,7 @@ cs:
         participatory_processes:
           form:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
+            select_an_area: Vyberte oblast
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
       content_blocks:
         highlighted_processes:
@@ -353,6 +356,7 @@ cs:
         index:
           loading: Načítá výsledky ...
       show:
+        area: Plocha
         developer_group: Skupina promotérů
         end_date: Datum ukončení
         local_area: Oblast organizace
