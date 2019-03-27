@@ -3,10 +3,12 @@ pl:
     attributes:
       participatory_process:
         announcement: Ogłoszenie
+        area_id: Powierzchnia
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_steps: Skopiuj kolejne etapy
+        decidim_area_id: Powierzchnia
         description: Opis
         developer_group: Grupa promotorów
         domain: Domena
@@ -299,6 +301,7 @@ pl:
         participatory_processes:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
+            select_an_area: Wybierz obszar
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       content_blocks:
         highlighted_processes:
@@ -353,6 +356,7 @@ pl:
         index:
           loading: Wyniki wyszukiwania...
       show:
+        area: Powierzchnia
         developer_group: Grupa promotorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
