@@ -148,7 +148,7 @@ sv:
             description: Beskrivning
             initiative_votes_count: Röster räknas
             initiatives: initiativ
-            state: stat
+            state: Status
         committee_requests:
           index:
             approve: Godkänna
