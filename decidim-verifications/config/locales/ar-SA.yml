@@ -188,7 +188,7 @@ ar:
               mark_as_sent: بمناسبة إرسالها
               not_yet_sent: لم ترسل بعد
               title: التحقق المستمر
-              username: كنية
+              username: الاسم المستعار
               verification_code: شيفرة التأكيد
           postages:
             create:
