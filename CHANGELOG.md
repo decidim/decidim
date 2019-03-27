@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-participatory_processes**: Add a select field for assign an area to participatory processes [#5011](https://github.com/decidim/decidim/pull/5011)
+
 **Changed**:
 
 **Fixed**:

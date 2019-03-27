@@ -64,6 +64,13 @@ edit_link(
           </div>
         <% end %>
 
+        <% if translated_attribute(current_participatory_space.try(:area).try(:name)).present? %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("participatory_processes.show.area", scope: "decidim") %></span>
+            <%= translated_attribute(current_participatory_space.area.area_type.name) %> - <%= translated_attribute(current_participatory_space.area.name) %>
+          </div>
+        <% end %>
+
         <% if translated_attribute(current_participatory_space.meta_scope).present? %>
           <div class="definition-data__item scope">
             <span class="definition-data__title"><%= t("participatory_processes.show.scope", scope: "decidim") %></span>
