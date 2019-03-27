@@ -3,10 +3,12 @@ gl:
     attributes:
       participatory_process:
         announcement: Anuncio
+        area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_steps: Copiar os pasos
+        decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
         domain: Dominio
@@ -291,6 +293,7 @@ gl:
         participatory_processes:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
+            select_an_area: Seleccione unha área
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ gl:
         index:
           loading: Cargando resultados ...
       show:
+        area: Área
         developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
