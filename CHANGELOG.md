@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Add documents folder in proposals manifest for precompile assets. [#5016](https://github.com/decidim/decidim/pull/5016)
+
 **Removed**:
 
 ## [0.17.0](https://github.com/decidim/decidim/tree/v0.17.0)
