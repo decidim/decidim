@@ -3,10 +3,12 @@ it:
     attributes:
       participatory_process:
         announcement: Annuncio
+        area_id: La zona
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
         copy_components: Copia componenti
         copy_steps: Copia i passi
+        decidim_area_id: La zona
         description: Descrizione
         developer_group: Gruppo promotore
         domain: Dominio
@@ -291,6 +293,7 @@ it:
         participatory_processes:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
+            select_an_area: Seleziona un'area
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ it:
         index:
           loading: Caricamento risultati...
       show:
+        area: La zona
         developer_group: Gruppo promotore
         end_date: Data di fine
         local_area: Area Organizzazione
