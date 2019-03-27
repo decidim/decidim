@@ -53,6 +53,7 @@ module Decidim
             parent: @assembly.parent,
             developer_group: @assembly.developer_group,
             local_area: @assembly.local_area,
+            area: @assembly.area,
             target: @assembly.target,
             participatory_scope: @assembly.participatory_scope,
             participatory_structure: @assembly.participatory_structure,

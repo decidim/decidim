@@ -84,6 +84,10 @@
     </div>
 
     <div class="row column">
+      <%= form.select :area_id, option_groups_from_collection_for_select(current_organization.area_types, :areas, :translated_name, :id, :translated_name, current_participatory_process.try(:decidim_area_id)), include_blank: t(".select_an_area") %>
+    </div>
+
+    <div class="row column">
       <%= form.translated :text_field, :participatory_scope %>
     </div>
 
