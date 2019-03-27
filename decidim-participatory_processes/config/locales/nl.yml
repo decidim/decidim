@@ -3,10 +3,12 @@ nl:
     attributes:
       participatory_process:
         announcement: Aankondiging
+        area_id: Gebied
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
+        decidim_area_id: Gebied
         description: Beschrijving
         developer_group: Promotergroep
         domain: Domein
@@ -291,6 +293,7 @@ nl:
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
+            select_an_area: Selecteer een gebied
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ nl:
         index:
           loading: Laden van resultaten...
       show:
+        area: Gebied
         developer_group: Promotergroep
         end_date: Einddatum
         local_area: Organisatiegebied
