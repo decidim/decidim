@@ -148,7 +148,7 @@ fi:
             description: Kuvaus
             initiative_votes_count: Äänten määrä
             initiatives: Aloitteet
-            state: Tila
+            state: Maakunta/osavaltio
         committee_requests:
           index:
             approve: Hyväksy
