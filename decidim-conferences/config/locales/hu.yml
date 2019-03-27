@@ -380,7 +380,7 @@ hu:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
           details_1: 'A konferenciára a következő típussal vagy regisztrálva %{registration_type}. Az ára %{price} és a következő eseményeken vehetsz részt:'
-          details_2: A konferencia részleteit megtalálod a mellékletben.
+          details_2: A konferencia részleteit megtalálja a mellékletben.
         pending_validation:
           confirmation_pending: Rövidesen megkapod a visszaigazolást
           details: 'A %{registration_type} típussal regisztráltál a konferenciára, melyek költsége %{price} és így részt vehetsz a következő eseményeken:'
@@ -475,7 +475,7 @@ hu:
           title: Regisztrációs típusok
       shared:
         conference_user_login:
-          already_account: Van már fiókod a Decidimben?
+          already_account: Van már fiókja decidimben?
           new_user: Új felhasználó?
           sign_in: Jelentkezz be a konferenciára való regisztrálásához
           sign_up: Hozz létre egy fiókot a Decidimben, hogy regisztrálni tudja a konferenciára
