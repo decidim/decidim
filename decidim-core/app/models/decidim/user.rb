@@ -59,6 +59,8 @@ module Decidim
                       index_on_create: ->(user) { !user.deleted? },
                       index_on_update: ->(user) { !user.deleted? })
 
+    before_save :ensure_encrypted_password
+
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
     end
@@ -204,6 +206,10 @@ module Decidim
 
     def available_locales
       Decidim.available_locales.map(&:to_s)
+    end
+
+    def ensure_encrypted_password
+      restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
     end
   end
 end
