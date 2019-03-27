@@ -84,9 +84,9 @@ module Decidim
       def search_type
         case type
         when "proposals"
-          query.where.not(id: query.joins(:amendable).pluck(:id))
+          query.where.not(id: query.joins(:amendable))
         when "amendments"
-          query.where(id: query.joins(:amendable).pluck(:id))
+          query.where(id: query.joins(:amendable))
         else
           query
         end
