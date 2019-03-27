@@ -31,6 +31,7 @@ module Decidim::ParticipatoryProcesses
             current_organization: my_process.organization,
             scopes_enabled: my_process.scopes_enabled,
             scope: my_process.scope,
+            area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
             show_statistics: my_process.show_statistics,

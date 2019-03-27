@@ -30,6 +30,7 @@ module Decidim
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
         attribute :scope_id, Integer
+        attribute :area_id, Integer
         attribute :hero_image
         attribute :remove_hero_image
         attribute :banner_image
@@ -41,6 +42,7 @@ module Decidim
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
+        validates :area, presence: true, if: proc { |object| object.area_id.present? }
 
         validate :slug_uniqueness
 
@@ -54,6 +56,10 @@ module Decidim
 
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
+        end
+
+        def area
+          @area ||= current_organization.areas.find_by(id: area_id)
         end
 
         def participatory_process_group
