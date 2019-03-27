@@ -13,7 +13,7 @@ module Decidim
 
         if @user
           return assemblies if @user.admin
-          assemblies.visible_for(@user.id)
+          assemblies.visible_for(@user)
         else
           assemblies.public_spaces
         end

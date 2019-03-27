@@ -82,12 +82,8 @@ module Decidim
       where(promoted: true)
     end
 
-    def self.private_assemblies
-      where(private_space: true)
-    end
-
     def self.public_spaces
-      super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
+      where(private_space: false).or(where(private_space: true).where(is_transparent: true))
     end
 
     def self.log_presenter_class_for(_log)
