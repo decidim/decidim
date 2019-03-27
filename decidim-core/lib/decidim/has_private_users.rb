@@ -20,7 +20,7 @@ module Decidim
 
       def self.visible_for(user)
         joins(:participatory_space_private_users)
-        .where("private_space = false OR decidim_participatory_space_private_users.decidim_user_id = ?", user.id)
+          .where("private_space = false OR decidim_participatory_space_private_users.decidim_user_id = ?", user.id)
       end
 
       def self.public_spaces
