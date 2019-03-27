@@ -3,10 +3,12 @@ de:
     attributes:
       participatory_process:
         announcement: Ankündigung
+        area_id: Bereich
         banner_image: Bannerbild
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_steps: Schritte kopieren
+        decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
         domain: Domain
@@ -291,6 +293,7 @@ de:
         participatory_processes:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
+            select_an_area: Wählen Sie einen Bereich aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ de:
         index:
           loading: Ergebnisse werden geladen ...
       show:
+        area: Bereich
         developer_group: Promoter-Gruppe
         end_date: Endtermin
         local_area: Organisationsbereich
