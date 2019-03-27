@@ -61,10 +61,13 @@ module Decidim
       end
 
       def context_params
-        {
-          component: current_component,
-          current_user: current_user
-        }
+        context = { current_user: current_user }
+        if respond_to?(:current_component)
+          context[:component] = current_component
+        else
+          context[:organization] = current_organization
+        end
+        context
       end
     end
   end

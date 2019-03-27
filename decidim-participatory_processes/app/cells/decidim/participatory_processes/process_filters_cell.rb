@@ -13,7 +13,7 @@ module Decidim
       end
 
       def current_filter
-        options[:current_filter]
+        model
       end
 
       def other_filters
@@ -22,7 +22,7 @@ module Decidim
 
       def other_filters_with_value
         @other_filters_with_value ||= other_filters.select do |filter|
-          model[filter].positive?
+          process_count_by_filter[filter].positive?
         end
       end
 
@@ -32,7 +32,7 @@ module Decidim
       end
 
       def title
-        I18n.t(current_filter, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: model[current_filter])
+        I18n.t(current_filter, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: process_count_by_filter[current_filter])
       end
 
       def filter_name(filter)
@@ -40,7 +40,7 @@ module Decidim
       end
 
       def explanation
-        return if model["active"].positive?
+        return if process_count_by_filter["active"].positive?
         content_tag(
           :span,
           I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
@@ -49,8 +49,31 @@ module Decidim
       end
 
       def explanation_text
-        return "no_active" if model["upcoming"].positive?
+        return "no_active" if process_count_by_filter["upcoming"].positive?
         "no_active_nor_upcoming"
+      end
+
+      def filtered_processes(date_filter)
+        ParticipatoryProcessSearch.new(
+          date: date_filter,
+          scope_id: params[:filter] ? params[:filter][:scope_id] : nil,
+          current_user: current_user,
+          organization: current_organization
+        )
+      end
+
+      def process_count_by_filter
+        return @process_count_by_filter if @process_count_by_filter
+
+        @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
+          filtered_processes = filtered_processes(filter_name).results
+          processes = filtered_processes.groupless
+          groups = Decidim::ParticipatoryProcessGroup
+                   .where(id: filtered_processes.grouped.group_ids)
+          collection_by_filter.merge(filter_name => processes.count + groups.count)
+        end
+        @process_count_by_filter["all"] = @process_count_by_filter.values.sum
+        @process_count_by_filter
       end
     end
   end

@@ -70,8 +70,14 @@ module Decidim
       where(promoted: true)
     end
 
-    def self.private_processes
-      where(private_space: true)
+    # Return processes that DON'T belong to a process group.
+    def self.groupless
+      where(decidim_participatory_process_group_id: nil)
+    end
+
+    # Return processes that belong to a process group.
+    def self.grouped
+      where.not(decidim_participatory_process_group_id: nil)
     end
 
     def self.active_spaces
@@ -90,9 +96,24 @@ module Decidim
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    def active?
+      return false unless start_date
+      start_date < Date.current && end_date.nil? || end_date > Date.current
+    end
+
     def past?
-      return false if end_date.blank?
+      return false unless end_date
       end_date < Date.current
+    end
+
+    def upcoming?
+      return false unless start_date
+      start_date > Date.current
+    end
+
+    # Pluck all ParticipatoryProcessGroup ID's
+    def self.group_ids
+      pluck(:decidim_participatory_process_group_id)
     end
 
     def hashtag
