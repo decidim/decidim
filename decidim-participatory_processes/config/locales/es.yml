@@ -3,10 +3,12 @@ es:
     attributes:
       participatory_process:
         announcement: Anuncio
+        area_id: Zona
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_steps: Copiar las fases
+        decidim_area_id: Zona
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -291,6 +293,7 @@ es:
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            select_an_area: Seleccione un área
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ es:
         index:
           loading: Cargando resultados...
       show:
+        area: Zona
         developer_group: Grupo promotor
         end_date: Fecha de finalización
         local_area: Área de organización
