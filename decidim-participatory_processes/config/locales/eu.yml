@@ -3,10 +3,12 @@ eu:
     attributes:
       participatory_process:
         announcement: Anuntzio
+        area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
+        decidim_area_id: Area
         description: Deskribapena
         developer_group: Sustatzailearen taldea
         domain: Domeinua
@@ -291,6 +293,7 @@ eu:
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
+            select_an_area: Hautatu eremu bat
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ eu:
         index:
           loading: Emaitzak kargatzen...
       show:
+        area: Area
         developer_group: Sustatzailearen taldea
         end_date: Bukaera-data
         local_area: Antolakuntza eremua
