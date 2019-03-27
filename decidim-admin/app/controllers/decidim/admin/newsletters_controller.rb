@@ -95,10 +95,7 @@ module Decidim
       def select_recipients_to_deliver
         @newsletter = collection.find(params[:id])
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
-        # raise
         @form = form(SelectiveNewsletterForm).from_model(@newsletter)
-        # @form = form(SelectiveNewsletterForm).instance
-        # raise
       end
 
       def deliver
@@ -116,7 +113,14 @@ module Decidim
         followers = spaces.map do |space|
           space.followers
         end.flatten.compact.uniq
-        
+
+        # Qui es un participant?
+        # - Ha comentat
+        # - Ha creat una proposta
+        # - Ha creat un debat
+        # - Assisteix a un meeting.
+        participants = 
+
         raise
         recipients = Decidim::Admin::SelectiveNewsletterRecipients.new(@newsletter.organization, @form)
 
