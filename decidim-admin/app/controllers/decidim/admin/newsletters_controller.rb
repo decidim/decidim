@@ -104,22 +104,28 @@ module Decidim
         @form = form(SelectiveNewsletterForm).from_params(params)
 
 
+        # Moved to QUERY
         spaces = @form.participatory_space_types.map do |type|
           next if type.ids.blank?
           object_class = "Decidim::#{type.manifest_name.classify}"
           object_class.constantize.where(id: type.ids.reject(&:blank?))
         end.flatten.compact
 
-        followers = spaces.map do |space|
-          space.followers
-        end.flatten.compact.uniq
+        ## QUI ES UN FOLLOWER? tots els que fan follow a algun dels components del proces, no? o nomes al proces?
+
+        # Només s'enviarà als followes de l'espai per evitar SPAM
+        followers = Decidim::Follow.user_follower_for_participatory_spaces(spaces).uniq
+        
+        # followers = spaces.map do |space|
+        #   space.followers
+        # end.flatten.compact.uniq
 
         # Qui es un participant?
         # - Ha comentat
         # - Ha creat una proposta
         # - Ha creat un debat
         # - Assisteix a un meeting.
-        participants = 
+        # participants =
 
         raise
         recipients = Decidim::Admin::SelectiveNewsletterRecipients.new(@newsletter.organization, @form)

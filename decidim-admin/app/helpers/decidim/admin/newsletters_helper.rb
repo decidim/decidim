@@ -6,16 +6,14 @@ module Decidim
     module NewslettersHelper
 
       def participatory_spaces_for_select f
-        html = "<div class='row'>"
-          html += "<div class='grid-x grid-padding-x'>"
-            @form.participatory_space_types.each do |space_type|
-              f.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
-                spaces = spaces_for_select(space_type.manifest_name.to_sym)
-                html += ff.hidden_field :manifest_name, value: space_type.manifest_name
-                html+= select_tag_participatory_spaces(space_type.manifest_name, spaces, ff)
-              end
+        html = "<div class='grid-x grid-padding-x'>"
+          @form.participatory_space_types.each do |space_type|
+            f.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
+              spaces = spaces_for_select(space_type.manifest_name.to_sym)
+              html += ff.hidden_field :manifest_name, value: space_type.manifest_name
+              html+= select_tag_participatory_spaces(space_type.manifest_name, spaces, ff)
             end
-          html += "</div>"
+          end
         html += "</div>"
         html.html_safe
       end
@@ -26,7 +24,7 @@ module Decidim
           if spaces
             html += ff.select :ids,
                             options_for_select(spaces),
-                            { prompt: "ningu", include_hidden: false },
+                            { prompt: "cap", include_hidden: false },
                             { multiple: true, class: "chosen-select",  }
 
           end
@@ -37,6 +35,7 @@ module Decidim
 
       def spaces_for_select manifest_name
         return unless Decidim.participatory_space_manifests.map(&:name).include?(manifest_name)
+        all_spaces = [["Tots","all"]]
         spaces ||= Decidim.find_participatory_space_manifest(manifest_name)
                                          .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |space|
           [
@@ -44,7 +43,7 @@ module Decidim
             space.id
           ]
         end
-        spaces << ["Tots","all"]
+        all_spaces + spaces
       end
     end
   end

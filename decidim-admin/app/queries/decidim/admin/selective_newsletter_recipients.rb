@@ -11,9 +11,20 @@ module Decidim
       def query
         Rectify::Query.merge(
           OrganizationNewsletterRecipients.new(@organization),
-          SelectiveNewsletterRecipientsForSpace.new(@organization, @form)
+          SelectiveNewsletterRecipientsForSpace.new(spaces)
         ).query
       end
+
+      private
+
+      def spaces
+        @form.participatory_space_types.map do |type|
+          next if type.ids.blank?
+          object_class = "Decidim::#{type.manifest_name.classify}"
+          object_class.constantize.where(id: type.ids.reject(&:blank?))
+        end.flatten.compact
+      end
+
     end
   end
 end

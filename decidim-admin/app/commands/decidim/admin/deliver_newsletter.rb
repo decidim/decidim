@@ -8,8 +8,7 @@ module Decidim
       #
       # newsletter - The newsletter to deliver.
       # user - the Decidim::User that delivers the newsletter
-      def initialize(newsletter, form, user)
-        raise
+      def initialize(newsletter, user)
         @newsletter = newsletter
         @form = form
         @user = user

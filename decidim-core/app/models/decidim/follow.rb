@@ -23,6 +23,10 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityFollowSerializer
     end
 
+    def self.user_follower_for_participatory_spaces spaces
+      self.joins(:user).where(followable: spaces).collect(&:user)
+    end
+
     private
 
     # rubocop:disable Rails/SkipsModelValidations

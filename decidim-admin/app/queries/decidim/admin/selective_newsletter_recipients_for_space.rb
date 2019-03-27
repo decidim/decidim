@@ -3,13 +3,12 @@
 module Decidim
   module Admin
     class SelectiveNewsletterRecipientsForSpace < Rectify::Query
-      def initialize(organization, form)
-        @organization = organization
-        @form = form
+      def initialize(spaces)
+        @spaces = spaces
       end
 
       def query
-        
+
         raise
         # Rectify::Query.merge(
         #   OrganizationNewsletterRecipients.new(@organization),
@@ -21,15 +20,12 @@ module Decidim
     private
 
     def followers
-
+      # Només s'enviarà als followes de l'espai per evitar SPAM
+      Decidim::Follow.user_follower_for_participatory_spaces(spaces).uniq
     end
 
-    def spaces
-      @form.participatory_space_types.map do |type|
-        next if type.ids.blank?
-        object_class = "Decidim::#{type.manifest_name.classify}"
-        object_class.constantize.where(id: type.ids.reject(&:blank?))
-      end.flatten.compact
+    def participants
+
     end
   end
 end
