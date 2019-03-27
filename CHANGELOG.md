@@ -90,6 +90,7 @@
 - **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
 - **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
 - **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
+- **decidim-proposals**: Add documents folder in proposals manifest for precompile assets. [#5015](https://github.com/decidim/decidim/pull/5015)
 
 **Removed**:
 
