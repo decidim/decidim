@@ -31,4 +31,4 @@ If applicable, add the error stacktrace to help explain your problem.
  - Decidim installation: [e.g. MetaDecidim]
 
 **Additional context**
-Add any other context about the problem here.
+Add any other context about the problem here. For instance, add Metadecidim link. 
