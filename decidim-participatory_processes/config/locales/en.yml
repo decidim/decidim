@@ -74,7 +74,7 @@ en:
         edit: Edit
         filter:
           process_group: Process Group
-          all: All Processes
+          all: Show all processes
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase

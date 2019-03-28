@@ -14,7 +14,7 @@
         <thead>
           <tr>
             <th>
-              <%= sort_link(query, :title, t("models.assembly.fields.title", scope: "decidim.admin")) %>
+              <%= sort_link(query, :title, t("models.assembly.fields.title", scope: "decidim.admin"), default_order: :desc) %>
             </th>
             <th>
               <%= sort_link(query, :created_at, t("models.assembly.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
@@ -24,9 +24,6 @@
             </th>
             <th class="table-list__actions">
               <%= sort_link(query, :published_at, t("models.assembly.fields.published", scope: "decidim.admin")) %>
-            </th>
-            <th>
-              <%= sort_link(query, :children_count, t("models.assembly.fields.children", scope: "decidim.admin"), default_order: :desc) %>
             </th>
             <th></th>
           </tr>
@@ -67,11 +64,6 @@
                   <strong class="text-alert"><%= t("assemblies.index.not_published", scope: "decidim.admin") %></strong>
                 <% end %>
               </td>
-              <td>
-                <% if assembly.children.count.positive? %>
-                  <strong class="text-success">True</strong>
-                <% end %>
-              </td>
               <td class="table-list__actions">
                 <% if allowed_to? :create, :assembly, assembly: assembly %>
                   <%= icon_link_to "clipboard", new_assembly_copy_path(assembly), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
@@ -81,8 +73,11 @@
                   <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                 <% end %>
 
-                <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
-                  <%= icon_link_to "dial", decidim_admin_assemblies.assemblies_path(parent_id: assembly.id), t("decidim.admin.titles.assemblies"), class: "action-icon--dial" %>
+                <% if assembly.parent.blank? && (assembly.children.count.positive? || allowed_to?(:create, :assembly)) %>
+                  <%= icon_link_to "dial",
+                      decidim_admin_assemblies.assemblies_path(parent_id: assembly.id),
+                      t("decidim.admin.titles.assemblies"),
+                      class: "action-icon--dial #{'highlight' if assembly.children.count.positive?}" %>
                 <% end %>
 
                 <% if allowed_to? :preview, :assembly, assembly: assembly %>

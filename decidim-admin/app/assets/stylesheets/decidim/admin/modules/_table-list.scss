@@ -98,6 +98,11 @@
     color: $muted;
   }
 
+  .action-icon,
+  a.action-icon.highlight{
+    color: $body-font-color;
+  }
+
   .action-icon.action-icon--remove{
     color: $alert-color;
   }
