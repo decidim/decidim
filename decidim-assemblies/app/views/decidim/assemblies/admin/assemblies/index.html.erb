@@ -25,6 +25,9 @@
             <th class="table-list__actions">
               <%= sort_link(query, :published_at, t("models.assembly.fields.published", scope: "decidim.admin")) %>
             </th>
+            <th>
+              <%= sort_link(query, :children_count, t("models.assembly.fields.children", scope: "decidim.admin"), default_order: :desc) %>
+            </th>
             <th></th>
           </tr>
         </thead>
@@ -64,6 +67,11 @@
                   <strong class="text-alert"><%= t("assemblies.index.not_published", scope: "decidim.admin") %></strong>
                 <% end %>
               </td>
+              <td>
+                <% if assembly.children.count.positive? %>
+                  <strong class="text-success">True</strong>
+                <% end %>
+              </td>
               <td class="table-list__actions">
                 <% if allowed_to? :create, :assembly, assembly: assembly %>
                   <%= icon_link_to "clipboard", new_assembly_copy_path(assembly), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
@@ -73,7 +81,7 @@
                   <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                 <% end %>
 
-                <% if assembly.children_count > 0 || allowed_to?(:create, :assembly) %>
+                <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
                   <%= icon_link_to "dial", decidim_admin_assemblies.assemblies_path(parent_id: assembly.id), t("decidim.admin.titles.assemblies"), class: "action-icon--dial" %>
                 <% end %>
 

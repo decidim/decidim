@@ -164,6 +164,7 @@ en:
       models:
         assembly:
           fields:
+            children: Children
             created_at: Created at
             private: Private
             promoted: Highlighted

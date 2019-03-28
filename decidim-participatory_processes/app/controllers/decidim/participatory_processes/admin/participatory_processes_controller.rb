@@ -8,6 +8,7 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout only: [:edit]
+        include Decidim::Paginable
 
         helper ProcessGroupsForSelectHelper
 
@@ -17,7 +18,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = collection.includes(:participatory_process_group)
+          @participatory_processes = collection
         end
 
         def new
@@ -74,12 +75,23 @@ module Decidim
 
         private
 
+        def process_group
+          @process_group ||= ParticipatoryProcessGroup.find_by(id: params[:group_id])
+        end
+
+        def participatory_processes
+          @participatory_processes ||= Rectify::Query.merge(
+            ParticipatoryProcessesWithUserRole.for(current_user),
+            ParticipatoryProcessesByGroup.for(process_group)
+          )
+        end
+
         def query
-          @query ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user).ransack(params[:q])
+          @query ||= participatory_processes.ransack(params[:q])
         end
 
         def collection
-          @collection ||= query.result.page(params[:page]).per(15)
+          @collection ||= paginate(query.result)
         end
 
         def current_participatory_process

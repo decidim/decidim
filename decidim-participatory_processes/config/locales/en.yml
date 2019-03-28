@@ -70,6 +70,9 @@ en:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
+        filter:
+          process_group: Process Group
+          all: All Processes
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
@@ -97,7 +100,6 @@ en:
           fields:
             created_at: Created at
             private: Private
-            process_group: Process Group
             promoted: Highlighted
             published: Published
             title: Title

@@ -6,6 +6,7 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
+        include Decidim::Paginable
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space, :query
         layout "decidim/admin/assemblies"
 
@@ -79,7 +80,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= query.result.page(params[:page]).per(15)
+          @collection ||= paginate(query.result)
         end
 
         def set_all_assemblies
