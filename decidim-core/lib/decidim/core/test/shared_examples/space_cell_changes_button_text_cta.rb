@@ -5,32 +5,25 @@ require "spec_helper"
 shared_examples_for "space cell changes button text CTA" do
   describe "within the card footer" do
     context "when it has no components" do
-      it "renders 'More Info' in the CTA button text" do
-        within ".card--conference .card__footer--spaces .card_button" do
-          expect(cell_html).to have_content("More info")
-        end
+      it "renders 'More info' in the CTA button text" do
+        expect(subject).to have_selector(".card__footer--spaces .card__button", text: "More info")
       end
     end
 
     context "when it has a component" do
-      let(:published_at) { nil }
-      let(:component) { create(:component, participatory_space: model, published_at: published_at) }
-
       context "and it is not published" do
-        it "renders 'More Info' in the CTA button text" do
-          within ".card--conference .card__footer--spaces .card_button" do
-            expect(cell_html).to have_content("More info")
-          end
+        let!(:component) { create(:component, :unpublished, manifest_name: "dummy", participatory_space: model) }
+
+        it "renders 'More info' in the CTA button text" do
+          expect(subject).to have_selector(".card__footer--spaces .card__button", text: "More info")
         end
       end
 
       context "and it is published" do
-        let(:published_at) { Time.current }
+        let!(:component) { create(:component, :published, manifest_name: "dummy", participatory_space: model) }
 
-        it "renders 'Participate' in the CTA button text" do
-          within ".card--conference .card__footer--spaces .card_button" do
-            expect(cell_html).to have_content("Participate")
-          end
+        it "renders 'Take part' in the CTA button text" do
+          expect(subject).to have_selector(".card__footer--spaces .card__button", text: "Take part")
         end
       end
     end

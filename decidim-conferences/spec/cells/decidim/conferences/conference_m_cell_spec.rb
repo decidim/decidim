@@ -7,15 +7,15 @@ module Decidim::Conferences
   describe ConferenceMCell, type: :cell do
     controller Decidim::Conferences::ConferencesController
 
-    let!(:conference) { create(:conference) }
-    let(:model) { conference }
-    let(:cell_html) { cell("decidim/conferences/conference_m", conference).call }
+    subject { cell("decidim/conferences/conference_m", model).call }
+
+    let(:model) { create(:conference) }
 
     context "when rendering" do
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(cell_html).to have_css(".card--conference")
+        expect(subject).to have_css("article.card--conference")
       end
 
       it_behaves_like "space cell changes button text CTA"
