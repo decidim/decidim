@@ -8,7 +8,7 @@ module Decidim
       #
       # newsletter - The newsletter to deliver.
       # user - the Decidim::User that delivers the newsletter
-      def initialize(newsletter, user)
+      def initialize(newsletter, form, user)
         @newsletter = newsletter
         @form = form
         @user = user
@@ -16,7 +16,9 @@ module Decidim
 
       def call
         @newsletter.with_lock do
+          return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) if @newsletter.sent?
+
           send_newsletter!
         end
 
@@ -24,6 +26,8 @@ module Decidim
       end
 
       private
+
+      attr_reader :form
 
       def send_newsletter!
         raise
@@ -35,6 +39,7 @@ module Decidim
           NewsletterJob.perform_later(@newsletter, @form)
         end
       end
+
     end
   end
 end

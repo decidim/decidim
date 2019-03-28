@@ -7,18 +7,18 @@ module Decidim
       mimic :newsletter
 
       attribute :participatory_space_types, Array[SelectiveNewsletterParticipatorySpaceTypeForm]
-      attribute :scopes, Array[SelectiveNewsletterScopeForm]
-      attribute :send_to_all_users
-      attribute :send_to_participants
-      attribute :send_to_followers
+      attribute :scope_ids, Array
+      attribute :send_to_all_users, Boolean, default: true
+      attribute :send_to_participants, Boolean
+      attribute :send_to_followers, Boolean
 
-      validate :atleast_one_group_of_users_is_checked
+      validates :send_to_all_users, presence: true, unless: ->(form) { form.send_to_participants.present? || form.send_to_followers.present? }
+      validates :send_to_followers, presence: true, if: ->(form) { !form.send_to_all_users.present? && !form.send_to_participants.present?}
+      validates :send_to_participants, presence: true, if: ->(form) { !form.send_to_all_users.present? && !form.send_to_followers.present? }
+
+      validate :atleast_one_participatory_space_selected
 
       def map_model(newsletter)
-        self.scopes = newsletter.organization.scopes.top_level.map do |scope|
-          SelectiveNewsletterScopeForm.from_model(scope: scope, newsletter: newsletter)
-        end
-
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
           SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest: manifest)
         end
@@ -26,12 +26,16 @@ module Decidim
 
       private
 
-      def atleast_one_group_of_users_is_checked
-        if current_user.admin?
-          errors.add(:base, "Select atleast one output format type") unless send_to_all_users || send_to_participants || send_to_followers
-        else
-          errors.add(:base, "Select atleast one output format type") unless send_to_participants || send_to_followers
-        end
+      def atleast_one_participatory_space_selected
+        return if send_to_all_users && current_user.admin?
+        errors.add(:base, "Select atleast one participatory space") if spaces_selected.blank?
+      end
+
+      def spaces_selected
+        participatory_space_types.map do |type|
+          spaces = type.ids.reject{|e| e.empty?}
+          [type.manifest_name, spaces] unless spaces.blank?
+        end.compact
       end
     end
   end

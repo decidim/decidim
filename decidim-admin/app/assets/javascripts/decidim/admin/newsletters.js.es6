@@ -8,10 +8,13 @@ $(() => {
       const $sendNewsletterToParticipants = $form.find("#send_newsletter_to_participants");
       const $participatorySpacesForSelect = $form.find("#participatory_spaces_for_select");
 
+      const selectiveNewsletterFollowers = $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked");
+      const selectiveNewsletterParticipants = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
+
       $sendNewsletterToAllUsers.on("change", (event) => {
         const checked = event.target.checked;
         if (checked){
-          $sendNewsletterToFollowers.find("input[type='checkbox']").attr("checked", !checked );
+          $sendNewsletterToFollowers$sendNewsletterToFollowers.attr("checked", !checked );
           $sendNewsletterToParticipants.find("input[type='checkbox']").attr("checked", !checked );
           $participatorySpacesForSelect.hide();
         }
@@ -45,10 +48,11 @@ $(() => {
         }
       })
 
-      $participatorySpacesForSelect.hide();
-
-
-
+      if (selectiveNewsletterFollowers || selectiveNewsletterParticipants){
+        $participatorySpacesForSelect.show();
+      }else{
+        $participatorySpacesForSelect.hide();
+      }
     }
 
   })(window);

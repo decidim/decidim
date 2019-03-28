@@ -103,19 +103,11 @@ module Decidim
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
         @form = form(SelectiveNewsletterForm).from_params(params)
 
-
-        # Moved to QUERY
-        spaces = @form.participatory_space_types.map do |type|
-          next if type.ids.blank?
-          object_class = "Decidim::#{type.manifest_name.classify}"
-          object_class.constantize.where(id: type.ids.reject(&:blank?))
-        end.flatten.compact
-
         ## QUI ES UN FOLLOWER? tots els que fan follow a algun dels components del proces, no? o nomes al proces?
 
         # Només s'enviarà als followes de l'espai per evitar SPAM
-        followers = Decidim::Follow.user_follower_for_participatory_spaces(spaces).uniq
-        
+
+        # raise unless @form.valid?
         # followers = spaces.map do |space|
         #   space.followers
         # end.flatten.compact.uniq
@@ -126,24 +118,49 @@ module Decidim
         # - Ha creat un debat
         # - Assisteix a un meeting.
         # participants =
+        # raise
+        if @form.send_to_all_users
+          recipients = Decidim::User.where(organization: current_organization)
+                              .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
+                              .not_deleted
+        else
+          # Moved to QUERY
+          spaces = @form.participatory_space_types.map do |type|
+            next if type.ids.blank?
+            object_class = "Decidim::#{type.manifest_name.classify}"
+            object_class.constantize.where(id: type.ids.reject(&:blank?))
+          end.flatten.compact
+          if @form.send_to_followers
+
+            recipients = Decidim::Follow.user_follower_for_participatory_spaces(spaces).uniq
+          elsif @form.send_to_participants
+            raise "pending"
+          end
+        end
+
+        
+        if @form.scope_ids.any?
+          recipients = recipients.interested_in_scopes(@form.scope_ids)
+        end
 
         raise
-        recipients = Decidim::Admin::SelectiveNewsletterRecipients.new(@newsletter.organization, @form)
-
-        raise
+        # raise "no recipients" if recipients.blank?
+        #
+        # raise
         DeliverNewsletter.call(@newsletter, @form, current_user) do
+
           on(:ok) do
-            flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
+            flash.now[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index
           end
 
           on(:invalid) do
-            flash[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
-            redirect_to action: :show
+            flash.now[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
+            render action: :select_recipients_to_deliver
+            # redirect_to action: :select_recipients_to_deliver
           end
         end
       end
-
       private
 
       def collection

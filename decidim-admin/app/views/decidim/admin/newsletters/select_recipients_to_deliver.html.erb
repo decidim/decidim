@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: deliver_newsletter_path(@newsletter),method: :post, html: { class: "form newsletter_deliver" }) do |f| %>
+<%= decidim_form_for(@form, url: deliver_newsletter_path(@newsletter), method: :post, html: { class: "form newsletter_deliver" }) do |f| %>
   <div class="card">
 
     <div class="card-divider">
@@ -15,17 +15,17 @@
             <% if current_user.admin? %>
               <div class="grid-x grid-padding-x">
                 <div class="cell small-12" id="send_newsletter_to_all_users">
-                  <%= f.check_box :send_to_all_users, label: "Send to all Users", checked: current_user.admin? %>
+                  <%= f.check_box :send_to_all_users, label: "Send to all Users" %>
                 </div>
               </div>
               <hr class="reset mt-s mb-s" />
             <% end %>
             <div class="grid-x grid-padding-x">
               <div class="cell small-4 medium-2" id="send_newsletter_to_followers">
-                <%= f.check_box :send_to_followers, label: "Followers", checked: !current_user.admin? %>
+                <%= f.check_box :send_to_followers, label: "Followers" %>
               </div>
               <div class="cell small-4 medium-2" id="send_newsletter_to_participants">
-                <%= f.check_box :send_to_participants, label: "Participants", checked: !current_user.admin? %>
+                <%= f.check_box :send_to_participants, label: "Participants" %>
               </div>
             </div>
           </div>
@@ -50,28 +50,11 @@
           </div>
           <div class="card-section">
             <div class="row" >
-              <%= render partial: "scopes", locals: { scopes: @form.scopes, f: f } %>
+              <%= scopes_picker_filter f, :scope_ids %>
             </div>
           </div>
         </div>
       <% end %>
-
-      <!-- <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
-        <li class="accordion-item is-active" data-accordion-item>
-          <a href="#" class="accordion-title">Espais</a>
-          <div class="accordion-content" data-tab-content>
-            <%#= participatory_spaces_for_select f %>
-          </div>
-        </li>
-        <%# if current_user.admin? %>
-          <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Scopes</a>
-            <div class="accordion-content" data-tab-content>
-              <%#= render partial: "scopes", locals: { scopes: @form.scopes, f: f } %>
-            </div>
-          </li>
-        <%# end %>
-      </ul> -->
 
       <!-- Aquesta selecció s'envia a tants emails: X -->
       <div class="button--double form-general-submit">
@@ -85,6 +68,7 @@
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+  <% console %>
 
 <%= javascript_include_tag "decidim/admin/newsletters" %>
