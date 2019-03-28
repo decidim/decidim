@@ -2,8 +2,6 @@
 
 module Decidim::Amendable
   class AmendmentCreatedEvent < Decidim::Amendable::AmendmentBaseEvent
-    i18n_attributes :amendable_path, :amendable_type, :amendable_title
-
     def amendable_resource
       @amendable_resource ||= resource
     end

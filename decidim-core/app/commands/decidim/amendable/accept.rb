@@ -75,8 +75,8 @@ module Decidim
           event: "decidim.events.amendments.amendment_accepted",
           event_class: Decidim::Amendable::AmendmentAcceptedEvent,
           resource: @emendation,
-          affected_users: affected_users,
-          followers: followers
+          affected_users: affected_users.uniq,
+          followers: followers.uniq
         )
       end
     end

@@ -51,8 +51,8 @@ module Decidim
           event: "decidim.events.amendments.amendment_rejected",
           event_class: Decidim::Amendable::AmendmentRejectedEvent,
           resource: @emendation,
-          affected_users: affected_users,
-          followers: followers
+          affected_users: affected_users.uniq,
+          followers: followers.uniq
         )
       end
     end

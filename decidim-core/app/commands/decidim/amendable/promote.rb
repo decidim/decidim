@@ -70,8 +70,8 @@ module Decidim
           event: "decidim.events.amendments.amendment_promoted",
           event_class: Decidim::Amendable::EmendationPromotedEvent,
           resource: @emendation,
-          affected_users: affected_users,
-          followers: followers
+          affected_users: affected_users.uniq,
+          followers: followers.uniq
         )
       end
     end

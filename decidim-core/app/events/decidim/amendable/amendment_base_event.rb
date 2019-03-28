@@ -2,7 +2,8 @@
 
 module Decidim::Amendable
   class AmendmentBaseEvent < Decidim::Events::SimpleEvent
-    i18n_attributes :amendable_path, :amendable_type, :amendable_title, :emendation_path, :emendation_author_nickname, :emendation_author_path
+    i18n_attributes :amendable_path, :amendable_type, :amendable_title,
+                    :emendation_path, :emendation_author_nickname, :emendation_author_path
 
     def amendable_title
       @amendable_title ||= amendable_resource.title
