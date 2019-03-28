@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-accountability**: Also display the main scope as a filter for accountability results [#5022](https://github.com/decidim/decidim/pull/5022)
+
 **Changed**:
 
 **Fixed**:
