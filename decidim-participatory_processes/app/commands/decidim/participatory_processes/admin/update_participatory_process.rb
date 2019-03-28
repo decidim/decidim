@@ -67,6 +67,7 @@ module Decidim
             private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
+            area: form.area,
             target: form.target,
             participatory_scope: form.participatory_scope,
             participatory_structure: form.participatory_structure,
