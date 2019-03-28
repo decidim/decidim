@@ -3,9 +3,11 @@
 module Decidim
   module Assemblies
     # Helpers related to the Assemblies filter by type.
+    #
+    # `filter` returns a Filter object from Decidim::FilterResource
     module FilterAssembliesHelper
       def available_filters
-        %w(all government executive consultative_advisory participatory working_group commission others)
+        %w(all) + Assembly::ASSEMBLY_TYPES
       end
 
       def filter_link(filter_name)
@@ -25,16 +27,12 @@ module Decidim
         t("help", scope: "decidim.assemblies.filter")
       end
 
-      def current_filter
-        params[:filter].try(:[], :assembly_type) || "all"
-      end
-
-      def filter_name(filter)
-        t(filter, scope: "decidim.assemblies.filter")
+      def filter_name(filter_key)
+        t(filter_key, scope: "decidim.assemblies.filter")
       end
 
       def current_filter_name
-        filter_name(current_filter)
+        filter_name(filter.assembly_type)
       end
     end
   end

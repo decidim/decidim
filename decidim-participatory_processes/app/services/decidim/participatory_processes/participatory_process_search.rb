@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # Service that encapsulates all logic related to filtering assemblies.
-    class ParticipatoryProcessSearch < SpaceSearch
+    class ParticipatoryProcessSearch < ParticipatorySpaceSearch
       def initialize(options = {})
         super(ParticipatoryProcess.all, options)
       end
@@ -21,7 +21,6 @@ module Decidim
           query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{current_zone}')::date)"))
         end
       end
-
     end
   end
 end

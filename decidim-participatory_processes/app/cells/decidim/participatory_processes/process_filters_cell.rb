@@ -10,12 +10,12 @@ module Decidim
           .routes
           .url_helpers
           .participatory_processes_path(
-                     filter: {
-                       scope_id: get_filter(:area_id),
-                       area_id: get_filter(:area_id),
-                       date: filter
-                     }
-                   )
+            filter: {
+              scope_id: get_filter(:area_id),
+              area_id: get_filter(:area_id),
+              date: filter
+            }
+          )
       end
 
       def current_filter

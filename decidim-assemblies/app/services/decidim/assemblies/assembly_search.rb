@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # Service that encapsulates all logic related to filtering assemblies.
-    class AssemblySearch < SpaceSearch
+    class AssemblySearch < ParticipatorySpaceSearch
       def initialize(options = {})
         super(Assembly.all, options)
       end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This is the base class to be used by other search services.
+  # This is the base class to be used by other ParticipatorySpace search services
   # Searchlight documentation: https://github.com/nathanl/searchlight
-  class SpaceSearch < Searchlight::Search
+  class ParticipatorySpaceSearch < Searchlight::Search
     # Initialize the Searchlight::Search base class with the options provided.
     #
     # scope   - The scope used to create the base query
