@@ -19,8 +19,10 @@ module Decidim
                foreign_key: "private_user_to_id"
 
       def self.visible_for(user)
-        joins(:participatory_space_private_users)
-          .where("private_space = false OR decidim_participatory_space_private_users.decidim_user_id = ?", user.id)
+        left_outer_joins(:participatory_space_private_users).where(
+          %(private_space = false OR
+          decidim_participatory_space_private_users.decidim_user_id = ?), user.id
+        )
       end
 
       def self.public_spaces

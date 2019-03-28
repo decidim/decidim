@@ -8,20 +8,33 @@ module Decidim
         %w(all government executive consultative_advisory participatory working_group commission others)
       end
 
-      def filter_link(filter)
-        link_to t(filter, scope: "decidim.assemblies.filter"), url_for(params.to_unsafe_h.merge(page: nil, filter: filter)), data: { filter: filter }, remote: true
+      def filter_link(filter_name)
+        Decidim::Assemblies::Engine
+          .routes
+          .url_helpers
+          .assemblies_path(
+            filter: {
+              scope_id: filter.scope_id,
+              area_id: filter.area_id,
+              assembly_type: filter_name
+            }
+          )
       end
 
       def help_text
         t("help", scope: "decidim.assemblies.filter")
       end
 
-      def filter
-        params[:filter] || "all"
+      def current_filter
+        params[:filter].try(:[], :assembly_type) || "all"
       end
 
-      def current_filter_text
+      def filter_name(filter)
         t(filter, scope: "decidim.assemblies.filter")
+      end
+
+      def current_filter_name
+        filter_name(current_filter)
       end
     end
   end

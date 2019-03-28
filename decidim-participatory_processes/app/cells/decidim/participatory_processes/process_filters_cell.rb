@@ -9,11 +9,17 @@ module Decidim
         Decidim::ParticipatoryProcesses::Engine
           .routes
           .url_helpers
-          .participatory_processes_path(filter: filter)
+          .participatory_processes_path(
+                     filter: {
+                       scope_id: get_filter(:area_id),
+                       area_id: get_filter(:area_id),
+                       date: filter
+                     }
+                   )
       end
 
       def current_filter
-        model
+        get_filter(:date, model)
       end
 
       def other_filters
@@ -56,10 +62,17 @@ module Decidim
       def filtered_processes(date_filter)
         ParticipatoryProcessSearch.new(
           date: date_filter,
-          scope_id: params[:filter] ? params[:filter][:scope_id] : nil,
+          scope_id: get_filter(:scope_id),
+          area_id: get_filter(:area_id),
           current_user: current_user,
           organization: current_organization
         )
+      end
+
+      def get_filter(filter_name, default = nil)
+        return default unless params[:filter].try(:[], filter_name)
+
+        params[:filter][filter_name]
       end
 
       def process_count_by_filter

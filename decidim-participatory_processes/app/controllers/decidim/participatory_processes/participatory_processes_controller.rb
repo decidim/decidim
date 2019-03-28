@@ -9,7 +9,7 @@ module Decidim
       participatory_space_layout only: [:show, :statistics]
       include FilterResource
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter, :current_date_filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
       helper_method :process_count_by_filter
 
       def index
@@ -37,7 +37,7 @@ module Decidim
         {
           scope_id: nil,
           area_id: nil,
-          date: current_date_filter
+          date: default_date_filter
         }
       end
 
@@ -86,8 +86,7 @@ module Decidim
         @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
       end
 
-      def current_date_filter
-        return params[:filter] if ProcessFiltersCell::ALL_FILTERS.include?(params[:filter])
+      def default_date_filter
         return "active" if published_processes.any?(&:active?)
         return "upcoming" if published_processes.any?(&:upcoming?)
         return "past" if published_processes.any?(&:past?)
