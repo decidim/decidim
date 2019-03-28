@@ -73,8 +73,8 @@ en:
         duplicate: Duplicate
         edit: Edit
         filter:
-          process_group: Process Group
           all: Show all processes
+          process_group: Process Group
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
