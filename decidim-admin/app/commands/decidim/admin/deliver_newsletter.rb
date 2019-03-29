@@ -30,16 +30,21 @@ module Decidim
       attr_reader :form
 
       def send_newsletter!
-        raise
         Decidim.traceability.perform_action!(
           "deliver",
           @newsletter,
           @user
         ) do
-          NewsletterJob.perform_later(@newsletter, @form)
+          NewsletterJob.perform_later(@newsletter, @form.to_json, recipients.pluck(:id))
         end
       end
 
+      def recipients
+        @recipients ||= Decidim::Admin::NewsletterRecipients.new(@newsletter, @form).query
+        # @recipients ||= User.where(organization: @newsletter.organization)
+        #                     .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
+        #                     .not_deleted
+      end
     end
   end
 end

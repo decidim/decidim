@@ -48,17 +48,10 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
-    # scope :interested_in_scopes, -> (scope_ids) { where("extended_data @> ?", {"interested_scopes": scope_ids}.to_json) }
     scope :interested_in_scopes, ->(scope_ids) {
       ids = scope_ids.map{ |i| "%#{i}%"}.join(',')
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
-
-    # where("extended_data->>'interested_scopes' ~~ ANY('{#{a}}')")
-    #
-    # recipients.where("#{scope_ids.as_json} = ANY (extended_data->'interested_scopes')")
-    # Record.where("extended_data #> '{interested_scopes,?}' #> '{columns,?}' ->> 'value' = 'true'", 1, 2)
-
 
     attr_accessor :newsletter_notifications
 

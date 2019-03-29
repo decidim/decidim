@@ -23,8 +23,8 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityFollowSerializer
     end
 
-    def self.user_follower_for_participatory_spaces spaces
-      self.joins(:user).where(followable: spaces).collect(&:user)
+    def self.user_follower_ids_for_participatory_spaces spaces
+      self.joins(:user).where(followable: spaces).pluck(:decidim_user_id).uniq
     end
 
     private
