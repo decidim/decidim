@@ -382,6 +382,7 @@ eu:
           promoted_processes: Prozesu nabarmenduak
         participatory_process:
           active_step: 'Oraingo fasea:'
+          more_info: Informazio gehiago
           take_part: Parte hartu
         promoted_process:
           active_step: 'Oraingo fasea:'
