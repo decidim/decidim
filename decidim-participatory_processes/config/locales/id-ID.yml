@@ -374,6 +374,7 @@ id:
           promoted_processes: Proses yang disorot
         participatory_process:
           active_step: 'Langkah saat ini:'
+          more_info: Info lebih lanjut
           take_part: Ambil bagian
         promoted_process:
           active_step: 'Langkah saat ini:'
