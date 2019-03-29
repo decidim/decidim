@@ -7,11 +7,11 @@
       <% end %>
 
       <button data-toggle="process_groups" class="dropdown button tiny button--title">
-          <%= t("actions.filter.process_group", scope: "decidim.admin") %>
+          <%= t("actions.filter.process_groups", scope: "decidim.admin") %>
       </button>
-      <div id="process_groups" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+      <div id="process_groups" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
         <ul class="list-reset">
-          <%= link_to url_for(group_id: nil) do  %>
+          <%= link_to url_for(group_id: nil) do %>
             <li><%= t("actions.filter.all", scope: "decidim.admin") %></li>
           <% end %>
           <% Decidim::ParticipatoryProcessGroup.all.each do |group| %>
@@ -25,10 +25,9 @@
       <%= t "decidim.admin.titles.participatory_processes" %>
 
       <% if @process_group %>
-      < <%= link_to translated_attribute(@process_group.name),
+      <<%= link_to translated_attribute(@process_group.name),
             decidim_participatory_processes.participatory_process_group_path(@process_group) %>
-      <% end %>
-    </h2>
+      <% end %>>
   </div>
   <div class="card-section">
     <div class="table-scroll">
@@ -39,7 +38,7 @@
               <%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %>
             </th>
             <th>
-              <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc ) %>
+              <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
             </th>
             <th>
               <%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %>
