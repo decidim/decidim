@@ -552,6 +552,7 @@ hu:
           take_part: Részt vesz
       conferences:
         conference:
+          more_info: Több információ
           take_part: Részt vesz
         index:
           promoted_conferences: Támogatott konferenciák
