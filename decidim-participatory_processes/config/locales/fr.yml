@@ -382,6 +382,7 @@ fr:
           promoted_processes: Concertations mises en avant
         participatory_process:
           active_step: 'Étape actuelle :'
+          more_info: Plus d'informations
           take_part: Participer
         promoted_process:
           active_step: 'Étape actuelle :'
