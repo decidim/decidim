@@ -382,6 +382,7 @@ fi:
           promoted_processes: Tärkeät prosessit
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
+          more_info: Lisätietoja
           take_part: Osallistu
         promoted_process:
           active_step: 'Aktiivinen vaihe:'
