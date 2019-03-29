@@ -382,6 +382,7 @@ it:
           promoted_processes: Processi evidenziati
         participatory_process:
           active_step: 'Fase attuale:'
+          more_info: Ulteriori informazioni
           take_part: Partecipa
         promoted_process:
           active_step: 'Fase attuale:'
