@@ -382,6 +382,7 @@ nl:
           promoted_processes: Uitgelichte thema’s
         participatory_process:
           active_step: 'Huidige stap:'
+          more_info: Meer informatie
           take_part: Deelnemen
         promoted_process:
           active_step: 'Huidige stap:'
