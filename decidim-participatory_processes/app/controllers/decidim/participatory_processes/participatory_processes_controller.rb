@@ -8,6 +8,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show, :statistics]
       include FilterResource
+      include Paginable
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
       helper_method :process_count_by_filter
@@ -62,7 +63,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
+        @collection ||= paginate(participatory_processes) + participatory_process_groups
       end
 
       def filtered_processes

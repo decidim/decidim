@@ -7,6 +7,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
       include FilterResource
+      include Paginable
 
       helper_method :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes
 
@@ -77,7 +78,7 @@ module Decidim
       end
 
       def parent_assemblies
-        search.results.parent_assemblies
+        paginate(search.results.parent_assemblies)
       end
 
       def stats
