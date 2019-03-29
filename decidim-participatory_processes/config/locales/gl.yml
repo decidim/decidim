@@ -382,6 +382,7 @@ gl:
           promoted_processes: Procesos destacados
         participatory_process:
           active_step: 'Paso actual:'
+          more_info: Máis información
           take_part: Tomar parte en
         promoted_process:
           active_step: 'Paso actual:'
