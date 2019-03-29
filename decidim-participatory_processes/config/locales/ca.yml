@@ -382,6 +382,7 @@ ca:
           promoted_processes: Processos destacats
         participatory_process:
           active_step: 'Fase actual:'
+          more_info: Més informació
           take_part: Participa
         promoted_process:
           active_step: 'Fase actual:'
