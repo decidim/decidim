@@ -2,7 +2,8 @@
   <div class="card-divider">
     <h2 class="card-title">
       <% parent_assembly.self_and_ancestors.each do |assembly| %>
-        <%= link_to "#{translated_attribute(assembly.title)} > ", edit_assembly_path(assembly) %>
+        <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
+        <span>&gt;</span>
       <% end if parent_assembly %>
       <%= t "decidim.admin.titles.assemblies" %>
       <%= link_to t("actions.new_assembly", scope: "decidim.admin"), new_assembly_path(parent_id: parent_assembly&.id), class: "button tiny button--title" if allowed_to? :create, :assembly %>

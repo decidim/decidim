@@ -25,9 +25,10 @@
       <%= t "decidim.admin.titles.participatory_processes" %>
 
       <% if @process_group %>
-      <<%= link_to translated_attribute(@process_group.name),
+      <span>&lt;</span>
+      <%= link_to translated_attribute(@process_group.name),
             decidim_participatory_processes.participatory_process_group_path(@process_group) %>
-      <% end %>>
+      <% end %>
   </div>
   <div class="card-section">
     <div class="table-scroll">
