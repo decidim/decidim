@@ -398,6 +398,7 @@ cs:
           promoted_processes: Zvýrazněné procesy
         participatory_process:
           active_step: 'Aktuální krok:'
+          more_info: Více informací
           take_part: Zúčastnit se
         promoted_process:
           active_step: 'Aktuální krok:'
