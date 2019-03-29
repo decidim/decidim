@@ -382,6 +382,7 @@ hu:
           promoted_processes: Kiemelt folyamatok
         participatory_process:
           active_step: 'Aktuális lépés:'
+          more_info: Több információ
           take_part: Vegyél részt
         promoted_process:
           active_step: 'Aktuális lépés:'
