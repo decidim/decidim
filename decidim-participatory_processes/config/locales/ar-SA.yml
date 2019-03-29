@@ -414,6 +414,7 @@ ar:
           promoted_processes: عمليات مميزة
         participatory_process:
           active_step: 'المرحلة الحالية:'
+          more_info: مزيد من المعلومات
           take_part: خذ جزء
         promoted_process:
           active_step: 'المرحلة الحالية:'
