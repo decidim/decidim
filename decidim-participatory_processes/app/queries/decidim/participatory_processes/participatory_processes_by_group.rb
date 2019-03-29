@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A class used to find the ParticipatoryProcesses from a ProcessGroup.
-  class ParticipatoryProcessesByGroup < Rectify::Query
-    module Admin
+  module ParticipatoryProcesses
+    # A class used to find the ParticipatoryProcesses from a ProcessGroup.
+    class ParticipatoryProcessesByGroup < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       def self.for(process_group)
         new(process_group).query
