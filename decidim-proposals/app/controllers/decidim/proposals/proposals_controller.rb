@@ -28,6 +28,7 @@ module Decidim
                        .where(component: current_component)
                        .published
                        .not_hidden
+                       .only_amendables
                        .includes(:category, :scope)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"

@@ -17,6 +17,9 @@ module Decidim
       # resource.amended : the original resource that was amended
       has_one :amended, as: :amendable, foreign_key: "decidim_emendation_id", foreign_type: "decidim_emendation_type", class_name: "Decidim::Amendment"
       has_one :amendable, through: :amended, source: :amendable, source_type: name
+
+      scope :only_amendables, -> { where.not(id: joins(:amendable)) }
+      scope :only_emendations, -> { where(id: joins(:amendable)) }
     end
 
     class_methods do
