@@ -99,8 +99,11 @@
   }
 
   .action-icon,
-  a.action-icon.highlight{
+  a.action-icon.highlighted{
     color: $body-font-color;
+    &:hover{
+      color: $primary-color;
+    }
   }
 
   .action-icon.action-icon--remove{

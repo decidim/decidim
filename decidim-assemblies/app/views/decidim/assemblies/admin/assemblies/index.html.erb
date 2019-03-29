@@ -77,7 +77,7 @@
                   <%= icon_link_to "dial",
                       decidim_admin_assemblies.assemblies_path(parent_id: assembly.id),
                       t("decidim.admin.titles.assemblies"),
-                      class: "action-icon--dial #{'highlight' if assembly.children.count.positive?}" %>
+                      class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
                 <% end %>
 
                 <% if allowed_to? :preview, :assembly, assembly: assembly %>
