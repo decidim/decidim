@@ -352,6 +352,7 @@ en:
     decidim:
       assemblies:
         assembly:
+          more_info: More info
           take_part: Take part
         index:
           organizational_chart: Organizational chart

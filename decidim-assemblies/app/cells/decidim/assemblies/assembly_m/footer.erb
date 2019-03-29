@@ -7,7 +7,7 @@
       </div>
     <% end %>
     <%= link_to(
-      t("layouts.decidim.assemblies.assembly.take_part"),
+      t(model.cta_button_text_key, scope: "layouts.decidim.assemblies.assembly"),
       resource_path,
       class: "card__button button button--sc secondary light small"
     ) %>

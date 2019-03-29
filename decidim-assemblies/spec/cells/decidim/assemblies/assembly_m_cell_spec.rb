@@ -3,19 +3,19 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/space_cell_changes_button_text_cta"
 
-module Decidim::Conferences
-  describe ConferenceMCell, type: :cell do
-    controller Decidim::Conferences::ConferencesController
+module Decidim::Assemblies
+  describe AssemblyMCell, type: :cell do
+    controller Decidim::ApplicationController
 
-    subject { cell("decidim/conferences/conference_m", model).call }
+    subject { cell("decidim/assemblies/assembly_m", model).call }
 
-    let(:model) { create(:conference) }
+    let(:model) { create(:assembly, :published) }
 
     context "when rendering" do
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css("article.card--conference")
+        expect(subject).to have_css("article.card--assembly")
       end
 
       it_behaves_like "space cell changes button text CTA"
