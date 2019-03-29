@@ -3,12 +3,12 @@ fi-pl:
     attributes:
       participatory_process:
         announcement: Ilmoitus
-        area_id: alue
+        area_id: Alue
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
-        decidim_area_id: alue
+        decidim_area_id: Alue
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
@@ -340,7 +340,7 @@ fi-pl:
         index:
           loading: Ladataan tulokset...
       show:
-        area: alue
+        area: Alue
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
@@ -382,6 +382,7 @@ fi-pl:
           promoted_processes: Tärkeät prosessit
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
+          more_info: Lisätietoja
           take_part: Osallistu
         promoted_process:
           active_step: 'Aktiivinen vaihe:'
