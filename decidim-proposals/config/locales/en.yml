@@ -42,10 +42,10 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
-            title:
-              identical: AND body cannot be identical
             body:
               identical: AND title cannot be identical
+            title:
+              identical: AND body cannot be identical
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
