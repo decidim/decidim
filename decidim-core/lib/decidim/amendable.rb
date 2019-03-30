@@ -26,13 +26,8 @@ module Decidim
       attr_reader :amendable_options
       # Public: Configures amendable for this model.
       #
-      # fields  - An `Array` of `symbols` specifying the fields that can be
-      #           amended.
-      # ignore  - An `Array` of `symbols` specifying the fields to be
-      #           ignored from amendable when creating the related emendation,
-      #           the :id is allways ignored.
-      # reset   - The counters that should be reseted on the creation of the emmendation
-      # form    - The form used for the validation and creation of the emmendation
+      # fields  - An `Array` of `symbols` specifying the fields that can be amended
+      # form    - The form used for the validation and creation of the emendation
       #
       # Returns nothing.
       def amendable(fields: nil, form: nil)
@@ -58,6 +53,7 @@ module Decidim
 
     def amendment
       return Decidim::Amendment.find_by(emendation: id) if emendation?
+
       Decidim::Amendment.find_by(amendable: id)
     end
 
@@ -67,20 +63,23 @@ module Decidim
 
     def amendable?
       return false if emendation?
+
       component.settings.amendments_enabled
     end
 
     def resource_state
-      attributes["state"]
+      attributes[:state]
     end
 
     def emendation_state
       return resource_state if resource_state == "withdrawn"
+
       amendment.state
     end
 
     def state
       return emendation_state if emendation?
+
       resource_state
     end
   end
