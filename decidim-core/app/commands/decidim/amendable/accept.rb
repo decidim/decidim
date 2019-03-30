@@ -40,11 +40,21 @@ module Decidim
       attr_reader :form
 
       def accept_amendment!
-        @amendment.update!(state: "accepted")
+        @amendment = Decidim.traceability.update!(
+          @amendment,
+          @amendable.creator_author,
+          { state: "accepted" },
+          visibility: "public-only"
+        )
       end
 
       def update_amendable!
-        @amendable.update!(form.emendation_params)
+        @amendable = Decidim.traceability.update!(
+          @amendable,
+          @amender,
+          form.emendation_params,
+          visibility: "public-only"
+        )
         @amendable.add_coauthor(@amender, user_group: @user_group)
       end
 
