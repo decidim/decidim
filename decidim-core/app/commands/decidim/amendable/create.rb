@@ -41,7 +41,7 @@ module Decidim
         @emendation = Decidim.traceability.perform_action!(
           "publish",
           @amendable.amendable_type.constantize,
-          form.current_user,
+          @amender,
           visibility: "public-only"
         ) do
           emendation = @amendable.amendable_type.constantize.new(form.emendation_params)
@@ -55,7 +55,7 @@ module Decidim
 
       def create_amendment!
         @amendment = Decidim::Amendment.create!(
-          amender: form.current_user,
+          amender: @amender,
           amendable: @amendable,
           emendation: @emendation,
           state: "evaluating"

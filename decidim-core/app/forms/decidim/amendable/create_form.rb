@@ -22,8 +22,8 @@ module Decidim
         return unless present(amendable).title == present(emendation).title
         return unless present(amendable).body.delete("\r") == present(emendation).body.delete("\r")
 
-        errors.add(:title, "AND body cannot be identical")
-        errors.add(:body, "AND title cannot be identical")
+        amendable_form.errors.add(:title, :identical)
+        amendable_form.errors.add(:body, :identical)
       end
 
       def amendable
