@@ -68,7 +68,7 @@ module Decidim
     end
 
     def resource_state
-      attributes[:state]
+      attributes["state"]
     end
 
     def emendation_state
