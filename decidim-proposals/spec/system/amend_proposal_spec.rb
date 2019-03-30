@@ -37,7 +37,7 @@ describe "Amend Proposal", type: :system do
         click_link proposal.title
       end
 
-      it "renders a link to Ammend it" do
+      it "renders a link to Amend it" do
         expect(page).to have_link("Amend Proposal")
       end
 
@@ -68,7 +68,7 @@ describe "Amend Proposal", type: :system do
         end
       end
 
-      context "and the amend form shows all the fields" do
+      context "when creating an amendment" do
         before do
           login_as user, scope: :user
           visit decidim.new_amend_path(amendable_gid: proposal.to_sgid.to_s)
@@ -88,7 +88,7 @@ describe "Amend Proposal", type: :system do
         end
       end
 
-      context "and the amend form is filled correctly" do
+      context "when the form is filled correctly" do
         before do
           login_as user, scope: :user
           visit decidim.new_amend_path(amendable_gid: proposal.to_sgid.to_s)
@@ -113,13 +113,12 @@ describe "Amend Proposal", type: :system do
         end
       end
 
-      context "and the amend form is filled incorrectly" do
+      context "when the form is filled incorrectly" do
         before do
           login_as user, scope: :user
           visit decidim.new_amend_path(amendable_gid: proposal.to_sgid.to_s)
           within ".new_amendment" do
             fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
-            select user_group.name, from: :amendment_user_group_id
           end
           click_button "Send amendment"
         end
