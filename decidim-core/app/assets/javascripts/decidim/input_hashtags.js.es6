@@ -13,7 +13,13 @@ $(() => {
   let cursor = "";
   $hashtagContainer.on("quill-position", function(event) {
     if (event.detail !== null) {
-      cursor = event.detail.index;
+      // When replacing the text content after selecting a hashtag, we only need
+      // to know the hashtag's start position as that is the point which we want
+      // to replace.
+      let quill = event.target.__quill;
+      if (quill.getText(event.detail.index - 1, 1) === "#") {
+        cursor = event.detail.index;
+      }
     }
   });
 
@@ -57,8 +63,9 @@ $(() => {
       }
       if (this.range.isContentEditable(this.current.element)) {
         // Check quill.js
-        if ($(this.current.element).hasClass("editor-container")) {
-          let quill = this.current.element.__quill;
+        if ($(this.current.element).hasClass("ql-editor")) {
+          let editorContainer = $(this.current.element).parent().get(0);
+          let quill = editorContainer.__quill;
           quill.insertText(cursor - 1, `#${item.original.name} `, Quill.sources.API);
           // cursor position + hashtag length + "#" sign + space
           let position = cursor + item.original.name.length + 2;
@@ -86,7 +93,20 @@ $(() => {
     }
   });
 
-  tribute.attach($hashtagContainer);
+  // Tribute needs to be attached to the `.ql-editor` element as said at:
+  // https://github.com/quilljs/quill/issues/1816
+  //
+  // For this reason we need to wait a bit for quill to initialize itself.
+  setTimeout(function() {
+    $hashtagContainer.each((index, item) => {
+      let $qlEditor = $(".ql-editor", item);
+      if ($qlEditor.length > 0) {
+        tribute.attach($qlEditor);
+      } else {
+        tribute.attach(item);
+      }
+    });
+  }, 1000);
 
   // DOM manipulation
   $hashtagContainer.on("focusin", (event) => {

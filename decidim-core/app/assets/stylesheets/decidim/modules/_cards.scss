@@ -200,12 +200,6 @@ $datetime-bg: var(--primary);
   .card__content{
     display: flex;
   }
-
-  &.card__footer--spaces{
-    background: rgba($card-spaces, .2);
-    border-top-color: rgba($card-spaces, .6);
-    border-top-width: .25rem;
-  }
 }
 
 .card__footer--transparent{
@@ -507,6 +501,7 @@ $datetime-bg: var(--primary);
   text-align: center;
   text-transform: uppercase;
   font-size: 85%;
+  min-width: 7rem;
   line-height: 1;
   color: $muted;
   padding: $card-padding-small;

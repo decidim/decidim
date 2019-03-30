@@ -37,9 +37,9 @@ de:
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
       initiatives_vote:
-        name_and_surname: Name und Nachname
-        document_number: Dokumentnummer
         date_of_birth: Geburtsdatum
+        document_number: Dokumentnummer
+        name_and_surname: Name und Nachname
         postal_code: Postleitzahl
       organization_data:
         address: Adresse
@@ -69,7 +69,7 @@ de:
             created_at: Hergestellt in
             id: ICH WÜRDE
             state: Zustand
-            supports_count: Unterstützt
+            supports_count: Unterschriften
             title: Initiativen
         initiatives_type_scope:
           fields:
@@ -141,8 +141,8 @@ de:
       admin:
         answers:
           edit:
-            title: Antwort für %{title}
             answer: Antworten
+            title: Antwort für %{title}
           info_initiative:
             created_at: Hergestellt in
             description: Beschreibung
@@ -320,12 +320,12 @@ de:
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
         finish:
           back_to_initiative: Zurück zur Initiative
-        sms_phone_number:
-          continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
         sms_code:
           continue: Code überprüfen und fortfahren
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
+        sms_phone_number:
+          continue: Senden Sie mir eine SMS
+          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
@@ -437,8 +437,8 @@ de:
     resources:
       initiatives_type:
         actions:
-          vote: Abstimmung
           title: Aktionen
+          vote: Abstimmung
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ de:
         fill_personal_data: Ergänzen Sie Ihre Daten
         finish: Fertig
         finished: Initiativsignatur erstellt
-        select_identity: Identität auswählen
         see_steps: siehe Schritte
+        select_identity: Identität auswählen
         sms_code: SMS-Code-Bestätigung
         sms_phone_number: Handynummer
         step: Schritt %{current} von %{total}

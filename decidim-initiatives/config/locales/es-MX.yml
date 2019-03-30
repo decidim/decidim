@@ -37,9 +37,9 @@ es-MX:
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
       initiatives_vote:
-        name_and_surname: Nombre y apellido
-        document_number: Número del Documento
         date_of_birth: Fecha de nacimiento
+        document_number: Número del Documento
+        name_and_surname: Nombre y apellido
         postal_code: código postal
       organization_data:
         address: Dirección
@@ -69,7 +69,7 @@ es-MX:
             created_at: Creado en
             id: CARNÉ DE IDENTIDAD
             state: Estado
-            supports_count: Apoyos
+            supports_count: Firmas
             title: Iniciativas
         initiatives_type_scope:
           fields:
@@ -141,8 +141,8 @@ es-MX:
       admin:
         answers:
           edit:
-            title: Respuesta para %{title}
             answer: Responder
+            title: Respuesta para %{title}
           info_initiative:
             created_at: Creado en
             description: Descripción
@@ -320,12 +320,12 @@ es-MX:
           help: Por favor, rellene los siguientes campos con sus datos personales para firmar la iniciativa.
         finish:
           back_to_initiative: Volver a la iniciativa
-        sms_phone_number:
-          continue: Mandame un SMS
-          help: Rellene el formulario con su número de teléfono verificado para solicitar su código de verificación
         sms_code:
           continue: Revisa el código y continúa
           help: Consulta los SMS recibidos en tu teléfono.
+        sms_phone_number:
+          continue: Mandame un SMS
+          help: Rellene el formulario con su número de teléfono verificado para solicitar su código de verificación
       initiative_votes:
         create:
           error: Ha habido errores al firmar la iniciativa.
@@ -437,8 +437,8 @@ es-MX:
     resources:
       initiatives_type:
         actions:
-          vote: Votar
           title: Comportamiento
+          vote: Votar
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ es-MX:
         fill_personal_data: Completa tus datos
         finish: Terminar
         finished: Firma de iniciativa creada
-        select_identity: Seleccionar identidad
         see_steps: ver los pasos
+        select_identity: Seleccionar identidad
         sms_code: Verificación de código SMS
         sms_phone_number: Número de teléfono móvil
         step: Paso %{current} de %{total}

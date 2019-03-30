@@ -33,7 +33,7 @@ ca:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-            creation_enabled: Habilitar la creació de debats pels usuaris
+            creation_enabled: Habilitar la creació de debats per part de les participants
     debates:
       actions:
         confirm_destroy: N'estàs segur?
@@ -44,10 +44,10 @@ ca:
       admin:
         debates:
           create:
-            invalid: Hi ha hagut un problema en crear el debat.
+            invalid: S'ha produït un error en crear el debat.
             success: Debat creat correctament.
           destroy:
-            success: Debat suprimit correctament.
+            success: Debat eliminat correctament.
           edit:
             title: Editar debat
             update: Actualitzar debat
@@ -57,7 +57,7 @@ ca:
             create: Crea un debat
             title: Nou debat
           update:
-            invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
+            invalid: S'ha produït un error en actualitzar aquest debat.
             success: El debat s'ha actualitzat correctament.
         models:
           debate:
@@ -72,7 +72,7 @@ ca:
             one: "%{count} debat"
             other: "%{count} debats"
         create:
-          invalid: Hi ha hagut un problema en crear el debat.
+          invalid: S'ha produït un error en crear el debat.
           success: Debat creat correctament.
         debate:
           participate: Participa
@@ -142,11 +142,11 @@ ca:
           conditions:
             - Tria un debat obert per participar
           description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
-          description_another: Aquest usuari ha participat en %{score} debats.
+          description_another: Aquesta participant ha pres part en %{score} debats.
           description_own: Has participat en %{score} debats.
           name: Debats
           next_level_in: Participa en %{score} debats més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha participat en cap debat.
+          unearned_another: Aquesta participant encara no ha pres part en cap debat.
           unearned_own: No has participat a cap debat encara.
     metrics:
       debates:

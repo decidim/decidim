@@ -149,7 +149,7 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Alkatrészek
-          conference_admins: Konferencia felhasználók
+          conference_admins: Konferencia adminisztrátorok
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
@@ -505,10 +505,10 @@ hu:
         votes_count: szavazatok
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencijára történt regisztrációd függőben van.
         conference_registration_confirmed:
           notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencia regisztrációd megerősítést nyert.
+        conference_registration_validation_pending:
+          notification_title: A <a href="%{resource_url}">%{resource_title}</a> konferencijára történt regisztrációd függőben van.
         conference_registrations_over_percentage:
           email_intro: A "%{resource_title}" konferencia foglalt rések több mint %{percentage}%.
           email_outro: Ezt az értesítést megkaptuk, mert Ön a konferencia részvételi helyének adminisztrátora.

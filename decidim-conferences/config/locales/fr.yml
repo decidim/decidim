@@ -149,7 +149,7 @@ fr:
           attachments: Pièces jointes
           categories: Catégories
           components: Composants
-          conference_admins: Utilisateurs de la conférence
+          conference_admins: Administrateurs de conférence
           conference_invites: Invite
           conference_speakers: Haut-parleurs
           diploma: Certificat de participation
@@ -505,10 +505,10 @@ fr:
         votes_count: Votes
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registration_confirmed:
           notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> a été confirmée.
+        conference_registration_validation_pending:
+          notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registrations_over_percentage:
           email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
           email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.

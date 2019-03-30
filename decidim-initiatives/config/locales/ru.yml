@@ -61,7 +61,7 @@ ru:
           fields:
             created_at: 'Создано:'
             state: Cостояние
-            supports_count: Выражений поддержки
+            supports_count: Подписей
             title: Почины
         initiatives_type_scope:
           fields:
@@ -92,6 +92,9 @@ ru:
             notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
     initiatives:
       admin:
+        answers:
+          info_initiative:
+            state: Cостояние
         committee_requests:
           index:
             approve: Одобрить

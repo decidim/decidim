@@ -154,13 +154,12 @@ uk:
       granted_at: 'Надано: %{timestamp}'
       started_at: 'Розпочато: %{timestamp}'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
           explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
           title: Строк дії підтвердження особи вичерпався
         incomplete:
-          cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
           invalid_field: "Поле %{field}"
           reauthorize: Заново підтвердити свою особу

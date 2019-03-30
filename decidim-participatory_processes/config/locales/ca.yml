@@ -47,8 +47,8 @@ ca:
         name: Nom
         role: Rol
     models:
-      decidim/participatory_process_step_activated_event: Pas activat
-      decidim/participatory_process_step_changed_event: Pas canviat
+      decidim/participatory_process_step_activated_event: Fase activada
+      decidim/participatory_process_step_changed_event: Fase modificada
   activerecord:
     models:
       decidim/participatory_process:
@@ -72,7 +72,7 @@ ca:
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
-        new_process_user_role: Nou usuari del procés
+        new_process_user_role: Nova administradora del procés
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -88,8 +88,8 @@ ca:
           components: Components
           info: Informació
           moderations: Moderacions
-          private_users: Usuaris privats
-          process_admins: Usuaris del procés
+          private_users: Participants privades
+          process_admins: Administradores del procés
           steps: Fases del procés
       models:
         participatory_process:
@@ -109,13 +109,13 @@ ca:
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
-          name: Name
+          name: Fase del procés participatiu
         participatory_process_user_role:
           fields:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de procés participatiu
+          name: Administradora de procés participatiu
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -131,7 +131,7 @@ ca:
           title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
-          success: El grup de processos participatius s'ha suprimit correctament.
+          success: El grup de processos participatius s'ha eliminat correctament.
         edit:
           title: Editar grup de procés
           update: Actualitzar
@@ -139,8 +139,8 @@ ca:
           create: Crear
           title: Nou grup de processos
         update:
-          error: Hi ha hagut un error actualitzant aquest grup de processos participatius.
-          success: Grup de procés participatiu actualitzat correctament.
+          error: S'ha produït un error en actualitzar aquest grup de processos participatius.
+          success: Grup de processos participatius actualitzat correctament.
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -150,12 +150,12 @@ ca:
           success: El procés participatiu s'ha despublicat correctament.
       participatory_process_step_activations:
         create:
-          error: S'ha produït un error en activar aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha activat correctament.
+          error: S'ha produït un error en activar aquesta fase del procés participatiu.
+          success: La fase del procés participatiu s'ha activat correctament.
       participatory_process_steps:
         create:
-          error: S'ha produït un error en crear una nova fase de procés participatiu.
-          success: La fase de procés participatiu s'ha creat correctament.
+          error: S'ha produït un error en crear una nova fase del procés participatiu.
+          success: La fase del procés participatiu s'ha creat correctament.
         default_title: Introducció
         destroy:
           error:
@@ -177,21 +177,21 @@ ca:
           success: La fase de procés participatiu s'ha actualitzat correctament.
       participatory_process_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: L'usuari s'ha afegit amb èxit a aquest procés participatiu.
+          error: S'ha produït un error en afegir una administradora a aquest procés participatiu.
+          success: L'administradora s'ha afegit correctament a aquest procés participatiu.
         destroy:
-          success: L'usuari s'ha eliminat correctament d'aquest procés participatiu.
+          success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Editar usuari de procés participatiu.
+          title: Editar administradora de procés participatiu.
           update: Actualitzar
         index:
-          process_admins_title: Usuaris del procés participatiu
+          process_admins_title: Administradores del procés participatiu
         new:
           create: Crear
-          title: Nou usuari de procés participatiu.
+          title: Nova administradora de procés participatiu.
         update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquest procés participatiu.
-          success: Usuari actualitzat satisfactòriament per a aquest procés participatiu.
+          error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
+          success: Administradora actualitzada correctament per a aquest procés participatiu.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
@@ -209,23 +209,23 @@ ca:
           create: Crear
           title: Nou procés participatiu
         update:
-          error: S'ha produït un error en l'actualització d'aquest procés participatiu.
+          error: S'ha produït un error en actualitzar aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
       participatory_processes_copies:
         create:
-          error: Hi ha hagut un error duplicant el procés participatiu.
+          error: S'ha produït un error en duplicar el procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:
-          error: S'ha produït un error creant aquest grup de processos participatius.
+          error: S'ha produït un error en crear aquest grup de processos participatius.
           success: Grup de processos participatius creat correctament.
       titles:
         participatory_process_groups: Grups de processos participatius
         participatory_processes: Processos participatius
       users:
         resend_invitation:
-          error: Hi ha hagut un error reenviant la invitació.
-          success: Invitació reenviada amb èxit.
+          error: S'ha produït un error en reenviar la invitació.
+          success: Invitació reenviada correctament.
     admin_log:
       participatory_process:
         create: "%{user_name} ha creat el procés participatiu %{resource_name}"
@@ -238,9 +238,9 @@ ca:
         delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
         update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} ha convidat l'usuari %{resource_name} al procés participatiu %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} del procés participatiu %{space_name}"
-        update: "%{user_name} ha canviat el rol de l'usuari %{resource_name} en el procés participatiu %{space_name}"
+        create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
+        update: "%{user_name} ha canviat el rol de la participant %{resource_name} en el procés participatiu %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -303,7 +303,7 @@ ca:
         home:
           highlighted_processes:
             active_processes: Processos actius
-            active_step: Pas actiu
+            active_step: Fase activa
             more_information: Més informació
             participate: Participa
             see_all_processes: Veure tots els processos
@@ -354,7 +354,7 @@ ca:
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
-        orders_count: Vots
+        orders_count: Suports
         pages_count: Pàgines
         processes_count: Processos
         projects_count: Projectes

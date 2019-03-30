@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       collaborative_draft:
-        address: adreça
+        address: Adreça
         body: Cos
         category_id: Categoria
         decidim_scope_id: Àmbit
@@ -11,7 +11,7 @@ ca:
         title: Títol
         user_group_id: Crea un esborrany de col·laboració com a
       proposal:
-        address: adreça
+        address: Adreça
         answer: Resposta
         answered_at: Respost el
         automatic_hashtags: Etiquetes afegides automàticament
@@ -29,14 +29,14 @@ ca:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
-        import_proposals: Importa propostes
-        keep_authors: Manteniu els autors originals
+        import_proposals: Importar propostes
+        keep_authors: Mantenir l'autoria original
     errors:
       models:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}"
+              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -87,21 +87,21 @@ ca:
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
-            minimum_votes_per_user: Suports mínims per usuari
+            minimum_votes_per_user: Suports mínims per participant
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             participatory_texts_enabled: Texts participatius habilitats
             proposal_answering_enabled: Activar resposta oficial a propostes
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_length: Longitud màxima del cos de la proposta
-            proposal_limit: Límit de propostes per usuari
+            proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
             proposal_wizard_step_3_help_text: Text d'ajuda al pas de "completar" propostes
             proposal_wizard_step_4_help_text: Text del pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             threshold_per_proposal: Llindar per proposta
-            vote_limit: Límit de suports per usuari
+            vote_limit: Límit de suports per participant
           step:
             announcement: Anunci
             automatic_hashtags: Etiquetes afegides a totes les propostes
@@ -110,10 +110,10 @@ ca:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
-            suggested_hashtags: Etiquetes suggerides als usuaris per a noves propostes
-            votes_blocked: Suports deshabilitats
+            suggested_hashtags: Etiquetes suggerides a les participants per a noves propostes
+            votes_blocked: Suports bloquejats
             votes_enabled: Recollida de suport habilitada
-            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
+            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció s'amagarà el nombre de suports)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -210,12 +210,12 @@ ca:
             email_subject: S'ha rebutjat una proposta que segueixes
             notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
-          email_intro: 'Un administrador ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
+          email_intro: 'Una administradora ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets l'autor de la proposta.
           email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
           notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per un administrador.
         voting_enabled:
-          email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}. Comença a participar a aquesta pàgina:'
+          email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -226,49 +226,49 @@ ca:
             - Tria l'espai de participació del teu interès amb la creació de propostes activada
             - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes i s'accepten.
-          description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
+          description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
           description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
           name: Propostes acceptades
           next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha aconseguit que s'accepti cap de les seves propostes.
+          unearned_another: Aquesta participant encara no ha aconseguit que s'accepti cap de les seves propostes.
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
             - Navega i passa un temps llegint les propostes d'altres persones
             - Dóna suport a les propostes que desitgis o troba'n d'interessants
           description: Aquest distintiu es concedeix quan dones suport a propostes d'altres persones.
-          description_another: Aquest usuari ha donat suport a %{score} propostes.
+          description_another: Aquesta participant ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
           name: Suports a propostes
           next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
+          unearned_another: Aquesta participant encara no ha donat suport a cap proposta.
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
             - Tria un espai de participació del teu interès amb la creació de propostes activada
             - Crea una proposta nova
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
-          description_another: Aquest usuari ha creat %{score} propostes.
+          description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
           name: Propostes
           next_level_in: Crea %{score} més propostes per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha creat cap proposta.
+          unearned_another: Aquesta participant encara no ha creat cap proposta.
           unearned_own: Encara no has creat cap proposta.
     metrics:
       accepted_proposals:
-        description: Nombre de propostes acceptades pels usuaris
+        description: Nombre de propostes acceptades
         object: propostes
         title: Propostes acceptades
       endorsements:
-        description: Nombre d'adhesions generades a les propostes
+        description: Nombre d'adhesions a les propostes
         object: adhesions
         title: Adhesions
       proposals:
-        description: Nombre de propostes generades
+        description: Nombre de propostes
         object: propostes
         title: Propostes
       votes:
-        description: Nombre de suports generats pels usuaris a les propostes
+        description: Nombre de suports a les propostes
         object: suports
         title: Suports
     participatory_processes:
@@ -298,30 +298,30 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
-            are_you_sure: Esteu segur de descartar tot l'esborrany de text participatiu?
+            are_you_sure: Segur que vols descartar l'esborrany sencer de text participatiu?
+            discard_all: Descarta'l sencer
             import_doc: Importar document
-            discard_all: Descarta'ls tots
+          discard:
+            success: S'han descartat tots els esborranys de textos participatius.
           import:
             invalid: El formulari no és vàlid!
-            success: Enhorabona, les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
+            success: Enhorabona, les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
           index:
-            info_1: Les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
+            info_1: Les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
             publish_document: Publicar el document
             save_draft: Desa l'esborrany
             title: PREVISUALITZAR EL TEXT PARTICIPATIU
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Increïble
+              odt: Odt
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
-            document_legend: 'Afegiu un document de menys de 2 MB, cadascuna de les seccions fins a 3 nivells de profunditat s''analitzaran a Propostes. Els formats suportats són: %{valid_mime_types}'
+            document_legend: 'Afegeix un document de menys de 2 MB, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: AGREGAR DOCUMENT
             upload_document: Penja el document
           publish:
             invalid: No s'han pogut publicar propostes
             success: S'han publicat totes les propostes
-          discard:
-            success: S'han descartat tots els esborranys de text participatius.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
@@ -337,7 +337,7 @@ ca:
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
-            error: Hi ha hagut un problema en crear aquesta nota
+            error: S'ha produït un error en crear aquesta nota
             success: La nota de la proposta s'ha creat correctament
           form:
             note: Nota
@@ -381,16 +381,16 @@ ca:
             success: 'Les propostes s''han actualitzat correctament a la categoria %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Hi ha hagut un problema important les propostes
+            invalid: S'ha produït un error en importar les propostes
             success: "%{number} propostes importades correctament"
           new:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un continent
-            select_states: Consulteu els estats de les propostes per importar
+            select_states: Consulta els estats de les propostes a importar
         proposals_merges:
           create:
-            invalid: S'ha produït un error en combinar les propostes seleccionades.
+            invalid: S'ha produït un error en fusionar les propostes seleccionades.
             success: S'han combinat amb èxit les propostes en una nova.
         proposals_splits:
           create:
@@ -421,7 +421,7 @@ ca:
           citizens: Ciutadania
           meetings: Trobades
           official: Oficial
-          user_groups: Grups d'usuaris
+          user_groups: Grups
         filter_state_values:
           accepted: Acceptat
           all: Tots
@@ -429,13 +429,13 @@ ca:
           except_rejected: Totes menys rebutjades
           rejected: Rebutjat
         filter_type_values:
-          all: Tots
-          amendments: Modificacions
+          all: Totes
+          amendments: Esmenes
           proposals: Propostes
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Hi ha hagut errors en publicar l'esborrany col·laboratiu.
+            error: S'ha produït un error en publicar l'esborrany col·laboratiu.
             irreversible_action_modal:
               body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà nous autors ni contribucions.
               cancel: Cancel·lar
@@ -463,7 +463,7 @@ ca:
             one: "%{count} esborrany de col·laboració"
             other: "%{count} esborrany de col·laboració"
         create:
-          error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
+          error: S'ha produït un error en crear aquests esborranys col·laboratiu
           success: S'ha creat un esborrany col·laboratiu.
         edit:
           attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
@@ -473,7 +473,7 @@ ca:
           title: Edita l'esborrany col·laboratiu
         filters:
           all: Tots
-          amendment: Modificacions
+          amendment: Esmenes
           category: Categoria
           category_prompt: Indicació de categoria
           open: Obert
@@ -499,23 +499,23 @@ ca:
           recent: Recent
         requests:
           accepted_request:
-            error: No s'ha pogut acceptar com a contribuïdor, torna-ho a provar més tard.
+            error: No has pogut ser acceptada com a contribuïdora, si us plau torna-ho a provar més tard.
             success: "S'ha acceptat amb èxit @%{user} com a contribuïdor"
           access_requested:
-            error: No s'ha pogut completar la teva sol·licitud, torna-ho a provar més tard.
-            success: La teva sol·licitud de contribució s'ha enviat correctament
+            error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
+            success: La teva sol·licitud de col·laboració s'ha enviat correctament
           collaboration_requests:
             accept_request: Accepta
             reject_request: Rebutja
             title: Sol·licituds de col·laboració
           rejected_request:
-            error: No s'ha pogut rebutjar aquest contribuïdor, tornau-ho a provar més tard.
-            success: "@%{user} s'ha rebutjat correctament com a contribuïdor"
+            error: No s'ha pogut rebutjar aquesta contribuïdora, si us plau tornau-ho a provar més tard.
+            success: "@%{user} s'ha rebutjat correctament com a contribuïdora"
         show:
           back: Tornar
           edit: Edita l'esborrany col·laboratiu
           final_proposal: proposta final
-          final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
+          final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
           hidden_authors_count:
             one: i %{count} persones més
             other: i %{count} persones més
@@ -535,7 +535,7 @@ ca:
           published: Publicat
           withdrawn: Retirat
         update:
-          error: Hi ha hagut errors en desar l'esborrany col·laboratiu.
+          error: S'ha produït un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
         wizard_aside:
           back: Tornar
@@ -599,7 +599,7 @@ ca:
           error: Hi ha hagut errors en donar suport a la proposta.
       proposals:
         compare:
-          mine_is_different: La meva proposta és diferent
+          continue: Continua
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
@@ -626,6 +626,7 @@ ca:
           comments: Comentaris
         filters:
           activity: Activitat
+          amendment_type: Escriu
           category: Categoria
           category_prompt: Selecciona una categoria
           origin: Origen
@@ -633,7 +634,6 @@ ca:
           search: Cerca
           state: Estat
           voted: Has donat suport
-          amendment_type: Escriu
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -685,7 +685,7 @@ ca:
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
-          withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
+          withdraw_confirmation: Segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_category}</u> per un administrador)"
@@ -702,14 +702,14 @@ ca:
             one: SUPORT
             other: SUPORTS
           most_popular_proposal: Proposta més popular
-          need_more_votes: Necessita més vots
+          need_more_votes: Necessita més suports
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
             description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
-            supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
+            supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per a que els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
@@ -737,7 +737,7 @@ ca:
         success: La proposta s'ha actualitzat correctament.
       update_draft:
         error: Hi ha hagut errors en desar l'esborrany de la proposta.
-        success: El projecte de proposta s'ha actualitzat correctament.
+        success: L'esborrany col·laboratiu s'ha actualitzat correctament.
       versions:
         changes_at_title: Canvis a "%{title}"
         index:
@@ -753,6 +753,9 @@ ca:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versió %{index}
+      withdraw:
+        errors:
+          has_supports: Aquesta proposta no es pot retirar perquè ja compta amb suports.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostes relacionades

@@ -36,7 +36,7 @@ es-MX:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}"
+              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -299,8 +299,10 @@ es-MX:
         participatory_texts:
           bulk-actions:
             are_you_sure: '¿Estás seguro de descartar todo el borrador del texto participativo?'
-            import_doc: Importar documento
             discard_all: Descartar todo
+            import_doc: Importar documento
+          discard:
+            success: Todos los borradores de textos participativos han sido descartados.
           import:
             invalid: '¡El formulario no es válido!'
             success: Enhorabuena, los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
@@ -320,8 +322,6 @@ es-MX:
           publish:
             invalid: No se pudieron publicar las propuestas
             success: Todas las propuestas han sido publicadas
-          discard:
-            success: Todos los borradores de textos participativos han sido descartados.
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -599,7 +599,7 @@ es-MX:
           error: Ha habido errores al apoyar la propuesta.
       proposals:
         compare:
-          mine_is_different: Mi propuesta es diferente
+          continue: Continuar
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
@@ -626,6 +626,7 @@ es-MX:
           comments: Comentarios
         filters:
           activity: Actividad
+          amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona una categoría
           origin: Origen
@@ -633,7 +634,6 @@ es-MX:
           search: Buscar
           state: Estado
           voted: Apoyadas
-          amendment_type: Tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -753,6 +753,9 @@ es-MX:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
+      withdraw:
+        errors:
+          has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuestas relacionadas

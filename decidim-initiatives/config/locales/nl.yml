@@ -37,9 +37,9 @@ nl:
         undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
         validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces
       initiatives_vote:
-        name_and_surname: Naam en achternaam
-        document_number: Document Nummer
         date_of_birth: Geboortedatum
+        document_number: Document Nummer
+        name_and_surname: Naam en achternaam
         postal_code: Postcode
       organization_data:
         address: Adres
@@ -69,7 +69,7 @@ nl:
             created_at: Aangemaakt op
             id: ID kaart
             state: Staat
-            supports_count: steunen
+            supports_count: handtekeningen
             title: initiatieven
         initiatives_type_scope:
           fields:
@@ -141,8 +141,8 @@ nl:
       admin:
         answers:
           edit:
-            title: Antwoord voor %{title}
             answer: Antwoord
+            title: Antwoord voor %{title}
           info_initiative:
             created_at: Gemaakt bij
             description: Omschrijving
@@ -320,12 +320,12 @@ nl:
           help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
         finish:
           back_to_initiative: Terug naar initiatief
-        sms_phone_number:
-          continue: Stuur me een sms
-          help: Vul het formulier in met uw geverifieerde telefoonnummer om uw verificatiecode aan te vragen
         sms_code:
           continue: Controleer de code en ga verder
           help: Controleer de sms die je op je telefoon hebt ontvangen
+        sms_phone_number:
+          continue: Stuur me een sms
+          help: Vul het formulier in met uw geverifieerde telefoonnummer om uw verificatiecode aan te vragen
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
@@ -437,8 +437,8 @@ nl:
     resources:
       initiatives_type:
         actions:
-          vote: Stemmen
           title: acties
+          vote: Stemmen
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ nl:
         fill_personal_data: Vul uw gegevens in
         finish: Af hebben
         finished: Initiatief handtekening gemaakt
-        select_identity: Selecteer identiteit
         see_steps: zie stappen
+        select_identity: Selecteer identiteit
         sms_code: Verificatie van sms-codes
         sms_phone_number: Mobiele telefoonnummer
         step: Stap %{current} van %{total}

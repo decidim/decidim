@@ -34,6 +34,10 @@ nl:
         grant_id_documents_offline_verification: "%{user_name} geverifieerd %{resource_name} met behulp van een offline verificatie van identiteitsdocumenten"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Beheerders uploaden een CSV met de e-mails van de geaccepteerde deelnemers
+            - Alleen deelnemers met een e-mail in dat CSV-bestand kunnen worden geverifieerd
         id_documents:
           help:
             - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
@@ -99,8 +103,8 @@ nl:
             body: Hiervoor moet u het systeembeheer invoeren en de csv_census-autorisaties toevoegen aan de organisatie
             title: U moet de csv-telling voor deze organisatie activeren
           new:
+            file: ".csv-bestand met e-mailgegevens"
             info: 'Moet een bestand zijn met CSV-indeling met één kolom: e-mail'
-            file: .csv-bestand met e-mailgegevens
             submit: Upload bestand
             title: Upload een nieuwe telling
         authorizations:
@@ -147,7 +151,7 @@ nl:
               success: Verificatie gewijgerd. De gebruiker wordt gevraagd om haar documenten te wijzigen
         authorizations:
           choose:
-            choose_a_type: "Selecteer alstublieft hoe u wilt worden geverifieerd:"
+            choose_a_type: 'Selecteer alstublieft hoe u wilt worden geverifieerd:'
             offline: offline
             online: Online
             title: Verifieer jezelf met je identiteitsdocument
@@ -205,7 +209,12 @@ nl:
           create:
             error: Er was een probleem met je verzoek
             success: Bedankt! We hebben een sms naar je telefoon gestuurd.
+          destroy:
+            success: Verificatiecode succesvol gereset. Voer uw telefoonnummer opnieuw in.
           edit:
+            confirm_destroy: Weet je zeker dat je de verificatiecode opnieuw wilt instellen?
+            destroy: Verificatiecode opnieuw instellen
+            resend: Geen verificatiecode ontvangen?
             send: Bevestigen
             title: Voer de verificatiecode in die u heeft ontvangen
           new:

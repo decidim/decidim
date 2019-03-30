@@ -34,6 +34,10 @@ pt:
         grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando uma verificação de documentos de identidade off-line"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Administra o upload de um arquivo CSV com os e-mails dos participantes aceitos
+            - Somente participantes com um e-mail nesse arquivo CSV podem ser verificados
         id_documents:
           help:
             - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
@@ -99,8 +103,8 @@ pt:
             body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
             title: Você precisa ativar o censo csv para esta organização
           new:
+            file: "arquivo .csv com dados de e-mails"
             info: 'Deve ser um arquivo com formato CSV com uma coluna: email'
-            file: arquivo .csv com dados de e-mails
             submit: Subir arquivo
             title: Carregar um novo censo
         authorizations:
@@ -147,7 +151,7 @@ pt:
               success: Verificação rejeitada. O usuário será solicitado a alterar seus documentos
         authorizations:
           choose:
-            choose_a_type: "Por favor, selecione como deseja ser verificado:"
+            choose_a_type: 'Por favor, selecione como deseja ser verificado:'
             offline: desligada
             online: Conectados
             title: Confirme-se usando seu documento de identidade
@@ -205,7 +209,12 @@ pt:
           create:
             error: Houve um problema com o seu pedido
             success: Obrigado! Enviamos um SMS para o seu telefone.
+          destroy:
+            success: O código de verificação foi redefinido com sucesso. Por favor, digite novamente o seu número de telefone.
           edit:
+            confirm_destroy: Tem certeza de que deseja redefinir o código de verificação?
+            destroy: Redefinir código de verificação
+            resend: Não recebeu o código de verificação?
             send: confirme
             title: Introduza o código de verificação recebido
           new:

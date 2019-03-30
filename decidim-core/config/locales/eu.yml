@@ -136,12 +136,12 @@ eu:
       amendable:
         amended_by: Aldatua
         button: Aldatu %{model_name}
-        promote_button: '%{model_name}suspertzea'
         error: Errore bat gertatu da baliabidea aldatzen.
         help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
-        promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
         no_amenders: Ez dago murrizketarik
         no_amendments: Ez dago zuzenketarik
+        promote_button: '%{model_name}suspertzea'
+        promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
         section_heading: Aldaketak (%{count})
       created:
         error: Errore bat gertatu da aldaketa hau sortzean, saiatu berriro geroago
@@ -158,9 +158,7 @@ eu:
           evaluating: |-
             For the Aldaketa hori %{amendable_type} %{amendable_link}
             ebaluatu dago.
-          rejected: |-
-            %{amendable_type} %{amendable_link}
-            aldatze hau <strong>%{announcement_date}</strong>baztertu egin zen.
+          rejected: "%{amendable_type} %{amendable_link}\naldatze hau <strong>%{announcement_date}</strong>baztertu egin zen."
           withdrawn: |-
             %{amendable_type} %{amendable_link}
             ren aldaketa hori egilearen arabera kendu da.
@@ -170,12 +168,12 @@ eu:
         heading: Sortu zure aldaketa
         help_text: '%{model_name}aldatzen ari zara'
         send: Bidali aldaketa
+      promoted:
+        error: Akatsak izan dira emendifikazioa sustatzen denean
+        success: Emendazioa arrakastaz sustatu da
       rejected:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
-      promoted:
-        success: Emendazioa arrakastaz sustatu da
-        error: Akatsak izan dira emendifikazioa sustatzen denean
       review:
         back: Back
         heading: Aldaketa berrikustea
@@ -224,7 +222,7 @@ eu:
         name: Kodea SMS bidez
       started_at: Hasi zen %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
@@ -384,39 +382,6 @@ eu:
         title: Ez dugu aurkitu bilatzen duzun orria!
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
-            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
-          follower:
-            email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
-            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
         amendment_accepted:
           affected_user:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
@@ -428,6 +393,39 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
+            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
+          follower:
+            email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
+            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
+            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
@@ -500,11 +498,6 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
-        user_officialized:
-          email_intro: <a href="%{resource_url}">%{name} (%{nickname})</a> ofiziala izan da.
-          email_outro: Jakinarazpen hau jaso duzu %{nickname}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{nickname} ofiziala izan da"
-          notification_title: <a href="%{resource_path}">%{name} (%{nickname})</a>jarraitzen ari zarenak ofizializatu egin dira.
     export_mailer:
       data_portability_export:
         click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
@@ -789,8 +782,8 @@ eu:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         everything_followed: Jarraitzen dudan guztia
-        newsletters: Buletinak
         newsletter_notifications: Buletinak jaso nahi ditut
+        newsletters: Buletinak
         own_activity: Nire jarduera, norbaiti nire proposamena iruzkindu edo aipatzen dudanean
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         send_notifications_by_email: Bidali jakinarazpenak posta elektronikoz
@@ -995,8 +988,8 @@ eu:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
     user_interests:
       show:
-        no_scopes: Antolakuntza honek ez du inongo esparrurik!
         my_interests: Nire interesak
+        no_scopes: Antolakuntza honek ez du inongo esparrurik!
         select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko Timeline fitxan erlazionatutako gertaerak jasotzeko.
         update_my_interests: Eguneratu nire interesak
       update:

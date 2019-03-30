@@ -155,7 +155,7 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: składniki
-          conference_admins: Użytkownicy konferencji
+          conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Głośniki
           diploma: Certyfikat uczestnictwa
@@ -513,10 +513,10 @@ pl:
         votes_count: Głosy
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> oczekuje na potwierdzenie.
         conference_registration_confirmed:
           notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> została potwierdzona.
+        conference_registration_validation_pending:
+          notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> oczekuje na potwierdzenie.
         conference_registrations_over_percentage:
           email_intro: Konferencje "%{resource_title}" zajmowane przez graczy zajmują ponad %{percentage}%.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej konferencji.

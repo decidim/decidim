@@ -37,9 +37,9 @@ pt-BR:
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
       initiatives_vote:
-        name_and_surname: Nome e sobrenome
-        document_number: Número do documento
         date_of_birth: Data de nascimento
+        document_number: Número do documento
+        name_and_surname: Nome e sobrenome
         postal_code: Código postal
       organization_data:
         address: Endereço
@@ -69,7 +69,7 @@ pt-BR:
             created_at: Criado em
             id: identidade
             state: Estado
-            supports_count: Suporta
+            supports_count: Assinaturas
             title: Iniciativas
         initiatives_type_scope:
           fields:
@@ -141,8 +141,8 @@ pt-BR:
       admin:
         answers:
           edit:
-            title: Resposta para %{title}
             answer: Responda
+            title: Resposta para %{title}
           info_initiative:
             created_at: Criado em
             description: Descrição
@@ -320,12 +320,12 @@ pt-BR:
           help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
         finish:
           back_to_initiative: De volta à iniciativa
-        sms_phone_number:
-          continue: Envie-me um SMS
-          help: Preencha o formulário com seu número de telefone confirmado para solicitar seu código de verificação
         sms_code:
           continue: Verifique o código e continue
           help: Verifique o SMS recebido no seu telefone
+        sms_phone_number:
+          continue: Envie-me um SMS
+          help: Preencha o formulário com seu número de telefone confirmado para solicitar seu código de verificação
       initiative_votes:
         create:
           error: Houve erros ao assinar a iniciativa.
@@ -437,8 +437,8 @@ pt-BR:
     resources:
       initiatives_type:
         actions:
-          vote: Voto
           title: Ações
+          vote: Voto
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ pt-BR:
         fill_personal_data: Complete seus dados
         finish: Terminar
         finished: Assinatura de iniciativa criada
-        select_identity: Selecione identidade
         see_steps: ver passos
+        select_identity: Selecione identidade
         sms_code: Verificação de código SMS
         sms_phone_number: número de celular
         step: Etapa %{current} de %{total}

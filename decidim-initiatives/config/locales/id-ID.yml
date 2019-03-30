@@ -37,9 +37,9 @@ id:
         undo_online_signatures_enabled: Aktifkan pengguna untuk membatalkan tanda tangan online mereka
         validate_sms_code_on_votes: Tambahkan langkah validasi kode SMS ke proses tanda tangan
       initiatives_vote:
-        name_and_surname: Nama dan nama keluarga
-        document_number: Nomor dokumen
         date_of_birth: Tanggal lahir
+        document_number: Nomor dokumen
+        name_and_surname: Nama dan nama keluarga
         postal_code: Kode Pos
       organization_data:
         address: Alamat
@@ -66,7 +66,7 @@ id:
             created_at: Dibuat di
             id: ID
             state: Negara
-            supports_count: Mendukung
+            supports_count: Tanda tangan
             title: Inisiatif
         initiatives_type_scope:
           fields:
@@ -138,8 +138,8 @@ id:
       admin:
         answers:
           edit:
-            title: Jawab untuk %{title}
             answer: Menjawab
+            title: Jawab untuk %{title}
           info_initiative:
             created_at: Dibuat di
             description: Deskripsi
@@ -317,12 +317,12 @@ id:
           help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
         finish:
           back_to_initiative: Kembali ke inisiatif
-        sms_phone_number:
-          continue: Kirimi saya SMS
-          help: Isi formulir dengan nomor telepon terverifikasi Anda untuk meminta kode verifikasi Anda
         sms_code:
           continue: Periksa kode dan lanjutkan
           help: Periksa SMS yang diterima di ponsel Anda
+        sms_phone_number:
+          continue: Kirimi saya SMS
+          help: Isi formulir dengan nomor telepon terverifikasi Anda untuk meminta kode verifikasi Anda
       initiative_votes:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
@@ -429,8 +429,8 @@ id:
     resources:
       initiatives_type:
         actions:
-          vote: Memilih
           title: Tindakan
+          vote: Memilih
   layouts:
     decidim:
       admin:
@@ -456,8 +456,8 @@ id:
         fill_personal_data: Lengkapi data Anda
         finish: Selesai
         finished: Tanda tangan inisiatif dibuat
-        select_identity: Pilih identitas
         see_steps: lihat langkah-langkahnya
+        select_identity: Pilih identitas
         sms_code: Verifikasi kode SMS
         sms_phone_number: Nomor ponsel
         step: Langkah %{current} dari %{total}

@@ -34,6 +34,10 @@ id:
         grant_id_documents_offline_verification: "%{user_name} diverifikasi %{resource_name} menggunakan verifikasi Dokumen Identitas offline"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Admin mengunggah CSV dengan email dari peserta yang diterima
+            - Hanya peserta dengan email di file CSV yang dapat diverifikasi
         id_documents:
           help:
             - Pengguna mengisi informasi identitas mereka dan mengunggah salinan dokumen mereka.
@@ -99,8 +103,8 @@ id:
             body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
             title: Anda perlu mengaktifkan sensus csv untuk organisasi ini
           new:
+            file: "File .csv dengan data email"
             info: 'Harus berupa file dengan format CSV dengan satu kolom: email'
-            file: File .csv dengan data email
             submit: Unggah data
             title: Unggah sensus baru
         authorizations:
@@ -146,7 +150,7 @@ id:
               success: Verifikasi ditolak. Pengguna akan diminta untuk mengubah dokumennya
         authorizations:
           choose:
-            choose_a_type: "Silakan pilih bagaimana Anda ingin diverifikasi:"
+            choose_a_type: 'Silakan pilih bagaimana Anda ingin diverifikasi:'
             offline: Offline
             online: On line
             title: Verifikasi diri Anda menggunakan dokumen identitas Anda
@@ -204,7 +208,12 @@ id:
           create:
             error: Ada masalah dengan permintaan anda
             success: Terima kasih! Kami telah mengirim SMS ke ponsel Anda.
+          destroy:
+            success: Kode verifikasi berhasil diset ulang. Harap masukkan kembali nomor telepon Anda.
           edit:
+            confirm_destroy: Anda yakin ingin mengatur ulang kode verifikasi?
+            destroy: Setel ulang kode verifikasi
+            resend: Tidak menerima kode verifikasi?
             send: Memastikan
             title: Perkenalkan kode verifikasi yang Anda terima
           new:

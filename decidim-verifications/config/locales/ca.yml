@@ -12,10 +12,10 @@ ca:
       id_document_upload:
         document_number: Número de document (amb lletra)
         document_type: Tipus del teu document
-        user: Usuari
+        user: Participant
         verification_attachment: Còpia escanejada del teu document
       offline_confirmation:
-        email: Correu electrònic d'usuari
+        email: Correu electrònic de la participant
       postal_letter_address:
         full_address: Adreça completa
       postal_letter_confirmation:
@@ -34,6 +34,10 @@ ca:
         grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant la verificació presencial mitjançant documents d'identitat"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Els administradors carreguen un CSV amb els correus electrònics de les participants acceptades
+            - Només es poden verificar les participants amb un correu electrònic en aquest fitxer CSV
         id_documents:
           help:
             - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
@@ -42,12 +46,12 @@ ca:
             - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-            - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
             - Envies la carta a la seva adreça amb el codi de verificació.
             - Marques la carta com a enviada.
-            - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
+            - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
       csv_census:
-        explanation: Es verifica mitjançant el cens de l'organització
+        explanation: Verifica't mitjançant el cens de l'organització
         name: Cens de l'organització
       direct: Directe
       help: Ajuda
@@ -68,7 +72,7 @@ ca:
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiqueu contra un altre exemple de controlador d'autorització
-            csv_census: Verifica contra el cens de l'organització
+            csv_census: Verifica't contra el cens de l'organització
             dummy_authorization_handler: Verificar contra l'autorització d'exemple
             dummy_authorization_workflow: Verificar contra l'exemple de flux d'autorització
             id_documents: Verifica't carregant el teu document d'identitat
@@ -85,32 +89,32 @@ ca:
           census:
             create:
               error: S'ha produït un error en la importació del cens.
-              success: S'ha importat amb èxit %{count} elements (%{errors} errors)
+              success: S'han importat correctament %{count} elements (%{errors} errors)
             destroy_all:
               success: S'han eliminat totes les dades del cens
           destroy:
-            confirm: No es pot desfer el total de censos. Esteu segur que voleu continuar?
-            title: Suprimeix totes les dades del cens
+            confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
+            title: Eliminar totes les dades del cens
           index:
             data: Hi ha %{count} registres carregats en total. La darrera data de càrrega va ser el dia %{due_date}
-            empty: No hi ha dades del cens. Utilitzeu el formulari següent per importar-lo mitjançant un fitxer CSV.
+            empty: No hi ha dades del cens. Utilitza el formulari següent per importar-lo mitjançant un fitxer CSV.
             title: Dades censals actuals
           instructions:
-            body: Per fer-ho, heu d'introduir l'administració del sistema i afegir les autoritzacions de csv_census a l'organització
-            title: Heu d'activar el cens de CSV d'aquesta organització
+            body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
+            title: Has d'activar el cens csv d'aquesta organització
           new:
+            file: "Fitxer .csv amb dades de correus electrònics"
             info: 'Ha de ser un fitxer amb format CSV amb una columna: correu electrònic'
-            file: Fitxer .csv amb dades de correus electrònics
             submit: Penja el document
             title: Penja un nou cens
         authorizations:
           new:
-            error: No hem pogut verificar el vostre compte o no esteu al cens de l'organització.
-            success: El vostre compte s'ha verificat correctament.
+            error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
+            success: El teu compte s'ha verificat correctament.
       dummy_authorization:
         extra_explanation:
-          one: La participació està restringida als usuaris amb el codi postal %{postal_codes}.
-          other: 'La participació està restringida als usuaris amb algun dels següents codis postals: %{postal_codes}.'
+          one: La participació està restringida a les persones adscrites al codi postal %{postal_codes}.
+          other: 'La participació està restringida a les persones adscrites a algun dels següents codis postals: %{postal_codes}.'
       id_documents:
         admin:
           config:
@@ -122,19 +126,19 @@ ca:
               success: La configuració s'ha actualitzat correctament
           confirmations:
             create:
-              error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
-              success: S'ha verificat l'usuari correctament
+              error: La verificació no coincideix. Si us plau torna-ho a provar o rebutja la verificació perquè la participant pugui modificar-la
+              success: S'ha verificat la participant correctament
             new:
               introduce_user_data: Introdueix les dades de la imatge
               reject: Rebutjar
               verify: Verificar
           offline_confirmations:
             create:
-              error: La verificació no coincideix. Torna-ho a provar o digue-li a l'usuari que la modifiqui
-              success: S'ha verificat l'usuari correctament
+              error: La verificació no coincideix. Si us plau torna-ho a provar o digues-li a la participant que la modifiqui
+              success: S'ha verificat la participant correctament
             new:
               cancel: Cancel · lar
-              introduce_user_data: Introdueix el correu electrònic de l'usuari i les dades del document
+              introduce_user_data: Introdueix el correu electrònic de la participant i les dades del document
               verify: Verificar
           pending_authorizations:
             index:
@@ -144,10 +148,10 @@ ca:
               verification_number: 'Verificació #%{n}'
           rejections:
             create:
-              success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
+              success: S'ha rebutjat la verificació. Es demanarà a la participant que modifiqui els seus documents
         authorizations:
           choose:
-            choose_a_type: "Si us plau selecciona com et vols verificar:"
+            choose_a_type: 'Si us plau selecciona com et vols verificar:'
             offline: Presencial
             online: Online
             title: Verifica't utilitzant el teu document d'identitat
@@ -180,7 +184,7 @@ ca:
               mark_as_sent: Marca com a enviada
               not_yet_sent: Encara no s'ha enviat
               title: Verificacions en curs
-              username: Nom d'usuari
+              username: Sobrenom
               verification_code: Codi de verificació
           postages:
             create:
@@ -205,7 +209,12 @@ ca:
           create:
             error: S'ha produït un problema amb la teva sol·licitud
             success: Gràcies! Hem enviat un SMS al teu telèfon.
+          destroy:
+            success: S'ha restablert el codi de verificació amb èxit. Torna a introduir el teu número de telèfon.
           edit:
+            confirm_destroy: Segur que vols reiniciar el codi de verificació?
+            destroy: Restableix el codi de verificació
+            resend: No has rebut el codi de verificació?
             send: Confirmar
             title: Introdueix el codi de verificació que has rebut
           new:

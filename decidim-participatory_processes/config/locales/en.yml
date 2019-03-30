@@ -1,12 +1,15 @@
+---
 en:
   activemodel:
     attributes:
       participatory_process:
         announcement: Announcement
+        area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
         copy_components: Copy components
         copy_steps: Copy steps
+        decidim_area_id: Area
         description: Description
         developer_group: Promoter group
         domain: Domain
@@ -291,6 +294,7 @@ en:
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
+            select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +341,7 @@ en:
         index:
           loading: Loading results...
       show:
+        area: Area
         developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
@@ -378,6 +383,7 @@ en:
           promoted_processes: Highlighted processes
         participatory_process:
           active_step: 'Current phase:'
+          more_info: More info
           take_part: Take part
         promoted_process:
           active_step: 'Current phase:'

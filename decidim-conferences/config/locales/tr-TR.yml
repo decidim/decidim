@@ -149,7 +149,7 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
-          conference_admins: Konferans kullanıcıları
+          conference_admins: Konferans yöneticileri
           conference_invites: Davetler
           conference_speakers: Hoparlörler
           diploma: Katılım sertifikası
@@ -505,10 +505,10 @@ tr:
         votes_count: oy
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Konferans için kaydınız <a href="%{resource_url}">%{resource_title}</a> teyit edilmeyi bekliyor.
         conference_registration_confirmed:
           notification_title: Konferans için kaydınız <a href="%{resource_url}">%{resource_title}</a> onaylandı.
+        conference_registration_validation_pending:
+          notification_title: Konferans için kaydınız <a href="%{resource_url}">%{resource_title}</a> teyit edilmeyi bekliyor.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" konferansı işgal yuvaları% %{percentage}üzerindedir.'
           email_outro: Bu bildirimi, konferansın katılımcı alanının bir yöneticisi olduğunuz için aldınız.

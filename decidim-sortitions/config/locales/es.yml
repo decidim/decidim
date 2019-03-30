@@ -65,7 +65,7 @@ es:
             destroy: Cancelar el sorteo
             title: Cancelar el sorteo
           create:
-            error: Se produjo un error al crear un nuevo sorteo.
+            error: Se ha producido un error al crear un nuevo sorteo.
             success: Sorteo creado con éxito.
           destroy:
             error: No se puede cancelar el sorteo.
@@ -86,7 +86,7 @@ es:
           show:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
-            error: Se produjo un error al actualizar el sorteo.
+            error: Se ha producido un error al actualizar el sorteo.
             success: Sorteo actualizado correctamente
       admin_log:
         sortition:
@@ -142,9 +142,9 @@ es:
             other: '%{count} propuestas seleccionadas'
           view: Ver
         sortition_author:
-          deleted: Usuario eliminado
+          deleted: Participante eliminada
         sortition_cancel_author:
-          deleted: Usuario eliminado
+          deleted: Participante eliminada
         sortitions_count:
           count:
             one: 1 sorteo

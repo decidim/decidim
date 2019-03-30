@@ -142,9 +142,9 @@ ca:
             other: '%{count} propostes seleccionades'
           view: Veure
         sortition_author:
-          deleted: Usuari eliminat
+          deleted: Participant eliminada
         sortition_cancel_author:
-          deleted: Usuari eliminat
+          deleted: Participant eliminada
         sortitions_count:
           count:
             one: 1 sorteig

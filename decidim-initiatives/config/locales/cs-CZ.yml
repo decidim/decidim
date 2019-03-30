@@ -75,7 +75,7 @@ cs:
             created_at: Vytvořeno u
             id: ID
             state: Stát
-            supports_count: Podporuje
+            supports_count: Podpisy
             title: Iniciativy
         initiatives_type_scope:
           fields:

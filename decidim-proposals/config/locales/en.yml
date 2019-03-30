@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -36,7 +37,7 @@ en:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Invalid document type. Accepted formats are: %{valid_mime_types}"
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -227,8 +228,8 @@ en:
       badges:
         accepted_proposals:
           conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This participant had %{score} accepted proposals.
           description_own: You got %{score} proposals accepted.
@@ -238,8 +239,8 @@ en:
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
-            - Browse and spend some time reading other people's proposals
-            - Give support to the proposals you like or find interesting
+          - Browse and spend some time reading other people's proposals
+          - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
           description_another: This participant has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -249,8 +250,8 @@ en:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Create a new proposal
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
           description_another: This participant has created %{score} proposals.
           description_own: You have created %{score} proposals.
@@ -303,8 +304,10 @@ en:
         participatory_texts:
           bulk-actions:
             are_you_sure: Are you sure to discard the whole participatory text draft?
-            import_doc: Import document
             discard_all: Discard all
+            import_doc: Import document
+          discard:
+            success: All participatory text drafts have been discarded.
           import:
             invalid: The form is invalid!
             success: Congratulations, the following sections have been converted to proposals. Now you can review and adjust them before publishing.
@@ -324,8 +327,6 @@ en:
           publish:
             invalid: Could not publish proposals
             success: All proposals have been published
-          discard:
-            success: All participatory text drafts have been discarded.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
@@ -603,7 +604,7 @@ en:
           error: There was a problem supporting the proposal.
       proposals:
         compare:
-          mine_is_different: My proposal is different
+          continue: Continue
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
@@ -630,6 +631,7 @@ en:
           comments: Comments
         filters:
           activity: Activity
+          amendment_type: Type
           category: Category
           category_prompt: Select a category
           origin: Origin
@@ -637,7 +639,6 @@ en:
           search: Search
           state: Status
           voted: Supported
-          amendment_type: Type
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -757,6 +758,9 @@ en:
           version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
           version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: This proposal can not be withdrawn because it already has supports.
     resource_links:
       copied_from_component:
         proposal_proposal: Related proposals
