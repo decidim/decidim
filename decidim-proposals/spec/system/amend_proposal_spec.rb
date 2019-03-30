@@ -129,7 +129,7 @@ describe "Amend Proposal", type: :system do
         end
 
         it "is shown the error message" do
-          expect(page).to have_css(".form-error.is-visible")
+          expect(page).to have_css(".form-error.is-visible", text: "Title is using too many capital letters")
         end
       end
     end
