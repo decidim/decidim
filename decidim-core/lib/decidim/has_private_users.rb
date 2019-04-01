@@ -20,6 +20,8 @@ module Decidim
 
       def self.visible_for(user)
         if user
+          return all if user.admin?
+
           left_outer_joins(:participatory_space_private_users).where(
             %(private_space = false OR
             decidim_participatory_space_private_users.decidim_user_id = ?), user.id

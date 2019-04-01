@@ -71,11 +71,13 @@ module Decidim
     # Overwriting existing method Decidim::HasPrivateUsers.visible_for
     def self.visible_for(user)
       if user
+        return all if user.admin?
+
         left_outer_joins(:participatory_space_private_users).where(
           %{private_space = false OR
           (private_space = true AND is_transparent = true) OR
           decidim_participatory_space_private_users.decidim_user_id = ?}, user.id
-        )
+        ).distinct
       else
         public_spaces
       end

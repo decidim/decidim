@@ -38,12 +38,12 @@ module Decidim
         request.env["decidim.current_organization"] = organization
       end
 
-      describe "assemblies" do
+      describe "published_assemblies" do
         it "includes only published, with promoted listed first" do
-          expect(controller.helpers.assemblies).to match_array([promoted, published])
+          expect(controller.helpers.published_assemblies).to match_array([promoted, published])
         end
 
-        context "when there are no assemblies" do
+        context "when there are no published assemblies" do
           before do
             published.unpublish!
             promoted.unpublish!

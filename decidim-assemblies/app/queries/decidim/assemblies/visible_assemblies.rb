@@ -9,14 +9,7 @@ module Decidim
       end
 
       def query
-        assemblies = Decidim::Assembly
-
-        if @user
-          return assemblies.all if @user.admin
-          assemblies.visible_for(@user)
-        else
-          assemblies.public_spaces
-        end
+        Decidim::Assembly.visible_for(@user)
       end
     end
   end
