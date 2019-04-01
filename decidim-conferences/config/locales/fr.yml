@@ -552,6 +552,7 @@ fr:
           take_part: Prendre part
       conferences:
         conference:
+          more_info: Plus d'informations
           take_part: Prendre part
         index:
           promoted_conferences: Conférences promues

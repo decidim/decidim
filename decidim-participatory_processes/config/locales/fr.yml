@@ -3,10 +3,12 @@ fr:
     attributes:
       participatory_process:
         announcement: Annonce
+        area_id: Surface
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
+        decidim_area_id: Surface
         description: Description
         developer_group: Organisateur
         domain: Domaine
@@ -291,6 +293,7 @@ fr:
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            select_an_area: Sélectionnez une région
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
+        area: Surface
         developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
@@ -378,6 +382,7 @@ fr:
           promoted_processes: Concertations mises en avant
         participatory_process:
           active_step: 'Étape actuelle :'
+          more_info: Plus d'informations
           take_part: Participer
         promoted_process:
           active_step: 'Étape actuelle :'
