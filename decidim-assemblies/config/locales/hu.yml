@@ -351,6 +351,7 @@ hu:
     decidim:
       assemblies:
         assembly:
+          more_info: Több információ
           take_part: Vegyél részt
         index:
           organizational_chart: Szervezési táblázat

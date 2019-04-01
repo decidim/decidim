@@ -351,6 +351,7 @@ fr:
     decidim:
       assemblies:
         assembly:
+          more_info: Plus d'informations
           take_part: Participer
         index:
           organizational_chart: Organigramme

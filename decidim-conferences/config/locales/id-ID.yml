@@ -548,6 +548,7 @@ id:
           take_part: Ambil bagian
       conferences:
         conference:
+          more_info: Info lebih lanjut
           take_part: Ambil bagian
         index:
           promoted_conferences: Konferensi yang dipromosikan

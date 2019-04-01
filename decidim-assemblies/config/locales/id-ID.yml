@@ -348,6 +348,7 @@ id:
     decidim:
       assemblies:
         assembly:
+          more_info: Info lebih lanjut
           take_part: Ambil bagian
         index:
           organizational_chart: Struktur organisasi

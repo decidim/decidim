@@ -552,6 +552,7 @@ es:
           take_part: Participar
       conferences:
         conference:
+          more_info: Más información
           take_part: Participar
         index:
           promoted_conferences: Jornadas destacadas

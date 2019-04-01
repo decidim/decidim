@@ -552,6 +552,7 @@ de:
           take_part: Teilnehmen
       conferences:
         conference:
+          more_info: Mehr Info
           take_part: Teilnehmen
         index:
           promoted_conferences: Geförderte Konferenzen
