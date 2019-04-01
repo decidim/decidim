@@ -13,6 +13,7 @@ module Decidim
 
         if @current_user
           return processes if @current_user.admin
+
           processes.visible_for(@current_user.id)
         else
           processes.public_spaces

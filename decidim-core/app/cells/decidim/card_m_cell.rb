@@ -36,6 +36,7 @@ module Decidim
 
     def has_label?
       return true if model.respond_to?("emendation?") && model.emendation?
+
       context[:label].presence
     end
 
@@ -99,6 +100,7 @@ module Decidim
 
     def comments_count
       return model.comments.not_hidden.count if model.comments.respond_to? :not_hidden
+
       model.comments.count
     end
 

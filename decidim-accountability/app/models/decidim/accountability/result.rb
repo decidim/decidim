@@ -82,6 +82,7 @@ module Decidim
       # Handle special case when all children weight are nil
       def children_use_weighted_progress?
         return false if children.pluck(:weight).all?(&:nil?)
+
         children.length == 1 || children.pluck(:weight).none? { |weight| weight == 1.0 }
       end
     end

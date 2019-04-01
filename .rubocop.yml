@@ -66,7 +66,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
 
   RSpec:
     Patterns:
@@ -510,12 +510,12 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: when_needed
   SupportedStyles:
     # `when_needed` will add the frozen string literal comment to files
-    # only when the `TargetRubyVersion` is set to 2.3+.
+    # only when the `TargetRubyVersion` is set to 2.5+.
     - when_needed
     # `always` will always add the frozen string literal comment to a file
     # regardless of the Ruby version or if `freeze` or `<<` are called on a
     # string literal. If you run code against multiple versions of Ruby, it is
-    # possible that this will create errors in Ruby 2.3.0+.
+    # possible that this will create errors in Ruby 2.5.0+.
     - always
 
 # Built-in global variables are allowed by default.

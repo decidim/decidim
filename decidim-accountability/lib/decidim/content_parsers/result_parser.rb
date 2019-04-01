@@ -74,6 +74,7 @@ module Decidim
       def result_from_url_match(match)
         uri = URI.parse(match)
         return if uri.path.blank?
+
         result_id = uri.path.split("/").last
         find_result_by_id(result_id)
       rescue URI::InvalidURIError

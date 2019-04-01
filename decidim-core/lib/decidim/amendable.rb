@@ -36,6 +36,7 @@ module Decidim
         @amendable_options = {}
         raise "You must provide a set of fields to amend" unless fields
         raise "You must provide a form class of the amendable" unless form
+
         @amendable_options[:fields] = fields
         @amendable_options[:ignore_fields] = ignore + [:id, :created_at, :updated_at]
         @amendable_options[:reset] = reset
@@ -57,6 +58,7 @@ module Decidim
 
     def amendment
       return Decidim::Amendment.find_by(emendation: id) if emendation?
+
       Decidim::Amendment.find_by(amendable: id)
     end
 
@@ -66,6 +68,7 @@ module Decidim
 
     def amendable?
       return false if emendation?
+
       component.settings.amendments_enabled
     end
 
@@ -75,11 +78,13 @@ module Decidim
 
     def emendation_state
       return resource_state if resource_state == "withdrawn"
+
       amendment.state if emendation?
     end
 
     def state
       return emendation_state if emendation?
+
       resource_state
     end
   end

@@ -79,6 +79,7 @@ module Decidim
 
     def translated_one_locale(type, name, locale, options = {})
       return hashtaggable_text_field(type, name, locale, options.merge(value: options[:value])) if options[:hashtaggable]
+
       send(
         type,
         "#{name}_#{locale.to_s.gsub("-", "__")}",

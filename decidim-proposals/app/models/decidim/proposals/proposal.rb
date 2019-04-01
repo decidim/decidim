@@ -28,7 +28,7 @@ module Decidim
       amendable(
         fields: [:title, :body],
         ignore: [:published_at, :reference, :state, :answered_at, :answer],
-        form:   "Decidim::Proposals::ProposalForm"
+        form: "Decidim::Proposals::ProposalForm"
       )
 
       component_manifest_name "proposals"
@@ -202,6 +202,7 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         return true if draft?
+
         !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 

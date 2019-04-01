@@ -117,6 +117,7 @@ module Decidim
         # Returns nothing.
         def update_children_count
           return unless @parent
+
           Assembly.reset_counters(@parent.id, :children_count)
         end
       end

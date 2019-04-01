@@ -25,6 +25,7 @@ module Decidim
 
           if registration_form
             return broadcast(:invalid_form) unless registration_form.valid?
+
             save_registration_form
           end
 
@@ -85,6 +86,7 @@ module Decidim
       def notify_admin_over_percentage
         return send_notification_over(0.5) if occupied_slots_over?(0.5)
         return send_notification_over(0.8) if occupied_slots_over?(0.8)
+
         send_notification_over(1.0) if occupied_slots_over?(1.0)
       end
 

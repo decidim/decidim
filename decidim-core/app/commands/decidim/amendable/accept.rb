@@ -57,6 +57,7 @@ module Decidim
 
       def emendation_author
         return @emendation.creator.user_group if @emendation.creator.user_group
+
         @emendation.creator_author
       end
 

@@ -113,6 +113,7 @@ module Decidim
 
       def cannot_view_private_space
         return unless process.private_space
+
         !user || !user.admin && !process.users.include?(user)
       end
 

@@ -32,17 +32,20 @@ module Decidim
 
     def increase_followers_counter
       return unless followable.is_a?(Decidim::UserBaseEntity)
+
       followable.increment!(:followers_count)
     end
 
     def decrease_following_counters
       return unless user
+
       user.decrement!(:following_count)
     end
 
     def decrease_followers_counter
       return unless followable.is_a?(Decidim::UserBaseEntity)
       return unless user
+
       followable.decrement!(:followers_count)
     end
     # rubocop:enable Rails/SkipsModelValidations

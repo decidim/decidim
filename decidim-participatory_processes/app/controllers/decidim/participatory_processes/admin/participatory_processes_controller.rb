@@ -80,6 +80,7 @@ module Decidim
 
         def participatory_processes
           return @participatory_processes = collection if params.empty?
+
           @participatory_processes = query.result.page(params[:page]).per(15)
         end
 

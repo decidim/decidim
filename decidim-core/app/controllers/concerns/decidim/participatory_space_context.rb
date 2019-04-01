@@ -50,6 +50,7 @@ module Decidim
       )
 
       raise NotImplementedError unless manifest
+
       manifest
     end
 

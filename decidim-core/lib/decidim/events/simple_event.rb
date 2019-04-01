@@ -53,6 +53,7 @@ module Decidim
       # then the role is appended to the i18n scope.
       def i18n_scope
         return event_name if user_role.blank? || !event_has_roles?
+
         "#{event_name}.#{user_role}"
       end
 

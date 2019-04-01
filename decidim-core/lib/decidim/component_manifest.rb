@@ -143,6 +143,7 @@ module Decidim
     # Returns nothing.
     def exports(name, &block)
       return unless name
+
       @exports ||= []
       @exports << [name, block]
       @export_manifests = nil

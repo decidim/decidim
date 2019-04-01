@@ -30,7 +30,7 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         true,
+            votes_enabled: true,
             votes_weight_enabled: false
           }
         }
@@ -41,7 +41,7 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         false,
+            votes_enabled: false,
             votes_weight_enabled: true
           }
         }
@@ -52,7 +52,7 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         false,
+            votes_enabled: false,
             votes_weight_enabled: false
           }
         }
@@ -118,9 +118,9 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         true,
+            votes_enabled: true,
             votes_weight_enabled: false,
-            votes_blocked:         true
+            votes_blocked: true
           }
         }
       end

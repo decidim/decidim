@@ -38,11 +38,13 @@ module Decidim
 
       def start_date
         return unless model.start_time
+
         model.start_time.to_date
       end
 
       def end_date
         return unless model.end_time
+
         model.end_time.to_date
       end
     end

@@ -1,7 +1,10 @@
 # Change Log
 
 
-## 0.12.2 - OSP specific changes:
+## 0.16 - OSP specific changes:
+
+Upgrade note:
+- Changes ruby version from 2.3 to 2.5.3 
 
 **Added**:
 

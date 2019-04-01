@@ -30,6 +30,7 @@ module Decidim
 
       def normalize_body(answer)
         return "" unless answer
+
         answer.body || answer.choices.pluck(:body)
       end
     end

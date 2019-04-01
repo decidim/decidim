@@ -19,13 +19,11 @@ module Decidim
       # @return [String] the content ready to display (contains HTML)
       def render
         content.gsub(GLOBAL_ID_REGEX) do |project_gid|
-          begin
-            project = GlobalID::Locator.locate(project_gid)
-            Decidim::Budgets::ProjectPresenter.new(project).display_mention
-          rescue ActiveRecord::RecordNotFound
-            project_id = project_gid.split("/").last
-            "~#{project_id}"
-          end
+          project = GlobalID::Locator.locate(project_gid)
+          Decidim::Budgets::ProjectPresenter.new(project).display_mention
+        rescue ActiveRecord::RecordNotFound
+          project_id = project_gid.split("/").last
+          "~#{project_id}"
         end
       end
     end

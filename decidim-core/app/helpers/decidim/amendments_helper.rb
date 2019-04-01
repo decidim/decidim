@@ -20,6 +20,7 @@ module Decidim
     def amendments_for(amendable)
       return unless amendments_enabled? && amendable.emendations.count
       return if amendable.emendation?
+
       content = content_tag :h2, class: "section-heading", id: "amendments" do
         t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
       end
@@ -81,6 +82,7 @@ module Decidim
     def allowed_to_react_to_emendation?(emendation)
       return unless emendation.emendation?
       return unless current_user
+
       true
     end
 
@@ -89,6 +91,7 @@ module Decidim
     # Returns true or false
     def allowed_to_accept_and_reject?(emendation)
       return unless emendation.amendment.evaluating?
+
       emendation.amendable.created_by?(current_user) || current_user.admin
     end
 
@@ -98,6 +101,7 @@ module Decidim
     def allowed_to_promote?(emendation)
       return unless emendation.state == "rejected"
       return unless emendation.created_by?(current_user)
+
       not_yet_promoted(emendation)
     end
 

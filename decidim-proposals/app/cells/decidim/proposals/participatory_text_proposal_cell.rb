@@ -31,6 +31,7 @@ module Decidim
 
       def body
         return unless model.participatory_text_level == "article"
+
         formatted = simple_format(present(model).body)
         decidim_sanitize(strip_links(formatted))
       end

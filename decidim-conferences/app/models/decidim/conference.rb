@@ -97,6 +97,7 @@ module Decidim
 
     def diploma_sent?
       return false if diploma_sent_at.nil?
+
       true
     end
   end

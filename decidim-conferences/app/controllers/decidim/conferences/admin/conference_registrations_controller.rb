@@ -52,6 +52,7 @@ module Decidim
 
         def conference_registration
           return if params[:id].blank?
+
           @conference_registration ||= conference.conference_registrations.find_by(id: params[:id])
         end
       end

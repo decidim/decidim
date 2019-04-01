@@ -15,7 +15,7 @@ module Decidim
       end
 
       def proposal_data_for_map(proposal)
-        proposal.slice(:latitude, :longitude, :address).merge(title:  present(proposal).title,
+        proposal.slice(:latitude, :longitude, :address).merge(title: present(proposal).title,
                                                               body: truncate(present(proposal).body, length: 100),
                                                               icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
                                                               link: proposal_path(proposal))

@@ -30,6 +30,7 @@ module Decidim
         # Returns a String.
         def calendar
           return if events.blank?
+
           <<~CALENDAR.gsub("\n\n", "\n")
             BEGIN:VCALENDAR\r
             VERSION:2.0\r

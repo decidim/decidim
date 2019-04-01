@@ -68,6 +68,7 @@ module Decidim
     def user_group_email_to_be_confirmed?
       return false unless current_user
       return false if model.is_a?(Decidim::User)
+
       !model.confirmed?
     end
   end

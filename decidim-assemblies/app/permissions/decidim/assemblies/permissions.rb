@@ -94,6 +94,7 @@ module Decidim
 
       def cannot_view_private_space
         return unless assembly.private_space && !assembly.is_transparent
+
         !user || !user.admin && !assembly.users.include?(user)
       end
 

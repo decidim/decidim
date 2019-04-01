@@ -62,6 +62,7 @@ module Decidim
 
         def processes_for_select
           return unless Decidim.participatory_space_manifests.map(&:name).include?(:participatory_processes)
+
           @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
                                            .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
             [
@@ -73,6 +74,7 @@ module Decidim
 
         def assemblies_for_select
           return unless Decidim.participatory_space_manifests.map(&:name).include?(:assemblies)
+
           @assemblies_for_select ||= Decidim.find_participatory_space_manifest(:assemblies)
                                             .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |assembly|
             [
@@ -84,6 +86,7 @@ module Decidim
 
         def consultations_for_select
           return unless Decidim.participatory_space_manifests.map(&:name).include?(:consultations)
+
           @consultations_for_select ||= Decidim.find_participatory_space_manifest(:consultations)
                                                .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |consultation|
             [

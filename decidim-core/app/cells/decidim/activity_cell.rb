@@ -94,6 +94,7 @@ module Decidim
 
     def author
       return unless show_author? && user.is_a?(UserBaseEntity)
+
       cell "decidim/author", UserPresenter.new(user)
     end
 
