@@ -183,8 +183,7 @@ module Decidim
     # - disable_parents - A Boolean to disable parent categories. Defaults to `true`.
     #
     # Returns a String.
-    def categories_select(name, collection, options = {})
-      options = {
+    def categories_select(name, collection, options = {}) options = {
         disable_parents: true
       }.merge(options)
 
@@ -200,6 +199,28 @@ module Decidim
       html_options = {}
 
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
+    end
+
+
+    # Public: Generates a select field for categories. Only leaf categories can be set as selected.
+    #
+    # name       - The name of the field (usually area_id)
+    # collection - A collection of categories.
+    # options    - An optional Hash with options:
+    #
+    # Returns a String.
+    def areas_select(name, collection, options = {})
+      selected_key = options[:selected]
+      html_options = {}
+
+      select(name, @template.option_groups_from_collection_for_select(
+                        collection,
+                        :areas,
+                        :translated_name,
+                        :id,
+                        :translated_name,
+                        selected_key
+        ), options, html_options)
     end
 
     # Public: Generates a picker field for scope selection.

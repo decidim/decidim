@@ -1,19 +1,18 @@
 <div class="row" id="participatory-space-filters">
   <%#= render partial: "filters_small_view" %>
+  <div class="columns mediumlarge-2 large-4 show-for-mediumlarge">
+    <legend><h6 class="heading6">FILTERS</h6></legend>
+  </div>
   <%= filter_form_for filter do |form| %>
     <div class="columns mediumlarge-4 large-4 show-for-mediumlarge">
-        <%= scopes_picker_filter form, :scope_id %>
+      <%= form.areas_select :area_id,
+                            current_organization.area_types,
+                            legend_title: "Areas",
+                            label: false,
+                            include_blank: "Select an area" %>
     </div>
     <div class="columns mediumlarge-4 large-4 show-for-mediumlarge">
-        <%= form.select :area_id,
-                        option_groups_from_collection_for_select(
-                          current_organization.area_types,
-                          :areas,
-                          :translated_name,
-                          :id,
-                          :translated_name
-                        ),
-                        include_blank: "Select an area" %>
+      <%= scopes_picker_filter form, :scope_id %>
     </div>
   <% end %>
 </div>
