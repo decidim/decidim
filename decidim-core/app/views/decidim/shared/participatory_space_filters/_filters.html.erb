@@ -1,0 +1,13 @@
+<%= filter_form_for filter do |form| %>
+  <div class="columns mediumlarge-6 large-6 show-for-mediumlarge">
+    <%= scopes_picker_filter form, :scope_id %>
+  </div>
+  <div class="columns mediumlarge-6 large-6 show-for-mediumlarge">
+    <%= form.areas_select :area_id,
+                          current_organization.area_types,
+                          legend_title: "Areas",
+                          label: false,
+                          selected: filter.area_id,
+                          include_blank: "Select an area" %>
+  </div>
+<% end %>

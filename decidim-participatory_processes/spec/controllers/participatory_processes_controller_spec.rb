@@ -80,7 +80,7 @@ module Decidim
           )
 
           expect(controller.helpers.collection)
-          .to match_array([*published, *organization_groups])
+            .to match_array([*published, *organization_groups])
         end
       end
 
@@ -94,13 +94,13 @@ module Decidim
         end
 
         it "defaults to upcoming if there are upcoming (but no active) published processes" do
-          active.update_attribute(:published_at, nil)
+          active.update_attribute(:published_at, nil) # rubocop:disable Rails/SkipsModelValidations
           expect(controller.helpers.default_date_filter).to eq("upcoming")
         end
 
         it "defaults to past if there are past (but no active nor upcoming) published processes" do
-          active.update_attribute(:published_at, nil)
-          upcoming.update_attribute(:published_at, nil)
+          active.update_attribute(:published_at, nil) # rubocop:disable Rails/SkipsModelValidations
+          upcoming.update_attribute(:published_at, nil) # rubocop:disable Rails/SkipsModelValidations
           expect(controller.helpers.default_date_filter).to eq("past")
         end
       end
