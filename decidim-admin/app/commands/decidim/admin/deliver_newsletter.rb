@@ -18,6 +18,7 @@ module Decidim
         @newsletter.with_lock do
           return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) if @newsletter.sent?
+          # return broadcast(:no_recipients) if @recipients.blank?
 
           send_newsletter!
         end
@@ -35,15 +36,12 @@ module Decidim
           @newsletter,
           @user
         ) do
-          NewsletterJob.perform_later(@newsletter, @form.to_json, recipients.pluck(:id))
+          NewsletterJob.perform_later(@newsletter, @form.as_json, recipients.pluck(:id))
         end
       end
 
       def recipients
         @recipients ||= Decidim::Admin::NewsletterRecipients.new(@newsletter, @form).query
-        # @recipients ||= User.where(organization: @newsletter.organization)
-        #                     .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
-        #                     .not_deleted
       end
     end
   end

@@ -15,6 +15,7 @@
             <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
             <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
             <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.newsletter.fields.sended_to", scope: "decidim.admin") %></th>
             <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -25,6 +26,13 @@
               <td><%= translated_attribute newsletter.subject %></td>
               <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
               <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
+              <td>
+                <% if newsletter.sent? %>
+                <%= selective_newsletter_to newsletter %>
+                  <%#= newsletter.sent_scopes.map{|s| s.title }%>
+                  <%#= "#{newsletter.extended_data}" %>
+                <% end %>
+              </td>
               <td>
                 <% if newsletter.sent? %>
                   <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>

@@ -50,7 +50,7 @@ module Decidim
       end
 
       def user_id_of_followers
-        return if @spaces.blank?
+        return if spaces.blank?
         return unless @form.send_to_followers
         Decidim::Follow.user_follower_ids_for_participatory_spaces(spaces)
       end

@@ -61,6 +61,7 @@ module Decidim
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
         @form = form(NewsletterForm).from_params(params)
 
+        raise
         UpdateNewsletter.call(@newsletter, @form, current_user) do
           on(:ok) do |newsletter|
             flash[:notice] = I18n.t("newsletters.update.success", scope: "decidim.admin")
@@ -70,6 +71,12 @@ module Decidim
           on(:invalid) do |newsletter|
             @newsletter = newsletter
             flash.now[:error] = I18n.t("newsletters.update.error", scope: "decidim.admin")
+            render action: :edit
+          end
+
+          on(:no_recipients) do |newsletter|
+            @newsletter = newsletter
+            flash.now[:error] = I18n.t("newsletters.send.no_recipients", scope: "decidim.admin")
             render action: :edit
           end
         end
@@ -115,7 +122,7 @@ module Decidim
           end
         end
       end
-      
+
       private
 
       def collection

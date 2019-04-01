@@ -45,6 +45,59 @@ module Decidim
         end
         all_spaces + spaces
       end
+
+      def selective_newsletter_to newsletter
+        html = "<div>"
+          html += sended_to_users newsletter
+          html += sended_to_spaces newsletter
+          html += sended_to_scopes newsletter
+        html+= "</div>"
+        html.html_safe
+      end
+
+      def sended_to_users newsletter
+        html = "<div>"
+          html += "<strong>Sended to: </strong>"
+          html += "all users" if newsletter.sended_to_all_users?
+          html += "followers" if newsletter.sended_to_followers?
+          html += " and " if newsletter.sended_to_followers? && newsletter.sended_to_participants?
+          html += "participants" if newsletter.sended_to_participants?
+        html += "</div>"
+        html.html_safe
+      end
+
+      def sended_to_spaces newsletter
+        html = "<div>"
+          newsletter.sended_to_partipatory_spaces.try(:each) do |type|
+            next if type["ids"].blank?
+            html += "<strong>#{type["manifest_name"]}: </strong>"
+            if type["ids"].include?("all")
+              html += "All"
+            else
+              Decidim.find_participatory_space_manifest(type["manifest_name"].to_sym)
+                     .participatory_spaces.call(current_organization)&.where(id: type["ids"]).each do |space|
+                html += translated_attribute space.title
+              end
+            end
+            html += "<br/>"
+          end
+        html += "</div>"
+        html.html_safe
+      end
+
+      def sended_to_scopes newsletter
+        html = "<div>"
+          if newsletter.sent_scopes.any?
+            html += "<strong> Selective to scopes: </strong>"
+            newsletter.sent_scopes.each do |scope|
+              html += translated_attribute scope.name
+            end
+          else
+            html += "No scopes"
+          end
+        html += "</div>"
+        html.html_safe
+      end
     end
   end
 end

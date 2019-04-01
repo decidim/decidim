@@ -14,9 +14,13 @@ $(() => {
       $sendNewsletterToAllUsers.on("change", (event) => {
         const checked = event.target.checked;
         if (checked){
-          $sendNewsletterToFollowers$sendNewsletterToFollowers.attr("checked", !checked );
-          $sendNewsletterToParticipants.find("input[type='checkbox']").attr("checked", !checked );
+          $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked", !checked );
+          $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked", !checked );
           $participatorySpacesForSelect.hide();
+        }else{
+          $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked", !checked );
+          $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked", !checked );
+          $participatorySpacesForSelect.show();
         }
       })
 
@@ -25,10 +29,11 @@ $(() => {
         const selectiveNewsletterParticipants = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
 
         if (checked){
-          $sendNewsletterToAllUsers.find("input[type='checkbox']").attr("checked", !checked );
+          $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", !checked );
           $participatorySpacesForSelect.show();
         }else{
           if (!selectiveNewsletterParticipants){
+            $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true );
             $participatorySpacesForSelect.hide();
           }
         }
@@ -38,11 +43,11 @@ $(() => {
         const checked = event.target.checked;
         const selectiveNewsletterFollowers = $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked");
         if (checked){
-          $sendNewsletterToAllUsers.find("input[type='checkbox']").attr("checked", !checked );
+          $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", !checked );
           $participatorySpacesForSelect.show();
         }else{
           if (!selectiveNewsletterFollowers){
-            $sendNewsletterToAllUsers.find("input[type='checkbox']").attr("checked", true );
+            $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true );
             $participatorySpacesForSelect.hide();
           }
         }
