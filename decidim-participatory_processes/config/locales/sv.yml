@@ -3,10 +3,12 @@ sv:
     attributes:
       participatory_process:
         announcement: Notis
+        area_id: Område
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
+        decidim_area_id: Område
         description: Beskrivning
         developer_group: Främjandegrupp
         domain: Domän
@@ -291,6 +293,7 @@ sv:
         participatory_processes:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
+            select_an_area: Välj ett område
             slug_help: 'URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
       content_blocks:
         highlighted_processes:
@@ -337,6 +340,7 @@ sv:
         index:
           loading: Laddar resultat...
       show:
+        area: Område
         developer_group: Främjandegrupp
         end_date: Slutdatum
         local_area: Organisationsområde
@@ -378,6 +382,7 @@ sv:
           promoted_processes: Markerade processer
         participatory_process:
           active_step: 'Nuvarande steg:'
+          more_info: Mer information
           take_part: Delta
         promoted_process:
           active_step: 'Nuvarande steg:'

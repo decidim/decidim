@@ -357,6 +357,7 @@ cs:
     decidim:
       assemblies:
         assembly:
+          more_info: Více informací
           take_part: Zúčastnit se
         index:
           organizational_chart: Organizační schéma

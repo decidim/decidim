@@ -552,6 +552,7 @@ gl:
           take_part: Tomar parte en
       conferences:
         conference:
+          more_info: Máis información
           take_part: Tomar parte en
         index:
           promoted_conferences: Conferencias promocionadas

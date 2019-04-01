@@ -351,6 +351,7 @@ it:
     decidim:
       assemblies:
         assembly:
+          more_info: Ulteriori informazioni
           take_part: Partecipa
         index:
           organizational_chart: Grafico organizzativo

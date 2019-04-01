@@ -3,10 +3,12 @@ ar:
     attributes:
       participatory_process:
         announcement: إعلان
+        area_id: منطقة
         banner_image: صورة بانر
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
         copy_steps: نسخ الخطوات
+        decidim_area_id: منطقة
         description: وصف
         developer_group: مجموعة المروجين
         domain: نطاق
@@ -307,6 +309,7 @@ ar:
         participatory_processes:
           form:
             announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
+            select_an_area: اختر منطقة
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
       content_blocks:
         highlighted_processes:
@@ -369,6 +372,7 @@ ar:
         index:
           loading: جارٍ تحميل النتائج ...
       show:
+        area: منطقة
         developer_group: مجموعة المروجين
         end_date: تاريخ الانتهاء
         local_area: منطقة التنظيم
@@ -410,6 +414,7 @@ ar:
           promoted_processes: عمليات مميزة
         participatory_process:
           active_step: 'المرحلة الحالية:'
+          more_info: مزيد من المعلومات
           take_part: خذ جزء
         promoted_process:
           active_step: 'المرحلة الحالية:'

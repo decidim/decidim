@@ -351,6 +351,7 @@ eu:
     decidim:
       assemblies:
         assembly:
+          more_info: Informazio gehiago
           take_part: Parte hartu
         index:
           organizational_chart: Organigrama
