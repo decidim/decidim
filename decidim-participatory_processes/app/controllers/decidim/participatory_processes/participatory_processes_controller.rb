@@ -10,7 +10,6 @@ module Decidim
       include FilterResource
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
-      helper_method :process_count_by_filter
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -90,7 +89,6 @@ module Decidim
         return "active" if published_processes.any?(&:active?)
         return "upcoming" if published_processes.any?(&:upcoming?)
         return "past" if published_processes.any?(&:past?)
-        "all"
       end
     end
   end
