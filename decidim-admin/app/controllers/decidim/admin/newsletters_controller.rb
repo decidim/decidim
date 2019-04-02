@@ -74,12 +74,6 @@ module Decidim
             flash.now[:error] = I18n.t("newsletters.update.error", scope: "decidim.admin")
             render action: :edit
           end
-
-          on(:no_recipients) do |newsletter|
-            @newsletter = newsletter
-            flash.now[:error] = I18n.t("newsletters.send.no_recipients", scope: "decidim.admin")
-            render action: :edit
-          end
         end
       end
 
@@ -119,6 +113,11 @@ module Decidim
 
           on(:invalid) do
             flash.now[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
+            render action: :select_recipients_to_deliver
+          end
+
+          on(:no_recipients) do
+            flash.now[:error] = I18n.t("newsletters.send.no_recipients", scope: "decidim.admin")
             render action: :select_recipients_to_deliver
           end
         end

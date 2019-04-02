@@ -40,7 +40,8 @@ module Decidim
       end
 
       def recipients
-        @recipients ||= User.where(id: @recipients_ids)
+        @recipients ||= User.where(organization: @newsletter.organization)
+                            .where(id: @recipients_ids)
       end
     end
   end
