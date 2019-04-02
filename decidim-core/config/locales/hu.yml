@@ -130,9 +130,6 @@ hu:
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
     amendments:
-      accepted:
-        error: Hiba történt a módosító javaslat elfogadásával, kérjük, próbálkozz később.
-        success: Ez a módosító javaslat sikeresen elfogadásra került.
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
@@ -140,11 +137,10 @@ hu:
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
         no_amenders: Nincsenek módosítások
         no_amendments: Nincsenek módosítások
-        promote_button: Közzététel új %{model_name}ként
-        promote_help_text: Ezt a módosító javaslatot önálló %{model_name}-ként is közzéteheted
+        promote_button: Kezdeményezze a %{model_name}
+        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
       created:
-        error: Hiba történt a módosítás létrehozása közben, próbálkozz később
         success: A módosítás sikeresen megtörtént
       emendation:
         actions:
@@ -166,7 +162,7 @@ hu:
         amendment_author: Módosítás szerző
         back: Vissza
         heading: Készítse el a módosítását
-        help_text: Módosítja a %{model_name}
+        help_text: A %{model_name}-t módosítja
         send: Módosító javaslat elküldése
       promoted:
         error: Problémát történt a módosító javaslat új javaslatként való közzététele során
@@ -177,7 +173,6 @@ hu:
       review:
         back: Vissza
         heading: Tekintse át a módosítást
-        help_text: A %{model_name}-t módosítja
         send: Módosítás elfogadása
     anonymous_user: Névtelen
     application:
