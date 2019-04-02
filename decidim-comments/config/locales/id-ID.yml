@@ -62,6 +62,7 @@ id:
       comment_thread:
         title: Percakapan dengan %{authorName}
       comments:
+        blocked_comments_for_user_warning: Anda tidak dapat berkomentar saat ini, tetapi Anda dapat membaca yang sebelumnya.
         blocked_comments_warning: Komentar dinonaktifkan saat ini, tetapi Anda dapat membaca yang sebelumnya.
         loading: Memuat komentar ...
         title: "%{count} komentar"
