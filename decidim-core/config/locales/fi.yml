@@ -131,20 +131,21 @@ fi:
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
     amendments:
       accepted:
-        error: Muutosten hyväksyminen epäonnistui, yritä myöhemmin uudelleen.
-        success: Muutoksen hyväksyminen onnistui.
+        error: Tarkistuksen hyväksyessä ilmeni virhe.
+        success: Muutos on hyväksytty onnistuneesti.
       amendable:
         amended_by: 'Muuttanut:'
         button: Muuta %{model_name}
-        error: Kohteen muuttaminen epäonnistui.
+        error: Tämän resurssin muuttamisessa tapahtui virhe.
         help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
         no_amenders: Ei muutoksia tehneitä
         no_amendments: Ei muutoksia
-        promote_button: Julkaise uutena kohteena %{model_name}
-        promote_help_text: Voit julkaista tämän muutoksen uutena %{model_name} -kohteena
+        promote_button: Korosta kohteeksi %{model_name}
+        promote_confirm_text: Haluatko varmasti edistää tätä muutosta?
+        promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen uutena %{model_name} -kohteena
         section_heading: Muutokset (%{count})
       created:
-        error: Muutoksen luonti epäonnistui, yritä myöhemmin uudelleen
+        error: Tarkistuksen luomisessa ilmeni virhe
         success: Muutoksen luonti onnistui
       emendation:
         actions:
@@ -177,7 +178,7 @@ fi:
       review:
         back: Takaisin
         heading: Tarkastele muutosta
-        help_text: Olet muuttamassa kohdetta %{model_name}
+        help_text: Tarkistat tarkistusta %{model_name}
         send: Hyväksy muutos
     anonymous_user: Anonyymi
     application:
