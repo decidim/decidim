@@ -40,7 +40,7 @@ es:
         other: Enmiendas
       decidim/user:
         one: No hay participantes
-        other: Usuarios
+        other: Participantes
       decidim/user_group:
         one: Grupo
         other: Grupos
