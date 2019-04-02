@@ -131,8 +131,8 @@ ca:
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
     amendments:
       accepted:
-        error: S'ha produït un error en acceptar l'esmena, si us plau torna-ho a provar més tard.
-        success: Aquesta esmena ha estat acceptada correctament.
+        error: S'ha produït un error en acceptar l'esmena.
+        success: L’esmena ha estat acceptada amb èxit.
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
@@ -140,11 +140,12 @@ ca:
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
-        promote_button: Publicar com una nova %{model_name}
-        promote_help_text: Pots publicar aquesta esmena com una proposta independent %{model_name}
+        promote_button: Promocionar a %{model_name}
+        promote_confirm_text: Esteu segur que voleu promoure aquesta modificació?
+        promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         section_heading: Esmenes (%{count})
       created:
-        error: S'ha produït un error en crear aquesta esmena, si us plau torna-ho a provar més tard
+        error: S'ha produït un error durant la creació de l’esmena
         success: L'esmena s'ha creat correctament
       emendation:
         actions:
@@ -176,7 +177,7 @@ ca:
       review:
         back: Tornar
         heading: Revisa l'esmena
-        help_text: Estàs modificant el %{model_name}
+        help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
     anonymous_user: Anònim
     application:
