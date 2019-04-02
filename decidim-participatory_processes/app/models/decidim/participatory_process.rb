@@ -97,17 +97,17 @@ module Decidim
     end
 
     def active?
-      return false unless start_date
+      return false if start_date.blank?
       start_date < Date.current && end_date > Date.current || end_date.nil?
     end
 
     def past?
-      return false unless end_date
+      return false if end_date.blank?
       end_date < Date.current
     end
 
     def upcoming?
-      return false unless start_date
+      return false if start_date.blank?
       start_date > Date.current
     end
 

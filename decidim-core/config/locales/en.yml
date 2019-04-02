@@ -981,7 +981,7 @@ en:
       participatory_space_filters:
         filters:
           areas: Areas
-          select_an_area: Select an Area
+          select_an_area: Select an area
       reference:
         reference: 'Reference: %{reference}'
       results_per_page:

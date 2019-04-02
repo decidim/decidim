@@ -60,6 +60,12 @@ module Decidim
         {}
       end
 
+      # If the controller responds to current_component, it uses the search class
+      # Decidim::ResourceSearch; else it uses the ParticipatorySpaceSearch instead.
+      # They need different context_params to set up the base_query:
+      #   ResourceSearch - `component`
+      #   ResourceSearch - `organization`
+      #   Both use `current_user`
       def context_params
         context = { current_user: current_user }
         if respond_to?(:current_component)

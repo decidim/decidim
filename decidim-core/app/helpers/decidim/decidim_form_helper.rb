@@ -194,7 +194,7 @@ module Decidim
       javascript_include_tag "datepicker-locales/foundation-datepicker.#{I18n.locale}.js" if I18n.locale != :en
     end
 
-    # Handle wich collection to pass to Decidim::FilterFormBuilder.areas_select
+    # Handle which collection to pass to Decidim::FilterFormBuilder.areas_select
     def areas_for_select(organization)
       return organization.areas if organization.area_types.blank?
       return organization.areas if organization.area_types.all? { |at| at.area_ids.empty? }

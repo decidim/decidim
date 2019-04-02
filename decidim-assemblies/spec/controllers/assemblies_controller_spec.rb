@@ -39,7 +39,7 @@ module Decidim
       end
 
       describe "published_assemblies" do
-        it "includes only published" do
+        it "includes only published, with promoted listed first" do
           expect(controller.helpers.published_assemblies).to match_array([promoted, published])
         end
 

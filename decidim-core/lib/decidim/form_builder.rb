@@ -205,14 +205,10 @@ module Decidim
     # Public: Generates a select field for areas.
     #
     # name       - The name of the field (usually area_id)
-    # collection - A collection of categories.
-    # options    - An optional Hash with options:
+    # collection - A collection of areas or area_types.
     #
     # Returns a String.
     def areas_select(name, collection, options = {})
-      selected = options[:selected]
-      html_options = {}
-
       selectables = if collection.first.is_a?(Decidim::AreaType)
                       @template.option_groups_from_collection_for_select(
                         collection,
@@ -220,16 +216,16 @@ module Decidim
                         :translated_name,
                         :id,
                         :translated_name,
-                        selected
+                        selected_key: options[:selected]
                       )
                     else
                       @template.options_for_select(
                         collection.map { |a| [a.name[I18n.locale.to_s], a.id] },
-                        selected: selected
+                        selected: options[:selected]
                       )
                     end
 
-      select(name, selectables, options, html_options)
+      select(name, selectables, options)
     end
 
     # Public: Generates a picker field for scope selection.
