@@ -131,8 +131,8 @@ pt:
         verify_via_csv: "%{user_name} verificou o %{resource_name} grupo de usuários por meio de um arquivo CSV"
     amendments:
       accepted:
-        error: Ocorreu um erro ao aceitar a emenda, por favor, tente novamente mais tarde.
-        success: Esta emenda foi aceita com sucesso.
+        error: Ocorreu um erro ao aceitar a alteração.
+        success: A emenda foi aceita com sucesso.
       amendable:
         amended_by: Alterada pela
         button: Emendar %{model_name}
@@ -141,10 +141,11 @@ pt:
         no_amenders: Não há emendas
         no_amendments: Não há alterações
         promote_button: Promover para %{model_name}
+        promote_confirm_text: Tem certeza de que deseja promover essa emenda?
         promote_help_text: Você pode promover esta emendação e publicá-la como um %{model_name}independente
         section_heading: Alterações (%{count})
       created:
-        error: Ocorreu um erro ao criar esta alteração, tente novamente mais tarde
+        error: Ocorreu um erro ao criar a emenda
         success: A emenda foi criada com sucesso
       emendation:
         actions:
@@ -166,7 +167,7 @@ pt:
         amendment_author: Autor de alteração
         back: De volta
         heading: Crie sua emenda
-        help_text: Você está modificando o %{model_name}
+        help_text: Você está alterando o %{model_name}
         send: Enviar emenda
       promoted:
         error: Houve erros ao promover a emenda
@@ -177,7 +178,7 @@ pt:
       review:
         back: De volta
         heading: Revise a emenda
-        help_text: Você está alterando o %{model_name}
+        help_text: Você está revisando uma emenda ao %{model_name}
         send: Aceitar alteração
     anonymous_user: Anônimo
     application:
