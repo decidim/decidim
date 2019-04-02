@@ -10,20 +10,14 @@ module Decidim
 
       def query
         recipients = Decidim::User.where(organization: @newsletter.organization)
-                            .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
-                            .not_deleted
+                                  .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
+                                  .not_deleted
 
-        if @form.send_to_followers
-          recipients = recipients.where(id: user_id_of_followers)
-        end
+        recipients = recipients.where(id: user_id_of_followers) if @form.send_to_followers
 
-        if @form.send_to_participants
-          recipients = recipients.where(id: participant_ids)
-        end
+        recipients = recipients.where(id: participant_ids) if @form.send_to_participants
 
-        if @form.scope_ids.present?
-          recipients = recipients.interested_in_scopes(@form.scope_ids)
-        end
+        recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
 
         recipients
       end
@@ -31,7 +25,7 @@ module Decidim
       private
 
       def spaces
-        return unless @form.participatory_space_types.present?
+        return if @form.participatory_space_types.blank?
 
         @form.participatory_space_types.map do |type|
           next if type.ids.blank?
@@ -69,17 +63,17 @@ module Decidim
               proposals = retrieve_proposals(component).uniq
               ## COAUTHORS
               # coauthors_recipients = proposals.map { |p| p.notifiable_identities}.flatten.compact.uniq
-              coauthors_recipients_ids = proposals.map{ |p| p.notifiable_identities.pluck(:id)}.flatten.compact.uniq
+              coauthors_recipients_ids = proposals.map { |p| p.notifiable_identities.pluck(:id) }.flatten.compact.uniq
 
               ## VOTS
-              proposals_votes = retrieve_votes( proposals )
+              proposals_votes = retrieve_votes(proposals)
               # participants_has_voted = proposals_votes.map { |v| v.author}.flatten.compact.uniq
-              participants_has_voted_ids = proposals_votes.map { |v| v.decidim_author_id}.flatten.compact.uniq
+              participants_has_voted_ids = proposals_votes.map(&:decidim_author_id).flatten.compact.uniq
 
               ## ENDORSMENTS
               proposals_endorsements = retrieve_endorsements(proposals)
               # endorsements_participants = proposals_endorsements.map { |e| e.author}.flatten.compact.uniq
-              endorsements_participants_ids = proposals_endorsements.map { |e| e.decidim_author_id}.flatten.compact.uniq
+              endorsements_participants_ids = proposals_endorsements.map(&:decidim_author_id).flatten.compact.uniq
 
               # total_participants = endorsements_participants + participants_has_voted + coauthors_recipients
               total_participants_ids = endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids
@@ -95,14 +89,14 @@ module Decidim
               participant_ids << debates_participants_ids
             when "budgets"
               budgets_votes = Decidim::Budgets::Order.where(component: component).joins(:component)
-                                               .finished
+                                                     .finished
               # budgets_participants = budgets_votes.map { |b| b.user}.flatten.compact.uniq
               budgets_participants_ids = budgets_votes.pluck(:decidim_user_id).flatten.compact.uniq
 
               participant_ids << budgets_participants_ids
-              #Vote PROJECT
+              # Vote PROJECT
             when "surveys"
-              #Answer survey
+              # Answer survey
               surveys = Decidim::Surveys::Survey.joins(:component, :questionnaire).where(component: component)
               questionnaires = Decidim::Forms::Questionnaire.includes(:questionnaire_for)
                                                             .where(questionnaire_for_type: Decidim::Surveys::Survey.name, questionnaire_for_id: surveys.pluck(:id))
@@ -119,11 +113,11 @@ module Decidim
           # SPACE Comments
           user_ids = Decidim::User.where(organization: space.organization).pluck(:id)
           comments = Decidim::Comments::Comment.includes(:root_commentable).not_hidden
-                                    .where("decidim_comments_comments.decidim_author_id IN (?)", user_ids)
-                                    .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+                                               .where("decidim_comments_comments.decidim_author_id IN (?)", user_ids)
+                                               .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
 
           # comments_participants = comments.map { |d| d.author}.flatten.compact.uniq
-          comments_participants_ids = comments.map { |d| d.author }.flatten.compact.uniq
+          comments_participants_ids = comments.map(&:author).flatten.compact.uniq
           participant_ids << comments_participants_ids.pluck(:id)
         end
         participant_ids.flatten.compact.uniq
@@ -131,22 +125,20 @@ module Decidim
 
       def retrieve_proposals(component)
         Decidim::Proposals::Proposal.where(component: component).joins(:coauthorships)
-                                                   .includes(:votes, :endorsements)
-                                                   .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
-                                                   .not_hidden
-                                                   .published
-                                                   .except_withdrawn
-
+                                    .includes(:votes, :endorsements)
+                                    .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+                                    .not_hidden
+                                    .published
+                                    .except_withdrawn
       end
 
-      def retrieve_votes( proposals )
+      def retrieve_votes(proposals)
         Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author)
       end
 
       def retrieve_endorsements(proposals)
         Decidim::Proposals::ProposalEndorsement.joins(:proposal).where(proposal: proposals)
                                                .where(decidim_author_type: "Decidim::UserBaseEntity")
-
       end
     end
   end

@@ -13,12 +13,12 @@ module Decidim
       attribute :send_to_followers, Boolean
 
       validates :send_to_all_users, presence: true, unless: ->(form) { form.send_to_participants.present? || form.send_to_followers.present? }
-      validates :send_to_followers, presence: true, if: ->(form) { !form.send_to_all_users.present? && !form.send_to_participants.present?}
-      validates :send_to_participants, presence: true, if: ->(form) { !form.send_to_all_users.present? && !form.send_to_followers.present? }
+      validates :send_to_followers, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_participants.blank? }
+      validates :send_to_participants, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_followers.blank? }
 
       validate :atleast_one_participatory_space_selected
 
-      def map_model(newsletter)
+      def map_model(_newsletter)
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
           SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest: manifest)
         end
@@ -33,8 +33,8 @@ module Decidim
 
       def spaces_selected
         participatory_space_types.map do |type|
-          spaces = type.ids.reject{|e| e.empty?}
-          [type.manifest_name, spaces] unless spaces.blank?
+          spaces = type.ids.reject(&:empty?)
+          [type.manifest_name, spaces] if spaces.present?
         end.compact
       end
     end
