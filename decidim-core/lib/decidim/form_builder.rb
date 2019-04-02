@@ -366,11 +366,11 @@ module Decidim
       end
     end
 
-    def form_field_for(attribute)
+    def form_field_for(attribute, options = {})
       if attribute == :body
-        text_area attribute, rows: 10
+        text_area(attribute, options.merge(rows: 10))
       else
-        text_field attribute
+        text_field(attribute, options)
       end
     end
 

@@ -3,7 +3,7 @@
 shared_examples "an amendment form" do
   let(:title) { "More sidewalks and less roads!" }
   let(:body) { "Everything would be better" }
-  let(:emendation_fields) do
+  let(:emendation_params) do
     {
       title: title,
       body: body

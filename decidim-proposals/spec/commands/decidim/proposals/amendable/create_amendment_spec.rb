@@ -12,7 +12,7 @@ module Decidim
       let(:body) { "Everything would be better" }
       let(:command) { described_class.new(form) }
 
-      let(:emendation_fields) do
+      let(:emendation_params) do
         {
           title: title,
           body: body
@@ -22,7 +22,7 @@ module Decidim
       let(:form_params) do
         {
           amendable_gid: amendable.to_sgid.to_s,
-          emendation_fields: emendation_fields
+          emendation_params: emendation_params
         }
       end
 
