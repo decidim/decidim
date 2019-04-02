@@ -131,8 +131,8 @@ sv:
         verify_via_csv: "%{user_name} verifierade %{resource_name} användargrupp via en CSV-fil"
     amendments:
       accepted:
-        error: Ett fel uppstod när du accepterade emendationen, var god försök igen senare.
-        success: Denna utgåva har godkänts framgångsrikt.
+        error: Ett fel uppstod vid godkännande av ändringen.
+        success: Ändringen har godkänts framgångsrikt.
       amendable:
         amended_by: Ändrad av
         button: Ändra %{model_name}
@@ -141,10 +141,11 @@ sv:
         no_amenders: Det finns inga ändringsförslag
         no_amendments: Det finns inga ändringar
         promote_button: Främja till %{model_name}
+        promote_confirm_text: Är du säker på att du vill marknadsföra denna utgåva?
         promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
         section_heading: Ändringar (%{count})
       created:
-        error: Ett fel uppstod för att skapa detta ändringsförslag, försök igen senare
+        error: Ett fel uppstod när du skapade ändringen
         success: Ändringen har skapats med framgång
       emendation:
         actions:
@@ -177,7 +178,7 @@ sv:
       review:
         back: Tillbaka
         heading: Granska ändringen
-        help_text: Du ändrar %{model_name}
+        help_text: Du granskar ett ändringsförslag till %{model_name}
         send: Godkänn ändring
     anonymous_user: Anonym
     application:
