@@ -95,19 +95,7 @@ textarea{
 .is-custom-error-visible{
   display: block;
 }
-.switch-with-label{
-  > label{
-    display: flex;
-    align-items: center;
-    line-height: 1.2;
-  }
 
-  .switch-paddle{
-    display: inline-block;
-    margin-right: 1rem;
-    flex-shrink: 0;
-  }
-}
 .checkboxes{
   margin-bottom: 1rem;
   display: flex;
