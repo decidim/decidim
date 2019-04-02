@@ -130,6 +130,9 @@ hu:
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
     amendments:
+      accepted:
+        error: A módosítás elfogadása közben hiba történt.
+        success: A módosítást sikeresen elfogadták.
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
@@ -138,9 +141,11 @@ hu:
         no_amenders: Nincsenek módosítások
         no_amendments: Nincsenek módosítások
         promote_button: Kezdeményezze a %{model_name}
+        promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a javítást?
         promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
       created:
+        error: A módosítás létrehozása során hiba történt
         success: A módosítás sikeresen megtörtént
       emendation:
         actions:
@@ -173,6 +178,7 @@ hu:
       review:
         back: Vissza
         heading: Tekintse át a módosítást
+        help_text: Ön felülvizsgálja a %{model_name}módosítást
         send: Módosítás elfogadása
     anonymous_user: Névtelen
     application:
