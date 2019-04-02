@@ -209,7 +209,12 @@ module Decidim
     #
     # Returns a String.
     def areas_select(name, collection, options = {})
-      selectables = if collection.first.is_a?(Decidim::AreaType)
+      selectables = if collection.first.is_a?(Decidim::Area)
+                      @template.options_for_select(
+                        collection.map { |a| [a.name[I18n.locale.to_s], a.id] },
+                        selected: options[:selected]
+                      )
+                    else
                       @template.option_groups_from_collection_for_select(
                         collection,
                         :areas,
@@ -217,11 +222,6 @@ module Decidim
                         :id,
                         :translated_name,
                         selected_key: options[:selected]
-                      )
-                    else
-                      @template.options_for_select(
-                        collection.map { |a| [a.name[I18n.locale.to_s], a.id] },
-                        selected: options[:selected]
                       )
                     end
 
@@ -397,11 +397,11 @@ module Decidim
       end
     end
 
-    def form_field_for(attribute)
+    def form_field_for(attribute, options = {})
       if attribute == :body
-        text_area attribute, rows: 10
+        text_area(attribute, options.merge(rows: 10))
       else
-        text_field attribute
+        text_field(attribute, options)
       end
     end
 

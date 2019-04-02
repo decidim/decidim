@@ -351,6 +351,7 @@ sv:
     decidim:
       assemblies:
         assembly:
+          more_info: Mer information
           take_part: Delta
         index:
           organizational_chart: Organisationsschema

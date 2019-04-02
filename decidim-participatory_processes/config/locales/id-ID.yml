@@ -3,10 +3,12 @@ id:
     attributes:
       participatory_process:
         announcement: Pengumuman
+        area_id: Daerah
         banner_image: Gambar spanduk
         copy_categories: Salin kategori
         copy_components: Salin komponen
         copy_steps: Salin langkah
+        decidim_area_id: Daerah
         description: Deskripsi
         developer_group: Grup promotor
         domain: Domain
@@ -287,6 +289,7 @@ id:
         participatory_processes:
           form:
             announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
+            select_an_area: Pilih suatu Area
             slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
       content_blocks:
         highlighted_processes:
@@ -329,6 +332,7 @@ id:
         index:
           loading: Memuat hasil ...
       show:
+        area: Daerah
         developer_group: Grup promotor
         end_date: Tanggal akhir
         local_area: Wilayah Organisasi
@@ -370,6 +374,7 @@ id:
           promoted_processes: Proses yang disorot
         participatory_process:
           active_step: 'Langkah saat ini:'
+          more_info: Info lebih lanjut
           take_part: Ambil bagian
         promoted_process:
           active_step: 'Langkah saat ini:'

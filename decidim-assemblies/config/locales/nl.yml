@@ -351,6 +351,7 @@ nl:
     decidim:
       assemblies:
         assembly:
+          more_info: Meer informatie
           take_part: Deelnemen
         index:
           organizational_chart: Organisatieschema

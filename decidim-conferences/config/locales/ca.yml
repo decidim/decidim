@@ -552,6 +552,7 @@ ca:
           take_part: Formar part
       conferences:
         conference:
+          more_info: Més informació
           take_part: Formar part
         index:
           promoted_conferences: Jornades destacades

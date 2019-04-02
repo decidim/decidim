@@ -108,7 +108,7 @@ module Decidim
       logs = Decidim::ActionLog.where(decidim_component_id: emendation.component)
                                .where(decidim_user_id: emendation.creator_author)
                                .where(action: "promote")
-      logs.select { |l| l.extra["promoted_from"] == emendation.id }.empty?
+      logs.select { |log| log.extra["promoted_from"] == emendation.id }.empty?
     end
 
     def user_group_select_field(form, name)
@@ -122,9 +122,11 @@ module Decidim
       )
     end
 
-    def emendation_ignored_field_value(key)
-      0 if @form.emendation_type.constantize.columns_hash[key.to_s].type == :integer
-      nil if key == :id
+    # Return the edited field value or presents the original attribute value
+    def emendation_field_value(form, original, key)
+      return params[:amendment][:emendation_params][key] if params[:amendment].present?
+
+      present(form.object.send(original)).send(key)
     end
   end
 end

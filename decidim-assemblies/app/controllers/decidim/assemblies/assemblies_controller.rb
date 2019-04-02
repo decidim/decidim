@@ -77,7 +77,7 @@ module Decidim
       end
 
       def parent_assemblies
-        search.results.parent_assemblies.order(promoted: :desc).order(:closing_date)
+        search.results.parent_assemblies.order(promoted: :desc)
       end
 
       def stats

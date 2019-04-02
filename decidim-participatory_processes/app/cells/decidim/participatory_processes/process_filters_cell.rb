@@ -11,7 +11,7 @@ module Decidim
           .url_helpers
           .participatory_processes_path(
             filter: {
-              scope_id: get_filter(:area_id),
+              scope_id: get_filter(:scope_id),
               area_id: get_filter(:area_id),
               date: filter
             }
