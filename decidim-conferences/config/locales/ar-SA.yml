@@ -565,6 +565,7 @@ ar:
           take_part: خذ جزء
       conferences:
         conference:
+          more_info: مزيد من المعلومات
           take_part: خذ جزء
         index:
           promoted_conferences: المؤتمرات البارزة

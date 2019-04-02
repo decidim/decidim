@@ -25,16 +25,7 @@ module Decidim
 
       let(:form_params) do
         {
-          id: emendation.id,
-          emendation_fields: emendation_fields,
-          user_group_id: nil
-        }
-      end
-
-      let(:emendation_fields) do
-        {
-          title: emendation.title,
-          body: emendation.body
+          id: amendment.id
         }
       end
 

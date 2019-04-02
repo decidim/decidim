@@ -552,6 +552,7 @@ sv:
           take_part: Ta del
       conferences:
         conference:
+          more_info: Mer information
           take_part: Ta del
         index:
           promoted_conferences: Främjda konferenser

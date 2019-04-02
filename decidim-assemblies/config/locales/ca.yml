@@ -351,6 +351,7 @@ ca:
     decidim:
       assemblies:
         assembly:
+          more_info: Més informació
           take_part: Participa
         index:
           organizational_chart: Organigrama

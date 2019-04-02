@@ -351,6 +351,7 @@ fi:
     decidim:
       assemblies:
         assembly:
+          more_info: Lisätietoja
           take_part: Osallistu
         index:
           organizational_chart: Organisaatiokaavio

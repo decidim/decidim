@@ -11,7 +11,7 @@ module Decidim
       let!(:amendment) { create :amendment, amendable: amendable, emendation: emendation }
       let(:command) { described_class.new(form) }
 
-      let(:emendation_fields) do
+      let(:emendation_params) do
         {
           title: emendation.title,
           body: emendation.body
@@ -21,7 +21,7 @@ module Decidim
       let(:form_params) do
         {
           id: amendment.id,
-          emendation_fields: emendation_fields
+          emendation_params: emendation_params
         }
       end
 

@@ -12,7 +12,7 @@ describe "Explore versions", versioning: true, type: :system do
 
   let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
 
-  let(:emendation_fields) do
+  let(:emendation_params) do
     {
       title: emendation.title,
       body: emendation.body
@@ -24,7 +24,7 @@ describe "Explore versions", versioning: true, type: :system do
       id: amendment.id,
       amendable_gid: proposal.to_sgid.to_s,
       emendation_gid: emendation.to_sgid.to_s,
-      emendation_fields: emendation_fields
+      emendation_params: emendation_params
     }
   end
 

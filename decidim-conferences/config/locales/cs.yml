@@ -560,6 +560,7 @@ cs:
           take_part: Zúčastnit se
       conferences:
         conference:
+          more_info: Více informací
           take_part: Zúčastnit se
         index:
           promoted_conferences: Propagované konference

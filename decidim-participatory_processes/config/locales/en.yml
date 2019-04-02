@@ -386,6 +386,7 @@ en:
           promoted_processes: Highlighted processes
         participatory_process:
           active_step: 'Current phase:'
+          more_info: More info
           take_part: Take part
         promoted_process:
           active_step: 'Current phase:'
