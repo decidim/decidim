@@ -98,6 +98,7 @@ shared_examples "comments" do
         visit resource_path
 
         expect(page).to have_selector(".comment__reply")
+        expect(page).not_to have_selector(".comment__additionalreply")
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
@@ -110,7 +111,24 @@ shared_examples "comments" do
         end
 
         expect(page).to have_selector(".comment-thread .comment--nested")
+        expect(page).to have_selector(".comment__additionalreply")
         expect(page).to have_reply_to(comment, "This is a reply")
+      end
+    end
+
+    context "when a comment has been moderated" do
+      let!(:parent) { create(:comment, commentable: commentable) }
+      let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
+
+      it "doesn't show additional reply" do
+        Decidim::Moderation.create!(reportable: reply, participatory_space: reply.participatory_space, hidden_at: 1.day.ago)
+
+        visit current_path
+
+        within "#comments #comment_#{parent.id}" do
+          expect(page).to have_selector(".comment__reply")
+          expect(page).not_to have_selector(".comment__additionalreply")
+        end
       end
     end
 
