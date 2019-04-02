@@ -131,8 +131,8 @@ tr:
         verify_via_csv: "%{user_name} , bir CSV dosyası aracılığıyla %{resource_name} kullanıcı grubunu doğruladı"
     amendments:
       accepted:
-        error: Ödenmeyi kabul eden bir hata oluştu, lütfen daha sonra tekrar deneyin.
-        success: Bu ödeme başarıyla kabul edildi.
+        error: Değişikliği kabul ederken bir hata oluştu.
+        success: Değişiklik başarıyla kabul edildi.
       amendable:
         amended_by: Tarafından değiştirildi
         button: '%{model_name}'
@@ -141,10 +141,11 @@ tr:
         no_amenders: Herhangi bir değişiklik yok
         no_amendments: Hiçbir değişiklik yok
         promote_button: '%{model_name}yükselt'
+        promote_confirm_text: Bu yayılımı arttırmak istediğinize emin misiniz?
         promote_help_text: Bu ödemenizi tanıtabilir ve bağımsız olarak yayınlayabilirsiniz %{model_name}
         section_heading: Değişiklikler (%{count})
       created:
-        error: Bu değişikliği oluştururken bir hata oluştu, daha sonra tekrar deneyin
+        error: Değişiklik oluşturulurken bir hata oluştu
         success: Değişiklik başarıyla oluşturuldu
       emendation:
         actions:
@@ -166,7 +167,7 @@ tr:
         amendment_author: Değişiklik yazarı
         back: Geri
         heading: Değişikliğinizi oluşturun
-        help_text: '%{model_name}değiştiriyorsunuz'
+        help_text: '%{model_name}değiştiriyorsun'
         send: Değişiklik gönder
       promoted:
         error: Düzeltmeyi teşvik ederken hatalar oluştu
@@ -177,7 +178,7 @@ tr:
       review:
         back: Geri
         heading: Değişikliği gözden geçirin
-        help_text: '%{model_name}değiştiriyorsun'
+        help_text: '%{model_name}yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
     anonymous_user: Anonim
     application:
