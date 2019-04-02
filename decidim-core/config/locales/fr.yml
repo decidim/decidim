@@ -131,8 +131,8 @@ fr:
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
     amendments:
       accepted:
-        error: Une erreur s'est produite lors de l'acceptation de l'amendement. Veuillez réessayer ultérieurement.
-        success: Cette modification a été acceptée avec succès.
+        error: Une erreur s'est produite lors de l'acceptation de l'amendement.
+        success: L'amendement a été accepté avec succès.
       amendable:
         amended_by: Modifié par
         button: Modifier %{model_name}
@@ -141,10 +141,11 @@ fr:
         no_amenders: Il n'y a pas d'amendeurs
         no_amendments: Il n'y a pas d'amendements
         promote_button: Promouvoir à %{model_name}
+        promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
       created:
-        error: Une erreur s'est produite lors de la création de cet amendement. Réessayez ultérieurement.
+        error: Une erreur s'est produite lors de la création de la modification.
         success: L'amendement a été créé avec succès
       emendation:
         actions:
@@ -177,7 +178,7 @@ fr:
       review:
         back: Retour
         heading: Revoir l'amendement
-        help_text: Vous modifiez le %{model_name}
+        help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
     anonymous_user: Anonyme
     application:
