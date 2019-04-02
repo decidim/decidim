@@ -28,9 +28,7 @@
               <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
               <td>
                 <% if newsletter.sent? %>
-                <%= selective_newsletter_to newsletter %>
-                  <%#= newsletter.sent_scopes.map{|s| s.title }%>
-                  <%#= "#{newsletter.extended_data}" %>
+                  <%= selective_newsletter_to newsletter %>
                 <% end %>
               </td>
               <td>
@@ -54,5 +52,6 @@
         </tbody>
       </table>
     </div>
+    <%= decidim_paginate @newsletters %>
   </div>
 </div>

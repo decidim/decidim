@@ -18,7 +18,7 @@ module Decidim
         @newsletter.with_lock do
           return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) if @newsletter.sent?
-          # return broadcast(:no_recipients) if @recipients.blank?
+          return broadcast(:no_recipients) if recipients.blank?
 
           send_newsletter!
         end

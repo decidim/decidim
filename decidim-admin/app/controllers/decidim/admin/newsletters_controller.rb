@@ -6,10 +6,12 @@ module Decidim
     class NewslettersController < Decidim::Admin::ApplicationController
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
+      include Paginable
 
       def index
         enforce_permission_to :read, :newsletter
         @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
+        @newsletters = paginate(@newsletters)
       end
 
       def new
@@ -61,7 +63,6 @@ module Decidim
         enforce_permission_to :update, :newsletter, newsletter: @newsletter
         @form = form(NewsletterForm).from_params(params)
 
-        raise
         UpdateNewsletter.call(@newsletter, @form, current_user) do
           on(:ok) do |newsletter|
             flash[:notice] = I18n.t("newsletters.update.success", scope: "decidim.admin")
