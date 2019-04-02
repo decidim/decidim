@@ -9,13 +9,13 @@ describe "Filter Participatory Processes", type: :system do
     switch_to_host(organization.host)
   end
 
-  context "when there are some published processes" do
-    let!(:active_process) { create :participatory_process, :published, title: "Started today", start_date: Date.current, organization: organization }
-    let!(:active_process_2) { create :participatory_process, :published, title: "Started 1 day ago", start_date: 1.day.ago, organization: organization }
-    let!(:past_process) { create :participatory_process, :published, :past, title: "Ended 1 week ago", organization: organization }
-    let!(:past_process_2) { create :participatory_process, :published, :past, title: "Ended 1 month ago", end_date: 1.month.ago, organization: organization }
-    let!(:upcoming_process) { create :participatory_process, :published, :upcoming, title: "Starts 1 week from now", organization: organization }
-    let!(:upcoming_process_2) { create :participatory_process, :published, :upcoming, title: "Starts 1 year from now", start_date: 1.year.from_now, organization: organization }
+  context "when there are published processes" do
+    let!(:active_process) { create :participatory_process, title: "Started today", start_date: Date.current, organization: organization }
+    let!(:active_process_2) { create :participatory_process, title: "Started 1 day ago", start_date: 1.day.ago, organization: organization }
+    let!(:past_process) { create :participatory_process, :past, title: "Ended 1 week ago", organization: organization }
+    let!(:past_process_2) { create :participatory_process, :past, title: "Ended 1 month ago", end_date: 1.month.ago, organization: organization }
+    let!(:upcoming_process) { create :participatory_process, :upcoming, title: "Starts 1 week from now", organization: organization }
+    let!(:upcoming_process_2) { create :participatory_process, :upcoming, title: "Starts 1 year from now", start_date: 1.year.from_now, organization: organization }
     let(:titles) { page.all(".card__title") }
 
     context "and filtering processes by date" do
@@ -122,9 +122,13 @@ describe "Filter Participatory Processes", type: :system do
       let!(:process_with_area) { create(:participatory_process, area: area, organization: organization) }
       let!(:process_without_area) { create(:participatory_process, organization: organization) }
 
+      before do
+        visit decidim_participatory_processes.participatory_processes_path
+      end
+
       context "and choosing an area" do
         before do
-          visit decidim_participatory_processes.participatory_processes_path(filter: { area_id: area.id })
+          select translated(area.name), from: "filter[area_id]"
         end
 
         it "lists all processes belonging to that area" do

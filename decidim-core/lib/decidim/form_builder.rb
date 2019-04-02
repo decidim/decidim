@@ -202,7 +202,7 @@ module Decidim
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
     end
 
-    # Public: Generates a select field for categories. Only leaf categories can be set as selected.
+    # Public: Generates a select field for areas.
     #
     # name       - The name of the field (usually area_id)
     # collection - A collection of categories.
@@ -210,17 +210,26 @@ module Decidim
     #
     # Returns a String.
     def areas_select(name, collection, options = {})
-      selected_key = options[:selected]
+      selected = options[:selected]
       html_options = {}
 
-      select(name, @template.option_groups_from_collection_for_select(
-                     collection,
-                     :areas,
-                     :translated_name,
-                     :id,
-                     :translated_name,
-                     selected_key
-                   ), options, html_options)
+      selectables = if collection.first.is_a?(Decidim::AreaType)
+                      @template.option_groups_from_collection_for_select(
+                        collection,
+                        :areas,
+                        :translated_name,
+                        :id,
+                        :translated_name,
+                        selected
+                      )
+                    else
+                      @template.options_for_select(
+                        collection.map { |a| [a.name[I18n.locale.to_s], a.id] },
+                        selected: selected
+                      )
+                    end
+
+      select(name, selectables, options, html_options)
     end
 
     # Public: Generates a picker field for scope selection.

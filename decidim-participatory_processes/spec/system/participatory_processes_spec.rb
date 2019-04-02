@@ -10,6 +10,7 @@ describe "Participatory Processes", type: :system do
   let(:base_process) do
     create(
       :participatory_process,
+      :active,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },

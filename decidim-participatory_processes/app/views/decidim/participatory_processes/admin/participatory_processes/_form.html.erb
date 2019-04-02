@@ -85,7 +85,7 @@
 
     <div class="row column">
       <%= form.areas_select :area_id,
-                            current_organization.area_types,
+                            areas_for_select(current_organization),
                             selected: current_participatory_process.try(:decidim_area_id),
                             include_blank: t(".select_an_area") %>
     </div>
