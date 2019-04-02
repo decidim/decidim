@@ -96,10 +96,10 @@ es:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
-        create: "%{user_name} creó el newsletter %{resource_name}"
-        delete: "%{user_name} eliminó el newsletter %{resource_name}"
-        deliver: "%{user_name} envió el newsletter %{resource_name}"
-        update: "%{user_name} actualizó el newsletter %{resource_name}"
+        create: "%{user_name} creó la newsletter %{resource_name}"
+        delete: "%{user_name} eliminó la newsletter %{resource_name}"
+        deliver: "%{user_name} envió la newsletter %{resource_name}"
+        update: "%{user_name} actualizó la newsletter %{resource_name}"
       oauth_application:
         create: "%{user_name} creó la aplicación %{resource_name} OAuth"
         delete: "%{user_name} borró la aplicación %{resource_name} OAuth"
