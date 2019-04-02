@@ -5,10 +5,13 @@
       <h2 class="card-title"><%= t ".title" %></h2>
     </div>
     <div class="card-section">
-      ALERT:!!!       TINGUES EN COMPTE QUE NOMÉS S'ENVIARAN A AQUELLS USUARIS QUE TINGUIN LA RECEPCIÓ D'EMAILS ACTIVADA
+      <div class="callout alert">
+        <%= t ".alert" %>
+      </div>
+
       <div class="card">
         <div class="card-divider">
-          <h2 class="card-title">Selecciona a quins usuaris vols enviar la newsletter</h2>
+          <h2 class="card-title"><%= t ".select_users" %></h2>
         </div>
         <div class="card-section">
           <div class="row">
@@ -34,7 +37,7 @@
 
       <div class="card" id="participatory_spaces_for_select">
         <div class="card-divider">
-          <h2 class="card-title">Selecciona els espais</h2>
+          <h2 class="card-title"><%= t ".select_spaces" %></h2>
         </div>
         <div class="card-section">
           <div class="row" >
@@ -46,7 +49,7 @@
       <% if current_user.admin? %>
         <div class="card">
           <div class="card-divider">
-            <h2 class="card-title">Selecciona els interessos per segmentar més la newsletter</h2>
+            <h2 class="card-title"><%= t ".select_scopes" %></h2>
           </div>
           <div class="card-section">
             <div class="row" >
@@ -67,7 +70,6 @@
       </div>
     </div>
   </div>
-  <% end %>
-  <% console %>
+<% end %>
 
 <%= javascript_include_tag "decidim/admin/newsletters" %>

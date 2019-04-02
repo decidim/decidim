@@ -23,7 +23,7 @@ module Decidim
         if spaces
           html += child_form.select :ids,
                                     options_for_select(spaces),
-                                    { prompt: "cap", include_hidden: false },
+                                    { prompt: t("decidim.admin.newsletters.select_recipients_to_deliver.any"), include_hidden: false },
                                     multiple: true, class: "chosen-select"
 
         end
@@ -34,7 +34,7 @@ module Decidim
 
       def spaces_for_select(manifest_name)
         return unless Decidim.participatory_space_manifests.map(&:name).include?(manifest_name)
-        all_spaces = [%w(Tots all)]
+        all_spaces = [[I18n.t("decidim.admin.newsletters.select_recipients_to_deliver.all_spaces"), "all"]]
         spaces ||= Decidim.find_participatory_space_manifest(manifest_name)
                           .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |space|
           [

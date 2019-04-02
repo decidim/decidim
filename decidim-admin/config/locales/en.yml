@@ -442,8 +442,14 @@ en:
           save: Save
           title: New newsletter
         select_recipients_to_deliver:
+          alert: "ALERT!!: Take into account that only will be send the newsletter to those users that have accepted to recieve newsletters"
+          all_spaces: All
+          any: Any
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
           deliver: Deliver newsletter
+          select_scopes: Select scopes to segment the newsletter
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
           title: Select recipients to deliver
         show:
           preview: Preview
