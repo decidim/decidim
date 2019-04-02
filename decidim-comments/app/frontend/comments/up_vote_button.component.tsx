@@ -36,7 +36,7 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
   }
 
   const userLoggedIn = session && session.user;
-  const disabled = upVoted || downVoted;
+  const disabled = false;
 
   return (
     <VoteButton
@@ -67,7 +67,7 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
           upVote: {
             __typename: "Comment",
             ...ownProps.comment,
-            upVotes: ownProps.comment.upVotes + 1,
+            upVotes: ownProps.comment.upVotes + (ownProps.comment.upVoted ? -1 : 1),
             upVoted: true
           }
         }
