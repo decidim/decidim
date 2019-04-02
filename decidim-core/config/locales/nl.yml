@@ -131,8 +131,8 @@ nl:
         verify_via_csv: "%{user_name} de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
     amendments:
       accepted:
-        error: Er is een fout opgetreden bij het accepteren van de emendation. Probeer het later opnieuw.
-        success: Deze emendatie is met succes geaccepteerd.
+        error: Er is een fout opgetreden bij het accepteren van het amendement.
+        success: Het amendement is met succes aangenomen.
       amendable:
         amended_by: Gewijzigd door
         button: Wijzigen %{model_name}
@@ -141,10 +141,11 @@ nl:
         no_amenders: Er zijn geen amendementen
         no_amendments: Er zijn geen amendementen
         promote_button: Promoot tot %{model_name}
+        promote_confirm_text: Weet je zeker dat je deze emendatie wilt promoten?
         promote_help_text: U kunt deze emendatie promoten en publiceren als een onafhankelijke %{model_name}
         section_heading: Wijzigingen (%{count})
       created:
-        error: Er is een fout opgetreden bij het maken van dit amendement, probeer het later opnieuw
+        error: Er is een fout opgetreden bij het maken van het amendement
         success: Het amendement is met succes gemaakt
       emendation:
         actions:
@@ -177,7 +178,7 @@ nl:
       review:
         back: Terug
         heading: Bekijk het amendement
-        help_text: U wijzigt de %{model_name}
+        help_text: U bekijkt een amendement op de %{model_name}
         send: Accepteer het amendement
     anonymous_user: Anoniem
     application:
