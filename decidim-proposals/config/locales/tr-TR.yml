@@ -41,6 +41,10 @@ tr:
           attributes:
             attachment:
               needs_to_be_reattached: Yeniden bağlanması gerekiyor
+            body:
+              identical: AND title aynı olamaz
+            title:
+              identical: VE vücut aynı olamaz
     models:
       decidim/proposals/accepted_proposal_event: Teklif kabul edildi
       decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
