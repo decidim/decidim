@@ -127,9 +127,6 @@ id:
         verify: "%{user_name} memverifikasi %{resource_name} grup pengguna"
         verify_via_csv: "%{user_name} memverifikasi %{resource_name} grup pengguna melalui file CSV"
     amendments:
-      accepted:
-        error: Terjadi kesalahan saat menerima emendasi, coba lagi nanti.
-        success: Perubahan ini telah berhasil diterima.
       amendable:
         amended_by: Diubah oleh
         button: Ubah %{model_name}
@@ -141,7 +138,6 @@ id:
         promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
         section_heading: Amandemen (%{count})
       created:
-        error: Terjadi kesalahan saat membuat amendemen ini, coba lagi nanti
         success: Amandemen telah berhasil dibuat
       emendation:
         actions:
@@ -163,7 +159,7 @@ id:
         amendment_author: Pengarang perubahan
         back: Kembali
         heading: Buat amandemen Anda
-        help_text: Anda memodifikasi %{model_name}
+        help_text: Anda mengubah %{model_name}
         send: Kirim amandemen
       promoted:
         error: Sudah ada kesalahan saat mempromosikan emendasi
@@ -174,7 +170,6 @@ id:
       review:
         back: Kembali
         heading: Tinjau amandemennya
-        help_text: Anda mengubah %{model_name}
         send: Terima amandemen
     anonymous_user: Anonim
     application:
