@@ -131,8 +131,8 @@ es-PY:
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
     amendments:
       accepted:
-        error: Se ha producido un error al aceptar la enmienda. Inténtalo de nuevo más tarde.
-        success: Esta enmienda ha sido aceptada con éxito.
+        error: Ocurrió un error al aceptar la enmienda.
+        success: La enmienda ha sido aceptada con éxito.
       amendable:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
@@ -141,10 +141,11 @@ es-PY:
         no_amenders: No hay enmendadores
         no_amendments: No hay enmiendas
         promote_button: Promocionar a %{model_name}
+        promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
         section_heading: Enmiendas (%{count})
       created:
-        error: Se ha producido un error creando esta enmienda, inténtalo de nuevo más tarde
+        error: Se ha producido un error al crear la enmienda.
         success: La enmienda se ha creado correctamente
       emendation:
         actions:
@@ -166,7 +167,7 @@ es-PY:
         amendment_author: Autor de la enmienda
         back: Volver
         heading: Crea tu enmienda
-        help_text: Estás modificando el %{model_name}
+        help_text: Estás enmendando el %{model_name}
         send: Enviar enmienda
       promoted:
         error: Ha habido errores al promocionar la enmienda.
@@ -177,7 +178,7 @@ es-PY:
       review:
         back: Volver
         heading: Revisar la enmienda
-        help_text: Estás enmendando el %{model_name}
+        help_text: Estás revisando una enmienda al %{model_name}
         send: Aceptar enmienda
     anonymous_user: Anónimo
     application:
