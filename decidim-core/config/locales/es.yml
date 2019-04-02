@@ -85,7 +85,7 @@ es:
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
-        delete: "%{user_name} borró el área %{resource_name}"
+        delete: "%{user_name} eliminó el área %{resource_name}"
         update: "%{user_name} actualizó el área %{resource_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
