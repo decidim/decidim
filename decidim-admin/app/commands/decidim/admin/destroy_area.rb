@@ -20,13 +20,21 @@ module Decidim
       #
       # Returns nothing.
       def call
-        destroy_area
-        broadcast(:ok)
+        if area_has_dependencies?
+          broadcast(:has_spaces)
+        else
+          destroy_area
+          broadcast(:ok)
+        end
       end
 
       private
 
       attr_reader :current_user
+
+      def area_has_dependencies?
+        ::Decidim::ParticipatoryProcess.where(area: @area).exists? || ::Decidim::Assembly.where(area: @area).exists?
+      end
 
       def destroy_area
         Decidim.traceability.perform_action!(
