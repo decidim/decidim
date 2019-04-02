@@ -137,8 +137,8 @@ pl:
         verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
     amendments:
       accepted:
-        error: Wystąpił błąd podczas akceptacji poprawki, spróbuj ponownie później.
-        success: Ta emisja została pomyślnie przyjęta.
+        error: Wystąpił błąd podczas przyjmowania poprawki.
+        success: Poprawka została pomyślnie przyjęta.
       amendable:
         amended_by: Zmienione przez
         button: Zmień %{model_name}
@@ -147,10 +147,11 @@ pl:
         no_amenders: Nie ma żadnych fałszerstw
         no_amendments: Brak zmian
         promote_button: Promuj do %{model_name}
+        promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
         section_heading: Poprawki (%{count})
       created:
-        error: Wystąpił błąd podczas tworzenia tej poprawki, spróbuj ponownie później
+        error: Wystąpił błąd podczas tworzenia poprawki
         success: Poprawka została pomyślnie utworzona
       emendation:
         actions:
@@ -172,7 +173,7 @@ pl:
         amendment_author: Autor poprawki
         back: Z powrotem
         heading: Utwórz poprawkę
-        help_text: Modyfikujesz %{model_name}
+        help_text: Zmieniasz %{model_name}
         send: Wyślij poprawkę
       promoted:
         error: Podczas promowania wyemitowania wystąpiły błędy
@@ -183,7 +184,7 @@ pl:
       review:
         back: Z powrotem
         heading: Przejrzyj poprawkę
-        help_text: Zmieniasz %{model_name}
+        help_text: Przeglądasz poprawkę do %{model_name}
         send: Przyjmij poprawkę
     anonymous_user: Anonim
     application:
