@@ -143,20 +143,18 @@ ar:
         verify_via_csv: "%{user_name} التحقق من المجموعة %{resource_name} عبر ملف CSV"
     amendments:
       accepted:
-        error: حدثت مشكلة في قبول التعديل ، يرجى إعادة المحاولة لاحقًا.
-        success: تم قبول هذا التعديل بنجاح.
+        error: حدث خطأ أثناء قبول التعديل.
+        success: تم قبول التعديل بنجاح.
       amendable:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
-        error: حدثت مشكلة في تعديل هذا المورد.
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
         no_amenders: لا يوجد تعديل
         no_amendments: لا توجد تعديلات
-        promote_button: نشر كـ %{model_name}جديد
-        promote_help_text: يمكنك نشر هذا التعديل كـ %{model_name}مستقل
+        promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
       created:
-        error: حدث خطأ أثناء إنشاء هذا التعديل ، يرجى إعادة المحاولة لاحقًا
+        error: حدث خطأ أثناء إنشاء التعديل
         success: تم إنشاء التعديل بنجاح
       emendation:
         actions:
@@ -189,7 +187,7 @@ ar:
       review:
         back: الى الخلف
         heading: مراجعة التعديل
-        help_text: أنت تعدل %{model_name}
+        help_text: أنت تراجع التعديل على %{model_name}
         send: قبول التعديل
     anonymous_user: مجهول
     application:
