@@ -131,8 +131,8 @@ eu:
         verify_via_csv: "%{user_name} egiaztatu du %{resource_name} erabiltzaile talde CSV fitxategi baten bidez"
     amendments:
       accepted:
-        error: Errore bat gertatu da aldatzea onartzea, mesedez saiatu berriro geroago.
-        success: Eskaera hau arrakastaz onartu da.
+        error: Errore bat gertatu da aldaketa onartuz.
+        success: Aldaketa ongi onartu da.
       amendable:
         amended_by: Aldatua
         button: Aldatu %{model_name}
@@ -141,10 +141,11 @@ eu:
         no_amenders: Ez dago murrizketarik
         no_amendments: Ez dago zuzenketarik
         promote_button: '%{model_name}suspertzea'
+        promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
         section_heading: Aldaketak (%{count})
       created:
-        error: Errore bat gertatu da aldaketa hau sortzean, saiatu berriro geroago
+        error: Errorea gertatu da aldaketa sortzean
         success: Aldaketa zuzen sortu da
       emendation:
         actions:
@@ -177,7 +178,7 @@ eu:
       review:
         back: Back
         heading: Aldaketa berrikustea
-        help_text: '%{model_name}aldatzen ari zara'
+        help_text: '%{model_name}zuzenketa bat berrikusten ari zara'
         send: Onartu aldaketa
     anonymous_user: Anonimoa
     application:
