@@ -131,8 +131,8 @@ de:
         verify_via_csv: "%{user_name} die %{resource_name} Benutzergruppe über eine CSV-Datei überprüft"
     amendments:
       accepted:
-        error: Beim Akzeptieren der Emendation ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.
-        success: Diese Ausgabe wurde erfolgreich akzeptiert.
+        error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
+        success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         amended_by: Geändert durch
         button: '%{model_name}ändern'
@@ -141,10 +141,11 @@ de:
         no_amenders: Es gibt keine Amender
         no_amendments: Es gibt keine Änderungen
         promote_button: Auf %{model_name}
+        promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
         section_heading: Änderungen (%{count})
       created:
-        error: Beim Erstellen dieser Änderung ist ein Fehler aufgetreten. Versuchen Sie es später erneut
+        error: Beim Erstellen der Änderung ist ein Fehler aufgetreten
         success: Die Änderung wurde erfolgreich erstellt
       emendation:
         actions:
@@ -177,7 +178,7 @@ de:
       review:
         back: Zurück
         heading: Überprüfen Sie die Änderung
-        help_text: Sie ändern die %{model_name}
+        help_text: Sie überprüfen eine Änderung der %{model_name}
         send: Akzeptieren Sie den Änderungsantrag
     anonymous_user: Anonym
     application:
