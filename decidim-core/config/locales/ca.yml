@@ -132,7 +132,7 @@ ca:
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena.
-        success: L’esmena ha estat acceptada amb èxit.
+        success: L’esmena ha estat acceptada correctament.
       amendable:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
@@ -141,7 +141,7 @@ ca:
         no_amenders: No hi ha cap esmenador
         no_amendments: No hi ha cap esmena
         promote_button: Promocionar a %{model_name}
-        promote_confirm_text: Esteu segur que voleu promoure aquesta modificació?
+        promote_confirm_text: Esteu segur que voleu promoure aquesta esmena?
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         section_heading: Esmenes (%{count})
       created:
