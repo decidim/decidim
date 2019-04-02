@@ -552,6 +552,7 @@ nl:
           take_part: Deelnemen
       conferences:
         conference:
+          more_info: Meer informatie
           take_part: Deelnemen
         index:
           promoted_conferences: Gepromoveerde conferenties

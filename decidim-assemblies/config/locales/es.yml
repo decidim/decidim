@@ -263,7 +263,7 @@ es:
         consultative_advisory: Consultiva / Asesora
         executive: Ejecutivo
         government: Gobierno
-        help: 'Show:'
+        help: 'Muestra:'
         others: Otros
         participatory: Participativo
         working_group: Grupo de trabajo
@@ -351,6 +351,7 @@ es:
     decidim:
       assemblies:
         assembly:
+          more_info: Más información
           take_part: Participa
         index:
           organizational_chart: Organigrama

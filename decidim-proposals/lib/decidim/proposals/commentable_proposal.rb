@@ -33,6 +33,10 @@ module Decidim
           return (followers | component.participatory_space.admins).uniq if official?
           followers
         end
+
+        def user_allowed_to_comment?(user)
+          can_participate_in_space?(user)
+        end
       end
     end
   end
