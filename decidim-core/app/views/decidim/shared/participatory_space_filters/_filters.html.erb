@@ -5,9 +5,9 @@
   <div class="columns mediumlarge-6 large-6">
     <%= form.areas_select :area_id,
                           current_organization.area_types,
-                          legend_title: "Areas",
+                          legend_title: t(".areas"),
                           label: false,
                           selected: filter.area_id,
-                          include_blank: "Select an area" %>
+                          include_blank: t(".select_an_area") %>
   </div>
 <% end %>

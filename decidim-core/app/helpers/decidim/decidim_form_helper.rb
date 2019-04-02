@@ -71,7 +71,7 @@ module Decidim
       scopes = selected_scopes.map { |scope| [scope, yield(scope)] }
 
       template = ""
-      template += render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes)
+      template += render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes, checkboxes_on_top: true)
       template.html_safe
     end
 
