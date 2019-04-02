@@ -41,6 +41,10 @@ pl:
           attributes:
             attachment:
               needs_to_be_reattached: Musi zostać ponownie podłączony
+            body:
+              identical: I tytuł nie może być identyczny
+            title:
+              identical: I ciało nie może być identyczne
     models:
       decidim/proposals/accepted_proposal_event: Wniosek przyjęty
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię oferty
