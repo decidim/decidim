@@ -33,7 +33,14 @@ module Decidim
       attr_reader :current_user
 
       def area_has_dependencies?
-        ::Decidim::ParticipatoryProcess.where(area: @area).exists? || ::Decidim::Assembly.where(area: @area).exists?
+        Decidim.participatory_space_registry.manifests.any? do |manifest|
+          manifest
+            .participatory_spaces
+            .call(@area.organization)
+            .any? do |space|
+            space.respond_to?(:area) && space.decidim_area_id == @area.id
+          end
+        end
       end
 
       def destroy_area
