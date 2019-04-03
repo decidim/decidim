@@ -270,8 +270,6 @@ shared_examples "orders" do |options|
                 end
               end
 
-              sleep 2
-
               within "#projects" do
                 expect(page).to have_selector(".budget--list__action.success", count: projects.count)
               end
