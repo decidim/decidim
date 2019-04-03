@@ -28,5 +28,16 @@ module Decidim
     def translated_name
       Decidim::AreaPresenter.new(self).translated_name
     end
+
+    def has_dependencies?
+      Decidim.participatory_space_registry.manifests.any? do |manifest|
+        manifest
+          .participatory_spaces
+          .call(organization)
+          .any? do |space|
+          space.respond_to?(:area) && space.decidim_area_id == id
+        end
+      end
+    end
   end
 end

@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        if area_has_dependencies?
+        if @area.has_dependencies?
           broadcast(:has_spaces)
         else
           destroy_area
@@ -31,17 +31,6 @@ module Decidim
       private
 
       attr_reader :current_user
-
-      def area_has_dependencies?
-        Decidim.participatory_space_registry.manifests.any? do |manifest|
-          manifest
-            .participatory_spaces
-            .call(@area.organization)
-            .any? do |space|
-            space.respond_to?(:area) && space.decidim_area_id == @area.id
-          end
-        end
-      end
 
       def destroy_area
         Decidim.traceability.perform_action!(
