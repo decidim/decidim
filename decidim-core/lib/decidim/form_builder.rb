@@ -206,12 +206,17 @@ module Decidim
     #
     # name       - The name of the field (usually area_id)
     # collection - A collection of areas or area_types.
+    #              If its areas, we sort the options alphabetically.
     #
     # Returns a String.
     def areas_select(name, collection, options = {})
       selectables = if collection.first.is_a?(Decidim::Area)
+                      assemblies = collection
+                                   .map { |a| [a.name[I18n.locale.to_s], a.id] }
+                                   .sort_by { |arr| arr[0] }
+
                       @template.options_for_select(
-                        collection.map { |a| [a.name[I18n.locale.to_s], a.id] },
+                        assemblies,
                         selected: options[:selected]
                       )
                     else
