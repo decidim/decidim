@@ -160,27 +160,26 @@
 }
 
 #participatory-space-filters{
-  legend {
+  legend{
     float: left;
     padding-top: 10px;
   }
 
   .picker-prompt,
-  select {
+  select{
     width: 75%;
     float: right;
   }
 
-  .filters__section {
+  .filters__section{
     padding: 0;
   }
 
-  .picker-values {
+  .picker-values{
     clear: both;
 
-    div {
+    div{
       display: inline-block;
     }
   }
 }
-
