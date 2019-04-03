@@ -10,6 +10,7 @@
 
 **Changed**:
 
+- **decidim-core**: Change attachment photo image alt texts to title instead of description. [#5043](https://github.com/decidim/decidim/pull/5043)
 - **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
 
 **Fixed**:
