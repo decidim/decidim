@@ -167,7 +167,7 @@
 
   .picker-prompt,
   select {
-    width: 70%;
+    width: 75%;
     float: right;
   }
 
@@ -176,6 +176,8 @@
   }
 
   .picker-values {
+    clear: both;
+
     div {
       display: inline-block;
     }

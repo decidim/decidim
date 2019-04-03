@@ -8,7 +8,7 @@ module Decidim
       participatory_space_layout only: :show
       include FilterResource
 
-      helper_method :parent_assemblies, :promoted_assemblies, :published_assemblies, :stats, :assembly_participatory_processes
+      helper_method :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes
 
       def index
         enforce_permission_to :list, :assembly
