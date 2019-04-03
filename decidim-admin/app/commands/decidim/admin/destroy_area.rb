@@ -20,12 +20,10 @@ module Decidim
       #
       # Returns nothing.
       def call
-        begin
-          destroy_area
-          broadcast(:ok)
-        rescue ActiveRecord::RecordNotDestroyed
-          broadcast(:has_spaces)
-        end
+        destroy_area
+        broadcast(:ok)
+      rescue ActiveRecord::RecordNotDestroyed
+        broadcast(:has_spaces)
       end
 
       private
