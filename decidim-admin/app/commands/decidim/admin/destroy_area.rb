@@ -20,11 +20,11 @@ module Decidim
       #
       # Returns nothing.
       def call
-        if @area.has_dependencies?
-          broadcast(:has_spaces)
-        else
+        begin
           destroy_area
           broadcast(:ok)
+        rescue ActiveRecord::RecordNotDestroyed
+          broadcast(:has_spaces)
         end
       end
 

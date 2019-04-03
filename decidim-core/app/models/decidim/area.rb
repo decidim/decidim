@@ -21,6 +21,8 @@ module Decidim
     validates :name, :organization, presence: true
     validates :name, uniqueness: { scope: [:organization, :area_type] }
 
+    before_destroy :abort_if_dependencies
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AreaPresenter
     end
@@ -38,6 +40,11 @@ module Decidim
           space.respond_to?(:area) && space.decidim_area_id == id
         end
       end
+    end
+
+    # used on before_destroy
+    def abort_if_dependencies
+      throw(:abort) if has_dependencies?
     end
   end
 end
