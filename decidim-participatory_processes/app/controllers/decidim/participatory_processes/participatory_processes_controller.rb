@@ -89,6 +89,7 @@ module Decidim
         return "active" if published_processes.any?(&:active?)
         return "upcoming" if published_processes.any?(&:upcoming?)
         return "past" if published_processes.any?(&:past?)
+        "all"
       end
     end
   end

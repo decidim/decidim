@@ -62,8 +62,7 @@ module Decidim
       end
 
       def should_show_tabs?
-        other_filters_with_value.any?
-        other_filters_with_value != ["all"]
+        other_filters_with_value.any? && other_filters_with_value != ["all"]
       end
 
       def title

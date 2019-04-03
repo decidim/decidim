@@ -221,7 +221,7 @@ module Decidim
                         :translated_name,
                         :id,
                         :translated_name,
-                        selected_key: options[:selected]
+                        selected: options[:selected]
                       )
                     end
 
