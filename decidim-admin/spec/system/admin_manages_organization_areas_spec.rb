@@ -75,9 +75,7 @@ describe "Organization Areas", type: :system do
       end
 
       it "can delete them" do
-        within find("tr", text: translated(area.name)) do
-          accept_confirm { click_link "Delete" }
-        end
+        click_delete_area
 
         expect(page).to have_admin_callout("successfully")
 
@@ -85,6 +83,28 @@ describe "Organization Areas", type: :system do
           expect(page).to have_no_content(translated(area.name))
         end
       end
+
+      context "when a participatory space associated to a given area exist" do
+        let!(:process) { create(:participatory_process, organization: area.organization, area: area) }
+
+        it "can not be deleted" do
+          click_delete_area
+          expect(area.reload.destroyed?).to be false
+          expect(page).to have_admin_callout("Area has depedent spaces")
+        end
+      end
+    end
+  end
+
+  #---------------------------------------------------
+
+  private
+
+  #---------------------------------------------------
+
+  def click_delete_area
+    within find("tr", text: translated(area.name)) do
+      accept_confirm { click_link "Delete" }
     end
   end
 end

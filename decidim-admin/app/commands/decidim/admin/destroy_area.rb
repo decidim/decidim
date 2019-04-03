@@ -22,6 +22,8 @@ module Decidim
       def call
         destroy_area
         broadcast(:ok)
+      rescue ActiveRecord::RecordNotDestroyed
+        broadcast(:has_spaces)
       end
 
       private
