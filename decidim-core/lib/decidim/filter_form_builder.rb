@@ -48,7 +48,7 @@ module Decidim
     end
 
     # Wrap the scopes picker in a custom fieldset.
-    def scopes_picker(method, options = {})
+    def scopes_picker(method, options = { checkboxes_on_top: true })
       fieldset_wrapper options[:legend_title] do
         super(method, options)
       end

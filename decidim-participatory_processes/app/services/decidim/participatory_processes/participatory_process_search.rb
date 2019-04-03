@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # Service that encapsulates all logic related to filtering assemblies.
+    # Service that encapsulates all logic related to filtering participatory processes.
     class ParticipatoryProcessSearch < ParticipatorySpaceSearch
       def initialize(options = {})
         super(ParticipatoryProcess.all, options)
