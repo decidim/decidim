@@ -24,9 +24,19 @@ module Decidim
       # Returns nothing.
       def call
         if @weight == 1
-          @comment.up_votes.create!(author: @author)
+          vote = @comment.up_votes.find_by(author: @author)
+          if vote
+            vote.destroy!
+          else
+            @comment.up_votes.create!(author: @author)
+          end
         elsif @weight == -1
-          @comment.down_votes.create!(author: @author)
+          vote = @comment.down_votes.find_by(author: @author)
+          if vote
+            vote.destroy!
+          else
+            @comment.down_votes.create!(author: @author)
+          end
         else
           return broadcast(:invalid)
         end

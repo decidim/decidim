@@ -10,6 +10,8 @@
 
 **Changed**:
 
+- **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
+
 **Fixed**:
 
 - **decidim-core**: Fix amendments forms: show error messages and render hashtags. [#4951](https://github.com/decidim/decidim/pull/4951)
