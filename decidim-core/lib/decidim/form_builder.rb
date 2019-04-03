@@ -206,7 +206,7 @@ module Decidim
     #
     # name       - The name of the field (usually area_id)
     # collection - A collection of areas or area_types.
-    #              If its areas, we sort the options alphabetically.
+    #              If it's areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
     def areas_select(name, collection, options = {})
@@ -239,7 +239,7 @@ module Decidim
     # options       - An optional Hash with options:
     # - multiple    - Multiple mode, to allow multiple scopes selection.
     # - label       - Show label?
-    # - checkboxes_on_top - Show picker values on top (default) or below the picker prompt
+    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt
     #
     # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
