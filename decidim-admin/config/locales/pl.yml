@@ -156,6 +156,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowego obszaru.
           success: Obszar utworzony pomyślnie.
         destroy:
+          has_spaces: Obszar ma wolne przestrzenie, nie może mieć zależności, aby można go było usunąć.
           success: Obszar pomyślnie zniszczony
         edit:
           title: Edytuj obszar
