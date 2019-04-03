@@ -40,7 +40,7 @@ es:
         other: Enmiendas
       decidim/user:
         one: No hay participantes
-        other: Usuarios
+        other: Participantes
       decidim/user_group:
         one: Grupo
         other: Grupos
@@ -85,7 +85,7 @@ es:
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
-        delete: "%{user_name} borró el área %{resource_name}"
+        delete: "%{user_name} eliminó el área %{resource_name}"
         update: "%{user_name} actualizó el área %{resource_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
@@ -96,10 +96,10 @@ es:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
-        create: "%{user_name} creó el newsletter %{resource_name}"
-        delete: "%{user_name} eliminó el newsletter %{resource_name}"
-        deliver: "%{user_name} envió el newsletter %{resource_name}"
-        update: "%{user_name} actualizó el newsletter %{resource_name}"
+        create: "%{user_name} creó la newsletter %{resource_name}"
+        delete: "%{user_name} eliminó la newsletter %{resource_name}"
+        deliver: "%{user_name} envió la newsletter %{resource_name}"
+        update: "%{user_name} actualizó la newsletter %{resource_name}"
       oauth_application:
         create: "%{user_name} creó la aplicación %{resource_name} OAuth"
         delete: "%{user_name} borró la aplicación %{resource_name} OAuth"
@@ -107,7 +107,7 @@ es:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
-        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privado"
+        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privada"
         delete: "%{user_name} ha eliminado a la participante %{resource_name} como participante privada"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
