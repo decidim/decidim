@@ -39,8 +39,8 @@ ca:
         one: Esmena
         other: Esmenes
       decidim/user:
-        one: Participants
-        other: Participants
+        one: No hi ha participants
+        other: Usuaris
       decidim/user_group:
         one: Grup
         other: Grups
