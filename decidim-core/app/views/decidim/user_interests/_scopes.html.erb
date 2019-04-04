@@ -2,11 +2,11 @@
   <% scopes.each do |scope| %>
     <li class="switch tiny switch-with-label">
       <%= f.fields_for "scopes[]", scope do |form| %>
-        <label>
+        <%= form.label "checked" do %>
           <%= form.check_box "checked", label: false, class: "switch-input" %>
           <span class="switch-paddle"></span>
           <span class="switch-label"><%= translated_attribute scope.name %></span>
-        </label>
+        <% end %>
         <%= form.hidden_field "id", value: scope.id %>
       <% end %>
     </li>

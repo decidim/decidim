@@ -39,7 +39,7 @@ shared_examples_for "has attachments" do
       end
 
       within "div.wrapper .images" do
-        expect(strip_tags(translated(fist_image.description, locale: :en))).to appear_before(strip_tags(translated(last_image.description, locale: :en)))
+        expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
   end
