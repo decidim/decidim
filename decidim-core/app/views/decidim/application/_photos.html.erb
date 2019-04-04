@@ -6,7 +6,7 @@
         <% group.each_with_index do |photo, index| %>
           <div class="columns small-6 medium-4 <%= (index == 2 || photo == group.last ? "end" : "") %>">
             <%= link_to photo.big_url, target: "_blank" do %>
-              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.description)) %>
+              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
             <% end %>
           </div>
         <% end %>

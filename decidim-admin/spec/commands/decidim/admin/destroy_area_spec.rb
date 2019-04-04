@@ -35,5 +35,25 @@ module Decidim::Admin
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
     end
+
+    context "when a participatory process associated to a given area exist" do
+      let!(:process) { create(:participatory_process, organization: area.organization, area: area) }
+
+      it "can not be deleted" do
+        expect { subject.call }.to broadcast(:has_spaces)
+        area.reload
+        expect(area.destroyed?).to be false
+      end
+    end
+
+    context "when an assembly associated to a given area exist" do
+      let!(:process) { create(:assembly, organization: area.organization, area: area) }
+
+      it "can not be deleted" do
+        expect { subject.call }.to broadcast(:has_spaces)
+        area.reload
+        expect(area.destroyed?).to be false
+      end
+    end
   end
 end
