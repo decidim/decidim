@@ -9,40 +9,46 @@ module Decidim
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
 
-        translatable_attribute :title, String
-        translatable_attribute :subtitle, String
-        translatable_attribute :description, String
-        translatable_attribute :short_description, String
-        translatable_attribute :meta_scope, String
-        translatable_attribute :developer_group, String
-        translatable_attribute :local_area, String
-        translatable_attribute :target, String
-        translatable_attribute :participatory_scope, String
-        translatable_attribute :participatory_structure, String
-        translatable_attribute :announcement, String
-
         mimic :participatory_process
 
-        attribute :start_date, Decidim::Attributes::LocalizedDate
+        translatable_attribute :announcement, String
+        translatable_attribute :description, String
+        translatable_attribute :developer_group, String
+        translatable_attribute :local_area, String
+        translatable_attribute :meta_scope, String
+        translatable_attribute :participatory_scope, String
+        translatable_attribute :participatory_structure, String
+        translatable_attribute :subtitle, String
+        translatable_attribute :short_description, String
+        translatable_attribute :title, String
+        translatable_attribute :target, String
+
         attribute :end_date, Decidim::Attributes::LocalizedDate
-        attribute :slug, String
+        attribute :start_date, Decidim::Attributes::LocalizedDate
+
         attribute :hashtag, String
+        attribute :slug, String
+
+        attribute :area_id, Integer
+        attribute :cost, Integer
+        attribute :participatory_process_group_id, Integer
+        attribute :scope_id, Integer
+
+        attribute :banner_image
+        attribute :hero_image
+        attribute :remove_banner_image
+        attribute :remove_hero_image
+
+        attribute :has_summary_record, Boolean
+        attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
-        attribute :scope_id, Integer
-        attribute :area_id, Integer
-        attribute :hero_image
-        attribute :remove_hero_image
-        attribute :banner_image
-        attribute :remove_banner_image
-        attribute :participatory_process_group_id, Integer
         attribute :show_statistics, Boolean
-        attribute :private_space, Boolean
 
+        validates :area, presence: true, if: proc { |object| object.area_id.present? }
+        validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
-        validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
-        validates :area, presence: true, if: proc { |object| object.area_id.present? }
 
         validate :slug_uniqueness
 

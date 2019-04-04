@@ -201,8 +201,6 @@ en:
           success: Participatory process successfully created. Configure now its phases.
         edit:
           update: Update
-        form:
-          title: General Information
         index:
           not_published: Not published
           private: Private
@@ -295,7 +293,15 @@ en:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             select_an_area: Select an Area
+            select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            title: General Information
+            visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Highlighted processes
