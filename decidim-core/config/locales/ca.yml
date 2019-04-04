@@ -7,21 +7,21 @@ ca:
         details: Comentaris addicionals
       user:
         about: Quant a
-        email: El teu email
+        email: El teu correu electrònic
         name: El teu nom
-        nickname: Sobrenom
+        nickname: Nom d'usuari
         password: Contrasenya
-        password_confirmation: Confirmar la contrasenya
+        password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
-        remove_avatar: Elimina la imatge d'usuari
+        remove_avatar: Elimina la imatge de perfil
     models:
-      decidim/attachment_created_event: Adjunt
+      decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
       decidim/demoted_membership: Ja no ets administrador de grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
       decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
-      decidim/join_request_rejected_event: S'ha rebutjat la sol·licitud d'incorporació
+      decidim/join_request_rejected_event: Sol·licitud d'incorporació rebutjada
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionat a administrador del grup
       decidim/removed_from_group: S'ha eliminat del grup
