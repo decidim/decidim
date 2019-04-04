@@ -177,7 +177,7 @@ es:
         heading: Revisar la enmienda
         help_text: Estás revisando una enmienda al %{model_name}
         send: Aceptar enmienda
-    anonymous_user: Anónimo
+    anonymous_user: Anónima
     application:
       collection:
         documents:
