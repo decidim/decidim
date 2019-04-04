@@ -267,7 +267,7 @@ ca:
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
-            enable_pads_creation: Activar la creació de pads
+            enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
             comments_blocked: Comentaris bloquejats
@@ -301,9 +301,9 @@ ca:
         unauthorized: No tens permís per realitzar aquesta acció
     data_portability:
       export:
-        ready: Preparat
+        ready: Llest
       show:
-        download_data: Baixa't les dades
+        download_data: Descarrega't les dades
         download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
         request_data: Sol·licita dades
     datepicker:
