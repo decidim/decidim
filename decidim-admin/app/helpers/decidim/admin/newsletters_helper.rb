@@ -4,10 +4,10 @@ module Decidim
   module Admin
     # This module includes helpers to manage newsletters in admin layout
     module NewslettersHelper
-      def participatory_spaces_for_select(form)
+      def participatory_spaces_for_select(form_object)
         html = "<div class='grid-x grid-padding-x'>"
         @form.participatory_space_types.each do |space_type|
-          form.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
+          form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
             spaces = spaces_for_select(space_type.manifest_name.to_sym)
             html += ff.hidden_field :manifest_name, value: space_type.manifest_name
             html += select_tag_participatory_spaces(space_type.manifest_name, spaces, ff)
@@ -18,18 +18,14 @@ module Decidim
       end
 
       def select_tag_participatory_spaces(manifest_name, spaces, child_form)
-        html = "<div class='cell small-12 medium-6'>"
-        html += manifest_name.to_s
-        if spaces
-          html += child_form.select :ids,
-                                    options_for_select(spaces),
-                                    { prompt: t("decidim.admin.newsletters.select_recipients_to_deliver.any"), include_hidden: false },
-                                    multiple: true, class: "chosen-select"
-
+        return unless spaces
+        content_tag :div, class: "cell small-12 medium-6" do
+          child_form.select :ids, options_for_select(spaces),
+                            { prompt: t("decidim.admin.newsletters.select_recipients_to_deliver.any"),
+                              label: t("activerecord.models.decidim/#{manifest_name.singularize}.other"),
+                              include_hidden: false },
+                            multiple: true, class: "chosen-select"
         end
-
-        html += "</div>"
-        html.html_safe
       end
 
       def spaces_for_select(manifest_name)
@@ -46,56 +42,54 @@ module Decidim
       end
 
       def selective_newsletter_to(newsletter)
-        html = "<div>"
-        html += sended_to_users newsletter
-        html += sended_to_spaces newsletter
-        html += sended_to_scopes newsletter
-        html += "</div>"
-        html.html_safe
+        return t("decidim.admin.newsletters.index.not_sent") unless newsletter.sent?
+        content_tag :div do
+          concat sended_to_users newsletter
+          concat sended_to_spaces newsletter
+          concat sended_to_scopes newsletter
+        end
       end
 
       def sended_to_users(newsletter)
-        html = "<div>"
-        html += "<strong>Sended to: </strong>"
-        html += "all users" if newsletter.sended_to_all_users?
-        html += "followers" if newsletter.sended_to_followers?
-        html += " and " if newsletter.sended_to_followers? && newsletter.sended_to_participants?
-        html += "participants" if newsletter.sended_to_participants?
-        html += "</div>"
-        html.html_safe
+        content_tag :p, style: "margin-bottom:0;" do
+          concat t(".has_been_sent_to")
+          concat content_tag(:strong, t(".all_users")) if newsletter.sended_to_all_users?
+          concat content_tag(:strong, t(".followers")) if newsletter.sended_to_followers?
+          concat t(".and") if newsletter.sended_to_followers? && newsletter.sended_to_participants?
+          concat content_tag(:strong, t(".participants")) if newsletter.sended_to_participants?
+        end
       end
 
       def sended_to_spaces(newsletter)
-        html = "<div>"
+        html = "<p style='margin-bottom:0;'> "
         newsletter.sended_to_partipatory_spaces.try(:each) do |type|
           next if type["ids"].blank?
-          html += "<strong>#{type["manifest_name"]}: </strong>"
+          html += t(".segmented_to", subject: t("activerecord.models.decidim/#{type["manifest_name"].singularize}.other"))
           if type["ids"].include?("all")
-            html += "All"
+            html += "<strong> #{t(".all")} </strong>"
           else
             Decidim.find_participatory_space_manifest(type["manifest_name"].to_sym)
                    .participatory_spaces.call(current_organization).where(id: type["ids"]).each do |space|
-              html += translated_attribute space.title
+              html += "<strong>#{translated_attribute space.title}</strong>"
             end
           end
           html += "<br/>"
         end
-        html += "</div>"
+        html += "</p>"
         html.html_safe
       end
 
       def sended_to_scopes(newsletter)
-        html = "<div>"
-        if newsletter.sent_scopes.any?
-          html += "<strong> Selective to scopes: </strong>"
-          newsletter.sent_scopes.each do |scope|
-            html += translated_attribute scope.name
+        content_tag :p, style: "margin-bottom:0;" do
+          concat t(".segmented_to", subject: nil)
+          if newsletter.sent_scopes.any?
+            newsletter.sent_scopes.each do |scope|
+              concat content_tag(:strong, (translated_attribute scope.name).to_s)
+            end
+          else
+            concat content_tag(:strong, t(".no_scopes"))
           end
-        else
-          html += "No scopes"
         end
-        html += "</div>"
-        html.html_safe
       end
     end
   end

@@ -26,11 +26,7 @@
               <td><%= translated_attribute newsletter.subject %></td>
               <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
               <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
-              <td>
-                <% if newsletter.sent? %>
-                  <%= selective_newsletter_to newsletter %>
-                <% end %>
-              </td>
+              <td><%= selective_newsletter_to newsletter %></td>
               <td>
                 <% if newsletter.sent? %>
                   <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>

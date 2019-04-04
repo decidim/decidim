@@ -18,17 +18,17 @@
             <% if current_user.admin? %>
               <div class="grid-x grid-padding-x">
                 <div class="cell small-12" id="send_newsletter_to_all_users">
-                  <%= f.check_box :send_to_all_users, label: "Send to all Users" %>
+                  <%= f.check_box :send_to_all_users %>
                 </div>
               </div>
               <hr class="reset mt-s mb-s" />
             <% end %>
             <div class="grid-x grid-padding-x">
-              <div class="cell small-4 medium-2" id="send_newsletter_to_followers">
-                <%= f.check_box :send_to_followers, label: "Followers" %>
+              <div class="cell small-4 medium-3" id="send_newsletter_to_followers">
+                <%= f.check_box :send_to_followers %>
               </div>
-              <div class="cell small-4 medium-2" id="send_newsletter_to_participants">
-                <%= f.check_box :send_to_participants, label: "Participants" %>
+              <div class="cell small-4 medium-3" id="send_newsletter_to_participants">
+                <%= f.check_box :send_to_participants %>
               </div>
             </div>
           </div>
@@ -59,7 +59,6 @@
         </div>
       <% end %>
 
-      <!-- Aquesta selecció s'envia a tants emails: X -->
       <div class="button--double form-general-submit">
         <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
           <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
