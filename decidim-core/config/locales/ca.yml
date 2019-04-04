@@ -315,9 +315,9 @@ ca:
         new:
           complete_profile: Completa el perfil
           nickname_help: El teu àlies (@sobrenom) a %{organization}
-          sign_up: Si us plau completa el teu perfil
+          sign_up: Si us plau, completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
-          username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
+          username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
