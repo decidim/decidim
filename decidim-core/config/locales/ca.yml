@@ -193,7 +193,7 @@ ca:
         other: comentaris
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Obté la verificació introduint un número de passaport que comenci per "A"
+        explanation: Verifica't introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
         name: Una altra autorització d'exemple
@@ -206,9 +206,9 @@ ca:
       dummy_authorization_workflow:
         name: Flux de treball d'autorització d'exemple
       errors:
-        duplicate_authorization: Una participant ja ha estat autoritzada amb les mateixes dades.
+        duplicate_authorization: Ja s'ha autoritzat a una participant amb les mateixes dades.
       expired_at: Vençut el %{timestamp}
-      expires_at: Caduca el %{timestamp}
+      expires_at: Venç en %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -216,7 +216,7 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       sms:
-        explanation: Envia el número de telèfon mòbil per poder comprovar la teva identitat.
+        explanation: Introdueix el teu número de telèfon mòbil per poder verificar la teva identitat.
         name: Codi per SMS
       started_at: Iniciat el %{timestamp}
     authorization_modals:
