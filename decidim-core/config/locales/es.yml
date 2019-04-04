@@ -71,7 +71,7 @@ es:
           ok: Sí, quiero eliminar mi cuenta
           question: '¿Seguro que quieres eliminar tu cuenta?'
           title: Eliminar mi cuenta
-        explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
+        explanation: Por favor, cuéntanos el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
