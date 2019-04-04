@@ -132,20 +132,21 @@ en:
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
     amendments:
       accepted:
-        error: There was a problem accepting the amendment, please try again later.
-        success: This amendment has been successfully accepted.
+        error: An error ocurred while accepting the amendment.
+        success: The amendment has been accepted successfully.
       amendable:
         amended_by: Amended by
         button: Amend %{model_name}
-        error: There was a problem amending this resource.
+        error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
         no_amenders: There are no amenders
         no_amendments: There are no amendments
-        promote_button: Publish as a new %{model_name}
-        promote_help_text: You can publish this amendment as an independent %{model_name}
+        promote_button: Promote to %{model_name}
+        promote_confirm_text: Are you sure you want to promote this emendation?
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
       created:
-        error: An error ocurred creating this amendment, please try again later
+        error: An error ocurred while creating the amendment
         success: The amendment has been created successfully
       emendation:
         actions:
@@ -167,7 +168,7 @@ en:
         amendment_author: Amendment author
         back: Back
         heading: Create your amendment
-        help_text: You are modifying the %{model_name}
+        help_text: You are amending the %{model_name}
         send: Send amendment
       promoted:
         error: There was a problem publishing the amendment as a new proposal
@@ -178,7 +179,7 @@ en:
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are amending the %{model_name}
+        help_text: You are reviewing an amendment to the %{model_name}
         send: Accept amendment
     anonymous_user: Anonymous
     application:

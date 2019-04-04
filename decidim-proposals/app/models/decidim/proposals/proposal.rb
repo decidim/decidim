@@ -27,7 +27,6 @@ module Decidim
 
       amendable(
         fields: [:title, :body],
-        ignore: [:published_at, :reference, :state, :answered_at, :answer],
         form:   "Decidim::Proposals::ProposalForm"
       )
 
