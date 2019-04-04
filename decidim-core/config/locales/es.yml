@@ -127,12 +127,12 @@ es:
         unofficialize: "%{user_name} ha quitado la oficialización al usuario %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
-        verify: "%{user_name} verificado el grupo %{resource_name}"
+        verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
-        success: La enmienda ha sido aceptada con éxito.
+        success: La enmienda ha sido aceptada correctamente.
       amendable:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
