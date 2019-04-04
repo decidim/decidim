@@ -176,7 +176,7 @@ es:
         back: Volver
         heading: Revisar la enmienda
         help_text: Estás revisando una enmienda al %{model_name}
-        send: Aceptar enmienda
+        send: Acepta la enmienda
     anonymous_user: Anónima
     application:
       collection:
@@ -193,7 +193,7 @@ es:
         other: comentarios
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verifíquese introduciendo un número de pasaporte que comience por "A"
+        explanation: Verifícate introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
         name: Otro ejemplo de autorización
@@ -216,7 +216,7 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       sms:
-        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
+        explanation: Introduce tu número de teléfono móvil para poder verificar tu identidad.
         name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
