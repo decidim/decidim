@@ -21,12 +21,30 @@ module Decidim
     validates :name, :organization, presence: true
     validates :name, uniqueness: { scope: [:organization, :area_type] }
 
+    before_destroy :abort_if_dependencies
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AreaPresenter
     end
 
     def translated_name
       Decidim::AreaPresenter.new(self).translated_name
+    end
+
+    def has_dependencies?
+      Decidim.participatory_space_registry.manifests.any? do |manifest|
+        manifest
+          .participatory_spaces
+          .call(organization)
+          .any? do |space|
+          space.respond_to?(:area) && space.decidim_area_id == id
+        end
+      end
+    end
+
+    # used on before_destroy
+    def abort_if_dependencies
+      throw(:abort) if has_dependencies?
     end
   end
 end

@@ -64,6 +64,10 @@ module Decidim
             flash[:notice] = I18n.t("areas.destroy.success", scope: "decidim.admin")
             redirect_to areas_path
           end
+          on(:has_spaces) do
+            flash[:alert] = I18n.t("areas.destroy.has_spaces", scope: "decidim.admin")
+            redirect_to areas_path
+          end
         end
       end
 
