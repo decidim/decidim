@@ -392,45 +392,45 @@ tr:
             email_intro: '%{amendable_title}için bir ödeme kabul edildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
             email_subject: '%{emendation_author_nickname}%{amendable_title} bir değişiklik kabul edildi'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından oluşturulan <a href="%{emendation_path}">emendation</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}için kabul edildi.
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından yaratılan <a href="%{emendation_path}">değişiklik</a> <a href="%{amendable_path}">%{amendable_title}</a>için kabul edilmiştir.
           follower:
             email_intro: '%{amendable_title}için bir ödeme kabul edildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
             email_subject: '%{emendation_author_nickname}%{amendable_title} bir değişiklik kabul edildi'
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından oluşturulan <a href="%{emendation_path}">emendation</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}için kabul edildi.
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından yaratılan <a href="%{emendation_path}">değişiklik</a> <a href="%{amendable_path}">%{amendable_title}</a>için kabul edilmiştir.
         amendment_created:
           affected_user:
             email_intro: '%{amendable_title}için yeni bir emendation oluşturuldu. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
-            email_subject: '%{emendation_author_nickname}%{amendable_title} yeni bir değişiklik'
-            notification_title: <a href="%{emendation_path}">yeni bir emendation</a> , <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}için <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından oluşturuldu.
+            email_subject: '%{amendable_title}için yeni değişiklik'
+            notification_title: <a href="%{amendable_path}">%{amendable_title}</a>için yeni bir değişiklik yapıldı.
           follower:
             email_intro: '%{amendable_title}için yeni bir emendation oluşturuldu. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: '%{emendation_author_nickname}%{amendable_title} yeni bir değişiklik'
-            notification_title: <a href="%{emendation_path}">yeni bir emendation</a> , <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}için <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından oluşturuldu.
+            email_subject: '%{amendable_title}için yeni değişiklik'
+            notification_title: <a href="%{amendable_path}">%{amendable_title}</a>için yeni bir değişiklik yapıldı.
         amendment_promoted:
           affected_user:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type}yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
-            email_subject: '%{emendation_author_nickname} bir emendation tanıtıldı'
-            notification_title: <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} için bir <a href="%{emendation_path}">reddedilmiş emenisyon</a> <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>tarafından desteklenmiştir.
+            email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
+            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a> , yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type}yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: '%{emendation_author_nickname} bir emendation tanıtıldı'
-            notification_title: <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} için bir <a href="%{emendation_path}">reddedilmiş emenisyon</a> <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>tarafından desteklenmiştir.
+            email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
+            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a> , yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Bir emendation %{amendable_title}için reddedildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
             email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından oluşturulan <a href="%{emendation_path}">emendation</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}için reddedildi.
+            notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Bir emendation %{amendable_title}için reddedildi. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
             email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tarafından oluşturulan <a href="%{emendation_path}">emendation</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}için reddedildi.
+            notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: '%{resource_title}yeni bir belge eklendi. Bu sayfadan görebilirsiniz:'
