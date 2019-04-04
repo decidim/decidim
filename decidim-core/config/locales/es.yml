@@ -208,7 +208,7 @@ es:
       errors:
         duplicate_authorization: Ya se ha autorizado a una participante con los mismos datos.
       expired_at: Caducado el %{timestamp}
-      expires_at: Caduca en %{timestamp}
+      expires_at: Caduca el %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
