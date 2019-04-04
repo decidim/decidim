@@ -15,7 +15,7 @@ module Decidim
       private
 
       def title
-        decidim_html_unescape(present(model).title)
+        decidim_html_escape(present(model).title)
       end
 
       def body
