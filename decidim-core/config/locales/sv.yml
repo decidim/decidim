@@ -388,45 +388,45 @@ sv:
             email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
             email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nytt ändringsförslag för %{amendable_title}
+            notification_title: Ett nytt ändringsförslag har skapats för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nytt ändringsförslag för %{amendable_title}
+            notification_title: Ett nytt ändringsförslag har skapats för <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
-            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
+            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> för <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
-            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
+            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> för <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
             email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
