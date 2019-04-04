@@ -271,8 +271,8 @@ es:
             resources_permissions_enabled: Habilitar permisos de recursos
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Paso de Atributo Fictício 1
+            dummy_step_attribute_2: Paso de Atributo Fictício 2
     contact: Contacto
     content_blocks:
       footer_sub_hero:
@@ -298,7 +298,7 @@ es:
         name: Banner de sub-hero
     core:
       actions:
-        unauthorized: No tienes permiso para realizar esta acción.
+        unauthorized: No tienes permisos para realizar esta acción
     data_portability:
       export:
         ready: Listo
