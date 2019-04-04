@@ -151,7 +151,7 @@ es:
         actions:
           button_accept: Aceptar
           button_reject: Rechazar
-          help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autor(es).
+          help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autora(as).
         announcement:
           accepted: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido aceptada el <strong>%{announcement_date}</strong>.
@@ -161,7 +161,7 @@ es:
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido retirada por su autora.
       new:
-        amendment_author: Autor de la enmienda
+        amendment_author: Autora de la enmienda
         back: Volver
         heading: Crea tu enmienda
         help_text: Estás enmendando el %{model_name}
