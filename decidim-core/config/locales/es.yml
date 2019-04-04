@@ -124,7 +124,7 @@ es:
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó a la participante %{resource_name}"
         remove_from_admin: "%{user_name} eliminó a la participante %{resource_name} con el rol: %{role}"
-        unofficialize: "%{user_name} ha quitado la oficialización al usuario %{resource_name}"
+        unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
