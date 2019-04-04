@@ -65,13 +65,13 @@ ca:
         no_token: No s'ha proporcionat cap testimoni
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
-        alert: Aquesta acció no es pot desfer. Si elimines el teu compte no seràs capaç d'iniciar sessió.
+        alert: Aquesta acció no es pot desfer. Si elimines el teu compte, no podràs iniciar sessió.
         confirm:
-          close: Tanca la finestra
+          close: Tancar finestra
           ok: Sí, vull eliminar el meu compte
           question: Segur que vols eliminar el teu compte?
           title: Eliminar el meu compte
-        explanation: Si us plau, omple la raó per la qual vols eliminar el teu compte (opcional).
+        explanation: Si us plau, explica'ns la raó per la qual vols eliminar el teu compte (opcional).
       destroy:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
