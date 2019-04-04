@@ -335,15 +335,15 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: '¿Eres nueva en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa
           sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder
       shared:
         newsletter_modal:
           buttons:
-            check: Verificar y continuar
-            close_modal: Cerrar modal
+            check: Verifica y continúa
+            close_modal: Cierra modal
             uncheck: Mantener desmarcado
           notice: |-
             <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
