@@ -9,7 +9,7 @@ ca:
         about: Quant a
         email: El teu correu electrònic
         name: El teu nom
-        nickname: Nom d'usuari
+        nickname: Àlies
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
