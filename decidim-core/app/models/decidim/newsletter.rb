@@ -46,6 +46,7 @@ module Decidim
     def sended_to_partipatory_spaces
       extended_data["participatory_space_types"]
     end
+
     private
 
     def author_belongs_to_organization

@@ -49,7 +49,7 @@ module Decidim
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
     scope :interested_in_scopes, ->(scope_ids) {
-      ids = scope_ids.map{ |i| "%#{i}%"}.join(',')
+      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
 

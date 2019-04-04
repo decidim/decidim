@@ -55,6 +55,7 @@ module Decidim
   autoload :MetricOperation, "decidim/metric_operation"
   autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :NewsletterParticipant, "decidim/newsletter_participant"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"

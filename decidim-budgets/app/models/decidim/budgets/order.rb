@@ -7,6 +7,7 @@ module Decidim
     class Order < Budgets::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::DataPortability
+      include Decidim::NewsletterParticipant
 
       component_manifest_name "budgets"
 
@@ -67,6 +68,12 @@ module Decidim
 
       def self.export_serializer
         Decidim::Budgets::DataPortabilityBudgetsOrderSerializer
+      end
+
+      def self.newsletter_participant_ids(component)
+        Decidim::Budgets::Order.where(component: component).joins(:component)
+                               .finished
+                               .pluck(:decidim_user_id).flatten.compact.uniq
       end
 
       private
