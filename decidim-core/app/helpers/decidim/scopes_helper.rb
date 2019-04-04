@@ -34,9 +34,11 @@ module Decidim
     # Renders a scopes picker field in a form.
     # form - FormBuilder object
     # name - attribute name
+    # options       - An optional Hash with options:
+    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt
     #
     # Returns nothing.
-    def scopes_picker_field(form, name, root: false, options: {})
+    def scopes_picker_field(form, name, root: false, options: { checkboxes_on_top: true })
       root = current_participatory_space.scope if root == false
       form.scopes_picker name, options do |scope|
         { url: decidim.scopes_picker_path(root: root, current: scope&.id, field: form.label_for(name)),
