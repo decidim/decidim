@@ -316,8 +316,8 @@ es:
           complete_profile: Completar perfil
           nickname_help: Tu alias (@nickname) en %{organization}
           sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
-          username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
+          subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
+          username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
