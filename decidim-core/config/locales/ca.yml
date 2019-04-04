@@ -332,10 +332,10 @@ ca:
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
           tos_title: Termes del servei
-          username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantitzar l'anonimat pot ser qualsevol nom.
+          username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantir l'anonimat pot ser qualsevol nom.
       sessions:
         new:
-          are_you_new?: Ets nou a la plataforma?
+          are_you_new?: Ets nova a la plataforma?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern
           sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi
@@ -343,7 +343,7 @@ ca:
         newsletter_modal:
           buttons:
             check: Marca i continua
-            close_modal: Tanca el modal
+            close_modal: Tanca modal
             uncheck: Deixa desmarcada
           notice: |-
             <p>Hola, estàs segur que no vols rebre un butlletí?<br>
