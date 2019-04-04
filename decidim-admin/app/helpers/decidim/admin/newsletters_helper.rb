@@ -32,10 +32,11 @@ module Decidim
         return unless Decidim.participatory_space_manifests.map(&:name).include?(manifest_name)
         all_spaces = [[I18n.t("decidim.admin.newsletters.select_recipients_to_deliver.all_spaces"), "all"]]
         spaces ||= Decidim.find_participatory_space_manifest(manifest_name)
-                          .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |space|
+                          .participatory_spaces.call(current_organization)&.published&.order(title: :asc)&.map do |space|
           [
             translated_attribute(space.title),
-            space.id
+            space.id,
+            { class: space.try(:closed?) ? "red" : "green" }
           ]
         end
         all_spaces + spaces
