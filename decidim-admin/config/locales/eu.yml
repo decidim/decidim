@@ -156,6 +156,7 @@ eu:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
+          has_spaces: Eremuak espazio desberdinak ditu, ez du mendekotasunik izan ezabatzeko.
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua

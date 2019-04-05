@@ -156,6 +156,7 @@ id:
           error: Terjadi kesalahan saat membuat area baru.
           success: Area berhasil dibuat.
         destroy:
+          has_spaces: Area memiliki spasi, tidak boleh memiliki dependensi untuk dihapus.
           success: Area berhasil dihancurkan
         edit:
           title: Edit area

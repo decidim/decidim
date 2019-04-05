@@ -41,6 +41,10 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Behöver återbifogas
+            body:
+              identical: OCH titel kan inte vara identisk
+            title:
+              identical: OCH kropp kan inte vara identisk
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad

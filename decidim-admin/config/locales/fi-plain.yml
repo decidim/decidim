@@ -156,6 +156,7 @@ fi-pl:
           error: Uuden alueen luomisessa tapahtui virhe.
           success: Alue luotu onnistuneesti.
         destroy:
+          has_spaces: Alueella on siitä riippuvia osallisuustiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
           success: Alue tuhottu onnistuneesti
         edit:
           title: Muokkaa aluetta

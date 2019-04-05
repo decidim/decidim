@@ -156,6 +156,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
+          has_spaces: A área tem espaços separados, não deve ter dependências para ser excluída.
           success: Área excluída com sucesso
         edit:
           title: Editar área
