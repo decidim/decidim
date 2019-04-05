@@ -132,7 +132,7 @@ es-MX:
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
-        success: La enmienda ha sido aceptada con éxito.
+        success: La enmienda ha sido aceptada correctamente.
       amendable:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
@@ -145,7 +145,7 @@ es-MX:
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
         section_heading: Enmiendas (%{count})
       created:
-        error: Se ha producido un error al crear la enmienda.
+        error: Se ha producido un error al crear la enmienda
         success: La enmienda se ha creado correctamente
       emendation:
         actions:
@@ -268,14 +268,14 @@ es-MX:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute_1: Atributo de prueba 1
+            dummy_global_attribute_2: Atributo de prueba 2
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Habilitar permisos de recursos
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Atributo de fase de prueba 1
+            dummy_step_attribute_2: Atributo de fase de prueba 2
     contact: Contacto
     content_blocks:
       footer_sub_hero:
@@ -974,6 +974,10 @@ es-MX:
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
+      participatory_space_filters:
+        filters:
+          areas: Áreas
+          select_an_area: Seleccione un area
       reference:
         reference: 'Referencia: %{reference}'
       results_per_page:
