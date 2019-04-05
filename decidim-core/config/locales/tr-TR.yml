@@ -978,6 +978,10 @@ tr:
       login_modal:
         please_sign_in: Lütfen giriş yapın
         sign_up: kaydol
+      participatory_space_filters:
+        filters:
+          areas: alanlar
+          select_an_area: Bir bölge seçin
       reference:
         reference: 'Referans: %{reference}'
       results_per_page:
