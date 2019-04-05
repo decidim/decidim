@@ -416,7 +416,7 @@ es:
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque eres autora de %{amendable_title}.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
