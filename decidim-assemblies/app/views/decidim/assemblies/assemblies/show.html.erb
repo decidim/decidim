@@ -141,14 +141,19 @@ edit_link(
           </div>
         <% end %>
 
-        <% if translated_attribute(current_participatory_space.try(:area).try(:name)).present? %>
+        <% area = current_participatory_space.area %>
+        <% if translated_attribute(area&.name).present? %>
           <div class="definition-data__item area">
-            <span class="definition-data__title"><%= t("assemblies.show.area", scope: "decidim") %></span>
-            <%= translated_attribute(current_participatory_space.area.area_type.name) %> - <%= translated_attribute(current_participatory_space.area.name) %>
+            <span class="definition-data__title"><%= t("participatory_processes.show.area", scope: "decidim") %></span>
+            <% if translated_attribute(area.area_type&.name).present? %>
+              <%= translated_attribute(area.area_type.name) %>
+              <span>&#45;</span>
+            <% end %>
+            <%= translated_attribute(area.name) %>
           </div>
         <% end %>
 
-        <% if current_participatory_space.assembly_type.presence %>
+        <% if current_participatory_space.assembly_type.present? %>
           <div class="definition-data__item assembly_type">
             <span class="definition-data__title"><%= t("assemblies.show.assembly_type", scope: "decidim") %></span>
             <% if current_participatory_space.assembly_type == "others" %>
@@ -159,14 +164,14 @@ edit_link(
           </div>
         <% end %>
 
-        <% if current_participatory_space.creation_date.presence %>
+        <% if current_participatory_space.creation_date.present? %>
           <div class="definition-data__item creation_date">
             <span class="definition-data__title"><%= t("assemblies.show.creation_date", scope: "decidim") %></span>
             <%= l current_participatory_space.creation_date, format: :decidim_short %>
           </div>
         <% end %>
 
-        <% if current_participatory_space.created_by.presence %>
+        <% if current_participatory_space.created_by.present? %>
           <div class="definition-data__item created_by">
             <span class="definition-data__title"><%= t("assemblies.show.created_by", scope: "decidim") %></span>
             <% if current_participatory_space.created_by == "others" %>
@@ -177,23 +182,23 @@ edit_link(
           </div>
         <% end %>
 
-        <div class="definition-data__item duration">
-          <span class="definition-data__title"><%= t("assemblies.show.duration", scope: "decidim") %></span>
-          <% if current_participatory_space.duration.presence %>
-            <%= l current_participatory_space.duration, format: :decidim_short %>
-          <% else %>
-            <%= t("assemblies.show.indefinite_duration", scope: "decidim") %>
-          <% end %>
-        </div>
-
-        <% if current_participatory_space.included_at.presence %>
+        <% if current_participatory_space.included_at.present? %>
           <div class="definition-data__item included_at">
             <span class="definition-data__title"><%= t("assemblies.show.included_at", scope: "decidim") %></span>
             <%= l current_participatory_space.included_at, format: :decidim_short %>
           </div>
         <% end %>
 
-        <% if current_participatory_space.closing_date.presence %>
+        <div class="definition-data__item duration">
+          <span class="definition-data__title"><%= t("assemblies.show.duration", scope: "decidim") %></span>
+          <% if current_participatory_space.duration.present? %>
+            <%= l current_participatory_space.duration, format: :decidim_short %>
+          <% else %>
+            <%= t("assemblies.show.indefinite_duration", scope: "decidim") %>
+          <% end %>
+        </div>
+
+        <% if current_participatory_space.closing_date.present? %>
           <div class="definition-data__item closing_date">
             <span class="definition-data__title"><%= t("assemblies.show.closing_date", scope: "decidim") %></span>
             <%= l current_participatory_space.closing_date, format: :decidim_short %>

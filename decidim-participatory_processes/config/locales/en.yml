@@ -348,9 +348,12 @@ en:
           loading: Loading results...
       show:
         area: Area
+        cost: Cost of Making
         developer_group: Promoter group
         end_date: End date
+        has_summary_record: Summary record
         local_area: Organization Area
+        "no": "No"
         participatory_scope: What is decided
         participatory_structure: How is it decided
         private_space: This is a private process
@@ -358,6 +361,7 @@ en:
         start_date: Start date
         target: Who participates
         unspecified: Not specified
+        "yes": "Yes"
       statistics:
         answers_count: Answers
         comments_count: Comments

@@ -56,6 +56,8 @@ module Decidim
             local_area: form.local_area,
             area: form.area,
             target: form.target,
+            cost: form.cost,
+            has_summary_record: form.has_summary_record,
             participatory_scope: form.participatory_scope,
             participatory_structure: form.participatory_structure,
             meta_scope: form.meta_scope,

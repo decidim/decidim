@@ -30,7 +30,7 @@ module Decidim
         attribute :slug, String
 
         attribute :area_id, Integer
-        attribute :cost, Integer
+        attribute :cost, Float
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
 

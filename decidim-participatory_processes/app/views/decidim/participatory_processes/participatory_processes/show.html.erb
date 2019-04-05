@@ -64,10 +64,15 @@ edit_link(
           </div>
         <% end %>
 
-        <% if translated_attribute(current_participatory_space.try(:area).try(:name)).present? %>
+        <% area = current_participatory_space.area %>
+        <% if translated_attribute(area&.name).present? %>
           <div class="definition-data__item area">
             <span class="definition-data__title"><%= t("participatory_processes.show.area", scope: "decidim") %></span>
-            <%= translated_attribute(current_participatory_space.area.area_type.name) %> - <%= translated_attribute(current_participatory_space.area.name) %>
+            <% if translated_attribute(area.area_type&.name).present? %>
+              <%= translated_attribute(area.area_type.name) %>
+              <span>&#45;</span>
+            <% end %>
+            <%= translated_attribute(area.name) %>
           </div>
         <% end %>
 
@@ -91,6 +96,24 @@ edit_link(
             <%= translated_attribute(current_participatory_space.developer_group) %>
           </div>
         <% end %>
+
+        <% if current_participatory_space.cost.present? %>
+          <div class="definition-data__item cost">
+            <span class="definition-data__title"><%= t("participatory_processes.show.cost", scope: "decidim") %></span>
+            <%= number_to_currency(current_participatory_space.cost, locale: I18n.locale, unit: Decidim.currency_unit)  %>
+          </div>
+        <% end %>
+
+        <div class="definition-data__item cost">
+          <span class="definition-data__title">
+            <%= t("participatory_processes.show.has_summary_record", scope: "decidim") %>
+          </span>
+            <% if current_participatory_space.has_summary_record %>
+              <%= t("participatory_processes.show.yes", scope: "decidim") %>
+            <% else %>
+              <%= t("participatory_processes.show.no", scope: "decidim") %>
+            <% end %>
+        </div>
 
         <% if current_participatory_space.start_date.present? %>
           <div class="definition-data__item start-date">
