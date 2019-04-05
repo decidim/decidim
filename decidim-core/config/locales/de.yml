@@ -974,6 +974,10 @@ de:
       login_modal:
         please_sign_in: Bitte einloggen
         sign_up: Anmelden
+      participatory_space_filters:
+        filters:
+          areas: Bereiche
+          select_an_area: Wählen Sie einen Bereich aus
       reference:
         reference: 'Referenz: %{reference}'
       results_per_page:
