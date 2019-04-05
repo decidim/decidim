@@ -158,3 +158,28 @@
     }
   }
 }
+
+#participatory-space-filters{
+  legend{
+    float: left;
+    padding-top: 10px;
+  }
+
+  .picker-prompt,
+  select{
+    width: 75%;
+    float: right;
+  }
+
+  .filters__section{
+    padding: 0;
+  }
+
+  .picker-values{
+    clear: both;
+
+    div{
+      display: inline-block;
+    }
+  }
+}

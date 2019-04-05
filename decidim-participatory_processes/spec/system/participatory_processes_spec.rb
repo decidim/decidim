@@ -10,6 +10,7 @@ describe "Participatory Processes", type: :system do
   let(:base_process) do
     create(
       :participatory_process,
+      :active,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
@@ -128,70 +129,6 @@ describe "Participatory Processes", type: :system do
       click_link(translated(participatory_process.title, locale: :en))
 
       expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
-    end
-
-    context "and filtering processes" do
-      context "and choosing 'active' processes" do
-        it "lists the active processes" do
-          within "#processes-grid h2" do
-            expect(page).to have_content("3 ACTIVE PROCESSES")
-          end
-
-          expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_content(translated(promoted_process.title, locale: :en))
-        end
-      end
-
-      context "and choosing 'past' processes" do
-        before do
-          within ".order-by__tabs" do
-            click_link "Past"
-          end
-        end
-
-        it "lists the past processes" do
-          within "#processes-grid h2" do
-            expect(page).to have_content("1")
-          end
-
-          expect(page).to have_content(translated(past_process.title, locale: :en))
-        end
-      end
-
-      context "and choosing 'upcoming' processes" do
-        before do
-          within ".order-by__tabs" do
-            click_link "Upcoming"
-          end
-        end
-
-        it "lists the upcoming processes" do
-          within "#processes-grid h2" do
-            expect(page).to have_content("1")
-          end
-
-          expect(page).to have_content(translated(upcoming_process.title, locale: :en))
-        end
-      end
-
-      context "and choosing 'all' processes" do
-        before do
-          within ".order-by__tabs" do
-            click_link "All"
-          end
-        end
-
-        it "lists all processes" do
-          within "#processes-grid h2" do
-            expect(page).to have_content("5 PROCESSES")
-          end
-
-          expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_content(translated(past_process.title, locale: :en))
-          expect(page).to have_content(translated(upcoming_process.title, locale: :en))
-        end
-      end
     end
 
     context "with active steps" do

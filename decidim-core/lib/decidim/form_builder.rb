@@ -202,12 +202,44 @@ module Decidim
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
     end
 
+    # Public: Generates a select field for areas.
+    #
+    # name       - The name of the field (usually area_id)
+    # collection - A collection of areas or area_types.
+    #              If it's areas, we sort the selectable options alphabetically.
+    #
+    # Returns a String.
+    def areas_select(name, collection, options = {})
+      selectables = if collection.first.is_a?(Decidim::Area)
+                      assemblies = collection
+                                   .map { |a| [a.name[I18n.locale.to_s], a.id] }
+                                   .sort_by { |arr| arr[0] }
+
+                      @template.options_for_select(
+                        assemblies,
+                        selected: options[:selected]
+                      )
+                    else
+                      @template.option_groups_from_collection_for_select(
+                        collection,
+                        :areas,
+                        :translated_name,
+                        :id,
+                        :translated_name,
+                        selected: options[:selected]
+                      )
+                    end
+
+      select(name, selectables, options)
+    end
+
     # Public: Generates a picker field for scope selection.
     #
     # attribute     - The name of the field (usually scope_id)
     # options       - An optional Hash with options:
     # - multiple    - Multiple mode, to allow multiple scopes selection.
     # - label       - Show label?
+    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt
     #
     # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
@@ -225,7 +257,11 @@ module Decidim
       scopes = selected_scopes(attribute).map { |scope| [scope, yield(scope)] }
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
-      template += @template.render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes)
+      template += @template.render("decidim/scopes/scopes_picker_input",
+                                   picker_options: picker_options,
+                                   prompt_params: prompt_params,
+                                   scopes: scopes,
+                                   checkboxes_on_top: options[:checkboxes_on_top])
       template += error_and_help_text(attribute, options)
       template.html_safe
     end

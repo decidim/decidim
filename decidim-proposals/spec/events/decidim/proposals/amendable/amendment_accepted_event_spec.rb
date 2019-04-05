@@ -9,7 +9,6 @@ module Decidim
       let!(:amendable) { create(:proposal, component: component) }
       let!(:emendation) { create(:proposal, component: component) }
       let!(:amendment) { create :amendment, amendable: amendable, emendation: emendation }
-      let(:amendable_type) { "proposal" }
 
       include_examples "amendment accepted event"
     end

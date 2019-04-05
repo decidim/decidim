@@ -20,6 +20,7 @@ edit_link(
     <div class="processes-grid-order-by">
       <%= render partial: "order_by_processes" %>
     </div>
+    <%= render partial: "decidim/shared/participatory_space_filters/show" %>
     <p class="loading"><%= t(".loading") %></p>
     <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
       <%= render(collection) %>
@@ -27,3 +28,4 @@ edit_link(
   </section>
 <% end %>
 <%= javascript_include_tag "decidim/participatory_processes/filters" %>
+<%= javascript_include_tag "decidim/filters" %>

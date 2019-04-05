@@ -59,15 +59,15 @@ module Decidim
       end
 
       def notify_amendable_and_emendation_authors_and_followers
-        affected_users = @emendation.authors + @amendable.authors
+        affected_users = @emendation.authors + @amendable.notifiable_identities
         followers = @emendation.followers + @amendable.followers - affected_users
 
         Decidim::EventsManager.publish(
           event: "decidim.events.amendments.amendment_accepted",
           event_class: Decidim::Amendable::AmendmentAcceptedEvent,
           resource: @emendation,
-          affected_users: affected_users,
-          followers: followers
+          affected_users: affected_users.uniq,
+          followers: followers.uniq
         )
       end
     end

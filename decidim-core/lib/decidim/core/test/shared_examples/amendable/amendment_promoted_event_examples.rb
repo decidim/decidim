@@ -37,7 +37,7 @@ shared_examples "amendment promoted event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("A <a href=\"#{emendation_path}\">rejected amendment</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type} has been published as a new proposal by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a>.") # rubocop:disable Metrics/LineLength
+        .to eq("A <a href=\"#{emendation_path}\">rejected amendment</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> has been published as a new #{amendable_type} by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a>.") # rubocop:disable Metrics/LineLength
     end
   end
 end

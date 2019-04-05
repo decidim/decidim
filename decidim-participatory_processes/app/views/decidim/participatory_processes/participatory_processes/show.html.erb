@@ -100,7 +100,7 @@ edit_link(
         <% if current_participatory_space.cost.present? %>
           <div class="definition-data__item cost">
             <span class="definition-data__title"><%= t("participatory_processes.show.cost", scope: "decidim") %></span>
-            <%= number_to_currency(current_participatory_space.cost, locale: I18n.locale, unit: Decidim.currency_unit)  %>
+            <%= number_to_currency(current_participatory_space.cost, locale: I18n.locale, unit: Decidim.currency_unit) %>
           </div>
         <% end %>
 
