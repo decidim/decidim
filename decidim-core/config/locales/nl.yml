@@ -974,6 +974,10 @@ nl:
       login_modal:
         please_sign_in: Log in alstublieft
         sign_up: Registreren
+      participatory_space_filters:
+        filters:
+          areas: gebieden
+          select_an_area: Selecteer een gebied
       reference:
         reference: 'Referentie: %{reference}'
       results_per_page:
