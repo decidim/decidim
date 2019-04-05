@@ -383,7 +383,7 @@ ca:
         amendment_accepted:
           affected_user:
             email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autor/a de %{amendable_title}.
+            email_outro: Has rebut aquesta notificació perquè ets una autora de %{amendable_title}.
             email_subject: Esmena acceptada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat acceptada per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
