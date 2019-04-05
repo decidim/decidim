@@ -47,24 +47,6 @@
                     </div>
                   <% end %>
 
-                    <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-                      <div class="row">
-                        <div class="column mediumlarge-6 large-12">
-                          <%= form.select(:user_group_id,
-                                          current_user.user_groups.verified.map { |g| [g.name, g.id] },
-                                          selected: form.object.user_group_id.presence,
-                                          include_blank: "Select a group",
-                                          label: "Do you want to attend as a group?"
-                                        ) %>
-                        </div>
-                        <div class="column mediumlarge-6 large-12">
-                          <%= form.text_field :slots,
-                                              placeholder: "#{@meeting.remaining_slots} slots remaining",
-                                              label: "How many slots does your group need?" %>
-                        </div>
-                      </div>
-                    <% end %>
-
                   <div class="row column tos-agreement">
                     <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                     <div class="help-text">

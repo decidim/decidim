@@ -8,10 +8,8 @@ module Decidim
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
-      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup"
 
       validates :user, uniqueness: { scope: :meeting }
-      validates :user_group, uniqueness: { scope: :meeting }
       validates :code, uniqueness: { allow_blank: true, scope: :meeting }
       validates :code, presence: true, on: :create
 
