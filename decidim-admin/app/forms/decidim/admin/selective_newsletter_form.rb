@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # The form that validates the data to construct a valid Newsletter.
+    # A form object to select which users will be sent the selective newsletters
     class SelectiveNewsletterForm < Decidim::Form
       mimic :newsletter
 

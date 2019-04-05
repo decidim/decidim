@@ -7,6 +7,7 @@ module Decidim
       # Initializes the command.
       #
       # newsletter - The newsletter to deliver.
+      # form - A form object with the params.
       # user - the Decidim::User that delivers the newsletter
       def initialize(newsletter, form, user)
         @newsletter = newsletter

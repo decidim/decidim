@@ -2,7 +2,11 @@
 
 module Decidim
   module Admin
+    # A class used to find the recipients of the
+    # Newsletter depending on the params of the form
     class NewsletterRecipients < Rectify::Query
+      # newsletter - the Newsletter that will be send and needs to be selected the recipients.
+      # form - params to filter the query
       def initialize(newsletter, form)
         @newsletter = newsletter
         @form = form
@@ -24,6 +28,10 @@ module Decidim
 
       private
 
+      # Return the ids of the ParticipatorySpace selected
+      # in form, grouped by type
+      # This will be used to take followers and
+      # participants of each ParticipatorySpace
       def spaces
         return if @form.participatory_space_types.blank?
 
@@ -38,12 +46,16 @@ module Decidim
         end.flatten.compact
       end
 
+      # Return the ids of Users that are following
+      # the spaces selected in form
       def user_id_of_followers
         return if spaces.blank?
         return unless @form.send_to_followers
         Decidim::Follow.user_follower_ids_for_participatory_spaces(spaces)
       end
 
+      # Return the ids of Users that have participate
+      # the spaces selected in form
       def participant_ids
         return if spaces.blank?
         return unless @form.send_to_participants
