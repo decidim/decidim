@@ -6,7 +6,7 @@ module Decidim
     # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ParticipatoryProcesses::ApplicationHelper
-
+      helper ParticipatoryProcessHelper
       include NeedsPermission
 
       private
