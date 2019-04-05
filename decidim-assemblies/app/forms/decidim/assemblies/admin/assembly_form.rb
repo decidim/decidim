@@ -12,66 +12,69 @@ module Decidim
         ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
         CREATED_BY = %w(city_council public others).freeze
 
-        translatable_attribute :title, String
-        translatable_attribute :subtitle, String
+        mimic :assembly
+
+        translatable_attribute :assembly_type_other, String
+        translatable_attribute :composition, String
+        translatable_attribute :closing_date_reason, String
+        translatable_attribute :created_by_other, String
         translatable_attribute :description, String
-        translatable_attribute :short_description, String
-        translatable_attribute :meta_scope, String
         translatable_attribute :developer_group, String
+        translatable_attribute :internal_organisation, String
         translatable_attribute :local_area, String
-        translatable_attribute :target, String
+        translatable_attribute :meta_scope, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
         translatable_attribute :purpose_of_action, String
-        translatable_attribute :composition, String
-        translatable_attribute :assembly_type_other, String
-        translatable_attribute :created_by_other, String
-        translatable_attribute :closing_date_reason, String
-        translatable_attribute :internal_organisation, String
+        translatable_attribute :short_description, String
         translatable_attribute :special_features, String
+        translatable_attribute :subtitle, String
+        translatable_attribute :target, String
+        translatable_attribute :title, String
 
-        mimic :assembly
-
-        attribute :slug, String
-        attribute :hashtag, String
-        attribute :promoted, Boolean
-        attribute :scopes_enabled, Boolean
-        attribute :scope_id, Integer
-        attribute :hero_image
-        attribute :remove_hero_image
-        attribute :banner_image
-        attribute :remove_banner_image
-        attribute :show_statistics, Boolean
         attribute :area_id, Integer
-        attribute :parent_id, Integer
-        attribute :participatory_processes_ids, Array[Integer]
-        attribute :private_space, Boolean
         attribute :assembly_type, String
-        attribute :creation_date, Decidim::Attributes::LocalizedDate
+        attribute :banner_image
         attribute :created_by, String
+        attribute :facebook_handler, String
+        attribute :github_handler, String
+        attribute :hashtag, String
+        attribute :hero_image
+        attribute :instagram_handler, String
+        attribute :parent_id, Integer
+        attribute :remove_banner_image
+        attribute :remove_hero_image
+        attribute :scope_id, Integer
+        attribute :slug, String
+        attribute :twitter_handler, String
+        attribute :youtube_handler, String
+
+        attribute :participatory_processes_ids, Array[Integer]
+
+        attribute :is_transparent, Boolean
+        attribute :promoted, Boolean
+        attribute :private_space, Boolean
+        attribute :show_statistics, Boolean
+        attribute :scopes_enabled, Boolean
+
+        attribute :creation_date, Decidim::Attributes::LocalizedDate
+        attribute :closing_date, Decidim::Attributes::LocalizedDate
         attribute :duration, Decidim::Attributes::LocalizedDate
         attribute :included_at, Decidim::Attributes::LocalizedDate
-        attribute :closing_date, Decidim::Attributes::LocalizedDate
-        attribute :is_transparent, Boolean
-        attribute :twitter_handler, String
-        attribute :facebook_handler, String
-        attribute :instagram_handler, String
-        attribute :youtube_handler, String
-        attribute :github_handler, String
 
-        validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
-        validates :title, :subtitle, :description, :short_description, translatable_presence: true
-        validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
+        validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
+        validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
+        validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
         validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
 
         validate :slug_uniqueness
 
-        validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
