@@ -364,8 +364,8 @@ es:
           connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
           publish_content: Publique contenido para tí
           see_email: Consulta tu correo electrónico
-          see_name: Ver tu nombre
-          see_username: Ver tu alias
+          see_name: Consulta tu nombre
+          see_username: Consulta tu alias
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
