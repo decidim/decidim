@@ -13,10 +13,12 @@ module Decidim
       end
 
       def participatory_space_types_form_object(form_object, space_type)
+        html = ""
         form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
-          ff.hidden_field :manifest_name, value: space_type.manifest_name
-          select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
+          html += ff.hidden_field :manifest_name, value: space_type.manifest_name
+          html += select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
         end
+        html.html_safe
       end
 
       def select_tag_participatory_spaces(manifest_name, spaces, child_form)

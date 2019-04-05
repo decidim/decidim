@@ -369,8 +369,8 @@ en:
           fields:
             created_at: Created at
             progress: Progress
-            sent_to: Sent to
             sent_at: Sent at
+            sent_to: Sent to
             subject: Subject
           name: Newsletter
         oauth_application:
