@@ -971,6 +971,10 @@ id:
       login_modal:
         please_sign_in: Silakan masuk
         sign_up: Daftar
+      participatory_space_filters:
+        filters:
+          areas: Area
+          select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
       results_per_page:
