@@ -292,14 +292,14 @@ en:
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
-            select_an_area: Select an Area
-            select_process_group: Select a process group
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             duration: Duration
             filters: Filters
             images: Images
             metadata: Metadata
             other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: General Information
             visbility: Visibility
       content_blocks:
@@ -351,7 +351,7 @@ en:
         end_date: End date
         has_summary_record: Summary record
         local_area: Organization Area
-        "no": "No"
+        'no': 'No'
         participatory_scope: What is decided
         participatory_structure: How is it decided
         private_space: This is a private process
@@ -359,7 +359,7 @@ en:
         start_date: Start date
         target: Who participates
         unspecified: Not specified
-        "yes": "Yes"
+        'yes': 'Yes'
       statistics:
         answers_count: Answers
         comments_count: Comments
