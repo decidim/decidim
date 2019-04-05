@@ -971,6 +971,10 @@ ca:
       login_modal:
         please_sign_in: Si us plau, inicia sessió
         sign_up: Donar-se d'alta
+      participatory_space_filters:
+        filters:
+          areas: Àrees
+          select_an_area: Seleccioneu una àrea
       reference:
         reference: 'Referència: %{reference}'
       results_per_page:
