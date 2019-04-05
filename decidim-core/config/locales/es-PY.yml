@@ -132,7 +132,7 @@ es-PY:
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
-        success: La enmienda ha sido aceptada con éxito.
+        success: La enmienda ha sido aceptada correctamente.
       amendable:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
@@ -145,7 +145,7 @@ es-PY:
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
         section_heading: Enmiendas (%{count})
       created:
-        error: Se ha producido un error al crear la enmienda.
+        error: Se ha producido un error al crear la enmienda
         success: La enmienda se ha creado correctamente
       emendation:
         actions:
@@ -974,6 +974,10 @@ es-PY:
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
+      participatory_space_filters:
+        filters:
+          areas: Áreas
+          select_an_area: Seleccione un area
       reference:
         reference: 'Referencia: %{reference}'
       results_per_page:
