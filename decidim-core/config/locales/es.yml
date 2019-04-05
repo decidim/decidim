@@ -971,6 +971,10 @@ es:
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
+      participatory_space_filters:
+        filters:
+          areas: Áreas
+          select_an_area: Seleccione un area
       reference:
         reference: 'Referencia: %{reference}'
       results_per_page:
