@@ -346,9 +346,9 @@ es:
             close_modal: Cierra modal
             uncheck: Mantener desmarcado
           notice: |-
-            <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
-            Por favor, considera volver a marcar la casilla de verificación del boletín de abajo.<br>
-            Es muy importante para nosotros que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
+            <p>Hola, ¿estás segura de que no quieres recibir un boletín informativo?<br>
+            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
+            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
             Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
@@ -358,12 +358,12 @@ es:
     doorkeeper:
       authorizations:
         new:
-          authorize: Autorice la aplicación
+          authorize: Autoriza la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
           connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
-          publish_content: Publique contenido para usted
-          see_email: Ver tu correo electrónico
+          publish_content: Publique contenido para tí
+          see_email: Consulta tu correo electrónico
           see_name: Ver tu nombre
           see_username: Ver tu alias
           this_application_will_be_able_to: 'Esta aplicación podrá:'
