@@ -974,6 +974,10 @@ it:
       login_modal:
         please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
+      participatory_space_filters:
+        filters:
+          areas: le zone
+          select_an_area: Seleziona un'area
       reference:
         reference: 'Riferimento: %{reference}'
       results_per_page:
