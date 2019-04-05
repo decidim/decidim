@@ -16,7 +16,7 @@ module Decidim
       validates :send_to_followers, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_participants.blank? }
       validates :send_to_participants, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_followers.blank? }
 
-      validate :atleast_one_participatory_space_selected
+      validate :at_least_one_participatory_space_selected
 
       def map_model(_newsletter)
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
@@ -26,7 +26,7 @@ module Decidim
 
       private
 
-      def atleast_one_participatory_space_selected
+      def at_least_one_participatory_space_selected
         return if send_to_all_users && current_user.admin?
         errors.add(:base, "Select atleast one participatory space") if spaces_selected.blank?
       end
