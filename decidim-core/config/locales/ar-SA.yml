@@ -981,6 +981,10 @@ ar:
       login_modal:
         please_sign_in: الرجاء تسجيل الدخول
         sign_up: سجل
+      participatory_space_filters:
+        filters:
+          areas: المناطق
+          select_an_area: اختر المنطقة
       reference:
         reference: 'المرجع: %{reference}'
       results_per_page:
