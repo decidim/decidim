@@ -227,7 +227,6 @@ describe "Meeting registrations", type: :system do
 
         expect(page).to have_css(".registration_code")
         expect(page).to have_content(registration.code)
-        expect(page).to have_content(registration.code)
       end
 
       context "when showing the registration code validation state" do
