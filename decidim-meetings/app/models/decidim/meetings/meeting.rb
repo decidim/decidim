@@ -56,6 +56,11 @@ module Decidim
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
 
+      # Return registrations of a particular meeting made by users representing a group
+      def user_group_registrations
+        registrations.where.not(decidim_user_group_id: nil)
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
       end
