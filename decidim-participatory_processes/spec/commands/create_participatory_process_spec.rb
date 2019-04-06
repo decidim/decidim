@@ -40,7 +40,9 @@ module Decidim::ParticipatoryProcesses
         scope: scope,
         area: area,
         errors: errors,
-        participatory_process_group: participatory_process_group
+        participatory_process_group: participatory_process_group,
+        cost: nil,
+        has_summary_record: false
       )
     end
     let(:invalid) { false }
