@@ -32,24 +32,20 @@ module Decidim
         translatable_attribute :target, String
         translatable_attribute :title, String
 
-        attribute :area_id, Integer
         attribute :assembly_type, String
-        attribute :banner_image
         attribute :created_by, String
         attribute :facebook_handler, String
         attribute :github_handler, String
         attribute :hashtag, String
-        attribute :hero_image
         attribute :instagram_handler, String
-        attribute :parent_id, Integer
-        attribute :remove_banner_image
-        attribute :remove_hero_image
-        attribute :scope_id, Integer
         attribute :slug, String
         attribute :twitter_handler, String
         attribute :youtube_handler, String
 
+        attribute :area_id, Integer
+        attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
+        attribute :scope_id, Integer
 
         attribute :is_transparent, Boolean
         attribute :promoted, Boolean
@@ -57,21 +53,26 @@ module Decidim
         attribute :show_statistics, Boolean
         attribute :scopes_enabled, Boolean
 
-        attribute :creation_date, Decidim::Attributes::LocalizedDate
         attribute :closing_date, Decidim::Attributes::LocalizedDate
+        attribute :creation_date, Decidim::Attributes::LocalizedDate
         attribute :duration, Decidim::Attributes::LocalizedDate
         attribute :included_at, Decidim::Attributes::LocalizedDate
+
+        attribute :banner_image
+        attribute :hero_image
+        attribute :remove_banner_image
+        attribute :remove_hero_image
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
-        validates :title, :subtitle, :description, :short_description, translatable_presence: true
+
+        validate :slug_uniqueness
 
         validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
-
-        validate :slug_uniqueness
+        validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
