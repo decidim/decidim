@@ -14,17 +14,23 @@ edit_link(
 )
 %>
 
+<%
+i18n_scope = "decidim.assemblies.show"
+%>
+
 <%= participatory_space_floating_help %>
 
 <% if current_participatory_space.private_space? %>
-  <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("assemblies.show.private_space", scope: "decidim") } %>
+  <%= render partial: "decidim/shared/private_participatory_space",
+      locals: { text: t("private_space", scope: i18n_scope) } %>
 <% end %>
 
 <div class="row column">
   <% if current_participatory_space.parent.present? %>
     <div class="row">
       <div class="small-12 columns">
-        <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb", locals: { assemblies: current_participatory_space.ancestors.to_a } %>
+        <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb",
+            locals: { assemblies: current_participatory_space.ancestors.to_a } %>
       </div>
     </div>
   <% end %>
@@ -45,33 +51,33 @@ edit_link(
           translated_attribute(current_participatory_space.internal_organisation).present? ||
           translated_attribute(current_participatory_space.composition).present? %>
         <div class="show-more">
-          <button class="button button--muted small"><%= t("assemblies.show.read_more", scope: "decidim") %></button>
+          <button class="button button--muted small"><%= t("read_more", scope: i18n_scope) %></button>
         </div>
 
         <div class="hide show-more-panel">
           <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
             <div class="section">
-              <h4 class="section-heading"><%= t("assemblies.show.purpose_of_action", scope: "decidim") %></h4>
+              <h4 class="section-heading"><%= t("purpose_of_action", scope: i18n_scope) %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.purpose_of_action) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
             <div class="section">
-              <h4 class="section-heading"><%= t("assemblies.show.internal_organisation", scope: "decidim") %></h4>
+              <h4 class="section-heading"><%= t("internal_organisation", scope: i18n_scope) %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.internal_organisation) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.composition).present? %>
             <div class="section">
-              <h4 class="section-heading"><%= t("assemblies.show.composition", scope: "decidim") %></h4>
+              <h4 class="section-heading"><%= t("composition", scope: i18n_scope) %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.composition) %>
             </div>
           <% end %>
           <div class="section text-center">
             <div class="hide-more">
-              <button class="button button--muted small"><%= t("assemblies.show.read_less", scope: "decidim") %></button>
+              <button class="button button--muted small"><%= t("read_less", scope: i18n_scope) %></button>
             </div>
           </div>
         </div>
@@ -82,7 +88,7 @@ edit_link(
       <%= attachments_for current_participatory_space %>
       <% if current_participatory_space.children.count.positive? %>
         <section id="assemblies-grid" class="section row collapse">
-          <h4 class="section-heading"><%= t("assemblies.show.children", scope: "decidim") %></h4>
+          <h4 class="section-heading"><%= t("children", scope: i18n_scope) %></h4>
           <div class="row small-up-1 medium-up-2 large-up-2 card-grid">
             <%= render partial: "decidim/assemblies/assembly", collection: current_participatory_space.children.published %>
           </div>
@@ -101,42 +107,42 @@ edit_link(
       <div class="card extra definition-data">
         <% if translated_attribute(current_participatory_space.meta_scope).present? %>
           <div class="definition-data__item scope">
-            <span class="definition-data__title"><%= t("assemblies.show.scope", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("scope", scope: i18n_scope) %></span>
             <%= translated_attribute(current_participatory_space.meta_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.developer_group).present? %>
           <div class="definition-data__item developer-group">
-            <span class="definition-data__title"><%= t("assemblies.show.developer_group", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("developer_group", scope: i18n_scope) %></span>
             <%= translated_attribute(current_participatory_space.developer_group) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.local_area).present? %>
           <div class="definition-data__item local_area">
-            <span class="definition-data__title"><%= t("assemblies.show.local_area", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("local_area", scope: i18n_scope) %></span>
             <%= translated_attribute(current_participatory_space.local_area) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_participatory_space.target).present? %>
           <div class="definition-data__item target">
-            <span class="definition-data__title"><%= t("assemblies.show.target", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("target", scope: i18n_scope) %></span>
             <%= translated_attribute(current_participatory_space.target) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_participatory_space.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
-            <span class="definition-data__title"><%= t("assemblies.show.participatory_scope", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("participatory_scope", scope: i18n_scope) %></span>
               <%= translated_attribute(current_participatory_space.participatory_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.participatory_structure).present? %>
           <div class="definition-data__item participatory_structure">
-            <span class="definition-data__title"><%= t("assemblies.show.participatory_structure", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("participatory_structure", scope: i18n_scope) %></span>
             <%= translated_attribute(current_participatory_space.participatory_structure) %>
           </div>
         <% end %>
@@ -144,7 +150,7 @@ edit_link(
         <% area = current_participatory_space.area %>
         <% if translated_attribute(area&.name).present? %>
           <div class="definition-data__item area">
-            <span class="definition-data__title"><%= t("assemblies.show.area", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("area", scope: i18n_scope) %></span>
             <% if translated_attribute(area.area_type&.name).present? %>
               <%= translated_attribute(area.area_type.name) %>
               <span>&#45;</span>
@@ -155,7 +161,7 @@ edit_link(
 
         <% if current_participatory_space.assembly_type.present? %>
           <div class="definition-data__item assembly_type">
-            <span class="definition-data__title"><%= t("assemblies.show.assembly_type", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("assembly_type", scope: i18n_scope) %></span>
             <% if current_participatory_space.assembly_type == "others" %>
               <%= translated_attribute(current_participatory_space.assembly_type_other) %>
             <% else %>
@@ -166,14 +172,14 @@ edit_link(
 
         <% if current_participatory_space.creation_date.present? %>
           <div class="definition-data__item creation_date">
-            <span class="definition-data__title"><%= t("assemblies.show.creation_date", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("creation_date", scope: i18n_scope) %></span>
             <%= l current_participatory_space.creation_date, format: :decidim_short %>
           </div>
         <% end %>
 
         <% if current_participatory_space.created_by.present? %>
           <div class="definition-data__item created_by">
-            <span class="definition-data__title"><%= t("assemblies.show.created_by", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("created_by", scope: i18n_scope) %></span>
             <% if current_participatory_space.created_by == "others" %>
               <%= translated_attribute(current_participatory_space.created_by_other) %>
             <% else %>
@@ -184,24 +190,24 @@ edit_link(
 
         <% if current_participatory_space.included_at.present? %>
           <div class="definition-data__item included_at">
-            <span class="definition-data__title"><%= t("assemblies.show.included_at", scope: "decidim") %></span>
+            <span class="definition-data__title"><%= t("included_at", scope: i18n_scope) %></span>
             <%= l current_participatory_space.included_at, format: :decidim_short %>
           </div>
         <% end %>
 
         <div class="definition-data__item duration">
-          <span class="definition-data__title"><%= t("assemblies.show.duration", scope: "decidim") %></span>
+          <span class="definition-data__title"><%= t("duration", scope: i18n_scope) %></span>
           <% if current_participatory_space.duration.present? %>
             <%= l current_participatory_space.duration, format: :decidim_short %>
           <% else %>
-            <%= t("assemblies.show.indefinite_duration", scope: "decidim") %>
+            <%= t("indefinite_duration", scope: i18n_scope) %>
           <% end %>
         </div>
 
         <% if current_participatory_space.closing_date.present? %>
           <div class="definition-data__item closing_date">
-            <span class="definition-data__title"><%= t("assemblies.show.closing_date", scope: "decidim") %></span>
-            <%= l current_participatory_space.closing_date, format: :decidim_short %>
+            <span class="definition-data__title"><%= t("closing_date", scope: i18n_scope) %></span>
+            <%= l(current_participatory_space.closing_date, format: :decidim_short) %>
             <br />
             <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
           </div>
