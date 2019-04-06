@@ -23,9 +23,6 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :target, String
 
-        attribute :end_date, Decidim::Attributes::LocalizedDate
-        attribute :start_date, Decidim::Attributes::LocalizedDate
-
         attribute :hashtag, String
         attribute :slug, String
 
@@ -34,26 +31,34 @@ module Decidim
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
 
-        attribute :banner_image
-        attribute :hero_image
-        attribute :remove_banner_image
-        attribute :remove_hero_image
-
         attribute :has_summary_record, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
         attribute :show_statistics, Boolean
 
+        attribute :end_date, Decidim::Attributes::LocalizedDate
+        attribute :start_date, Decidim::Attributes::LocalizedDate
+
+        attribute :banner_image
+        attribute :hero_image
+        attribute :remove_banner_image
+        attribute :remove_hero_image
+
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
-        validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
         validate :slug_uniqueness
 
-        validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :title, :subtitle, :description, :short_description, translatable_presence: true
+
+        validates :banner_image,
+                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :hero_image,
+                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -75,7 +80,10 @@ module Decidim
         private
 
         def slug_uniqueness
-          return unless OrganizationParticipatoryProcesses.new(current_organization).query.where(slug: slug).where.not(id: context[:process_id]).any?
+          return unless OrganizationParticipatoryProcesses
+                        .new(current_organization).query
+                        .where(slug: slug)
+                        .where.not(id: context[:process_id]).any?
 
           errors.add(:slug, :taken)
         end
