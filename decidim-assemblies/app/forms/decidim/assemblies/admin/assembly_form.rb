@@ -74,8 +74,12 @@ module Decidim
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
-        validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :banner_image,
+                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :hero_image,
+                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -99,10 +103,10 @@ module Decidim
         end
 
         def created_by_for_select
-          CREATED_BY.map do |by|
+          CREATED_BY.map do |creator|
             [
-              I18n.t("created_by.#{by}", scope: "decidim.assemblies"),
-              by
+              I18n.t("created_by.#{creator}", scope: "decidim.assemblies"),
+              creator
             ]
           end
         end
@@ -112,8 +116,10 @@ module Decidim
         end
 
         def processes_for_select
-          @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
-                                           .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
+          processes = Decidim.find_participatory_space_manifest(:participatory_processes)
+                             .participatory_spaces.call(current_organization)
+
+          @processes_for_select ||= processes&.order(title: :asc)&.map do |process|
             [
               translated_attribute(process.title),
               process.id
@@ -124,7 +130,10 @@ module Decidim
         private
 
         def slug_uniqueness
-          return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: context[:assembly_id]).any?
+          return unless OrganizationAssemblies
+                        .new(current_organization).query
+                        .where(slug: slug)
+                        .where.not(id: context[:assembly_id]).any?
 
           errors.add(:slug, :taken)
         end
