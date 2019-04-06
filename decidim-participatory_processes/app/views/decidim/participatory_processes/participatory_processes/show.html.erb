@@ -14,15 +14,11 @@ edit_link(
 )
 %>
 
-<%
-i18n_scope = "decidim.participatory_processes.show"
-%>
-
 <%= participatory_space_floating_help %>
 
 <% if current_participatory_space.private_space? %>
   <%= render partial: "decidim/shared/private_participatory_space",
-      locals: { text: t("private_space", scope: i18n_scope) } %>
+      locals: { text: t("private_space", scope: "decidim.participatory_processes.show") } %>
 <% end %>
 
 <% if translated_attribute(current_participatory_space.announcement).present? %>
@@ -52,21 +48,21 @@ i18n_scope = "decidim.participatory_processes.show"
       <div class="card extra definition-data">
         <% if translated_attribute(current_participatory_space.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
-            <span class="definition-data__title"><%= t("participatory_scope", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("participatory_scope", scope: "decidim.participatory_processes.show") %></span>
             <%= translated_attribute(current_participatory_space.participatory_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.target).present? %>
           <div class="definition-data__item target">
-            <span class="definition-data__title"><%= t("target", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("target", scope: "decidim.participatory_processes.show") %></span>
             <%= translated_attribute(current_participatory_space.target) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.participatory_structure).present? %>
           <div class="definition-data__item participatory_structure">
-            <span class="definition-data__title"><%= t("participatory_structure", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("participatory_structure", scope: "decidim.participatory_processes.show") %></span>
             <%= translated_attribute(current_participatory_space.participatory_structure) %>
           </div>
         <% end %>
@@ -74,7 +70,7 @@ i18n_scope = "decidim.participatory_processes.show"
         <% area = current_participatory_space.area %>
         <% if translated_attribute(area&.name).present? %>
           <div class="definition-data__item area">
-            <span class="definition-data__title"><%= t("area", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("area", scope: "decidim.participatory_processes.show") %></span>
             <% if translated_attribute(area.area_type&.name).present? %>
               <%= translated_attribute(area.area_type.name) %>
               <span>&#45;</span>
@@ -85,52 +81,52 @@ i18n_scope = "decidim.participatory_processes.show"
 
         <% if translated_attribute(current_participatory_space.meta_scope).present? %>
           <div class="definition-data__item scope">
-            <span class="definition-data__title"><%= t("scope", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("scope", scope: "decidim.participatory_processes.show") %></span>
             <%= translated_attribute(current_participatory_space.meta_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.local_area).present? %>
           <div class="definition-data__item local_area">
-            <span class="definition-data__title"><%= t("local_area", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("local_area", scope: "decidim.participatory_processes.show") %></span>
             <%= translated_attribute(current_participatory_space.local_area) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_space.developer_group).present? %>
           <div class="definition-data__item developer-group">
-            <span class="definition-data__title"><%= t("developer_group", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("developer_group", scope: "decidim.participatory_processes.show") %></span>
             <%= translated_attribute(current_participatory_space.developer_group) %>
           </div>
         <% end %>
 
         <% if current_participatory_space.cost.present? %>
           <div class="definition-data__item cost">
-            <span class="definition-data__title"><%= t("cost", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("cost", scope: "decidim.participatory_processes.show") %></span>
             <%= number_to_currency(current_participatory_space.cost,
                 locale: I18n.locale, unit: Decidim.currency_unit) %>
           </div>
         <% end %>
 
         <div class="definition-data__item cost">
-          <span class="definition-data__title"><%= t("has_summary_record", scope: i18n_scope) %></span>
+          <span class="definition-data__title"><%= t("has_summary_record", scope: "decidim.participatory_processes.show") %></span>
             <% if current_participatory_space.has_summary_record %>
-              <%= t("yes", scope: i18n_scope) %>
+              <%= t("yes", scope: "decidim.participatory_processes.show") %>
             <% else %>
-              <%= t("no", scope: i18n_scope) %>
+              <%= t("no", scope: "decidim.participatory_processes.show") %>
             <% end %>
         </div>
 
         <% if current_participatory_space.start_date.present? %>
           <div class="definition-data__item start-date">
-            <span class="definition-data__title"><%= t("start_date", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("start_date", scope: "decidim.participatory_processes.show") %></span>
             <%= l(current_participatory_space.start_date, format: :long) %>
           </div>
         <% end %>
 
         <% if current_participatory_space.end_date.present? %>
           <div class="definition-data__item end-date">
-            <span class="definition-data__title"><%= t("end_date", scope: i18n_scope) %></span>
+            <span class="definition-data__title"><%= t("end_date", scope: "decidim.participatory_processes.show") %></span>
             <%= l(current_participatory_space.end_date, format: :long) %>
           </div>
         <% end %>
