@@ -112,28 +112,31 @@ module Decidim
         end
 
         def parent
-          @parent ||= OrganizationAssemblies.new(current_organization).query.find_by(id: parent_id)
+          @parent ||= organization_assemblies.find_by(id: parent_id)
         end
 
         def processes_for_select
-          processes = Decidim.find_participatory_space_manifest(:participatory_processes)
-                             .participatory_spaces.call(current_organization)
-
-          @processes_for_select ||= processes&.order(title: :asc)&.map do |process|
-            [
-              translated_attribute(process.title),
-              process.id
-            ]
-          end
+          @processes_for_select ||= organization_participatory_processes
+                                    &.map { |pp| [translated_attribute(pp.title), pp.id] }
+                                    &.sort_by { |arr| arr[0] }
         end
 
         private
 
+        def organization_participatory_processes
+          Decidim.find_participatory_space_manifest(:participatory_processes)
+                 .participatory_spaces.call(current_organization)
+        end
+
+        def organization_assemblies
+          OrganizationAssemblies.new(current_organization).query
+        end
+
         def slug_uniqueness
-          return unless OrganizationAssemblies
-                        .new(current_organization).query
+          return unless organization_assemblies
                         .where(slug: slug)
-                        .where.not(id: context[:assembly_id]).any?
+                        .where.not(id: context[:assembly_id])
+                        .any?
 
           errors.add(:slug, :taken)
         end
