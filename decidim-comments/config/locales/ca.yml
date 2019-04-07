@@ -64,6 +64,7 @@ ca:
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
+        blocked_comments_for_user_warning: No podeu comentar en aquest moment, però podeu llegir els anteriors.
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però podeu llegir els anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"

@@ -41,6 +41,10 @@ ar:
           attributes:
             attachment:
               needs_to_be_reattached: يحتاج إلى إعادة ربط
+            body:
+              identical: لا يمكن أن يكون العنوان متطابقًا
+            title:
+              identical: و الجسم لا يمكن أن تكون متطابقة
     models:
       decidim/proposals/accepted_proposal_event: تم قبول الاقتراح
       decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح

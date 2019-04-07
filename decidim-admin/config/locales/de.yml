@@ -156,6 +156,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
+          has_spaces: Bereich hat abhängige Bereiche, es darf keine Abhängigkeiten haben, um gelöscht zu werden.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten

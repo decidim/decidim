@@ -156,6 +156,7 @@ sv:
           error: Det uppstod ett fel vid skapandet av ett nytt område.
           success: Område skapades framgångsrikt.
         destroy:
+          has_spaces: Området har depedenta utrymmen, det får inte ha beroenden för att kunna raderas.
           success: Området framgångsrikt förstörs
         edit:
           title: Redigera område

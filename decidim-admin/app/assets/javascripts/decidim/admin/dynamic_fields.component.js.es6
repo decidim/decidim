@@ -29,10 +29,24 @@
       }
 
       $.fn.template = function(placeholder, value) {
-        const $subtemplate = $(this).find("template");
+        // See the comment below in the `_addField()` method regarding the
+        // `<template>` tag support in IE11.
+        const $subtemplate = $(this).find("template, .decidim-template");
 
         if ($subtemplate.length > 0) {
           $subtemplate.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
+        }
+
+        // Handle those subtemplates that are mapped with the `data-template`
+        // attribute. This is also because of the IE11 support.
+        const $subtemplateParents = $(this).find("[data-template]");
+
+        if ($subtemplateParents.length > 0) {
+          $subtemplateParents.each((_i, elem) => {
+            const $self = $(elem);
+            const $tpl = $($self.data("template"));
+            $tpl.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
+          });
         }
 
         $(this).replaceAttribute("id", placeholder, value);
@@ -81,8 +95,27 @@
     }
 
     _addField() {
-      const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const $template = $(this.wrapperSelector).children("template");
+      const $wrapper = $(this.wrapperSelector);
+      const $container = $wrapper.find(this.containerSelector);
+
+      // Allow defining the template using a `data-template` attribute on the
+      // wrapper element. This is to allow child templates which would otherwise
+      // be impossible using `<script type="text/template">`. See the comment
+      // below regarding the `<template>` tag and IE11.
+      const templateSelector = $wrapper.data("template");
+      let $template = null;
+      if (templateSelector) {
+        $template = $(templateSelector);
+      }
+      if ($template === null || $template.length < 1) {
+        // To preserve IE11 backwards compatibility, the views are using
+        // `<script type="text/template" class="decidim-template">` instead of
+        // `<template>`. The `<template> tags are parsed in IE11 along with the
+        // DOM which may cause the form elements inside them to break the forms
+        // as they are submitted with them.
+        $template = $wrapper.children("template, .decidim-template");
+      }
+
       const $newField = $($template.html()).template(this.placeholderId, this._getUID());
 
       $newField.find("ul.tabs").attr("data-tabs", true);
@@ -141,6 +174,14 @@
     }
 
     _activateFields() {
+      // Move the `<script type="text/template">` elements to the bottom of the
+      // list container so that they will not cause the question moving
+      // functionality to break since it assumes that all children elements are
+      // the dynamic field list child items.
+      const $wrapper = $(this.wrapperSelector);
+      const $container = $wrapper.find(this.containerSelector);
+      $container.append($container.find("script"));
+
       $(this.fieldSelector).each((idx, el) => {
         $(el).template(this.placeholderId, this._getUID());
 

@@ -64,6 +64,7 @@ hu:
       comment_thread:
         title: 'Beszélgetés vele: %{authorName}'
       comments:
+        blocked_comments_for_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         loading: Hozzászólások betöltése ...
         title: "%{count} megjegyzés"

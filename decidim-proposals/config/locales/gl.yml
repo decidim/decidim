@@ -41,6 +41,10 @@ gl:
           attributes:
             attachment:
               needs_to_be_reattached: Necesita ser reenxerado
+            body:
+              identical: E o título non pode ser idéntico
+            title:
+              identical: E o corpo non pode ser idéntico
     models:
       decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta

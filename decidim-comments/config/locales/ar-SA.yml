@@ -72,6 +72,7 @@ ar:
       comment_thread:
         title: المحادثة مع %{authorName}
       comments:
+        blocked_comments_for_user_warning: لا يمكنك التعليق في هذه اللحظة ، ولكن يمكنك قراءة التعليقات السابقة.
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         loading: جارٍ تحميل التعليقات ...
         title: "%{count} تعليقات"

@@ -2,19 +2,13 @@
 
 module Decidim
   module Assemblies
-    # A controller that holds the logic to show Assemblies in a
-    # public layout.
+    # A controller that holds the logic to show Assemblies in a public layout.
     class AssembliesController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
+      include FilterResource
 
-      helper Decidim::AttachmentsHelper
-      helper Decidim::IconHelper
-      helper Decidim::WidgetUrlsHelper
-      helper Decidim::SanitizeHelper
-      helper Decidim::ResourceReferenceHelper
-
-      helper_method :collection, :parent_assemblies, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
+      helper_method :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes
 
       def index
         enforce_permission_to :list, :assembly
@@ -54,6 +48,18 @@ module Decidim
 
       private
 
+      def search_klass
+        AssemblySearch
+      end
+
+      def default_filter_params
+        {
+          scope_id: nil,
+          area_id: nil,
+          assembly_type: "all"
+        }
+      end
+
       def current_participatory_space
         return unless params[:slug]
 
@@ -66,18 +72,12 @@ module Decidim
         @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization, current_user)
       end
 
-      def assemblies
-        @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization, current_user)
+      def promoted_assemblies
+        @promoted_assemblies ||= published_assemblies | PromotedAssemblies.new
       end
 
       def parent_assemblies
-        @parent_assemblies ||= assemblies | ParentAssemblies.new | FilteredAssemblies.new(current_filter)
-      end
-
-      alias collection parent_assemblies
-
-      def promoted_assemblies
-        @promoted_assemblies ||= assemblies | PromotedAssemblies.new
+        search.results.parent_assemblies.order(promoted: :desc)
       end
 
       def stats
@@ -86,10 +86,6 @@ module Decidim
 
       def assembly_participatory_processes
         @assembly_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
-      end
-
-      def current_filter
-        params[:filter] || "all"
       end
     end
   end
