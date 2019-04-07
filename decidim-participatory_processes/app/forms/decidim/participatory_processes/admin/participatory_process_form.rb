@@ -79,6 +79,10 @@ module Decidim
 
         private
 
+        def organization_participatory_processes
+          OrganizationParticipatoryProcesses.new(current_organization).query
+        end
+
         def slug_uniqueness
           return unless organization_participatory_processes
                         .where(slug: slug)
@@ -86,10 +90,6 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
-        end
-
-        def organization_participatory_processes
-          OrganizationParticipatoryProcesses.new(current_organization).query
         end
       end
     end
