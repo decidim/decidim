@@ -72,11 +72,14 @@ module Decidim
 
         private
 
+        def organization_assemblies
+          @organization_assemblies ||= OrganizationAssemblies.new(current_user.organization).query
+        end
+
         def query
-          OrganizationAssemblies.new(current_user.organization)
-                                .query
-                                .where(parent_id: params[:parent_id])
-                                .ransack(params[:q])
+          organization_assemblies
+            .where(parent_id: params[:parent_id])
+            .ransack(params[:q])
         end
 
         def collection
@@ -84,11 +87,11 @@ module Decidim
         end
 
         def set_all_assemblies
-          @all_assemblies = OrganizationAssemblies.new(current_user.organization).query
+          @all_assemblies = organization_assemblies
         end
 
         def current_assembly
-          scope = OrganizationAssemblies.new(current_user.organization).query
+          scope = organization_assemblies
           @current_assembly ||= scope.where(slug: params[:slug]).or(
             scope.where(id: params[:slug])
           ).first
@@ -97,11 +100,11 @@ module Decidim
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= OrganizationAssemblies.new(current_organization).query.find_by(id: params[:parent_id])
+          @parent_assembly ||= organization_assemblies.find_by(id: params[:parent_id])
         end
 
         def parent_assemblies
-          @parent_assemblies ||= OrganizationAssemblies.new(current_user.organization).query.where(parent_id: nil)
+          @parent_assemblies ||= organization_assemblies.where(parent_id: nil)
         end
 
         def assembly_params
