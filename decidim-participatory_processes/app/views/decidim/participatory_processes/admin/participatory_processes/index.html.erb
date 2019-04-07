@@ -1,9 +1,18 @@
 <div class="card" id="processes">
   <div class="card-divider">
     <h2 class="card-title">
+      <%= t("participatory_processes", scope: "decidim.admin.titles") %>
+
+      <% if @process_group %>
+        <span>&lt;</span>
+        <%= link_to translated_attribute(@process_group.name),
+            decidim_participatory_processes.participatory_process_group_path(@process_group) %>
+      <% end %>
+
       <% if allowed_to? :create, :process %>
         <%= link_to t("actions.new_process", scope: "decidim.admin"),
-            ["new", "participatory_process"], class: "button tiny button--title" %>
+                    ["new", "participatory_process"],
+                    class: "button tiny button--title" %>
       <% end %>
 
       <button data-toggle="process_groups" class="dropdown button tiny button--title">
@@ -21,14 +30,6 @@
           <% end %>
         </ul>
       </div>
-
-      <%= t "decidim.admin.titles.participatory_processes" %>
-
-      <% if @process_group %>
-      <span>&lt;</span>
-      <%= link_to translated_attribute(@process_group.name),
-          decidim_participatory_processes.participatory_process_group_path(@process_group) %>
-      <% end %>
   </div>
   <div class="card-section">
     <div class="table-scroll">
