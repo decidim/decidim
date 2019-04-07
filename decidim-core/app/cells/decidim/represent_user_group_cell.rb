@@ -11,12 +11,16 @@ module Decidim
 
     private
 
-    # Only users with a UserGroup role of `:admin` or `:creator` can represent a group.
     def show_cell?
       return unless current_user && current_organization.user_groups_enabled?
-      return unless Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
+      return unless manageable_user_groups.verified.any?
 
       true
+    end
+
+    # Only users with a UserGroup role of `:admin` or `:creator` can represent a group.
+    def manageable_user_groups
+      Decidim::UserGroups::ManageableUserGroups.for(current_user)
     end
 
     def form
