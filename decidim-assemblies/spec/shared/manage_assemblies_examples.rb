@@ -17,9 +17,14 @@ shared_examples "manage assemblies" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
+
       attach_file :assembly_banner_image, image3_path
 
       within ".edit_assembly" do
+        fill_in "assembly[creation_date]", with: Date.yesterday
+        fill_in "assembly[included_at]", with: Date.current
+        fill_in "assembly[duration]", with: Date.tomorrow
+        fill_in "assembly[closing_date]", with: Date.tomorrow
         find("*[type=submit]").click
       end
 
@@ -28,6 +33,9 @@ shared_examples "manage assemblies" do
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
+        expect(page).to have_css("input[value='#{Date.yesterday}']")
+        expect(page).to have_css("input[value='#{Date.current}']")
+        expect(page).to have_css("input[value='#{Date.tomorrow}']", count: 2)
       end
     end
   end
