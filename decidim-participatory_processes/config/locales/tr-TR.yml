@@ -71,6 +71,9 @@ tr:
         destroy: silmek
         duplicate: Çift
         edit: Düzenle
+        filter:
+          all: Tüm işlemleri göster
+          process_groups: İşlem Grupları
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
         new_process_step: Yeni adım
