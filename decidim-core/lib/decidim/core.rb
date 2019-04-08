@@ -403,6 +403,11 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry for user permissions
+  def self.permissions_registry
+    @permissions_registry ||= PermissionsRegistry.new
+  end
+
   # Public: Stores an instance of StatsRegistry
   def self.stats
     @stats ||= StatsRegistry.new
