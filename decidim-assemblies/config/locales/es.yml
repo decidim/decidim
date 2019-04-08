@@ -84,8 +84,6 @@ es:
           success: Asamblea creada correctamente.
         edit:
           update: Actualizar
-        form:
-          title: Información general
         index:
           not_published: No publicado
           private: Privado
@@ -211,14 +209,21 @@ es:
       admin:
         assemblies:
           form:
+            duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            filters: Filtros
+            images: Imágenes
             included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
+            metadata: Metadatos
+            other: Otro
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
             select_parent_assembly: Selecciona asamblea principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
+            title: Información general
+            visbility: Visibilidad
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
