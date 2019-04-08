@@ -77,6 +77,9 @@ cs:
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
+        filter:
+          all: Zobrazit všechny procesy
+          process_groups: Skupiny procesů
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
