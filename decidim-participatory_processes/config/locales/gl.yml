@@ -71,6 +71,9 @@ gl:
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
+        filter:
+          all: Mostrar todos os procesos
+          process_groups: Procesar grupos
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
