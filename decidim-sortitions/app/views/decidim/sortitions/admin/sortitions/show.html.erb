@@ -44,7 +44,7 @@
         <tbody>
           <% sortition.proposals.each do |proposal| %>
             <tr>
-              <td><%= present(proposal).title %></td>
+              <td><%= decidim_html_escape(present(proposal).title).html_safe %></td>
               <td></td>
             </tr>
           <% end %>
