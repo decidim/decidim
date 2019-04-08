@@ -71,6 +71,9 @@ hu:
         destroy: Törlés
         duplicate: Duplikálás
         edit: Szerkesztés
+        filter:
+          all: Az összes folyamat megjelenítése
+          process_groups: Folyamatcsoportok
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
