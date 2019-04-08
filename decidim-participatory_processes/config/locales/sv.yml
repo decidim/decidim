@@ -71,6 +71,9 @@ sv:
         destroy: Radera
         duplicate: Duplicera
         edit: Redigera
+        filter:
+          all: Visa alla processer
+          process_groups: Processgrupper
         new_process: Ny process
         new_process_group: Ny processgrupp
         new_process_step: Nytt steg
