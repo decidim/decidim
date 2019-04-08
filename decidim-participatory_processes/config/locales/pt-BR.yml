@@ -71,6 +71,9 @@ pt-BR:
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
+        filter:
+          all: Mostrar todos os processos
+          process_groups: Grupos de Processos
         new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
