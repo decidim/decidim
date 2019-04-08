@@ -71,6 +71,9 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
+        filter:
+          all: Mostra tots els processos
+          process_groups: Grups de processos
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
