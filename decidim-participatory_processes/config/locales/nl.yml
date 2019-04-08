@@ -71,6 +71,9 @@ nl:
         destroy: Verwijder
         duplicate: Dupliceren
         edit: Bewerken
+        filter:
+          all: Toon alle processen
+          process_groups: Procesgroepen
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
         new_process_step: Nieuwe stap
