@@ -12,12 +12,12 @@ module Decidim
 
       helper_method :impersonation_session_ends_at, :impersonation_session_remaining_duration_in_minutes, :current_user_impersonated?
 
+      alias_method :real_user, :current_user
+
       # Returns a manager user if the real user has an active impersonation
       def current_user
         managed_user || real_user
       end
-
-      alias_method :real_user, :current_user
 
       def impersonation_session_ends_at
         @impersonation_session_ends_at ||= impersonation_log.started_at + Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
