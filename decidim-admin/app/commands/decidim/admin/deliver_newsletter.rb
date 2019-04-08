@@ -16,6 +16,9 @@ module Decidim
       end
 
       def call
+        puts "------------"
+        puts "#{@form.as_json}"
+        puts "------------"
         @newsletter.with_lock do
           return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) if @newsletter.sent?

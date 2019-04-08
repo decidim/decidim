@@ -22,14 +22,6 @@ module Decidim::Admin
       let(:participatory_space_types) { [] }
       let(:scope_ids) { [] }
 
-      #   {
-      #     participatory_processes: {
-      #       manifest_name: "participatory_processes",
-      #       ids: [ ]
-      #     }
-      #   }
-      # }
-
       let(:form_params) do
         {
           send_to_all_users: send_to_all_users,
@@ -176,10 +168,53 @@ module Decidim::Admin
         end
       end
 
-      # context "when sending to participants" do
-      #   let(:send_to_participants) { true }
-      #
-      # end
+      context "when sending to participants" do
+        let(:send_to_participants) { true }
+
+        context "when no spaces selected " do
+          it "is not valid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when spaces selected" do
+          let(:participatory_processes) { create_list(:participatory_process, 2, organization: organization) }
+          let(:participatory_space_types) do
+            [
+              { "id" => nil,
+                "manifest_name" => "participatory_processes",
+                "ids" => [participatory_processes.first.id.to_s] },
+              { "id" => nil,
+                "manifest_name" => "assemblies",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "conferences",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "consultations",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "initiatives",
+                "ids" => [] }
+            ]
+          end
+
+          let!(:deliverable_users) do
+            create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+          end
+
+          let!(:component) {create(:dummy_component, participatory_space: participatory_processes.first, organization: organization ) }
+
+          before do
+            deliverable_users.each do |participant|
+              create(:dummy_resource, component: component, author: participant)
+            end
+          end
+          
+          it_behaves_like "selective newsletter"
+
+        end
+      end
     end
   end
 end

@@ -52,6 +52,7 @@ module Decidim
       include Searchable
       include Paddable
       include Amendable
+      include Decidim::NewsletterParticipant
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -105,6 +106,8 @@ Decidim.register_component(:dummy) do |component|
   component.icon = "decidim/dummy.svg"
 
   component.actions = %w(foo bar)
+
+  component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
