@@ -14,10 +14,7 @@ module Decidim
         end
 
         def permission_class_chain
-          [
-            Decidim::ParticipatoryProcesses::Permissions,
-            Decidim::Admin::Permissions
-          ]
+          PermissionsRegistry::chain_for(Decidim::ParticipatoryProcesses::Admin::ApplicationController)
         end
       end
     end
