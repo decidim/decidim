@@ -71,6 +71,9 @@ eu:
         destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
+        filter:
+          all: Erakutsi prozesu guztiak
+          process_groups: Prozesu taldeak
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
