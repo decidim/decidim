@@ -14,13 +14,13 @@ module Decidim
       cell("decidim/amendable/amend_button_card", amendable)
     end
 
-    # Renders the emendations of a amendable resource
+    # Renders the emendations of an amendable resource
     #
     # Returns Html grid of CardM.
     def amendments_for(amendable)
       return unless amendable.amendable? && amendable.emendations.count.positive?
 
-      content = content_tag :h2, class: "section-heading", id: "amendments" do
+      content = content_tag(:h2, class: "section-heading", id: "amendments") do
         t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
       end
 
@@ -54,7 +54,7 @@ module Decidim
 
     # Returns Html action button cards for an emendation
     def emendation_actions_for(emendation)
-      return unless amendments_enabled? && allowed_to_react_to_emendation?(emendation)
+      return unless amendments_enabled? && can_react_to_emendation?(emendation)
 
       action_button_cards_for(emendation)
     end
@@ -78,7 +78,7 @@ module Decidim
     # Checks if there's a user that can react to an emendation
     #
     # Returns true or false
-    def allowed_to_react_to_emendation?(emendation)
+    def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
 
       true
@@ -97,8 +97,7 @@ module Decidim
     #
     # Returns true or false
     def allowed_to_promote?(emendation)
-      return unless emendation.amendment.rejected?
-      return unless emendation.created_by?(current_user)
+      return unless emendation.amendment.rejected? && emendation.created_by?(current_user)
       return if promoted?(emendation)
 
       true
