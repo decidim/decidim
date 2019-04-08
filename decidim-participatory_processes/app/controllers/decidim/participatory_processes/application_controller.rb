@@ -9,7 +9,9 @@ module Decidim
       helper ParticipatoryProcessHelper
       include NeedsPermission
 
-      register_permissions(self, ::Decidim::ParticipatoryProcesses::Permissions, ::Decidim::Admin::Permissions, ::Decidim::Permissions)
+      register_permissions(self, ::Decidim::ParticipatoryProcesses::Permissions,
+                           ::Decidim::Admin::Permissions,
+                           ::Decidim::Permissions)
 
       private
 

@@ -11,10 +11,10 @@ module Decidim
     extend ActiveSupport::Concern
 
     class_methods do
-      # Registers the of `Permissions` for the given `artifact`.
+      # Registers the permissions for the given `artifact`.
       #
-      # +artifact+ is expected to be the class or module that delcares `NeedsPermission.permission_class_chain`.
-      # +permission_classes+ are sublasses of `DefaultPermissions`.
+      # +artifact+ is expected to be the class or module that declares `NeedsPermission.permission_class_chain`.
+      # +permission_classes+ are subclasses of `DefaultPermissions` or at least should quack as one.
       def register_permissions(artifact, *permission_classes)
         ::Decidim.permissions_registry.register_permissions(artifact, *permission_classes)
       end
