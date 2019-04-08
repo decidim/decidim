@@ -18,7 +18,7 @@
       <div class="columns xlarge-6 slug">
         <%= form.text_field :slug %>
         <p class="help-text">
-          <%= t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
+          <%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
         </p>
       </div>
 
@@ -37,7 +37,7 @@
 
     <div class="row column">
       <%= form.translated :editor, :announcement %>
-      <p class="help-text"><%= t(".announcement_help") %></p>
+      <p class="help-text"><%== t(".announcement_help") %></p>
     </div>
   </div>
 

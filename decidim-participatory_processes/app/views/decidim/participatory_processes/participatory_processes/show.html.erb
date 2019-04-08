@@ -102,14 +102,14 @@ edit_link(
         <% if current_participatory_space.start_date.present? %>
           <div class="definition-data__item start-date">
             <span class="definition-data__title"><%= t("start_date", scope: "decidim.participatory_processes.show") %></span>
-            <%= l(current_participatory_space.start_date, format: :long) %>
+            <%== l(current_participatory_space.start_date, format: :long) %>
           </div>
         <% end %>
 
         <% if current_participatory_space.end_date.present? %>
           <div class="definition-data__item end-date">
             <span class="definition-data__title"><%= t("end_date", scope: "decidim.participatory_processes.show") %></span>
-            <%= l(current_participatory_space.end_date, format: :long) %>
+            <%== l(current_participatory_space.end_date, format: :long) %>
           </div>
         <% end %>
       </div>

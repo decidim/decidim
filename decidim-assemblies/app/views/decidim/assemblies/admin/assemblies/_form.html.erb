@@ -18,7 +18,7 @@
       <div class="columns xlarge-6 slug">
         <%= form.text_field :slug %>
         <p class="help-text">
-          <%= t(".slug_help", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
+          <%== t(".slug_help", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
         </p>
       </div>
 
@@ -59,12 +59,12 @@
 
     <div class="row column">
       <%= form.date_field :included_at %>
-      <p class="help-text"><%= t(".included_at_help") %></p>
+      <p class="help-text"><%== t(".included_at_help") %></p>
     </div>
 
     <div class="row column">
       <%= form.date_field :duration %>
-      <p class="help-text"><%= t(".duration_help") %></p>
+      <p class="help-text"><%== t(".duration_help") %></p>
     </div>
 
     <div class="row column" id="closing_date_div">
