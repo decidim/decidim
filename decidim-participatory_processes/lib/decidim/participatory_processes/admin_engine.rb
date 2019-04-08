@@ -95,20 +95,19 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.permissions_registry" do
-        chain= Decidim::PermissionsRegistry::chain_for(Decidim::ParticipatoryProcesses::Admin::Concerns::ParticipatoryProcessAdmin)
+        chain = Decidim::PermissionsRegistry.chain_for(Decidim::ParticipatoryProcesses::Admin::Concerns::ParticipatoryProcessAdmin)
         chain << Decidim::ParticipatoryProcesses::Permissions
         chain << Decidim::Admin::Permissions
 
-        chain= PermissionsRegistry::chain_for(Decidim::ParticipatoryProcesses::Admin::ApplicationController)
+        chain = PermissionsRegistry.chain_for(Decidim::ParticipatoryProcesses::Admin::ApplicationController)
         chain << Decidim::ParticipatoryProcesses::Permissions
         chain << Decidim::Admin::Permissions
 
-        chain= PermissionsRegistry::chain_for(Decidim::ParticipatoryProcesses::ApplicationController)
+        chain = PermissionsRegistry.chain_for(Decidim::ParticipatoryProcesses::ApplicationController)
         chain << Decidim::ParticipatoryProcesses::Permissions
         chain << Decidim::Admin::Permissions
         chain << Decidim::Permissions
       end
-
     end
   end
 end
