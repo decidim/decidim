@@ -83,6 +83,9 @@ ar:
         destroy: حذف
         duplicate: مكرر
         edit: تصحيح
+        filter:
+          all: عرض جميع العمليات
+          process_groups: مجموعات العملية
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
         new_process_step: مرحلة جديدة
