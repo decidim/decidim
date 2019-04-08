@@ -68,6 +68,9 @@ id:
         destroy: Menghapus
         duplicate: Duplikat
         edit: Edit
+        filter:
+          all: Tampilkan semua proses
+          process_groups: Kelompok Proses
         new_process: Proses baru
         new_process_group: Grup proses baru
         new_process_step: Langkah baru
