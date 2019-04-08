@@ -71,6 +71,9 @@ fi-pl:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
+        filter:
+          all: Näytä kaikki prosessit
+          process_groups: Prosessiryhmät
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
