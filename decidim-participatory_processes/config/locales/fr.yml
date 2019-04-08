@@ -71,6 +71,9 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
+        filter:
+          all: Afficher tous les processus
+          process_groups: Groupes de processus
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
