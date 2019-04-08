@@ -27,7 +27,7 @@ ca:
             answer_option: Opció de resposta
             free_text: Text lliure
             remove: Elimina
-            statement: Declaració
+            statement: Pregunta
           edit:
             save: Desar
             title: Títol
@@ -41,7 +41,7 @@ ca:
             down: Baixar
             question: Pregunta
             remove: Eliminar
-            statement: Declaració
+            statement: Pregunta
             up: Pujar
           update:
             invalid: S'han produït un error en desar el formulari.
