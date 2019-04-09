@@ -425,20 +425,20 @@ ca:
             notification_title: L' <a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
-          email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha produït un esdeveniment a %{resource_title}
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure''l des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
           notification_title: Ja està actiu el component %{resource_title} per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+        email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
         email_subject: Una actualització a %{resource_title}
       gamification:
         badge_earned:
@@ -453,48 +453,48 @@ ca:
           notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administrador d'aquest grup.
+          email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administrador d'aquest grup.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Ja no ets administrador del grup %{user_group_name}.
-          notification_title: Ja no ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Ja no ets administradora del grup %{user_group_name}.
+          notification_title: Ja no ets administradora del grup <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha convidat a unir-te.
-          email_outro: Has rebut aquesta notificació perquè has estat convidat a formar part d'un grup. Comprova la pestanya Grups del teu perfil per aprovar-lo.
-          email_subject: Has estat convidat a formar part del grup %{user_group_name}!
-          notification_title: Has estat convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per a aprovar-ho!
+          email_intro: Un administradora del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha convidat a unir-te.
+          email_outro: Has rebut aquesta notificació perquè t'han convidat a formar part d'un grup. Si us plau, revisa la pestanya Grups al teu perfil acceptar l'invitació.
+          email_subject: T'han convidat a formar part del grup %{user_group_name}!
+          notification_title: T'han convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per acceptar la invitació!
         join_request_accepted:
-          email_intro: Felicitats! Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
+          email_intro: Felicitats! Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
           email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
-          email_subject: Has estat acceptat al grup %{user_group_name}!
-          notification_title: Has estat acceptat al grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: La teva sol·licitud per a unir-te al grup %{user_group_name} ha estat acceptada!
+          notification_title: Has estat acceptada al grup <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar-la o rebutjar-la des de <a href="%{resource_url}"> la pàgina de membres</a>.
-          email_outro: Has rebut aquesta notificació perquè pots gestionar el grup %{user_group_name}.
+          email_outro: Has rebut aquesta notificació perquè ets administradora del grup %{user_group_name}.
           email_subject: Algú ha sol·licitat unir-se al grup %{user_group_name}!
-          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar o rebutjar des <a href="%{resource_path}">els membres del grup de la pàgina</a>.
+          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar o rebutjar la sol·licitud des de <a href="%{resource_path}">els membres del grup de la pàgina</a>.
         join_request_rejected:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha rebutjat la teva sol·licitud per unir-te.
-          email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
+          email_outro: Has rebut aquesta notificació perquè la teva sol·licitud d'incorporació s'ha actualitzat.
           email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
-          notification_title: La teva sol·licitud d'unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
+          notification_title: La teva sol·licitud per unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha donat drets d'administrador per a aquest grup.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Ara ets administrador del grup %{user_group_name}!
-          notification_title: Ara ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Ara ets administradora del grup %{user_group_name}!
+          notification_title: Ara ets administradora del grup <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat.
+          email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat d'aquest.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Has estat eliminat del grup %{user_group_name}!
-          notification_title: T'han eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Has estat eliminada del grup %{user_group_name}!
+          notification_title: Has estat eliminada del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
-          notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint a %{nickname}. Pots deixar de rebre notificacions mitjançant l'enllaç anterior.
+          email_subject: "%{nickname} ha actualitzat el seu perfil"
+          notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
         click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
@@ -504,12 +504,12 @@ ca:
       subject: L'exportació "%{name}" està a punt
     filters:
       linked_classes:
-        all: Tots
-        collaborative_draft: Esborrany de col·laboració
+        all: Totes
+        collaborative_draft: Esborrany col·laboratiu
         dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
-        proposal: propostes
+        proposal: Propostes
         result: Resultats
     fingerprint:
       check: Verifica l'empremta digital
