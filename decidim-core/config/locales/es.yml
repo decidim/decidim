@@ -445,7 +445,7 @@ es:
         badge_earned:
           email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
-          email_subject: '¡Has conseguido una nueva insignia: %{badge_name}!'
+          email_subject: '¡Has obtenido una nueva insignia: %{badge_name}!'
           notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
           email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
