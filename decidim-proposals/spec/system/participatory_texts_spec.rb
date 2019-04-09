@@ -12,9 +12,9 @@ describe "Participatory texts", type: :system do
     prop_block.hover
     expect(prop_block).to have_button("Follow")
     expect(prop_block).to have_link("Amend") if component.settings.amendments_enabled
-    expect(prop_block).to have_link(proposal.emendations.count) if component.settings.amendments_enabled
+    expect(prop_block).to have_link(proposal.emendations.count.to_s) if component.settings.amendments_enabled
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
-    expect(prop_block).to have_link(proposal.comments.count) if component.settings.comments_enabled
+    expect(prop_block).to have_link(proposal.comments.count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(proposal.body) if proposal.participatory_text_level == "article"
     expect(prop_block).not_to have_content(proposal.body) if proposal.participatory_text_level != "article"
   end
