@@ -462,7 +462,7 @@ es:
           email_intro: Un administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
           email_outro: Has recibido esta notificación porque te han invitado a un grupo. Por favor, revisa la pestaña Grupos en tu perfil para aceptar la invitación.
           email_subject: Te han invitado a unirte al grupo %{user_group_name}
-          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación.
+          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación!
         join_request_accepted:
           email_intro: '¡Felicidades! Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
