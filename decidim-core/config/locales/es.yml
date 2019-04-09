@@ -40,7 +40,7 @@ es:
         other: Enmiendas
       decidim/user:
         one: No hay participantes
-        other: Usuarios
+        other: Participantes
       decidim/user_group:
         one: Grupo
         other: Grupos
@@ -71,7 +71,7 @@ es:
           ok: Sí, quiero eliminar mi cuenta
           question: '¿Seguro que quieres eliminar tu cuenta?'
           title: Eliminar mi cuenta
-        explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
+        explanation: Por favor, cuéntanos el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
@@ -85,7 +85,7 @@ es:
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
-        delete: "%{user_name} borró el área %{resource_name}"
+        delete: "%{user_name} eliminó el área %{resource_name}"
         update: "%{user_name} actualizó el área %{resource_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
@@ -96,10 +96,10 @@ es:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
-        create: "%{user_name} creó el newsletter %{resource_name}"
-        delete: "%{user_name} eliminó el newsletter %{resource_name}"
-        deliver: "%{user_name} envió el newsletter %{resource_name}"
-        update: "%{user_name} actualizó el newsletter %{resource_name}"
+        create: "%{user_name} creó la newsletter %{resource_name}"
+        delete: "%{user_name} eliminó la newsletter %{resource_name}"
+        deliver: "%{user_name} envió la newsletter %{resource_name}"
+        update: "%{user_name} actualizó la newsletter %{resource_name}"
       oauth_application:
         create: "%{user_name} creó la aplicación %{resource_name} OAuth"
         delete: "%{user_name} borró la aplicación %{resource_name} OAuth"
@@ -107,7 +107,7 @@ es:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
-        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privado"
+        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privada"
         delete: "%{user_name} ha eliminado a la participante %{resource_name} como participante privada"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -124,10 +124,10 @@ es:
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó a la participante %{resource_name}"
         remove_from_admin: "%{user_name} eliminó a la participante %{resource_name} con el rol: %{role}"
-        unofficialize: "%{user_name} ha quitado la oficialización al usuario %{resource_name}"
+        unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
-        verify: "%{user_name} verificado el grupo %{resource_name}"
+        verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
     amendments:
       accepted:
@@ -150,20 +150,17 @@ es:
         actions:
           button_accept: Aceptar
           button_reject: Rechazar
-          help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autor(es).
+          help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autora(as).
         announcement:
           accepted: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido
-            aceptada el <strong>%{announcement_date}</strong>.
+            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido aceptada el <strong>%{announcement_date}</strong>.
           evaluating: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link}
-            está siendo evaluada.
+            Esta enmienda para el %{amendable_type} %{amendable_link} está siendo evaluada.
           rejected: Esta enmienda para el %{amendable_type} %{amendable_link} ha sido rechazada el <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link}
-            ha sido retirada por su autora.
+            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido retirada por su autora.
       new:
-        amendment_author: Autor de la enmienda
+        amendment_author: Autora de la enmienda
         back: Volver
         heading: Crea tu enmienda
         help_text: Estás modificando el %{model_name}
@@ -178,8 +175,8 @@ es:
         back: Volver
         heading: Revisar la enmienda
         help_text: Estás enmendando el %{model_name}
-        send: Aceptar enmienda
-    anonymous_user: Anónimo
+        send: Acepta la enmienda
+    anonymous_user: Anónima
     application:
       collection:
         documents:
@@ -195,7 +192,7 @@ es:
         other: comentarios
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verifíquese introduciendo un número de pasaporte que comience por "A"
+        explanation: Verifícate introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
         name: Otro ejemplo de autorización
@@ -210,7 +207,7 @@ es:
       errors:
         duplicate_authorization: Ya se ha autorizado a una participante con los mismos datos.
       expired_at: Caducado el %{timestamp}
-      expires_at: Caduca en %{timestamp}
+      expires_at: Caduca el %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -218,7 +215,7 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       sms:
-        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
+        explanation: Introduce tu número de teléfono móvil para poder verificar tu identidad.
         name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
@@ -267,27 +264,27 @@ es:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute_1: Atributo de prueba 1
+            dummy_global_attribute_2: Atributo de prueba 2
             enable_pads_creation: Habilitar la creación de pads
-            resources_permissions_enabled: Habilitar permisos de recursos
+            resources_permissions_enabled: Permisos de recursos habilitados
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Atributo de fase de prueba 1
+            dummy_step_attribute_2: Atributo de fase de prueba 2
     contact: Contacto
     content_blocks:
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
       hero:
-        name: Imagen de hero
+        name: Imagen del hero
       highlighted_content_banner:
-        name: Banner de contenido resaltado
+        name: Banner de contenido destacado
       how_to_participate:
-        name: Como participar
+        name: Cómo participar
       html:
         html_content: Contenido HTML
-        name: Bloque de HTML
+        name: Bloque HTML
       last_activity:
         name: Última actividad
         title: Última actividad
@@ -300,14 +297,14 @@ es:
         name: Banner de sub-hero
     core:
       actions:
-        unauthorized: No tienes permiso para realizar esta acción.
+        unauthorized: No tienes permisos para realizar esta acción
     data_portability:
       export:
         ready: Listo
       show:
-        download_data: Descargar los datos
+        download_data: Descárgate los datos
         download_data_description: Un archivo con toda la información asociada con la cuenta se enviará a <strong>%{user_email}</strong>
-        request_data: Solicitar datos
+        request_data: Solicita datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -315,11 +312,11 @@ es:
         create:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
-          complete_profile: Completar perfil
+          complete_profile: Completa el perfil
           nickname_help: Tu alias (@nickname) en %{organization}
           sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
-          username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
+          subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
+          username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
@@ -337,20 +334,20 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: '¿Eres nueva en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa
           sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder
       shared:
         newsletter_modal:
           buttons:
-            check: Verificar y continuar
-            close_modal: Cerrar modal
+            check: Verifica y continúa
+            close_modal: Cierra modal
             uncheck: Mantener desmarcado
           notice: |-
-            <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
-            Por favor, considera volver a marcar la casilla de verificación del boletín de abajo.<br>
-            Es muy importante para nosotros que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
+            <p>Hola, ¿estás segura de que no quieres recibir un boletín informativo?<br>
+            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
+            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
             Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
@@ -360,14 +357,14 @@ es:
     doorkeeper:
       authorizations:
         new:
-          authorize: Autorice la aplicación
+          authorize: Autoriza la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
           connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
-          publish_content: Publique contenido para usted
-          see_email: Ver tu correo electrónico
-          see_name: Ver tu nombre
-          see_username: Ver tu alias
+          publish_content: Publique contenido para tí
+          see_email: Consulta tu correo electrónico
+          see_name: Consulta tu nombre
+          see_username: Consulta tu alias
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
@@ -418,7 +415,7 @@ es:
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque eres autora de %{amendable_title}.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:

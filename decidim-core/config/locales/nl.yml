@@ -269,7 +269,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
-            enable_pads_creation: Schakel het maken van pads in
+            enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
           step:
             comments_blocked: Reacties geblokkeerd
@@ -800,8 +800,8 @@ nl:
         verified: Geverifieerd
     pad_iframe:
       disclaimer: De inhoud van dit notitieblok is geschreven door geregistreerde gebruikers en geeft hun mening weer. %{organization} kan niet verantwoordelijk worden gehouden voor de inhoud ervan.
-      explanation: Gebruik deze pad om tijdens de vergadering gezamenlijk notities te maken, zodat u de minuut erna gemakkelijker kunt noteren.
-      pad: stootkussen
+      explanation: Gebruik dit notitieblok om tijdens de vergadering gezamenlijk notities te maken, om later eenvoudig notulen te kunnen maken.
+      pad: Notitieblok
     pages:
       home:
         extended:

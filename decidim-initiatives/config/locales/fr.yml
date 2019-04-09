@@ -148,7 +148,7 @@ fr:
             description: La description
             initiative_votes_count: Les votes comptent
             initiatives: Les initiatives
-            state: Etat
+            state: État
         committee_requests:
           index:
             approve: Approuver
