@@ -81,7 +81,7 @@ module Decidim
     end
 
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: css }
     end
   end
