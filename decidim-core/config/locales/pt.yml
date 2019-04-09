@@ -138,8 +138,6 @@ pt:
         button: Emendar %{model_name}
         error: Houve um erro ao alterar este recurso.
         help_text: Melhore este %{model_name} modificando seu %{amendable_fields}
-        no_amenders: Não há emendas
-        no_amendments: Não há alterações
         promote_button: Promover para %{model_name}
         promote_confirm_text: Tem certeza de que deseja promover essa emenda?
         promote_help_text: Você pode promover esta emendação e publicá-la como um %{model_name}independente
