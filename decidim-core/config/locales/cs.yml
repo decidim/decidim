@@ -144,8 +144,6 @@ cs:
         button: Změna %{model_name}
         error: Při změně tohoto zdroje došlo k chybě.
         help_text: Zlepšete tento %{model_name} změnou jeho %{amendable_fields}
-        no_amenders: Neexistují žádní novináři
-        no_amendments: Neexistují žádné změny
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
         promote_help_text: Tuto změnu můžete propagovat a publikovat ji jako nezávislou %{model_name}
