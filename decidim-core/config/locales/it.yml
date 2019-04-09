@@ -138,8 +138,6 @@ it:
         button: Modificare %{model_name}
         error: Si è verificato un errore durante la modifica di questa risorsa.
         help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
-        no_amenders: Non ci sono emendatori
-        no_amendments: Non ci sono modifiche
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
         promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
