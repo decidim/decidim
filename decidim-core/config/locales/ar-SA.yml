@@ -149,8 +149,6 @@ ar:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
-        no_amenders: لا يوجد تعديل
-        no_amendments: لا توجد تعديلات
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
       created:
