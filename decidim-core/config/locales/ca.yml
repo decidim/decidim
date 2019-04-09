@@ -519,9 +519,9 @@ ca:
       title: Empremta digital
       value: Valor
     followers:
-      no_followers: Encara no hi ha seguidors.
+      no_followers: Encara no hi ha seguidores.
     following:
-      no_followings: No segueix cap persona ni res.
+      no_followings: No segueix a cap persona ni cap activitat.
     follows:
       create:
         button: Seguir
