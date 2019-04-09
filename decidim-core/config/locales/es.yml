@@ -454,12 +454,12 @@ es:
           notification_title: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       groups:
         demoted_membership:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
-          email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
-          email_subject: Ya no eres administrador del grupo %{user_group_name}
-          notification_title: Ya no eres administrador del grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
+          email_outro: Has recibido esta notificación porque eres miembro de este grupo.
+          email_subject: Ya no eres administradora del grupo %{user_group_name}.
+          notification_title: Ya no eres administradora del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
+          email_intro: Un administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
           email_outro: Has recibido esta notificación porque te han invitado a un grupo. Por favor, revisa la pestaña Grupos en tu perfil para aceptar la invitación.
           email_subject: Te han invitado a unirte al grupo %{user_group_name}
           notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación.
