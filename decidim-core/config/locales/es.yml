@@ -521,7 +521,7 @@ es:
     followers:
       no_followers: Aún no hay seguidores.
     following:
-      no_followings: No sigue a nadie ni a nada todavía.
+      no_followings: No sigue a nadie ni a ninguna actividad.
     follows:
       create:
         button: Seguir
