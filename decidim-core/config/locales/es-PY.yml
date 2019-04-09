@@ -138,8 +138,6 @@ es-PY:
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
-        no_amenders: No hay enmendadores
-        no_amendments: No hay enmiendas
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
