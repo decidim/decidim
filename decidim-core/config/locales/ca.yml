@@ -138,8 +138,6 @@ ca:
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        no_amenders: No hi ha esmenadores
-        no_amendments: No hi ha cap esmena
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
