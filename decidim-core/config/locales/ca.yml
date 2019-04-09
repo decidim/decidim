@@ -466,8 +466,8 @@ ca:
         join_request_accepted:
           email_intro: Felicitats! Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
           email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
-          email_subject: Has estat acceptat al grup %{user_group_name}!
-          notification_title: Has estat acceptat al grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: La teva sol·licitud per a unir-te al grup %{user_group_name} ha estat acceptada!
+          notification_title: Has estat acceptada al grup <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar-la o rebutjar-la des de <a href="%{resource_url}"> la pàgina de membres</a>.
           email_outro: Has rebut aquesta notificació perquè pots gestionar el grup %{user_group_name}.
