@@ -22,16 +22,11 @@ module Decidim
       content_tag :div, content.html_safe, class: "section"
     end
 
-    # Returns a UserPresenter array
-    def amenders_for(amendable)
-      amendable.amendments.map { |amendment| present(amendment.amender) }.uniq
-    end
-
     # Renders the amenders list of an amendable resource
     def amenders_list_for(amendable)
       return unless amendable.amendable?
 
-      cell("decidim/amendable/amenders_list", amenders_for(amendable), context: { current_user: current_user })
+      cell("decidim/amendable/amenders_list", amendable)
     end
 
     # Renders the state of an emendation
