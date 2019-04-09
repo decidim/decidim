@@ -138,8 +138,6 @@ eu:
         button: Aldatu %{model_name}
         error: Errore bat gertatu da baliabidea aldatzen.
         help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
-        no_amenders: Ez dago murrizketarik
-        no_amendments: Ez dago zuzenketarik
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
