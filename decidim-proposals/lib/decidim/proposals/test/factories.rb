@@ -249,7 +249,7 @@ FactoryBot.define do
     end
 
     title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
-    body { Faker::Lorem.sentences(3).join("\n") }
+    body { "<script>alert(\"BODY\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
