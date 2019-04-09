@@ -135,8 +135,6 @@ id:
         button: Ubah %{model_name}
         error: Terjadi kesalahan saat mengubah sumber daya ini.
         help_text: Tingkatkan %{model_name} ini dengan memodifikasi %{amendable_fields}
-        no_amenders: Tidak ada amandemen
-        no_amendments: Tidak ada amandemen
         promote_button: Promosikan ke %{model_name}
         promote_confirm_text: Anda yakin ingin mempromosikan perbaikan ini?
         promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
