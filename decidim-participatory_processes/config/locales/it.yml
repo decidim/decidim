@@ -71,6 +71,9 @@ it:
         destroy: Elimina
         duplicate: Duplica
         edit: Modifica
+        filter:
+          all: Mostra tutti i processi
+          process_groups: Gruppi di processi
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
         new_process_step: Nuovo passo
@@ -200,8 +203,6 @@ it:
           success: Il processo partecipativo è stato creato con successo. Configura ora i suoi passaggi.
         edit:
           update: Modifica
-        form:
-          title: Informazioni generali
         index:
           not_published: Non pubblicato
           private: Privato
@@ -293,8 +294,16 @@ it:
         participatory_processes:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
+            duration: Durata
+            filters: filtri
+            images: immagini
+            metadata: Metadati
+            other: Altro
             select_an_area: Seleziona un'area
+            select_process_group: Seleziona un gruppo di processi
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+            title: Informazioni generali
+            visbility: Visibilità
       content_blocks:
         highlighted_processes:
           name: Processi evidenziati
@@ -310,8 +319,6 @@ it:
             more_information: Maggiori informazioni
             participate: Partecipare
             see_all_processes: Vedere tutti i processi
-      participatory_process_groups:
-        none: Nessuno
       participatory_processes:
         filters:
           counters:

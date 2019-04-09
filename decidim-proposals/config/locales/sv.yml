@@ -433,7 +433,7 @@ sv:
           except_rejected: Alla förutom avvisade
           rejected: avvisade
         filter_type_values:
-          all: Allt
+          all: Alla
           amendments: Tillägg
           proposals: förslag
       collaborative_drafts:

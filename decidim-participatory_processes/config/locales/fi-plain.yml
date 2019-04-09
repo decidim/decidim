@@ -71,6 +71,9 @@ fi-pl:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
+        filter:
+          all: Näytä kaikki prosessit
+          process_groups: Prosessiryhmät
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -200,8 +203,6 @@ fi-pl:
           success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         edit:
           update: Päivitä
-        form:
-          title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
           private: Yksityinen
@@ -293,8 +294,16 @@ fi-pl:
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
+            duration: Kesto
+            filters: Suodattimet
+            images: kuvat
+            metadata: metadata
+            other: muut
             select_an_area: Valitse alue
+            select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            title: Yleistä tietoa
+            visbility: näkyvyys
       content_blocks:
         highlighted_processes:
           name: Tärkeimmät prosessit
@@ -310,8 +319,6 @@ fi-pl:
             more_information: Lisätietoja
             participate: Osallistu
             see_all_processes: Näytä kaikki prosessit
-      participatory_process_groups:
-        none: Ei ryhmää
       participatory_processes:
         filters:
           counters:

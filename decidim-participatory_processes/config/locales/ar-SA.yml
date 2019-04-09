@@ -83,6 +83,9 @@ ar:
         destroy: حذف
         duplicate: مكرر
         edit: تصحيح
+        filter:
+          all: عرض جميع العمليات
+          process_groups: مجموعات العملية
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
         new_process_step: مرحلة جديدة
@@ -212,8 +215,6 @@ ar:
           success: تم إنشاء عملية المشاركة بنجاح. تكوين الآن مراحلها.
         edit:
           update: تحديث
-        form:
-          title: معلومات عامة
         index:
           not_published: غير منشور
           private: نشر
@@ -309,8 +310,16 @@ ar:
         participatory_processes:
           form:
             announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
+            duration: المدة الزمنية
+            filters: مرشحات
+            images: صور
+            metadata: البيانات الوصفية
+            other: آخر
             select_an_area: اختر منطقة
+            select_process_group: حدد مجموعة عملية
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+            title: معلومات عامة
+            visbility: رؤية
       content_blocks:
         highlighted_processes:
           name: عمليات مميزة
@@ -326,8 +335,6 @@ ar:
             more_information: معلومات اكثر
             participate: مشاركة
             see_all_processes: رؤية جميع العمليات
-      participatory_process_groups:
-        none: لا شيء
       participatory_processes:
         filters:
           counters:

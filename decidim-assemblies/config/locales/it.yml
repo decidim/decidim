@@ -84,8 +84,6 @@ it:
           success: L'assemblaggio è stato creato con successo.
         edit:
           update: Aggiorna
-        form:
-          title: Informazioni generali
         index:
           not_published: Non pubblicato
           private: Privato
@@ -211,14 +209,21 @@ it:
       admin:
         assemblies:
           form:
+            duration: Durata
             duration_help: Se la durata di questo assemblaggio è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinito.
+            filters: filtri
+            images: immagini
             included_at_help: Seleziona la data in cui questo assembly è stato aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
+            metadata: Metadati
+            other: Altro
             select_a_created_by: Seleziona un creato da
             select_an_area: Seleziona un'area
             select_an_assembly_type: Seleziona un tipo di assieme
             select_parent_assembly: Seleziona il gruppo genitore
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Sociale
+            title: Informazioni generali
+            visbility: Visibilità
         assembly_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
