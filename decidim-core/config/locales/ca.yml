@@ -546,8 +546,8 @@ ca:
           description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
           name: Continuïtat
-          next_level_in: Connecta't per %{score} dies consecutius per arribar al següent nivell!
-          unearned_another: Aquesta participant no ha iniciat la sessió durant més d'un dia consecutiu.
+          next_level_in: Connecta't durant %{score} dies consecutius per arribar al següent nivell!
+          unearned_another: Aquesta participant no ha iniciat sessió durant més d'un dia consecutiu.
           unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
