@@ -464,7 +464,7 @@ ca:
           email_subject: T'han convidat a formar part del grup %{user_group_name}!
           notification_title: T'han convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per acceptar la invitació!
         join_request_accepted:
-          email_intro: Felicitats! Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
+          email_intro: Felicitats! Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
           email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
           email_subject: Has estat acceptat al grup %{user_group_name}!
           notification_title: Has estat acceptat al grup <a href="%{resource_path}">%{user_group_name}</a>.
