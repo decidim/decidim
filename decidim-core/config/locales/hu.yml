@@ -138,8 +138,6 @@ hu:
         button: 'Módosítás: %{model_name}'
         error: Hiba történt az erőforrás módosításakor.
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
-        no_amenders: Nincsenek módosítások
-        no_amendments: Nincsenek módosítások
         promote_button: Kezdeményezze a %{model_name}
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a javítást?
         promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
