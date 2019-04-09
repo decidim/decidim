@@ -3,6 +3,8 @@
 module Decidim::Amendable
   # This cell renders a list with amenders of the given amendable resource.
   class AmendersListCell < Decidim::ViewModel
+    include Decidim::ApplicationHelper
+
     private
 
     def show
