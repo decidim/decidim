@@ -30,7 +30,7 @@ edit_link(
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% unless @proposal.emendation? %>
+    <% if @proposal.amendable? %>
       <div class="card text-center">
         <div class="card__content">
           <div>
