@@ -537,12 +537,12 @@ ca:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
-      all_badges_link: Veure tots els distintius disponibles.
+      all_badges_link: Veure totes les insígnies disponibles.
       badges:
         continuity:
           conditions:
-            - Vine aquí sovint
-          description: Aquest distintiu es concedeix al visitar la plataforma de forma regular. Ens agrada tenir-te per aquí!
+            - Ve aquí sovint
+          description: Aquesta insígnia es concedeix al visitar la plataforma de forma regular. Ens encanta tenir-te per aquí!
           description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
           name: Continuïtat
