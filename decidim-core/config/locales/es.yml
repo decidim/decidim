@@ -470,7 +470,7 @@ es:
           notification_title: Has sido aceptada al grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarla o rechazarla desde <a href="%{resource_url}">miembros del grupo en la página</a>.
-          email_outro: Has recibido esta notificación porque eres administrador/a del grupo %{user_group_name}.
+          email_outro: Has recibido esta notificación porque eres administradora del grupo %{user_group_name}.
           email_subject: Alguien ha solicitado unirse al grupo %{user_group_name}
           notification_title: Alguien ha solicitado unirse al grupo %{user_group_name}. Puedes aceptar o rechazar la solicitud desde <a href="%{resource_path}">la página de miembros del grupo</a>.
         join_request_rejected:
