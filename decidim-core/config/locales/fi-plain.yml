@@ -978,6 +978,9 @@ fi-pl:
           select_an_area: Valitse alue
       reference:
         reference: 'Viite: %{reference}'
+      represent_user_group:
+        represent_user_group: Edustan ryhmää
+        select_user_group: Valitse ryhmä
       results_per_page:
         label: 'Tulosten määrä sivulla:'
       share_modal:
