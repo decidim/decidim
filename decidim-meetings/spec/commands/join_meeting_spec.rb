@@ -6,17 +6,27 @@ module Decidim::Meetings
   describe JoinMeeting do
     subject { described_class.new(meeting, user, registration_form) }
 
-    let(:registrations_enabled) { true }
-    let(:registration_form) { nil }
-    let(:available_slots) { 10 }
     let(:organization) { create :organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:process_admin) { create :process_admin, participatory_process: participatory_process }
     let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
+
+    let(:registrations_enabled) { true }
+    let(:available_slots) { 10 }
     let(:questionnaire) { nil }
-    let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
+
+    let(:meeting) do
+      create(:meeting,
+             component: component,
+             registrations_enabled: registrations_enabled,
+             available_slots: available_slots,
+             questionnaire: questionnaire)
+    end
+
     let(:user) { create :user, :confirmed, organization: organization, email_on_notification: false }
 
+    let(:registration_form) { Decidim::Meetings::JoinMeetingForm.new }
+
+    let(:badge_notification) { hash_including(event: "decidim.events.gamification.badge_earned") }
     let(:user_notification) do
       {
         event: "decidim.events.meetings.meeting_registration_confirmed",
@@ -27,8 +37,7 @@ module Decidim::Meetings
       }
     end
 
-    let(:badge_earned) { hash_including(event: "decidim.events.gamification.badge_earned") }
-
+    let(:process_admin) { create :process_admin, participatory_process: participatory_process }
     let(:admin_notification) do
       {
         event: "decidim.events.meetings.meeting_registrations_over_percentage",
@@ -68,8 +77,8 @@ module Decidim::Meetings
       end
 
       it "sends a notification to the user with the registration confirmed" do
+        expect(Decidim::EventsManager).to receive(:publish).with(badge_notification)
         expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
-        expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
 
         subject.call
       end
@@ -94,8 +103,8 @@ module Decidim::Meetings
         end
 
         it "also sends a notification to the process admins" do
+          expect(Decidim::EventsManager).to receive(:publish).with(badge_notification)
           expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
-          expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
           expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
@@ -122,8 +131,8 @@ module Decidim::Meetings
         end
 
         it "also sends a notification to the process admins" do
+          expect(Decidim::EventsManager).to receive(:publish).with(badge_notification)
           expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
-          expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
           expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
@@ -150,8 +159,8 @@ module Decidim::Meetings
         end
 
         it "also sends a notification to the process admins" do
+          expect(Decidim::EventsManager).to receive(:publish).with(badge_notification)
           expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
-          expect(Decidim::EventsManager).to receive(:publish).with(badge_earned)
           expect(Decidim::EventsManager).to receive(:publish).with(admin_notification)
 
           subject.call
@@ -189,37 +198,23 @@ module Decidim::Meetings
       end
     end
 
-    context "when there are a registration form" do
+    context "when the registration form is a questionnaire" do
       let!(:questionnaire) { create(:questionnaire) }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-      let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
-
-      let(:valid) { true }
-      let(:registration_form) do
-        instance_double(
-          Decidim::Forms::QuestionnaireForm,
-          valid?: valid,
-          invalid?: !valid,
-          tos_agreement: true,
-          answers: [
-            double(
-              question: question,
-              body: "My answer response",
-              selected_choices: []
-            )
-          ]
-        )
-      end
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire) }
 
       context "and the registration form is invalid" do
-        let(:valid) { false }
-
         it "broadcast invalid_form" do
           expect { subject.call }.to broadcast(:invalid_form)
         end
       end
 
       context "and everything is ok" do
+        before do
+          registration_form.tos_agreement = true
+          registration_form.answers.first.body = "My answer response"
+        end
+
         it "broadcasts ok" do
           expect { subject.call }.to broadcast(:ok)
         end
