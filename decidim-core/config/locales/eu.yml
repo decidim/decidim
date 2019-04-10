@@ -978,6 +978,9 @@ eu:
           select_an_area: Hautatu eremu bat
       reference:
         reference: 'Erreferentzia: %{reference}'
+      represent_user_group:
+        represent_user_group: Talde bat irudikatzen dut
+        select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'
       share_modal:
