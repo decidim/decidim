@@ -978,6 +978,9 @@ sv:
           select_an_area: Välj ett område
       reference:
         reference: 'Referens: %{reference}'
+      represent_user_group:
+        represent_user_group: Jag representerar en grupp
+        select_user_group: Välj en grupp
       results_per_page:
         label: 'Resultat per sida:'
       share_modal:
