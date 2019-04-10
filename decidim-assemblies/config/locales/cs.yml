@@ -90,8 +90,6 @@ cs:
           success: Shromáždění bylo úspěšně vytvořeno.
         edit:
           update: Aktualizace
-        form:
-          title: Obecná informace
         index:
           not_published: Není zveřejněno
           private: Soukromé
@@ -217,14 +215,21 @@ cs:
       admin:
         assemblies:
           form:
+            duration: Doba trvání
             duration_help: Je-li trvání této sestavy omezené, vyberte datum ukončení. V opačném případě se bude zobrazovat jako neurčitá.
+            filters: Filtry
+            images: snímky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
+            metadata: Metadata
+            other: jiný
             select_a_created_by: Vyberte vytvořenou službu
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ sestavy
             select_parent_assembly: Vyberte sestavu rodiče
             slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
+            title: Obecná informace
+            visbility: Viditelnost
         assembly_copies:
           form:
             slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'

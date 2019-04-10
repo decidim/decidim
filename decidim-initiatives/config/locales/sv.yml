@@ -61,7 +61,7 @@ sv:
       actions:
         new_initiative_type: Ny initiativtyp
       menu:
-        initiatives: initiativ
+        initiatives: Initiativ
         initiatives_types: Initiativtyper
       models:
         initiatives:
@@ -70,7 +70,7 @@ sv:
             id: ID
             state: Status
             supports_count: signaturer
-            title: initiativ
+            title: Initiativ
         initiatives_type_scope:
           fields:
             scope: Omfattning
@@ -96,7 +96,7 @@ sv:
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
-        initiatives: initiativ
+        initiatives: Initiativ
         initiatives_types: Initiativtyper
     events:
       initiatives:

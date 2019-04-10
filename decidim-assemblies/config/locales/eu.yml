@@ -84,8 +84,6 @@ eu:
           success: Batzarra zuzen sortu da.
         edit:
           update: Eguneratu
-        form:
-          title: Informazio orokorra
         index:
           not_published: Argitaratu gabe
           private: Pribatua
@@ -211,14 +209,21 @@ eu:
       admin:
         assemblies:
           form:
+            duration: Iraupena
             duration_help: Muntaia honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
+            filters: iragazkiak
+            images: Irudiak
             included_at_help: Hautatu muntaia hau Decidim-era gehitu denean. Ez du derrigorrez sorkuntzako data izan behar.
+            metadata: Metadata
+            other: Beste
             select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
             select_parent_assembly: Hautatu gurasoaren muntaia
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
             social_handlers: Gizarte
+            title: Informazio orokorra
+            visbility: ikusgarritasuna
         assembly_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'

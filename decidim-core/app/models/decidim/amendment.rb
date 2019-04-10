@@ -12,6 +12,10 @@ module Decidim
       state == "evaluating"
     end
 
+    def rejected?
+      state == "rejected"
+    end
+
     validates :amendable, :amender, :emendation, presence: true
   end
 end

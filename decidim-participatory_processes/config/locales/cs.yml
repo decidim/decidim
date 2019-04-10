@@ -77,6 +77,9 @@ cs:
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
+        filter:
+          all: Zobrazit všechny procesy
+          process_groups: Skupiny procesů
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
@@ -206,8 +209,6 @@ cs:
           success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
         edit:
           update: Aktualizace
-        form:
-          title: Obecná informace
         index:
           not_published: Není zveřejněno
           private: Soukromé
@@ -301,8 +302,16 @@ cs:
         participatory_processes:
           form:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
+            duration: Doba trvání
+            filters: Filtry
+            images: snímky
+            metadata: Metadata
+            other: jiný
             select_an_area: Vyberte oblast
+            select_process_group: Vyberte skupinu procesů
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            title: Obecná informace
+            visbility: Viditelnost
       content_blocks:
         highlighted_processes:
           name: Zvýrazněné procesy
@@ -318,8 +327,6 @@ cs:
             more_information: Více informací
             participate: Účastnit se
             see_all_processes: Zobrazit všechny procesy
-      participatory_process_groups:
-        none: Žádný
       participatory_processes:
         filters:
           counters:

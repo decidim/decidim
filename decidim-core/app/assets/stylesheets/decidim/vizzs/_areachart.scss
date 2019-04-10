@@ -13,17 +13,17 @@
   }
 
   .area{
-    fill: rgba(var(--primary), .05);
+    fill: rgba(var(--primary-rgb), .05);
   }
 
   .line{
     fill: none;
-    stroke: rgba(var(--primary), .2);
+    stroke: rgba(var(--primary-rgb), .2);
     stroke-width: 4px;
   }
 
   .circle{
-    fill: rgba(var(--primary), .2);
+    fill: rgba(var(--primary-rgb), .2);
   }
 
   .tick{

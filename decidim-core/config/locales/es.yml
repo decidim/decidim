@@ -426,26 +426,26 @@ es:
             notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
+          email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Un evento ha ocurrido en %{resource_title}
           notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización en %{participatory_space_title}
-          notification_title: El componente %{resource_title} está activo ahora en <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-        email_subject: Una actualización de %{resource_title}
+        email_subject: Una actualización en %{resource_title}
       gamification:
         badge_earned:
           email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
-          email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
+          email_subject: '¡Has obtenido una nueva insignia: %{badge_name}!'
           notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
           email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
@@ -454,29 +454,29 @@ es:
           notification_title: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       groups:
         demoted_membership:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
-          email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
-          email_subject: Ya no eres administrador del grupo %{user_group_name}
-          notification_title: Ya no eres administrador del grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
+          email_outro: Has recibido esta notificación porque eres miembro de este grupo.
+          email_subject: Ya no eres administradora del grupo %{user_group_name}.
+          notification_title: Ya no eres administradora del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
+          email_intro: Un administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
           email_outro: Has recibido esta notificación porque te han invitado a un grupo. Por favor, revisa la pestaña Grupos en tu perfil para aceptar la invitación.
           email_subject: Te han invitado a unirte al grupo %{user_group_name}
-          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación.
+          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación!
         join_request_accepted:
-          email_intro: '¡Felicidades! Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
+          email_intro: '¡Felicidades! Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
-          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido aceptada
-          notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido aceptada.
+          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido aceptada!
+          notification_title: Has sido aceptada al grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarlo o rechazarlo desde <a href="%{resource_url}">miembros del grupo en la página</a>.
-          email_outro: Has recibido esta notificación porque eres administrador/a del grupo %{user_group_name}.
+          email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarla o rechazarla desde <a href="%{resource_url}">miembros del grupo en la página</a>.
+          email_outro: Has recibido esta notificación porque eres administradora del grupo %{user_group_name}.
           email_subject: Alguien ha solicitado unirse al grupo %{user_group_name}
           notification_title: Alguien ha solicitado unirse al grupo %{user_group_name}. Puedes aceptar o rechazar la solicitud desde <a href="%{resource_path}">la página de miembros del grupo</a>.
         join_request_rejected:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha rechazado tu solicitud para unirte a él.
+          email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha rechazado tu solicitud para unirte a él.
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
-          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada
+          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada!
           notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
         promoted_to_admin:
           email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha otorgado permisos de administración para ese grupo.
