@@ -395,7 +395,7 @@ ca:
           one: " signatura"
           other: " signatures"
         supports:
-          title: Llistat de signatures
+          title: Llistat de adhesions
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "%{total_supports} suports obligatoris"

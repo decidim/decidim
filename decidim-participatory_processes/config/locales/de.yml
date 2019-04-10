@@ -71,6 +71,9 @@ de:
         destroy: Löschen
         duplicate: Duplikat
         edit: Bearbeiten
+        filter:
+          all: Alle Prozesse anzeigen
+          process_groups: Prozessgruppen
         new_process: Neuer Prozess
         new_process_group: Neue Prozessgruppe
         new_process_step: Neuer Schritt
@@ -200,8 +203,6 @@ de:
           success: Partizipativer Prozess erfolgreich erstellt. Konfigurieren Sie jetzt seine Schritte.
         edit:
           update: Aktualisieren
-        form:
-          title: Allgemeine Information
         index:
           not_published: Nicht veröffentlicht
           private: Privatgelände
@@ -293,8 +294,16 @@ de:
         participatory_processes:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
+            duration: Dauer
+            filters: Filter
+            images: Bilder
+            metadata: Metadaten
+            other: Andere
             select_an_area: Wählen Sie einen Bereich aus
+            select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            title: Allgemeine Information
+            visbility: Sichtweite
       content_blocks:
         highlighted_processes:
           name: Markierte Prozesse
@@ -310,8 +319,6 @@ de:
             more_information: Mehr Informationen
             participate: Sich beteiligen
             see_all_processes: Alle Prozesse anzeigen
-      participatory_process_groups:
-        none: Keiner
       participatory_processes:
         filters:
           counters:

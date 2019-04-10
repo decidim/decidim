@@ -71,6 +71,9 @@ sv:
         destroy: Radera
         duplicate: Duplicera
         edit: Redigera
+        filter:
+          all: Visa alla processer
+          process_groups: Processgrupper
         new_process: Ny process
         new_process_group: Ny processgrupp
         new_process_step: Nytt steg
@@ -200,8 +203,6 @@ sv:
           success: Deltagandeprocessen skapades framgångsrikt. Konfigurera nu dess steg.
         edit:
           update: Uppdatera
-        form:
-          title: Allmän information
         index:
           not_published: Ej publicerad
           private: Privat
@@ -293,8 +294,16 @@ sv:
         participatory_processes:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
+            duration: Varaktighet
+            filters: filter
+            images: Bilder
+            metadata: metadata
+            other: Andra
             select_an_area: Välj ett område
+            select_process_group: Välj en processgrupp
             slug_help: 'URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
+            title: Allmän information
+            visbility: Synlighet
       content_blocks:
         highlighted_processes:
           name: Markerade processer
@@ -310,8 +319,6 @@ sv:
             more_information: Mer information
             participate: Delta
             see_all_processes: Se alla processer
-      participatory_process_groups:
-        none: Ingen
       participatory_processes:
         filters:
           counters:

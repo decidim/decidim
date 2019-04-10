@@ -84,8 +84,6 @@ fi-pl:
           success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
-        form:
-          title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
           private: Yksityinen
@@ -211,14 +209,21 @@ fi-pl:
       admin:
         assemblies:
           form:
+            duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            filters: Suodattimet
+            images: kuvat
             included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
+            metadata: metadata
+            other: muut
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
+            title: Yleiset tiedot
+            visbility: näkyvyys
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'

@@ -71,6 +71,9 @@ es:
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
+        filter:
+          all: Mostrar todos los procesos
+          process_groups: Grupos de proceso
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
@@ -200,8 +203,6 @@ es:
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         edit:
           update: Actualizar
-        form:
-          title: Información general
         index:
           not_published: No publicado
           private: Privado
@@ -293,8 +294,16 @@ es:
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            duration: Duración
+            filters: Filtros
+            images: Imágenes
+            metadata: Metadatos
+            other: Otro
             select_an_area: Seleccione una área
+            select_process_group: Seleccione un grupo de proceso
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            title: Información general
+            visbility: Visibilidad
       content_blocks:
         highlighted_processes:
           name: Procesos destacados
@@ -310,8 +319,6 @@ es:
             more_information: Más información
             participate: Participar
             see_all_processes: Ver todos los procesos
-      participatory_process_groups:
-        none: Ninguna
       participatory_processes:
         filters:
           counters:
