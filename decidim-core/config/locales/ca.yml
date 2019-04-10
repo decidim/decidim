@@ -975,6 +975,9 @@ ca:
           select_an_area: Seleccioneu una àrea
       reference:
         reference: 'Referència: %{reference}'
+      represent_user_group:
+        represent_user_group: Represento un grup
+        select_user_group: Seleccioneu un grup
       results_per_page:
         label: 'Resultats per pàgina:'
       share_modal:
