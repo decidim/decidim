@@ -985,6 +985,9 @@ ar:
           select_an_area: اختر المنطقة
       reference:
         reference: 'المرجع: %{reference}'
+      represent_user_group:
+        represent_user_group: أنا أمثل مجموعة
+        select_user_group: اختر مجموعة
       results_per_page:
         label: 'نتائج لكل صفحة:'
       share_modal:
