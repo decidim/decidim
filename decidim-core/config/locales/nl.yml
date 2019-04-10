@@ -978,6 +978,9 @@ nl:
           select_an_area: Selecteer een gebied
       reference:
         reference: 'Referentie: %{reference}'
+      represent_user_group:
+        represent_user_group: Ik vertegenwoordig een groep
+        select_user_group: Selecteer een groep
       results_per_page:
         label: 'Resultaten per pagina:'
       share_modal:
