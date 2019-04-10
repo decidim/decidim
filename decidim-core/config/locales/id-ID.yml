@@ -975,6 +975,9 @@ id:
           select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
+      represent_user_group:
+        represent_user_group: Saya mewakili grup
+        select_user_group: Pilih satu grup
       results_per_page:
         label: 'Hasil per halaman:'
       share_modal:
