@@ -62,26 +62,13 @@ module Decidim
         )
       end
 
-      def affected_users
-        @affected_users ||= begin
-          if @amendable.is_a?(Decidim::Coauthorable)
-            @amendable.authors
-          else
-            [@amendable.author]
-          end
-        end.uniq
-      end
-
       def notify_amendable_authors_and_followers
         Decidim::EventsManager.publish(
           event: "decidim.events.amendments.amendment_created",
           event_class: Decidim::Amendable::AmendmentCreatedEvent,
           resource: @amendable,
-          affected_users: affected_users,
-          followers: @amendable.followers - affected_users,
-          extra: {
-            amendment_id: @amendment.id
-          }
+          affected_users: @amendable.notifiable_identities,
+          followers: @amendable.followers - @amendable.notifiable_identities
         )
       end
 

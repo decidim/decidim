@@ -71,6 +71,9 @@ hu:
         destroy: Törlés
         duplicate: Duplikálás
         edit: Szerkesztés
+        filter:
+          all: Az összes folyamat megjelenítése
+          process_groups: Folyamatcsoportok
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
@@ -200,8 +203,6 @@ hu:
           success: Részvételi folyamat létrehozása sikeres. Állítsd be a lépéseit.
         edit:
           update: Frissítés
-        form:
-          title: Általános információk
         index:
           not_published: Nincs közzétéve
           private: Privát
@@ -293,8 +294,16 @@ hu:
         participatory_processes:
           form:
             announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
+            duration: tartam
+            filters: Szűrők
+            images: képek
+            metadata: Metaadatok
+            other: Más
             select_an_area: Válasszon egy területet
+            select_process_group: Válassza ki a folyamatcsoportot
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+            title: Általános információk
+            visbility: Láthatóság
       content_blocks:
         highlighted_processes:
           name: Kiemelt folyamatok
@@ -310,8 +319,6 @@ hu:
             more_information: További információk
             participate: Részvétel
             see_all_processes: Összes folyamat
-      participatory_process_groups:
-        none: Egyik sem
       participatory_processes:
         filters:
           counters:

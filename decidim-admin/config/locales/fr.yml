@@ -156,6 +156,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
+          has_spaces: La zone a des espaces dépendants, elle ne doit pas avoir de dépendances pour pouvoir être supprimée.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application

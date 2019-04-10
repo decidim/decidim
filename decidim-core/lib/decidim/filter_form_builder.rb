@@ -40,8 +40,15 @@ module Decidim
       end
     end
 
+    # Wrap the areas select in a custom fieldset.
+    def areas_select(method, collection, options = {})
+      fieldset_wrapper options[:legend_title] do
+        super(method, collection, options)
+      end
+    end
+
     # Wrap the scopes picker in a custom fieldset.
-    def scopes_picker(method, options = {})
+    def scopes_picker(method, options = { checkboxes_on_top: true })
       fieldset_wrapper options[:legend_title] do
         super(method, options)
       end

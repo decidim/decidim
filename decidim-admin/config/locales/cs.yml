@@ -156,6 +156,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
+          has_spaces: Oblast má depedentní mezery, nesmí mít závislosti, aby mohla být vymazána.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast

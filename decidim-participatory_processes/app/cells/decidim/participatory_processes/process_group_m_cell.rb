@@ -47,7 +47,7 @@ module Decidim
 
         if current_user
           return processes.count.to_s if current_user.admin
-          processes.visible_for(current_user.id).count.to_s
+          processes.visible_for(current_user).count.to_s
         else
           processes.public_spaces.count.to_s
         end

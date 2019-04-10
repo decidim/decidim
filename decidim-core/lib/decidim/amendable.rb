@@ -6,16 +6,31 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :amendments, as: :amendable, foreign_key: "decidim_amendable_id", foreign_type: "decidim_amendable_type", class_name: "Decidim::Amendment"
+      has_many :amendments,
+               as: :amendable,
+               foreign_key: "decidim_amendable_id",
+               foreign_type: "decidim_amendable_type",
+               class_name: "Decidim::Amendment"
 
       # resource.emendations : resources that have amend the resource
-      has_many :emendations, through: :amendments, source: :emendation, source_type: name, inverse_of: :emendations
+      has_many :emendations,
+               through: :amendments,
+               source: :emendation,
+               source_type: name,
+               inverse_of: :emendations
 
       # resource.amenders :  users that have emendations for the resource
-      has_many :amenders, through: :amendments, source: :amender
+      has_many :amenders,
+               through: :amendments,
+               source: :amender
 
-      # resource.amended : the original resource that was amended
-      has_one :amended, as: :amendable, foreign_key: "decidim_emendation_id", foreign_type: "decidim_emendation_type", class_name: "Decidim::Amendment"
+      has_one :amended,
+              as: :amendable,
+              foreign_key: "decidim_emendation_id",
+              foreign_type: "decidim_emendation_type",
+              class_name: "Decidim::Amendment"
+
+      # resource.amendable : the original resource that was amended
       has_one :amendable, through: :amended, source: :amendable, source_type: name
 
       scope :only_amendables, -> { where.not(id: joins(:amendable)) }
@@ -31,11 +46,10 @@ module Decidim
       #
       # Returns nothing.
       def amendable(fields: nil, form: nil)
-        @amendable_options = {}
         raise "You must provide a set of fields to amend" unless fields
         raise "You must provide a form class of the amendable" unless form
-        @amendable_options[:fields] = fields
-        @amendable_options[:form] = form
+
+        @amendable_options = { fields: fields, form: form }
       end
     end
 
@@ -52,19 +66,17 @@ module Decidim
     end
 
     def amendment
-      return Decidim::Amendment.find_by(emendation: id) if emendation?
+      associated_resource = emendation? ? :emendation : :amendable
 
-      Decidim::Amendment.find_by(amendable: id)
+      Decidim::Amendment.find_by(associated_resource => id)
     end
 
     def emendation?
-      true if amendable.present?
+      amendable.present?
     end
 
     def amendable?
-      return false if emendation?
-
-      component.settings.amendments_enabled
+      amendable.blank?
     end
 
     def resource_state

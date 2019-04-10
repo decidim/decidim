@@ -41,6 +41,10 @@ nl:
           attributes:
             attachment:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
+            body:
+              identical: EN titel kan niet identiek zijn
+            title:
+              identical: EN lichaam kan niet identiek zijn
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd

@@ -157,6 +157,7 @@ en:
           error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
+          has_spaces: Area has depedent spaces, it must not have dependencies in order to be deleted.
           success: Area successfully destroyed
         edit:
           title: Edit area

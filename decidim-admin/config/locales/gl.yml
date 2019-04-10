@@ -156,6 +156,7 @@ gl:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
+          has_spaces: A área ten espazos dependentes, non debe ter dependencias para ser eliminada.
           success: Área destruída con éxito
         edit:
           title: Editar área

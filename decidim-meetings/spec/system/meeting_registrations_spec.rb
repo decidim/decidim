@@ -141,22 +141,51 @@ describe "Meeting registrations", type: :system do
           login_as user, scope: :user
         end
 
-        it "they can join the meeting" do
-          visit_meeting
+        context "and they ARE NOT part of a verified user group" do
+          it "they can join the meeting" do
+            visit_meeting
 
-          within ".card.extra" do
-            click_button "Join meeting"
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "A legal text"
+              page.find(".button.expanded").click
+            end
+
+            expect(page).to have_content("successfully")
+
+            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("19 slots remaining")
           end
+        end
 
-          within "#meeting-registration-confirm-#{meeting.id}" do
-            expect(page).to have_content "A legal text"
-            page.find(".button.expanded").click
+        context "and they ARE part of a verified user group" do
+          let!(:user_group) { create :user_group, :verified, users: [user], organization: organization }
+
+          it "they can join the meeting representing a group" do
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "I represent a group"
+              page.find("input#user_group").click
+              select user_group.name, from: :join_meeting_user_group_id
+              page.find(".button.expanded").click
+            end
+
+            expect(page).to have_content("successfully")
+
+            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("19 slots remaining")
+
+            expect(page).to have_text("ATTENDING ORGANIZATIONS")
+            expect(page).to have_text(user_group.name)
           end
-
-          expect(page).to have_content("successfully")
-
-          expect(page).to have_css(".button", text: "GOING")
-          expect(page).to have_text("19 slots remaining")
         end
       end
     end

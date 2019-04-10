@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <% if component_settings.amendments_enabled %>
+  <% if Decidim::Proposals::Proposal.only_emendations.any? %>
     <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, legend_title: t(".amendment_type") %>
   <% end %>
   <% if component_settings.official_proposals_enabled %>

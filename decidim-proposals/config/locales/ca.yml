@@ -41,6 +41,10 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita tornar a adjuntar-se
+            body:
+              identical: I el títol no pot ser idèntic
+            title:
+              identical: I el cos no pot ser idèntic
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta

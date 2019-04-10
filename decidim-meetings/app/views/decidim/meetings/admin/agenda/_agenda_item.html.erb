@@ -28,13 +28,7 @@
         <h2 class="card-title"><%= t(".agenda_item_children") %></h2>
       </div>
       <div class="card-section">
-        <div class="meeting-agenda-item-childs">
-          <template>
-            <%= fields_for "meeting_agenda[agenda_items][#{agenda_item.to_param}][agenda_item_children][#{blank_agenda_item.to_param_child}]", blank_agenda_item do |agenda_item_child_form| %>
-              <%= render "agenda_item_child", form: agenda_item_child_form, tabs_id: tabs_id, tabs_id_child: tabs_id_for_agenda_item_child(blank_agenda_item), editable: true %>
-            <% end %>
-          </template>
-
+        <div class="meeting-agenda-item-childs" data-template="<%= child_template_selector %>">
           <div class="meeting-agenda-item-childs-list">
             <% agenda_item.agenda_item_children.each do |agenda_item_child| %>
               <%= fields_for "meeting_agenda[agenda_items][#{agenda_item.to_param}][agenda_item_children][]", agenda_item_child do |agenda_item_child_form| %>

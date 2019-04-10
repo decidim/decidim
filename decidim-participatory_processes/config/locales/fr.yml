@@ -71,6 +71,9 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
+        filter:
+          all: Afficher tous les processus
+          process_groups: Groupes de processus
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
@@ -200,8 +203,6 @@ fr:
           success: Concertation créée avec succès. Configurez maintenant ses étapes.
         edit:
           update: Mettre à jour
-        form:
-          title: Informations générales
         index:
           not_published: Non publiée
           private: Privée
@@ -293,8 +294,16 @@ fr:
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            duration: Durée
+            filters: Les filtres
+            images: Images
+            metadata: Métadonnées
+            other: Autre
             select_an_area: Sélectionnez une région
+            select_process_group: Sélectionnez un groupe de processus
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            title: Informations générales
+            visbility: Visibilité
       content_blocks:
         highlighted_processes:
           name: Concertations mises en avant
@@ -310,8 +319,6 @@ fr:
             more_information: Plus d'informations
             participate: Participer
             see_all_processes: Voir toutes les concertations
-      participatory_process_groups:
-        none: Aucun
       participatory_processes:
         filters:
           counters:

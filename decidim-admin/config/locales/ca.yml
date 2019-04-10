@@ -156,6 +156,7 @@ ca:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
+          has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
           success: Àrea destruïda correctament
         edit:
           title: Editar àrea

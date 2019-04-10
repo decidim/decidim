@@ -64,6 +64,7 @@ fi-pl:
       comment_thread:
         title: Keskustelu henkilön %{authorName} kanssa
       comments:
+        blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         loading: Ladataan kommentteja ...
         title: "%{count} kommenttia"

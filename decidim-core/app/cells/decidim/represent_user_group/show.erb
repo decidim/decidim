@@ -1,0 +1,12 @@
+<label class="represent-user-group">
+  <%= check_box_tag :user_group %>
+  <%= checkbox_text %>
+</label>
+<div class="user-group-fields" style="display:none;">
+  <%= form.select(:user_group_id,
+                  user_groups,
+                  selected: selected,
+                  include_blank: include_blank_text,
+                  label: false) %>
+</div>
+<%= javascript_include_tag "decidim/represent_user_group" %>

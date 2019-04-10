@@ -36,7 +36,7 @@ nl:
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
       organization:
-        alert_color: alarm
+        alert_color: Alarm
         badges_enabled: Schakel badges in
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
@@ -156,6 +156,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
+          has_spaces: Gebied heeft depedent spaces, het mag geen afhankelijkheden hebben om te worden verwijderd.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken

@@ -41,6 +41,10 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+            body:
+              identical: A název nemůže být totožný
+            title:
+              identical: Tělo A nemůže být totožné
     models:
       decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
