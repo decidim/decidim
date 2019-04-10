@@ -996,6 +996,9 @@ cs:
           select_an_area: Vyberte oblast
       reference:
         reference: 'Odkaz: %{reference}'
+      represent_user_group:
+        represent_user_group: Zastupuji skupinu
+        select_user_group: Vyberte skupinu
       results_per_page:
         label: 'Výsledky na stránku:'
       share_modal:
