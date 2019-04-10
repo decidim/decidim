@@ -978,6 +978,9 @@ it:
           select_an_area: Seleziona un'area
       reference:
         reference: 'Riferimento: %{reference}'
+      represent_user_group:
+        represent_user_group: Rappresento un gruppo
+        select_user_group: Seleziona un gruppo
       results_per_page:
         label: 'Risultati per pagina:'
       share_modal:
