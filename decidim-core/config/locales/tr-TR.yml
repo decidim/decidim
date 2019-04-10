@@ -982,6 +982,9 @@ tr:
           select_an_area: Bir bölge seçin
       reference:
         reference: 'Referans: %{reference}'
+      represent_user_group:
+        represent_user_group: Bir grubu temsil ediyorum
+        select_user_group: Bir grup seçiniz
       results_per_page:
         label: 'Sayfa başına sonuç:'
       share_modal:
