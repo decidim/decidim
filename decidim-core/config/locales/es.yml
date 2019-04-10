@@ -522,7 +522,7 @@ es:
     followers:
       no_followers: Aún no hay seguidores.
     following:
-      no_followings: No sigue a nadie ni a nada todavía.
+      no_followings: No sigue a nadie ni a ninguna actividad.
     follows:
       create:
         button: Seguir
@@ -538,18 +538,18 @@ es:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
-      all_badges_link: Ver todas los distintivos disponibles.
+      all_badges_link: Ver todas las insígnias disponibles.
       badges:
         continuity:
           conditions:
             - Viene aquí a menudo
-          description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
+          description: Esta insígnia se otorga cuando visitas la plataforma de forma regular. ¡Nos encanta tenerte por aquí!
           description_another: Esta participante se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado durante %{score} días consecutivos en algún momento.
           name: Continuidad
           next_level_in: '¡Conéctate durante %{score} días consecutivos para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante no ha entrado durante más de un día consecutivo.
-          unearned_own: No te has conectado por más de un día consecutivo.
+          unearned_another: Esta participante no ha iniciado sesión durante más de un día consecutivo.
+          unearned_own: No te has conectado más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
