@@ -138,8 +138,6 @@ es-PY:
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
-        no_amenders: No hay enmendadores
-        no_amendments: No hay enmiendas
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
@@ -980,6 +978,9 @@ es-PY:
           select_an_area: Seleccione un area
       reference:
         reference: 'Referencia: %{reference}'
+      represent_user_group:
+        represent_user_group: Yo represento a un grupo
+        select_user_group: Selecciona un grupo
       results_per_page:
         label: 'Resultados por página:'
       share_modal:

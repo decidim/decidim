@@ -296,14 +296,14 @@ fi:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             duration: Kesto
             filters: Suodattimet
-            images: kuvat
-            metadata: metadata
-            other: muut
+            images: Kuvat
+            metadata: Metatiedot
+            other: Muut
             select_an_area: Valitse alue
             select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
-            visbility: näkyvyys
+            visbility: Näkyvyys
       content_blocks:
         highlighted_processes:
           name: Tärkeimmät prosessit

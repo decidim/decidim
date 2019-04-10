@@ -138,8 +138,6 @@ de:
         button: '%{model_name}ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
         help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
-        no_amenders: Es gibt keine Amender
-        no_amendments: Es gibt keine Änderungen
         promote_button: Auf %{model_name}
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
@@ -980,6 +978,9 @@ de:
           select_an_area: Wählen Sie einen Bereich aus
       reference:
         reference: 'Referenz: %{reference}'
+      represent_user_group:
+        represent_user_group: Ich vertrete eine Gruppe
+        select_user_group: Wählen Sie eine Gruppe aus
       results_per_page:
         label: 'Ergebnisse pro Seite:'
       share_modal:

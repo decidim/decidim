@@ -138,8 +138,6 @@ es:
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
-        no_amenders: No hay enmendadores
-        no_amendments: No hay enmiendas
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
@@ -479,35 +477,35 @@ es:
           email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada!
           notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
         promoted_to_admin:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha otorgado permisos de administración para ese grupo.
-          email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
-          email_subject: '¡Ahora eres administrador/a del grupo %{user_group_name}!'
-          notification_title: Ahora eres administrador/a del grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha otorgado permisos de administración para este grupo.
+          email_outro: Has recibido esta notificación porque eres miembro de este grupo.
+          email_subject: '¡Ahora eres administradora del grupo %{user_group_name}!'
+          notification_title: Ahora eres administradora del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha eliminado del mismo.
+          email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha eliminado de éste.
           email_outro: Has recibido esta notificación porque eras miembro de ese grupo.
-          email_subject: '¡Has sido eliminado del grupo %{user_group_name}!'
+          email_subject: '¡Has sido eliminada del grupo %{user_group_name}!'
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: La página <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones mediante el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
-          notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+          notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
         click_button: Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
         download: Descargar
       export:
-        ready: Adjunto encontrará una versión comprimida de su exportación.
+        ready: Se adjunta una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
     filters:
       linked_classes:
         all: Todas
         collaborative_draft: Borrador colaborativo
-        dummy_resource: Recursos ficticios
+        dummy_resource: Recursos de prueba
         meeting: Encuentros
         project: Proyectos
         proposal: Propuestas
@@ -523,7 +521,7 @@ es:
     followers:
       no_followers: Aún no hay seguidores.
     following:
-      no_followings: No sigue a nadie ni a nada todavía.
+      no_followings: No sigue a nadie ni a ninguna actividad.
     follows:
       create:
         button: Seguir
@@ -539,18 +537,18 @@ es:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
-      all_badges_link: Ver todas los distintivos disponibles.
+      all_badges_link: Ver todas las insígnias disponibles.
       badges:
         continuity:
           conditions:
             - Viene aquí a menudo
-          description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
+          description: Esta insígnia se otorga cuando visitas la plataforma de forma regular. ¡Nos encanta tenerte por aquí!
           description_another: Esta participante se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado durante %{score} días consecutivos en algún momento.
           name: Continuidad
           next_level_in: '¡Conéctate durante %{score} días consecutivos para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante no ha entrado durante más de un día consecutivo.
-          unearned_own: No te has conectado por más de un día consecutivo.
+          unearned_another: Esta participante no ha iniciado sesión durante más de un día consecutivo.
+          unearned_own: No te has conectado más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
@@ -977,6 +975,9 @@ es:
           select_an_area: Seleccione un area
       reference:
         reference: 'Referencia: %{reference}'
+      represent_user_group:
+        represent_user_group: Yo represento a un grupo
+        select_user_group: Selecciona un grupo
       results_per_page:
         label: 'Resultados por página:'
       share_modal:

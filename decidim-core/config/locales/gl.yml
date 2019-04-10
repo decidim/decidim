@@ -138,8 +138,6 @@ gl:
         button: Modificar %{model_name}
         error: Produciuse un erro ao modificar este recurso.
         help_text: Mellora este %{model_name} modificando o seu %{amendable_fields}
-        no_amenders: Non hai amortidores
-        no_amendments: Non hai emendas
         promote_button: Promoción a %{model_name}
         promote_confirm_text: '¿Está seguro de que quere promocionar esta enmienda?'
         promote_help_text: Pode promover esta modificación e publicala como un %{model_name}independente
@@ -980,6 +978,9 @@ gl:
           select_an_area: Seleccione unha área
       reference:
         reference: 'Referencia: %{reference}'
+      represent_user_group:
+        represent_user_group: Represento a un grupo
+        select_user_group: Seleccione un grupo
       results_per_page:
         label: 'Resultados por páxina:'
       share_modal:
