@@ -569,7 +569,7 @@ ca:
             - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
             - Personalitza, si vols, el missatge que estàs enviant
             - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
-          description: Aquest distintiu es concedeix quan has convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i es converteixen en participants. Gràcies per donar a conèixer %{organization_name} als altres i ajudar a ampliar la comunitat!
+          description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
           description_another: Aquesta participant ha convidat a %{score} persones.
           description_own: Has convidat %{score} persones.
           name: Invitacions
