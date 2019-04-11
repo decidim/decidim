@@ -587,12 +587,12 @@ es:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras
         success: Permisos de administración eliminados correctamente
       index:
-        current_admins: 'Administradores actuales:'
-        manage_admins: Gestionar administradores
+        current_admins: 'Administradoras actuales:'
+        manage_admins: Gestionar administradoras
     group_invites:
       accept:
         error: Se ha producido un error al aceptar esta invitación
-        success: Invitación aceptada correctamente
+        success: Se ha aceptado la invitación correctamente
       accept_invitation: Aceptar
       accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Acepta o rechaza las invitaciones:'
       index:
