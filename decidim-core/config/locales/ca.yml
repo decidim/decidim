@@ -621,7 +621,7 @@ ca:
         success: Participant promocionada correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
-        success: La sol·licitud d'incorporació s'ha rebutjat correctament
+        success: Sol·licitud d'incorporació rebutjada correctament
       remove:
         error: S'ha produït un error en eliminar aquesta participant del grup
         success: La participant s'ha eliminat correctament del grup
