@@ -138,8 +138,6 @@ tr:
         button: '%{model_name}'
         error: Bu kaynağı değiştiren bir hata oluştu.
         help_text: Onun değiştirerek bu %{model_name} geliştirin %{amendable_fields}
-        no_amenders: Herhangi bir değişiklik yok
-        no_amendments: Hiçbir değişiklik yok
         promote_button: '%{model_name}yükselt'
         promote_confirm_text: Bu yayılımı arttırmak istediğinize emin misiniz?
         promote_help_text: Bu ödemenizi tanıtabilir ve bağımsız olarak yayınlayabilirsiniz %{model_name}
@@ -984,6 +982,9 @@ tr:
           select_an_area: Bir bölge seçin
       reference:
         reference: 'Referans: %{reference}'
+      represent_user_group:
+        represent_user_group: Bir grubu temsil ediyorum
+        select_user_group: Bir grup seçiniz
       results_per_page:
         label: 'Sayfa başına sonuç:'
       share_modal:

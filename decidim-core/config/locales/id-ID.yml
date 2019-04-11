@@ -135,8 +135,6 @@ id:
         button: Ubah %{model_name}
         error: Terjadi kesalahan saat mengubah sumber daya ini.
         help_text: Tingkatkan %{model_name} ini dengan memodifikasi %{amendable_fields}
-        no_amenders: Tidak ada amandemen
-        no_amendments: Tidak ada amandemen
         promote_button: Promosikan ke %{model_name}
         promote_confirm_text: Anda yakin ingin mempromosikan perbaikan ini?
         promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
@@ -977,6 +975,9 @@ id:
           select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
+      represent_user_group:
+        represent_user_group: Saya mewakili grup
+        select_user_group: Pilih satu grup
       results_per_page:
         label: 'Hasil per halaman:'
       share_modal:

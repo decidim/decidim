@@ -138,8 +138,6 @@ ca:
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        no_amenders: No hi ha esmenadores
-        no_amendments: No hi ha cap esmena
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
@@ -477,25 +475,25 @@ ca:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha rebutjat la teva sol·licitud per unir-te.
           email_outro: Has rebut aquesta notificació perquè la teva sol·licitud d'incorporació s'ha actualitzat.
           email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
-          notification_title: La teva sol·licitud d'unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
+          notification_title: La teva sol·licitud per unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha donat drets d'administrador per a aquest grup.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Ara ets administrador del grup %{user_group_name}!
-          notification_title: Ara ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Ara ets administradora del grup %{user_group_name}!
+          notification_title: Ara ets administradora del grup <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat.
+          email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat d'aquest.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Has estat eliminat del grup %{user_group_name}!
-          notification_title: T'han eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Has estat eliminada del grup %{user_group_name}!
+          notification_title: Has estat eliminada del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
-          notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint a %{nickname}. Pots deixar de rebre notificacions mitjançant l'enllaç anterior.
+          email_subject: "%{nickname} ha actualitzat el seu perfil"
+          notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
         click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
@@ -505,12 +503,12 @@ ca:
       subject: L'exportació "%{name}" està a punt
     filters:
       linked_classes:
-        all: Tots
-        collaborative_draft: Esborrany de col·laboració
+        all: Totes
+        collaborative_draft: Esborrany col·laboratiu
         dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
-        proposal: propostes
+        proposal: Propostes
         result: Resultats
     fingerprint:
       check: Verifica l'empremta digital
@@ -521,9 +519,9 @@ ca:
       title: Empremta digital
       value: Valor
     followers:
-      no_followers: Encara no hi ha seguidors.
+      no_followers: Encara no hi ha seguidores.
     following:
-      no_followings: No segueix cap persona ni res.
+      no_followings: No segueix a cap persona ni cap activitat.
     follows:
       create:
         button: Seguir
@@ -539,17 +537,17 @@ ca:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
-      all_badges_link: Veure tots els distintius disponibles.
+      all_badges_link: Veure totes les insígnies disponibles.
       badges:
         continuity:
           conditions:
-            - Vine aquí sovint
-          description: Aquest distintiu es concedeix al visitar la plataforma de forma regular. Ens agrada tenir-te per aquí!
+            - Ve aquí sovint
+          description: Aquesta insígnia es concedeix al visitar la plataforma de forma regular. Ens encanta tenir-te per aquí!
           description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
           name: Continuïtat
-          next_level_in: Connecta't per %{score} dies consecutius per arribar al següent nivell!
-          unearned_another: Aquesta participant no ha iniciat la sessió durant més d'un dia consecutiu.
+          next_level_in: Connecta't durant %{score} dies consecutius per arribar al següent nivell!
+          unearned_another: Aquesta participant no ha iniciat sessió durant més d'un dia consecutiu.
           unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
@@ -977,6 +975,9 @@ ca:
           select_an_area: Seleccioneu una àrea
       reference:
         reference: 'Referència: %{reference}'
+      represent_user_group:
+        represent_user_group: Represento un grup
+        select_user_group: Seleccioneu un grup
       results_per_page:
         label: 'Resultats per pàgina:'
       share_modal:
