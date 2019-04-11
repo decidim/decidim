@@ -5,10 +5,12 @@ require "spec_helper"
 # This recreates Decidim inside a module with default vars
 # otherwise languages are changed by the test configuration
 module LocaleTest
+  # rubocop:disable Security/Eval
   eval(File.read(__dir__ + "/../../lib/decidim/core.rb"))
+  # rubocop:enable Security/Eval
 end
 
-describe "available locales" do
+describe "available locales", type: :system do
   let(:languages) do
     %w(en ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
   end
