@@ -575,7 +575,7 @@ es:
           name: Invitaciones
           next_level_in: '¡Invita a %{score} personas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha invitado a nadie.
-          unearned_own: No has invitado a nadie aún.
+          unearned_own: Aún no has invitado a nadie.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
