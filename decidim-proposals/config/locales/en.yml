@@ -610,7 +610,7 @@ en:
           error: There's been errors when voting the proposal.
       proposals:
         compare:
-          mine_is_different: My proposal is different
+          continue: Continue
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:

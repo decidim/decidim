@@ -18,6 +18,7 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-proposals**: Fix proposal wizard back button [\#4976](https://github.com/decidim/decidim/pull/4976)
 - **decidim-comments**: Fix comment reply when comments blocked [\#]()
 - **decidim-proposals**: Fix attachments not being inherited from collaborative draft when published as proposal. [\#4815](https://github.com/decidim/decidim/pull/4815)
 - **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
