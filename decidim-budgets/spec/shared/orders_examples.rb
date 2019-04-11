@@ -267,6 +267,7 @@ shared_examples "orders" do |options|
               projects.each do |project|
                 within "#project-#{project.id}-item" do
                   page.find(".budget--list__action").click
+                  wait_for_ajax
                 end
               end
 
@@ -276,6 +277,7 @@ shared_examples "orders" do |options|
 
               within "#project-#{other_project.id}-item" do
                 page.find(".budget--list__action").click
+                wait_for_ajax
               end
 
               within "#limit-excess" do
