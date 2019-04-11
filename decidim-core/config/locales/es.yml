@@ -557,12 +557,12 @@ es:
           description_own: "%{score} personas te están siguiendo."
           name: Seguidores
           next_level_in: '¡Consigue que te sigan %{score} personas más para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante no tiene seguidores todavía.
+          unearned_another: Esta participante todavía no tiene seguidoras.
           unearned_own: Aún no tienes seguidores.
         index:
-          badge_title: "Distintivo %{name}"
-          how: Como puedes conseguirlo
-          page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
+          badge_title: "Insignia %{name}"
+          how: Como puedes conseguirla
+          page_description: Las insignias son reconocimientos a las acciones de las participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes conseguirlas.
           title: Distintivos
         invitations:
           conditions:
