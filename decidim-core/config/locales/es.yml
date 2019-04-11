@@ -569,7 +569,7 @@ es:
             - Usa el enlace "invitar amigas" en tu página de usuaria para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando
             - Subirás de nivel enviando invitaciones y consiguiendo nuevas participantes.
-          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
+          description: Esta insignia se consigue cuando has invitado a algunas personas a la plataforma %{organization_name}, y se han registrado como participantes. ¡Gracias por dar a conocer %{organization_name} a otras y ayudar a ampliar la comunidad!
           description_another: Esta participante ha invitado a %{score} personas.
           description_own: Has invitado a %{score} personas.
           name: Invitaciones
