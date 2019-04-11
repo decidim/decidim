@@ -576,12 +576,12 @@ es:
           next_level_in: '¡Invita a %{score} personas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha invitado a nadie.
           unearned_own: Aún no has invitado a nadie.
-      description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
+      description: Las insignias son reconocimientos de las acciones de las participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
     group_admins:
       actions:
-        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
+        are_you_sure: '¿Segura? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras
