@@ -203,16 +203,15 @@ module Decidim::Admin
             create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
-          let!(:component) {create(:dummy_component, participatory_space: participatory_processes.first, organization: organization ) }
+          let!(:component) { create(:dummy_component, participatory_space: participatory_processes.first, organization: organization) }
 
           before do
             deliverable_users.each do |participant|
               create(:dummy_resource, component: component, author: participant)
             end
           end
-          
-          it_behaves_like "selective newsletter"
 
+          it_behaves_like "selective newsletter"
         end
       end
     end

@@ -119,7 +119,7 @@ module Decidim
     def closed?
       past?
     end
-    
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
