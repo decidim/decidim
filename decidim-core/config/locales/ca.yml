@@ -557,11 +557,11 @@ ca:
           description_own: "%{score} participants et segueixen."
           name: Seguidors
           next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
-          unearned_another: Aquesta participant encara no té cap seguidora.
+          unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no tens seguidors.
         index:
-          badge_title: "%{name} distintiu"
-          how: Com es pot aconseguir?
+          badge_title: "Insígnia %{name}"
+          how: Com pots aconseguir-la
           page_description: Els distintius són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de aconseguir-les.
           title: Distintius
         invitations:
