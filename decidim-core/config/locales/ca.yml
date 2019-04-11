@@ -585,15 +585,15 @@ ca:
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
-        success: S'ha eliminat correctament la participant del panell d'administració
+        success: Permisos d'administració eliminats correctament
       index:
-        current_admins: 'Administradors actuals:'
-        manage_admins: Gestiona els administradors
+        current_admins: 'Administradores actuals:'
+        manage_admins: Gestionar administradores
     group_invites:
       accept:
         error: S'ha produït un error en acceptar aquesta invitació
         success: S'ha acceptat la invitació correctament
-      accept_invitation: Accepta
+      accept_invitation: Acceptar
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
         invite: Convidar
