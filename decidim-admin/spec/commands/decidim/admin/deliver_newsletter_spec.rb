@@ -178,12 +178,13 @@ module Decidim::Admin
         end
 
         context "when spaces selected" do
-          let(:participatory_processes) { create_list(:participatory_process, 2, organization: organization) }
+          let!(:component) { create(:dummy_component, organization: organization) }
+
           let(:participatory_space_types) do
             [
               { "id" => nil,
                 "manifest_name" => "participatory_processes",
-                "ids" => [participatory_processes.first.id.to_s] },
+                "ids" => [component.participatory_space.id.to_s] },
               { "id" => nil,
                 "manifest_name" => "assemblies",
                 "ids" => [] },
@@ -203,11 +204,9 @@ module Decidim::Admin
             create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
-          let!(:component) { create(:dummy_component, participatory_space: participatory_processes.first, organization: organization) }
-
           before do
             deliverable_users.each do |participant|
-              create(:dummy_resource, component: component, author: participant)
+              create(:dummy_resource, component: component, author: participant, published_at: Time.current)
             end
           end
 

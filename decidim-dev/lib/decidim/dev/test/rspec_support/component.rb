@@ -84,6 +84,13 @@ module Decidim
       def self.export_serializer
         DummySerializer
       end
+
+      def self.newsletter_participant_ids(component)
+        Decidim::DummyResources::DummyResource.where(component: component).joins(:component)
+                                .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                .where.not(author: nil)
+                                .pluck(:decidim_author_id).flatten.compact.uniq
+      end
     end
   end
 end
