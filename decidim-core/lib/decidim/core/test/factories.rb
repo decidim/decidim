@@ -17,7 +17,7 @@ FactoryBot.define do
   end
 
   sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}"
+    "#{Faker::Name.name} #{n}".delete("'")
   end
 
   sequence(:nickname) do |n|
