@@ -563,11 +563,11 @@ es:
           badge_title: "Insignia %{name}"
           how: Como puedes conseguirla
           page_description: Las insignias son reconocimientos a las acciones de las participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes conseguirlas.
-          title: Distintivos
+          title: Insignias
         invitations:
           conditions:
-            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando.
+            - Usa el enlace "invitar amigas" en tu página de usuaria para invitar a tus amistades
+            - Personaliza, si quieres, el mensaje que estás enviando
             - Supera este nivel enviando invitaciones y registrándolas.
           description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
           description_another: Esta participante ha invitado a %{score} personas.
