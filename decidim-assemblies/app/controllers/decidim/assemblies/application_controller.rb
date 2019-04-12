@@ -7,6 +7,10 @@ module Decidim
       helper Decidim::ApplicationHelper
       helper Decidim::Assemblies::AssembliesHelper
       include NeedsPermission
+      register_permissions(Decidim::Assemblies::ApplicationController,
+                           ::Decidim::Assemblies::Permissions,
+                           ::Decidim::Admin::Permissions,
+                           ::Decidim::Permissions)
 
       private
 
@@ -17,11 +21,7 @@ module Decidim
       end
 
       def permission_class_chain
-        [
-          Decidim::Assemblies::Permissions,
-          Decidim::Admin::Permissions,
-          Decidim::Permissions
-        ]
+        ::Decidim.permissions_registry.chain_for(::Decidim::Assemblies::ApplicationController)
       end
 
       def permission_scope

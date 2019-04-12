@@ -39,6 +39,10 @@ module Decidim
       @backtrace << [class_name, state]
     end
 
+    def to_s
+      "!#{self.class.name}<action: #{action}, scope: #{scope}, subject: #{subject}>"
+    end
+
     class PermissionNotSetError < StandardError; end
     class PermissionCannotBeDisallowedError < StandardError; end
   end

@@ -14,9 +14,14 @@ module Decidim
 
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
+            include RegistersPermissions
             participatory_space_admin_layout
 
             helper_method :current_assembly
+
+            register_permissions(::Decidim::Assemblies::Admin::Concerns::ParticipatoryProcessAdmin,
+                                 Decidim::Assemblies::Permissions,
+                                 Decidim::Admin::Permissions)
 
             def current_assembly
               @current_assembly ||= organization_assemblies.find_by!(
@@ -35,10 +40,7 @@ module Decidim
             end
 
             def permission_class_chain
-              [
-                Decidim::Assemblies::Permissions,
-                Decidim::Admin::Permissions
-              ]
+              PermissionsRegistry.chain_for(AssemblyAdmin)
             end
           end
         end
