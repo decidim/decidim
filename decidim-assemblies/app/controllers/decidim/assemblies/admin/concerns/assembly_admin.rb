@@ -19,7 +19,7 @@ module Decidim
 
             helper_method :current_assembly
 
-            register_permissions(::Decidim::Assemblies::Admin::Concerns::ParticipatoryProcessAdmin,
+            register_permissions(::Decidim::Assemblies::Admin::Concerns::AssemblyAdmin,
                                  Decidim::Assemblies::Permissions,
                                  Decidim::Admin::Permissions)
 
