@@ -15,10 +15,15 @@ Upgrade note:
 
 **Changed**:
 
+- **decidim-admin**: Change admin moderations manager [\#4717](https://github.com/decidim/decidim/pull/4717)
 - **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
 
 **Fixed**:
 
+- **decidim-proposals** Fix unhideable reported collaborative drafts and mail jobs [\#4938](https://github.com/decidim/decidim/pull/4938)
+- **decidim-comments**: Fix comment reply when comments blocked [\#578](https://github.com/OpenSourcePolitics/decidim/pull/578)
+- **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
+- **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
 - **decidim-core** Fix redirect to static map view after login. [\#4830](https://github.com/decidim/decidim/pull/4830)
 - **decidim-proposals**: Fix proposal wizard back button [\#4976](https://github.com/decidim/decidim/pull/4976)
 - **decidim-comments**: Fix comment reply when comments blocked [\#]()

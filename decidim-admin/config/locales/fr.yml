@@ -715,12 +715,16 @@ fr:
         hide: Masquer
         not_hidden: Visibles
         title: Actions
+        unhide: Unhide
         unreport: Annuler le signalement
       admin:
         reportable:
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
             success: Le contenu n'est plus signalé.
