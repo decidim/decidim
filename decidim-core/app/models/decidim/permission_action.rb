@@ -39,6 +39,15 @@ module Decidim
       @backtrace << [class_name, state]
     end
 
+    # Checks if this PermissionAction specifies the same +scope+, +action+ and
+    # +subject+ thant the ones provided as arguments.
+    def for?(scope, action, subject)
+      is = (self.action == action)
+      is &&= (self.scope == scope)
+      is &&= (self.subject == subject)
+      is
+    end
+
     def to_s
       "!#{self.class.name}<action: #{action}, scope: #{scope}, subject: #{subject}>"
     end
