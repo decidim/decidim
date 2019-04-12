@@ -8,7 +8,7 @@ class FixUserNames < ActiveRecord::Migration[5.2]
     characters_to_remove = "<>?%&^*\#@()[]=+:;\"{}\\|"
 
     weird_characters.each do |character|
-      Decidim::UserBaseEntity.where("name like '%#{character}%' escape '\'").find_each do |entity|
+      Decidim::UserBaseEntity.where("name like '%#{character}%' escape '\' OR nickname like '%#{character}%' escape '\'").find_each do |entity|
         p "detected character: #{character}"
         p "UserBaseEntity ID: #{entity.id}"
         p "#{entity.name} => #{entity.name.delete(characters_to_remove).strip}"
