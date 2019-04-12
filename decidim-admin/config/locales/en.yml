@@ -606,6 +606,7 @@ en:
           update: Update
         form:
           none: None
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:
