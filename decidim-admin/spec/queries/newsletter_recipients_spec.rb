@@ -85,6 +85,83 @@ module Decidim::Admin
           end
         end
       end
+
+      context "when sending to participants" do
+        let(:send_to_all_users) { false }
+        let(:send_to_participants) { true }
+        let!(:component) { create(:dummy_component, organization: newsletter.organization) }
+        let(:participatory_space_types) do
+          [
+            { "id" => nil,
+              "manifest_name" => "participatory_processes",
+              "ids" => [component.participatory_space.id.to_s] },
+            { "id" => nil,
+              "manifest_name" => "assemblies",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "conferences",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "consultations",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "initiatives",
+              "ids" => [] }
+          ]
+        end
+
+        let!(:recipients) do
+          create_list(:user, 3, :confirmed, organization: newsletter.organization, newsletter_notifications_at: Time.current)
+        end
+
+        context "when recipients participate to the participatory space" do
+          before do
+            recipients.each do |participant|
+              create(:dummy_resource, component: component, author: participant, published_at: Time.current)
+            end
+          end
+
+          it "returns all users" do
+            expect(subject.query).to match_array recipients
+            expect(recipients.count).to eq 3
+          end
+        end
+
+        context "when recipients not participate the participatory space" do
+          it "don't return recipients" do
+            expect(subject.query).to match_array []
+          end
+        end
+      end
+
+      context "with scopes segment" do
+        let(:scopes) do
+          create_list(:scope, 5, organization: newsletter.organization)
+        end
+        let(:scope_ids) { scopes.pluck(:id) }
+
+        context "when recipients interested in scopes" do
+          let!(:recipients) do
+            create_list(:user, 3, :confirmed, organization: newsletter.organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => scopes.first.id })
+          end
+
+          it "returns all users" do
+            expect(subject.query).to match_array recipients
+            expect(recipients.count).to eq 3
+          end
+        end
+
+        context "when interest not match the selected scopes" do
+          let(:user_interset) { create(:scope, organization: newsletter.organization) }
+          let!(:recipients) do
+            create_list(:user, 3, :confirmed, organization: newsletter.organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => user_interset.id })
+          end
+
+          it "don't return recipients" do
+            expect(subject.query).to match_array []
+          end
+        end
+      end
     end
   end
 end
