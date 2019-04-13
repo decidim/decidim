@@ -41,11 +41,11 @@ module Decidim
 
     # Checks if this PermissionAction specifies the same +scope+, +action+ and
     # +subject+ thant the ones provided as arguments.
-    def for?(scope, action, subject)
-      is = (self.action == action)
-      is &&= (self.scope == scope)
-      is &&= (self.subject == subject)
-      is
+    def matches?(scope, action, subject)
+      same = (self.action == action)
+      same &&= (self.scope == scope)
+      same &&= (self.subject == subject)
+      same
     end
 
     def to_s
