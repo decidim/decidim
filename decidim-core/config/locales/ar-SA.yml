@@ -987,7 +987,7 @@ ar:
         reference: 'المرجع: %{reference}'
       represent_user_group:
         represent_user_group: أنا أمثل مجموعة
-        select_user_group: اختر مجموعة
+        select_user_group: اختر فريقا
       results_per_page:
         label: 'نتائج لكل صفحة:'
       share_modal:
