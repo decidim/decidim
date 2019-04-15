@@ -32,7 +32,7 @@ hu:
         local_area: Szervezet területe
         meta_scope: Hatókör-metaadatok
         parent_id: Parent gyűlés
-        participatory_processes_ids: Társuló részvételi folyamatok
+        participatory_processes_ids: Kapcsolódó részvételi folyamatok
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
