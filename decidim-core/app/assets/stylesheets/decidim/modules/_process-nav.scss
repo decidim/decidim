@@ -95,7 +95,7 @@ $nav-border-width: 3px;
 .process-nav__more{
   margin: 0;
   color: var(--primary);
-  background-color: rgba(var(--primary), .1);
+  background-color: rgba(var(--primary-rgb), .1);
   text-transform: uppercase;
   font-weight: $global-weight-bold;
   font-size: rem-calc(14);
