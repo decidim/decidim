@@ -668,7 +668,7 @@ hu:
     help:
       main_topic:
         default_page:
-          content: "<p>Az %{organization} részt vehet és dönthet különböző témákról a főmenüben megjelenő mezőkön keresztül: Folyamatok, összeállítások, kezdeményezések, konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyen részt vitákban, fontolja meg a végrehajtandó projekteket, vegyen részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
+          content: "<p>Az %{organization} -ben részt vehetsz és dönthetsz különböző témákban a főmenüben megjelenő mezőkön keresztül: Folyamatok, Gyűlések, Kezdeményezések, Konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyél részt vitákban, fontold meg a végrehajtandó projekteket, vegyél részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
           title: Mit tehetek a %{organization} szervezetben?
         description: További információ a %{organization} szervezetről
         title: Általános segítség
@@ -737,7 +737,7 @@ hu:
       download:
         csv: Adatok letöltése (csv)
       followers:
-        description: A résztvevőterületet követő felhasználók száma
+        description: A résztvevők száma, akik ezt a részvételi teret követik
         object: követők
         title: Követők
       participants:
@@ -746,8 +746,8 @@ hu:
         title: Résztvevők
       users:
         description: A felhasználók száma a szervezetben
-        object: felhasználók
-        title: felhasználók
+        object: résztvevők
+        title: Résztvevők
     newsletter_mailer:
       newsletter:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
@@ -872,7 +872,7 @@ hu:
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
-      deleted: Törölt felhasználó
+      deleted: Törölt résztvevő
       view: Nézet
     profiles:
       default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
@@ -896,7 +896,7 @@ hu:
         edit_profile: Profil szerkesztése
         edit_user_group: Csoportprofil szerkesztése
         fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez
-        invite_user: Felhasználó meghívása
+        invite_user: Résztvevő meghívása
         join_user_group: Csatlakozás kérése a csoporthoz
         leave_user_group: Kilépés a csoportból
         manage_user_group_admins: Adminisztrátorok kezelése
@@ -945,7 +945,7 @@ hu:
       results:
         results:
           one: "%{count} eredmény"
-          other: "%{count} találat"
+          other: "%{count} eredmény"
         view_all: Összes megtekintése (%{count})
     shared:
       embed_modal:
@@ -954,7 +954,7 @@ hu:
         embed_link: Beágyaz
       extended_navigation_bar:
         more: Több
-        unfold: kibontakozik
+        unfold: Kibontás
       flag_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás
@@ -973,13 +973,13 @@ hu:
         sign_up: Regisztrálj
       participatory_space_filters:
         filters:
-          areas: területek
+          areas: Területek
           select_an_area: Válasszon ki egy területet
       reference:
         reference: 'Hivatkozás: %{reference}'
       represent_user_group:
         represent_user_group: Egy csoportot képviselek
-        select_user_group: Válasszon ki egy csoportot
+        select_user_group: Csoport kiválasztása
       results_per_page:
         label: 'Találatok száma oldalanként:'
       share_modal:
@@ -987,13 +987,13 @@ hu:
         share: Megosztás
         share_link: Hivatkozás megosztása
       version_author:
-        deleted: Törölt felhasználó
+        deleted: Törölt résztvevő
     user_activity:
       index:
-        no_activities_warning: Ennek a felhasználónak még nem volt aktívja.
+        no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_interests:
       show:
-        my_interests: Érdekeim
+        my_interests: Érdeklődési köreim
         no_scopes: Ennek a szervezetnek még nincs hatókörük!
         select_your_interests: Válassza ki azokat a témákat, amelyekre érdekel, hogy hozzájusson hozzájuk kapcsolódó eseményekhez a profil Timeline (Idővonal) lapján.
         update_my_interests: Érdeklődésem frissítése
