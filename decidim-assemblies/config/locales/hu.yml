@@ -36,7 +36,7 @@ hu:
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
-        promoted: Promotált
+        promoted: Kiemelt
         published_at: Közzétéve
         purpose_of_action: A fellépés célja
         scope_id: Hatáskör
@@ -131,24 +131,24 @@ hu:
       assembly_user_roles:
         create:
           error: Hiba történt a felhasználó gyűléshez való hozzáadása során.
-          success: Felhasználó hozzáadása a gyűléshez sikeres.
+          success: Admin hozzáadása a gyűléshez sikeres.
         destroy:
-          success: Felhasználó eltávolítása a gyűlésből sikeres.
+          success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés felhasználójának frissítése.
+          title: Gyűlés adminjának frissítése.
           update: Frissítés
         index:
-          assembly_admins_title: Gyűlés felhasználói
+          assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés felhasználó.
+          title: Új gyűlés admin.
         update:
-          error: Hiba történt a gyűlés felhasználójának frissítése során.
-          success: Gyűlés felhasználójának frissítése sikeres.
+          error: Hiba történt a gyűlés adminjának frissítése során.
+          success: Gyűlés adminjának frissítése sikeres.
       menu:
         assemblies: Gyűlések
         assemblies_submenu:
-          assembly_admins: Gyűlés felhasználói
+          assembly_admins: Gyűlés adminjai
           assembly_members: Tagok
           attachment_collections: Mappák
           attachment_files: Fájlok
@@ -184,7 +184,7 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Gyűlés felhasználói
+          name: Gyűlés adminja
           roles:
             admin: Adminisztrátor
             collaborator: Közreműködő
@@ -209,13 +209,13 @@ hu:
       admin:
         assemblies:
           form:
-            duration: tartam
+            duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             filters: Szűrők
             images: képek
             included_at_help: Válaszd ki a dátumot, amikor a gyűlést hozzáadtad a Decidimhez. Nem feltétlenül kell megegyeznie a létrehozás időpontjával.
             metadata: Metaadatok
-            other: Más
+            other: Egyéb
             select_a_created_by: Válassz alapítót
             select_an_area: Válassz területet
             select_an_assembly_type: Válassz gyűlés típust
@@ -229,11 +229,11 @@ hu:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
         assembly_members:
           form:
-            existing_user: Létező felhasználó
-            non_user: Nem felhasználó
+            existing_user: Meglévő résztvevő
+            non_user: Nem résztvevő
             select_a_position: Válassz pozíciót
-            select_user: Válassz felhasználót
-            user_type: Felhasználó típusa
+            select_user: Válasszon ki egy résztvevőt
+            user_type: Résztvevő típusa
           index:
             filter:
               all: Összes
@@ -319,14 +319,14 @@ hu:
         endorsements_count: Jóváhagyások
         headline: Tevékenység
         meetings_count: Találkozók
-        orders_count: Szavazatok
+        orders_count: Támogatja
         pages_count: Oldalak
         projects_count: Projektek
         proposals_count: Javaslatok
         results_count: Eredmények
         surveys_count: Felmérések
         users_count: Résztvevők
-        votes_count: Szavazatok
+        votes_count: Támogatók
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
