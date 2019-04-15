@@ -994,15 +994,15 @@ hu:
     user_interests:
       show:
         my_interests: Érdeklődési köreim
-        no_scopes: Ennek a szervezetnek még nincs hatókörük!
-        select_your_interests: Válassza ki azokat a témákat, amelyekre érdekel, hogy hozzájusson hozzájuk kapcsolódó eseményekhez a profil Timeline (Idővonal) lapján.
+        no_scopes: Ennek a szervezetnek még nincs hatóköre!
+        select_your_interests: Válaszd ki a téged érdeklő témákat, hogy hozzájuss a hozzájuk kapcsolódó eseményekhez a profilod Idővonal lapján.
         update_my_interests: Érdeklődésem frissítése
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
-        success: Az Ön érdekeit sikeresen frissítették.
+        success: Az érdeklődési köreid sikeresen frissültek.
     welcome_notification:
       default_body: <p>Hi {{name}}, köszönöm, hogy csatlakozott a {{organization}} és üdvözlöm!</p><ul><li>Ha gyorsan meg szeretné tudni, hogy mit tehet itt, nézze meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvények közül, amiket {{organization}}</li><li>részt veszel. Végül, de nem utolsósorban, csatlakozz más emberekkel is, ossza meg velük a {{organization}}részvétel és a részvétel tapasztalatait. Tegyen javaslatokat, megjegyzéseket, vitákat, gondoljon arra, hogyan járuljon hozzá a közös jóléthez, nyújtson érveket, hogy meggyőzze, hallgassa és olvassa el a meggyőződést, konkrét és közvetlen módon fejezze ki ötleteit, türelmesen és határozottan válaszoljon, megvédje ötleteit és tartsa meg egy nyitott elme, hogy együttműködjenek és csatlakozzanak más emberek ötleteivel.</li></ul>
-      default_subject: Köszönjük, hogy csatlakozott a {{organization}}!
+      default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
   devise:
     confirmations:
       confirmed: E-mail címed sikeresen meg lett erősítve.
@@ -1039,7 +1039,7 @@ hu:
       confirmation_instructions:
         action: Fiókom megerősítése
         greeting: Üdvözöljük %{recipient}!
-        instruction: 'Fiókjának e-mailjeit az alábbi linken keresztül erősítheti meg:'
+        instruction: 'Fiókodhoz tartozó e-mailt az alábbi linken keresztül erősítheted meg:'
         subject: Megerősítési utasítások
       email_changed:
         greeting: Hello %{recipient}!
