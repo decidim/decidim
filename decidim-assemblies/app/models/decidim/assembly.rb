@@ -68,12 +68,25 @@ module Decidim
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
 
-    scope :visible_for, lambda { |user|
-                          joins("LEFT JOIN decidim_participatory_space_private_users ON
-                          decidim_participatory_space_private_users.privatable_to_id = #{table_name}.id")
-                            .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?)
-                            or private_space = ? or (private_space = ? and is_transparent = ?)", true, user, false, true, true).distinct
-                        }
+    # Overwriting existing method Decidim::HasPrivateUsers.visible_for
+    def self.visible_for(user)
+      if user
+        return all if user.admin?
+
+        left_outer_joins(:participatory_space_private_users).where(
+          %{private_space = false OR
+          (private_space = true AND is_transparent = true) OR
+          decidim_participatory_space_private_users.decidim_user_id = ?}, user.id
+        ).distinct
+      else
+        public_spaces
+      end
+    end
+
+    # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
+    def self.public_spaces
+      where(private_space: false).or(where(private_space: true).where(is_transparent: true))
+    end
 
     # Scope to return only the promoted assemblies.
     #
@@ -82,12 +95,14 @@ module Decidim
       where(promoted: true)
     end
 
-    def self.private_assemblies
-      where(private_space: true)
+    # Return parent assemblies.
+    def self.parent_assemblies
+      where(parent_id: nil)
     end
 
-    def self.public_spaces
-      super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
+    # Return child assemblies.
+    def self.child_assemblies
+      where.not(parent_id: nil)
     end
 
     def self.log_presenter_class_for(_log)
@@ -171,5 +186,10 @@ module Decidim
       )
     end
     # rubocop:enable Rails/SkipsModelValidations
+
+    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+    ransacker :title do |parent|
+      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+    end
   end
 end

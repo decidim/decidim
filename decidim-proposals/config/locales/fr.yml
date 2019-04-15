@@ -41,6 +41,10 @@ fr:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+            body:
+              identical: ET le titre ne peut pas être identique
+            title:
+              identical: ET le corps ne peut pas être identique
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée

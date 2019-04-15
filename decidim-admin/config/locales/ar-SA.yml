@@ -7,18 +7,18 @@ ar:
         organization: المنظمة
       area_type:
         name: الاسم
-        organization: منظمة
+        organization: المنظمة
         plural: الجمع
       attachment:
         attachment_collection_id: المجلد
-        description: وصف
+        description: الوصف
         file: ملف
-        title: عنوان
+        title: العنوان
       attachment_collection:
-        description: وصف
+        description: الوصف
         name: اسم
       category:
-        description: وصف
+        description: الوصف
         name: اسم
         parent_id: الأبوين
       component:
@@ -30,7 +30,7 @@ ar:
         body: المحتوى
         subject: الموضوع
       oauth_application:
-        name: اسم
+        name: الاسم
         organization_logo: شعار المنظمة (مربع)
         organization_name: اسم المنظمة
         organization_url: عنوان URL للمؤسسة
@@ -41,7 +41,7 @@ ar:
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
         default_locale: اللغة الافتراضية
-        description: وصف
+        description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
         facebook_handler: معالج فيسبوك
         favicon: أيقونة
@@ -51,11 +51,11 @@ ar:
         highlighted_content_banner_action_title: عنوان زر العمل
         highlighted_content_banner_action_url: عنوان URL لزر الإجراء
         highlighted_content_banner_enabled: إظهار شعار المحتوى المميز
-        highlighted_content_banner_image: صورة
-        highlighted_content_banner_short_description: وصف قصير
+        highlighted_content_banner_image: الصورة
+        highlighted_content_banner_short_description: وصف مختصر
         highlighted_content_banner_title: عنوان
         instagram_handler: معالج Instagram
-        logo: شعار
+        logo: الشعار
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
         official_img_header: رأس الشعار الرسمي
@@ -75,19 +75,19 @@ ar:
         youtube_handler: معالج YouTube
       scope:
         code: الشفرة
-        name: اسم
-        organization: منظمة
+        name: الاسم
+        organization: المنظمة
         parent_id: الأبوين
         scope_type: نوع النطاق
         scope_type_id: نوع النطاق
       scope_type:
-        name: اسم
-        organization: منظمة
+        name: الاسم
+        organization: المنظمة
         plural: جمع
       static_page:
         changed_notably: كانت هناك تغييرات ملحوظة.
         content: يحتوى
-        organization: منظمة
+        organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة URL
         title: عنوان
@@ -156,6 +156,7 @@ ar:
           error: كانت هناك مشكلة في إنشاء منطقة جديدة.
           success: تم إنشاء المنطقة بنجاح.
         destroy:
+          has_spaces: تحتوي المنطقة على مسافات تابعة ، ويجب ألا يكون لها تبعيات لكي يتم حذفها
           success: تم تدمير المنطقة بنجاح
         edit:
           title: تحرير المنطقة

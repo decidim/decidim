@@ -77,6 +77,9 @@ pl:
         destroy: Kasować
         duplicate: Duplikat
         edit: Edytuj
+        filter:
+          all: Pokaż wszystkie procesy
+          process_groups: Grupy procesowe
         new_process: Nowy proces
         new_process_group: Nowa grupa procesów
         new_process_step: Nowy krok
@@ -206,8 +209,6 @@ pl:
           success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
         edit:
           update: Aktualizuj
-        form:
-          title: Informacje ogólne
         index:
           not_published: Nie opublikowane
           private: Prywatny
@@ -301,8 +302,16 @@ pl:
         participatory_processes:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
+            duration: Trwanie
+            filters: Filtry
+            images: Obrazy
+            metadata: Metadane
+            other: Inny
             select_an_area: Wybierz obszar
+            select_process_group: Wybierz grupę procesów
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+            title: Informacje ogólne
+            visbility: Widoczność
       content_blocks:
         highlighted_processes:
           name: Wyróżnione procesy
@@ -318,8 +327,6 @@ pl:
             more_information: Więcej informacji
             participate: Uczestniczyć
             see_all_processes: Zobacz wszystkie procesy
-      participatory_process_groups:
-        none: Brak
       participatory_processes:
         filters:
           counters:

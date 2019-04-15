@@ -117,6 +117,22 @@ edit_link(
       <%= render "meeting_minutes" %>
     <% end %>
 
+    <% if !meeting.closed? && meeting.user_group_registrations.any? %>
+      <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
+      <div class="section">
+        <h4 class="section-heading"><%= t(".organizations") %></h4>
+        <div class="card card--list">
+          <% Decidim::UserGroup.where(id: user_group_ids).each do |group| %>
+            <div class="card--list__item">
+              <div class="card--list__text card--list__text--top">
+              <%= cell "decidim/author", present(group) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <% if meeting.closed? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_report") %></h3>

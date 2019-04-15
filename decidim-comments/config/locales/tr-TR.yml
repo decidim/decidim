@@ -64,6 +64,7 @@ tr:
       comment_thread:
         title: '%{authorName}ile sohbet'
       comments:
+        blocked_comments_for_user_warning: Şu anda yorum yapamıyorsunuz, ancak öncekileri okuyabilirsiniz.
         blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.
         loading: Yorumlar yükleniyor ...
         title: "%{count} yorum"

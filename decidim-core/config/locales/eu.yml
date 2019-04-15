@@ -131,20 +131,19 @@ eu:
         verify_via_csv: "%{user_name} egiaztatu du %{resource_name} erabiltzaile talde CSV fitxategi baten bidez"
     amendments:
       accepted:
-        error: Errore bat gertatu da aldatzea onartzea, mesedez saiatu berriro geroago.
-        success: Eskaera hau arrakastaz onartu da.
+        error: Errore bat gertatu da aldaketa onartuz.
+        success: Aldaketa ongi onartu da.
       amendable:
         amended_by: Aldatua
         button: Aldatu %{model_name}
         error: Errore bat gertatu da baliabidea aldatzen.
         help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
-        no_amenders: Ez dago murrizketarik
-        no_amendments: Ez dago zuzenketarik
         promote_button: '%{model_name}suspertzea'
+        promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
         section_heading: Aldaketak (%{count})
       created:
-        error: Errore bat gertatu da aldaketa hau sortzean, saiatu berriro geroago
+        error: Errorea gertatu da aldaketa sortzean
         success: Aldaketa zuzen sortu da
       emendation:
         actions:
@@ -177,7 +176,7 @@ eu:
       review:
         back: Back
         heading: Aldaketa berrikustea
-        help_text: '%{model_name}aldatzen ari zara'
+        help_text: '%{model_name}zuzenketa bat berrikusten ari zara'
         send: Onartu aldaketa
     anonymous_user: Anonimoa
     application:
@@ -387,45 +386,45 @@ eu:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
             email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: '%{amendable_title}aldaketa'
+            notification_title: Aldaketa berri bat sortu da <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa berri bat %{amendable_title} %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">berrien aldaketa</a> sortu da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: '%{amendable_title}aldaketa'
+            notification_title: Aldaketa berri bat sortu da <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
-            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
+            email_subject: Batetik zuzenketa %{emendation_author_nickname} izan berri gisa argitaratuko %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">baztertu zuzenketa</a> for <a href="%{amendable_path}">%{amendable_title}</a> duenez berria argitaratu dira %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Aldaketak %{amendable_title} baztertu ditu independente bat sustatu du %{amendable_type}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa %{emendation_author_nickname} aurrera sustatu da
-            notification_title: A <a href="%{emendation_path}">errebindikazio aldatzea</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>sustatu du.
+            email_subject: Batetik zuzenketa %{emendation_author_nickname} izan berri gisa argitaratuko %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">baztertu zuzenketa</a> for <a href="%{amendable_path}">%{amendable_title}</a> duenez berria argitaratu dira %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
             email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Aldaketa baztertu egin da %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">Zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
@@ -973,8 +972,15 @@ eu:
       login_modal:
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
+      participatory_space_filters:
+        filters:
+          areas: Arloak
+          select_an_area: Hautatu eremu bat
       reference:
         reference: 'Erreferentzia: %{reference}'
+      represent_user_group:
+        represent_user_group: Talde bat irudikatzen dut
+        select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'
       share_modal:

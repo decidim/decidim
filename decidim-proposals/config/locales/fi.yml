@@ -41,6 +41,10 @@ fi:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
+            body:
+              identical: JA otsikko ei voi olla täysin sama
+            title:
+              identical: JA kuvaus ei voi olla täysin sama
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
       decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu

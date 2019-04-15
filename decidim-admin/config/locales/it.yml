@@ -156,6 +156,7 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova area.
           success: Area creata con successo.
         destroy:
+          has_spaces: L'area ha spazi depenent, non deve avere dipendenze per essere cancellata.
           success: Area distrutta con successo
         edit:
           title: Modifica area

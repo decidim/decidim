@@ -4,15 +4,9 @@
       <%= t("amended_by", scope: "decidim.amendments.amendable") %>
     </span>
   </div>
-  <% if model.size > 0 %>
-    <% model.each do |amender| %>
-      <div class="definition-data__item expanded" id="amendment_<%= amender.id %>">
-        <%= cell "decidim/author", amender, options: { extra_classes: ["author-data--small"] }, has_actions: false %>
-      </div>
-    <% end %>
-  <% else %>
-    <div class="definition-data__item expanded">
-      <small><%= t("no_amenders", scope: "decidim.amendments.amendable") %></small>
+  <% amenders.each do |amender| %>
+    <div class="definition-data__item expanded" id="amendment_<%= amender.id %>">
+      <%= cell("decidim/author", amender, options: options, has_actions: false) %>
     </div>
   <% end %>
 </div>

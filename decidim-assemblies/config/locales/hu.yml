@@ -84,8 +84,6 @@ hu:
           success: Gyűlés létrehozása sikeres.
         edit:
           update: Frissítés
-        form:
-          title: Általános információ
         index:
           not_published: Nincs közzétéve
           private: Privát
@@ -211,14 +209,21 @@ hu:
       admin:
         assemblies:
           form:
+            duration: tartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
+            filters: Szűrők
+            images: képek
             included_at_help: Válaszd ki a dátumot, amikor a gyűlést hozzáadtad a Decidimhez. Nem feltétlenül kell megegyeznie a létrehozás időpontjával.
+            metadata: Metaadatok
+            other: Más
             select_a_created_by: Válassz alapítót
             select_an_area: Válassz területet
             select_an_assembly_type: Válassz gyűlés típust
             select_parent_assembly: Szülői összeállítás kiválasztása
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
             social_handlers: Social
+            title: Általános információ
+            visbility: Láthatóság
         assembly_copies:
           form:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'

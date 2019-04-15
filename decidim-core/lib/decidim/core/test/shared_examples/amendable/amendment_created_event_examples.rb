@@ -21,7 +21,7 @@ shared_examples "amendment created event" do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("New amendment for #{amendable_title} from #{emendation_author_nickname}")
+      expect(subject.email_subject).to eq("New amendment for #{amendable_title}")
     end
   end
 
@@ -42,7 +42,7 @@ shared_examples "amendment created event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("A <a href=\"#{emendation_path}\">new amendment</a> has been created by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> #{amendable_type}.") # rubocop:disable Metrics/LineLength
+        .to eq("A new amendment has been created for <a href=\"#{amendable_path}\">#{amendable_title}</a>.")
     end
   end
 end

@@ -41,6 +41,10 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Muss wieder angebracht werden
+            body:
+              identical: UND Titel dürfen nicht identisch sein
+            title:
+              identical: Der UND-Körper kann nicht identisch sein
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Angebotskategorie geändert

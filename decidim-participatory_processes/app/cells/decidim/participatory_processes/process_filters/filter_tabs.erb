@@ -1,5 +1,4 @@
 <span class="order-by__tabs ml-s">
-  <%# <span class="muted mr-s ml-s">No hay procesos activos</span> %>
   <% if should_show_tabs? %>
     <%= explanation %>
     <span class="muted mr-xs"><%= t("decidim.participatory_processes.participatory_processes.filters.see") %></span>
@@ -7,7 +6,7 @@
       <%= link_to filter_link(filter), remote: true, class: "order-by__tab" do %>
         <strong>
           <%= filter_name(filter) %>
-        </strong>&nbsp;<span>(<%= model[filter] %>)</span>
+        </strong>&nbsp;<span>(<%= process_count_by_filter[filter] %>)</span>
       <% end %>
     <% end %>
   <% else %>

@@ -131,20 +131,19 @@ hu:
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
     amendments:
       accepted:
-        error: Hiba történt a módosító javaslat elfogadásával, kérjük, próbálkozz később.
-        success: Ez a módosító javaslat sikeresen elfogadásra került.
+        error: A módosítás elfogadása közben hiba történt.
+        success: A módosítást sikeresen elfogadták.
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
         error: Hiba történt az erőforrás módosításakor.
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
-        no_amenders: Nincsenek módosítások
-        no_amendments: Nincsenek módosítások
-        promote_button: Közzététel új %{model_name}ként
-        promote_help_text: Ezt a módosító javaslatot önálló %{model_name}-ként is közzéteheted
+        promote_button: Kezdeményezze a %{model_name}
+        promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a javítást?
+        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
       created:
-        error: Hiba történt a módosítás létrehozása közben, próbálkozz később
+        error: A módosítás létrehozása során hiba történt
         success: A módosítás sikeresen megtörtént
       emendation:
         actions:
@@ -166,7 +165,7 @@ hu:
         amendment_author: Módosítás szerző
         back: Vissza
         heading: Készítse el a módosítását
-        help_text: Módosítja a %{model_name}
+        help_text: A %{model_name}-t módosítja
         send: Módosító javaslat elküldése
       promoted:
         error: Problémát történt a módosító javaslat új javaslatként való közzététele során
@@ -177,7 +176,7 @@ hu:
       review:
         back: Vissza
         heading: Tekintse át a módosítást
-        help_text: A %{model_name}-t módosítja
+        help_text: Ön felülvizsgálja a %{model_name}módosítást
         send: Módosítás elfogadása
     anonymous_user: Névtelen
     application:
@@ -386,45 +385,45 @@ hu:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
             email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elfogadásra került.
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadott <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}-tól
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} elfogadásra került.
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadott <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Új módosítási javaslat érkezett - %{amendable_title}. Erről az oldalról tudod megnézni:'
             email_outro: Ezt az értesítést kaptad, mert szerzője vagy ennek %{amendable_title}.
-            email_subject: Új módosítási javaslat érkezett ide %{amendable_title} %{emendation_author_nickname} felhasználótól
-            notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Új módosítás a %{amendable_title}
+            notification_title: Új módosítás született a <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Új módosítás a %{amendable_title}
+            notification_title: Új módosítás született a <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'A %{amendable_title} elutasított módosítást önálló %{amendable_type}emelték. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: A %{emendation_author_nickname} ból származó módosítást támogatták
-            notification_title: A <a href="%{emendation_path}"></a> elutasított </a> módosítást a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} re vonatkozóan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>kal támogatták.
+            email_subject: A %{emendation_author_nickname} ból származó módosítást új szövegként tették közzé %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">elutasított</a> módosítás <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan új %{amendable_type} ösként került közzétételre <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'A %{amendable_title} elutasított módosítást önálló %{amendable_type}emelték. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: A %{emendation_author_nickname} ból származó módosítást támogatták
-            notification_title: A <a href="%{emendation_path}"></a> elutasított </a> módosítást a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} re vonatkozóan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>kal támogatták.
+            email_subject: A %{emendation_author_nickname} ból származó módosítást új szövegként tették közzé %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">elutasított</a> módosítás <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan új %{amendable_type} ösként került közzétételre <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
             email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elutasították.
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elutasították.
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
@@ -972,8 +971,15 @@ hu:
       login_modal:
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
+      participatory_space_filters:
+        filters:
+          areas: területek
+          select_an_area: Válasszon ki egy területet
       reference:
         reference: 'Hivatkozás: %{reference}'
+      represent_user_group:
+        represent_user_group: Egy csoportot képviselek
+        select_user_group: Válasszon ki egy csoportot
       results_per_page:
         label: 'Találatok száma oldalanként:'
       share_modal:

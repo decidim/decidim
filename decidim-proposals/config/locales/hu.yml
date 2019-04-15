@@ -41,6 +41,10 @@ hu:
           attributes:
             attachment:
               needs_to_be_reattached: Újra kell csatolni
+            body:
+              identical: A cím nem lehet azonos
+            title:
+              identical: A test nem lehet azonos
     models:
       decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott

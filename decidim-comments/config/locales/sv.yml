@@ -64,6 +64,7 @@ sv:
       comment_thread:
         title: Samtal med %{authorName}
       comments:
+        blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa de föregående.
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         loading: Laddar kommentarer...
         title: "%{count} kommentarer"

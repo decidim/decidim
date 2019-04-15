@@ -84,8 +84,6 @@ nl:
           success: Bijeenkomst is succesvol gecreëerd.
         edit:
           update: Bijwerken
-        form:
-          title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
           private: Privé
@@ -211,14 +209,21 @@ nl:
       admin:
         assemblies:
           form:
+            duration: Looptijd
             duration_help: Als de duur van deze assembly beperkt is, selecteert u de einddatum. Anders zal het verschijnen als onbepaald.
+            filters: filters
+            images: Afbeeldingen
             included_at_help: Selecteer de datum waarop deze assembly aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
+            metadata: metadata
+            other: anders
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een vergadering type
             select_parent_assembly: Selecteer de ouderassemblage
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
+            title: Algemene informatie
+            visbility: Zichtbaarheid
         assembly_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'

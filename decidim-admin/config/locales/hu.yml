@@ -156,6 +156,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A területnek depedens terek vannak, a törléshez nem lehet függőség.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése

@@ -21,7 +21,7 @@ module Decidim
       def participatory_processes
         @participatory_processes ||= if current_user
                                        return group.participatory_processes.published if current_user.admin
-                                       group.participatory_processes.visible_for(current_user.id).published
+                                       group.participatory_processes.visible_for(current_user).published
                                      else
                                        group.participatory_processes.published.public_spaces
                                      end

@@ -137,20 +137,19 @@ pl:
         verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
     amendments:
       accepted:
-        error: Wystąpił błąd podczas akceptacji poprawki, spróbuj ponownie później.
-        success: Ta emisja została pomyślnie przyjęta.
+        error: Wystąpił błąd podczas przyjmowania poprawki.
+        success: Poprawka została pomyślnie przyjęta.
       amendable:
         amended_by: Zmienione przez
         button: Zmień %{model_name}
         error: Wystąpił błąd podczas zmiany tego zasobu.
         help_text: Popraw to %{model_name} , modyfikując %{amendable_fields}
-        no_amenders: Nie ma żadnych fałszerstw
-        no_amendments: Brak zmian
         promote_button: Promuj do %{model_name}
+        promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
         section_heading: Poprawki (%{count})
       created:
-        error: Wystąpił błąd podczas tworzenia tej poprawki, spróbuj ponownie później
+        error: Wystąpił błąd podczas tworzenia poprawki
         success: Poprawka została pomyślnie utworzona
       emendation:
         actions:
@@ -172,7 +171,7 @@ pl:
         amendment_author: Autor poprawki
         back: Z powrotem
         heading: Utwórz poprawkę
-        help_text: Modyfikujesz %{model_name}
+        help_text: Zmieniasz %{model_name}
         send: Wyślij poprawkę
       promoted:
         error: Podczas promowania wyemitowania wystąpiły błędy
@@ -183,7 +182,7 @@ pl:
       review:
         back: Z powrotem
         heading: Przejrzyj poprawkę
-        help_text: Zmieniasz %{model_name}
+        help_text: Przeglądasz poprawkę do %{model_name}
         send: Przyjmij poprawkę
     anonymous_user: Anonim
     application:
@@ -399,45 +398,45 @@ pl:
             email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
             email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta dla <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> został przyjęty do <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta dla <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nowa poprawka do %{amendable_title}
+            notification_title: Nowa poprawka została stworzona dla <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Nowa emisja została utworzona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Nowa poprawka dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">nowy poprawka</a> został utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nowa poprawka do %{amendable_title}
+            notification_title: Nowa poprawka została stworzona dla <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Emendacja odrzucona dla %{amendable_title} została awansowana na niezależną %{amendable_type}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Promowane od %{emendation_author_nickname} zostało promowane
-            notification_title: Odrzucona <a href="%{emendation_path}">emisja</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została zwiększona o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Poprawka z %{emendation_author_nickname} została opublikowana jako nowa %{amendable_type}
+            notification_title: <a href="%{emendation_path}">odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako nowa %{amendable_type} o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Emendacja odrzucona dla %{amendable_title} została awansowana na niezależną %{amendable_type}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Promowane od %{emendation_author_nickname} zostało promowane
-            notification_title: Odrzucona <a href="%{emendation_path}">emisja</a> dla <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} została zwiększona o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Poprawka z %{emendation_author_nickname} została opublikowana jako nowa %{amendable_type}
+            notification_title: <a href="%{emendation_path}">odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako nowa %{amendable_type} o <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Emendacja została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
             email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona dla <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Emendacja została odrzucona dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">poprawka</a> utworzony przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona dla <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
@@ -987,8 +986,15 @@ pl:
       login_modal:
         please_sign_in: proszę zaloguj się
         sign_up: Zapisz się
+      participatory_space_filters:
+        filters:
+          areas: Obszary
+          select_an_area: Wybierz obszar
       reference:
         reference: 'Odniesienie: %{reference}'
+      represent_user_group:
+        represent_user_group: Reprezentuję grupę
+        select_user_group: Wybierz grupę
       results_per_page:
         label: 'Wyniki na stronę:'
       share_modal:

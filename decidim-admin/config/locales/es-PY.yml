@@ -156,6 +156,7 @@ es-PY:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
+          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
           success: Área destruida correctamente
         edit:
           title: Editar área
