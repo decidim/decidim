@@ -139,7 +139,7 @@ hu:
         error: Hiba történt az erőforrás módosításakor.
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
         promote_button: Kezdeményezze a %{model_name}
-        promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a javítást?
+        promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
       created:
@@ -176,7 +176,7 @@ hu:
       review:
         back: Vissza
         heading: Tekintse át a módosítást
-        help_text: Ön felülvizsgálja a %{model_name}módosítást
+        help_text: Ön felülvizsgálja a %{model_name} módosítását
         send: Módosítás elfogadása
     anonymous_user: Névtelen
     application:
