@@ -388,17 +388,17 @@ hu:
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadott <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_outro: Ezt az értesítést megkapta, mert %{amendable_title} követi. Leállíthatja az értesítések fogadását az előző link segítségével.
             email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}-tól
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadott <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elfogadásra került. <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Új módosítási javaslat érkezett - %{amendable_title}. Erről az oldalról tudod megnézni:'
             email_outro: Ezt az értesítést kaptad, mert szerzője vagy ennek %{amendable_title}.
-            email_subject: Új módosítás a %{amendable_title}
-            notification_title: Új módosítás született a <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Új módosítás itt %{amendable_title}
+            notification_title: Új módosítás született <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
+            email_intro: 'Új módosítás történt - %{amendable_title}. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Új módosítás a %{amendable_title}
             notification_title: Új módosítás született a <a href="%{amendable_path}">%{amendable_title}</a>.
