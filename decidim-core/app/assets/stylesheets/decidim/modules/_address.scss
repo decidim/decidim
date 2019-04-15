@@ -20,7 +20,7 @@
   float: left;
   display: flex;
   align-self: center;
-  fill: $primary;
+  fill: var(--primary);
 }
 
 .address__details{

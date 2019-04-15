@@ -6,8 +6,8 @@ $navbar-color: rgba(white, .5);
 $navbar-color-hover: $white;
 $navbar-active-color: $white;
 $navbar-active-bg: $navbar-bg-hover;
-$navbar-active-shadow-small: inset 4px 0 0 0 $primary;
-$navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
+$navbar-active-shadow-small: inset 4px 0 0 0 var(--primary);
+$navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 /* Navigation */
 
@@ -170,7 +170,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
 
       &:hover{
         cursor: pointer;
-        background-color: rgba($secondary, .05);
+        background-color: rgba(var(--secondary), .05);
       }
     }
   }

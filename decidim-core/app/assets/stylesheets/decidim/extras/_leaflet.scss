@@ -2,7 +2,7 @@
   z-index: 0;
 
   .map-info{
-    border: 1px solid $primary;
+    border: 1px solid var(--primary);
 
     .leaflet-popup-content-wrapper{
       border-radius: 2px;
@@ -14,6 +14,6 @@
   }
 
   .leaflet-popup-tip{
-    border: 1px solid $primary;
+    border: 1px solid var(--primary);
   }
 }
