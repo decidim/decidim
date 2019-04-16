@@ -37,7 +37,7 @@ module Decidim
           @newsletter,
           @user
         ) do
-          NewsletterJob.perform_later(@newsletter, @form.as_json, recipients.pluck(:id))
+          NewsletterJob.perform_later(@newsletter, @form.as_json, recipients.map(&:id))
         end
       end
 

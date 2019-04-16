@@ -23,7 +23,7 @@ module Decidim
 
       def select_tag_participatory_spaces(manifest_name, spaces, child_form)
         return unless spaces
-        content_tag :div, class: "cell small-12 medium-6" do
+        content_tag :div, class: "#{manifest_name}-block cell small-12 medium-6" do
           child_form.select :ids, options_for_select(spaces),
                             { prompt: t("select_recipients_to_deliver.any", scope: "decidim.admin.newsletters"),
                               label: t("activerecord.models.decidim/#{manifest_name.singularize}.other"),

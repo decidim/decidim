@@ -78,12 +78,6 @@ module Decidim::Admin
             expect(recipients.count).to eq 3
           end
         end
-
-        context "when recipients not follow the participatory space" do
-          it "don't retrun recipients" do
-            expect(subject.query).to match_array []
-          end
-        end
       end
 
       context "when sending to participants" do
@@ -124,12 +118,6 @@ module Decidim::Admin
           it "returns all users" do
             expect(subject.query).to match_array recipients
             expect(recipients.count).to eq 3
-          end
-        end
-
-        context "when recipients not participate the participatory space" do
-          it "don't return recipients" do
-            expect(subject.query).to match_array []
           end
         end
       end

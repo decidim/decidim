@@ -17,11 +17,13 @@ module Decidim
                                   .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
                                   .not_deleted
 
-        recipients = recipients.where(id: user_id_of_followers) if @form.send_to_followers
-
-        recipients = recipients.where(id: participant_ids) if @form.send_to_participants
-
         recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
+
+        followers = recipients.where(id: user_id_of_followers) if @form.send_to_followers
+
+        participants = recipients.where(id: participant_ids) if @form.send_to_participants
+
+        recipients = (followers + participants).uniq if @form.send_to_followers && @form.send_to_participants
 
         recipients
       end
