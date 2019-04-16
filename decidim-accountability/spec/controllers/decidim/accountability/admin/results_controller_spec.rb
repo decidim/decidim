@@ -7,6 +7,8 @@ module Decidim
     module Admin
       describe ResultsController, type: :controller do
         include Decidim::ApplicationHelper
+        include Decidim::SanitizeHelper
+
         routes { Decidim::Accountability::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
@@ -37,6 +39,9 @@ module Decidim
         describe "GET proposals in json format" do
           let(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
           let(:proposal) { create(:proposal, component: proposal_component) }
+          let(:rendered_title) do
+            decidim_html_escape(proposal.title).gsub("&", "\\u0026")
+          end
 
           context "when there are no results" do
             it "returns an empty json array" do
@@ -49,7 +54,7 @@ module Decidim
             it "returns the title and id for filtered proposals" do
               params[:term] = "##{proposal.id}"
               get :proposals, format: :json, params: params
-              expect(response.body).to eq("[[\"#{proposal.title}\",#{proposal.id}]]")
+              expect(response.body).to eq("[[\"#{rendered_title}\",#{proposal.id}]]")
             end
           end
 
@@ -57,7 +62,7 @@ module Decidim
             it "returns the title and id for filtered proposals" do
               params[:term] = proposal.title
               get :proposals, format: :json, params: params
-              expect(response.body).to eq("[[\"#{proposal.title}\",#{proposal.id}]]")
+              expect(response.body).to eq("[[\"#{rendered_title}\",#{proposal.id}]]")
             end
           end
         end

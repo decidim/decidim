@@ -21,10 +21,14 @@ module Decidim
       def title
         case model.participatory_text_level
         when "section"
-          "<h5><strong class='text-uppercase'>#{present(model).title}</strong></h5>"
+          "<h5><strong class='text-uppercase'>#{section_title}</strong></h5>"
         else
-          "<h6><strong>#{present(model).title}</strong></h6>"
+          "<h6><strong>#{section_title}</strong></h6>"
         end
+      end
+
+      def section_title
+        decidim_html_escape(present(model).title).html_safe
       end
 
       def body
