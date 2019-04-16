@@ -19,11 +19,11 @@ module Decidim
       end
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       def description
-        truncate(present(model).body, length: 100)
+        strip_tags(present(model).body).truncate(100, separator: /\s/)
       end
 
       def has_badge?

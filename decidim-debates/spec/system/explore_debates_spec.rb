@@ -182,9 +182,9 @@ describe "Explore debates", type: :system do
 
     it "shows all debate info" do
       expect(page).to have_i18n_content(debate.title)
-      expect(page).to have_i18n_content(debate.description)
-      expect(page).to have_i18n_content(debate.information_updates)
-      expect(page).to have_i18n_content(debate.instructions)
+      expect(page).to have_i18n_content(debate.description, strip_tags: true)
+      expect(page).to have_i18n_content(debate.information_updates, strip_tags: true)
+      expect(page).to have_i18n_content(debate.instructions, strip_tags: true)
 
       within ".section.view-side" do
         expect(page).to have_content(13)

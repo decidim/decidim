@@ -248,8 +248,8 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { generate(:title) }
-    body { Faker::Lorem.sentences(3).join("\n") }
+    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+    body { "<script>alert(\"BODY\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
@@ -364,8 +364,8 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { generate(:title) }
-    body { Faker::Lorem.sentences(3).join("\n") }
+    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+    body { "<script>alert(\"BODY\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     state { "open" }
@@ -395,8 +395,8 @@ FactoryBot.define do
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
-    title { Faker::Hacker.say_something_smart }
-    description { Faker::Lorem.sentences(3).join("\n") }
+    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+    description { "<script>alert(\"DESCRIPTION\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
   end
 end
