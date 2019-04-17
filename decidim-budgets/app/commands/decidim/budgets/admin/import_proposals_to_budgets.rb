@@ -39,6 +39,7 @@ module Decidim
               project.description = project_localized(original_proposal.body)
               project.budget = form.default_budget
               project.category = original_proposal.category
+              project.scope = original_proposal.scope
               project.component = target_component
               project.save!
 
