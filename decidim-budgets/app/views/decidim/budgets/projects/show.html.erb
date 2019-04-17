@@ -14,9 +14,9 @@ edit_link(
 
 <div class="row column view-header">
   <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
-    <%= render partial: "budget_summary", locals: { include_heading: current_component.settings.vote_per_project? ? true : false } %>
+    <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
-  <%= link_to projects_path, class: "button hollow small button--sc" do %>
+  <%= link_to projects_path, class: "muted-link" do %>
     <%= icon "chevron-left", class: "icon--small" %>
     <%= t(".view_all_projects") %>
   <% end %>
@@ -36,9 +36,7 @@ edit_link(
             <span><%= t("decidim.budgets.projects.project.count", count: project.confirmed_orders_count) %></span>
           </div>
         <% end %>
-        <div id="project-<%= project.id %>-budget-button">
-          <%= render partial: "project_budget_button", locals: { project: project } %>
-        </div>
+        <%= render partial: "project_budget_button", locals: { project: project } %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false  } %>
       </div>
     </div>

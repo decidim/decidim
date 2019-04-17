@@ -20,6 +20,10 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-proposals**: Fix admin proposals manager: show proposal state [\#4789](https://github.com/decidim/decidim/pull/4789/)
+- **decidim-core**: Ensure email is downcased when authenticating a user [\#4926](https://github.com/decidim/decidim/pull/4926)
+- **decidim-participatory_processes**: Fix step CTA URL when abse URL had params [#5082](https://github.com/decidim/decidim/pull/5082)
+- **decidim-budgets**: Fix button updates [\#4941](https://github.com/decidim/decidim/pull/4941)
 - **decidim-proposals** Fix unhideable reported collaborative drafts and mail jobs [\#4938](https://github.com/decidim/decidim/pull/4938)
 - **decidim-comments**: Fix comment reply when comments blocked [\#578](https://github.com/OpenSourcePolitics/decidim/pull/578)
 - **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
