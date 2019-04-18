@@ -79,7 +79,7 @@ it:
         organization: Organizzazione
         parent_id: Genitore
         scope_type: Tipo di campo
-        scope_type_id: Tipo di ambito
+        scope_type_id: Tipo di ambito tematico
       scope_type:
         name: Nome
         organization: Organizzazione
