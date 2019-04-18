@@ -12,7 +12,7 @@ it:
         nickname: Nome utente
         password: Password
         password_confirmation: Conferma la tua password
-        personal_url: URL personale
+        personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
     models:
       decidim/attachment_created_event: Allegato
@@ -23,7 +23,7 @@ it:
       decidim/join_request_accepted_event: Richiesta di adesione accettata
       decidim/join_request_rejected_event: Richiesta di adesione rifiutata
       decidim/profile_updated_event: profilo aggiornato
-      decidim/promote_to_admin: Promosso ad amministratore di gruppo
+      decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
   activerecord:
     attributes:
@@ -147,8 +147,8 @@ it:
         success: La modifica è stata creata con successo
       emendation:
         actions:
-          button_accept: Accettare
-          button_reject: Rifiutare
+          button_accept: Accettato
+          button_reject: Rifiutato
           help_text: Esaminare le modifiche e accettare o rifiutare questo emendamento. Una notifica verrà inviata al suo autore (s).
         announcement:
           accepted: |-
@@ -315,7 +315,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il tuo identificatore univoco breve in %{organization}
+          nickname_help: Il tuo nickname (@nickname) in %{organization}
           sign_up: Si prega di completare il profilo
           subtitle: Si prega di compilare il seguente modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -828,7 +828,7 @@ it:
           conferences_count: conferenze
           debates_count: Dibattiti
           endorsements_count: Riconoscimenti
-          headline: Stato attuale dell'organizzazione %{organization}
+          headline: Statistiche su %{organization}
           meetings_count: incontri
           orders_count: Voti
           pages_count: Pagine
@@ -1125,7 +1125,7 @@ it:
       already_signed_out: Sottoscritto con successo.
       new:
         sign_in: Accesso
-      signed_in: Firmato correttamente
+      signed_in: Loggin effettuato.
       signed_out: Sottoscritto con successo.
     shared:
       links:
