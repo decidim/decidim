@@ -320,8 +320,8 @@ it:
         admin_log: Registro delle attività di amministrazione
         admins: Amministratori
         appearance: Aspetto
-        area_types: Tipi di area
-        areas: le zone
+        area_types: Tipi di ambito territoriale
+        areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
         help_sections: Aiuto sezioni
@@ -331,7 +331,7 @@ it:
         oauth_applications: Applicazioni OAuth
         participants: I partecipanti
         scope_types: Tipi di ambito
-        scopes: Visibilità/ambito (Scopes)
+        scopes: Ambito tematico
         settings: Impostazioni
         static_pages: Pagine
         user_groups: Gruppi di utenti
@@ -620,8 +620,8 @@ it:
           success: OK, la pagina è stata aggiornata.
       titles:
         admin_log: Registro di amministrazione
-        area_types: Tipi di area
-        areas: le zone
+        area_types: Tipi di ambito territoriale
+        areas: Ambiti territoriali
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Utenti gestibili
