@@ -351,7 +351,7 @@ it:
         developer_group: Gruppo promotore
         end_date: Data di fine
         local_area: Area Organizzazione
-        participatory_scope: Che cosa è deciso
+        participatory_scope: Che cosa si decide
         participatory_structure: Come si decide
         private_space: Questo è un processo privato
         scope: Objetivos
@@ -364,7 +364,7 @@ it:
         debates_count: dibattiti
         endorsements_count: Riconoscimenti
         headline: Attività
-        meetings_count: Riunioni
+        meetings_count: Eventi
         orders_count: Voti
         pages_count: Pagine
         processes_count: Processi
