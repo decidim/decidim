@@ -46,7 +46,7 @@ it:
               already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
-      decidim/meetings/create_meeting_event: Incontro
+      decidim/meetings/create_meeting_event: Evento
       decidim/meetings/meeting_registrations_enabled_event: Registrazioni abilitate
       decidim/meetings/meeting_registrations_over_percentage_event: Iscrizioni oltre il limite
       decidim/meetings/upcoming_meeting_event: Prossimo incontro
