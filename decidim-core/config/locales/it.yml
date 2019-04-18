@@ -527,10 +527,10 @@ it:
       no_followings: Non segue nessuno o niente ancora.
     follows:
       create:
-        button: Seguire
+        button: Segui
         error: C'è stato un errore seguendo questa risorsa.
       destroy:
-        button: Smettere di seguire
+        button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
     forms:
       current_file: File attuale
