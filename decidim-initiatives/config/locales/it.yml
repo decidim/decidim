@@ -151,7 +151,7 @@ it:
             state: Stato
         committee_requests:
           index:
-            approve: Approvare
+            approve: Sostieni
             confirm_revoke: Sei sicuro?
             invite_to_committee_help: Condividi questo link per invitare altri utenti al comitato di promozione
             no_members_yet: Non ci sono membri nel comitato promotore
