@@ -75,7 +75,7 @@ it:
     components:
       meetings:
         actions:
-          join: Aderire
+          join: Iscriviti
         name: incontri
         settings:
           global:
@@ -196,7 +196,7 @@ it:
           invite:
             decline: Rifiuta l'invito
             invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
-            join: Partecipa alla riunione '%{meeting_title}'
+            join: Partecipa all'evento '%{meeting_title}'
         invites:
           create:
             error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
@@ -377,7 +377,7 @@ it:
           remaining_slots:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
-          view: vista
+          view: Visualizza
       meetings_map:
         view_meeting: Guarda la riunione
       models:
