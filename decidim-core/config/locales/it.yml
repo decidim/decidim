@@ -974,7 +974,7 @@ it:
         sign_up: Registrazione
       participatory_space_filters:
         filters:
-          areas: le zone
+          areas: Ambiti territoriali
           select_an_area: Seleziona un'area
       reference:
         reference: 'Riferimento: %{reference}'
