@@ -29,6 +29,12 @@ module Decidim
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 
+      attribute :primary_color, String, default: "#ef604d"
+      attribute :secondary_color, String, default: "#599aa6"
+      attribute :success_color, String, default: "#57d685"
+      attribute :warning_color, String, default: "#ffae00"
+      attribute :alert_color, String, default: "#ec5840"
+
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
       translatable_attribute :highlighted_content_banner_title, String

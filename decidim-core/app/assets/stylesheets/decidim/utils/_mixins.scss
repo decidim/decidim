@@ -41,7 +41,13 @@
 }
 
 // Status modifier mixin
-$palette: $foundation-palette;
+$palette: (
+  primary: var(--primary),
+  secondary: var(--secondary),
+  success: var(--success),
+  warning: var(--warning),
+  alert: var(--alert),
+);
 
 @mixin modifiers($vars, $colors: $palette){
   $map: map-merge($palette, $colors);

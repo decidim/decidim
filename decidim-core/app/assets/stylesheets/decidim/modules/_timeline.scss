@@ -1,7 +1,7 @@
 
 /* Variables */
 
-$timeline-color: $primary;
+$timeline-color: var(--primary);
 $timeline-inactive-color: $medium-gray;
 
 $timeline-padding: 1rem;

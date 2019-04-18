@@ -8,6 +8,7 @@ Upgrade note:
 
 **Added**:
 
+- **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 - **decidim-proposals** Change collaborative draft contributors permissions [\#4712](https://github.com/decidim/decidim/pull/4712)
 - **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
@@ -20,6 +21,7 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-core**: Fix CSS transparencies using customized colors. [\#5071](https://github.com/decidim/decidim/pull/5071)
 - **decidim-proposals**: Fix admin proposals manager: show proposal state [\#4789](https://github.com/decidim/decidim/pull/4789/)
 - **decidim-core**: Ensure email is downcased when authenticating a user [\#4926](https://github.com/decidim/decidim/pull/4926)
 - **decidim-participatory_processes**: Fix step CTA URL when abse URL had params [#5082](https://github.com/decidim/decidim/pull/5082)

@@ -170,5 +170,5 @@ a:hover .author__name{
 .author__verified{
   display: inline-block;
   vertical-align: middle;
-  color: $primary;
+  color: var(--primary);
 }

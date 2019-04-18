@@ -8,8 +8,8 @@
 
   li{
     border: none;
-    color: $primary;
-    border-left: 2px solid $primary;
+    color: var(--primary);
+    border-left: 2px solid var(--primary);
     box-sizing: border-box;
     border-radius: 0;
     padding: 1rem 0;
@@ -19,7 +19,7 @@
 
   li::before{
     border-radius: 50%;
-    background-color: $primary;
+    background-color: var(--primary);
     content: "";
     display: inline-block;
     float: left;

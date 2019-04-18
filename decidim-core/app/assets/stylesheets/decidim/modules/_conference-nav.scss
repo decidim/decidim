@@ -20,7 +20,7 @@
         display: inline-block;
         width: 5px;
         height: $list-lineheight * 1rem;
-        background-color: $primary;
+        background-color: var(--primary);
         position: absolute;
         top: 50%;
         left: -.5rem;
