@@ -315,10 +315,10 @@ it:
         home:
           highlighted_processes:
             active_processes: Processi attivi
-            active_step: Passo attivo
+            active_step: Fase attiva
             more_information: Maggiori informazioni
             participate: Partecipare
-            see_all_processes: Vedere tutti i processi
+            see_all_processes: Vedi tutti i processi
       participatory_processes:
         filters:
           counters:
