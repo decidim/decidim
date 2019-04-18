@@ -25,6 +25,7 @@ module Decidim
     included do
       include Decidim::NeedsOrganization
 
+      helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
       helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
       helper_method :current_participatory_space_manifest

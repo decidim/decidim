@@ -67,6 +67,9 @@ fr:
         show_statistics: Afficher les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
+        customize_welcome_notification: Personnaliser la notification d'accueil
+        send_welcome_notification: Envoyer la notification d'accueil
+        user_groups_enabled: Activer les groupes d'utilisateurs
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code

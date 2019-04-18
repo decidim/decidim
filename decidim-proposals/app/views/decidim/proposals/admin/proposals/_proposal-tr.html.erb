@@ -23,7 +23,6 @@
     </td>
   <% end %>
   <td>
-    <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
     <strong class="<%= proposal_state_css_class proposal.state %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <%= humanize_proposal_state proposal.state %>
