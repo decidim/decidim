@@ -2,12 +2,12 @@ it:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Annuncio
+        announcement: Avviso
         area_id: Area
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
-        copy_components: Copia componenti
-        copy_steps: Copia i passi
+        copy_components: Copia le componenti
+        copy_steps: Copia le fasi
         decidim_area_id: Area
         description: Descrizione
         developer_group: Gruppo promotore
