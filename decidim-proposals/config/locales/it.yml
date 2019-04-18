@@ -78,7 +78,7 @@ it:
       proposals:
         actions:
           create: Creare
-          endorse: Approvare
+          endorse: Sostieni
           vote: Votazione
           withdraw: ritirarsi
         name: proposte
@@ -585,7 +585,7 @@ it:
           amend: emendare
           comment: Commento
           comments: Commenti
-          endorse: Approvare
+          endorse: Sostieni
       proposal_endorsements:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
@@ -595,9 +595,9 @@ it:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: approvato
-          endorse: Approvare
+          endorse: Sostieni
         render_endorsements_button_card_part:
-          endorse: Approvare
+          endorse: Sostieni
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -625,7 +625,7 @@ it:
           send: Anteprima
           title: Modifica bozza di proposta
         endorsement_identities_cabin:
-          endorse: Approvare
+          endorse: Sostieni
         endorsements_card_row:
           comments: Commenti
         filters:
