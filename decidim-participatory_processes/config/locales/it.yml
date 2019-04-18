@@ -26,15 +26,15 @@ it:
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
         show_statistics: Mostra statistiche
-        slug: URL slug
+        slug: Stringa URL
         start_date: Date di inizio
         subtitle: Sottotitolo
         target: Chi partecipa
-        title: Nome
+        title: Titolo
       participatory_process_group:
         description: Descrizione
         hero_image: Immagine
-        name: Nome
+        name: Titolo
         participatory_process_ids: Processi correlati
       participatory_process_step:
         cta_path: Percorso Call to Action
@@ -43,25 +43,25 @@ it:
         end_date: Data di fine
         short_description: Descrizione breve
         start_date: Date di inizio
-        title: Nome
+        title: Titolo
       participatory_process_user_role:
         email: Email
-        name: Nome
+        name: Titolo
         role: Ruolo
     models:
       decidim/participatory_process_step_activated_event: Fase attivata
-      decidim/participatory_process_step_changed_event: Passo cambiato
+      decidim/participatory_process_step_changed_event: Fase modificata
   activerecord:
     models:
       decidim/participatory_process:
         one: Processo partecipativo
         other: Processi partecipativi
       decidim/participatory_process_group:
-        one: Gruppo di processo partecipativo
-        other: Gruppi di processi partecipativi
+        one: Gruppo di processi partecipativi
+        other: Gruppo di processi partecipativi
       decidim/participatory_process_step:
-        one: Passo
-        other: passi
+        one: Fase
+        other: Fasi
   decidim:
     admin:
       actions:
@@ -113,21 +113,21 @@ it:
           fields:
             end_date: Data di fine
             start_date: Date di inizio
-            title: Nome
+            title: Titolo
           name: Fase del processo partecipativo
         participatory_process_user_role:
           fields:
             email: Email
-            name: Nome
+            name: Titolo
             role: Ruolo
-          name: Utente del processo partecipativo
+          name: Amministratore del processo partecipativo
           roles:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
         user:
           fields:
-            invitation_accepted_at: Invito accettato presso
+            invitation_accepted_at: Invito accettato su
             invitation_sent_at: Invito inviato alle
       participatory_process_copies:
         new:
