@@ -128,12 +128,12 @@ it:
         user:
           fields:
             invitation_accepted_at: Invito accettato su
-            invitation_sent_at: Invito inviato alle
+            invitation_sent_at: Invito inviato a
       participatory_process_copies:
         new:
           copy: Copia
-          select: Scegli quale quale dato vuoi duplicare
-          title: Duplicare il processo partecipativo
+          select: Scegli quale dato vuoi duplicare
+          title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
           success: Gruppo di processi partecipativi cancellato con successo.
@@ -145,28 +145,28 @@ it:
           title: Nuovo gruppo di processi
         update:
           error: Si è verificato un errore aggiornando questo gruppo di processi partecipativi.
-          success: OK, il gruppo di processi partecipativi è stato modificato.
+          success: Il gruppo di processi partecipativi è stato modificato con successo.
       participatory_process_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questo processo partecipativo.
-          success: OK, il processo partecipativo è stato pubblicato.
+          success: Il processo partecipativo è stato pubblicato.
         destroy:
-          error: Si è verificato un errore cercando di togliere dalla pubblicazione questo processo partecipativo.
-          success: OK, il processo partecipativo è stato tolto dalla pubblicazione.
+          error: Si è verificato un errore cercando di rimuovere dalla pubblicazione questo processo partecipativo.
+          success: Il processo partecipativo è stato rimosso dalla pubblicazione.
       participatory_process_step_activations:
         create:
           error: Si è verificato un errore cercando di attivare questa fase del processo partecipativo.
-          success: OK, il processo partecipativo è stato attivato.
+          success: Il processo partecipativo è stato attivato.
       participatory_process_steps:
         create:
           error: Si è verificato un errore creando questa nuova fase (step) di processo partecipativo.
-          success: OK, è stato creato il nuovo processo partecipativo.
+          success: E' stato creato il nuovo processo partecipativo.
         default_title: Introduzione
         destroy:
           error:
             active_step: Non è possibile cancellare questa fase poiché è attiva.
             last_step: Non è possibile cancellare l'ultima fase di un processo.
-          success: Passo del processo partecipativo cancellato con successo.
+          success: Fase del processo partecipativo cancellata con successo.
         edit:
           title: Modifica una fase del processo partecipativo.
           update: Modifica
@@ -179,18 +179,18 @@ it:
           error: Si è verificato un errore cercando di ri-ordinare le fasi di questo processo partecipativo.
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
-          success: OK, questa fase del processo partecipativo è stata aggiornata.
+          success: Questa fase del processo partecipativo è stata aggiornata.
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
-          success: Utente aggiunto con successo a questo processo partecipativo.
+          success: Utente aggiunto con successo come amministratore a questo processo partecipativo.
         destroy:
-          success: Utente rimosso con successo da questo processo partecipativo.
+          success: Utente rimosso con successo dal ruolo di amministratore di questo processo partecipativo.
         edit:
-          title: Aggiornamento utente di un processo partecipativo.
+          title: Aggiornamento dell'utente amministratore di un processo partecipativo.
           update: Modifica
         index:
-          process_admins_title: Utenti del processo partecipativo.
+          process_admins_title: Amministratori del processo partecipativo
         new:
           create: Crea
           title: Nuovo utente per un processo partecipativo.
@@ -317,7 +317,7 @@ it:
             active_processes: Processi attivi
             active_step: Fase attiva
             more_information: Maggiori informazioni
-            participate: Partecipare
+            participate: Partecipa
             see_all_processes: Vedi tutti i processi
       participatory_processes:
         filters:
@@ -329,7 +329,7 @@ it:
               one: 1 processo
               other: "%{count} processi"
             past:
-              one: 1 processo passato
+              one: 1 processo concluso
               other: "%{count} processi passati"
             upcoming:
               one: 1 processo imminente
@@ -341,9 +341,9 @@ it:
           names:
             active: Attivo
             all: Tutti
-            past: Passato
+            past: Concluso
             upcoming: Imminenti
-          see: Vedere
+          see: Vedi tutto
         index:
           loading: Caricamento risultati...
       show:
