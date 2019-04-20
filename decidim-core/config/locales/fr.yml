@@ -820,7 +820,7 @@ fr:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
         metrics:
-          headline: Participation aux chiffres
+          headline: Participation en chiffres
         statistics:
           answers_count: Enquêtes terminées
           assemblies_count: Assemblées
