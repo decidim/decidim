@@ -211,7 +211,7 @@ fr:
           form:
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            filters: Les filtres
+            filters: Filtres
             images: Images
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
