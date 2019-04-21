@@ -635,8 +635,8 @@ fr:
         error: Il y a eu un problème pour créer le groupe
         success: Groupe créé avec succès
       edit:
-        edit_user_group: Editer le groupe
-        update_user_group: Groupe de mise à jour
+        edit_user_group: Éditer le groupe
+        update_user_group: Mettre à jour le groupe
       form:
         document_number_help: Ne pas utiliser de tirets ni d'espaces
         email_help: Email de votre organisation, association, collectif, groupe, etc.
