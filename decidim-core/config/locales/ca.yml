@@ -648,7 +648,7 @@ ca:
         error: S'ha produït un error en abandonar el grup
         success: El grup s'ha abandonat correctament.
       members:
-        accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
+        accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
         accept_request: Accepta
         reject_request: Rebutja
       new:
