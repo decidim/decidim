@@ -630,12 +630,12 @@ ca:
         are_you_sure: Estàs segur?
       create:
         error: S'ha produït un errot en crear el grup
-        success: S'ha creat el grup correctament
+        success: Grup creat correctament
       edit:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
       form:
-        document_number_help: No utilitzis guionets ni espais
+        document_number_help: No utilitzis guions ni espais
         email_help: Correu electrònic de la teva organització, associació, col·lectiu, grup, etc.
         fill_in_for_verification: 'Omple aquests camps si vols que el teu grup sigui verificat:'
         name_help: Nom de la teva organització, associació, col·lectiu, grup, etc.
