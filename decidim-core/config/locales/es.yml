@@ -654,19 +654,19 @@ es:
       new:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
-        subtitle: Crea un grupo e invita a otros usuarios a unirse para participar a nivel colectivo.
+        subtitle: Crea un grupo e invita a otras participantes a unirse para participar a nivel colectivo.
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
-        admin: Administrador
-        creator: Creador
+        admin: Administradora
+        creator: Creadora
         member: Miembro
       update:
         error: Se ha producido un error al actualizar el grupo
-        success: Grupo actualizado correctamente
+        success: El grupo se ha actualizado correctamente
     help:
       main_topic:
         default_page:
-          content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas - a nivel individual o con otras personas -, tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
+          content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas (individualmente o con otras personas), tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Leer más sobre %{organization}
         title: Ayuda general
