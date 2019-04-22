@@ -717,7 +717,7 @@ es:
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         create:
-          error: Conversación no iniciada. Inténtalo más tarde
+          error: No se ha iniciado la conversación. Inténtalo de nuevo más tarde
         index:
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
@@ -728,7 +728,7 @@ es:
           title: Conversación con %{usernames}
         start:
           send: Enviar
-          title: Iniciar una conversación
+          title: Inicia una conversación
         update:
           error: Mensaje no enviado. Inténtalo más tarde
     metrics:
