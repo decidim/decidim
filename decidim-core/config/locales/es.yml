@@ -632,8 +632,8 @@ es:
         error: Se ha producido un error al crear el grupo
         success: Grupo creado correctamente
       edit:
-        edit_user_group: Editar grupo
-        update_user_group: Actualizar grupo
+        edit_user_group: Editar el grupo
+        update_user_group: Actualizar el grupo
       form:
         document_number_help: No utilices guiones ni espacios
         email_help: Correo electrónico de tu organización, asociación, colectivo, grupo, etc.
