@@ -654,14 +654,14 @@ ca:
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
-        subtitle: Crea un grup i convida altres usuaris a unir-se per participar a nivell col·lectiu.
+        subtitle: Crea un grup i convida altres participants a unir-se per participar a nivell col·lectiu.
       no_user_groups: Encara no pertanys a cap grup.
       roles:
-        admin: Administrador
-        creator: Creador
+        admin: Administradora
+        creator: Creadora
         member: Membre
       update:
-        error: S'ha produït un problema en actualitzar el grup
+        error: S'ha produït un error en actualitzar el grup
         success: El grup s'ha actualitzat correctament
     help:
       main_topic:
