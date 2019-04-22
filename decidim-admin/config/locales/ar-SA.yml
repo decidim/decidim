@@ -182,7 +182,7 @@ ar:
           attachment_collections_title: مجلدات المرفقات
         new:
           create: خلق
-          title: ملف جديد
+          title: مجلد جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا المجلد.
           success: تم تحديث المجلد بنجاح.
