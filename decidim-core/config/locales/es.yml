@@ -668,11 +668,11 @@ es:
         default_page:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas (individualmente o con otras personas), tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
-        description: Leer más sobre %{organization}
+        description: Lee más sobre %{organization}
         title: Ayuda general
     last_activities:
       activities:
-        no_activities_warning: Ninguna actividad
+        no_activities_warning: Sin actividad
       all: Todos los tipos de actividad
       index:
         last_activity: Última actividad
@@ -689,7 +689,7 @@ es:
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'No se encontró el área en la base de datos (ID: %{id})'
+          not_found: 'El área no se encontró en la base de datos (ID: %{id})'
         area_type_presenter:
           not_found: 'El tipo de área no se encontró en la base de datos (ID: %{id})'
         scope_presenter:
