@@ -765,23 +765,23 @@ es:
         success: La configuración del boletín de noticias se ha actualizado correctamente
     newsletters_opt_in_mailer:
       notify:
-        body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos tu "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
+        body_1: El procesamiento de datos personales y su protección es cada vez más importante para todas nosotras. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mayor control sobre sus datos personales. Por este motivo, necesitamos tu autorización para seguir enviándote información relevante sobre las actividades del %{organization_name}.
         body_2: '¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:'
-        body_3: Con este consentimiento, podrás continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de tu parte, dejaremos de enviarte nuestros mensajes. Si confirmas que deseas mantenerte informado, siempre tendrás la opción de cancelar en cualquier momento.
-        button: Sí, deseo continuar recibiendo información relevante
+        body_3: Con este consentimiento, podrás continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de tu parte, dejaremos de enviarte nuestros mensajes. Si confirmas que deseas mantenerte informada, siempre tendrás la opción de cancelar en cualquier momento.
+        button: Sí, quiero continuar recibiendo información relevante
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: '¿Deseas seguir recibiendo información relevante sobre %{organization_name}?'
     notifications:
-      no_notifications: No hay notificaciones aún.
+      no_notifications: Aún no hay notificaciones.
     notifications_settings:
       show:
-        email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
+        email_on_notification: Quiero recibir un correo electrónico cada vez que reciba una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
-        newsletters: Boletines de noticias
-        own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona.
-        receive_notifications_about: Quiero recibir notificaciones sobre
+        newsletters: Boletines informativos
+        own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
+        receive_notifications_about: Quiero recibir notificaciones
         send_notifications_by_email: Enviar notificaciones por correo electrónico
         update_notifications_settings: Guardar cambios
       update:
