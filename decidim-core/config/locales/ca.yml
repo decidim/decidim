@@ -679,7 +679,7 @@ ca:
         resource_type: Escriu
     log:
       base_presenter:
-        create: "%{user_name} creat %{resource_name}"
+        create: "%{user_name} ha creat %{resource_name}"
         create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
         delete: "%{user_name} ha eliminat %{resource_name}"
         delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
