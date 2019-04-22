@@ -736,8 +736,8 @@ ca:
         csv: Descarrega les dades (csv)
       followers:
         description: Nombre de participants que segueixen aquest espai de participació
-        object: seguidors
-        title: Seguidors
+        object: seguidores
+        title: Seguidores
       participants:
         description: Nombre de participants actives a l'organització
         object: participants
@@ -748,14 +748,14 @@ ca:
         title: Participants
     newsletter_mailer:
       newsletter:
-        note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
+        note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest missatge? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletters:
       unsubscribe:
         check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>
         error: S'ha produït un error en cancel·lar la subscripció
-        success: Has cancel·lat la subscripció amb èxit.
+        success: Has cancel·lat la subscripció correctament.
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
     newsletters_opt_in:
