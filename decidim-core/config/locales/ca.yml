@@ -640,12 +640,12 @@ ca:
         fill_in_for_verification: 'Omple aquests camps si vols que el teu grup sigui verificat:'
         name_help: Nom de la teva organització, associació, col·lectiu, grup, etc.
         nickname_help: Sobrenom de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
-        phone_help: No utilitzis guionets ni espais
+        phone_help: No utilitzis guions ni espais
       join:
         error: S'ha produït un error en unir-te al grup
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
-        error: S'ha produït un problema en abandonar el grup
+        error: S'ha produït un error en abandonar el grup
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
