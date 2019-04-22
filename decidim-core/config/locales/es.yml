@@ -648,9 +648,9 @@ es:
         error: Se ha producido un error al dejar el grupo
         success: Has dejado el grupo correctamente.
       members:
-        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
-        accept_request: Aceptar
-        reject_request: Rechazar
+        accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
+        accept_request: Acepta
+        reject_request: Rechaza
       new:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
