@@ -730,13 +730,13 @@ es:
           send: Enviar
           title: Inicia una conversación
         update:
-          error: Mensaje no enviado. Inténtalo más tarde
+          error: Mensaje no enviado. Inténtalo de nuevo más tarde
     metrics:
       download:
         csv: Descargar datos (csv)
       followers:
         description: Número de participantes que siguen este espacio de participación
-        object: seguidores
+        object: seguidoras
         title: Seguidores
       participants:
         description: Número de participantes activas en la organización
@@ -748,21 +748,21 @@ es:
         title: Participantes
     newsletter_mailer:
       newsletter:
-        note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
+        note: Has recibido este correo electrónico porque estás suscrita a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
         see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
-        unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
+        unsubscribe: Para desactivar la recepción este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Si deseas cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>
+        check_subscription: Si quieres cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>
         error: Se ha producido un error al cancelar la suscripción
-        success: Te has dado de baja exitosamente.
-        token_error: El enlace ha expirado.
-        unsubscribe: Darse de baja
+        success: Has cancelado la subscripción correctamente.
+        token_error: El enlace ha caducado.
+        unsubscribe: Anula la subscripción
     newsletters_opt_in:
       unathorized: Lo sentimos, este enlace ya no está disponible
       update:
-        error: Algo malo ha sucedido
-        success: Configuración del boletín de noticias actualizada
+        error: Se ha producido un error
+        success: La configuración del boletín de noticias se ha actualizado correctamente
     newsletters_opt_in_mailer:
       notify:
         body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos tu "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
