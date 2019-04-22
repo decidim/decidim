@@ -693,9 +693,9 @@ es:
         area_type_presenter:
           not_found: 'El tipo de área no se encontró en la base de datos (ID: %{id})'
         scope_presenter:
-          not_found: 'No se encontró el ámbito en la base de datos (ID: %{id})'
+          not_found: 'El ámbito no se encontró en la base de datos (ID: %{id})'
         scope_type_presenter:
-          not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
+          not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión actual de administración de una participante ha caducado.
     members:
