@@ -243,6 +243,7 @@ ar:
           cancel: إلغاء
         unauthorized:
           ok: موافق
+          title: غير مخوّل
         unconfirmed:
           title: تأكيد البريد الإلكتروني
     collapsible_list:
@@ -638,7 +639,7 @@ ar:
         error: كانت هناك مشكلة في إنشاء المجموعة
         success: تم إنشاء المجموعة بنجاح
       edit:
-        edit_user_group: تحرير المجموعة
+        edit_user_group: تعديل المجموعة
         update_user_group: تحديث المجموعة
       form:
         document_number_help: لا تستخدم شرطات ولا مسافات
