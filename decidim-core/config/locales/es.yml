@@ -637,13 +637,13 @@ es:
       form:
         document_number_help: No utilices guiones ni espacios
         email_help: Correo electrónico de tu organización, asociación, colectivo, grupo, etc.
-        fill_in_for_verification: 'Rellena estos campos si deseas que se verifique tu grupo:'
+        fill_in_for_verification: 'Rellena estos campos si deseas que tu grupo sea verificado:'
         name_help: Nombre de tu organización, asociación, colectivo, grupo, etc.
         nickname_help: Alias de tu organización, asociación, colectivo, grupo, etc. No uses espacios ni tildes.
         phone_help: No utilices guiones ni espacios
       join:
         error: Se ha producido un error al unirte al grupo
-        success: Solicitud enviada correctamente. Una administradora la revisará antes de aceptarte en el grupo.
+        success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
         error: Se ha producido un error al dejar el grupo
         success: Has dejado el grupo correctamente.
