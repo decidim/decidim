@@ -765,9 +765,9 @@ ca:
         success: La configuració del butlletí de notícies s'ha actualitzat correctament
     newsletters_opt_in_mailer:
       notify:
-        body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a tots nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un millor control sobre les seves dades personals. Per aquest motiu, necessitem el vostre "D'acord" per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
-        body_2: 'Com ens podeu donar el vostre consentiment? Només cal que feu clic al botó següent:'
-        body_3: Donant consentiment podràs continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la teva part, deixarem d'enviar-te els nostres missatges. Si confirmes que vols mantenir-te informat, sempre tindràs l'opció de cancel·lar en qualsevol moment.
+        body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a totes nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un major control sobre les seves dades personals. Per aquest motiu, necessitem la teva autorització per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
+        body_2: 'Com ens pots donar el teu consentiment? Només cal que facis clic al botó següent:'
+        body_3: Donant consentiment podràs continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la teva part, deixarem d'enviar-te els nostres missatges. Si confirmes que vols mantenir-te informada, sempre tindràs l'opció de cancel·lar en qualsevol moment.
         button: Sí, vull continuar rebent informació rellevant
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
@@ -778,7 +778,7 @@ ca:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
-        newsletter_notifications: Vull rebre butlletins
+        newsletter_notifications: Vull rebre butlletins informatius
         newsletters: Butlletins informatius
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
         receive_notifications_about: Vull rebre notificacions
