@@ -39,11 +39,13 @@ module Decidim
 
       def clean_secondary_hosts
         return unless secondary_hosts
+
         secondary_hosts.split("\n").map(&:chomp).select(&:present?)
       end
 
       def clean_available_authorizations
         return unless available_authorizations
+
         available_authorizations.select(&:present?)
       end
 
