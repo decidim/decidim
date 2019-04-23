@@ -47,8 +47,8 @@ module Decidim
         end
 
         def i18n_valid_mime_types_text
-          ACCEPTED_MIME_TYPES.keys.map do |type|
-            I18n.t("decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.#{type}")
+          ACCEPTED_MIME_TYPES.keys.map do |mime_type|
+            I18n.t(mime_type, scope: "decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types")
           end.join(", ")
         end
 
