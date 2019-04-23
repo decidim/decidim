@@ -12,15 +12,15 @@ module Decidim
         module ParticipatoryProcessAdmin
           extend ActiveSupport::Concern
 
-          included do
-            include Decidim::Admin::ParticipatorySpaceAdminContext
-            include RegistersPermissions
-            helper_method :current_participatory_process
-            participatory_space_admin_layout
-
+          RegistersPermissions.
             register_permissions(::Decidim::ParticipatoryProcesses::Admin::Concerns::ParticipatoryProcessAdmin,
                                  ::Decidim::ParticipatoryProcesses::Permissions,
                                  ::Decidim::Admin::Permissions)
+
+          included do
+            include Decidim::Admin::ParticipatorySpaceAdminContext
+            helper_method :current_participatory_process
+            participatory_space_admin_layout
 
             def organization_processes
               @organization_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
