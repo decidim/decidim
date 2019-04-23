@@ -27,6 +27,10 @@ module Decidim
           expect { described_class.call(proposal_draft, follower) }.to broadcast(:invalid)
         end
 
+        it "returns collaborative draft origin" do
+          expect(proposal_draft.collaborative_draft_origin).to eq(false)
+        end
+
         describe "events" do
           subject do
             described_class.new(proposal_draft, current_user)

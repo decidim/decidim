@@ -77,6 +77,7 @@ module Decidim
           visibility: "public-only"
         ) do
           new_proposal = Proposal.new(proposal_attributes)
+          new_proposal.collaborative_draft_origin = true
           new_proposal.coauthorships = @collaborative_draft.coauthorships
           new_proposal.category = @collaborative_draft.category
           new_proposal.attachments = @collaborative_draft.attachments

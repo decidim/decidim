@@ -64,6 +64,7 @@ module Decidim
             expect(proposal.scope).to eq(collaborative_draft.scope)
             expect(proposal.address).to eq(collaborative_draft.address)
             expect(proposal.attachments).to eq(collaborative_draft.attachments)
+            expect(proposal.collaborative_draft_origin).to eq(true)
           end
         end
       end

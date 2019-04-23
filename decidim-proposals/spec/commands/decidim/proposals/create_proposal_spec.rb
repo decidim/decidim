@@ -79,6 +79,13 @@ module Decidim
             expect { described_class.call(form, author) }.to change(Decidim::ActionLog, :count).by(1)
           end
 
+          it "returns collaborative draft origin" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.collaborative_draft_origin).to eq(false)
+          end
+
           context "with an author" do
             let(:user_group) { nil }
 

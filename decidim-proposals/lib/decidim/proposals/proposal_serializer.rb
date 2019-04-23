@@ -30,6 +30,7 @@ module Decidim
             id: proposal.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
           },
+          collaborative_draft_origin: proposal.collaborative_draft_origin,
           component: { id: component.id },
           title: present(proposal).title,
           body: present(proposal).body,
@@ -38,12 +39,15 @@ module Decidim
           supports: proposal.proposal_votes_count,
           endorsements: proposal.endorsements.count,
           comments: proposal.comments.count,
+          amendments: proposal.amendments.count,
+          attachments_url: attachments_url,
           attachments: proposal.attachments.count,
           followers: proposal.followers.count,
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals
+          related_proposals: related_proposals,
+          authors_url: authors_url
         }
       end
 
@@ -69,6 +73,14 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(proposal).url
+      end
+
+      def authors_url
+        proposal.authors.map { |author| Decidim::UserPresenter.new(author).profile_url }
+      end
+
+      def attachments_url
+        proposal.attachments.map { |attachment| proposal.organization.host + attachment.url }
       end
     end
   end
