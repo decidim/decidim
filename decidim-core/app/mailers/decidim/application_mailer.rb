@@ -16,7 +16,6 @@ module Decidim
       return if @organization.nil? || @organization.smtp_settings.blank?
 
       mail.from = @organization.smtp_settings["from"] if @organization
-      byebug
       mail.delivery_method.settings.merge!(
         address: @organization.smtp_settings["address"],
         port: @organization.smtp_settings["port"],
