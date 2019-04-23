@@ -13,7 +13,8 @@
         <div class="columns section mediumlarge-3 mediumlarge-push-9">
           <div class="progress-level">
             <div class="progress-label">
-              <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
+              <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>
+                :</span>
               <span class="progress-figure">
                 <%= display_percentage result.progress %>
               </span>
@@ -26,7 +27,7 @@
         </div>
       <% end %>
 
-      <div class="columns mediumlarge-9 mediumlarge-pull-3">
+      <div class="columns mediumlarge-9 <%= component_settings.display_progress_enabled? && result.progress.present? ? "mediumlarge-pull-3" : "" %>">
         <div class="section">
           <div class="result-meta row">
             <% if result.start_date %>
