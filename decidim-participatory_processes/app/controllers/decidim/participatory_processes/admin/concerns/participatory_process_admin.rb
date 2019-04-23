@@ -12,10 +12,10 @@ module Decidim
         module ParticipatoryProcessAdmin
           extend ActiveSupport::Concern
 
-          RegistersPermissions.
-            register_permissions(::Decidim::ParticipatoryProcesses::Admin::Concerns::ParticipatoryProcessAdmin,
-                                 ::Decidim::ParticipatoryProcesses::Permissions,
-                                 ::Decidim::Admin::Permissions)
+          RegistersPermissions
+            .register_permissions(::Decidim::ParticipatoryProcesses::Admin::Concerns::ParticipatoryProcessAdmin,
+                                  ::Decidim::ParticipatoryProcesses::Permissions,
+                                  ::Decidim::Admin::Permissions)
 
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
