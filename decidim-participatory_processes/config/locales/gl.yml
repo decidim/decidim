@@ -3,10 +3,12 @@ gl:
     attributes:
       participatory_process:
         announcement: Anuncio
+        area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_steps: Copiar os pasos
+        decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
         domain: Dominio
@@ -69,6 +71,9 @@ gl:
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
+        filter:
+          all: Mostrar todos os procesos
+          process_groups: Procesar grupos
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
@@ -198,8 +203,6 @@ gl:
           success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
         edit:
           update: Actualización
-        form:
-          title: Información xeral
         index:
           not_published: Non publicado
           private: Privado
@@ -291,7 +294,16 @@ gl:
         participatory_processes:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
+            duration: Duración
+            filters: Filtros
+            images: Imaxes
+            metadata: Metadatos
+            other: Outra
+            select_an_area: Seleccione unha área
+            select_process_group: Seleccione un grupo de procesos
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+            title: Información xeral
+            visbility: Visibilidade
       content_blocks:
         highlighted_processes:
           name: Procesos destacados
@@ -307,8 +319,6 @@ gl:
             more_information: Máis información
             participate: Participar
             see_all_processes: Ver todos os procesos
-      participatory_process_groups:
-        none: Nada
       participatory_processes:
         filters:
           counters:
@@ -337,6 +347,7 @@ gl:
         index:
           loading: Cargando resultados ...
       show:
+        area: Área
         developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
@@ -378,6 +389,7 @@ gl:
           promoted_processes: Procesos destacados
         participatory_process:
           active_step: 'Paso actual:'
+          more_info: Máis información
           take_part: Tomar parte en
         promoted_process:
           active_step: 'Paso actual:'

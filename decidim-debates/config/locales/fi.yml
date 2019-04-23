@@ -33,7 +33,7 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-            creation_enabled: Keskustelujen luominen käyttäjien toimesta sallittu
+            creation_enabled: Keskustelujen luominen käyttäjien toimesta käytössä
     debates:
       actions:
         confirm_destroy: Oletko varma?
@@ -44,10 +44,10 @@ fi:
       admin:
         debates:
           create:
-            invalid: Keskustelua luotaessa tapahtui virhe.
-            success: Keskustelu luotu onnistuneesti.
+            invalid: Keskustelun luonti epäonnistui.
+            success: Keskustelun luonti onnistui.
           destroy:
-            success: Keskustelu poistettu onnistuneesti.
+            success: Keskustelun poisto onnistui.
           edit:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
@@ -57,8 +57,8 @@ fi:
             create: Luo keskustelu
             title: Uusi keskustelu
           update:
-            invalid: Keskustelun päivittämisessä tapahtui virhe.
-            success: Keskustelu päivitetty onnistuneesti.
+            invalid: Keskustelun päivitys epäonnistui.
+            success: Keskustelun päivitys onnistui.
         models:
           debate:
             name: Keskustelu
@@ -72,8 +72,8 @@ fi:
             one: "%{count} keskustelu"
             other: "%{count} keskustelua"
         create:
-          invalid: Luotaessa keskustelua tapahtui virhe.
-          success: Keskustelu luotu onnistuneesti.
+          invalid: Keskustelun luonti epäonnistui.
+          success: Keskustelun luonti onnistui.
         debate:
           participate: Osallistu
         filters:

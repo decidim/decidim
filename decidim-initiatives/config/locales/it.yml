@@ -37,9 +37,9 @@ it:
         undo_online_signatures_enabled: Consenti agli utenti di annullare le loro firme online
         validate_sms_code_on_votes: Aggiungi il passaggio di convalida del codice SMS al processo di firma
       initiatives_vote:
-        name_and_surname: Nome e cognome
-        document_number: Numero del documento
         date_of_birth: Data di nascita
+        document_number: Numero del documento
+        name_and_surname: Nome e cognome
         postal_code: Codice postale
       organization_data:
         address: Indirizzo
@@ -141,8 +141,8 @@ it:
       admin:
         answers:
           edit:
-            title: Rispondi per %{title}
             answer: Risposta
+            title: Rispondi per %{title}
           info_initiative:
             created_at: Creato a
             description: Descrizione
@@ -320,12 +320,12 @@ it:
           help: Per favore, compila i seguenti campi con i tuoi dati personali per firmare l'iniziativa
         finish:
           back_to_initiative: Ritorno all'iniziativa
-        sms_phone_number:
-          continue: Mandami un sms
-          help: Compila il modulo con il tuo numero di telefono verificato per richiedere il codice di verifica
         sms_code:
           continue: Controlla il codice e continua
           help: Controlla gli SMS ricevuti sul tuo telefono
+        sms_phone_number:
+          continue: Mandami un sms
+          help: Compila il modulo con il tuo numero di telefono verificato per richiedere il codice di verifica
       initiative_votes:
         create:
           error: Ci sono stati degli errori durante la firma dell'iniziativa.
@@ -437,8 +437,8 @@ it:
     resources:
       initiatives_type:
         actions:
-          vote: Votazione
           title: Azioni
+          vote: Votazione
   layouts:
     decidim:
       admin:
@@ -464,8 +464,8 @@ it:
         fill_personal_data: Completa i tuoi dati
         finish: finire
         finished: Firma dell'iniziativa creata
-        select_identity: Seleziona identità
         see_steps: vedere i passaggi
+        select_identity: Seleziona identità
         sms_code: Verifica del codice SMS
         sms_phone_number: Numero di cellulare
         step: Passaggio %{current} di %{total}

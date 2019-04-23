@@ -36,11 +36,15 @@ gl:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}"
+              invalid_document_type: 'Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Necesita ser reenxerado
+            body:
+              identical: E o título non pode ser idéntico
+            title:
+              identical: E o corpo non pode ser idéntico
     models:
       decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
@@ -299,8 +303,10 @@ gl:
         participatory_texts:
           bulk-actions:
             are_you_sure: '¿Está seguro de descartar o borrador de texto participativo enteiro?'
-            import_doc: Importar documento
             discard_all: Descartar todo
+            import_doc: Importar documento
+          discard:
+            success: Todos os borradores de texto participativos foron descartados.
           import:
             invalid: O formulario non é válido.
             success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
@@ -320,8 +326,6 @@ gl:
           publish:
             invalid: Non se puideron publicar propostas
             success: Todas as propostas foron publicadas
-          discard:
-            success: Todos os borradores de texto participativos foron descartados.
           sections:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -599,7 +603,7 @@ gl:
           error: Houbo erros ao votar a proposta.
       proposals:
         compare:
-          mine_is_different: A miña proposta é diferente
+          continue: Continúe
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:
@@ -626,6 +630,7 @@ gl:
           comments: Comentarios
         filters:
           activity: Actividade
+          amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona unha categoría
           origin: Orixe
@@ -633,7 +638,6 @@ gl:
           search: Busca
           state: Estado
           voted: Votado
-          amendment_type: Tipo
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -753,6 +757,9 @@ gl:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
+      withdraw:
+        errors:
+          has_supports: Esta proposta non pode ser retirada porque xa ten apoio.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas

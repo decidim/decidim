@@ -139,17 +139,15 @@ module Decidim
 
     def user_can_admin_component_via_space?
       Decidim.participatory_space_manifests.any? do |manifest|
-        begin
-          new_permission_action = Decidim::PermissionAction.new(
-            action: permission_action.action,
-            scope: :admin,
-            subject: permission_action.subject
-          )
-          new_context = context.merge(current_participatory_space: component.participatory_space)
-          manifest.permissions_class.new(user, new_permission_action, new_context).permissions.allowed?
-        rescue Decidim::PermissionAction::PermissionNotSetError
-          nil
-        end
+        new_permission_action = Decidim::PermissionAction.new(
+          action: permission_action.action,
+          scope: :admin,
+          subject: permission_action.subject
+        )
+        new_context = context.merge(current_participatory_space: component.participatory_space)
+        manifest.permissions_class.new(user, new_permission_action, new_context).permissions.allowed?
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        nil
       end
     end
 

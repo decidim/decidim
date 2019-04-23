@@ -37,9 +37,9 @@ pl:
         undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
       initiatives_vote:
-        name_and_surname: Imię i nazwisko
-        document_number: Numer dokumentu
         date_of_birth: Data urodzenia
+        document_number: Numer dokumentu
+        name_and_surname: Imię i nazwisko
         postal_code: Kod pocztowy
       organization_data:
         address: Adres
@@ -147,8 +147,8 @@ pl:
       admin:
         answers:
           edit:
-            title: Odpowiedz na %{title}
             answer: Odpowiedź
+            title: Odpowiedz na %{title}
           info_initiative:
             created_at: Utworzono w
             description: Opis
@@ -326,12 +326,12 @@ pl:
           help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę
         finish:
           back_to_initiative: Powrót do inicjatywy
-        sms_phone_number:
-          continue: Wyślij mi SMS-a
-          help: Wypełnij formularz zweryfikowanym numerem telefonu, aby poprosić o kod weryfikacyjny
         sms_code:
           continue: Sprawdź kod i kontynuuj
           help: Sprawdź SMS-y odebrane w telefonie
+        sms_phone_number:
+          continue: Wyślij mi SMS-a
+          help: Wypełnij formularz zweryfikowanym numerem telefonu, aby poprosić o kod weryfikacyjny
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
@@ -453,8 +453,8 @@ pl:
     resources:
       initiatives_type:
         actions:
-          vote: Głosować
           title: działania
+          vote: Głosować
   layouts:
     decidim:
       admin:
@@ -480,8 +480,8 @@ pl:
         fill_personal_data: Uzupełnij swoje dane
         finish: koniec
         finished: Utworzono podpis inicjatywy
-        select_identity: Wybierz tożsamość
         see_steps: zobacz kroki
+        select_identity: Wybierz tożsamość
         sms_code: Weryfikacja kodu SMS
         sms_phone_number: numer telefonu komórkowego
         step: Krok %{current} z %{total}

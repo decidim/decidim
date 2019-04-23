@@ -115,7 +115,7 @@ tr:
           space_followers:
             email_intro: |-
               Merhaba,
-               %{space_title} katılımcı alanda yeni bir "%{resource_title}" tartışması oluşturuldu, inceleyin ve katkıda bulunun:
+              %{space_title} katılımcı alanda yeni bir "%{resource_title}" tartışması oluşturuldu, inceleyin ve katkıda bulunun:
             email_outro: '%{space_title} katılımcı alanı takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
             email_subject: '%{space_title}yeni tartışma "%{resource_title}"'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tartışması <a href="%{space_path}">%{space_title}</a>oluşturuldu.

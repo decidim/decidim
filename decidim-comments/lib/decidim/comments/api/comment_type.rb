@@ -65,13 +65,19 @@ module Decidim
 
       field :hasComments, !types.Boolean, "Check if the commentable has comments" do
         resolve lambda { |obj, _args, _ctx|
-          obj.accepts_new_comments? && obj.comment_threads.size.positive?
+          obj.comment_threads.size.positive?
         }
       end
 
       field :alreadyReported, !types.Boolean, "Check if the current user has reported the comment" do
         resolve lambda { |obj, _args, ctx|
           obj.reported_by?(ctx[:current_user])
+        }
+      end
+
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.root_commentable.commentable? && obj.root_commentable.user_allowed_to_comment?(ctx[:current_user])
         }
       end
     end

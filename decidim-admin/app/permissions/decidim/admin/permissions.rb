@@ -139,16 +139,14 @@ module Decidim
 
       def space_allows_admin_access_to_current_action?
         Decidim.participatory_space_manifests.any? do |manifest|
-          begin
-            new_permission_action = Decidim::PermissionAction.new(
-              action: permission_action.action,
-              scope: permission_action.scope,
-              subject: permission_action.subject
-            )
-            manifest.permissions_class.new(user, new_permission_action, context).permissions.allowed?
-          rescue Decidim::PermissionAction::PermissionNotSetError
-            nil
-          end
+          new_permission_action = Decidim::PermissionAction.new(
+            action: permission_action.action,
+            scope: permission_action.scope,
+            subject: permission_action.subject
+          )
+          manifest.permissions_class.new(user, new_permission_action, context).permissions.allowed?
+        rescue Decidim::PermissionAction::PermissionNotSetError
+          nil
         end
       end
 

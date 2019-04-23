@@ -1,0 +1,226 @@
+fi-pl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Tila
+        decidim_category_id: Aihepiiri
+        decidim_scope_id: Teema
+        description: Kuvaus
+        end_date: Päättymispäivä
+        progress: Edistyminen
+        project_ids: Liitetyt suunnitelmat
+        proposals: Sisällytetyt ehdotukset
+        start_date: Alkamispäivä
+        title: Otsikko
+        updated_at: Päivitysaika
+      status:
+        description: Kuvaus
+        key: Tunniste
+        name: Nimi
+        progress: Edistyminen
+      timeline_entry:
+        description: Kuvaus
+        entry_date: Päivämäärä
+    models:
+      decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
+      decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Tulos
+        other: Tulokset
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        preview: Esikatsele
+        timeline_entries: Projektin edistyminen
+        title: Toiminnot
+      admin:
+        exports:
+          results: Tulokset
+        models:
+          result:
+            name: Tulos
+          status:
+            name: Tila
+          timeline_entry:
+            name: Aikajanan merkintä
+        results:
+          create:
+            invalid: Tuloksen luonnissa tapahtui virhe
+            success: Tulos luotu onnistuneesti
+          destroy:
+            success: Tulos poistettu onnistuneesti
+          edit:
+            title: Muokkaa tulosta
+            update: Päivitä tulos
+          form:
+            add_proposal: Lisää ehdotus
+          index:
+            title: Tulokset
+          new:
+            create: Luo tulos
+            title: Uusi tulos
+          proposals:
+            close: Sulje
+            current_selection: Nykyinen valinta
+            select: Valitse
+          update:
+            invalid: Tuloksen päivityksessä tapahtui virhe
+            success: Tulos päivitetty onnistuneesti
+        shared:
+          subnav:
+            statuses: Tilat
+        statuses:
+          create:
+            invalid: Tilan luomisessa tapahtui virhe
+            success: Tila luotu onnistuneesti
+          destroy:
+            success: Tilan poistettu onnistuneesti
+          edit:
+            title: Muokkaa tilaa
+            update: Päivitä tila
+          index:
+            title: Tilat
+          new:
+            create: Luo tila
+            title: Uusi tila
+          update:
+            invalid: Tilan päivittämisessä tapahtui virhe
+            success: Tilan päivitys onnistui
+        timeline_entries:
+          create:
+            invalid: Merkinnän luomisessa tapahtui virhe
+            success: Merkintä luotu onnistuneesti
+          destroy:
+            success: Merkintä poistettu onnistuneesti
+          edit:
+            title: Muokkaa merkintää
+            update: Päivitä merkintä
+          index:
+            title: Projektin aikajanan merkinnät
+          new:
+            create: Luo merkintä
+            title: Uusi merkintä
+          update:
+            invalid: Merkinnän päivityksessä tapahtui virhe
+            success: Merkinnän päivitys onnistui
+      admin_log:
+        result:
+          create: "%{user_name} loi tuloksen %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tuloksen %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti tuloksen %{resource_name} tilassa %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Uusi tulos osoitteessa %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Päättymispäivä
+            progress: Edistyminen
+            start_date: Alkamispäivä
+            status: Tila
+            title: Otsikko
+        status:
+          fields:
+            description: Kuvaus
+            key: Tunniste
+            name: Nimi
+            progress: Edistyminen
+        timeline_entry:
+          fields:
+            description: Kuvaus
+            entry_date: Päivämäärä
+      results:
+        count:
+          results_count:
+            one: 1 tulos
+            other: "%{count} tulosta"
+        filters:
+          all: Kaikki
+          scopes: Teemat
+        home:
+          categories_label: Aihepiirit
+          subcategories_label: Ala-aihepiiri
+        home_header:
+          global_status: Yleisen toteutuksen tila
+        nav_breadcrumb:
+          global: Yleinen toteutus
+        search:
+          search: Hae toimintoja
+        show:
+          stats:
+            attendees: Osallistujat
+            back_to_result: Palaa tulokseen
+            comments: Kommentit
+            contributions: Osallistumiset
+            last_edited_by: Viimeksi muokannut
+            last_updated_at: Päivitetty viimeksi
+            meetings: Tapaamiset
+            number_of_versions: Versiot
+            proposals: Ehdotukset
+            show_all_versions: Näytä kaikki versiot
+            version_author: Versio luoja
+            version_created_at: Version luontihetki
+            version_number: Version numero
+            version_number_out_of_total: "%{current_version} / %{total_count}"
+            votes: Kannatukset
+        timeline:
+          title: Projektin kehitys
+      versions:
+        index:
+          changes_at_title: Muutokset kohteessa "%{title}"
+          title: Versiot
+        show:
+          changes_at_title: Muutokset kohteessa "%{title}"
+        version:
+          version_index: Versio %{index}
+    components:
+      accountability:
+        name: Vastuullisuus
+        settings:
+          global:
+            categories_label: Nimi termille "Aihepiirit"
+            comments_enabled: Kommentointi käytössä
+            display_progress_enabled: Näytä edistyminen
+            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_parent_level_results: Nimi termille "Tulokset"
+            intro: Esittelyteksti
+            subcategories_label: Nimi termille "Ala-aihepiirit"
+          step:
+            comments_blocked: Kommentointi estetty
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Ehdotus "%{proposal_title}" on sisällytetty tulokseen. Voit nähdä sen tällä sivulla:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohtaan %{proposal_title}
+          notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit nähdä sen tällä sivulla:'
+          email_outro: Saat tämän ilmoituksen, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohteen %{resource_title} edistykseen
+          notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
+    metrics:
+      results:
+        description: Luotujen tulosten lukumäärä
+        object: tulokset
+        title: Tulokset
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Tulokset
+    participatory_spaces:
+      highlighted_results:
+        see_all: Näytä kaikki (%{count})
+    resource_links:
+      included_projects:
+        result_project: Tähän tulokseen liittyvät suunnitelmat
+      included_proposals:
+        result_proposal: Tähän tulokseen liittyvät ehdotukset

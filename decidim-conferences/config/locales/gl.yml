@@ -505,10 +505,10 @@ gl:
         votes_count: Votos
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: O teu rexistro para a conferencia <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
         conference_registration_confirmed:
           notification_title: Inscríbase o rexistro da conferencia <a href="%{resource_url}">%{resource_title}</a>.
+        conference_registration_validation_pending:
+          notification_title: O teu rexistro para a conferencia <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
         conference_registrations_over_percentage:
           email_intro: Os slots ocupados por "%{resource_title}" ocupan máis do %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da conferencia.
@@ -552,6 +552,7 @@ gl:
           take_part: Tomar parte en
       conferences:
         conference:
+          more_info: Máis información
           take_part: Tomar parte en
         index:
           promoted_conferences: Conferencias promocionadas

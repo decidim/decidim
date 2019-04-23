@@ -17,51 +17,27 @@ module Decidim
         )
       end
 
-      describe "participatory_processes" do
+      describe "published_processes" do
         before do
           request.env["decidim.current_organization"] = organization
         end
 
-        it "orders them by end_date" do
-          unpublished = create(
+        it "includes only published participatory processes" do
+          published = create_list(
             :participatory_process,
-            :with_steps,
-            :unpublished,
+            2,
+            :published,
             organization: organization
           )
 
-          last = create(
-            :participatory_process,
-            :with_steps,
-            :published,
-            organization: organization,
-            end_date: nil
-          )
-          last.active_step.update!(end_date: nil)
+          expect(controller.helpers.participatory_processes.count).to eq(2)
+          expect(controller.helpers.participatory_processes.to_a).to include(published.first)
+          expect(controller.helpers.participatory_processes.to_a).to include(published.last)
+          expect(controller.helpers.participatory_processes.to_a).not_to include(unpublished_process)
+        end
 
-          first = create(
-            :participatory_process,
-            :with_steps,
-            :published,
-            organization: organization,
-            end_date: Date.current.advance(days: 10)
-          )
-          first.active_step.update!(end_date: Date.current.advance(days: 2))
-
-          second = create(
-            :participatory_process,
-            :with_steps,
-            :published,
-            organization: organization,
-            end_date: Date.current.advance(days: 20)
-          )
-          second.active_step.update!(end_date: Date.current.advance(days: 4))
-
-          expect(controller.helpers.participatory_processes.count).to eq(3)
-          expect(controller.helpers.participatory_processes).not_to include(unpublished)
-          expect(controller.helpers.participatory_processes.first).to eq(first)
-          expect(controller.helpers.participatory_processes.to_a[1]).to eq(second)
-          expect(controller.helpers.participatory_processes.to_a.last).to eq(last)
+        it "redirects to 404 if there aren't any" do
+          expect { get :index }.to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -106,19 +82,26 @@ module Decidim
           expect(controller.helpers.collection)
             .to match_array([*published, *organization_groups])
         end
+      end
 
-        describe "filter" do
-          it "ignores invalid filters" do
-            controller.params = { filter: "foo-filter" }
+      describe "default_date_filter" do
+        let!(:active) { create(:participatory_process, :published, :active, organization: organization) }
+        let!(:upcoming) { create(:participatory_process, :published, :upcoming, organization: organization) }
+        let!(:past) { create(:participatory_process, :published, :past, organization: organization) }
 
-            expect(controller.helpers.filter).to eq("active")
-          end
+        it "defaults to active if there are active published processes" do
+          expect(controller.helpers.default_date_filter).to eq("active")
+        end
 
-          it "allows known filters" do
-            controller.params = { filter: "past" }
+        it "defaults to upcoming if there are upcoming (but no active) published processes" do
+          active.update(published_at: nil)
+          expect(controller.helpers.default_date_filter).to eq("upcoming")
+        end
 
-            expect(controller.helpers.filter).to eq("past")
-          end
+        it "defaults to past if there are past (but no active nor upcoming) published processes" do
+          active.update(published_at: nil)
+          upcoming.update(published_at: nil)
+          expect(controller.helpers.default_date_filter).to eq("past")
         end
       end
 

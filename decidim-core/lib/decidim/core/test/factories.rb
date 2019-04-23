@@ -17,7 +17,7 @@ FactoryBot.define do
   end
 
   sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}"
+    "#{Faker::Name.name} #{n}".delete("'")
   end
 
   sequence(:nickname) do |n|
@@ -114,7 +114,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { Faker::Lorem.paragraph(2) }
+    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
@@ -140,6 +140,7 @@ FactoryBot.define do
       email { "" }
       password { "" }
       password_confirmation { "" }
+      encrypted_password { "" }
       managed { true }
     end
 
@@ -171,6 +172,7 @@ FactoryBot.define do
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     organization
 
     transient do

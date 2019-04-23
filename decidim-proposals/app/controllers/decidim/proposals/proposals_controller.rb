@@ -28,6 +28,7 @@ module Decidim
                        .where(component: current_component)
                        .published
                        .not_hidden
+                       .only_amendables
                        .includes(:category, :scope)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
@@ -205,8 +206,8 @@ module Decidim
               flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
               redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
             end
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            on(:has_supports) do
+              flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
               redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
             end
           end

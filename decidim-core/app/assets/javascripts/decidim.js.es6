@@ -1,3 +1,4 @@
+// = require decidim/core/bundle.js
 // = require jquery
 // = require rails-ujs
 // = require decidim/foundation

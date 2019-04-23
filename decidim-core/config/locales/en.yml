@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -131,20 +132,19 @@ en:
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
     amendments:
       accepted:
-        error: There was a problem accepting the amendment, please try again later.
-        success: This amendment has been successfully accepted.
+        error: An error ocurred while accepting the amendment.
+        success: The amendment has been accepted successfully.
       amendable:
         amended_by: Amended by
         button: Amend %{model_name}
-        promote_button: Publish as a new %{model_name}
-        error: There was a problem amending this resource.
+        error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        promote_help_text: You can publish this amendment as an independent %{model_name}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_confirm_text: Are you sure you want to promote this emendation?
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
       created:
-        error: An error ocurred creating this amendment, please try again later
+        error: An error ocurred while creating the amendment
         success: The amendment has been created successfully
       emendation:
         actions:
@@ -158,8 +158,7 @@ en:
           evaluating: |-
             This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
-          rejected: |-
-            This amendment for the %{amendable_type} %{amendable_link} has been rejected on <strong>%{announcement_date}</strong>.
+          rejected: This amendment for the %{amendable_type} %{amendable_link} has been rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
             This amendment for the %{amendable_type} %{amendable_link}
             has been withdrawn by the author.
@@ -167,18 +166,18 @@ en:
         amendment_author: Amendment author
         back: Back
         heading: Create your amendment
-        help_text: You are modifying the %{model_name}
+        help_text: You are amending the %{model_name}
         send: Send amendment
+      promoted:
+        error: There was a problem publishing the amendment as a new proposal
+        success: The amendment has been successfully published as a new proposal
       rejected:
         error: There was a problem rejecting this amendment, please try again later
         success: The amendment has been successfully rejected
-      promoted:
-        success: The amendment has been successfully published as a new proposal
-        error: There was a problem publishing the amendment as a new proposal
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are amending the %{model_name}
+        help_text: You are reviewing an amendment to the %{model_name}
         send: Accept amendment
     anonymous_user: Anonymous
     application:
@@ -223,7 +222,7 @@ en:
         name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
@@ -387,50 +386,50 @@ en:
         title: The page you're looking for can't be found
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: New amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new amendment</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: New amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new amendment</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment from %{emendation_author_nickname} has been published as a new proposal
-            notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been published as a new proposal by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment from %{emendation_author_nickname} has been published as a new proposal
-            notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been published as a new proposal by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_created:
+          affected_user:
+            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: New amendment for %{amendable_title}
+            notification_title: A new amendment has been created for <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'A new amendment has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: New amendment for %{amendable_title}
+            notification_title: A new amendment has been created for <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment from %{emendation_author_nickname} has been published as a new %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'A rejected amendment for %{amendable_title} has been published as a new %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment from %{emendation_author_nickname} has been published as a new %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">rejected amendment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'An amendment has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -550,7 +549,7 @@ en:
       badges:
         continuity:
           conditions:
-            - Come here often
+          - Come here often
           description: This badge is granted when you visit the platform in a regular way. We like having you around here!
           description_another: This participant has connected for %{score} consecutive days at some point.
           description_own: You have connected for %{score} consecutive days at some point.
@@ -560,7 +559,7 @@ en:
           unearned_own: You haven't connected for more than one consecutive day.
         followers:
           conditions:
-            - Being active and following other people will surely make other people follow you.
+          - Being active and following other people will surely make other people follow you.
           description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
           description_another: This participant has %{score} followers.
           description_own: "%{score} people are following you."
@@ -575,9 +574,9 @@ en:
           title: Badges
         invitations:
           conditions:
-            - Use the “invite friends” link on your user page to invite your friends
-            - Customize, if you want, the message you are sending
-            - You’ll level up by sending invitations and getting them registered.
+          - Use the “invite friends” link on your user page to invite your friends
+          - Customize, if you want, the message you are sending
+          - You’ll level up by sending invitations and getting them registered.
           description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
           description_another: This participant has invited %{score} people.
           description_own: You have invited %{score} people.
@@ -787,8 +786,8 @@ en:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
-        newsletters: Newsletters
         newsletter_notifications: I want to receive newsletters
+        newsletters: Newsletters
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
@@ -978,8 +977,15 @@ en:
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
+      participatory_space_filters:
+        filters:
+          areas: Areas
+          select_an_area: Select an area
       reference:
         reference: 'Reference: %{reference}'
+      represent_user_group:
+        represent_user_group: I represent a group
+        select_user_group: Select a group
       results_per_page:
         label: 'Results per page:'
       share_modal:
@@ -993,8 +999,8 @@ en:
         no_activities_warning: This participant hasn't had any activity yet.
     user_interests:
       show:
-        no_scopes: This organization doesn't have any scope yet!
         my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
         select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:

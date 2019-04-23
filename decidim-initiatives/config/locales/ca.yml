@@ -4,7 +4,7 @@ ca:
       initiative:
         decidim_user_group_id: Autor
         description: Descripció
-        offline_votes: Suports presencials
+        offline_votes: Signatures presencials
         scope_id: Abast
         signature_end_date: Fi del període de recollida de signatures
         signature_start_date: Inici del període de recollida de signatures
@@ -27,20 +27,20 @@ ca:
         user: Membre del comitè
       initiatives_type:
         banner_image: Imatge del bàner
-        collect_user_extra_fields: Recopila les dades personals de l'usuari amb la signatura
+        collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
         description: Descripció
-        document_number_authorization_handler: Autorització per verificar el número de document en els vots
+        document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Mínim de membres de la comissió
-        online_signature_enabled: S'ha activat la signatura en línia
+        online_signature_enabled: S'ha activat la signatura digital
         title: Títol
-        undo_online_signatures_enabled: Permetre als usuaris desfer les seves signatures en línia
+        undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
       initiatives_vote:
-        name_and_surname: Nom i cognom
-        document_number: Número de Document
         date_of_birth: Data de naixement
-        postal_code: Codi Postal
+        document_number: Número de document
+        name_and_surname: Nom i cognom
+        postal_code: Codi postal
       organization_data:
         address: Adreça
         id_document: Document d'identificació
@@ -74,7 +74,7 @@ ca:
         initiatives_type_scope:
           fields:
             scope: Abast
-            supports_required: Suports requerits
+            supports_required: Signatures requerides
           name: Àmbit del tipus d'iniciativa
         initiatives_types:
           fields:
@@ -84,7 +84,7 @@ ca:
         initiatives_votes:
           fields:
             date_of_birth: Data de naixement
-            document_number: Número de Document
+            document_number: Número de document
             hash: Hash
             initiative_end_date: Data de finalització
             initiative_id: Identificador de la iniciativa
@@ -92,7 +92,7 @@ ca:
             initiative_start_date: Data d'inici
             initiative_title: Títol de la iniciativa
             name_and_surname: Nom i cognom
-            postal_code: Codi Postal
+            postal_code: Codi postal
             time_and_date: Hora i data
             timestamp: Marca de temps
       titles:
@@ -123,17 +123,17 @@ ca:
             - Anar a Inciatives
             - Segueix els passos per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
-          description_another: Aquest usuari ha publicat %{score} iniciatives.
+          description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha publicat cap iniciativa.
+          unearned_another: Aquesta participant encara no ha publicat cap iniciativa.
           unearned_own: Encara no has publicat cap iniciativa.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Una iniciativa és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte , canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
-          page: "<p>Una iniciativa és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>\n<p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>\n"
+          contextual: "<p>Una <strong>iniciativa</strong> és una proposta que pot ser promoguda per qualsevol persona per iniciativa pròpia (independentment d'altres canals o espais de participació) a través de la recollida de signatures (digitals) per a l'organització per dur a terme una acció específica (modificar una regulació, iniciar un projecte, canvieu el nom d'un departament o un carrer, etc.).</p> <p>Els promotors d'una iniciativa poden definir els seus objectius, recollir suport, debatre, divulgar-la i definir punts de trobada on es puguin recollir signatures dels assistents o debats oberts a altres participants.</p> <p>Exemples: una iniciativa pot recollir signatures per convocar una consulta entre totes les persones d'una organització, crear o convocar una assemblea o iniciar un procés d'augment del pressupost per a un territori o àrea de l'organització. Durant el procés de recollida de signatures, més persones poden afegir a aquesta demanda i portar-lo endavant a l'organització.</p>\n"
+          page: "<p>Una <strong>iniciativa</strong> és una proposta que pot impulsar qualsevol persona per iniciativa pròpia (independentment de la resta de canals o espais de participació) mitjançant la recollida de signatures (digitals) perquè l'organització dugui a terme una acció específica (modificar un reglament, iniciar un projecte, canviar el nom d'un departament o un carrer, etc.).</p> <p>Les persones promotores d'una iniciativa poden definir els objectius de la mateixa, recollir suports, debatre, difondre-la i definir punts de trobada on es puguin recollir firmes dels assistents o debats oberts a altres participants.</p>\n<p>Exemples: Una iniciativa pot recollir firmes per convocar una consulta entre totes les persones d'una organització, o per crear o convocar una assemblea, o per iniciar un procés d'augment de pressupost per a un territori o àmbit de l'organització. Durant el procés de recollida de signatures es poden sumar més persones a aquesta demanda i aconseguir tirar-la endavant en l'organització.</p>\n"
           title: Què són les iniciatives?
     initiatives:
       actions:
@@ -141,19 +141,19 @@ ca:
       admin:
         answers:
           edit:
-            title: Resposta per %{title}
             answer: Resposta
+            title: Resposta per %{title}
           info_initiative:
             created_at: Creat a
             description: Descripció
-            initiative_votes_count: Recompte de vots
+            initiative_votes_count: Recompte de signatures
             initiatives: Iniciatives
             state: Estat
         committee_requests:
           index:
             approve: Aprova
             confirm_revoke: Estàs segur?
-            invite_to_committee_help: Comparteix aquest enllaç per convidar altres usuaris al comitè de promoció
+            invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
             title: Membres del comitè
@@ -166,7 +166,7 @@ ca:
             confirm: Estàs segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
-            export_votes: Suports d'exportació
+            export_votes: Exportar signatures
             reject: Rebutja la iniciativa
             send_to_technical_validation: Enviar a la validació tècnica
             success: La iniciativa s'ha enviat a la validació tècnica
@@ -257,18 +257,18 @@ ca:
         fill_data:
           back: Enrere
           continue: Continua
-          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. En persona, en línia o una combinació de tots dos.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
+          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. En persona, en línia o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
           initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_scope: Selecciona un àmbit d'aplicació
         finish:
           back: Enrere
           back_to_initiatives: Tornar a iniciatives
-          callout_text: Felicitats! La teva iniciativa ciutadana s'ha creat correctament.
+          callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
           go_to_my_initiatives: Vés a les meves iniciatives
           more_information: "(Més informació)"
         finish_help:
-          access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de l'usuari.
+          access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de participant.
           help_for_organizations: Si ets una associació, hauràs de carregar les actes del consell d'administració de totes les organitzacions que formen la Comissió Promotora
           help_in_person_signatures: Si has triat cobrar les signatures presencials o combinar-les en línia, hauràs de carregar la informació requerida.
           help_text: Recorda que per processar correctament la iniciativa, has d'accedir al panell d'administració on trobaràs el menú d'usuari, carregar la informació requerida i enviar-la per processar-la.
@@ -285,7 +285,7 @@ ca:
           more_information: "(Més informació)"
         select_initiative_type:
           back: Enrere
-          choose_html: Vull crear un <strong>%{title}</strong>
+          choose_html: Vull <strong>%{title}</strong>
           more_information: "(Més informació)"
           select: Vull promoure aquesta iniciativa
           select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general que es troben dins dels àmbits de la jurisdicció municipal. Quina iniciativa vols llançar?
@@ -294,7 +294,7 @@ ca:
           invite_to_committee_help: Enllaç per convidar persones que formaran part del comitè promotor
         show_similar_initiatives:
           back: Enrere
-          compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats de fer-se.
+          compare_help: Si alguna de les següents iniciatives és similar a la teva, t'animem a que la signis. La teva proposta tindrà més possibilitats de portar-se a terme.
           continue: La meva iniciativa és diferent
           more_information: "(Més informació)"
       events:
@@ -320,15 +320,15 @@ ca:
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa
         finish:
           back_to_initiative: Torna a la iniciativa
-        sms_phone_number:
-          continue: Envia'm un SMS
-          help: Ompliu el formulari amb el vostre número de telèfon mòbil verificat per sol·licitar el vostre codi de verificació
         sms_code:
           continue: Comprova el codi i continua
           help: Consulteu els SMS rebuts del vostre telèfon mòbil
+        sms_phone_number:
+          continue: Envia'm un SMS
+          help: Ompliu el formulari amb el vostre número de telèfon mòbil verificat per sol·licitar el vostre codi de verificació
       initiative_votes:
         create:
-          error: Hi ha hagut errors en signar la iniciativa.
+          error: S'ha produït un error en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides
           success_html: Enhorabona! La iniciativa <strong> %{title}</strong> s'ha signat correctament
         personal_data:
@@ -384,22 +384,22 @@ ca:
             published: Aquesta proposta es publica perquè
             rejected: Aquesta proposta ha estat rebutjada perquè
             validating: S'està avaluant aquesta proposta
-          initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de suports.
+          initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de signatures.
         show:
-          any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
-          follow_description: Rebeu una notificació quan hi hagi notícies en aquesta iniciativa
+          any_vote_method: Aquesta iniciativa ciutadana recull signatures tant digitals com presencials.
+          follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
           offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
         signature_identities:
-          select_identity: Selecciona l'identificador d'usuari
+          select_identity: Selecciona l'identificador de la participant
         signatures_count:
           one: " signatura"
           other: " signatures"
         supports:
-          title: Llistat de signatures
+          title: Llistat de adhesions
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "%{total_supports} suports obligatoris"
-          verification_required: Verifiqueu el vostre compte per a signar la iniciativa
+          verification_required: Verifica el teu compte per a signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -407,17 +407,17 @@ ca:
             one: SIGNATURA
             other: SIGNATURES
           most_popular_initiative: Iniciativa més popular
-          need_more_votes: Necessiteu més signatures
+          need_more_votes: Necessita més signatures
       initiatives_mailer:
         creation_subject: S'ha creat la teva iniciativa ciutadana '%{title}'
         initiative_link:
           check_initiative_details: Pots veure els detalls de la iniciativa
           here: aquí
         more_information: Aquí tens més informació sobre el procés de creació d'iniciatives.
-        progress_report_body_for: La iniciativa %{title} ha arribat al %{percentage}% dels suports necessaris.
-        progress_report_for: 'Repàs de la iniciativa: %{title}'
+        progress_report_body_for: La iniciativa %{title} ha arribat al %{percentage}% de les signatures necessàries.
+        progress_report_for: 'Resum de la iniciativa: %{title}'
         promotal_committee_help: Recorda que has de convidar almenys a %{member_count} persones al comitè promotor. Reenvia el següent enllaç per convidar persones al comitè promotor
-        status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat per: %{state}'
+        status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat a: %{state}'
         status_change_for: La iniciativa %{title} ha canviat d'estat
         technical_validation_body_for: La iniciativa %{title} ha demanat la seva validació tècnica.
         technical_validation_for: La iniciativa %{title} ha demanat la seva validació tècnica.
@@ -437,8 +437,8 @@ ca:
     resources:
       initiatives_type:
         actions:
-          vote: Votació
           title: Accions
+          vote: Signar
   layouts:
     decidim:
       admin:
@@ -448,7 +448,7 @@ ca:
           components: Components
           information: Informació
       initiative_creation_header:
-        back: esquena
+        back: Tornar
         fill_data: Crear
         finish: Acaba
         previous_form: Començar
@@ -462,10 +462,10 @@ ca:
       initiative_signature_creation_header:
         back: Enrere
         fill_personal_data: Completa les teves dades
-        finish: Acaba
-        finished: S'ha creat la signatura d'iniciativa
-        select_identity: Selecciona identitat
+        finish: Finalitzar
+        finished: La iniciativa s'ha signat correctament
         see_steps: vegeu els passos
+        select_identity: Selecciona identitat
         sms_code: Verificació per codi SMS
         sms_phone_number: Número de telèfon mòbil
         step: Pas %{current} de %{total}

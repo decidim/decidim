@@ -505,10 +505,10 @@ es-PY:
         votes_count: Votos
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Su inscripción para la conferencia <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
         conference_registration_confirmed:
           notification_title: Su registro para la conferencia <a href="%{resource_url}">%{resource_title}</a> ha sido confirmado.
+        conference_registration_validation_pending:
+          notification_title: Su inscripción para la conferencia <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
         conference_registrations_over_percentage:
           email_intro: Las ranuras ocupadas por la conferencia "%{resource_title}" superan el %{percentage}%.
           email_outro: Recibió esta notificación porque usted es administrador del espacio participativo de la conferencia.
@@ -552,6 +552,7 @@ es-PY:
           take_part: Participar
       conferences:
         conference:
+          more_info: Más información
           take_part: Participar
         index:
           promoted_conferences: Conferencias promovidas

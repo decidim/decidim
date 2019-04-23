@@ -22,6 +22,10 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
+               optional: true
     belongs_to :participatory_process_group,
                foreign_key: "decidim_participatory_process_group_id",
                class_name: "Decidim::ParticipatoryProcessGroup",
@@ -55,7 +59,7 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
-    scope :past, -> { where(arel_table[:end_date].lteq(Date.current)) }
+    scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gt(Date.current).or(arel_table[:end_date].eq(nil)))) }
 
@@ -66,8 +70,14 @@ module Decidim
       where(promoted: true)
     end
 
-    def self.private_processes
-      where(private_space: true)
+    # Return processes that DON'T belong to a process group.
+    def self.groupless
+      where(decidim_participatory_process_group_id: nil)
+    end
+
+    # Return processes that belong to a process group.
+    def self.grouped
+      where.not(decidim_participatory_process_group_id: nil)
     end
 
     def self.active_spaces
@@ -86,9 +96,24 @@ module Decidim
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    def active?
+      return false if start_date.blank?
+      start_date < Date.current && (end_date.blank? || end_date > Date.current)
+    end
+
     def past?
       return false if end_date.blank?
       end_date < Date.current
+    end
+
+    def upcoming?
+      return false if start_date.blank?
+      start_date > Date.current
+    end
+
+    # Pluck all ParticipatoryProcessGroup ID's
+    def self.group_ids
+      pluck(:decidim_participatory_process_group_id)
     end
 
     def hashtag
@@ -109,6 +134,11 @@ module Decidim
     # Overrides the method from `Participable`.
     def moderators
       "#{admin_module_name}::Moderators".constantize.for(self)
+    end
+
+    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+    ransacker :title do |parent|
+      Arel::Nodes::InfixOperation.new("->", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
   end
 end

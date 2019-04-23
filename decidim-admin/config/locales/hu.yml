@@ -107,9 +107,9 @@ hu:
               must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Érvénytelen képfájl
             official_img_footer:
+              allowed_file_content_types: Érvénytelen képfájl
+            official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
   activerecord:
     attributes:
@@ -156,6 +156,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A területnek depedens terek vannak, a törléshez nem lehet függőség.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése

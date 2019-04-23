@@ -77,3 +77,6 @@ tr:
             title: Form kapatıldı
           submit: Gönder
           tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
+      user_answers_serializer:
+        created_at: Yanıtlandı
+        id: Cevap kimliği

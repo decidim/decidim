@@ -107,9 +107,9 @@ eu:
               must_be_ssl: Birbideratze URI SSL URI izan behar du
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Irudi fitxategi baliogabea
             official_img_footer:
+              allowed_file_content_types: Irudi fitxategi baliogabea
+            official_img_header:
               allowed_file_content_types: Irudi fitxategi baliogabea
   activerecord:
     attributes:
@@ -156,6 +156,7 @@ eu:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
+          has_spaces: Eremuak espazio desberdinak ditu, ez du mendekotasunik izan ezabatzeko.
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua

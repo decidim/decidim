@@ -107,9 +107,9 @@ pl:
               must_be_ssl: Identyfikator URI przekierowania musi być identyfikatorem URI protokołu SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Nieprawidłowy plik obrazu
             official_img_footer:
+              allowed_file_content_types: Nieprawidłowy plik obrazu
+            official_img_header:
               allowed_file_content_types: Nieprawidłowy plik obrazu
   activerecord:
     attributes:
@@ -156,6 +156,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowego obszaru.
           success: Obszar utworzony pomyślnie.
         destroy:
+          has_spaces: Obszar ma wolne przestrzenie, nie może mieć zależności, aby można go było usunąć.
           success: Obszar pomyślnie zniszczony
         edit:
           title: Edytuj obszar

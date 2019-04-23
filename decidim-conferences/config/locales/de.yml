@@ -505,10 +505,10 @@ de:
         votes_count: Stimmen
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> steht noch aus.
         conference_registration_confirmed:
           notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt.
+        conference_registration_validation_pending:
+          notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> steht noch aus.
         conference_registrations_over_percentage:
           email_intro: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
@@ -552,6 +552,7 @@ de:
           take_part: Teilnehmen
       conferences:
         conference:
+          more_info: Mehr Info
           take_part: Teilnehmen
         index:
           promoted_conferences: Geförderte Konferenzen

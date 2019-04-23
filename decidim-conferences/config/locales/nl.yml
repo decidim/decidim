@@ -505,10 +505,10 @@ nl:
         votes_count: stemmen
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is in afwachting van bevestiging.
         conference_registration_confirmed:
           notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is bevestigd.
+        conference_registration_validation_pending:
+          notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is in afwachting van bevestiging.
         conference_registrations_over_percentage:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
           email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de conferentie.
@@ -552,6 +552,7 @@ nl:
           take_part: Deelnemen
       conferences:
         conference:
+          more_info: Meer informatie
           take_part: Deelnemen
         index:
           promoted_conferences: Gepromoveerde conferenties

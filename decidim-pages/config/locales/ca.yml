@@ -26,5 +26,5 @@ ca:
             save: Actualitzar
             title: Editar pàgina
           update:
-            invalid: Hi ha hagut errors en desar la pàgina.
-            success: Pàgina guardada correctament.
+            invalid: S'ha produït un error en desar la pàgina.
+            success: Pàgina desada correctament.

@@ -11,6 +11,7 @@ module Decidim
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
       include Decidim::ComponentPathHelper
+      include Decidim::SanitizeHelper
 
       class_attribute :i18n_interpolations
       self.i18n_interpolations = []
@@ -66,7 +67,13 @@ module Decidim
 
       # Public: The Hash of options to pass to the I18.t method.
       def i18n_options
-        default_i18n_options.merge(event_interpolations)
+        default_i18n_options.merge(event_interpolations).transform_values do |value|
+          if value.is_a?(String)
+            decidim_html_escape(value)
+          else
+            value
+          end
+        end
       end
 
       # Caches the path for the given resource when it's a Decidim::Component.

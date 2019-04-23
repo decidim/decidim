@@ -82,6 +82,11 @@ module Decidim
           order(Arel.sql("RANDOM()")).load
         end
       end
+
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate_in_space?(user)
+      end
     end
   end
 end

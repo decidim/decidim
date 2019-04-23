@@ -505,10 +505,10 @@ eu:
         votes_count: Botoak
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Zure hitzaldirako izena emateko <a href="%{resource_url}">%{resource_title}</a> zain dago berresteko.
         conference_registration_confirmed:
           notification_title: Zure hitzaldirako izena emateko <a href="%{resource_url}">%{resource_title}</a> baieztatu da.
+        conference_registration_validation_pending:
+          notification_title: Zure hitzaldirako izena emateko <a href="%{resource_url}">%{resource_title}</a> zain dago berresteko.
         conference_registrations_over_percentage:
           email_intro: Biltzarra "%{resource_title}" okupatutako slotak% %{percentage}baino gehiago dira.
           email_outro: Jakinarazpen hau jaso duzu, hitzaldiko parte hartzaileen gunea delako.
@@ -552,6 +552,7 @@ eu:
           take_part: Parte hartu
       conferences:
         conference:
+          more_info: Informazio gehiago
           take_part: Parte hartu
         index:
           promoted_conferences: Sustatutako hitzaldiak

@@ -13,6 +13,7 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
           helper_method :questionnaire_for, :questionnaire, :allow_answers?, :update_url

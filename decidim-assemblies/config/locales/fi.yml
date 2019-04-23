@@ -80,12 +80,10 @@ fi:
         new_assembly: Uusi ryhmä
       assemblies:
         create:
-          error: Virhe luotaessa uutta ryhmää.
+          error: Uuden ryhmän luonti epäonnistui.
           success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
-        form:
-          title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
           private: Yksityinen
@@ -95,12 +93,12 @@ fi:
           create: Luo
           title: Uusi ryhmä
         update:
-          error: Ryhmän päivityksessä tapahtui virhe.
-          success: Ryhmä päivitettiin onnistuneesti.
+          error: Ryhmän päivitys epäonnistui.
+          success: Ryhmän päivitys onnistui.
       assemblies_copies:
         create:
-          error: Virhe kopioitaessa ryhmää.
-          success: Ryhmä kopioitu onnistuneesti.
+          error: Ryhmän kopiointi epäonnistui.
+          success: Ryhmän kopiointi onnistui.
       assembly_copies:
         new:
           copy: Kopioi
@@ -108,10 +106,10 @@ fi:
           title: Kopioi ryhmä
       assembly_members:
         create:
-          error: Jäsenen lisääminen ryhmään ei onnistunut.
-          success: Jäsen lisättiin onnistuneesti ryhmään.
+          error: Jäsenen lisääminen ryhmään epäonnistui.
+          success: Jäsenen lisääminen ryhmään onnistui.
         destroy:
-          success: Jäsen poistettiin onnistuneesti ryhmästä.
+          success: Jäsenen poistaminen ryhmästä onnistui.
         edit:
           title: Päivitä ryhmän jäsenen tietoja.
           update: Päivittää
@@ -121,36 +119,36 @@ fi:
           create: Luoda
           title: Uusi ryhmän jäsen.
         update:
-          error: Ryhmän jäsenen päivityksessä tapahtui virhe.
-          success: Ryhmän jäsenen tiedot päivitettiin onnistuneesti.
+          error: Ryhmän jäsenen päivitys epäonnistui.
+          success: Ryhmän jäsenen tietojen päivitys onnistui.
       assembly_publications:
         create:
-          error: Ryhmän julkaisussa tapahtui virhe.
-          success: Ryhmä julkaistiin onnistuneesti.
+          error: Ryhmän julkaiseminen epäonnistui.
+          success: Ryhmän julkaisu onnistui.
         destroy:
-          error: Ryhmän julkaisun perumisessa tapahtui virhe.
-          success: Ryhmän julkaisu lopetettu onnistuneesti.
+          error: Ryhmän julkaisun peruminen epäonnistui.
+          success: Ryhmän julkaisun peruminen onnistui.
       assembly_user_roles:
         create:
-          error: Virhe lisätessä käyttäjää tälle ryhmälle.
-          success: Käyttäjä lisätty onnistuneesti ryhmään.
+          error: Hallintakäyttäjän lisäys ryhmään epäonnistui.
+          success: Hallintakäyttäjän lisäys ryhmään onnistui.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti ryhmästä.
+          success: Hallintakäyttäjän poisto ryhmästä onnistui.
         edit:
-          title: Päivitä ryhmän käyttäjän tietoja.
+          title: Päivitä ryhmän hallintakäyttäjän tietoja.
           update: Päivitä
         index:
-          assembly_admins_title: Ryhmän käyttäjät
+          assembly_admins_title: Ryhmän hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi ryhmän käyttäjä.
+          title: Uusi ryhmän hallintakäyttäjä.
         update:
-          error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
-          success: Ryhmän käyttäjä päivitetty onnistuneesti.
+          error: Ryhmän hallintakäyttäjän päivitys epäonnistui.
+          success: Ryhmän hallintakäyttäjän päivitys onnistui.
       menu:
         assemblies: Ryhmät
         assemblies_submenu:
-          assembly_admins: Ryhmän käyttäjät
+          assembly_admins: Ryhmän hallintakäyttäjät
           assembly_members: Jäsenet
           attachment_collections: Kansiot
           attachment_files: Tiedostot
@@ -186,7 +184,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Ryhmän käyttäjä
+          name: Ryhmän hallintakäyttäjä
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
@@ -205,20 +203,27 @@ fi:
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmästä %{space_name}"
         update: "%{user_name} muutti %{resource_name} roolia %{space_name} ryhmässä"
     assemblies:
       admin:
         assemblies:
           form:
+            duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            filters: Suodattimet
+            images: Kuvat
             included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
+            metadata: Metatiedot
+            other: Muut
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
+            title: Yleiset tiedot
+            visbility: Näkyvyys
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -263,7 +268,7 @@ fi:
         consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
         government: Hallinto
-        help: 'Show:'
+        help: 'Näytä:'
         others: Muut
         participatory: Osallistava
         working_group: Työryhmä
@@ -314,14 +319,14 @@ fi:
         endorsements_count: Suositusta
         headline: Tilastot
         meetings_count: Tapaamista
-        orders_count: Ääntä
+        orders_count: Kannatusta
         pages_count: Sivua
         projects_count: Suunnitelmaa
         proposals_count: Ehdotusta
         results_count: Tulosta
         surveys_count: Kyselyä
         users_count: Osallistujaa
-        votes_count: Ääntä
+        votes_count: Kannatusta
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -330,8 +335,8 @@ fi:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>\n"
-          page: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>"
+          contextual: "<p><strong>Ryhmä</strong> on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-arvoasioiden neuvontaryhmä (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>\n"
+          page: "<p><strong>Ryhmä</strong> on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-arvoasioiden neuvontaryhmä (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>\n"
           title: Mitä ovat ryhmät?
     log:
       value_types:
@@ -351,6 +356,7 @@ fi:
     decidim:
       assemblies:
         assembly:
+          more_info: Lisätietoja
           take_part: Osallistu
         index:
           organizational_chart: Organisaatiokaavio

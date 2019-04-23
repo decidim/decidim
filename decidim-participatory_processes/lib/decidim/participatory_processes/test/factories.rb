@@ -31,6 +31,7 @@ FactoryBot.define do
     private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }
+    area { nil }
 
     trait :promoted do
       promoted { true }

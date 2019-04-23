@@ -77,3 +77,6 @@ sv:
             title: Frågeformuläret stängt
           submit: Lämna
           tos_agreement: Genom att acceptera accepterar du användarvillkoren
+      user_answers_serializer:
+        created_at: Besvarat
+        id: Svar-ID

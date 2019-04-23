@@ -66,10 +66,14 @@ module Decidim
           expect(response).to include("hasComments" => true)
         end
 
-        it "returns false if the comment depth is equal to MAX_DEPTH" do
-          FactoryBot.create(:comment, commentable: model)
-          model.update!(depth: Comment::MAX_DEPTH)
-          expect(response).to include("hasComments" => false)
+        context "when comment child has been moderated" do
+          let(:comment) { create(:comment, commentable: model) }
+
+          it "return false" do
+            Decidim::Moderation.create!(reportable: comment, participatory_space: comment.participatory_space, hidden_at: 1.day.ago)
+
+            expect(response).to include("hasComments" => false)
+          end
         end
       end
 

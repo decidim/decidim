@@ -6,6 +6,8 @@ module Decidim
     class JoinMeetingButtonCell < Decidim::ViewModel
       include MeetingCellsHelper
       include Decidim::SanitizeHelper
+      include ActionView::Helpers::FormTagHelper
+      include ActionView::Helpers::FormOptionsHelper
 
       def show
         render
@@ -35,6 +37,22 @@ module Decidim
       def i18n_join_text
         return I18n.t("join", scope: "decidim.meetings.meetings.show") if model.has_available_slots?
         I18n.t("no_slots_available", scope: "decidim.meetings.meetings.show")
+      end
+
+      def i18n_confirm_text
+        I18n.t("confirm", scope: "decidim.meetings.meetings.registration_confirm")
+      end
+
+      def i18n_cancel_text
+        I18n.t("cancel", scope: "decidim.meetings.meetings.registration_confirm")
+      end
+
+      def registration_terms_text
+        decidim_sanitize translated_attribute(model.registration_terms)
+      end
+
+      def registration_form
+        @registration_form ||= Decidim::Meetings::JoinMeetingForm.new
       end
     end
   end

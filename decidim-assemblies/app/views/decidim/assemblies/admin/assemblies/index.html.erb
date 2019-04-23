@@ -2,10 +2,17 @@
   <div class="card-divider">
     <h2 class="card-title">
       <% parent_assembly.self_and_ancestors.each do |assembly| %>
-        <%= link_to "#{translated_attribute(assembly.title)} > ", edit_assembly_path(assembly) %>
+        <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
+        <span>&gt;</span>
       <% end if parent_assembly %>
-      <%= t "decidim.admin.titles.assemblies" %>
-      <%= link_to t("actions.new_assembly", scope: "decidim.admin"), new_assembly_path(parent_id: parent_assembly&.id), class: "button tiny button--title" if allowed_to? :create, :assembly %>
+
+      <%= t("assemblies", scope: "decidim.admin.titles") %>
+
+      <% if allowed_to? :create, :assembly %>
+        <%= link_to t("actions.new_assembly", scope: "decidim.admin"),
+                    new_assembly_path(parent_id: parent_assembly&.id),
+                    class: "button tiny button--title" %>
+      <% end %>
     </h2>
   </div>
   <div class="card-section">
@@ -13,10 +20,18 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.assembly.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.assembly.fields.created_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.assembly.fields.private", scope: "decidim.admin") %></th>
-            <th class="table-list__actions"><%= t("models.assembly.fields.published", scope: "decidim.admin") %></th>
+            <th>
+              <%= sort_link(query, :title, t("models.assembly.fields.title", scope: "decidim.admin")) %>
+            </th>
+            <th>
+              <%= sort_link(query, :created_at, t("models.assembly.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
+            </th>
+            <th>
+              <%= sort_link(query, :private_space, t("models.assembly.fields.private", scope: "decidim.admin")) %>
+            </th>
+            <th class="table-list__actions">
+              <%= sort_link(query, :published_at, t("models.assembly.fields.published", scope: "decidim.admin")) %>
+            </th>
             <th></th>
           </tr>
         </thead>
@@ -40,7 +55,7 @@
                 <% end %>
               </td>
               <td>
-                <%= l assembly.created_at, format: :short %>
+                <%= l(assembly.created_at, format: :short) %>
               </td>
               <td class="table-list__state">
                 <% if assembly.private_space? %>
@@ -65,8 +80,11 @@
                   <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                 <% end %>
 
-                <% if assembly.children_count > 0 || allowed_to?(:create, :assembly) %>
-                  <%= icon_link_to "dial", decidim_admin_assemblies.assemblies_path(parent_id: assembly.id), t("decidim.admin.titles.assemblies"), class: "action-icon--dial" %>
+                <% if assembly.parent.blank? && (assembly.children.count.positive? || allowed_to?(:create, :assembly)) %>
+                  <%= icon_link_to "dial",
+                      decidim_admin_assemblies.assemblies_path(parent_id: assembly.id),
+                      t("decidim.admin.titles.assemblies"),
+                      class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
                 <% end %>
 
                 <% if allowed_to? :preview, :assembly, assembly: assembly %>
@@ -77,6 +95,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @assemblies, theme: "decidim" %>
     </div>
   </div>
 </div>

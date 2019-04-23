@@ -15,5 +15,9 @@ module Decidim
     def decidim_sanitize(html)
       sanitize(html, scrubber: Decidim::UserInputScrubber.new)
     end
+
+    def decidim_html_escape(text)
+      ERB::Util.unwrapped_html_escape(text.to_str)
+    end
   end
 end

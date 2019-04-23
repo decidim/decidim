@@ -5,11 +5,11 @@
 
   <div class="card-section">
     <div class="meeting-services">
-      <template>
+      <script type="text/template" class="decidim-template">
         <%= fields_for "meeting[services][#{blank_service.to_param}]", blank_service do |service_form| %>
           <%= render "decidim/meetings/admin/meetings/service", form: service_form, id: tabs_id_for_service(blank_service) %>
         <% end %>
-      </template>
+      </script>
 
       <div class="meeting-services-list">
         <% form.object.services.each do |service| %>

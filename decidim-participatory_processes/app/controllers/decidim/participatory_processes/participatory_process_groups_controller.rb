@@ -20,9 +20,10 @@ module Decidim
 
       def participatory_processes
         @participatory_processes ||= if current_user
-                                       group.participatory_processes.visible_for(current_user.id).published
+                                       return group.participatory_processes.published if current_user.admin
+                                       group.participatory_processes.visible_for(current_user).published
                                      else
-                                       group.participatory_processes.published
+                                       group.participatory_processes.published.public_spaces
                                      end
       end
       alias collection participatory_processes

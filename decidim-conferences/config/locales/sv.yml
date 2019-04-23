@@ -505,10 +505,10 @@ sv:
         votes_count: Röster
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på att bekräftas.
         conference_registration_confirmed:
           notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
+        conference_registration_validation_pending:
+          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på att bekräftas.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferensens upptagna platser är över %{percentage}%.'
           email_outro: Du har fått den här meddelandet eftersom du är en administratör för konferensens deltagande utrymme.
@@ -552,6 +552,7 @@ sv:
           take_part: Ta del
       conferences:
         conference:
+          more_info: Mer information
           take_part: Ta del
         index:
           promoted_conferences: Främjda konferenser

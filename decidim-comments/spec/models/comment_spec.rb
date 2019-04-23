@@ -41,7 +41,7 @@ module Decidim
       end
 
       it "is not valid if its parent is a comment and cannot accept new comments" do
-        expect(comment).to receive(:accepts_new_comments?).and_return false
+        expect(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
         expect(replies[0]).not_to be_valid
       end
 
@@ -132,6 +132,21 @@ module Decidim
 
         it "returns the body sanitized and processed" do
           expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
+        end
+      end
+
+      describe "#comment_threads count" do
+        let!(:parent) { create(:comment, commentable: commentable) }
+        let!(:comments) { create_list(:comment, 3, commentable: parent, root_commentable: commentable) }
+
+        it "return 3" do
+          expect(parent.comment_threads.count).to eq 3
+        end
+
+        it "returns 2 when a comment has been moderated" do
+          Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
+
+          expect(parent.comment_threads.count).to eq 2
         end
       end
     end
