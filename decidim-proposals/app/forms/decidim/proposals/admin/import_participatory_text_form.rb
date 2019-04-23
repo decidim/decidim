@@ -14,8 +14,8 @@ module Decidim
         translatable_attribute :description, String
         attribute :document
 
-        validates :document, presence: true, if: :new_participatory_text?
         validates :title, translatable_presence: true
+        validates :document, presence: true, if: :new_participatory_text?
         validate :document_type_must_be_valid, if: :document
 
         # Assume it's a NEW participatory_text if there are no proposals
@@ -42,7 +42,7 @@ module Decidim
 
         def i18n_invalid_document_type_text
           I18n.t("invalid_document_type",
-                 scope: "activemodel.errors.models.participatory_text.attributes.document.invalid_document_type",
+                 scope: "activemodel.errors.models.participatory_text.attributes.document",
                  valid_mime_types: i18n_valid_mime_types_text)
         end
 
