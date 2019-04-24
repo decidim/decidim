@@ -854,7 +854,7 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions.
           success: Genial! Has acceptat els Termes i Condicions.
         form:
-          agreement: Accepto aquests termes
+          agreement: Estic d'acord amb aquests aquests termes
           legend: Accepto els termes i condicions
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
@@ -862,15 +862,15 @@ ca:
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
           modal_close: Tanca el modal
-          modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
+          modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
         required_review:
-          alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
+          alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
           body: Si us plau dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
           title: 'Obligatori: revisa l''actualització de les nostres Condicions d''Ús'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
-      deleted: S'ha eliminat la participant
+      deleted: Participant eliminada
       view: Veure
     profiles:
       default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
