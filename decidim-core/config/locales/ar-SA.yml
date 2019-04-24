@@ -818,11 +818,11 @@ ar:
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
           footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونية.<br /> الانضمام والمشاركة وتقرر.
-          footer_sub_hero_headline: مرحبًا بك في %{organization} منصة تشاركية.
+          footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
           register: تسجيل
         hero:
           participate: مشاركة
-          welcome: مرحبًا بك في %{organization}!
+          welcome: مرحبًا بكم على %{organization}!
         metrics:
           headline: المشاركة في الأرقام
         statistics:
