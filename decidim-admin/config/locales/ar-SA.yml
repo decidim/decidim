@@ -43,18 +43,18 @@ ar:
         default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
-        facebook_handler: معالج فيسبوك
+        facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
-        github_handler: معالج جيثب
+        github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
-        highlighted_content_banner_action_subtitle: عمل زر الترجمة
+        highlighted_content_banner_action_subtitle: نص زر الإجراء
         highlighted_content_banner_action_title: عنوان زر العمل
         highlighted_content_banner_action_url: عنوان URL لزر الإجراء
         highlighted_content_banner_enabled: إظهار شعار المحتوى المميز
         highlighted_content_banner_image: الصورة
         highlighted_content_banner_short_description: وصف مختصر
         highlighted_content_banner_title: عنوان
-        instagram_handler: معالج Instagram
+        instagram_handler: مُعرّف حساب استجرام
         logo: الشعار
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
@@ -62,17 +62,17 @@ ar:
         official_url: عنوان URL الرسمي للمنظمة
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: عنوان
-        omnipresent_banner_url: URL
+        omnipresent_banner_url: العنوان الشبكي
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         secondary_color: ثانوي
-        show_statistics: عرض إحصائيات
+        show_statistics: عرض الإحصائيات
         success_color: نجاح
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: التغريد معالج
+        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
-        youtube_handler: معالج YouTube
+        youtube_handler: مُعرّف حساب يوتيوب
       scope:
         code: الشفرة
         name: الاسم
@@ -118,7 +118,7 @@ ar:
         slug: سبيكة URL
         title: عنوان
       doorkeeper/application:
-        authorize_url: تفويض URL
+        authorize_url: تفويض العنوان الشبكي
         client_id: معرف العميل
         client_secret: سر العميل
         organization_name: اسم المنظمة
@@ -501,7 +501,7 @@ ar:
           facebook: فيسبوك
           github: غِت‌ هَب
           instagram: إينستاجرام
-          social_handlers: اجتماعي
+          social_handlers: التواصل الاجتماعي
           twitter: تويتر
           url: رابط
           youtube: يوتيوب
