@@ -20,7 +20,7 @@ ar:
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
         slogan: شعار
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         title: عنوان
       conference_speaker:
         full_name: الاسم الكامل
