@@ -181,7 +181,7 @@ ar:
           attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
           attachment_collections_title: مجلدات المرفقات
         new:
-          create: خلق
+          create: إنشاء
           title: مجلد جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا المجلد.
@@ -537,7 +537,7 @@ ar:
         index:
           title: المشاركة الفضاء المشارك الخاص
         new:
-          create: خلق
+          create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       resource_permissions:
         edit:
@@ -586,7 +586,7 @@ ar:
           title: تحرير الموضوع
           update: تحديث الموضوع
         new:
-          create: خلق الموضوع
+          create: إنشاء موضوع
           title: موضوع جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا الموضوع.
