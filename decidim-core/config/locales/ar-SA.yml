@@ -117,7 +117,7 @@ ar:
         delete: "%{user_name} حذف تطبيق %{resource_name} OAuth"
         update: "%{user_name} بتحديث تطبيق %{resource_name} OAuth"
       organization:
-        update: "%{user_name} تحديث إعدادات المؤسسة"
+        update: "قام %{user_name} بتحديث إعدادات المنظمة"
       participatory_space_private_user:
         create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
         delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
