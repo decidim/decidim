@@ -756,7 +756,7 @@ ar:
     newsletter_mailer:
       newsletter:
         note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
-        see_on_website: لا يمكن رؤية هذا البريد الإلكتروني بشكل صحيح؟ مشاهدته على <a href="%{link}" target="_blank">موقع</a>.
+        see_on_website: لا يمكن عرض هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">الموقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletters:
       unsubscribe:
@@ -1198,7 +1198,7 @@ ar:
         edit: تصحيح
       footer:
         download_open_data: تحميل ملفات البيانات المفتوحة
-        made_with_open_source: موقع صنع مع <a target="_blank" href="https://github.com/decidim/decidim">البرمجيات الحرة</a>.
+        made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
       header:
         close_menu: إغلاق القائمة
         navigation: التنقل
