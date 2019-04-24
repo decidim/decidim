@@ -874,7 +874,7 @@ es:
       view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real
-      default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
+      default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales
       show:
         activity: Actividad
         badges: Insignias
