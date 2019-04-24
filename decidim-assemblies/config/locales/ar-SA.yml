@@ -161,46 +161,46 @@ ar:
         assemblies: الجمعيات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
-          assembly_members: أفراد
+          assembly_members: الأعضاء
           attachment_collections: المجلدات
-          attachment_files: ملفات
-          attachments: مرفقات
-          categories: الاقسام
+          attachment_files: الملفات
+          attachments: المرفقات
+          categories: الفئات
           components: المكونات
           info: معلومات
           moderations: الإعتدال
-          private_users: المستخدمين من القطاع الخاص
+          private_users: المستخدمون الخاصون
       models:
         assembly:
           fields:
-            created_at: أنشئت في
-            private: نشر
+            created_at: تاريخ الإنشاء
+            private: خاص
             promoted: سلط الضوء
             published: نشرت
-            title: عنوان
+            title: العنوان
           name: الجمعية
         assembly_member:
           fields:
             ceased_date: تاريخ التوقف
             designation_date: تاريخ التعيين
-            full_name: اسم
+            full_name: الاسم
             position: موضع
           name: عضو
           positions:
             other: آخر
             president: رئيس
-            secretary: سكرتير
+            secretary: أمين
             vice_president: نائب الرئيس
         assembly_user_role:
           fields:
             email: البريد الإلكتروني
-            name: اسم
-            role: وظيفة
+            name: الاسم
+            role: الدور
           name: المشرف على الجمعية
           roles:
             admin: مدير
             collaborator: متعاون
-            moderator: وسيط
+            moderator: مُشرف
       titles:
         assemblies: الجمعيات
     admin_log:
@@ -224,7 +224,7 @@ ar:
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذا التجميع محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             filters: مرشحات
-            images: صور
+            images: الصور
             included_at_help: حدد التاريخ الذي تمت فيه إضافة هذا التجميع إلى Decidim. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
@@ -233,9 +233,9 @@ ar:
             select_an_assembly_type: حدد نوع التجميع
             select_parent_assembly: حدد التجميع الأصل
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
-            social_handlers: اجتماعي
+            social_handlers: التواصل الاجتماعي
             title: معلومات عامة
-            visbility: رؤية
+            visbility: الرؤية
         assembly_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
@@ -252,37 +252,37 @@ ar:
               ceased: توقف
               not_ceased: لم تتوقف
             filter_by: مصنف بواسطة
-            search: بحث
+            search: البحث
         content_blocks:
           highlighted_assemblies:
             max_results: أقصى قدر من العناصر لإظهارها
       assembly_members:
         index:
-          members: أفراد
+          members: الأعضاء
       assembly_types:
-        commission: العمولة
+        commission: اللجنة
         consultative_advisory: استشاري / الاستشارية
-        executive: تنفيذي
-        government: الحكومي
-        others: الآخرين
-        participatory: المشاركة
+        executive: تنفيذية
+        government: حكومية
+        others: أخرى
+        participatory: تشاركية
         working_group: فريق العمل
       content_blocks:
         highlighted_assemblies:
           name: المجالس البارزة
       created_by:
         city_council: مجلس المدينة
-        others: الآخرين
+        others: أخرى
         public: عامة
       filter:
         all: جميع أنواع الجمعيات
-        commission: عمولة
+        commission: لجنة
         consultative_advisory: استشاري / الاستشارية
-        executive: تنفيذي
-        government: الحكومي
+        executive: تنفيذية
+        government: الحكومية
         help: 'عرض:'
-        others: الآخرين
-        participatory: المشاركة
+        others: أخرى
+        participatory: التشاركية
         working_group: فريق العمل
       index:
         title: الجمعيات
@@ -297,12 +297,12 @@ ar:
           member_of:
             member_of: عضو في
       show:
-        area: منطقة
+        area: المنطقة
         assembly_type: نوع التجمع
         children: الجمعيات
         closing_date: الموعد النهائي
-        composition: تكوين
-        created_by: صنع من قبل
+        composition: المكونات
+        created_by: أنشئ من طرف
         creation_date: تاريخ الإنشاء
         developer_group: مجموعة المروجين
         duration: المدة الزمنية
@@ -311,39 +311,39 @@ ar:
         internal_organisation: تنظيم داخلي
         is_transparent:
           'false': مبهمة
-          'true': شفاف
+          'true': شفافة
         local_area: منطقة التنظيم
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: هذا هو التجمع الخاص
-        purpose_of_action: الغرض من العمل
+        purpose_of_action: الغرض من الإجراء
         read_less: أقرأ أقل
-        read_more: قراءة المزيد
+        read_more: اقرأ المزيد
         related_participatory_processes: العمليات التشاركية ذات الصلة
         scope: نطاق
-        social_networks: شبكات اجتماعية
+        social_networks: الشبكات الاجتماعية
         target: من يشارك
       statistics:
-        answers_count: الأجوبة
+        answers_count: أجوبة
         assemblies_count: الجمعيات
         comments_count: تعليقات
-        debates_count: المناقشات
+        debates_count: مناقشات
         endorsements_count: موافقات
         headline: نشاط
         meetings_count: اجتماعات
-        orders_count: الدعم
+        orders_count: تأييدات
         pages_count: صفحات
         projects_count: مشاريع
         proposals_count: اقتراحات
-        results_count: النتائج
-        surveys_count: الدراسات الاستقصائية
-        users_count: المشاركين
+        results_count: نتائج
+        surveys_count: دراسات استقصائية
+        users_count: مشارك
         votes_count: الدعم
     assembly_members:
       assembly_member:
         designated_on: المعينة على
       index:
-        title: أفراد
+        title: الأعضاء
     help:
       participatory_spaces:
         assemblies:
@@ -378,7 +378,7 @@ ar:
           more_info: مزيد من المعلومات
           take_part: خذ جزء
       assembly_navigation:
-        assembly_member_menu_item: أفراد
+        assembly_member_menu_item: الأعضاء
         assembly_menu_item: الجمعية
       assembly_widgets:
         show:
