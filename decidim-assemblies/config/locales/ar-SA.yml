@@ -2,31 +2,31 @@ ar:
   activemodel:
     attributes:
       assembly:
-        area_id: منطقة
+        area_id: المنطقة
         assembly_type: نوع التجمع
         assembly_type_other: نوع التجمع الآخر
-        banner_image: صورة بانر
+        banner_image: صورة اللافتة
         closing_date: الموعد النهائي
         closing_date_reason: إغلاق تاريخ السبب
-        composition: تكوين
+        composition: المكونات
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
         copy_features: نسخ الميزات
-        created_by: صنع من قبل
-        created_by_other: التي أنشأتها الآخر
+        created_by: أنشئ من طرف
+        created_by_other: التي أنشأتها الآخرون
         creation_date: تاريخ الإنشاء
-        decidim_area_id: منطقة
-        decidim_scope_id: نطاق
-        description: وصف
+        decidim_area_id: المنطقة
+        decidim_scope_id: النطاق
+        description: الوصف
         developer_group: مجموعة المروجين
-        domain: نطاق
+        domain: النطاق
         duration: المدة الزمنية
-        facebook: فيس بوك
-        github: جيثب
-        hashtag: رابطة هاشتاق
+        facebook: فيسبوك
+        github: غِت‌ هَب
+        hashtag: الوسم
         hero_image: الصورة الرئيسية
         included_at: المدرجة في
-        instagram: إينستاجرام
+        instagram: انستجرام
         internal_organisation: تنظيم داخلي
         is_transparent: شفافة
         local_area: منطقة التنظيم
@@ -45,24 +45,24 @@ ar:
         show_statistics: عرض إحصائيات
         slug: سبيكة URL
         special_features: مميزات خاصة
-        subtitle: عنوان فرعي
+        subtitle: العنوان الفرعي
         target: من يشارك
-        title: عنوان
+        title: العنوان
         twitter: تويتر
         youtube: يوتيوب
       assembly_member:
-        birthday: عيد الميلاد
-        birthplace: مسقط الرأس
+        birthday: تاريخ الميلاد
+        birthplace: مكان الازدياد
         ceased_date: تاريخ التوقف
         designation_date: تاريخ التعيين
         designation_mode: وضع التعيين
         full_name: الاسم الكامل
-        gender: جنس
-        position: موضع
+        gender: الجنس
+        position: الموقع
       assembly_user_role:
         email: البريد الإلكتروني
-        name: اسم
-        role: وظيفة
+        name: الاسم
+        role: الوظيفة
   activerecord:
     models:
       decidim/assembly:
@@ -98,11 +98,11 @@ ar:
           update: تحديث
         index:
           not_published: غير منشور
-          private: نشر
+          private: خاص
           public: عامة
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: جمعية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه الجمعية.
@@ -128,7 +128,7 @@ ar:
         index:
           assembly_members_title: أعضاء الجمعية
         new:
-          create: خلق
+          create: إنشاء
           title: عضو الجمعية الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث العضو لهذا التجميع.
@@ -152,7 +152,7 @@ ar:
         index:
           assembly_admins_title: مدراء الجمعية
         new:
-          create: خلق
+          create: إنشاء
           title: مشرف التجميع الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث مسؤول لهذا التجميع.
@@ -178,7 +178,7 @@ ar:
             promoted: سلط الضوء
             published: نشرت
             title: عنوان
-          name: المجسم
+          name: الجمعية
         assembly_member:
           fields:
             ceased_date: تاريخ التوقف
@@ -196,13 +196,13 @@ ar:
             email: البريد الإلكتروني
             name: اسم
             role: وظيفة
-          name: مشرف الجمعية
+          name: المشرف على الجمعية
           roles:
             admin: مدير
             collaborator: متعاون
             moderator: وسيط
       titles:
-        assemblies: جمعيات
+        assemblies: الجمعيات
     admin_log:
       assembly:
         create: "%{user_name} خلق التجمع %{resource_name}"
@@ -285,21 +285,21 @@ ar:
         participatory: المشاركة
         working_group: فريق العمل
       index:
-        title: جمعيات
+        title: الجمعيات
       last_activity:
         new_assembly: التجمع الجديد
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: جمعيات نشطة
-            see_all_assemblies: رؤية جميع الجمعيات
+            active_assemblies: الجمعيات النشطة
+            see_all_assemblies: عرض كافة الجمعيات
         user_profile:
           member_of:
             member_of: عضو في
       show:
         area: منطقة
         assembly_type: نوع التجمع
-        children: جمعيات
+        children: الجمعيات
         closing_date: الموعد النهائي
         composition: تكوين
         created_by: صنع من قبل
@@ -325,7 +325,7 @@ ar:
         target: من يشارك
       statistics:
         answers_count: الأجوبة
-        assemblies_count: جمعيات
+        assemblies_count: الجمعيات
         comments_count: تعليقات
         debates_count: المناقشات
         endorsements_count: موافقات
@@ -355,12 +355,12 @@ ar:
         assembly_presenter:
           not_found: 'لم يتم العثور على التجميع في قاعدة البيانات (المعرف: %{id})'
     menu:
-      assemblies: جمعيات
+      assemblies: الجمعيات
     metrics:
       assemblies:
         description: عدد التجميعات التي تم إنشاؤها
         object: المجالس
-        title: جمعيات
+        title: الجمعيات
   errors:
     messages:
       cannot_be_blank: لا يمكن أن يكون فارغا
