@@ -795,7 +795,7 @@ ca:
         rejected: Rebutjades
         verified: Verificada
     pad_iframe:
-      disclaimer: Els continguts d'aquest pad han estat escrits per usuaris registrats i expressen les seves opinions. %{organization} no es fa responsable dels seus contingut.
+      disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
       explanation: Utilitzeu aquest pad per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
       pad: Pad
     pages:
