@@ -45,7 +45,7 @@ ar:
       admin:
         actions:
           destroy: إلغاء الفرز
-          edit: تصحيح
+          edit: تعديل
           new: فرز جديد
           show: تفاصيل الفرز
         models:
