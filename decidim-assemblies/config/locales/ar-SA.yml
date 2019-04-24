@@ -42,7 +42,7 @@ ar:
         scope_id: نطاق
         scopes_enabled: تم تمكين النطاقات
         short_description: وصف قصير
-        show_statistics: عرض إحصائيات
+        show_statistics: عرض الإحصائيات
         slug: سبيكة URL
         special_features: مميزات خاصة
         subtitle: العنوان الفرعي
@@ -321,7 +321,7 @@ ar:
         read_more: اقرأ المزيد
         related_participatory_processes: العمليات التشاركية ذات الصلة
         scope: نطاق
-        social_networks: الشبكات الاجتماعية
+        social_networks: شبكات التواصل الاجتماعي
         target: من يشارك
       statistics:
         answers_count: أجوبة
