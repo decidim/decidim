@@ -89,7 +89,7 @@ ar:
         content: يحتوى
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         title: عنوان
         weight: وزن
       static_page_topic:
@@ -115,14 +115,14 @@ ar:
     attributes:
       decidim/static_page:
         content: يحتوى
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         title: عنوان
       doorkeeper/application:
         authorize_url: تفويض العنوان الشبكي
         client_id: معرف العميل
         client_secret: سر العميل
         organization_name: اسم المنظمة
-        organization_url: عنوان URL للمؤسسة
+        organization_url: العنوان الشبكي للمؤسسة
         redirect_uri: إعادة توجيه URI
         site: موقع الويب
   decidim:
@@ -503,7 +503,7 @@ ar:
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
           twitter: تويتر
-          url: رابط
+          url: العنوان الشبكي
           youtube: يوتيوب
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
@@ -707,7 +707,7 @@ ar:
             reportable: الإبلاغ عنها
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
-            visit_url: زيارة URL
+            visit_url: زيارة العنوان الشبكي
   errors:
     messages:
       invalid_json: JSON غير صالح
