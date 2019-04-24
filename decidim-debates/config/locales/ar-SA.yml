@@ -42,7 +42,7 @@ ar:
       actions:
         confirm_destroy: هل أنت واثق؟
         destroy: حذف
-        edit: تصحيح
+        edit: تعديل
         new: جديد %{name}
         title: أفعال
       admin:
