@@ -788,11 +788,11 @@ es:
         error: Se ha producido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se ha actualizado correctamente.
     open_data:
-      not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
+      not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
     own_user_groups:
       index:
         pending: Pendientes
-        rejected: Rechazados
+        rejected: Rechazadas
         verified: Verificada
     pad_iframe:
       disclaimer: Los contenidos de este pad están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
