@@ -191,7 +191,7 @@ ar:
             end_date: تاريخ الانتهاء
             start_date: تاريخ البدء
           new:
-            create: خلق
+            create: إنشاء
             title: جدول أعمال جديد
           update:
             invalid: حدثت مشكلة أثناء تحديث جدول الأعمال هذا
@@ -249,7 +249,7 @@ ar:
           index:
             title: اجتماعات
           new:
-            create: خلق
+            create: إنشاء
             title: إنشاء اجتماع
           service:
             description: وصف
@@ -271,7 +271,7 @@ ar:
           edit:
             update: تحديث
           new:
-            create: خلق
+            create: إنشاء
             title: خلق دقائق
           update:
             invalid: حدثت مشكلة أثناء تحديث هذه الدقائق
