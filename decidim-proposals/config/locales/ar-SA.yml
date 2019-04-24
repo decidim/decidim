@@ -97,7 +97,7 @@ ar:
     components:
       proposals:
         actions:
-          create: خلق
+          create: إنشاء
           endorse: تأييد
           vote: الدعم
           withdraw: سحب
@@ -381,7 +381,7 @@ ar:
             title: اقتراحات
             update: تحديث
           new:
-            create: خلق
+            create: إنشاء
             title: إنشاء اقتراح
           update_category:
             invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
@@ -696,7 +696,7 @@ ar:
           publish: نشر
           title: نشر اقتراحك
         proposal:
-          creation_date: 'الخلق: %{date}'
+          creation_date: 'الإنشاء: %{date}'
           view_proposal: عرض الاقتراح
         show:
           back_to: ارجع الى
@@ -756,7 +756,7 @@ ar:
             votes: الدعم
         wizard_aside:
           back: الى الخلف
-          info: إنك لعلى خلق <strong>اقتراح</strong>.
+          info: إنك بصدد إنشاء <strong>اقتراح</strong>.
         wizard_steps:
           see_steps: انظر الخطوات
           step_1: إنشاء اقتراحك
