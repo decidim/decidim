@@ -43,7 +43,7 @@ ar:
         scopes_enabled: تم تمكين النطاقات
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         special_features: مميزات خاصة
         subtitle: العنوان الفرعي
         target: من يشارك
