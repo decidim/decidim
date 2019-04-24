@@ -819,7 +819,7 @@ es:
         metrics:
           headline: Participación en cifras
         statistics:
-          answers_count: Encuestas completadas
+          answers_count: Encuestas realizadas
           assemblies_count: Asambleas
           comments_count: Comentarios
           conferences_count: Conferencias
