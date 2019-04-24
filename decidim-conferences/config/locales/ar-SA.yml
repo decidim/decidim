@@ -18,7 +18,7 @@ ar:
         scope_id: نطاق
         scopes_enabled: تم تمكين النطاقات
         short_description: وصف قصير
-        show_statistics: عرض إحصائيات
+        show_statistics: عرض الإحصائيات
         slogan: شعار
         slug: سبيكة URL
         title: عنوان
