@@ -82,7 +82,7 @@ ar:
         confirm_destroy: تأكيد الحذف
         destroy: حذف
         duplicate: مكرر
-        edit: تصحيح
+        edit: تعديل
         filter:
           all: عرض جميع العمليات
           process_groups: مجموعات العملية
