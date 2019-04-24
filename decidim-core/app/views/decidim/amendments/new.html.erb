@@ -11,7 +11,7 @@
         <p>
           <%= t(".help_text", model_name: amendable.model_name.human.downcase ) %>
           <strong>
-            <%= amendable.title %>
+            <%= decidim_html_escape(amendable.title).html_safe %>
           </strong>
         </p>
       </div>

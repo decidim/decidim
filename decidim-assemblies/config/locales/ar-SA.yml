@@ -96,8 +96,6 @@ ar:
           success: تم إنشاء التجميع بنجاح.
         edit:
           update: تحديث
-        form:
-          title: معلومات عامة
         index:
           not_published: غير منشور
           private: نشر
@@ -223,14 +221,21 @@ ar:
       admin:
         assemblies:
           form:
+            duration: المدة الزمنية
             duration_help: إذا كانت مدة هذا التجميع محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
+            filters: مرشحات
+            images: صور
             included_at_help: حدد التاريخ الذي تمت فيه إضافة هذا التجميع إلى Decidim. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
+            metadata: البيانات الوصفية
+            other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة
             select_an_area: اختر منطقة
             select_an_assembly_type: حدد نوع التجميع
             select_parent_assembly: حدد التجميع الأصل
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             social_handlers: اجتماعي
+            title: معلومات عامة
+            visbility: رؤية
         assembly_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
@@ -275,6 +280,7 @@ ar:
         consultative_advisory: استشاري / الاستشارية
         executive: تنفيذي
         government: الحكومي
+        help: 'عرض:'
         others: الآخرين
         participatory: المشاركة
         working_group: فريق العمل

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Explore Collaborative Drafts", versioning: true, type: :system do
+  include ActionView::Helpers::TextHelper
+
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
@@ -85,7 +87,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows the body" do
-        expect(page).to have_content(collaborative_draft.body)
+        expect(page).to have_content(strip_tags(collaborative_draft.body))
       end
 
       it "shows the state" do
@@ -115,7 +117,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows the body" do
-          expect(page).to have_content(collaborative_draft.body)
+          expect(page).to have_content(strip_tags(collaborative_draft.body))
         end
 
         it "shows the address" do

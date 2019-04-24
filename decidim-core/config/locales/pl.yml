@@ -144,8 +144,6 @@ pl:
         button: Zmień %{model_name}
         error: Wystąpił błąd podczas zmiany tego zasobu.
         help_text: Popraw to %{model_name} , modyfikując %{amendable_fields}
-        no_amenders: Nie ma żadnych fałszerstw
-        no_amendments: Brak zmian
         promote_button: Promuj do %{model_name}
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
@@ -994,6 +992,9 @@ pl:
           select_an_area: Wybierz obszar
       reference:
         reference: 'Odniesienie: %{reference}'
+      represent_user_group:
+        represent_user_group: Reprezentuję grupę
+        select_user_group: Wybierz grupę
       results_per_page:
         label: 'Wyniki na stronę:'
       share_modal:

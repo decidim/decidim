@@ -395,7 +395,7 @@ es:
           one: " firma"
           other: " firmas"
         supports:
-          title: Listado de firmas
+          title: Listado de adhesiones
         vote_cabin:
           already_voted: Ha sido firmado
           supports_required: "Se requieren %{total_supports} firmas"

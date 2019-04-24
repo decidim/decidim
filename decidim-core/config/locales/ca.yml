@@ -138,8 +138,6 @@ ca:
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
-        no_amenders: No hi ha esmenadores
-        no_amendments: No hi ha cap esmena
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
@@ -426,20 +424,20 @@ ca:
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha produït un esdeveniment a %{resource_title}
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure''l des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
           notification_title: Ja està actiu el component %{resource_title} per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+        email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
         email_subject: Una actualització a %{resource_title}
       gamification:
         badge_earned:
@@ -454,48 +452,48 @@ ca:
           notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administrador d'aquest grup.
+          email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administrador d'aquest grup.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Ja no ets administrador del grup %{user_group_name}.
-          notification_title: Ja no ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Ja no ets administradora del grup %{user_group_name}.
+          notification_title: Ja no ets administradora del grup <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha convidat a unir-te.
-          email_outro: Has rebut aquesta notificació perquè has estat convidat a formar part d'un grup. Comprova la pestanya Grups del teu perfil per aprovar-lo.
-          email_subject: Has estat convidat a formar part del grup %{user_group_name}!
-          notification_title: Has estat convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per a aprovar-ho!
+          email_intro: Un administradora del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha convidat a unir-te.
+          email_outro: Has rebut aquesta notificació perquè t'han convidat a formar part d'un grup. Si us plau, revisa la pestanya Grups al teu perfil acceptar l'invitació.
+          email_subject: T'han convidat a formar part del grup %{user_group_name}!
+          notification_title: T'han convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per acceptar la invitació!
         join_request_accepted:
-          email_intro: Felicitats! Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
+          email_intro: Felicitats! Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
           email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
-          email_subject: Has estat acceptat al grup %{user_group_name}!
-          notification_title: Has estat acceptat al grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: La teva sol·licitud per a unir-te al grup %{user_group_name} ha estat acceptada!
+          notification_title: Has estat acceptada al grup <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar-la o rebutjar-la des de <a href="%{resource_url}"> la pàgina de membres</a>.
-          email_outro: Has rebut aquesta notificació perquè pots gestionar el grup %{user_group_name}.
+          email_outro: Has rebut aquesta notificació perquè ets administradora del grup %{user_group_name}.
           email_subject: Algú ha sol·licitat unir-se al grup %{user_group_name}!
-          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar o rebutjar des <a href="%{resource_path}">els membres del grup de la pàgina</a>.
+          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar o rebutjar la sol·licitud des de <a href="%{resource_path}">els membres del grup de la pàgina</a>.
         join_request_rejected:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha rebutjat la teva sol·licitud per unir-te.
-          email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
+          email_outro: Has rebut aquesta notificació perquè la teva sol·licitud d'incorporació s'ha actualitzat.
           email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
-          notification_title: La teva sol·licitud d'unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
+          notification_title: La teva sol·licitud per unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha donat drets d'administrador per a aquest grup.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Ara ets administrador del grup %{user_group_name}!
-          notification_title: Ara ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Ara ets administradora del grup %{user_group_name}!
+          notification_title: Ara ets administradora del grup <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat.
+          email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat d'aquest.
           email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
-          email_subject: Has estat eliminat del grup %{user_group_name}!
-          notification_title: T'han eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Has estat eliminada del grup %{user_group_name}!
+          notification_title: Has estat eliminada del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
-          notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint a %{nickname}. Pots deixar de rebre notificacions mitjançant l'enllaç anterior.
+          email_subject: "%{nickname} ha actualitzat el seu perfil"
+          notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
         click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
@@ -505,12 +503,12 @@ ca:
       subject: L'exportació "%{name}" està a punt
     filters:
       linked_classes:
-        all: Tots
-        collaborative_draft: Esborrany de col·laboració
+        all: Totes
+        collaborative_draft: Esborrany col·laboratiu
         dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
-        proposal: propostes
+        proposal: Propostes
         result: Resultats
     fingerprint:
       check: Verifica l'empremta digital
@@ -521,9 +519,9 @@ ca:
       title: Empremta digital
       value: Valor
     followers:
-      no_followers: Encara no hi ha seguidors.
+      no_followers: Encara no hi ha seguidores.
     following:
-      no_followings: No segueix cap persona ni res.
+      no_followings: No segueix a cap persona ni cap activitat.
     follows:
       create:
         button: Seguir
@@ -539,17 +537,17 @@ ca:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
-      all_badges_link: Veure tots els distintius disponibles.
+      all_badges_link: Veure totes les insígnies disponibles.
       badges:
         continuity:
           conditions:
-            - Vine aquí sovint
-          description: Aquest distintiu es concedeix al visitar la plataforma de forma regular. Ens agrada tenir-te per aquí!
+            - Ve aquí sovint
+          description: Aquesta insígnia es concedeix al visitar la plataforma de forma regular. Ens encanta tenir-te per aquí!
           description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
           name: Continuïtat
-          next_level_in: Connecta't per %{score} dies consecutius per arribar al següent nivell!
-          unearned_another: Aquesta participant no ha iniciat la sessió durant més d'un dia consecutiu.
+          next_level_in: Connecta't durant %{score} dies consecutius per arribar al següent nivell!
+          unearned_another: Aquesta participant no ha iniciat sessió durant més d'un dia consecutiu.
           unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
@@ -559,71 +557,71 @@ ca:
           description_own: "%{score} participants et segueixen."
           name: Seguidors
           next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
-          unearned_another: Aquesta participant encara no té cap seguidora.
+          unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no tens seguidors.
         index:
-          badge_title: "%{name} distintiu"
-          how: Com es pot aconseguir?
-          page_description: Els distintius són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de aconseguir-les.
-          title: Distintius
+          badge_title: "Insígnia %{name}"
+          how: Com pots aconseguir-la
+          page_description: Les insígnies són reconeixements a les accions participatives i al progrés a la plataforma. A mesura que comencis a descobrir, participar i interactuar en la plataforma, obtindrà diferents insísnies. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
+          title: Insígnies
         invitations:
           conditions:
-            - Utilitza l'enllaç "convidar amics/gues" a la teva pàgina d'usuari per convidar a les teves amistats.
-            - Personalitza, si vols, el missatge que envies
+            - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
+            - Personalitza, si vols, el missatge que estàs enviant
             - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
-          description: Aquest distintiu es concedeix quan has convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i es converteixen en participants. Gràcies per donar a conèixer %{organization_name} als altres i ajudar a ampliar la comunitat!
+          description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
           description_another: Aquesta participant ha convidat a %{score} persones.
           description_own: Has convidat %{score} persones.
           name: Invitacions
           next_level_in: Convida a %{score} persones més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha convidat ningú.
-          unearned_own: Encara no has convidat ningú.
+          unearned_own: Encara no has convidat a ningú.
       description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
       level: Nivell %{level}
-      reached_top: Has arribat al nivell superior d'aquesta insígnia.
+      reached_top: Has arribat al màxim nivell d'aquesta insígnia.
     group_admins:
       actions:
-        are_you_sure: Segur que vols fer aquesta acció? Això no eliminarà la participant del grup.
-        demote_admin: Elimina l'administrador
+        are_you_sure: Segura? Això no eliminarà la participant del grup.
+        demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
-        success: S'ha eliminat correctament la participant del panell d'administració
+        success: Permisos d'administració eliminats correctament
       index:
-        current_admins: 'Administradors actuals:'
-        manage_admins: Gestiona els administradors
+        current_admins: 'Administradores actuals:'
+        manage_admins: Gestionar administradores
     group_invites:
       accept:
         error: S'ha produït un error en acceptar aquesta invitació
         success: S'ha acceptat la invitació correctament
-      accept_invitation: Accepta
+      accept_invitation: Acceptar
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
         invite: Convidar
         invite_user: Convidar a una participant
       invite:
         error: S'ha produït un error en convidar aquesta participant
-        success: S'ha convidat la participant correctament
+        success: Participant convidada correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta invitació
-        success: S'ha rebutjat la invitació correctament
+        success: Invitació rebutjada correctament
       reject_invitation: Rebutjar
     group_members:
       accept:
-        error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació
-        success: La sol·licitud d'incorporació s'ha acceptat correctament
+        error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup
+        success: Sol·licitud acceptada correctament
       actions:
         are_you_sure: Estàs segur?
         promote_to_admin: Fer administrador
-        remove_from_group: Elimina la participant
+        remove_from_group: Eliminar participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
-        manage_members: Gestiona els membres
+        manage_members: Gestiona les membres
       promote:
         error: S'ha produït un error en promoure aquesta participant
-        success: La participant s'ha promocionat correctament
+        success: Participant promocionada correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
-        success: La sol·licitud d'incorporació s'ha rebutjat correctament
+        success: Sol·licitud d'incorporació rebutjada correctament
       remove:
         error: S'ha produït un error en eliminar aquesta participant del grup
         success: La participant s'ha eliminat correctament del grup
@@ -977,6 +975,9 @@ ca:
           select_an_area: Seleccioneu una àrea
       reference:
         reference: 'Referència: %{reference}'
+      represent_user_group:
+        represent_user_group: Represento un grup
+        select_user_group: Seleccioneu un grup
       results_per_page:
         label: 'Resultats per pàgina:'
       share_modal:

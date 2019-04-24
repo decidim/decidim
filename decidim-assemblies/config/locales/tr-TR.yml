@@ -84,8 +84,6 @@ tr:
           success: Montaj başarıyla oluşturuldu.
         edit:
           update: Güncelleştirme
-        form:
-          title: Genel bilgi
         index:
           not_published: Yayınlanmadı
           private: Özel
@@ -211,14 +209,21 @@ tr:
       admin:
         assemblies:
           form:
+            duration: süre
             duration_help: Bu meclisin süresi sınırlı ise, bitiş tarihini seçin. Aksi halde, belirsiz olarak görünecektir.
+            filters: Filtreler
+            images: Görüntüler
             included_at_help: Bu montajın Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
+            metadata: Meta veri
+            other: Diğer
             select_a_created_by: Tarafından oluşturulmuş bir seç
             select_an_area: Bir alan seçin
             select_an_assembly_type: Bir montaj tipi seçin
             select_parent_assembly: Ebeveyn grubunu seç
             slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             social_handlers: Sosyal
+            title: Genel bilgi
+            visbility: görünürlük
         assembly_copies:
           form:
             slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'

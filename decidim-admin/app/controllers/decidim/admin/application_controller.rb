@@ -23,6 +23,7 @@ module Decidim
       helper Decidim::TranslationsHelper
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
+      helper Decidim::SanitizeHelper
 
       default_form_builder Decidim::Admin::FormBuilder
 

@@ -65,6 +65,16 @@ module Decidim
           FactoryBot.create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
+
+        context "when comment child has been moderated" do
+          let(:comment) { create(:comment, commentable: model) }
+
+          it "return false" do
+            Decidim::Moderation.create!(reportable: comment, participatory_space: comment.participatory_space, hidden_at: 1.day.ago)
+
+            expect(response).to include("hasComments" => false)
+          end
+        end
       end
 
       describe "acceptsNewComments" do

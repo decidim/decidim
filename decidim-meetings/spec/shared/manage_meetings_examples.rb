@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "manage meetings" do
+  include Decidim::SanitizeHelper
+
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -393,7 +395,7 @@ shared_examples "manage meetings" do
         fill_in :close_meeting_attendees_count, with: 12
         fill_in :close_meeting_contributions_count, with: 44
         fill_in :close_meeting_attending_organizations, with: "Neighbours Association, Group of People Complaining About Something and Other People"
-        select proposals.first.title, from: :close_meeting_proposal_ids
+        select decidim_html_escape(proposals.first.title), from: :close_meeting_proposal_ids
         click_button "Close"
       end
 

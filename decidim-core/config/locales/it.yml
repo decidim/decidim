@@ -138,8 +138,6 @@ it:
         button: Modificare %{model_name}
         error: Si è verificato un errore durante la modifica di questa risorsa.
         help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
-        no_amenders: Non ci sono emendatori
-        no_amendments: Non ci sono modifiche
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
         promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
@@ -980,6 +978,9 @@ it:
           select_an_area: Seleziona un'area
       reference:
         reference: 'Riferimento: %{reference}'
+      represent_user_group:
+        represent_user_group: Rappresento un gruppo
+        select_user_group: Seleziona un gruppo
       results_per_page:
         label: 'Risultati per pagina:'
       share_modal:

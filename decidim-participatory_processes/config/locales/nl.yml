@@ -71,6 +71,9 @@ nl:
         destroy: Verwijder
         duplicate: Dupliceren
         edit: Bewerken
+        filter:
+          all: Toon alle processen
+          process_groups: Procesgroepen
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
         new_process_step: Nieuwe stap
@@ -200,8 +203,6 @@ nl:
           success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
         edit:
           update: Bijwerken
-        form:
-          title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
           private: Privé
@@ -293,8 +294,16 @@ nl:
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
+            duration: Looptijd
+            filters: filters
+            images: Afbeeldingen
+            metadata: metadata
+            other: anders
             select_an_area: Selecteer een gebied
+            select_process_group: Selecteer een procesgroep
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            title: Algemene informatie
+            visbility: Zichtbaarheid
       content_blocks:
         highlighted_processes:
           name: Gemarkeerde processen
@@ -310,8 +319,6 @@ nl:
             more_information: Meer informatie
             participate: Deelnemen
             see_all_processes: Bekijk alle thema's
-      participatory_process_groups:
-        none: Geen
       participatory_processes:
         filters:
           counters:
