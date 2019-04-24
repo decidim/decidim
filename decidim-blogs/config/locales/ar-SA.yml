@@ -16,7 +16,7 @@ ar:
       actions:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذه المشاركة؟
         destroy: حذف
-        edit: تصحيح
+        edit: تعديل
         new: منشور جديد
         title: أفعال
       admin:
@@ -55,7 +55,7 @@ ar:
           view: رأي
         sidebar_blog:
           comments: تعليقات
-          most_commented_posts: معظم التعليقات علق
+          most_commented_posts: الأكثر تعليقًا عليها
       read_more: قراءة المزيد
     components:
       blogs:
