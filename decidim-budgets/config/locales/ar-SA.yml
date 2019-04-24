@@ -47,7 +47,7 @@ ar:
             pending_orders: في انتظار الأصوات
             title: مشاريع
           new:
-            create: خلق
+            create: إنشاء
             title: مشروع جديد
           update:
             invalid: حدثت مشكلة أثناء تحديث هذا المشروع
