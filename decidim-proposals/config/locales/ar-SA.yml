@@ -427,6 +427,7 @@ ar:
       application_helper:
         filter_origin_values:
           all: الكل
+          citizens: المواطنون
           meetings: اجتماعات
           user_groups: المجموعات
         filter_state_values:
@@ -504,7 +505,7 @@ ar:
           new_collaborative_draft: مشروع تعاوني جديد
         orders:
           label: 'ترتيب المسودات حسب:'
-          most_contributed: ساهم معظم
+          most_contributed: التي تحصلت على معظم المساهمات
           random: عشوائية
           recent: الأخيرة
         requests:
@@ -675,7 +676,7 @@ ar:
           title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
-          most_voted: معظم الدعم
+          most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
         participatory_texts:
