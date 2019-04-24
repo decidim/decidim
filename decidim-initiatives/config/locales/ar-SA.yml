@@ -186,7 +186,7 @@ ar:
             filter:
               accepted: وافقت
               all: الكل
-              created: خلقت
+              created: تمّ إنشاؤه
               discarded: التخلص منها
               published: نشرت
               rejected: مرفوض
@@ -214,7 +214,7 @@ ar:
             update: تحديث
           new:
             back: الى الخلف
-            create: خلق
+            create: إنشاء
             title: إنشاء نطاق نوع المبادرة
           update:
             error: حدث خطأ
@@ -234,7 +234,7 @@ ar:
           initiative_type_scopes:
             title: نطاقات لنوع المبادرة
           new:
-            create: خلق
+            create: إنشاء
             title: نوع المبادرة الجديدة
           update:
             error: حدث خطأ
@@ -247,7 +247,7 @@ ar:
           update: "%{user_name} تحديث المبادرة %{resource_name}"
       admin_states:
         accepted: وافقت
-        created: خلقت
+        created: تمّ إنشاؤه
         discarded: التخلص منها
         published: نشرت
         rejected: مرفوض
@@ -477,7 +477,7 @@ ar:
           information: معلومات
       initiative_creation_header:
         back: الى الخلف
-        fill_data: خلق
+        fill_data: إنشاء
         finish: إنهاء
         previous_form: بداية
         promotal_committee: لجنة المروجين
