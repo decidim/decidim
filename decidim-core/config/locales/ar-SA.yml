@@ -1195,7 +1195,7 @@ ar:
         link_label: هنا
         ok: أنا موافق
       edit_link:
-        edit: تصحيح
+        edit: تعديل
       footer:
         download_open_data: تحميل ملفات البيانات المفتوحة
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
