@@ -67,8 +67,8 @@ ar:
     models:
       decidim/assembly:
         zero: جمعيات
-        one: المجسم
-        two: جمعيات
+        one: جمعية
+        two: جمعتين
         few: جمعيات
         many: جمعيات
         other: جمعيات
@@ -89,11 +89,11 @@ ar:
   decidim:
     admin:
       actions:
-        new_assembly: التجمع الجديد
+        new_assembly: جمعية جديدة
       assemblies:
         create:
-          error: حدثت مشكلة أثناء إنشاء مجموعة جديدة.
-          success: تم إنشاء التجميع بنجاح.
+          error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
+          success: تم إنشاء الجمعية بنجاح.
         edit:
           update: تحديث
         index:
@@ -103,10 +103,10 @@ ar:
           published: نشرت
         new:
           create: خلق
-          title: التجمع الجديد
+          title: جمعية جديدة
         update:
-          error: حدثت مشكلة أثناء تحديث هذا التجميع.
-          success: تم تحديث التجميع بنجاح.
+          error: حدثت مشكلة أثناء تحديث هذه الجمعية.
+          success: تم تحديث الجمعية بنجاح.
       assemblies_copies:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
@@ -115,7 +115,7 @@ ar:
         new:
           copy: نسخ
           select: حدد البيانات التي ترغب في تكرارها
-          title: تجميع مكرر
+          title: نسخ الجمعية
       assembly_members:
         create:
           error: حدثت مشكلة أثناء إضافة عضو لهذا التجميع.
@@ -158,7 +158,7 @@ ar:
           error: حدثت مشكلة أثناء تحديث مسؤول لهذا التجميع.
           success: تم تحديث المشرف بنجاح لهذا التجميع.
       menu:
-        assemblies: جمعيات
+        assemblies: الجمعيات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
           assembly_members: أفراد
