@@ -12,7 +12,7 @@ ar:
         nickname: الاسم المستعار
         password: الكلمة السرية
         password_confirmation: أكد كلمتك السرية
-        personal_url: عنوان URL الشخصي
+        personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
     models:
       decidim/attachment_created_event: المرفق
