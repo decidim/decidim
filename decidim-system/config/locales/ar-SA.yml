@@ -4,7 +4,7 @@ ar:
       actions:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا؟
         destroy: حذف
-        edit: تصحيح
+        edit: تعديل
         new: الجديد
         save: حفظ
         title: أفعال
