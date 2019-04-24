@@ -156,6 +156,7 @@ ar:
             description: وصف
             initiative_votes_count: عدد الأصوات
             initiatives: المبادرات
+            state: الحالة
         committee_requests:
           index:
             approve: يوافق
@@ -392,7 +393,7 @@ ar:
         orders:
           label: 'فرز المبادرات حسب:'
           most_commented: الأكثر تعليقا
-          most_voted: معظم وقعت
+          most_voted: الأكثر توقيعا
           random: عشوائية
           recent: الأحدث
         result:
