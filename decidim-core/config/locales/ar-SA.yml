@@ -10,7 +10,7 @@ ar:
         email: بريدك الإلكتروني
         name: اسمك
         nickname: الاسم المستعار
-        password: كلمه السر
+        password: الكلمة السرية
         password_confirmation: أكد كلمتك السرية
         personal_url: عنوان URL الشخصي
         remove_avatar: إزالة الصورة الرمزية
@@ -31,7 +31,7 @@ ar:
         current_password: كلمة المرور الحالي
         email: البريد الإلكتروني
         name: كنية
-        password: كلمه السر
+        password: الكلمة السرية
         password_confirmation: تأكيد كلمة المرور
         remember_me: تذكرنى
     models:
@@ -817,7 +817,7 @@ ar:
           proposals: اقتراحات
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
-          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونية.<br /> الانضمام والمشاركة وتقرر.
+          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونًا.<br /> انضموا وشاركوا وقرّروا.
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
           register: تسجيل
         hero:
@@ -832,7 +832,7 @@ ar:
           conferences_count: المؤتمرات
           debates_count: المناقشات
           endorsements_count: موافقات
-          headline: الحالة الحالية لل %{organization}
+          headline: الحالة الحالية لـ %{organization}
           meetings_count: اجتماعات
           orders_count: الأصوات
           pages_count: صفحات
