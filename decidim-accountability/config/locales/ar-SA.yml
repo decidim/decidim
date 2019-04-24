@@ -67,7 +67,7 @@ ar:
           index:
             title: النتائج
           new:
-            create: خلق نتيجة
+            create: إنشاء نتيجة
             title: نتيجة جديدة
           proposals:
             close: قريب
