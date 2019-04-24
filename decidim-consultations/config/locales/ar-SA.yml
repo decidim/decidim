@@ -9,7 +9,7 @@ ar:
         introductory_image: صورة تمهيدية
         introductory_video_url: عنوان URL للفيديو التمهيدي
         questions: الأسئلة
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         start_voting_date: يبدأ التصويت
         subtitle: عنوان فرعي
         title: عنوان
@@ -21,13 +21,13 @@ ar:
         i_frame_url: عنوان URL لنظام التصويت الخارجي
         origin_scope: نطاق
         origin_title: الأصل
-        origin_url: عنوان URL الأصلي
+        origin_url: العنوان الشبكي الأصلي
         participatory_scope: نطاق المشاركة
         promoter_group: مجموعة المروجين
         question_context: سياق الكلام
         reference: مرجع
         scope: منطقة البلدية
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         subtitle: عنوان فرعي
         title: عنوان
         vote: نظام التصويت الخارجي
