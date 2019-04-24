@@ -20,7 +20,7 @@ ar:
         index:
           title: مدراء
         new:
-          create: خلق
+          create: إنشاء
           title: المشرف الجديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا المشرف.
