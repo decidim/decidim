@@ -803,7 +803,7 @@ es:
         extended:
           debates: Debates
           debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
+          how_to_participate: '¿Cómo participo en un proceso?'
           meetings: Encuentros
           meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
           more_info: Más información
@@ -811,11 +811,11 @@ es:
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
           footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
-          footer_sub_hero_headline: Bienvenido/a a la plataforma participativa %{organization}.
+          footer_sub_hero_headline: Bienvenida a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
-          participate: Participar
-          welcome: Bienvenido/a a %{organization}!
+          participate: Participa
+          welcome: Bienvenida a %{organization}!
         metrics:
           headline: Participación en cifras
         statistics:
