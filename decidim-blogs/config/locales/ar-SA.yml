@@ -36,7 +36,7 @@ ar:
           index:
             title: المشاركات
           new:
-            create: خلق
+            create: إنشاء
             title: إنشاء وظيفة
           update:
             invalid: حدثت مشكلة في حفظ المشاركة.
