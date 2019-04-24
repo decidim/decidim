@@ -412,12 +412,12 @@ ar:
       conference_speaker:
         go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
-        personal_website: موقع شخصي
+        personal_website: موقع الويب الشخصي
         show:
           more_info: مزيد من المعلومات
       conference_speaker_cell:
         personal_url:
-          personal_website: موقع شخصي
+          personal_website: موقع الويب الشخصي
         twitter_handle:
           go_to_twitter: انتقل إلى تويتر
       conference_speakers:
