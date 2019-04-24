@@ -124,7 +124,7 @@ ar:
         organization_name: اسم المنظمة
         organization_url: عنوان URL للمؤسسة
         redirect_uri: إعادة توجيه URI
-        site: موقع الكتروني
+        site: موقع الويب
   decidim:
     admin:
       actions:
@@ -542,6 +542,7 @@ ar:
       resource_permissions:
         edit:
           submit: خضع
+          title: تعديل الترخيصات
         update:
           success: تم تحديث الأذونات بنجاح.
       scope_types:
