@@ -101,7 +101,7 @@ ar:
           not_published: غير منشور
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: استشارة جديدة
         update:
           error: كانت هناك مشكلة في تحديث هذه المشاورة.
@@ -173,7 +173,7 @@ ar:
           not_published: غير منشور
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: سؤال جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
@@ -190,7 +190,7 @@ ar:
         form:
           title: معلومات عامة
         new:
-          create: خلق
+          create: إنشاء
           title: استجابة جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه الاستجابة.
