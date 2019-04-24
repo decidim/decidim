@@ -48,6 +48,7 @@ module Decidim
 
       def selective_newsletter_to(newsletter)
         return t("index.not_sent", scope: "decidim.admin.newsletters") unless newsletter.sent?
+        return t("index.all_users", scope: "decidim.admin.newsletters") if newsletter.sent? && newsletter.extended_data.blank?
         content_tag :div do
           concat sent_to_users newsletter
           concat sent_to_spaces newsletter
