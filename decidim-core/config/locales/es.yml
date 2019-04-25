@@ -1053,11 +1053,11 @@ es:
         invited_you_as_admin: "%{invited_by} te ha invitado como administradora de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como participante privada de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
-        someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
+        someone_invited_you_as_admin: Alguien te ha invitado como administradora de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como participante privada de %{application}, puedes aceptar a través del siguiente enlace.
         subject: Instrucciones de invitación
       invite_admin:
-        subject: Has sido invitado para gestionar %{organization}
+        subject: Has sido invitada a gestionar %{organization}
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
       invite_private_user:
