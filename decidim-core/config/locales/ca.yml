@@ -1091,9 +1091,9 @@ ca:
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
       new:
-        forgot_your_password: Nova contrasenya
-        send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya
-      no_token: No pots accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si hi has accedit des d'un correu electrònic de restabliment de la contrasenya, assegura't que has utilitzat l'URL complet proporcionat.
+        forgot_your_password: Has oblidat la teva contrasenya?
+        send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
+      no_token: No pots accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si hi has accedit des d'un correu electrònic de restabliment de la contrasenya, assegura't que has utilitzat la URL completa proporcionada.
       send_instructions: Rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya en pocs minuts.
       send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la teva adreça de correu electrònic en pocs minuts.
       updated: La teva contrasenya s'ha modificat correctament. Ja has iniciat la sessió.
