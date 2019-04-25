@@ -3,6 +3,7 @@
 require "spec_helper"
 
 describe "Proposals", type: :system do
+  include ActionView::Helpers::TextHelper
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -46,7 +47,7 @@ describe "Proposals", type: :system do
       click_link proposal.title
 
       expect(page).to have_content(proposal.title)
-      expect(page).to have_content(proposal.body)
+      expect(page).to have_content(strip_tags(proposal.body))
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
       expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))

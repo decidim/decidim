@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
+def generate_localized_debate_title
+  Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+end
+
 FactoryBot.define do
   factory :debate, class: "Decidim::Debates::Debate" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    title { generate_localized_debate_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
+    information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
+    instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
     component { build(:component, manifest_name: "debates") }

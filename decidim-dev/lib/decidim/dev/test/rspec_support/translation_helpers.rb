@@ -21,8 +21,8 @@ module TranslationHelpers
   #
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
-  def have_i18n_content(field, upcase: false)
-    have_content(i18n_content(field, upcase: upcase))
+  def have_i18n_content(field, upcase: false, strip_tags: false)
+    have_content(i18n_content(field, upcase: upcase, strip_tags: strip_tags))
   end
 
   # Checks that the current page doesn't have some translated content. It strips
@@ -92,8 +92,14 @@ module TranslationHelpers
   #
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
-  def i18n_content(field, upcase: false)
-    content = stripped(translated(field, locale: I18n.locale))
+  def i18n_content(field, upcase: false, strip_tags: false)
+    content = translated(field, locale: I18n.locale)
+    content = if strip_tags
+                Decidim::ApplicationController.helpers.strip_tags(content)
+              else
+                stripped(content)
+              end
+
     upcase ? content.upcase : content
   end
 end

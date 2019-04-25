@@ -2,19 +2,19 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= link_to "#{t ".proposals"} > ", proposals_path %>
-      <%= present(proposal).title %>
+      <%= decidim_html_escape(present(proposal).title).html_safe %>
     </h2>
   </div>
 
   <div class="card-section">
     <div class="row column">
-      <strong><%= t ".body" %>: </strong>  <%= present(proposal).body %>
+      <strong><%= t ".body" %>:</strong>  <%= simple_format(present(proposal).body(strip_tags: true)) %>
     </div>
     <div class="row column">
-      <strong><%= t ".created_at" %>: </strong> <%= l proposal.created_at, format: :decidim_short %>
+      <strong><%= t ".created_at" %>:</strong> <%= l proposal.created_at, format: :decidim_short %>
     </div>
     <div class="row column">
-      <strong><%= t ".proposal_votes_count" %>: </strong> <%= proposal.proposal_votes_count %>
+      <strong><%= t ".proposal_votes_count" %>:</strong> <%= proposal.proposal_votes_count %>
     </div>
   </div>
 </div>

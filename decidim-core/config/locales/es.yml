@@ -557,42 +557,42 @@ es:
           description_own: "%{score} personas te están siguiendo."
           name: Seguidores
           next_level_in: '¡Consigue que te sigan %{score} personas más para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante no tiene seguidores todavía.
+          unearned_another: Esta participante todavía no tiene seguidoras.
           unearned_own: Aún no tienes seguidores.
         index:
-          badge_title: "Distintivo %{name}"
-          how: Como puedes conseguirlo
-          page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
-          title: Distintivos
+          badge_title: "Insignia %{name}"
+          how: Como puedes conseguirla
+          page_description: Las insignias son reconocimientos a las acciones de las participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes conseguirlas.
+          title: Insignias
         invitations:
           conditions:
-            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando.
-            - Supera este nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
+            - Usa el enlace "invitar amigas" en tu página de usuaria para invitar a tus amistades
+            - Personaliza, si quieres, el mensaje que estás enviando
+            - Subirás de nivel enviando invitaciones y consiguiendo nuevas participantes.
+          description: Esta insignia se consigue cuando has invitado a algunas personas a la plataforma %{organization_name}, y se han registrado como participantes. ¡Gracias por dar a conocer %{organization_name} a otras y ayudar a ampliar la comunidad!
           description_another: Esta participante ha invitado a %{score} personas.
           description_own: Has invitado a %{score} personas.
           name: Invitaciones
           next_level_in: '¡Invita a %{score} personas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha invitado a nadie.
-          unearned_own: No has invitado a nadie aún.
-      description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
+          unearned_own: Aún no has invitado a nadie.
+      description: Las insignias son reconocimientos de las acciones de las participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
     group_admins:
       actions:
-        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
+        are_you_sure: '¿Segura? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras
         success: Permisos de administración eliminados correctamente
       index:
-        current_admins: 'Administradores actuales:'
-        manage_admins: Gestionar administradores
+        current_admins: 'Administradoras actuales:'
+        manage_admins: Gestionar administradoras
     group_invites:
       accept:
         error: Se ha producido un error al aceptar esta invitación
-        success: Invitación aceptada correctamente
+        success: Se ha aceptado la invitación correctamente
       accept_invitation: Aceptar
       accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Acepta o rechaza las invitaciones:'
       index:

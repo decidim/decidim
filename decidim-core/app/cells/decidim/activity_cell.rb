@@ -9,6 +9,7 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
+    include Decidim::SanitizeHelper
 
     def show
       return unless renderable?

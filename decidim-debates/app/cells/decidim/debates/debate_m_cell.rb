@@ -13,6 +13,10 @@ module Decidim
 
       private
 
+      def title
+        present(model).title
+      end
+
       def resource_icon
         icon "debates", class: "icon--big"
       end
