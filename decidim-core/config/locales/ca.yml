@@ -1061,9 +1061,9 @@ ca:
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
       invite_private_user:
-        subject: Has estat convidat a un procés participatiu privat a %{organization}
+        subject: Has estat convidada a un procés participatiu privat a %{organization}
       organization_admin_invitation_instructions:
-        subject: Has estat convidat a gestionar %{organization}
+        subject: Has estat convidada a gestionar %{organization}
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
