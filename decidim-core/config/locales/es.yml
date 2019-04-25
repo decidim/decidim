@@ -1059,11 +1059,11 @@ es:
       invite_admin:
         subject: Has sido invitada a gestionar %{organization}
       invite_collaborator:
-        subject: Has sido invitado a colaborar en %{organization}
+        subject: Has sido invitada a colaborar en %{organization}
       invite_private_user:
-        subject: Has sido invitado a un proceso privado de participación en %{organization}
+        subject: Has sido invitada a un proceso privado de participación en %{organization}
       organization_admin_invitation_instructions:
-        subject: Has sido invitado para gestionar %{organization}
+        subject: Has sido invitada a gestionar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
