@@ -928,7 +928,7 @@ es:
       term_input_placeholder: Buscar
     searches:
       filters:
-        back: Volver a resultados
+        back: Vuelve a los resultados
         jump_to: 'Salta a:'
         state:
           active: Activo
