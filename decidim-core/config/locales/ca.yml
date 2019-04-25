@@ -936,10 +936,10 @@ ca:
           future: Futurs
           past: Passats
       filters_small_view:
-        close_modal: Tanca el modal
-        filter: Filtre
+        close_modal: Tancar el modal
+        filter: Filtra
         filter_by: Filtra per
-        unfold: Desplegar
+        unfold: Desplega
       results:
         results:
           one: "%{count} resultat"
