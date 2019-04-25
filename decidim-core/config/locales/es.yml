@@ -897,13 +897,13 @@ es:
         invite_user: Invita a la participante
         join_user_group: Solicita unirse al grupo
         leave_user_group: Deja el grupo
-        manage_user_group_admins: Gestionar los administradores
-        manage_user_group_users: Gestionar los miembros
-        resend_email_confirmation_instructions: Vuelve a enviar las instrucciones de confirmación por correo electrónico
+        manage_user_group_admins: Gestiona las administradoras
+        manage_user_group_users: Gestionar las miembros
+        resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
     reported_mailer:
       hide:
         hello: Hola %{name},
-        manage_moderations: Gestionar moderaciones
+        manage_moderations: Gestiona moderaciones
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
