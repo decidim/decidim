@@ -879,7 +879,7 @@ ca:
         activity: Activitat
         badges: Insígnies
         followers: Seguidores
-        following: Segueix
+        following: Seguint
         groups: Grups
         members: Membres
         timeline: Línia de temps
@@ -887,16 +887,16 @@ ca:
       sidebar:
         badges:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
-          title: Distintius
+          title: Insígnies
       user:
-        confirmation_instructions_sent: S'han enviat instruccions de confirmació de correu electrònic
+        confirmation_instructions_sent: Instruccions de confirmació de correu electrònic enviades
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grup
-        fill_in_email_to_confirm_it: Ompliu el correu electrònic del teu grup per confirmar-lo
+        fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo
         invite_user: Convida la participant
-        join_user_group: Sol·licitud per unir-se al grup
-        leave_user_group: Marxar del grup
+        join_user_group: Sol·licita unir-se al grup
+        leave_user_group: Marxa del grup
         manage_user_group_admins: Administra els administradors
         manage_user_group_users: Gestiona els membres
         resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
