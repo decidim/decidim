@@ -993,13 +993,13 @@ ca:
       show:
         my_interests: Els meus interessos
         no_scopes: Aquesta organització encara no té cap àmbit!
-        select_your_interests: Selecciona els temes dels quals t'interessa rebre esdeveniments relacionats amb ells a la pestanya Timeline del perfil.
+        select_your_interests: Selecciona els temes que t'interessen per rebre'n esdeveniments relacionats a la pestanya Timeline del teu perfil.
         update_my_interests: Actualitza els meus interessos
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
         success: Els teus interessos s'han actualitzat correctament.
     welcome_notification:
-      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut/da!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
   devise:
     confirmations:
@@ -1007,7 +1007,7 @@ ca:
       new:
         resend_confirmation_instructions: Reenvia les instruccions de confirmació
       send_instructions: Rebràs un correu electrònic amb instruccions per confirmar la teva adreça de correu electrònic en pocs minuts.
-      send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebrà un correu electrònic amb instruccions per confirmar la teva adreça de correu electrònic en pocs minuts.
+      send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebràs un correu electrònic amb instruccions per confirmar la teva adreça en pocs minuts.
     failure:
       already_authenticated: Ja has iniciat la sessió.
       inactive: El teu compte encara no està activat.
