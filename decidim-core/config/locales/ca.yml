@@ -1101,20 +1101,20 @@ ca:
     registrations:
       destroyed: El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
       edit:
-        are_you_sure: Estàs segur/a?
+        are_you_sure: Estàs segura?
         cancel_my_account: Cancel·lar el meu compte
         currently_waiting_confirmation_for_email: 'Estem esperant la confirmació per a: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: Deixa-ho en blanc si no vols canviar-lo
         title: Edita %{resource}
         unhappy: Infeliç?
-        update: Actualització
-        we_need_your_current_password_to_confirm_your_changes: Necessitem la contrasenya actual per confirmar els canvis
+        update: Actualitzar
+        we_need_your_current_password_to_confirm_your_changes: Necessitem la teva contrasenya actual per confirmar els canvis
       new:
         sign_up: Registra't
       signed_up: Benvinguda! Has iniciat la sessió amb èxit.
       signed_up_but_inactive: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar la sessió perquè el teu compte encara no està activat.
-      signed_up_but_locked: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el teu compte està bloquejat.
-      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Seguiu l'enllaç per activar el teu compte.
+      signed_up_but_locked: T'has registrat amb èxit. Tanmateix, no has pogut iniciar la sessió perquè el teu compte està bloquejat.
+      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Segueix l'enllaç per activar el teu compte.
       update_needs_confirmation: Has actualitzat el teu compte amb èxit, però hem de verificar la teva nova adreça electrònica. Comprova el teu correu electrònic i segueix l'enllaç de confirmació per confirmar la teva nova adreça de correu electrònic.
       updated: El compte s'ha actualitzat correctament.
     sessions:
