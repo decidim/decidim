@@ -534,7 +534,7 @@ ar:
         button: إتبع
         error: حدثت مشكلة بعد هذا المورد.
       destroy:
-        button: وقف التالية
+        button: إيقاف المتابَعة
         error: حدثت مشكلة في إلغاء متابعة هذا المورد.
     forms:
       current_file: الملف الحالي
@@ -601,7 +601,7 @@ ar:
         error: حدثت مشكلة في قبول هذه الدعوة
         success: تم قبول الدعوة بنجاح
       accept_invitation: قبول
-      accept_or_reject_group_invitations: 'لقد دعوتك المجموعات التالية للانضمام إليهم. قبول أو رفض طلباتهم:'
+      accept_or_reject_group_invitations: 'لقد دَعتك المجموعات التالية للانضمام إليهم. يمكنك قبول أو رفض طلباتهم:'
       index:
         invite: دعا
         invite_user: دعوة مشارك
@@ -810,7 +810,7 @@ ar:
         extended:
           debates: المناقشات
           debates_explanation: مناقشة ومناقشة وتبادل وجهات النظر الخاصة بك وإثراء المواضيع ذات الصلة.
-          how_to_participate: كيف أشارك في العملية؟
+          how_to_participate: كيف أشارك في المسار؟
           meetings: اجتماعات
           meetings_explanation: معرفة أين ومتى يمكنك المشاركة في الاجتماعات العامة.
           more_info: مزيد من المعلومات
