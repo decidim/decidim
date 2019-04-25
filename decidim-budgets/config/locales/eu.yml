@@ -61,13 +61,17 @@ eu:
             success: "%{number} proposamen arrakastaz proiektuak inportatu"
           new:
             create: Inportatu proposamenak proiektuetarako
-            no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile
+              honetan ez dago proposamenrik.
             select_component: Hautatu osagaia
       admin_log:
         project:
-          create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
-          delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
-          update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
+          create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan
+            sortu zen"
+          delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan
+            ezabatu da"
+          update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio
+            eguneratu du"
       models:
         project:
           fields:
@@ -75,14 +79,17 @@ eu:
             title: Titulua
       projects:
         budget_confirm:
-          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.
+          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu
+            aldatu.
           cancel: Utzi
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
         budget_excess:
           close: Itxi
-          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin
+            da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu
+            edo botoa eman zure lehenespenekin bat.
           ok: Ados
           title: Aurrekontua gainditu da
         budget_summary:
@@ -90,10 +97,15 @@ eu:
           assigned: 'Esleituta:'
           cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
-            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
+            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu,
+              ezeztatu hemen: %{cancel_link}.'
             title: Botoa zuzen bidali da
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget
+            for? Assign at least %{minimum_budget} to the projects you want and vote
+            with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate
+            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
+            all votes are irrevocable.
           title: Zure esku dago aurrekontua erabakitzea
         count:
           projects_count:
@@ -112,8 +124,12 @@ eu:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          description_per_budget: This project exceeds the maximum budget and can
+            not be added. If you want, you can delete a project you have already selected
+            to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects
+            allowed for this budget. If you wish, you can delete a project that you
+            have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -160,7 +176,8 @@ eu:
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geocoding enabled
             projects_per_page: Orrialde bakoitzeko proiektuak
-            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri
+              daitezke
             total_budget: Aurrekontu osoa
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -171,6 +188,14 @@ eu:
             comments_blocked: Iruzkinak blokeatuta
             show_votes: Erakutsi botoak
             votes_enabled: Botoak gaituta
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Errorea gertatu da zure botoa prozesatzean

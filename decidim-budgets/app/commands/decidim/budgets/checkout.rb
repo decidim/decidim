@@ -22,6 +22,8 @@ module Decidim
       def call
         return broadcast(:invalid, @order) unless checkout!
 
+        notify_user
+
         broadcast(:ok, @order)
       end
 
@@ -34,6 +36,15 @@ module Decidim
           @order.checked_out_at = Time.current
           @order.save
         end
+      end
+
+      def notify_user
+        Decidim::EventsManager.publish(
+          event: "decidim.events.budgets.order_checkout",
+          event_class: Decidim::Budgets::CheckoutOrderEvent,
+          resource: @order.component,
+          affected_users: [@order.user]
+        )
       end
     end
   end

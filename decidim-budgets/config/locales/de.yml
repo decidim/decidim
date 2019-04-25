@@ -61,13 +61,17 @@ de:
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
-            no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem
+              partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
       admin_log:
         project:
-          create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name} Raum"
-          delete: "%{user_name} löschte das %{resource_name} Projekt in den %{space_name} Leerzeichen"
-          update: "%{user_name} aktualisiert das %{resource_name} Projekt in den %{space_name} Räumen"
+          create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name}
+            Raum"
+          delete: "%{user_name} löschte das %{resource_name} Projekt in den %{space_name}
+            Leerzeichen"
+          update: "%{user_name} aktualisiert das %{resource_name} Projekt in den %{space_name}
+            Räumen"
       models:
         project:
           fields:
@@ -75,14 +79,18 @@ de:
             title: Titel
       projects:
         budget_confirm:
-          are_you_sure: Sind Sie einverstanden? Sobald Sie Ihre Stimme bestätigt haben, können Sie sie nicht ändern.
+          are_you_sure: Sind Sie einverstanden? Sobald Sie Ihre Stimme bestätigt haben,
+            können Sie sie nicht ändern.
           cancel: Stornieren
           confirm: Bestätigen
-          description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des Budgets zu sein.
+          description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des
+            Budgets zu sein.
           title: Bestätigung der Abstimmung
         budget_excess:
           close: Schließen
-          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten, können Sie ein Projekt löschen, das Sie bereits ausgewählt haben, oder Sie wählen mit Ihren Einstellungen.
+          description: Dieses Projekt überschreitet das maximale Budget und kann nicht
+            hinzugefügt werden. Wenn Sie möchten, können Sie ein Projekt löschen,
+            das Sie bereits ausgewählt haben, oder Sie wählen mit Ihren Einstellungen.
           ok: OK
           title: Maximales Budget überschritten
         budget_summary:
@@ -90,10 +98,15 @@ de:
           assigned: 'Zugewiesen:'
           cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
-            description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
+            description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre
+              Meinung geändert haben, können Sie %{cancel_link}.
             title: Haushaltsabstimmung abgeschlossen
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget
+            for? Assign at least %{minimum_budget} to the projects you want and vote
+            with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate
+            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
+            all votes are irrevocable.
           title: Sie entscheiden über das Budget
         count:
           projects_count:
@@ -112,8 +125,12 @@ de:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          description_per_budget: This project exceeds the maximum budget and can
+            not be added. If you want, you can delete a project you have already selected
+            to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects
+            allowed for this budget. If you wish, you can delete a project that you
+            have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -160,7 +177,8 @@ de:
             comments_enabled: Kommentare aktiviert
             geocoding_enabled: Geocoding enabled
             projects_per_page: Projekte pro Seite
-            resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            resources_permissions_enabled: Aktionsberechtigungen können für jedes
+              Meeting festgelegt werden
             total_budget: Gesamtbudget; Gesamtetat
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -171,6 +189,14 @@ de:
             comments_blocked: Kommentare blockiert
             show_votes: Stimmen anzeigen
             votes_enabled: Abstimmung aktiviert
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten

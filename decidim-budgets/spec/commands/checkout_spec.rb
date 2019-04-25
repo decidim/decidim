@@ -31,6 +31,19 @@ module Decidim::Budgets
         expect { subject.call }.to broadcast(:ok)
       end
 
+      it "notifies user" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.budgets.order_checkout",
+            event_class: Decidim::Budgets::CheckoutOrderEvent,
+            resource: order.component,
+            affected_users: [order.user]
+          )
+
+        subject.call
+      end
+
       it "sets the checked out at" do
         subject.call
         order.reload

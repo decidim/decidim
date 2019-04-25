@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -54,27 +55,33 @@ fi-pl:
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia suunnitelmiin
-            no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
+            no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja,
+              joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             select_component: Valitse komponentti
       admin_log:
         project:
           create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
-          delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name}
+            -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name}
+            -tilassa"
       models:
         project:
           fields:
             title: Otsikko
       projects:
         budget_confirm:
-          are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää muuttaa sitä.
+          are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää
+            muuttaa sitä.
           cancel: Peruuta
           confirm: Vahvista
           description: Olet valinnut nämä suunnitelmat osaksi budjettia.
           title: Vahvista ääni
         budget_excess:
           close: Sulje
-          description: Tämä suunnitelma ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Jos haluat, voit tehdä "tilaa" budjettiin poistamalla suunnitelman, jonka olet jo valinnut lisättäväksi.
+          description: Tämä suunnitelma ylittää maksimibudjetin, minkä takia sitä
+            ei voida lisätä. Jos haluat, voit tehdä "tilaa" budjettiin poistamalla
+            suunnitelman, jonka olet jo valinnut lisättäväksi.
           ok: OK
           title: Maksimibudjetti ylitetty
         budget_summary:
@@ -82,9 +89,12 @@ fi-pl:
           assigned: 'Varattu:'
           cancel_order: poista äänesi ja aloitta alusta
           checked_out:
-            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
+            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit
+              %{cancel_link}.
             title: Budjetin äänestys suoritettu
-          description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
+          description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi
+            varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat
+            toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
           title: Voit päättää budjetin
         count:
           projects_count:
@@ -130,7 +140,8 @@ fi-pl:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             projects_per_page: Suunnitelmat sivua kohden
-            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
+            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan
+              asettaa jokaiselle suunnitelmalle
             total_budget: Kokonaisbudjetti
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
@@ -138,6 +149,14 @@ fi-pl:
             comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
             votes_enabled: Äänestys on käytössä
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe

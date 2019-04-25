@@ -59,11 +59,13 @@ ru:
             success: Проект успешно обновлен
         proposals_imports:
           create:
-            invalid: При попытке позаимствовать эти предложения в проекты произошла ошибка
+            invalid: При попытке позаимствовать эти предложения в проекты произошла
+              ошибка
             success: "%{number} предложений успешно позаимствованы для проектов"
           new:
             create: Внести в проекты позаимствованные предложения
-            no_components: В этом пространстве соучастия нет других составляющих предложений, куда можно было бы внести позаимствованные предложения.
+            no_components: В этом пространстве соучастия нет других составляющих предложений,
+              куда можно было бы внести позаимствованные предложения.
             select_component: Пожалуйста, выберите составляющую
       admin_log:
         project:
@@ -77,14 +79,18 @@ ru:
             title: Название
       projects:
         budget_confirm:
-          are_you_sure: Вы согласны? Подтвердив свой голос, вы не сможете потом его изменить.
+          are_you_sure: Вы согласны? Подтвердив свой голос, вы не сможете потом его
+            изменить.
           cancel: Отменить
           confirm: Подтвердить
           description: Вот те проекты, которые вы выбрали для включения в бюджет.
           title: Подтвердить голос
         budget_excess:
           close: Закрыть
-          description: Добавление этого проекта превысит предельный бюджет, и поэтому его сейчас нельзя добавить. Если хотите, вы можете удалить один из проектов, который вы ранее выбрали для добавления, или проголосовать за то распределение средств, которое вы уже сделали.
+          description: Добавление этого проекта превысит предельный бюджет, и поэтому
+            его сейчас нельзя добавить. Если хотите, вы можете удалить один из проектов,
+            который вы ранее выбрали для добавления, или проголосовать за то распределение
+            средств, которое вы уже сделали.
           ok: Хорошо
           title: Превышен предельный бюджет
         budget_summary:
@@ -92,10 +98,15 @@ ru:
           assigned: 'Выделено:'
           cancel_order: удалить свой голос и начать все сначала
           checked_out:
-            description: Вы уже голосовали за бюджет. Если вы передумали, вы можете %{cancel_link}.
+            description: Вы уже голосовали за бюджет. Если вы передумали, вы можете
+              %{cancel_link}.
             title: Голосование по бюджету завершено
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget
+            for? Assign at least %{minimum_budget} to the projects you want and vote
+            with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate
+            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
+            all votes are irrevocable.
           title: Вы определяете бюджет
         count:
           projects_count:
@@ -116,8 +127,12 @@ ru:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          description_per_budget: This project exceeds the maximum budget and can
+            not be added. If you want, you can delete a project you have already selected
+            to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects
+            allowed for this budget. If you wish, you can delete a project that you
+            have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -168,7 +183,8 @@ ru:
             comments_enabled: Комментарии включены
             geocoding_enabled: Geocoding enabled
             projects_per_page: Проектов на страницу
-            resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
+            resources_permissions_enabled: Для каждой встречи можно задать те или
+              иные разрешения на действия
             total_budget: Общий бюджет
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -179,6 +195,14 @@ ru:
             comments_blocked: Комментарии отключены
             show_votes: Показать голоса
             votes_enabled: Голосование включено
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: При обработке вашего голоса произошла ошибка

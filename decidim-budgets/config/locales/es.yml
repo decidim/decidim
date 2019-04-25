@@ -61,13 +61,15 @@ es:
             success: "%{number} propuestas importadas con éxito en proyectos"
           new:
             create: Importar propuestas a proyectos
-            no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            no_components: No hay otros componentes de la propuesta en este espacio
+              participativo para importar las propuestas en los proyectos.
             select_component: Por favor seleccione un componente
       admin_log:
         project:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
-          update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio
+            %{space_name}"
       models:
         project:
           fields:
@@ -75,14 +77,18 @@ es:
             title: Título
       projects:
         budget_confirm:
-          are_you_sure: "¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo."
+          are_you_sure: "¿Estás de acuerdo? Una vez que hayas confirmado tu voto,
+            no puedes cambiarlo."
           cancel: Cancelar
           confirm: Confirmar
-          description: Estos son los proyectos que has elegido para formar parte del presupuesto.
+          description: Estos son los proyectos que has elegido para formar parte del
+            presupuesto.
           title: Confirmar voto
         budget_excess:
           close: Cerrar
-          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puede eliminar un proyecto que ya hayas seleccionado o dar apoyo con tus preferencias.
+          description: Este proyecto sobrepasa el presupuesto máximo y no se puede
+            añadir. Si lo deseas, puede eliminar un proyecto que ya hayas seleccionado
+            o dar apoyo con tus preferencias.
           ok: De acuerdo
           title: Presupuesto excedido
         budget_summary:
@@ -90,10 +96,15 @@ es:
           assigned: 'Asignado:'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
-            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
+            description: Ya has votado para el presupuesto. Si has cambiado de idea,
+              puedes %{cancel_link}.
             title: Voto enviado correctamente
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget
+            for? Assign at least %{minimum_budget} to the projects you want and vote
+            with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate
+            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
+            all votes are irrevocable.
           title: Tú decides el presupuesto
         count:
           projects_count:
@@ -112,8 +123,12 @@ es:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          description_per_budget: This project exceeds the maximum budget and can
+            not be added. If you want, you can delete a project you have already selected
+            to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects
+            allowed for this budget. If you wish, you can delete a project that you
+            have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -160,7 +175,8 @@ es:
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding enabled
             projects_per_page: Proyectos por página
-            resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
+            resources_permissions_enabled: Se pueden establecer permisos de acciones
+              para cada encuentro
             total_budget: Presupuesto total
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -171,6 +187,14 @@ es:
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar los votos
             votes_enabled: Votación habilitada
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

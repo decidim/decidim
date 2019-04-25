@@ -171,6 +171,14 @@ fi:
             comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
             votes_enabled: Äänestys on käytössä
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe

@@ -57,17 +57,20 @@ sv:
             success: Projektet har uppdaterats
         proposals_imports:
           create:
-            invalid: Det har uppstått ett problem med att importera förslagen till projekt
+            invalid: Det har uppstått ett problem med att importera förslagen till
+              projekt
             success: "%{number} förslag importerades till projekt"
           new:
             create: Importera förslag till projekt
-            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme för att importera förslagen till projekt.
+            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme
+              för att importera förslagen till projekt.
             select_component: Var god välj en komponent
       admin_log:
         project:
           create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade projektet %{resource_name} i utrymmet %{space_name}"
-          update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet %{space_name}"
+          update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet
+            %{space_name}"
       models:
         project:
           fields:
@@ -75,14 +78,17 @@ sv:
             title: Titel
       projects:
         budget_confirm:
-          are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
+          are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra
+            den.
           cancel: Avbryt
           confirm: Bekräfta
           description: Det här är de projekt du har valt att vara del av budgeten.
           title: Bekräfta röst
         budget_excess:
           close: Stäng
-          description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har valt för att lägga till eller göra din röst med dina önskemål.
+          description: Detta projekt överstiger den maximala budgeten och kan inte
+            läggas till. Om du vill kan du ta bort ett projekt som du redan har valt
+            för att lägga till eller göra din röst med dina önskemål.
           ok: OK
           title: Maximal budget överskreds
         budget_summary:
@@ -90,10 +96,15 @@ sv:
           assigned: 'Tilldelad:'
           cancel_order: ta bort din röst och börja om
           checked_out:
-            description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
+            description: Du har redan röstat för budgeten. Om du har ändrat dig kan
+              du %{cancel_link}.
             title: Budgetomröstning slutförd
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget
+            for? Assign at least %{minimum_budget} to the projects you want and vote
+            with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate
+            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
+            all votes are irrevocable.
           title: Du bestämmer budgeten
         count:
           projects_count:
@@ -112,8 +123,12 @@ sv:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          description_per_budget: This project exceeds the maximum budget and can
+            not be added. If you want, you can delete a project you have already selected
+            to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects
+            allowed for this budget. If you wish, you can delete a project that you
+            have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -160,7 +175,8 @@ sv:
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding enabled
             projects_per_page: Projekt per sida
-            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för
+              varje möte
             total_budget: Total budget
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -171,6 +187,14 @@ sv:
             comments_blocked: Kommentarer blockerade
             show_votes: Visa röster
             votes_enabled: Röstning aktiverad
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you
+            like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Ett fel uppstod när din röst behandlades
