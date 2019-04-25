@@ -1071,7 +1071,7 @@ es:
       reset_password_instructions:
         action: Cambiar mi contraseña
         greeting: '¡Hola %{recipient}!'
-        instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, y puede hacerlo a través del siguiente enlace.
+        instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, puedes hacerlo a través del siguiente enlace.
         instruction_2: Si no lo solicitaste, ignora este correo electrónico.
         instruction_3: Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.
         subject: Restablecer instrucciones de contraseña
@@ -1082,14 +1082,14 @@ es:
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión fallidos.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
-      failure: No se pudo autenticar desde %{kind} porque "%{reason}".
+      failure: No puedes autenticarte desde %{kind} porque "%{reason}".
       success: Se ha autenticado correctamente desde la cuenta %{kind}.
     passwords:
       edit:
         change_my_password: Cambiar mi contraseña
         change_your_password: Cambia tu contraseña
         confirm_new_password: Confirmar la nueva contraseña
-        new_password: Contraseña
+        new_password: Nueva contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
