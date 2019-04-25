@@ -1024,24 +1024,24 @@ es:
         nickname_help: Tu alias en %{organization}.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuaria y contraseña.
-      invitation_removed: Tu invitación fue eliminada.
+      invitation_removed: Se ha eliminado tu invitación.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
         header: Enviar invitación
         submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
-      send_instructions: Se envió un correo electrónico de invitación a %{email}.
+      send_instructions: Se envió una invitación via correo electrónico a %{email}.
       updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña fue establecida con éxito.
+      updated_not_active: Tu contraseña se ha establecido correctamente.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
-        greeting: Bienvenido/a %{recipient}!
+        greeting: Bienvenida %{recipient}!
         instruction: 'Puedes confirmar el correo electrónico de tu cuenta a través del siguiente enlace:'
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
-        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada por %{email}.
+        message: Nos ponemos en contacto contigo para notificarte que tu correo electrónico se modifica a %{email}.
         subject: Correo electrónico cambiado
       invitation_instructions:
         accept: Aceptar invitación
