@@ -1092,7 +1092,7 @@ es:
         new_password: Nueva contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
+        send_me_reset_password_instructions: Envíame instrucciones para restablecer la contraseña
       no_token: No puedes acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si vienes de un correo electrónico de restablecimiento de contraseña, asegúrate de haber utilizado la URL provista completa.
       send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos.
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos minutos.
