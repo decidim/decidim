@@ -1049,10 +1049,9 @@ ca:
         decline: Declina la invitació
         hello: Hola %{email},
         ignore: |-
-          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
-          El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
-        invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
-        invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privata de %{application}. Pots acceptar a través de l'enllaç següent."
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuària i contrasenya.
+        invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privada de %{application}. Pots acceptar a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
         someone_invited_you_as_private_user: Algú t'ha convidat com a participant privada de %{application}. Pots acceptar a través del següent enllaç.
