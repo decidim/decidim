@@ -26,14 +26,14 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
       end
 
-      def title(links: false, extras: true)
+      def title(links: false, extras: true, html_escape: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.title)
-        renderer.render(links: links, extras: extras).html_safe
+        renderer.render(links: links, extras: extras, html_escape: html_escape).html_safe
       end
 
-      def body(links: false, extras: true)
+      def body(links: false, extras: true, strip_tags: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.body)
-        renderer.render(links: links, extras: extras).html_safe
+        renderer.render(links: links, extras: extras, strip_tags: strip_tags).html_safe
       end
     end
   end

@@ -12,11 +12,11 @@ module Decidim
       end
 
       def resource_link_text
-        presenter.title
+        decidim_html_escape(presenter.title)
       end
 
       def description
-        presenter.body(links: true)
+        strip_tags(presenter.body(links: true))
       end
 
       def presenter

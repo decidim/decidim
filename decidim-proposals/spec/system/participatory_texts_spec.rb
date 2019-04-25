@@ -3,6 +3,9 @@
 require "spec_helper"
 
 describe "Participatory texts", type: :system do
+  include Decidim::SanitizeHelper
+  include ActionView::Helpers::TextHelper
+
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -10,13 +13,15 @@ describe "Participatory texts", type: :system do
     expect(page).to have_tag(selector, text: proposal.title)
     prop_block = page.find(selector)
     prop_block.hover
+    clean_proposal_body = strip_tags(proposal.body)
+
     expect(prop_block).to have_button("Follow")
     expect(prop_block).to have_link("Amend") if component.settings.amendments_enabled
-    expect(prop_block).to have_link(proposal.emendations.count) if component.settings.amendments_enabled
+    expect(prop_block).to have_link(proposal.emendations.count.to_s) if component.settings.amendments_enabled
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
-    expect(prop_block).to have_link(proposal.comments.count) if component.settings.comments_enabled
-    expect(prop_block).to have_content(proposal.body) if proposal.participatory_text_level == "article"
-    expect(prop_block).not_to have_content(proposal.body) if proposal.participatory_text_level != "article"
+    expect(prop_block).to have_link(proposal.comments.count.to_s) if component.settings.comments_enabled
+    expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
+    expect(prop_block).not_to have_content(clean_proposal_body) if proposal.participatory_text_level != "article"
   end
 
   shared_examples_for "lists all the proposals ordered" do

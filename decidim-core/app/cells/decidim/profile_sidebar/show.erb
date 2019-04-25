@@ -11,7 +11,7 @@
       <% end %>
     </h5>
     <div class="mb-s text-compact">
-      <small><%= profile_user.about %></small>
+      <small><%= strip_tags(profile_user.about) %></small>
     </div>
     <% if profile_user.personal_url.present? %>
       <%= link_to html_truncate(profile_user.personal_url.gsub(%r{https?\:\/\/}, ""), length: 30), profile_user.personal_url %>

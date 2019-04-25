@@ -557,71 +557,71 @@ ca:
           description_own: "%{score} participants et segueixen."
           name: Seguidors
           next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
-          unearned_another: Aquesta participant encara no té cap seguidora.
+          unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no tens seguidors.
         index:
-          badge_title: "%{name} distintiu"
-          how: Com es pot aconseguir?
-          page_description: Els distintius són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de aconseguir-les.
-          title: Distintius
+          badge_title: "Insígnia %{name}"
+          how: Com pots aconseguir-la
+          page_description: Les insígnies són reconeixements a les accions participatives i al progrés a la plataforma. A mesura que comencis a descobrir, participar i interactuar en la plataforma, obtindrà diferents insísnies. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
+          title: Insígnies
         invitations:
           conditions:
-            - Utilitza l'enllaç "convidar amics/gues" a la teva pàgina d'usuari per convidar a les teves amistats.
-            - Personalitza, si vols, el missatge que envies
+            - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
+            - Personalitza, si vols, el missatge que estàs enviant
             - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
-          description: Aquest distintiu es concedeix quan has convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i es converteixen en participants. Gràcies per donar a conèixer %{organization_name} als altres i ajudar a ampliar la comunitat!
+          description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
           description_another: Aquesta participant ha convidat a %{score} persones.
           description_own: Has convidat %{score} persones.
           name: Invitacions
           next_level_in: Convida a %{score} persones més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha convidat ningú.
-          unearned_own: Encara no has convidat ningú.
+          unearned_own: Encara no has convidat a ningú.
       description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
       level: Nivell %{level}
-      reached_top: Has arribat al nivell superior d'aquesta insígnia.
+      reached_top: Has arribat al màxim nivell d'aquesta insígnia.
     group_admins:
       actions:
-        are_you_sure: Segur que vols fer aquesta acció? Això no eliminarà la participant del grup.
-        demote_admin: Elimina l'administrador
+        are_you_sure: Segura? Això no eliminarà la participant del grup.
+        demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
-        success: S'ha eliminat correctament la participant del panell d'administració
+        success: Permisos d'administració eliminats correctament
       index:
-        current_admins: 'Administradors actuals:'
-        manage_admins: Gestiona els administradors
+        current_admins: 'Administradores actuals:'
+        manage_admins: Gestionar administradores
     group_invites:
       accept:
         error: S'ha produït un error en acceptar aquesta invitació
         success: S'ha acceptat la invitació correctament
-      accept_invitation: Accepta
+      accept_invitation: Acceptar
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
         invite: Convidar
         invite_user: Convidar a una participant
       invite:
         error: S'ha produït un error en convidar aquesta participant
-        success: S'ha convidat la participant correctament
+        success: Participant convidada correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta invitació
-        success: S'ha rebutjat la invitació correctament
+        success: Invitació rebutjada correctament
       reject_invitation: Rebutjar
     group_members:
       accept:
-        error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació
-        success: La sol·licitud d'incorporació s'ha acceptat correctament
+        error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup
+        success: Sol·licitud acceptada correctament
       actions:
         are_you_sure: Estàs segur?
         promote_to_admin: Fer administrador
-        remove_from_group: Elimina la participant
+        remove_from_group: Eliminar participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
-        manage_members: Gestiona els membres
+        manage_members: Gestiona les membres
       promote:
         error: S'ha produït un error en promoure aquesta participant
-        success: La participant s'ha promocionat correctament
+        success: Participant promocionada correctament
       reject:
         error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
-        success: La sol·licitud d'incorporació s'ha rebutjat correctament
+        success: Sol·licitud d'incorporació rebutjada correctament
       remove:
         error: S'ha produït un error en eliminar aquesta participant del grup
         success: La participant s'ha eliminat correctament del grup
