@@ -1006,16 +1006,16 @@ es:
       confirmed: Tu dirección de correo electrónico ha sido confirmada con éxito.
       new:
         resend_confirmation_instructions: Reenviar las instrucciones de confirmación
-      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
+      send_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones para confirmar tu dirección en pocos minutos.
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
       inactive: Tu cuenta aún no está activada.
-      invalid: '%{authentication_keys} o contraseña inválida.'
-      invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
+      invalid: '%{authentication_keys} o contraseña no son válidos.'
+      invited: Tienes una invitación pendiente, acéptala para acabar de crear tu cuenta.
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
       locked: Tu cuenta está bloqueada.
-      not_found_in_database: '%{authentication_keys} o contraseña inválida.'
+      not_found_in_database: '%{authentication_keys} o contraseña no son válidos.'
       timeout: Tu sesión expiró Por favor, inicia sesión de nuevo para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
@@ -1023,7 +1023,7 @@ es:
         header: Termina de crear tu cuenta
         nickname_help: Tu alias en %{organization}.
         submit_button: Guardar
-        subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
+        subtitle: Si aceptas la invitación, por favor establece tu nombre de usuaria y contraseña.
       invitation_removed: Tu invitación fue eliminada.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
