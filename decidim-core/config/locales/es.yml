@@ -949,19 +949,19 @@ es:
       embed_modal:
         close_window: Cierra la ventana
         embed: Por favor, pega este código en tu página
-        embed_link: Incrustar
+        embed_link: Incrusta
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
       flag_modal:
-        already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
+        already_reported: Este contenido ya fue denunciado y será revisado por una administradora.
         close: Cerrar
-        description: Es inapropiado este contenido?
-        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
-        offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
+        description: Este contenido no es apropiado?
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa pienses que no pertenece en %{organization_name}.
+        offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte o de suicidio o cualquier forma de discurso de odio.
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
-        title: Denunciar un problema
+        title: Denuncia un problema
       floating_help:
         help: Ayuda
       follow_button:
