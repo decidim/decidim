@@ -1114,14 +1114,14 @@ ca:
       signed_up: Benvinguda! Has iniciat la sessió amb èxit.
       signed_up_but_inactive: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar la sessió perquè el teu compte encara no està activat.
       signed_up_but_locked: T'has registrat amb èxit. Tanmateix, no has pogut iniciar la sessió perquè el teu compte està bloquejat.
-      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Segueix l'enllaç per activar el teu compte.
-      update_needs_confirmation: Has actualitzat el teu compte amb èxit, però hem de verificar la teva nova adreça electrònica. Comprova el teu correu electrònic i segueix l'enllaç de confirmació per confirmar la teva nova adreça de correu electrònic.
-      updated: El compte s'ha actualitzat correctament.
+      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Si us plau, segueix l'enllaç per activar el teu compte.
+      update_needs_confirmation: Has actualitzat el teu compte amb èxit, però hem de verificar la teva nova adreça. Comprova la teva bústia electrònic i segueix l'enllaç per confirmar la teva nova adreça de correu electrònic.
+      updated: El teu compte s'ha actualitzat correctament.
     sessions:
-      already_signed_out: S'ha iniciat la sessió correctament.
+      already_signed_out: Sessió finalitzada correctament.
       new:
-        sign_in: Iniciar Sessió
-      signed_in: S'ha iniciat la sessió correctament.
+        sign_in: Iniciar sessió
+      signed_in: Sessió iniciada correctament.
       signed_out: S'ha iniciat la sessió correctament.
     shared:
       links:
