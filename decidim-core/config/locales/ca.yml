@@ -1023,15 +1023,15 @@ ca:
         header: Acabar de crear el teu compte
         nickname_help: El teu sobrenom a %{organization}.
         submit_button: Desa
-        subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
+        subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuària i contrasenya.
       invitation_removed: S'ha eliminat la teva invitació.
       invitation_token_invalid: El token de invitació proporcionat no és vàlid!
       new:
         header: Enviar invitació
         submit_button: Enviar una invitació
       no_invitations_remaining: No queden invitacions
-      send_instructions: S'ha enviat un correu electrònic d'invitació a %{email}.
-      updated: La teva contrasenya s'ha establert correctament. Ja has iniciat la sessió.
+      send_instructions: S'ha enviat una invitació via correu electrònic a %{email}.
+      updated: La teva contrasenya s'ha establert correctament. Ja has iniciat sessió.
       updated_not_active: La teva contrasenya s'ha establert correctament.
     mailer:
       confirmation_instructions:
@@ -1041,7 +1041,7 @@ ca:
         subject: Instruccions de confirmació
       email_changed:
         greeting: Hola %{recipient}!
-        message: Et contactem per avisar-te que el teu correu electrònic es modifica a %{email}.
+        message: Ens posem en contacte amb tu per avisar-te que el teu correu electrònic es modifica a %{email}.
         subject: El correu electrònic s'ha canviat
       invitation_instructions:
         accept: Acceptar invitació
