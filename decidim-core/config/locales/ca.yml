@@ -924,14 +924,14 @@ ca:
       prompt: Selecciona un àmbit
       scopes: Àmbits
     search:
-      results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
-      term_input_placeholder: Cerca
+      results_found_for_term: '%{count} Resultats de la cerca: "%{term}"'
+      term_input_placeholder: Cercar
     searches:
       filters:
         back: Torna als resultats
         jump_to: 'Salta a:'
         state:
-          active: Actius
+          active: Actiu
           all: Tots
           future: Futurs
           past: Passats
