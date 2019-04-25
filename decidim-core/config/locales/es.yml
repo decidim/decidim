@@ -1115,10 +1115,10 @@ es:
       signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no has podido iniciar la sesión sesión porque tu cuenta está bloqueada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
-      update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo electrónico. Verifica tu correo electrónico y sigue el enlace confirmar para confirmar tu nueva dirección de correo electrónico.
+      update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección. Verifica tu bandeja de entrada y sigue el enlace para confirmar tu nueva dirección de correo electrónico.
       updated: Tu cuenta se ha actualizado correctamente.
     sessions:
-      already_signed_out: Sesión finalizada con éxito.
+      already_signed_out: Sesión finalizada correctamente.
       new:
         sign_in: Iniciar sesión
       signed_in: Sesión iniciada con éxito.
