@@ -914,14 +914,14 @@ ca:
     reports:
       create:
         error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
-        success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
+        success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
     scopes:
       global: Àmbit global
       picker:
         cancel: Cancel·lar
-        choose: Selecciona
-        title: Seleccioneu %{field}
-      prompt: Seleccioneu un àmbit
+        choose: Seleccionar
+        title: Selecciona %{field}
+      prompt: Selecciona un àmbit
       scopes: Àmbits
     search:
       results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
