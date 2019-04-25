@@ -1101,9 +1101,9 @@ es:
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
       edit:
-        are_you_sure: '¿Estás seguro?'
+        are_you_sure: '¿Estás segura?'
         cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'Esperando de confirmación para: %{email}'
+        currently_waiting_confirmation_for_email: 'Estamos esperando la confirmación para: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
         title: Editar %{resource}
         unhappy: '¿Infeliz?'
@@ -1111,8 +1111,8 @@ es:
         we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
-      signed_up: '¡Bienvenido/a! Te has registrado con éxito.'
-      signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta aún no está activada.
+      signed_up: '¡Bienvenida! Te has registrado con éxito.'
+      signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no has podido iniciar la sesión sesión porque tu cuenta está bloqueada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
       update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo electrónico. Verifica tu correo electrónico y sigue el enlace confirmar para confirmar tu nueva dirección de correo electrónico.
