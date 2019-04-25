@@ -1042,7 +1042,7 @@ es:
       email_changed:
         greeting: Hola %{recipient}!
         message: Nos ponemos en contacto contigo para notificarte que tu correo electrónico se modifica a %{email}.
-        subject: Correo electrónico cambiado
+        subject: El correo electrónico ha cambiado
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación caducará el día %{due_date}.
