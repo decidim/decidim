@@ -1013,11 +1013,11 @@ ca:
       inactive: El teu compte encara no està activat.
       invalid: El %{authentication_keys} o la contrasenya no són vàlids.
       invited: Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
-      last_attempt: Tens un intent més abans de bloquejar el teu compte.
+      last_attempt: Tens un intent més abans que el teu compte es bloquegi.
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
-      timeout: La teva sessió ha caducat. Torna a iniciar-la per continuar.
-      unauthenticated: Has d'iniciar la sessió o registra't abans de continuar.
+      timeout: La teva sessió ha caducat. Si us plau, torna a iniciar sessió per continuar.
+      unauthenticated: Has d'iniciar la sessió o registrar-te abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
