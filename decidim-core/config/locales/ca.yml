@@ -1071,7 +1071,7 @@ ca:
       reset_password_instructions:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}!
-        instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
+        instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, ho pots fer a través de l'enllaç següent.
         instruction_2: Si no ho has sol·licitat, ignora aquest correu electrònic.
         instruction_3: La teva contrasenya no canviarà fins que accedeixis a l'enllaç de dalt i en creis una de nova.
         subject: Instruccions de regeneració de contrasenya
@@ -1088,10 +1088,10 @@ ca:
       edit:
         change_my_password: Canvia la meva contrasenya
         change_your_password: Canvia la teva contrasenya
-        confirm_new_password: Confirmar nova contrasenya
-        new_password: Contrasenya
+        confirm_new_password: Confirmar la nova contrasenya
+        new_password: Nova contrasenya
       new:
-        forgot_your_password: Has oblidat la teva contrasenya?
+        forgot_your_password: Nova contrasenya
         send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya
       no_token: No pots accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si hi has accedit des d'un correu electrònic de restabliment de la contrasenya, assegura't que has utilitzat l'URL complet proporcionat.
       send_instructions: Rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya en pocs minuts.
