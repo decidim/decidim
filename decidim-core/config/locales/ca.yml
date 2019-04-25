@@ -949,17 +949,17 @@ ca:
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
-        embed_link: Incrustar
+        embed_link: Incrusta
       extended_navigation_bar:
         more: Més
         unfold: Desplegar
       flag_modal:
-        already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
+        already_reported: Aquest contingut ja ha estat denunciat i serà revisat per una administradora.
         close: Tancar
         description: Aquest contingut no és apropiat?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
-        offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
-        report: Denuncia
+        offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
+        report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Denuncia un problema
       floating_help:
