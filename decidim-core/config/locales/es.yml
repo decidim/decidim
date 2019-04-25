@@ -890,13 +890,13 @@ es:
           title: Distintivos
       user:
         confirmation_instructions_sent: Instrucciones de confirmación por correo electrónico enviadas
-        create_user_group: Crear un grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar el perfil del grupo
+        create_user_group: Crea un grupo
+        edit_profile: Edita el perfil
+        edit_user_group: Edita el perfil del grupo
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo
-        invite_user: Invitar participante
-        join_user_group: Solicitar unirse al grupo
-        leave_user_group: Dejar el grupo
+        invite_user: Invita a la participante
+        join_user_group: Solicita unirse al grupo
+        leave_user_group: Deja el grupo
         manage_user_group_admins: Gestionar los administradores
         manage_user_group_users: Gestionar los miembros
         resend_email_confirmation_instructions: Vuelve a enviar las instrucciones de confirmación por correo electrónico
