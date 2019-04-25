@@ -936,10 +936,10 @@ es:
           future: Futuros
           past: Pasados
       filters_small_view:
-        close_modal: Cerrar modal
-        filter: Filtrar
-        filter_by: Filtrar por
-        unfold: Desplegar
+        close_modal: Cerrar el modal
+        filter: Filtra
+        filter_by: Filtra por
+        unfold: Desplega
       results:
         results:
           one: "%{count} resultado"
@@ -947,7 +947,7 @@ es:
         view_all: Ver todo (%{count})
     shared:
       embed_modal:
-        close_window: Cerrar ventana
+        close_window: Cierra la ventana
         embed: Por favor, pega este código en tu página
         embed_link: Incrustar
       extended_navigation_bar:
