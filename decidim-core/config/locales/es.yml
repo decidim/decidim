@@ -914,14 +914,14 @@ es:
     reports:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
-        success: La denuncia se ha creado correctament y será revisada por un administrador.
+        success: El contenido se ha denunciado con éxtio y será revisado por una administradora.
     scopes:
       global: Alcance global
       picker:
         cancel: Cancelar
         choose: Seleccionar
-        title: Seleccione %{field}
-      prompt: Seleccione un ámbito
+        title: Selecciona %{field}
+      prompt: Selecciona un ámbito
       scopes: Ámbitos
     search:
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
