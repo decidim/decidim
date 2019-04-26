@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "order" do |options|
+shared_examples "order" do |*options|
   subject { order }
 
   let!(:order) { create :order, component: create(:budget_component) }
@@ -26,136 +26,148 @@ shared_examples "order" do |options|
       expect(new_order).to be_invalid
     end
 
-    if options == :total_budget
-      context "when total budgets is activated" do
-        it "can't exceed a maximum order value" do
-          project1 = create(:project, component: subject.component, budget: 100)
-          project2 = create(:project, component: subject.component, budget: 20)
+    context "when total budgets is activated" do
+      context "when vote by total budget" do
+        if options.include? :total_budget
+          it "can't exceed a maximum order value" do
+            project1 = create(:project, component: subject.component, budget: 100)
+            project2 = create(:project, component: subject.component, budget: 20)
 
-          subject.projects << project1
-          subject.projects << project2
+            subject.projects << project1
+            subject.projects << project2
 
-          subject.component.settings = {
-            "total_budget" => 100, "vote_threshold" => 50
-          }
+            subject.component.settings = {
+              "total_budget" => 100, "vote_threshold" => 50
+            }
 
-          expect(subject).to be_invalid
+            expect(subject).to be_invalid
+          end
+
+          it "can't be lower than a minimum order value when checked out" do
+            project1 = create(:project, component: subject.component, budget: 20)
+
+            subject.projects << project1
+
+            subject.component.settings = {
+              "total_budget" => 100, "vote_threshold" => 50
+            }
+
+            expect(subject).to be_valid
+            subject.checked_out_at = Time.current
+            expect(subject).to be_invalid
+          end
         end
+      end
 
-        it "can't be lower than a minimum order value when checked out" do
-          project1 = create(:project, component: subject.component, budget: 20)
+      context "when vote by total budget" do
+        if options.include? :total_projects
+          let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
+          let(:order) { create :order, component: total_projects_component }
 
-          subject.projects << project1
+          it "can't exceed a maximum order number" do
+            project1 = create(:project, component: subject.component, budget: 100)
+            project2 = create(:project, component: subject.component, budget: 20)
 
-          subject.component.settings = {
-            "total_budget" => 100, "vote_threshold" => 50
-          }
+            subject.projects << project1
+            subject.projects << project2
 
-          expect(subject).to be_valid
-          subject.checked_out_at = Time.current
-          expect(subject).to be_invalid
+            subject.component.settings = {
+              "total_projects" => 1, "vote_per_project" => true
+            }
+
+            expect(subject).to be_invalid
+          end
+
+          it "can't be lower than a minimum order number when checked out" do
+            project1 = create(:project, component: subject.component, budget: 20)
+
+            subject.projects << project1
+
+            subject.component.settings = {
+              "total_projects" => 10, "vote_per_project" => true
+            }
+
+            expect(subject).to be_valid
+            subject.checked_out_at = Time.current
+            expect(subject).to be_invalid
+          end
+
+          it "can exceed a maximum order value" do
+            project1 = create(:project, component: subject.component, budget: 99_999)
+            project2 = create(:project, component: subject.component, budget: 99_999)
+
+            subject.projects << project1
+            subject.projects << project2
+
+            subject.component.settings = {
+              "total_projects" => 2, "vote_per_project" => true
+            }
+
+            expect(subject).to be_valid
+          end
+
+          it "can be lower than a minimum order value when checked out" do
+            project1 = create(:project, component: subject.component, budget: 0)
+
+            subject.projects << project1
+
+            subject.component.settings = {
+              "total_projects" => 1, "vote_per_project" => true
+            }
+
+            subject.checked_out_at = Time.current
+            expect(subject).to be_valid
+          end
         end
       end
     end
+  end
 
-    if options == :total_projects
-      context "when total project is activated" do
+  describe "#total_budget" do
+    context "when vote by total budget" do
+      if options.include? :total_projects
+
         let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
-        let(:order) { create :order, component: total_projects_component }
 
-        it "can't exceed a maximum order number" do
-          project1 = create(:project, component: subject.component, budget: 100)
-          project2 = create(:project, component: subject.component, budget: 20)
+        it "returns the sum of project budgets" do
+          subject.projects << build(:project, component: subject.component)
 
-          subject.projects << project1
-          subject.projects << project2
-
-          subject.component.settings = {
-            "total_projects" => 1, "vote_per_project" => true
-          }
-
-          expect(subject).to be_invalid
+          expect(subject.total_projects).to eq(subject.projects.count(&:budget))
         end
+      end
+    end
 
-        it "can't be lower than a minimum order number when checked out" do
-          project1 = create(:project, component: subject.component, budget: 20)
+    context "when vote by total project" do
+      if options.include? :total_budget
+        let(:total_budget_component) { create :order, component: create(:budget_component) }
 
-          subject.projects << project1
+        it "returns the sum of project budgets" do
+          subject.projects << build(:project, component: subject.component)
 
-          subject.component.settings = {
-            "total_projects" => 10, "vote_per_project" => true
-          }
-
-          expect(subject).to be_valid
-          subject.checked_out_at = Time.current
-          expect(subject).to be_invalid
-        end
-
-        it "can exceed a maximum order value" do
-          project1 = create(:project, component: subject.component, budget: 99_999)
-          project2 = create(:project, component: subject.component, budget: 99_999)
-
-          subject.projects << project1
-          subject.projects << project2
-
-          subject.component.settings = {
-            "total_projects" => 2, "vote_per_project" => true
-          }
-
-          expect(subject).to be_valid
-        end
-
-        it "can be lower than a minimum order value when checked out" do
-          project1 = create(:project, component: subject.component, budget: 0)
-
-          subject.projects << project1
-
-          subject.component.settings = {
-            "total_projects" => 1, "vote_per_project" => true
-          }
-
-          subject.checked_out_at = Time.current
-          expect(subject).to be_valid
+          expect(subject.total_budget).to eq(subject.projects.sum(&:budget))
         end
       end
     end
   end
 
-  if options == :total_budget
-    describe "#total_budget" do
-      let(:total_budget_component) { create :order, component: create(:budget_component) }
-
-      it "returns the sum of project budgets" do
-        subject.projects << build(:project, component: subject.component)
-
-        expect(subject.total_budget).to eq(subject.projects.sum(&:budget))
+  describe "#checked_out?" do
+    context "when vote by total budget" do
+      if options.include? :total_budget
+        it "returns true if the checked_out_at attribute is present" do
+          subject.checked_out_at = Time.zone.now
+          expect(subject).to be_checked_out
+        end
       end
     end
 
-    describe "#checked_out?" do
-      it "returns true if the checked_out_at attribute is present" do
-        subject.checked_out_at = Time.zone.now
-        expect(subject).to be_checked_out
-      end
-    end
-  end
-  if options == :total_projects
-    describe "#total_budget" do
-      let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
+    context "when vote by total project" do
+      if options.include? :total_projects
+        let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
 
-      it "returns the sum of project budgets" do
-        subject.projects << build(:project, component: subject.component)
-
-        expect(subject.total_projects).to eq(subject.projects.count(&:budget))
-      end
-    end
-
-    describe "#checked_out?" do
-      let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
-
-      it "returns true if the checked_out_at attribute is present" do
-        subject.checked_out_at = Time.zone.now
-        expect(subject).to be_checked_out
+        it "returns true if the checked_out_at attribute is present" do
+          subject.checked_out_at = Time.zone.now
+          expect(subject).to be_checked_out
+        end
       end
     end
   end
