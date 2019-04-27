@@ -40,7 +40,7 @@ sv:
     models:
       decidim/consultation:
         one: Samråd
-        other: samråd
+        other: Samråd
       decidim/consultations/question:
         one: Fråga
         other: Frågor
@@ -91,7 +91,7 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av detta samråd.
           success: Samråd uppdaterades framgångsrikt.
       menu:
-        consultations: samråd
+        consultations: Samråd
         consultations_submenu:
           info: Information
           questions: frågor
@@ -108,7 +108,7 @@ sv:
             title: Titel
           name:
             one: Samråd
-            other: samråd
+            other: Samråd
         question:
           fields:
             created_at: Skapad vid
@@ -168,7 +168,7 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av detta svar.
           success: Svaret uppdaterades framgångsrikt.
       titles:
-        consultations: samråd
+        consultations: Samråd
         questions: frågor
         responses: Svar
     consultations:
@@ -208,7 +208,7 @@ sv:
       highlighted_questions:
         title: Frågor från %{scope_name}
       index:
-        title: samråd
+        title: Samråd
       last_activity:
         new_consultation: Nytt samråd
         new_question_at_html: "<span>Ny fråga till %{link}</span>"
@@ -251,11 +251,11 @@ sv:
           page: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation. Några exempel är att ändra organisationens namn eller logotyp som erbjuder flera alternativ, bestämma ja eller nej för att bli en del av en större organisation, validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat i organisationen.</p>\n"
           title: Vad är samråd?
     menu:
-      consultations: samråd
+      consultations: Samråd
     pages:
       home:
         statistics:
-          consultations_count: samråd
+          consultations_count: Samråd
     questions:
       results:
         title: Resultat
