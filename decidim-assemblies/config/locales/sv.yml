@@ -109,7 +109,7 @@ sv:
           error: Det gick inte att lägga till en medlem för denna församling.
           success: Medlem skapades framgångsrikt för denna församling.
         destroy:
-          success: Medlem skapades framgångsrikt för detta möte.
+          success: Medlemmen har tagits bort för denna församling.
         edit:
           title: Uppdatera församlingsmedlem.
           update: Uppdatera
@@ -119,8 +119,8 @@ sv:
           create: Skapa
           title: Ny församlingsmedlem.
         update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för detta möte.
-          success: Medlem uppdaterad framgångsrikt för detta möte.
+          error: Det uppstod ett fel vid uppdatering av medlemmen för denna församling.
+          success: Medlem uppdaterad framgångsrikt för denna församling.
       assembly_publications:
         create:
           error: Det uppstod ett fel vid publicering av detta möte.
