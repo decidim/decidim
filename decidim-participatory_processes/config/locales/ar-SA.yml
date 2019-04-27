@@ -39,7 +39,7 @@ ar:
       participatory_process_step:
         cta_path: دعوة إلى مسار العمل
         cta_text: دعوة إلى نص العمل
-        description: وصف
+        description: الوصف
         end_date: تاريخ الانتهاء
         short_description: وصف قصير
         start_date: تاريخ البدء
