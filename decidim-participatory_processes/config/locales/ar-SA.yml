@@ -42,14 +42,14 @@ ar:
         description: الوصف
         end_date: تاريخ الانتهاء
         short_description: وصف قصير
-        start_date: تاريخ البدء
-        title: عنوان
+        start_date: تاريخ البداية
+        title: العنوان
       participatory_process_user_role:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
     models:
-      decidim/participatory_process_step_activated_event: تنشيط المرحلة
+      decidim/participatory_process_step_activated_event: تم تنشيط المرحلة
       decidim/participatory_process_step_changed_event: تغيرت المرحلة
   activerecord:
     models:
@@ -331,7 +331,7 @@ ar:
         home:
           highlighted_processes:
             active_processes: عمليات نشطة
-            active_step: مرحلة نشطة
+            active_step: المرحلة النشطة
             more_information: معلومات اكثر
             participate: مشاركة
             see_all_processes: رؤية جميع العمليات
@@ -414,7 +414,7 @@ ar:
           processes_count: 'العمليات:'
       participatory_process_widgets:
         show:
-          active_step: مرحلة نشطة
+          active_step: المرحلة النشطة
           take_part: خذ جزء
       participatory_processes:
         index:
@@ -429,4 +429,4 @@ ar:
           take_part: خذ جزء
       process_header_steps:
         step: المرحلة %{current} من %{total}
-        view_steps: عرض مراحل
+        view_steps: عرض المراحل
