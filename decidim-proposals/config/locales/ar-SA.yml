@@ -556,7 +556,7 @@ ar:
           back: الى الخلف
           info: إنك لعلى خلق <strong>مشروع تعاوني</strong>.
         wizard_steps:
-          see_steps: انظر الخطوات
+          see_steps: عرض الخطوات
           step_1: إنشاء مسودتك التعاونية
           step_2: قارن مع المسودات التعاونية
           step_3: أكمل مسودتك التعاونية
@@ -758,11 +758,11 @@ ar:
           back: الى الخلف
           info: إنك بصدد إنشاء <strong>اقتراح</strong>.
         wizard_steps:
-          see_steps: انظر الخطوات
+          see_steps: عرض الخطوات
           step_1: إنشاء اقتراحك
           step_2: قارن
-          step_3: اكتمال
-          step_4: نشر اقتراحك
+          step_3: إكمال
+          step_4: انشر اقتراحك
           step_of: الخطوة %{current_step_num} من %{total_steps}
       publish:
         error: كانت هناك مشكلة في نشر الاقتراح.
