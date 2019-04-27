@@ -676,7 +676,7 @@ ar:
           content: "<p>في %{organization} يمكنك المشاركة واتخاذ قرار بشأن مواضيع مختلفة ، من خلال المساحات التي تراها في القائمة العليا: العمليات ، والجمعيات ، والمبادرات ، والمشاورات.</p> <p>في كل منها ، ستجد خيارات مختلفة للمشاركة: تقديم مقترحات - بشكل فردي أو مع أشخاص آخرين - والمشاركة في المناقشات ، وتحديد أولويات المشاريع للتنفيذ ، وحضور الاجتماعات وجهاً لوجه وغيرها من الإجراءات.</p>\n"
           title: ماذا يمكنني أن أفعل في %{organization}؟
         description: قراءة المزيد عن %{organization}
-        title: مساعدة عامة
+        title: المساعدة العامة
     last_activities:
       activities:
         no_activities_warning: لا يوجد نشاط
@@ -708,7 +708,7 @@ ar:
     members:
       no_members: هذه المجموعة ليس لديها أي أعضاء حتى الآن.
     menu:
-      help: مساعدة
+      help: المساعدة
       home: الصفحة الرئيسية
     messaging:
       conversation_mailer:
@@ -850,7 +850,7 @@ ar:
         read_more: قراءة المزيد
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
-        title: مساعدة
+        title: المساعدة
         topics: المواضيع
       participatory_space:
         metrics:
@@ -974,7 +974,7 @@ ar:
         spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
         title: الإبلاغ عن مشكلة
       floating_help:
-        help: مساعدة
+        help: المساعدة
       follow_button:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
