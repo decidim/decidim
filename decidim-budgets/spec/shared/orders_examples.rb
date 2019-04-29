@@ -260,15 +260,19 @@ shared_examples "orders" do |*options|
 
           context "when projects number exceed limit", :slow do
             let!(:other_project) { create(:project, component: component, budget: 50_000_000) }
+            let!(:order) do
+              order = create(:order, user: user, component: component)
+              order.projects = projects.take(4)
+              order.save!
+              order
+            end
 
             it "can't complete the checkout process" do
               visit_component
 
-              projects.each do |project|
-                within "#project-#{project.id}-item" do
-                  page.find(".budget--list__action").click
-                  wait_for_ajax
-                end
+              within "#project-#{projects.last.id}-item" do
+                page.find(".budget--list__action").click
+                wait_for_ajax
               end
 
               within "#projects" do
