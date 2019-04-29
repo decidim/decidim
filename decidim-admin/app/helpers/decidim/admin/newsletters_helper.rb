@@ -105,7 +105,9 @@ module Decidim
             next unless space.admins.exists?(id: current_user.id)
             @spaces_user_can_admin[manifest.name] ||= []
             space_as_option_for_select_data = space_as_option_for_select(space)
-            @spaces_user_can_admin[manifest.name] << space_as_option_for_select_data unless @spaces_user_can_admin[manifest.name].detect { |x| x == space_as_option_for_select_data }
+            @spaces_user_can_admin[manifest.name] << space_as_option_for_select_data unless @spaces_user_can_admin[manifest.name].detect do |x|
+              x == space_as_option_for_select_data
+            end
           end
         end
         @spaces_user_can_admin
