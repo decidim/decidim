@@ -14,8 +14,8 @@ module Decidim
 
           RegistersPermissions
             .register_permissions(::Decidim::Assemblies::Admin::Concerns::AssemblyAdmin,
-                                 Decidim::Assemblies::Permissions,
-                                 Decidim::Admin::Permissions)
+                                  Decidim::Assemblies::Permissions,
+                                  Decidim::Admin::Permissions)
 
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
