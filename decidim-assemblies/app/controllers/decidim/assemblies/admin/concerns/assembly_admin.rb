@@ -12,16 +12,16 @@ module Decidim
         module AssemblyAdmin
           extend ActiveSupport::Concern
 
+          RegistersPermissions
+            .register_permissions(::Decidim::Assemblies::Admin::Concerns::AssemblyAdmin,
+                                 Decidim::Assemblies::Permissions,
+                                 Decidim::Admin::Permissions)
+
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
-            include RegistersPermissions
             participatory_space_admin_layout
 
             helper_method :current_assembly
-
-            register_permissions(::Decidim::Assemblies::Admin::Concerns::AssemblyAdmin,
-                                 Decidim::Assemblies::Permissions,
-                                 Decidim::Admin::Permissions)
 
             def current_assembly
               @current_assembly ||= organization_assemblies.find_by!(
