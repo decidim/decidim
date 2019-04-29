@@ -13,6 +13,7 @@ module Decidim
       end
 
       def participatory_space_types_form_object(form_object, space_type)
+        return if spaces_user_can_admin[space_type.manifest_name.to_sym].blank?
         html = ""
         form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
           html += ff.hidden_field :manifest_name, value: space_type.manifest_name
@@ -34,21 +35,14 @@ module Decidim
 
       def spaces_for_select(manifest_name)
         return unless Decidim.participatory_space_manifests.map(&:name).include?(manifest_name)
-        all_spaces = [[I18n.t("select_recipients_to_deliver.all_spaces", scope: "decidim.admin.newsletters"), "all"]]
-        spaces ||= Decidim.find_participatory_space_manifest(manifest_name)
-                          .participatory_spaces.call(current_organization)&.published&.order(title: :asc)&.map do |space|
-          [
-            translated_attribute(space.title),
-            space.id,
-            { class: space.try(:closed?) ? "red" : "green" }
-          ]
-        end
-        all_spaces + spaces
+        return spaces_user_can_admin[manifest_name] unless current_user.admin?
+
+        [[I18n.t("select_recipients_to_deliver.all_spaces", scope: "decidim.admin.newsletters"), "all"]] + spaces_user_can_admin[manifest_name]
       end
 
       def selective_newsletter_to(newsletter)
-        return t("index.not_sent", scope: "decidim.admin.newsletters") unless newsletter.sent?
-        return t("index.all_users", scope: "decidim.admin.newsletters") if newsletter.sent? && newsletter.extended_data.blank?
+        return content_tag(:strong, t("index.not_sent", scope: "decidim.admin.newsletters"), class: "text-warning") unless newsletter.sent?
+        return content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters"), class: "text-success") if newsletter.sent? && newsletter.extended_data.blank?
         content_tag :div do
           concat sent_to_users newsletter
           concat sent_to_spaces newsletter
@@ -58,7 +52,7 @@ module Decidim
 
       def sent_to_users(newsletter)
         content_tag :p, style: "margin-bottom:0;" do
-          concat t("index.has_been_sent_to", scope: "decidim.admin.newsletters")
+          concat content_tag(:strong, t("index.has_been_sent_to", scope: "decidim.admin.newsletters"), class: "text-success")
           concat content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sended_to_all_users?
           concat content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sended_to_followers?
           concat t("index.and", scope: "decidim.admin.newsletters") if newsletter.sended_to_followers? && newsletter.sended_to_participants?
@@ -96,6 +90,34 @@ module Decidim
             concat content_tag(:strong, t("index.no_scopes", scope: "decidim.admin.newsletters"))
           end
         end
+      end
+
+      def organization_participatory_space(manifest_name)
+        @organization_participatory_spaces ||= {}
+        @organization_participatory_spaces[manifest_name] ||= Decidim.find_participatory_space_manifest(manifest_name)
+                                                                     .participatory_spaces.call(current_organization)&.published&.order(title: :asc)
+      end
+
+      def spaces_user_can_admin
+        @spaces_user_can_admin ||= {}
+        Decidim.participatory_space_manifests.each do |manifest|
+          organization_participatory_space(manifest.name)&.each do |space|
+            next unless space.admins.exists?(id: current_user.id)
+            @spaces_user_can_admin[manifest.name] ||= []
+            space_as_option_for_select_data = space_as_option_for_select(space)
+            @spaces_user_can_admin[manifest.name] << space_as_option_for_select_data unless @spaces_user_can_admin[manifest.name].detect { |x| x == space_as_option_for_select_data }
+          end
+        end
+        @spaces_user_can_admin
+      end
+
+      def space_as_option_for_select(space)
+        return unless space
+        [
+          translated_attribute(space.title),
+          space.id,
+          { class: space.try(:closed?) ? "red" : "green" }
+        ]
       end
     end
   end
