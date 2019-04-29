@@ -45,7 +45,7 @@
             </div>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: NOBSPW.configuration.min_password_length), autocomplete: "off" %>
             </div>
 
             <div class="field">

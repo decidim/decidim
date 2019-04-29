@@ -326,6 +326,7 @@ en:
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias (@nickname) in %{organization}
+          password_help: '%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email.'
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -1099,6 +1100,7 @@ en:
         change_your_password: Change your password
         confirm_new_password: Confirm new password
         new_password: New password
+        password_help: '%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email.'
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
