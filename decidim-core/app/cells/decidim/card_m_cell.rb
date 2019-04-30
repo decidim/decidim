@@ -30,6 +30,10 @@ module Decidim
       false
     end
 
+    def has_children?
+      false
+    end
+
     def has_link_to_resource?
       true
     end
@@ -84,6 +88,7 @@ module Decidim
 
     def card_classes
       classes = [base_card_class]
+      classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
       classes.concat(state_classes).join(" ")
     end
