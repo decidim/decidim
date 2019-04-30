@@ -1,5 +1,5 @@
 /**
- * French translation for foundation-datepicker
+ * Arabic translation for foundation-datepicker
  * Nico Mollet <nico.mollet@gmail.com>
  */
 ;(function($){
