@@ -25,6 +25,7 @@
 
 **Fixed**:
 
+- **decidim-admin**: fix Decidim::Admin::NewsletterRecipient query [\#5109](https://github.com/decidim/decidim/pull/5109)
 - **decidim-proposals**: Fix participatory text form. [#5094](https://github.com/decidim/decidim/pull/5094)
 - **decidim-assemblies**: Add class `card--stack` to assemblies when have children assemblies. [#5093](https://github.com/decidim/decidim/pull/5093)
 - **decidim-proposals**: Fix proposal participants metrics. [#5048](https://github.com/decidim/decidim/pull/5048)

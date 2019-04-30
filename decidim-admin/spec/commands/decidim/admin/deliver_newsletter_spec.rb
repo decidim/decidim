@@ -102,11 +102,15 @@ module Decidim::Admin
         end
 
         context "with scopes segment" do
-          let(:scope_ids) { scopes.pluck(:id) }
+          let(:scope_ids) { [scopes.first.id] }
 
           context "when interests match the selected scopes" do
             let!(:deliverable_users) do
               create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": scopes.first.id })
+            end
+
+            let!(:undeliverable_users) do
+              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": scopes.last.id })
             end
 
             it_behaves_like "selective newsletter"
@@ -159,6 +163,10 @@ module Decidim::Admin
             create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
+          let!(:undeliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+          end
+
           before do
             deliverable_users.each do |follower|
               create(:follow, followable: participatory_processes.first, user: follower)
@@ -205,6 +213,10 @@ module Decidim::Admin
             create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
+          let!(:undeliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+          end
+
           before do
             deliverable_users.each do |participant|
               create(:dummy_resource, component: component, author: participant, published_at: Time.current)
@@ -213,67 +225,107 @@ module Decidim::Admin
 
           it_behaves_like "selective newsletter"
         end
+      end
 
-        context "when the user is a space admin" do
-          let(:user) { create(:user, organization: organization) }
-          let(:component) { create(:dummy_component, organization: organization) }
+      context "when sending to followers and participants" do
+        let(:component) { create(:dummy_component, organization: organization) }
+        let(:send_to_participants) { true }
+        let(:send_to_followers) { true }
 
-          let(:participatory_process_user_role) do
-            build(
-              :participatory_process_user_role,
-              user: user,
-              participatory_process: component.participatory_space,
-              role: "admin"
-            )
+        let!(:participant_users) do
+          create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+        end
+
+        let!(:follower_users) do
+          create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+        end
+
+        let!(:deliverable_users) { participant_users + follower_users }
+
+        let!(:undeliverable_users) do
+          create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+        end
+
+        let(:participatory_space_types) do
+          [
+            { "id" => nil,
+              "manifest_name" => "participatory_processes",
+              "ids" => [component.participatory_space.id.to_s] },
+            { "id" => nil,
+              "manifest_name" => "assemblies",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "conferences",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "consultations",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "initiatives",
+              "ids" => [] }
+          ]
+        end
+
+        before do
+          participant_users.each do |participant|
+            create(:dummy_resource, component: component, author: participant, published_at: Time.current)
           end
 
-          let(:participatory_space_types) do
-            [
-              { "id" => nil,
-                "manifest_name" => "participatory_processes",
-                "ids" => [component.participatory_space.id.to_s] },
-              { "id" => nil,
-                "manifest_name" => "assemblies",
-                "ids" => [] },
-              { "id" => nil,
-                "manifest_name" => "conferences",
-                "ids" => [] },
-              { "id" => nil,
-                "manifest_name" => "consultations",
-                "ids" => [] },
-              { "id" => nil,
-                "manifest_name" => "initiatives",
-                "ids" => [] }
-            ]
+          follower_users.each do |follower|
+            create(:follow, followable: component.participatory_space, user: follower)
           end
+        end
 
-          let!(:deliverable_users) do
-            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
-          end
+        it_behaves_like "selective newsletter"
+      end
 
-          context "when sending to all space participants" do
-            let(:send_to_participants) { true }
+      context "when the user is a space admin" do
+        let(:user) { create(:user, organization: organization) }
+        let(:component) { create(:dummy_component, organization: organization) }
 
-            before do
-              deliverable_users.each do |participant|
-                create(:dummy_resource, component: component, author: participant, published_at: Time.current)
-              end
+        let(:participatory_process_user_role) do
+          build(
+            :participatory_process_user_role,
+            user: user,
+            participatory_process: component.participatory_space,
+            role: "admin"
+          )
+        end
+
+        let(:participatory_space_types) do
+          [
+            { "id" => nil,
+              "manifest_name" => "participatory_processes",
+              "ids" => [component.participatory_space.id.to_s] },
+            { "id" => nil,
+              "manifest_name" => "assemblies",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "conferences",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "consultations",
+              "ids" => [] },
+            { "id" => nil,
+              "manifest_name" => "initiatives",
+              "ids" => [] }
+          ]
+        end
+
+        let!(:deliverable_users) do
+          create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+        end
+
+        context "when sending to all space participants" do
+          let(:send_to_participants) { true }
+
+          before do
+            deliverable_users.each do |participant|
+              create(:dummy_resource, component: component, author: participant, published_at: Time.current)
             end
-
-            it_behaves_like "selective newsletter"
           end
 
-          context "when sending to all space followers" do
-            let(:send_to_followers) { true }
-
-            before do
-              deliverable_users.each do |follower|
-                create(:follow, followable: component.participatory_space, user: follower)
-              end
-            end
-
-            it_behaves_like "selective newsletter"
-          end
+          it_behaves_like "selective newsletter"
         end
       end
     end
