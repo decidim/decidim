@@ -1,6 +1,37 @@
 # frozen_string_literal: true
 
 shared_examples "manage processes examples" do
+  context "when viewing the processes list" do
+    let!(:process_group) { create(:participatory_process_group, organization: organization) }
+    let!(:process_with_group) { create(:participatory_process, organization: organization, participatory_process_group: process_group) }
+    let!(:process_without_group) { create(:participatory_process, organization: organization) }
+
+    before do
+      visit decidim_admin_participatory_processes.participatory_processes_path
+    end
+
+    it "allows the user to filter processes by process_group" do
+      find("button", text: "PROCESS GROUPS").click
+      click_link translated(process_group.name)
+
+      expect(page).to have_content(translated(process_with_group.title))
+      expect(page).not_to have_content(translated(process_without_group.title))
+    end
+
+    context "when processes are filtered by process_group" do
+      before do
+        find("button", text: "PROCESS GROUPS").click
+        click_link translated(process_group.name)
+      end
+
+      it "allows the user to edit the process_group" do
+        click_link translated(process_group.name)
+
+        expect(page).to have_content("EDIT PROCESS GROUP")
+      end
+    end
+  end
+
   context "when previewing processes" do
     context "when the process is unpublished" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
@@ -18,7 +49,7 @@ shared_examples "manage processes examples" do
     context "when the process is published" do
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
-      it "allows the user to preview the unpublished process" do
+      it "allows the user to preview the published process" do
         within find("tr", text: translated(participatory_process.title)) do
           click_link "Preview"
         end
