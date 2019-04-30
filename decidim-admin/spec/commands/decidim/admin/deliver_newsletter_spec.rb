@@ -13,8 +13,10 @@ module Decidim::Admin
       end
       let(:current_user) { create :user, :admin, :confirmed, organization: organization }
       let(:scopes) do
-        create_list(:scope, 5, organization: organization)
+        create_list(:scope, rand(2..9), organization: organization)
       end
+      let(:participatory_processes) { create_list(:participatory_process, rand(2..9), organization: organization) }
+      let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
 
       let(:send_to_all_users) { false }
       let(:send_to_followers) { false }
@@ -51,7 +53,7 @@ module Decidim::Admin
 
             perform_enqueued_jobs { command.call }
 
-            expect(emails.length).to eq(5)
+            expect(emails.length).to eq(deliverable_users.count)
 
             deliverable_users.each do |user|
               email = emails.find { |e| e.to.include? user.email }
@@ -59,8 +61,8 @@ module Decidim::Admin
             end
 
             newsletter.reload
-            expect(newsletter.total_deliveries).to eq(5)
-            expect(newsletter.total_recipients).to eq(5)
+            expect(newsletter.total_deliveries).to eq(deliverable_users.count)
+            expect(newsletter.total_recipients).to eq(deliverable_users.count)
           end
 
           it "logs the action", versioning: true do
@@ -85,15 +87,15 @@ module Decidim::Admin
 
         context "without scopes segment" do
           let!(:deliverable_users) do
-            create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
           let!(:not_deliverable_users) do
-            create_list(:user, 3, organization: organization, newsletter_notifications_at: nil)
+            create_list(:user, rand(2..9), organization: organization, newsletter_notifications_at: nil)
           end
 
           let!(:unconfirmed_users) do
-            create_list(:user, 3, organization: organization, newsletter_notifications_at: Time.current)
+            create_list(:user, rand(2..9), organization: organization, newsletter_notifications_at: Time.current)
           end
 
           it_behaves_like "selective newsletter"
@@ -104,16 +106,16 @@ module Decidim::Admin
 
           context "when interests match the selected scopes" do
             let!(:deliverable_users) do
-              create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => scopes.first.id })
+              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": scopes.first.id })
             end
 
             it_behaves_like "selective newsletter"
           end
 
-          context "when interest not match the selected scopes" do
-            let(:user_interset) { create(:scope, organization: organization) }
+          context "when interest do not match the selected scopes" do
+            let(:user_interest) { create(:scope, organization: organization) }
             let!(:deliverable_users) do
-              create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => user_interset.id })
+              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": user_interest.id })
             end
 
             it "is not valid" do
@@ -133,7 +135,6 @@ module Decidim::Admin
         end
 
         context "when spaces selected" do
-          let(:participatory_processes) { create_list(:participatory_process, 2, organization: organization) }
           let(:participatory_space_types) do
             [
               { "id" => nil,
@@ -155,7 +156,7 @@ module Decidim::Admin
           end
 
           let!(:deliverable_users) do
-            create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
           before do
@@ -201,7 +202,7 @@ module Decidim::Admin
           end
 
           let!(:deliverable_users) do
-            create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
           end
 
           before do
@@ -211,6 +212,68 @@ module Decidim::Admin
           end
 
           it_behaves_like "selective newsletter"
+        end
+
+        context "when the user is a space admin" do
+          let(:user) { create(:user, organization: organization) }
+          let(:component) { create(:dummy_component, organization: organization) }
+
+          let(:participatory_process_user_role) do
+            build(
+              :participatory_process_user_role,
+              user: user,
+              participatory_process: component.participatory_space,
+              role: "admin"
+            )
+          end
+
+          let(:participatory_space_types) do
+            [
+              { "id" => nil,
+                "manifest_name" => "participatory_processes",
+                "ids" => [component.participatory_space.id.to_s] },
+              { "id" => nil,
+                "manifest_name" => "assemblies",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "conferences",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "consultations",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "initiatives",
+                "ids" => [] }
+            ]
+          end
+
+          let!(:deliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current)
+          end
+
+          context "when sending to all space participants" do
+            let(:send_to_participants) { true }
+
+            before do
+              deliverable_users.each do |participant|
+                create(:dummy_resource, component: component, author: participant, published_at: Time.current)
+              end
+            end
+
+            it_behaves_like "selective newsletter"
+          end
+
+          context "when sending to all space followers" do
+            let(:send_to_followers) { true }
+
+            before do
+              deliverable_users.each do |follower|
+                create(:follow, followable: component.participatory_space, user: follower)
+              end
+            end
+
+            it_behaves_like "selective newsletter"
+          end
         end
       end
     end
