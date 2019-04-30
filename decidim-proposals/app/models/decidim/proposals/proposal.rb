@@ -104,10 +104,8 @@ module Decidim
 
         coauthors_recipients_ids = proposals.map { |p| p.notifiable_identities.pluck(:id) }.flatten.compact.uniq
 
-        ## VOTS
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        ## ENDORSMENTS
         endorsements_participants_ids = Decidim::Proposals::ProposalEndorsement.joins(:proposal)
                                                                                .where(proposal: proposals)
                                                                                .where(decidim_author_type: "Decidim::UserBaseEntity")
