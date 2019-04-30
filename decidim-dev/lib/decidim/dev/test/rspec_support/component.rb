@@ -52,6 +52,7 @@ module Decidim
       include Searchable
       include Paddable
       include Amendable
+      include Decidim::NewsletterParticipant
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -83,6 +84,13 @@ module Decidim
       def self.export_serializer
         DummySerializer
       end
+
+      def self.newsletter_participant_ids(component)
+        Decidim::DummyResources::DummyResource.where(component: component).joins(:component)
+                                              .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                              .where.not(author: nil)
+                                              .pluck(:decidim_author_id).flatten.compact.uniq
+      end
     end
   end
 end
@@ -105,6 +113,8 @@ Decidim.register_component(:dummy) do |component|
   component.icon = "decidim/dummy.svg"
 
   component.actions = %w(foo bar)
+
+  component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true

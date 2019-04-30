@@ -171,7 +171,7 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Process admins can eprform everything *inside* that assembly. They cannot
+      # Process admins can perform everything *inside* that assembly. They cannot
       # create a assembly or perform actions on assembly groups or other
       # assemblies.
       def assembly_admin_action?

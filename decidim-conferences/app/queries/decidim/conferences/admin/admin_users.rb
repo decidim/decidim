@@ -23,7 +23,7 @@ module Decidim
         #
         # Returns an ActiveRecord::Relation.
         def query
-          Decidim::User.where(id: organization_admins)
+          Decidim::User.where(id: organization_admins).or(conference_user_admins)
         end
 
         private
@@ -32,6 +32,13 @@ module Decidim
 
         def organization_admins
           conference.organization.admins
+        end
+
+        def conference_user_admins
+          conference_user_admin_ids = Decidim::ConferenceUserRole
+                                      .where(conference: conference, role: :admin)
+                                      .pluck(:decidim_user_id)
+          Decidim::User.where(id: conference_user_admin_ids)
         end
       end
     end

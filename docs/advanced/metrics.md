@@ -52,3 +52,49 @@ Only available for `ParticipatorySpaces` (restricted to `ParticipatoryProcesses`
 
 - A **crontab** line must be added to your server to maintain them updated daily. You could use [Whenever](https://github.com/javan/whenever) to manage it directly from the APP
 - An **ActiveJob** queue, like [Sidekiq](https://github.com/mperham/sidekiq) or [DelayedJob](https://github.com/collectiveidea/delayed_job/)
+
+## Persistence
+
+The metrics module percomutes calculations and persists them into
+`decidim_metrics` database table. So this module only uses one single table to
+persist metrics from all times and types.
+
+The `decidim_metrics` table has the following fields:
+
+- `day`: the day for which the metric has been computed.
+- `metric_type`: the type of the metric. One of: users, proposals,
+accepted_proposals, supports, assemblies.
+- `cumulative`: quantity accumulated to day ”day”.
+- `quantity`:  quantity for the current day, ”day”.
+- `decidim_organization_id`: the FK to the organization to which this Metric
+belongs to.
+- `participatory_space_type` + `participatory_space_id`: the FK to the
+participatory space to which this Metric belongs to, if any.
+- `related_object_type` + `related_object_id`: the FK to the object to which
+this Metric belongs to, if any.
+- `decidim_category_id`: the FK to the category for this Metric, if any.
+
+Relations around `decidim_metrics` table:
+```
+                                                    +------------------------+
++--------------+                                    | ParticipatoryProcesses |
+| Organization |                               +----+------------------------+
++------+-------+                               |
+       |            +--------------------+     |    +------------+
+       |            |                    |     +----+ Assemblies |
+       |     +----->+ ParticipatorySpace +<----+    +------------+
+       |     |      |                    |     |    +-------------+
+       |     |      +--------------------+     +----+ Initiatives |
+       |     |                                 |    +-------------+
+       |     |                                 |
+       |     |                                 |    +---------------+
+ +-----+-------+---+                           +----+ Consultations |
+ |                 |                                +---------------+
+ | decidim_metrics |
+ |                 |
+ +--------+--------+       +----------------+
+          |                | related_object |
+          +--------------->+                |
+                           | [polymorphic]  |
+                           +----------------+
+```

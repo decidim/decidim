@@ -18,6 +18,10 @@ module Decidim
         true
       end
 
+      def has_children?
+        model.children.any?
+      end
+
       def resource_path
         Decidim::Assemblies::Engine.routes.url_helpers.assembly_path(model)
       end
@@ -27,7 +31,26 @@ module Decidim
       end
 
       def statuses
-        [:creation_date, :follow]
+        return super unless has_children?
+        [:creation_date, :follow, :children_count]
+      end
+
+      def children_count_status
+        content_tag(
+          :strong,
+          t("layouts.decidim.assemblies.index.children")
+        ) + " " + children_assemblies_visible_for_user
+      end
+
+      def children_assemblies_visible_for_user
+        assemblies = model.children.published
+
+        if current_user
+          return assemblies.count.to_s if current_user.admin
+          assemblies.visible_for(current_user).count.to_s
+        else
+          assemblies.public_spaces.count.to_s
+        end
       end
 
       def resource_icon

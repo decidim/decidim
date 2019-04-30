@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::DataPortability
+      include Decidim::NewsletterParticipant
 
       component_manifest_name "debates"
 
@@ -107,6 +108,13 @@ module Decidim
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
+      end
+
+      def self.newsletter_participant_ids(component)
+        Decidim::Debates::Debate.where(component: component).joins(:component)
+                                .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                .where.not(author: nil)
+                                .pluck(:decidim_author_id).flatten.compact.uniq
       end
 
       private

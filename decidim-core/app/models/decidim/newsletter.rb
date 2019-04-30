@@ -23,6 +23,30 @@ module Decidim
       sent_at.present?
     end
 
+    def sent_scopes_ids
+      extended_data["scope_ids"] || []
+    end
+
+    def sent_scopes
+      @sent_scopes ||= organization.scopes.where(id: sent_scopes_ids)
+    end
+
+    def sended_to_all_users?
+      extended_data["send_to_all_users"]
+    end
+
+    def sended_to_followers?
+      extended_data["send_to_followers"]
+    end
+
+    def sended_to_participants?
+      extended_data["send_to_participants"]
+    end
+
+    def sended_to_partipatory_spaces
+      extended_data["participatory_space_types"]
+    end
+
     private
 
     def author_belongs_to_organization
