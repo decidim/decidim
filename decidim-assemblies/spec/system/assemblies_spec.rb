@@ -112,6 +112,7 @@ describe "Assemblies", type: :system do
         expect(page).to have_content(translated(assembly.title, locale: :en))
         expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
+        expect(page).to have_selector("article.card.card--stack", count: 1)
 
         expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
         expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))

@@ -12,9 +12,9 @@ If you haven't already, come find us in [Gitter](https://gitter.im/decidim/decid
 gpg --keyserver pgp.key-server.io --recv 84B935C4
 ```
 
-* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/decidim/decidim/issues).
+* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/decidim/decidim/issues) and on [Metadecidim](https://meta.decidim.org/processes/bug-report/f/210/proposals).
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/decidim/decidim/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+* If you're unable to find an open issue addressing the problem, [open a new one on Metadecidim](https://meta.decidim.org/processes/bug-report/f/210/proposals/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
 ## Did you write a patch that fixes a bug?
 
@@ -38,7 +38,7 @@ gpg --keyserver pgp.key-server.io --recv 84B935C4
 
 ## Do you want to contribute to Decidim design?
 
-* Go to the [Decidim design repository](https://github.com/decidim/design) and propose the changes that you want.
+* Go to the [Decidim design folder](https://github.com/decidim/decidim/tree/master/decidim_app-design) and propose the changes that you want.
 
 ## Do you want to improve or add a new language for Decidim?
 

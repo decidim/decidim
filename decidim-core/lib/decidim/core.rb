@@ -262,6 +262,11 @@ module Decidim
   # signature to the document
   config_accessor :pdf_signature_service
 
+  # Exposes a configuration option: Decidim::Exporters::CSV's default column separator
+  config_accessor :default_csv_col_sep do
+    ";"
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
