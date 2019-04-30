@@ -49,7 +49,7 @@ module Decidim
     end
 
     def to_s
-      "!#{self.class.name}<action: #{action}, scope: #{scope}, subject: #{subject}>"
+      "!#{self.class.name}<action: #{action}, scope: #{scope}, subject: #{subject}, state: #{@state}>"
     end
 
     class PermissionNotSetError < StandardError; end
