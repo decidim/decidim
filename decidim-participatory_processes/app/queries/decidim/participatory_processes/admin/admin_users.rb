@@ -24,7 +24,7 @@ module Decidim
         #
         # Returns an ActiveRecord::Relation.
         def query
-          Decidim::User.where(id: organization_admins).or(Decidim::User.where(id: process_admins))
+          Decidim::User.where(id: organization_admins).or(process_user_admins)
         end
 
         private
@@ -35,10 +35,11 @@ module Decidim
           process.organization.admins
         end
 
-        def process_admins
-          Decidim::ParticipatoryProcessUserRole
-            .where(participatory_process: process, role: :admin)
-            .pluck(:decidim_user_id)
+        def process_user_admins
+          process_user_admin_ids = Decidim::ParticipatoryProcessUserRole
+                                   .where(participatory_process: process, role: :admin)
+                                   .pluck(:decidim_user_id)
+          Decidim::User.where(id: process_user_admin_ids)
         end
       end
     end

@@ -7,15 +7,21 @@ module Decidim
       # Initializes the command.
       #
       # newsletter - The newsletter to deliver.
-      # user - the Decidim::USer that delivers the newsletter
-      def initialize(newsletter, user)
+      # form - A form object with the params.
+      # user - the Decidim::User that delivers the newsletter
+      def initialize(newsletter, form, user)
         @newsletter = newsletter
+        @form = form
         @user = user
       end
 
       def call
         @newsletter.with_lock do
+          return broadcast(:invalid) if @form.send_to_all_users && !@user.admin?
+          return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) if @newsletter.sent?
+          return broadcast(:no_recipients) if recipients.blank?
+
           send_newsletter!
         end
 
@@ -24,14 +30,20 @@ module Decidim
 
       private
 
+      attr_reader :form
+
       def send_newsletter!
         Decidim.traceability.perform_action!(
           "deliver",
           @newsletter,
           @user
         ) do
-          NewsletterJob.perform_later(@newsletter)
+          NewsletterJob.perform_later(@newsletter, @form.as_json, recipients.map(&:id))
         end
+      end
+
+      def recipients
+        @recipients ||= Decidim::Admin::NewsletterRecipients.new(@newsletter, @form).query
       end
     end
   end
