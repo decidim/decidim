@@ -93,6 +93,7 @@ module Decidim
       def select_recipients_to_deliver
         enforce_permission_to :update, :newsletter, newsletter: newsletter
         @form = form(SelectiveNewsletterForm).from_model(newsletter)
+        @form.send_to_all_users = current_user.admin?
       end
 
       def deliver

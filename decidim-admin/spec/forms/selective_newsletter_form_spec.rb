@@ -17,7 +17,9 @@ module Decidim
       let(:scopes) do
         create_list(:scope, 5, organization: organization)
       end
-      let(:send_to_all_users) { true }
+      let(:participatory_processes) { create_list(:participatory_process, rand(1..9), organization: organization) }
+      let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
+      let(:send_to_all_users) { user.admin? }
       let(:send_to_participants) { false }
       let(:send_to_followers) { false }
       let(:participatory_space_types) { [] }
@@ -45,12 +47,11 @@ module Decidim
         end
 
         context "when some space is selected" do
-          let(:participatory_processes) { create_list(:participatory_process, 2, organization: organization) }
           let(:participatory_space_types) do
             [
               { "id" => nil,
                 "manifest_name" => "participatory_processes",
-                "ids" => [participatory_processes.first.id.to_s] },
+                "ids" => selected_participatory_processes },
               { "id" => nil,
                 "manifest_name" => "assemblies",
                 "ids" => [] },
@@ -85,6 +86,29 @@ module Decidim
           let(:send_to_participants) { true }
 
           it_behaves_like "selective newsletter form"
+        end
+      end
+
+      context "when the user is a space admin" do
+        let(:user) { create(:user, organization: organization) }
+
+        let(:participatory_process_user_role) do
+          build(
+            :participatory_process_user_role,
+            user: user,
+            participatory_process: participatory_processes.first,
+            role: "admin"
+          )
+        end
+        let(:send_to_followers) { true }
+        let(:send_to_participants) { true }
+
+        it_behaves_like "selective newsletter form"
+
+        context "when trying to send to all users" do
+          let(:send_to_all_users) { true }
+
+          it { is_expected.to be_invalid }
         end
       end
     end

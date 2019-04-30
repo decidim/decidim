@@ -8,7 +8,7 @@ module Decidim
 
       attribute :participatory_space_types, Array[SelectiveNewsletterParticipatorySpaceTypeForm]
       attribute :scope_ids, Array
-      attribute :send_to_all_users, Boolean, default: true
+      attribute :send_to_all_users, Boolean
       attribute :send_to_participants, Boolean
       attribute :send_to_followers, Boolean
 

@@ -17,6 +17,7 @@ module Decidim
 
       def call
         @newsletter.with_lock do
+          return broadcast(:invalid) if @form.send_to_all_users && !@user.admin?
           return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) if @newsletter.sent?
           return broadcast(:no_recipients) if recipients.blank?
