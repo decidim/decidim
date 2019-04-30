@@ -258,6 +258,8 @@ en:
         statistics:
           consultations_count: Consultations
     questions:
+      next_button: "Next question"
+      previous_button: "Previous question"
       results:
         title: Results
       show:

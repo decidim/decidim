@@ -43,4 +43,22 @@
     font-weight: bold;
     color: white;
   }
+
+  .small-buttons div{
+    margin-top: 1em;
+  }
+
+  .next-question{
+    margin-top: 5px;
+  }
+
+  .previous-question{
+    margin-top: 5px;
+  }
+}
+
+.consultations-card{
+  .button.expanded.button--sc.success{
+    color: white;
+  }
 }
