@@ -40,7 +40,7 @@ en:
         one: Amendment
         other: Amendments
       decidim/user:
-        one: No participants
+        one: Participant
         other: Participants
       decidim/user_group:
         one: Group
