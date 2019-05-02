@@ -23,6 +23,7 @@ module Decidim
 
     before do
       view.extend Decidim::NeedsPermission
+      view.extend DecidimFormHelper
       allow(view).to receive(:form).and_return(form)
       allow(view).to receive(:allowed_to?).and_return(allowed?)
       allow(view).to receive(:permissions_class).and_return(permissions_class)
