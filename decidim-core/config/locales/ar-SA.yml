@@ -1228,7 +1228,7 @@ ar:
       widget:
         see_more: شاهد المزيد
   locale:
-    name: الإنجليزية
+    name: العربية
   password_validator:
     domain_included_in_password: مشابه جدًا لاسم النطاق هذا
     email_included_in_password: مشابه جدا لبريدك الالكتروني
