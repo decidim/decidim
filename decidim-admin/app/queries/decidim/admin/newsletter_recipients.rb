@@ -23,6 +23,8 @@ module Decidim
 
         participants = recipients.where(id: participant_ids) if @form.send_to_participants
 
+        recipients = participants if @form.send_to_participants
+        recipients = followers if @form.send_to_followers
         recipients = (followers + participants).uniq if @form.send_to_followers && @form.send_to_participants
 
         recipients
