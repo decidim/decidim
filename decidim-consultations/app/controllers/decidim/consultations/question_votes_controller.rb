@@ -6,6 +6,8 @@ module Decidim
       include NeedsQuestion
       include Decidim::FormFactory
 
+      helper QuestionsHelper
+
       before_action :authenticate_user!
 
       def create
