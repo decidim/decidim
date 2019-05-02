@@ -2,8 +2,29 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Upgrade notes
+
+#### Participants metrics
+
+After running the migrations, you can run the following code from the console to recalculate participants metrics (they should increase). It may take a while to complete.
+
+```ruby
+days = (Date.parse(2.months.ago.to_s)..Date.yesterday).uniq
+Decidim::Organization.find_each do |org|
+  old_metrics = Decidim::Metric.where(organization: org).where(metric_type: "participants")
+  days.each do |day|
+    new_metrics = Decidim::Metrics::ParticipantsMetricManage.new(day.to_s, org)
+    ActiveRecord::Base.transaction do
+      old_metrics.where(day: day).delete_all
+      new_metrics.save
+    end
+  end
+end
+```
+
 **Added**:
 
+- **decidim-core**, Add instructions to recalculate participants metrics. [#5110](https://github.com/decidim/decidim/pull/5110)
 - **decidim-core**, **decidim-admin**, Add Selective Newsletter and allow Space admins to manage them. [#5039](https://github.com/decidim/decidim/pull/5039)
 - **decidim-core** Persistence related documentation for Metrics. [\#5108](https://github.com/decidim/decidim/pull/5108)
 - **decidim-core** Add optional parameter :col_sep to CSV exporter [\#5089](https://github.com/decidim/decidim/pull/5089)
