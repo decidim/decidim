@@ -6,6 +6,7 @@ require "decidim/core/version"
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
@@ -54,7 +55,9 @@ module Decidim
   autoload :MetricManifest, "decidim/metric_manifest"
   autoload :MetricOperation, "decidim/metric_operation"
   autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
+  autoload :AttributeEncryptor, "decidim/attribute_encryptor"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :NewsletterParticipant, "decidim/newsletter_participant"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
@@ -260,6 +263,11 @@ module Decidim
   # Exposes a configuration option: an object to process a pdf and add a
   # signature to the document
   config_accessor :pdf_signature_service
+
+  # Exposes a configuration option: Decidim::Exporters::CSV's default column separator
+  config_accessor :default_csv_col_sep do
+    ";"
+  end
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality

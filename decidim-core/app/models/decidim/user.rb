@@ -48,6 +48,11 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
+    scope :interested_in_scopes, lambda { |scope_ids|
+      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
+      where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
+    }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({

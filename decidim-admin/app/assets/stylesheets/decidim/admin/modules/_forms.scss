@@ -15,6 +15,18 @@ textarea{
   input[type="password"],
   select{
     height: 3rem;
+
+    &.chosen-select{
+      option{
+        &.green{
+          color: $success-color;
+        }
+
+        &.red{
+          color: $alert-color;
+        }
+      }
+    }
   }
 
   input,

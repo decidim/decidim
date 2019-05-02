@@ -22,6 +22,7 @@ module Decidim
       include Decidim::Hashtaggable
       include Decidim::Proposals::ParticipatoryTextSection
       include Decidim::Amendable
+      include Decidim::NewsletterParticipant
 
       fingerprint fields: [:title, :body]
 
@@ -87,6 +88,30 @@ module Decidim
         joins(:coauthorships)
           .where("decidim_coauthorships.coauthorable_type = ?", name)
           .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
+      end
+
+      def self.retrieve_proposals_for(component)
+        Decidim::Proposals::Proposal.where(component: component).joins(:coauthorships)
+                                    .includes(:votes, :endorsements)
+                                    .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+                                    .not_hidden
+                                    .published
+                                    .except_withdrawn
+      end
+
+      def self.newsletter_participant_ids(component)
+        proposals = retrieve_proposals_for(component).uniq
+
+        coauthors_recipients_ids = proposals.map { |p| p.notifiable_identities.pluck(:id) }.flatten.compact.uniq
+
+        participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
+
+        endorsements_participants_ids = Decidim::Proposals::ProposalEndorsement.joins(:proposal)
+                                                                               .where(proposal: proposals)
+                                                                               .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                                                               .map(&:decidim_author_id).flatten.compact.uniq
+
+        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
       end
 
       # Public: Updates the vote count of this proposal.

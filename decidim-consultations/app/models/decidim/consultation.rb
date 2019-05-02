@@ -79,5 +79,9 @@ module Decidim
         select('"decidim_consultations".*, RANDOM()').order(Arel.sql("RANDOM()")).load
       end
     end
+
+    def closed?
+      !active?
+    end
   end
 end

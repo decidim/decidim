@@ -116,6 +116,10 @@ module Decidim
       pluck(:decidim_participatory_process_group_id)
     end
 
+    def closed?
+      past?
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end

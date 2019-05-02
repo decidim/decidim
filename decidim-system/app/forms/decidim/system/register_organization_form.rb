@@ -7,6 +7,7 @@ module Decidim
     # A form object used to create organizations from the system dashboard.
     #
     class RegisterOrganizationForm < UpdateOrganizationForm
+      include JsonbAttributes
       mimic :organization
 
       attribute :organization_admin_email, String
