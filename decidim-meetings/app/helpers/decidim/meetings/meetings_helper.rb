@@ -88,18 +88,20 @@ module Decidim
         html.html_safe
       end
 
-      def registration
-        @registration ||= Decidim::Meetings::Registration
-                          .where(decidim_user_id: current_user)
-                          .find_by(decidim_meeting_id: @meeting.id)
-      end
-
+      # Public: Registration code generic help text.
+      #
+      # Returns a String.
       def registration_code_help_text
         t("registration_code_help_text", scope: "decidim.meetings.meetings.show")
       end
 
-      def registration_validation_state
-        if @registration.validated_at
+      # Public: Registration validation state as text.
+      #
+      # registration - The registration that holds the validation code.
+      #
+      # Returns a String.
+      def validation_state_for(registration)
+        if registration.validated?
           t("validated", scope: "decidim.meetings.meetings.show.registration_state")
         else
           t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state")

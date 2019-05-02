@@ -66,7 +66,7 @@ edit_link(
             <div class="registration_code">
               <span><%= registration_code_help_text %></span>
               <span><strong><%= registration.code %></strong></span>
-              <div class="text-small"><%= registration_validation_state %></div>
+              <div class="text-small"><%= validation_state_for(registration) %></div>
             </div>
         </div>
       </div>
