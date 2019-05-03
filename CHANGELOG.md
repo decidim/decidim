@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-consultations**, Add buttons fot better Questions navigation. [#5112](https://github.com/decidim/decidim/pull/5112)
 - **decidim-core**, **decidim-admin**, Add Selective Newsletter and allow Space admins to manage them. [#5039](https://github.com/decidim/decidim/pull/5039)
 - **decidim-core** Persistence related documentation for Metrics. [\#5108](https://github.com/decidim/decidim/pull/5108)
 - **decidim-core** Add optional parameter :col_sep to CSV exporter [\#5089](https://github.com/decidim/decidim/pull/5089)
