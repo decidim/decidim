@@ -99,6 +99,24 @@ module Decidim
 
         it { is_expected.to be_valid }
       end
+
+      context "when slug is a full URL" do
+        let(:slug) { "http://example.org" }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when slug is a valid path" do
+        let(:slug) { "my/slug/" }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when slug is a valid path with underscore" do
+        let(:slug) { "my/super_slug/" }
+
+        it { is_expected.to be_valid }
+      end
     end
   end
 end

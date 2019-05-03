@@ -2,9 +2,30 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Upgrade notes
+
+#### Participants metrics
+
+After running the migrations, you can run the following code from the console to recalculate participants metrics (they should increase). It may take a while to complete.
+
+```ruby
+days = (Date.parse(2.months.ago.to_s)..Date.yesterday).uniq
+Decidim::Organization.find_each do |org|
+  old_metrics = Decidim::Metric.where(organization: org).where(metric_type: "participants")
+  days.each do |day|
+    new_metrics = Decidim::Metrics::ParticipantsMetricManage.new(day.to_s, org)
+    ActiveRecord::Base.transaction do
+      old_metrics.where(day: day).delete_all
+      new_metrics.save
+    end
+  end
+end
+```
+
 **Added**:
 
 - **decidim-consultations**, Add buttons fot better Questions navigation. [#5112](https://github.com/decidim/decidim/pull/5112)
+- **decidim-core**, Add instructions to recalculate participants metrics. [#5110](https://github.com/decidim/decidim/pull/5110)
 - **decidim-core**, **decidim-admin**, Add Selective Newsletter and allow Space admins to manage them. [#5039](https://github.com/decidim/decidim/pull/5039)
 - **decidim-core** Persistence related documentation for Metrics. [\#5108](https://github.com/decidim/decidim/pull/5108)
 - **decidim-core** Add optional parameter :col_sep to CSV exporter [\#5089](https://github.com/decidim/decidim/pull/5089)
@@ -26,6 +47,7 @@
 
 **Fixed**:
 
+- **decidim-admin**: fix Decidim::Admin::NewsletterRecipient query [\#5109](https://github.com/decidim/decidim/pull/5109)
 - **decidim-proposals**: Fix participatory text form. [#5094](https://github.com/decidim/decidim/pull/5094)
 - **decidim-assemblies**: Add class `card--stack` to assemblies when have children assemblies. [#5093](https://github.com/decidim/decidim/pull/5093)
 - **decidim-proposals**: Fix proposal participants metrics. [#5048](https://github.com/decidim/decidim/pull/5048)
@@ -43,6 +65,7 @@
 - **decidim-admin**, **decidim-forms**, **decidim-meetings**: Fix dynamic fields components on IE11. [#5052](https://github.com/decidim/decidim/pull/5052)
 - **decidim-core**: Fix possible NoMethodErrors in the notification jobs filling logs. [#5083](https://github.com/decidim/decidim/pull/5083)
 - **decidim-participatory_processes**: Fix step CTA URL when abse URL had params [#5082](https://github.com/decidim/decidim/pull/5082)
+- **decidim-admin**: Ensure static pages slugs are relative paths [#5085](https://github.com/decidim/decidim/pull/5085)
 - **decidim-accountability**: Remove useless button on the admin page for accountability statuses [#5099](https://github.com/decidim/decidim/pull/5099)
 - **decidim-budgets**: Fix import of proposals to budget projects [#5097](https://github.com/decidim/decidim/pull/5097)
 
