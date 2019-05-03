@@ -29,6 +29,13 @@ module Decidim
         pluck(:decidim_user_group_id)
       end
 
+      # Public: Checks if the registration has been validated.
+      #
+      # Returns Boolean.
+      def validated?
+        validated_at?
+      end
+
       private
 
       def generate_code
