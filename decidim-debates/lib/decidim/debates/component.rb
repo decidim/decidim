@@ -36,6 +36,28 @@ Decidim.register_component(:debates) do |component|
 
   component.actions = %w(create)
 
+  component.exports :debates do |exports|
+    exports.collection do |component_instance|
+      Decidim::Debates::Debate
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Debates::DebateSerializer
+  end
+
+  component.exports :comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Debates::Debate, component_instance
+      )
+    end
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,

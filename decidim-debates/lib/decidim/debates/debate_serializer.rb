@@ -5,7 +5,9 @@ module Decidim
     # This class serializes a debate so can be exported to CSV, JSON or other
     # formats.
     class DebateSerializer < Decidim::Exporters::Serializer
+      include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
+      include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a debate.
       def initialize(debate)
@@ -15,14 +17,24 @@ module Decidim
       # Public: Exports a hash with the serialized data for this debate.
       def serialize
         {
-          id: @debate.id,
-          author_id: @debate.author.try(:id),
-          title: @debate.title,
-          description: @debate.description,
-          comments: @debate.comments.count,
-          created_at: @debate.created_at,
+          id: debate.id,
+          title: present(debate).title,
+          description: present(debate).description,
+          comments: debate.comments.count,
           url: url,
-          component: { id: component.id }
+          category: {
+            id: debate.category.try(:id),
+            name: debate.category.try(:name) || empty_translatable
+          },
+          component: { id: component.id },
+          participatory_space: {
+            id: debate.participatory_space.id,
+            url: Decidim::ResourceLocatorPresenter.new(debate.participatory_space).url
+          },
+          created_at: debate.created_at,
+          start_time: debate.start_time,
+          end_time: debate.end_time,
+          author_url: Decidim::UserPresenter.new(debate.author).try(:profile_url)
         }
       end
 

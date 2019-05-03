@@ -4,12 +4,12 @@
 ## 0.16 - OSP specific changes:
 
 Upgrade note:
-- Changes ruby version from 2.3 to 2.5.3 
+- Changes ruby version from 2.3 to 2.5.3
 
 **Added**:
 
 - **decidim-budgets**: Add Email notification for vote confirmation. [\#489](https://github.com/OpenSourcePolitics/decidim/pull/489)
-- **decidim-proposals**: Add multiple fields to proposals export. [\#602](https://github.com/OpenSourcePolitics/decidim/pull/602) 
+- **decidim-proposals**: Add multiple fields to proposals export. [\#602](https://github.com/OpenSourcePolitics/decidim/pull/602)
 - **decidim-proposals**: Change collaborative draft contributors permissions [\#4712](https://github.com/decidim/decidim/pull/4712)
 - **decidim-proposals**: Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
@@ -43,6 +43,7 @@ Upgrade note:
 - **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-core**: Fix action authorizer with blank permissions [\#4746](https://github.com/decidim/decidim/pull/4746)
 - **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
+- **decidim-debates**: Restore Debates export form component manifest [\#633](https://github.com/OpenSourcePolitics/decidim/pull/633)
 
 ## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
 
