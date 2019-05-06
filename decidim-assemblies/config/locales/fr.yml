@@ -264,6 +264,7 @@ fr:
         executive: Exécutif
         government: Gouvernement
         label: 'Afficher :'
+        help: "Montrer :"
         others: Autres
         participatory: Participatif
         placeholder: Filtrer par type
