@@ -118,7 +118,7 @@ module Decidim
         [
           translated_attribute(space.title),
           space.id,
-          { class: space.try(:closed?) ? "red" : "green" }
+          { class: space.try(:closed?) ? "red" : "green", title: "#{translated_attribute(space.title)}" }
         ]
       end
     end
