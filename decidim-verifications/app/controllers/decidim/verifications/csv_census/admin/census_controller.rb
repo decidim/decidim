@@ -12,6 +12,11 @@ module Decidim
           before_action :show_instructions,
                         unless: :csv_census_active?
 
+          register_permissions(::Decidim::Verifications::CsvCensus::Admin::CensusController,
+                               ::Decidim::Verifications::CsvCensus::Admin::Permissions,
+                               ::Decidim::Admin::Permissions,
+                               ::Decidim::Permissions)
+
           def index
             enforce_permission_to :index, CsvDatum
             @form = form(CensusDataForm).instance
@@ -51,11 +56,7 @@ module Decidim
           end
 
           def permission_class_chain
-            [
-              Decidim::Verifications::CsvCensus::Admin::Permissions,
-              Decidim::Admin::Permissions,
-              Decidim::Permissions
-            ]
+            ::Decidim.permissions_registry.chain_for(::Decidim::Verifications::CsvCensus::Admin::CensusController)
           end
 
           def permission_scope

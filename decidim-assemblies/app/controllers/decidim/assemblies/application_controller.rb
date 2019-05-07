@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::ApplicationHelper
       helper Decidim::Assemblies::AssembliesHelper
       include NeedsPermission
+
       register_permissions(Decidim::Assemblies::ApplicationController,
                            ::Decidim::Assemblies::Permissions,
                            ::Decidim::Admin::Permissions,
