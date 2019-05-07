@@ -64,11 +64,7 @@ module Decidim
       end
 
       def send_email_confirmation
-        Decidim::Meetings::RegistrationMailer.confirmation(
-          @user,
-          @meeting,
-          @registration
-        ).deliver_now
+        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
       end
 
       def send_notification_confirmation
