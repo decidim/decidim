@@ -458,9 +458,12 @@ en:
         select_recipients_to_deliver:
           alert: 'ALERT!!: Take into account that only will be send the newsletter to those users that have accepted to recieve newsletters'
           all_spaces: All
+          all_users_help: all_users_help
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
           deliver: Deliver newsletter
+          followers_help: followers_help
           none: None
+          participants_help: participants_help
           select_scopes: Select scopes to segment the newsletter
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter

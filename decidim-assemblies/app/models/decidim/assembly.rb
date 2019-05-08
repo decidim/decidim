@@ -136,6 +136,12 @@ module Decidim
       Decidim::AssemblyPresenter.new(self).translated_title
     end
 
+    def closed?
+      return false if closing_date.blank?
+
+      closing_date < Date.current
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute
