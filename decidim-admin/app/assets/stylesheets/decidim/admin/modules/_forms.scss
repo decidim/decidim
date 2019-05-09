@@ -17,6 +17,8 @@ textarea{
     height: 3rem;
 
     &.chosen-select{
+      height: unset;
+
       option{
         &.green{
           color: $success-color;
