@@ -26,7 +26,7 @@ module Decidim
         if attribute.translated?
           form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
-          form.send(form_method_for_attribute(attribute), name, options)
+          form.send(form_method_for_attribute(attribute), name, options.merge(extra_options_for(name)))
         end
       end
 
@@ -35,6 +35,17 @@ module Decidim
       def form_method_for_attribute(attribute)
         return :editor if attribute.type.to_sym == :text && attribute.editor?
         TYPES[attribute.type.to_sym]
+      end
+
+      def extra_options_for(attribute_name)
+        return {} unless attribute_name == :participatory_texts_enabled
+        return {} unless Decidim::Proposals::Proposal.where(decidim_component_id: params[:id]).any?
+
+        {
+          disabled: true,
+          data: { text: t(".participatory_texts_enabled_help") },
+          class: "participatory_texts_disabled"
+        }
       end
     end
   end
