@@ -259,14 +259,14 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
+        settings_fields:
+          participatory_texts_enabled_help: Cannot do this if there are proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all proposals  in the `Participatory Texts` menu if you want to disable it.
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
         update:
           error: There was a problem updating this component.
           success: The component was updated successfully.
-        settings_fields:
-          participatory_texts_enabled_help: "Cannot do this if there are proposals.\nPlease, create a new `Proposals component` if you want to enable this feature or discard all proposals  in the `Participatory Texts` menu if you want to disable it."
       dashboard:
         show:
           view_more_logs: View more logs
