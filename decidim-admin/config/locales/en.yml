@@ -247,6 +247,7 @@ en:
         form:
           default_step_settings: Default step settings
           global_settings: Global settings
+          participatory_texts_enabled_help: Cannot interact with this settings if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Step settings
         index:
           add: Add component
@@ -259,8 +260,6 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
-        settings_fields:
-          participatory_texts_enabled_help: Cannot interact with this settings if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
         title: Components
         unpublish:
           success: The component has been successfully unpublished.

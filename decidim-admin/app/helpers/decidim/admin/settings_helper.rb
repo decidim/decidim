@@ -49,9 +49,9 @@ module Decidim
         return {} unless Decidim::Proposals::Proposal.where(decidim_component_id: params[:id]).any?
 
         {
+          class: "participatory_texts_disabled",
           disabled: true,
-          data: { text: t(".participatory_texts_enabled_help") },
-          class: "participatory_texts_disabled"
+          data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
         }
       end
     end
