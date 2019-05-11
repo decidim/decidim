@@ -40,6 +40,7 @@ end
 
 **Changed**:
 
+- **decidim-core**: Allow for extension in Decidim::User::ROLES. [#5133](https://github.com/decidim/decidim/pull/5133)
 - **decidim-core**: Change attachment photo image alt texts to title instead of description. [#5043](https://github.com/decidim/decidim/pull/5043)
 - **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
 - **decidim-initiatives**: Add styles inline in PDF document of signatures [#5103](https://github.com/decidim/decidim/pull/5103)
