@@ -11,7 +11,9 @@ module Decidim
     include Decidim::Searchable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-    ROLES = %w(admin user_manager).freeze
+    # rubocop:disable Style/MutableConstant
+    ROLES = %w(admin user_manager)
+    # rubocop:enable Style/MutableConstant
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
