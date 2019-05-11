@@ -43,7 +43,7 @@ module Decidim
       #
       # field_name - The name of the field to disable.
       #
-      # Returns Nil or a Hash with extra HTML options.
+      # Returns an empty Hash or a Hash with extra HTML options.
       def extra_options_for(field_name)
         return {} unless field_name == :participatory_texts_enabled
         return {} unless Decidim::Proposals::Proposal.where(decidim_component_id: params[:id]).any?
