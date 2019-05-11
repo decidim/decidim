@@ -105,4 +105,44 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
   end
+
+  describe "on edit", type: :system do
+    let(:edit_proposal_component_path) do
+      "/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/edit"
+    end
+    let(:participatory_texts_enabled_checkbox) do
+      page.find("input[name='component[settings][participatory_texts_enabled]']")
+    end
+
+    before do
+      current_user.update(admin: true)
+      switch_to_host(component.organization.host)
+      login_as current_user, scope: :user
+    end
+
+    context "when there are no proposals for the component" do
+      before do
+        visit edit_proposal_component_path
+      end
+
+      it "ALLOWS the admin the enable the Participatory texts feature" do
+        expect(participatory_texts_enabled_checkbox[:class]).not_to include("disabled")
+      end
+    end
+
+    context "when there are proposals for the component" do
+      before do
+        create(:proposal, component: component)
+        visit edit_proposal_component_path
+      end
+
+      it "DOES NOT ALLOW the admin the enable the Participatory texts feature" do
+        expect(participatory_texts_enabled_checkbox[:class]).to include("disabled")
+
+        within ".help-text" do
+          expect(page).to have_content("Cannot interact with this settings if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+        end
+      end
+    end
+  end
 end
