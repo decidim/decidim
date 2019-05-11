@@ -37,8 +37,15 @@ module Decidim
         TYPES[attribute.type.to_sym]
       end
 
-      def extra_options_for(attribute_name)
-        return {} unless attribute_name == :participatory_texts_enabled
+      # Disables :participatory_texts_enabled checkbox if the Proposals component
+      # has existing proposals and stores the help text that will be added in a
+      # new div via JavaScript in "decidim/admin/form".
+      #
+      # field_name - The name of the field to disable.
+      #
+      # Returns Nil or a Hash with extra HTML options.
+      def extra_options_for(field_name)
+        return {} unless field_name == :participatory_texts_enabled
         return {} unless Decidim::Proposals::Proposal.where(decidim_component_id: params[:id]).any?
 
         {
