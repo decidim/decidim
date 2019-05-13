@@ -4,12 +4,14 @@ shared_examples "duplicate meetings" do
   let(:form) { Decidim::Meetings::Admin::MeetingCopyForm.from_model(meeting).with_context(context) }
   let(:context) { { current_organization: meeting.organization, current_component: meeting.component } }
   let(:copy_meeting) { Decidim::Meetings::Admin::CopyMeeting.new(form, meeting) }
-  let(:directory) { Decidim::EngineRouter.admin_proxy(meeting.component).meetings_path }
+
   let(:latitude) { meeting.latitude }
   let(:longitude) { meeting.longitude }
+  let(:meetings_path) { Decidim::EngineRouter.admin_proxy(meeting.component).meetings_path }
+
   let(:duplicated_meeting) { Decidim::Meetings::Meeting.find_by("title->>'en' = 'Duplicated meeting'") }
   let(:edit_duplicated_meeting_registrations_form_path) do
-    Decidim::EngineRouter.admin_proxy(component).edit_meeting_registrations_form_path(meeting_id: duplicated_meeting.id)
+    Decidim::EngineRouter.admin_proxy(component).edit_meeting_registrations_form_path(duplicated_meeting.id)
   end
 
   before do
@@ -18,7 +20,7 @@ shared_examples "duplicate meetings" do
   end
 
   it "duplicates a meeting" do
-    visit directory
+    visit meetings_path
     click_link "Duplicate"
     click_button "Copy"
 
