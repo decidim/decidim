@@ -46,6 +46,7 @@ end
 
 **Fixed**:
 
+- **decidim-meetings**: Fix meeting minutes related information in public view [\#5137](https://github.com/decidim/decidim/pull/5137)
 - **decidim-meetings**: Fix `deliver_now` call on `send_email_confirmation` [\#5111](https://github.com/decidim/decidim/pull/5111)
 - **decidim-admin**: fix Decidim::Admin::NewsletterRecipient query [\#5109](https://github.com/decidim/decidim/pull/5109)
 - **decidim-proposals**: Fix participatory text form. [#5094](https://github.com/decidim/decidim/pull/5094)
