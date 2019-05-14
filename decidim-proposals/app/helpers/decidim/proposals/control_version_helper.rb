@@ -50,11 +50,21 @@ module Decidim
       # data - A Hash with `old_data`, `:new_data` and `:type` keys.
       #
       # Returns an HTML-safe string.
-      def output_diff(data)
+      def output_block_diff(data)
         Diffy::Diff.new(
           data[:old_value],
           data[:new_value],
         ).to_s(:html).html_safe
+      end
+
+      def output_split_diff(data, direction)
+        split_diff ||= Diffy::SplitDiff.new(
+          data[:old_value],
+          data[:new_value],
+          format: :html
+        )
+
+        split_diff.send(direction).html_safe
       end
     end
   end

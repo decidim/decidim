@@ -4,12 +4,13 @@
       <%= t("changes_at_title", scope: "decidim.proposals.versions", title: item.title) %>
     </h2>
 
-    <div class="row">
-      <div class="mediumlarge-8 columns">
+      <!-- Block diff -->
+    <div class="row hide-for-mediumlarge">
+      <div class="hide-for-mediumlarge mediumlarge-8 columns">
         <div class="section">
           <% diff_renderer.diff.each_value do |data| %>
             <h3 class="section-heading"><%= data[:label] %></h3>
-            <%= output_diff(data) %>
+            <%= output_block_diff(data) %>
           <% end %>
         </div>
       </div>
@@ -35,5 +36,42 @@
         </div>
       </div>
     </div>
+    <!-- /Block diff -->
+    <!-- Split diff -->
+    <div class="row show-for-mediumlarge">
+      <div class="columns section mediumlarge-4">
+        <div class="card extra definition-data">
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("versions.stats.version_number", scope: "decidim.proposals") %></span>
+            <%= t("versions.stats.version_number_out_of_total", scope: "decidim.proposals", current_version: params[:id], total_count: item.versions_count) %>
+            <%= link_to t("versions.stats.show_all_versions", scope: "decidim.proposals"), resource_all_versions_path, class: "button button--sc hollow secondary small expanded" %>
+            <%= link_to back_to_resource_path_text, back_to_resource_path, class: "button button--sc hollow secondary small expanded" %>
+          </div>
+          <% if current_version.whodunnit.present? %>
+            <div class="definition-data__item last_revision_by">
+              <span class="definition-data__title"><%= t("versions.stats.version_author", scope: "decidim.proposals") %></span>
+              <%= render_resource_editor(current_version) %>
+            </div>
+          <% end %>
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("versions.stats.version_created_at", scope: "decidim.proposals") %></span>
+            <%= l current_version.created_at, format: :decidim_short %>
+          </div>
+        </div>
+      </div>
+
+      <div class="mediumlarge-12 columns">
+        <% diff_renderer.diff.each_value do |data| %>
+          <h3 class="section-heading"><%= data[:label] %></h3>
+          <div class="mediumlarge-6 columns">
+            <%= output_split_diff(data, :left) %>
+          </div>
+          <div class="mediumlarge-6 columns">
+            <%= output_split_diff(data, :right) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- /Split diff -->
   </div>
 </div>
