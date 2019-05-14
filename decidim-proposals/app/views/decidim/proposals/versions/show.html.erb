@@ -9,7 +9,7 @@
         <div class="section">
           <% diff_renderer.diff.each_value do |data| %>
             <h3 class="section-heading"><%= data[:label] %></h3>
-            <%= render_diff_data(data) %>
+            <%= output_diff(data) %>
           <% end %>
         </div>
       </div>
