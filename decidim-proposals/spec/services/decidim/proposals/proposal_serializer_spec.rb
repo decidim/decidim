@@ -21,6 +21,17 @@ module Decidim
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
+      let(:expected_answer) do
+        answer = proposal.answer
+        Decidim.available_locales.each_with_object({}) do |locale, result|
+          result[locale.to_s] = if answer.is_a?(Hash)
+                                  answer[locale.to_s] || ""
+                                else
+                                  ""
+                                end
+        end
+      end
+
       before do
         proposal.update!(category: category)
         proposal.update!(scope: scope)
@@ -91,6 +102,10 @@ module Decidim
           expect(serialized).to include(reference: proposal.reference)
         end
 
+        it "serializes the answer" do
+          expect(serialized).to include(answer: expected_answer)
+        end
+
         it "serializes the amount of attachments" do
           expect(serialized).to include(attachments: proposal.attachments.count)
         end
@@ -102,6 +117,14 @@ module Decidim
         it "serializes related proposals" do
           expect(serialized[:related_proposals].length).to eq(2)
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
+        end
+
+        context "with proposal having an answer" do
+          let!(:proposal) { create(:proposal, :with_answer) }
+
+          it "serializes the answer" do
+            expect(serialized).to include(answer: expected_answer)
+          end
         end
       end
     end
