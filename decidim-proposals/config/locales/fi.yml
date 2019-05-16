@@ -140,7 +140,7 @@ fi:
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Ehdotukset nyt käytössä kohteessa %{participatory_space_title}
+          email_subject: Ehdotuksia on nyt mahdollista laatia kohteessa %{participatory_space_title}
           notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Voit suositella ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
@@ -309,13 +309,13 @@ fi:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
           discard:
-            success: Kaikki osallistuvan tekstin luonnokset on hylätty.
+            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alaosio:</em> %{title}"
           update:
-            success: Osallistuva teksti päivitettiin onnistuneesti.
+            success: Ehdotusaineistojen päivitys onnistui.
         proposal_answers:
           edit:
             accepted: Hyväksytty
@@ -334,10 +334,10 @@ fi:
           title: Omat muistiinpanot
         proposals:
           answer:
-            invalid: Ehdotukseen vastaamisessa esiintyi virhe
+            invalid: Ehdotukseen vastaaminen epäonnistui
             success: Ehdotukseen vastattu onnistuneesti
           create:
-            invalid: Ehdotuksen luonnissa tapahtui virhe
+            invalid: Ehdotuksen luonti epäonnistui
             success: Ehdotus luotu onnistuneesti
           edit:
             title: Päivitä ehdotusta

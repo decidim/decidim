@@ -1,0 +1,62 @@
+ar:
+  activemodel:
+    attributes:
+      answer:
+        body: إجابة
+      question:
+        max_choices: أقصى عدد من الخيارات
+        question_type: نوع
+      questionnaire_question:
+        mandatory: إلزامي
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: ليست كاملة
+              too_many: كثير جدا
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: وصف
+            tos: شروط الخدمة
+        questionnaires:
+          answer_option:
+            answer_option: خيار الإجابة
+            free_text: نص حر
+            remove: إزالة
+            statement: بيان
+          edit:
+            save: حفظ
+            title: عنوان
+          form:
+            add_question: أضف سؤال
+          question:
+            add_answer_option: إضافة خيار الإجابة
+            any: أي
+            description: وصف
+            down: أسفل
+            question: سؤال
+            remove: إزالة
+            statement: بيان
+            up: فوق
+      errors:
+        answer:
+          body: لا يمكن أن يكون الجسم فارغًا
+      question_types:
+        long_answer: اجابة طويلة
+        multiple_option: خيار متعدد
+        short_answer: اجابة قصيرة
+        single_option: خيار واحد
+        sorting: فرز
+      questionnaires:
+        question:
+          max_choices: 'خيارات ماكس: %{n}'
+        show:
+          are_you_sure: لا يمكن التراجع عن هذا الإجراء ولن تتمكن من تعديل إجاباتك. هل أنت واثق؟
+          questionnaire_answered:
+            title: تمت الاجابة مسبقا
+          submit: خضع
+          tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة

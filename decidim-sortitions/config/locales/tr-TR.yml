@@ -65,6 +65,7 @@ tr:
             destroy: Sıralamayı iptal et
             title: Sıralamanın iptali
           create:
+            error: Yeni bir sıralama oluşturulurken bir hata oluştu.
             success: Sıralama başarıyla oluşturuldu
           destroy:
             error: Sıralama iptal edilemez.
@@ -85,6 +86,7 @@ tr:
           show:
             selected_proposals: Çizim için seçilen teklifler
           update:
+            error: Sıralama güncellenirken bir hata oluştu.
             success: Sıralama başarıyla güncellendi
       admin_log:
         sortition:
@@ -103,6 +105,7 @@ tr:
           category: Kategori
           category_prompt: bir kategori seç
           search: Arama
+          state: Durum
         filters_small_view:
           close_modal: Kalıcı modal
           filter: filtre
@@ -119,6 +122,7 @@ tr:
             one: seçilen teklif
             other: seçilen teklifler
         show:
+          algorithm: Sıralamanın Algoritma kodu
           any_category: tüm kategorilerden
           cancelled: İptal edilen sıralama
           candidate_proposal_ids: Sıralama teklifleri siparişi ve kimlikleri
@@ -137,6 +141,10 @@ tr:
             one: teklif seçildi
             other: teklif seçildi
           view: Görünüm
+        sortition_author:
+          deleted: Silinmiş kullanıcı
+        sortition_cancel_author:
+          deleted: Silinmiş kullanıcı
         sortitions_count:
           count:
             one: 1 sıralama

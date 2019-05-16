@@ -131,6 +131,7 @@ FactoryBot.define do
       email { "" }
       password { "" }
       password_confirmation { "" }
+      encrypted_password { "" }
       managed { true }
     end
 

@@ -17,9 +17,12 @@ tr:
         test:
           conditions:
             - Decidim için bir test ortamı kullanın.
+          description: Kullanıcılar testler oluşturarak bu rozeti alabilir.
+          description_another: Bu kullanıcı %{score} testi oluşturdu.
           description_own: '%{score} test oluşturdunuz.'
           name: Testler
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} test daha oluştur!
+          unearned_another: Bu kullanıcı henüz bir test oluşturmadı.
           unearned_own: Henüz bir test oluşturmadınız.
     pages:
       home:

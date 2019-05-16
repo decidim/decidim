@@ -142,6 +142,17 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-core**: Fix tabs with inputs with invalid characters [\#4561](https://github.com/decidim/decidim/pull/4561)
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.16-stable)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+**Removed**:
+
+## [0.16.1](https://github.com/decidim/decidim/tree/v0.16.1)
 
 ### Upgrade notes
 
@@ -816,6 +827,8 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4963](https://github.com/decidim/decidim/pull/4963/)
 - **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4962](https://github.com/decidim/decidim/pull/4962/)
 - **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
+- **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
+- **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
 
 **Removed**:
 

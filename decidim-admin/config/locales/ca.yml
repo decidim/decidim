@@ -14,7 +14,7 @@ ca:
         attachment_collection_id: Carpeta
         description: Descripció
         file: Arxiu
-        title: Grup de processos participatius
+        title: Títol
       attachment_collection:
         description: Descripció
         name: Nom
@@ -276,7 +276,7 @@ ca:
             managed: Gestionat
             not_managed: No gestionat
           filter_by: Filtra per
-          impersonate: Suplantar
+          impersonate: Gestionar
           impersonate_new_managed_user: Substitueix un nou usuari administrat
           managed: Gestionat
           name: Nom
@@ -329,7 +329,7 @@ ca:
         dashboard: Tauler de control
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
-        impersonations: Impersonacions
+        impersonations: Gestió de participants
         navbar_links: Navbar links
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
@@ -651,7 +651,7 @@ ca:
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
-        impersonations: Impersonacions
+        impersonations: Gestió de participants
         managed_users: Managed users
         navbar_links: Navbar links
         participants: Participants
