@@ -43,29 +43,6 @@ module Decidim
           collaborative_draft_versions_path(item)
         end
       end
-
-      # Outputs the diff as HTML with inline highlighting of the character
-      # changes between lines.
-      #
-      # data - A Hash with `old_data`, `:new_data` and `:type` keys.
-      #
-      # Returns an HTML-safe string.
-      def output_block_diff(data)
-        Diffy::Diff.new(
-          data[:old_value],
-          data[:new_value],
-        ).to_s(:html).html_safe
-      end
-
-      def output_split_diff(data, direction)
-        split_diff ||= Diffy::SplitDiff.new(
-          data[:old_value],
-          data[:new_value],
-          format: :html
-        )
-
-        split_diff.send(direction).html_safe
-      end
     end
   end
 end

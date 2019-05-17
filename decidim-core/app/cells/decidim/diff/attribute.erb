@@ -1,0 +1,15 @@
+<div class="row">
+  <h3 class="section-heading mediumlarge-12 columns">
+    <%= data[:label] %>
+  </h3>
+</div>
+
+<div class="row" id="diff_unified">
+  <%= diff_unified(data) %>
+</div>
+
+<div class="row hide" id="diff_split">
+  <%= diff_split(data, "left") %>
+
+  <%= diff_split(data, "right") %>
+</div>
