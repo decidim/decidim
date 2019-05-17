@@ -25,3 +25,6 @@ tr:
           edit:
             save: Güncelleştirme
             title: Sayfayı düzenle
+          update:
+            invalid: Sayfayı kaydederken hatalar oluştu.
+            success: Sayfa başarıyla kaydedildi.

@@ -134,9 +134,9 @@ fi:
       area_types:
         create:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
-          success: Aluetyyppi luotu onnistuneesti.
+          success: Aluetyypin luonti onnistui.
         destroy:
-          success: Aluetyyppi tuhottu onnistuneesti
+          success: Aluetyypin tuhoaminen onnistui
         edit:
           title: Muokkaa aluetyyppiä
           update: Päivitä
@@ -145,13 +145,13 @@ fi:
           title: Uusi aluetyyppi
         update:
           error: Aluetyyppiä päivitettäessä tapahtui virhe.
-          success: Aluetyyppi päivitetty onnistuneesti
+          success: Aluetyypin päivitys onnistui
       areas:
         create:
           error: Uuden alueen luomisessa tapahtui virhe.
-          success: Alue luotu onnistuneesti.
+          success: Alueen luonti onnistui.
         destroy:
-          success: Alue tuhottu onnistuneesti
+          success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
           update: Päivitä
@@ -161,13 +161,13 @@ fi:
         no_areas: Ei alueita
         update:
           error: Virhe päivitettäessä tätä aluetta.
-          success: Alue päivitetty onnistuneesti
+          success: Alueen päivitys onnistui
       attachment_collections:
         create:
           error: Uuden kansion luomisessa tapahtui virhe.
-          success: Kansio luotu onnistuneesti.
+          success: Kansion luonti onnistui.
         destroy:
-          success: Kansio tuhottu onnistuneesti.
+          success: Kansion tuhoaminen onnistui.
         edit:
           title: Muokkaa kansiota
           update: Päivitä
@@ -179,13 +179,13 @@ fi:
           title: Uusi kansio
         update:
           error: Tämän kansion päivittämisessä tapahtui virhe.
-          success: Kansio päivitetty onnistuneesti.
+          success: Kansion päivitys onnistui.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
-          success: Liite luotu onnistuneesti.
+          success: Liitteen luonti onnistui.
         destroy:
-          success: Liite tuhottu onnistuneesti.
+          success: Liitteen tuhoaminen onnistui.
         edit:
           title: Muokkaa liitettä
           update: Päivitä
@@ -196,17 +196,17 @@ fi:
           title: Uusi liite
         update:
           error: Tämän liitteen päivityksessä tapahtui virhe.
-          success: Liite luotu onnistuneesti.
+          success: Liitteen luonti onnistui.
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
-          success: Aihepiiri luotu onnistuneesti.
+          success: Aihepiirin luonti onnistui.
         destroy:
           error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kooknaisuus ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
-          success: Aihepiiri poistettu onnistuneesti.
+          success: Aihepiirin poistaminen onnistui.
         edit:
           title: Muokkaa aihepiiriä
           update: Päivitä
@@ -218,21 +218,21 @@ fi:
           title: Uusi aihepiiri
         update:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
-          success: Aihepiiri päivitetty onnistuneesti.
+          success: Aihepiirin päivitys onnistui.
       component_permissions:
         edit:
           everyone: Jokainen
           submit: Tallenna käyttöoikeudet
           title: Muokkaa käyttöoikeuksia
         update:
-          success: Käyttöoikeudet päivitetty onnistuneesti.
+          success: Käyttöoikeuksien päivitys onnistui.
       components:
         create:
           error: Tämän komponentin luomisessa tapahtui virhe.
-          success: Komponentti luotu onnistuneesti.
+          success: Komponentin luonti onnistui.
         destroy:
           error: Tämän komponentin tuhoamisessa tapahtui virhe.
-          success: Komponentti poistettu onnistuneesti.
+          success: Komponentin poisto onnistui.
         edit:
           title: Muokkaa komponenttia
           update: Päivitä
@@ -250,13 +250,13 @@ fi:
           add: Lisää komponentti
           title: 'Lisää komponentti: %{name}'
         publish:
-          success: Komponentti julkaistu onnistuneesti.
+          success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentti julkaistu onnistuneesti.
+          success: Komponentin julkaisun peruminen onnistui.
         update:
           error: Tämän komponentin päivittämisessä tapahtui virhe.
-          success: Komponentti päivitetty onnistuneesti.
+          success: Komponentin päivitys onnistui.
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
@@ -268,7 +268,7 @@ fi:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:
           save: Tallenna
-        success: Ohjeosiot päivitetty onnistuneesti
+        success: Ohjeosioiden päivitys onnistui
       impersonatable_users:
         index:
           filter:
@@ -289,7 +289,7 @@ fi:
       impersonations:
         close_session:
           error: Toisena käyttäjänä esiintymisen istunnon sulkemisessa tapahtui virhe.
-          success: Toisena käyttäjänä esiintymisen istunto on onnistuneesti päätetty.
+          success: Toisena käyttäjänä esiintymisen istunnon päättäminen onnistui.
         create:
           error: Esiinnyttäessä käyttäjänä tapahtui virhe.
           success: Hallittu käyttäjä on luotu onnistuneesti.
@@ -419,13 +419,13 @@ fi:
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
-          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
+          success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
         deliver:
           error: Tämän uutiskirjeen toimituksessa tapahtui virhe.
-          success: Uutiskirje toimitettu onnistuneesti.
+          success: Uutiskirjeen toimitus onnistui.
         destroy:
           error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
-          success: Uutiskirje tuhottu onnistuneesti.
+          success: Uutiskirjeen tuhoaminen onnistui.
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
@@ -444,14 +444,14 @@ fi:
           subject: Otsikko
         update:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
-          success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+          success: Uutiskirjeen päivitys onnistui. Tarkasta se läpi ennen lähetystä.
       oauth_applications:
         create:
           error: Sovelluksen luonnissa tapahtui virhe.
-          success: Sovellus luotu onnistuneesti.
+          success: Sovelluksen luonti onnistui.
         destroy:
           error: Tämän sovelluksen tuhoamisessa tapahtui virhe.
-          success: Sovellus tuhottu onnistuneesti.
+          success: Sovelluksen tuhoaminen onnistui.
         edit:
           save: Tallenna
           title: Muokkaa sovellusta
@@ -463,7 +463,7 @@ fi:
           title: Uusi sovellus
         update:
           error: Sovelluksen päivittämisessä tapahtui virhe.
-          success: Sovellus päivitetty onnistuneesti.
+          success: Sovelluksen päivitys onnistui.
       officializations:
         create:
           success: Käyttäjä virallistettu onnistuneesti
@@ -505,7 +505,7 @@ fi:
           youtube: YouTube
         update:
           error: Tämän organisaation päivityksessä tapahtui virhe.
-          success: Organisaatio päivitetty onnistuneesti.
+          success: Organisaation päivitys onnistui.
       organization_appearance:
         edit:
           update: Päivitä
@@ -539,9 +539,9 @@ fi:
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
-          success: Teematyyppi luotu onnistuneesti.
+          success: Teematyypin luonti onnistui.
         destroy:
-          success: Teematyyppi tuhottu onnistuneesti
+          success: Teematyypin tuhoaminen onnistui
         edit:
           title: Muokkaa teematyyppiä
           update: Päivitä
@@ -550,13 +550,13 @@ fi:
           title: Uusi teema
         update:
           error: Teematyypin päivityksessä tapahtui virhe.
-          success: Teematyyppi päivitetty onnistuneesti
+          success: Teematyypin päivitys onnistui
       scopes:
         create:
           error: Uuden teeman luonnissa tapahtui virhe.
-          success: Teema luotu onnistuneesti.
+          success: Teeman luonti onnistui.
         destroy:
-          success: Teema tuhottu onnistuneesti
+          success: Teeman tuhoaminen onnistui
         edit:
           title: Muokkaa teemaa
           update: Päivitä
@@ -566,13 +566,13 @@ fi:
         no_scopes: Tällä tasolla ei ole teemoja.
         update:
           error: Tämän teeman päivityksessä tapahtui virhe.
-          success: Teema päivitetty onnistuneesti
+          success: Teeman päivitys onnistui
       static_page_topics:
         create:
           error: Uuden aiheen luomisessa tapahtui virhe.
-          success: Aihe luotiin onnistuneesti.
+          success: Aiheen luonti onnistui.
         destroy:
-          success: Aihe tuhottu onnistuneesti
+          success: Aiheen tuhoaminen onnistui
         edit:
           title: Muokkaa aihetta
           update: Päivitä aihe
@@ -581,15 +581,15 @@ fi:
           title: Uusi aihe
         update:
           error: Tämän aiheen päivittämisessä tapahtui virhe.
-          success: Aihe päivitettiin onnistuneesti
+          success: Aiheen päivitys onnistui
       static_pages:
         actions:
           view: Näytä julkinen sivu
         create:
           error: Uuden sivun luonnissa tapahtui virhe.
-          success: Sivu luotu onnistuneesti.
+          success: Sivun luonti onnistui.
         destroy:
-          success: Sivu tuhottu onnistuneesti
+          success: Sivun tuhoaminen onnistui
         edit:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään uudet käyttöehdot.
           title: Muokkaa sivua
@@ -608,14 +608,14 @@ fi:
           without_topic: Sivut ilman aihetta
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
-          success: Sivu päivitetty onnistuneesti
+          success: Sivun päivitys onnistui
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        impersonatable_users: Käyttäjien puolesta tehdyt istunnot
+        impersonatable_users: Hallittavat käyttäjät
         impersonations: Esiintymiset toisena käyttäjänä
         participants: Käyttäjät
         scope_types: Teematyypit
@@ -682,10 +682,10 @@ fi:
         reportable:
           hide:
             invalid: Resurssin piilotuksessa tapahtui virhe.
-            success: Resurssi piilotettu onnistuneesti.
+            success: Resurssin piilotus onnistui.
           unreport:
             invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.
-            success: Resurssin raportointi onnistuneesti poistettu.
+            success: Resurssin ilmoituksen poisto onnistui.
       models:
         moderation:
           fields:

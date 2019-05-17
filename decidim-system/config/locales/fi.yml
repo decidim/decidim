@@ -14,7 +14,7 @@ fi:
           error: Uuden hallinnoijan luonnissa tapahtui virhe.
           success: Hallinnoija luotu onnistuneesti
         destroy:
-          success: Hallinnoija poistettu onnistuneesti
+          success: Hallinnointikäyttäjän poistaminen onnistui
         edit:
           title: Muokkaa hallinnoijaa
           update: Päivitä

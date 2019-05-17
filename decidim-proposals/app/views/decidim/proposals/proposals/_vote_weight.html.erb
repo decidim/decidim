@@ -1,19 +1,19 @@
-<% @proposal = @proposal.nil? ? model : @proposal %>
-<% if @proposal.nil? || @proposal.rejected? %>
+<% proposal = proposal.nil? ? model : proposal %>
+<% if proposal.nil? || proposal.rejected? %>
   <div></div>
 <% else %>
   <div id="proposal-<%= proposal.id %>-vote-button" class="vote_weight_section">
     <% if !current_user %>
       <% if current_settings.votes_blocked? %>
         <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-          proposal: @proposal,
+          proposal: proposal,
           from_proposals_list: from_proposals_list,
           disabled: true,
           info: t("decidim.proposals.proposals.vote_weight.votes_blocked")
         } %>
       <% else %>
         <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-          proposal: @proposal,
+          proposal: proposal,
           from_proposals_list: from_proposals_list,
           disabled: false,
           info: false
@@ -22,7 +22,7 @@
     <% else %>
       <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
         <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-          proposal: @proposal,
+          proposal: proposal,
           from_proposals_list: from_proposals_list,
           disabled: false,
           info: false
@@ -30,7 +30,7 @@
       <% else %>
         <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_supports_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
           <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-            proposal: @proposal,
+            proposal: proposal,
             from_proposals_list: from_proposals_list,
             disabled: true,
             info: t("decidim.proposals.proposals.vote_weight.maximum_votes_reached")
@@ -38,21 +38,21 @@
         <% else %>
           <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
             <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-              proposal: @proposal,
+              proposal: proposal,
               from_proposals_list: from_proposals_list,
               disabled: true,
               info: t("decidim.proposals.proposals.vote_weight.no_votes_remaining")
             } %>
           <% elsif current_settings.votes_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
             <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-              proposal: @proposal,
+              proposal: proposal,
               from_proposals_list: from_proposals_list,
               disabled: true,
               info: t("decidim.proposals.proposals.vote_weight.votes_blocked")
             } %>
           <% else %>
             <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
-              proposal: @proposal,
+              proposal: proposal,
               from_proposals_list: from_proposals_list,
               disabled: false,
               info: false

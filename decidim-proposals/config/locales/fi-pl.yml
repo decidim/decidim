@@ -309,13 +309,13 @@ fi-pl:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
           discard:
-            success: Kaikki osallistuvan tekstin luonnokset on hylätty.
+            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alaosio:</em> %{title}"
           update:
-            success: Osallistuva teksti päivitettiin onnistuneesti.
+            success: Ehdotusaineistojen päivitys onnistui.
         proposal_answers:
           edit:
             accepted: Hyväksytty

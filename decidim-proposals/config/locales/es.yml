@@ -149,10 +149,10 @@ es:
           notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Su propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Su propuesta ha sido aceptada.
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
+            email_intro: 'Tu propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_subject: Tu propuesta ha sido aceptada
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -165,10 +165,10 @@ es:
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a a propuesta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Su propuesta "%{resource_title}" está siendo evaluada. Puedes buscar una respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
+            email_intro: 'Tu propuesta "%{resource_title}" está siendo evaluada. Puedes consultar la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
             email_subject: Tu propuesta esta siendo evaluada
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -176,7 +176,7 @@ es:
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
-          email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
+          email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
         proposal_published:
@@ -191,10 +191,10 @@ es:
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> se ha añadido a %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Su propuesta ha sido rechazada
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
+            email_intro: 'Tu propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_subject: Tu propuesta ha sido rechazada
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -289,7 +289,7 @@ es:
             name: Propuesta
         participatory_texts:
           bulk-actions:
-            are_you_sure: '¿Estás seguro de descartar todo el borrador del texto participativo?'
+            are_you_sure: '¿Seguro que quieres descartar todo el borrador de texto participativo?'
             import_doc: Importar documento
             discard_all: Descartar todo
           import:
@@ -732,7 +732,7 @@ es:
           title: Versiones
         stats:
           back_to_collaborative_draft: Volver al borrador colaborativo
-          back_to_proposal: Volver a propuesta
+          back_to_proposal: Volver a la propuesta
           number_of_versions: Versiones
           show_all_versions: Mostrar todas las versiones
           version_author: Autor de la versión

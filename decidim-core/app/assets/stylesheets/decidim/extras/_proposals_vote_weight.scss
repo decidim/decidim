@@ -13,10 +13,6 @@
       }
     }
 
-    &[disabled]{
-      opacity: .8;
-    }
-
     .icon{
       vertical-align: middle;
     }
@@ -27,6 +23,9 @@
       &.is-active,
       &.highlighted{
         background-color: $success; // #57d685
+        &[disabled]{
+          opacity: .8;
+        }
       }
     }
 
@@ -36,6 +35,9 @@
       &.is-active,
       &.highlighted{
         background-color: $secondary; // #599aa6
+        &[disabled]{
+          opacity: .8;
+        }
       }
     }
 
@@ -45,6 +47,9 @@
       &.is-active,
       &.highlighted{
         background-color: $alert; // #ec5840
+        &[disabled]{
+          opacity: .8;
+        }
       }
 
       .icon{

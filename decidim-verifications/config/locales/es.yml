@@ -4,7 +4,7 @@ es:
       config:
         available_methods: Metodos disponibles
         offline: Desconectado
-        offline_explanation: Instrucciones para la verificación fuera de línea
+        offline_explanation: Instrucciones para la verificación presencial
         online: En línea
       id_document_information:
         document_number: Número de documento (con letra)

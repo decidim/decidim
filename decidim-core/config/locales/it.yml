@@ -9,21 +9,21 @@ it:
         about: Di
         email: La tua email
         name: Il tuo nome
-        nickname: soprannome
-        password: Parola d'ordine
+        nickname: Nome utente
+        password: Password
         password_confirmation: Conferma la tua password
         personal_url: URL personale
         remove_avatar: Rimuovi avatar
     models:
-      decidim/attachment_created_event: attaccamento
+      decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
       decidim/demoted_membership: Non è più un amministratore di gruppo
       decidim/gamification/badge_earned_event: Badge guadagnato
       decidim/gamification/level_up_event: Ti sei alzato di livello
       decidim/join_request_accepted_event: Richiesta di adesione accettata
-      decidim/join_request_rejected_event: Richiesta di partecipazione rifiutata
+      decidim/join_request_rejected_event: Richiesta di adesione rifiutata
       decidim/profile_updated_event: profilo aggiornato
-      decidim/promote_to_admin: Promosso per l'amministratore di gruppo
+      decidim/promote_to_admin: Promosso ad amministratore di gruppo
       decidim/removed_from_group: Rimosso dal gruppo
   activerecord:
     attributes:
@@ -36,7 +36,7 @@ it:
         remember_me: Ricordare password
     models:
       decidim/amendment:
-        one: Emendamento
+        one: Modifica
         other: Modifiche
       decidim/user:
         one: Nessun utente
@@ -141,11 +141,11 @@ it:
         help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
         promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
         no_amenders: Non ci sono emendatori
-        no_amendments: Non ci sono emendamenti
-        section_heading: Emendamenti (%{count})
+        no_amendments: Non ci sono modifiche
+        section_heading: Modifiche (%{count})
       created:
         error: Si è verificato un errore durante la creazione di questo emendamento, riprovare più tardi
-        success: L'emendamento è stato creato con successo
+        success: La modifica è stata creata con successo
       emendation:
         actions:
           button_accept: Accettare
@@ -1140,7 +1140,7 @@ it:
         other: "(Minimo%{count} caratteri)"
     unlocks:
       new:
-        resend_unlock_instructions: Rinvia le istruzioni di sblocco
+        resend_unlock_instructions: Inviami nuovamente le istruzioni di sblocco
       send_instructions: Riceverai un'email con le istruzioni su come sbloccare il tuo account in pochi minuti.
       send_paranoid_instructions: Se il tuo account esiste, riceverai un'email con le istruzioni su come sbloccarlo in pochi minuti.
       unlocked: Il tuo account è stato sbloccato correttamente. Per favore accedi per continuare.
