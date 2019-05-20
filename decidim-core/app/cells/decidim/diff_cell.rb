@@ -21,6 +21,32 @@ module Decidim
 
     private
 
+    # VersionsController.current_version
+    def current_version
+      model
+    end
+
+    # The DiffRenderer class for the `current_version` model namespace.
+    def diff_renderer_class
+      namespace ||= current_version.item_type.deconstantize
+
+      "#{namespace}::DiffRenderer".constantize
+    end
+
+    # Caches a DiffRenderer instance for the `current_version`.
+    def diff_renderer
+      @diff_renderer ||= diff_renderer_class.new(current_version)
+    end
+
+    # The changesets for each attribute.
+    #
+    # Each changeset has the following information: type, label, old_value, new_value.
+    #
+    # Returns an Array of Hashes.
+    def diff_data
+      diff_renderer.diff.values
+    end
+
     # Outputs the diff as HTML with inline highlighting of the character
     # changes between lines.
     #
@@ -42,8 +68,7 @@ module Decidim
     #
     # Returns an HTML-safe string.
     def output_split_diff(data, direction)
-      return unless data
-      return unless direction
+      return unless data && direction
 
       Diffy::SplitDiff.new(
         data[:old_value],
