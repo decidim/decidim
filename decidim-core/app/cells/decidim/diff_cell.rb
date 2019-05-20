@@ -21,7 +21,6 @@ module Decidim
 
     private
 
-    # VersionsController.current_version
     def current_version
       model
     end
@@ -57,7 +56,7 @@ module Decidim
       Diffy::Diff.new(
         data[:old_value],
         data[:new_value],
-        format: :html,
+        allow_empty_diff: false,
         include_plus_and_minus_in_html: true
       ).to_s(:html).html_safe
     end
@@ -73,6 +72,7 @@ module Decidim
       Diffy::SplitDiff.new(
         data[:old_value],
         data[:new_value],
+        allow_empty_diff: false,
         format: :html,
         include_plus_and_minus_in_html: true
       ).send(direction)
