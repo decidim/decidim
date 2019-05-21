@@ -173,10 +173,10 @@ fr:
     events:
       budgets:
         order_checkout:
-          email_intro: "Votre vote a été validé. Vous pouvez toujours l'éditer si vous voulez en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}"
-          email_outro: Merci de votre participation
-          email_subject: "Une enquête est terminée à %{participatory_space_title}"
-          notification_title: "Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez."
+          email_intro: "Your vote has been validated. You can always edit it if you like by clicking here: <a href='%{resource_url}'>%{participatory_space_title}"
+          email_outro: Thank you for your participation
+          email_subject: "Your vote has been validated on %{participatory_space_title}"
+          notification_title: "Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like."
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote

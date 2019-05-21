@@ -15,10 +15,10 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
     models:
-      decidim/amendable/amendment_accepted_event: Amendement accepté
-      decidim/amendable/amendment_created_event: Amendement créé
-      decidim/amendable/amendment_rejected_event: Amendement rejeté
-      decidim/amendable/emendation_promoted_event: Amendement promu
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Pièce jointe
       decidim/component_published_event: Fonctionnalité active
       decidim/demoted_membership: N'est plus un administrateur de groupe
@@ -157,24 +157,24 @@ fr:
           help_text: Examinez les modifications et acceptez ou rejetez cet amendement. Une notification sera envoyée à son (ses) auteur(s).
         announcement:
           accepted: |-
-            L'amendement pour %{amendable_type} %{amendable_link} a été accepté
-            le <strong>%{announcement_date}</strong>.
+            This amendment for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
           evaluating: |-
-            L'amendement pour le %{amendable_type} %{amendable_link}
-            est en cours d'évaluation.
+            This amendment for the %{amendable_type} %{amendable_link}
+            is being evaluated.
           rejected: |-
             Cet amendement pour la proposition %{amendable_type}
             %{amendable_link}
             a été rejeté le <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            L'amendement pour le %{amendable_type} %{amendable_link}
-            a été retiré par l'auteur.
+            This amendment for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
       new:
         amendment_author: Auteur
         back: Retour
         heading: Proposez votre amendement
         help_text: Vous modifiez la %{model_name}
-        send: Envoyer un amendement
+        send: Send amendment
       promoted:
         error: Il y a eu des erreurs lors de la validation de cet amendement
         success: L'amendement a été accepté avec succès
@@ -185,7 +185,7 @@ fr:
         back: Retour
         heading: Examiner l'amendement
         help_text: Vous modifiez la %{model_name}
-        send: Accepter l'amendement
+        send: Accept amendment
     anonymous_user: Anonyme
     application:
       collection:
@@ -741,7 +741,7 @@ fr:
       download:
         csv: Télécharger les données (csv)
       followers:
-        description: Nombre d'utilisateurs qui suivent cet espace de participation
+        description: Number of users that follow this participation space
         object: suiveurs
         title: Suiveurs
       participants:
@@ -780,7 +780,7 @@ fr:
         subject: Voulez-vous continuer à recevoir des actualités de %{organization_name} ?
     notification_mailer:
       shared:
-        note: Vous avez reçu ce message parce que vous êtes abonné à la notification par email sur %{organization_name}. Vous pouvez modifier vos paramètres sur votre page de notifications <a href="%{link}"></a>.
+        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:

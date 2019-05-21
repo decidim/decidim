@@ -1,0 +1,188 @@
+fr:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Méthodes disponibles
+        offline: Hors ligne
+        offline_explanation: Instructions pour la vérification hors ligne
+        online: En ligne
+      id_document_information:
+        document_number: Numéro de document (avec lettre)
+        document_type: Type de document
+      id_document_upload:
+        document_number: Numéro de document (avec lettre)
+        document_type: Type de votre document
+        user: Utilisateur
+        verification_attachment: Copie scannée du document
+      offline_confirmation:
+        email: email de l'utilisateur
+      postal_letter_address:
+        full_address: Adresse complète
+      postal_letter_confirmation:
+        verification_code: Code de vérification
+      postal_letter_postage:
+        full_address: Adresse complète
+        verification_code: Code de vérification
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Vérifications
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} mise à jour de la configuration de vérification des documents d'identité"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} utilisant une vérification hors ligne des documents d'identité"
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+            - Vous remplissez les informations présentes dans l'image téléchargée.
+            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
+        postal_letter:
+          help:
+            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+            - Vous envoyez la lettre à leur adresse avec le code de vérification.
+            - Vous marquez la lettre comme envoyée.
+            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+      direct: Direct
+      help: Texte d'aide
+      id_documents:
+        explanation: Importer vos documents d'identité afin que nous puissions vérifier votre identité
+        name: Documents d'identité
+      multistep: En plusieurs étapes
+      name: Nom
+      postal_letter:
+        explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir afin que nous puissions vérifier votre adresse
+        name: Code par lettre postale
+    verifications:
+      authorizations:
+        create:
+          error: Une erreur s'est produite lors de la création de l'autorisation.
+          success: Vous avez été autorisé avec succès.
+          unconfirmed: Vous devez confirmer votre email d'abord.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
+            dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
+            dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
+            id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
+            postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
+          title: Vérifier votre Identité
+          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
+        new:
+          authorize: Envoyer
+          authorize_with: Vérifier votre identité avec %{authorizer}
+        skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
+        start_exploring: commencer à explorer
+      dummy_authorization:
+        extra_explanation:
+          one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
+          other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Configuration des documents d'identité
+              update: Mise à jour
+            update:
+              error: Une erreur s'est produite lors de la mise à jour de la configuration.
+              success: Configuration mise à jour avec succès
+          confirmations:
+            create:
+              error: La vérification ne correspond pas. Réessayez ou refusez la vérification afin que l'utilisateur puisse la modifier
+              success: Utilisateur vérifié avec succès
+            new:
+              introduce_user_data: Introduire les données dans l'image
+              reject: Refuser
+              verify: Vérifier
+          offline_confirmations:
+            create:
+              error: La vérification ne correspond pas. Essayez à nouveau ou demandez à l'utilisateur de le modifier
+              success: Utilisateur vérifié avec succès
+            new:
+              cancel: Annuler
+              introduce_user_data: Renseignez l'email de l'utilisateur et les données du document
+              verify: Vérifier
+          pending_authorizations:
+            index:
+              config: Configuration
+              offline_verification: Vérification hors ligne
+              title: Vérifications en attente
+              verification_number: 'Vérification # %{n}'
+          rejections:
+            create:
+              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
+        authorizations:
+          choose:
+            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez être vérifié :'
+            offline: Hors ligne
+            online: En ligne
+            title: Authentifiez-vous à l'aide de votre pièce d'identité
+          create:
+            error: Un problème est survenu lors de l'importation de votre document
+            success: Document importé avec succès
+          edit:
+            being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
+            offline: Utiliser la vérification hors ligne
+            online: Utiliser la vérification en ligne
+            rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
+            rejection_correctness: Assurez-vous que les informations entrées sont correctes
+            rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
+            send: Renouveler la demande de vérification
+          new:
+            send: Demande de vérification
+            title: Importez votre document d'identité
+          update:
+            error: Un problème est survenu lors du chargement de votre document
+            success: Document importé avec succès
+        dni: Carte nationale d'identité
+        nie: Carte de séjour ou de résident
+        passport: Passeport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresse
+              letter_sent_at: Lettre envoyée à
+              mark_as_sent: Marquer comme envoyé
+              not_yet_sent: Pas encore envoyé
+              title: Vérifications en cours
+              username: Nom d'utilisateur
+              verification_code: Code de vérification
+          postages:
+            create:
+              error: Erreur en marquant la lettre comme envoyée
+              success: Lettre marquée avec succès comme envoyée
+        authorizations:
+          create:
+            error: Il y a eu un problème avec votre demande
+            success: Merci ! Nous enverrons un code de vérification à votre adresse
+          edit:
+            send: Confirmer
+            title: Introduisez le code de vérification que vous avez reçu
+            waiting_for_letter: Nous vous enverrons une lettre à votre adresse avec votre code de vérification
+          new:
+            send: Envoyez-moi une lettre
+            title: Demandez votre code de vérification
+          update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
+            success: Félicitations, votre identité a été vérifiée avec succès
+      sms:
+        authorizations:
+          create:
+            error: Il y avait un problème avec votre demande
+            success: Merci! Nous avons envoyé un SMS sur votre téléphone.
+          edit:
+            send: Confirmer
+            title: Introduisez le code de vérification que vous avez reçu
+          new:
+            send: Envoyez moi un SMS
+            title: Demander votre code de vérification
+          update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+            success: Toutes nos félicitations. Vous avez été vérifié avec succès.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres

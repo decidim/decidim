@@ -36,7 +36,7 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
-        alert_color: Couleur d'alerte
+        alert_color: Alert
         badges_enabled: Activer les Badges
         cta_button_path: Chemin du bouton d'appel à l'action
         cta_button_text: Texte du bouton d'appel à l'action
@@ -63,15 +63,15 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
-        primary_color: Couleur primaire
+        primary_color: Primary
         reference_prefix: Préfixe de référence
-        secondary_color: Couleur secondaire
+        secondary_color: Secondary
         show_statistics: Afficher les statistiques
-        success_color: Couleur de succès
+        success_color: Success
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
-        user_groups_enabled: Activer les groupes d'utilisateurs
-        warning_color: Couleur d'avertissement
+        user_groups_enabled: Enable user groups
+        warning_color: Warning
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -549,7 +549,7 @@ fr:
         edit:
           update: Mettre à jour
         form:
-          colors_title: Couleurs de l'organisation
+          colors_title: Organization colors
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
@@ -655,11 +655,11 @@ fr:
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Journal d'administration
-        impersonatable_users: Utilisateurs représentés
-        impersonations: Gestion des utilisateurs
+        impersonatable_users: Manageable users
+        impersonations: Users management
         managed_users: Utilisateurs gérés
         navbar_links: Barre de navigation secondaire
-        participants: Utilisateurs
+        participants: Users
         scope_types: Types de secteurs
         scopes: Secteurs
         static_pages: Pages
@@ -721,7 +721,7 @@ fr:
         hide: Masquer
         not_hidden: Visibles
         title: Actions
-        unhide: Afficher
+        unhide: Unhide
         unreport: Annuler le signalement
       admin:
         reportable:
@@ -729,8 +729,8 @@ fr:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
           unhide:
-            invalid: Il y a eu un problème au moment de masquer le contenu.
-            success: Ressource masquée avec succès.
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
             success: Le contenu n'est plus signalé.

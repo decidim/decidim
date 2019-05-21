@@ -311,18 +311,18 @@ fr:
             name: Proposition
         participatory_texts:
           bulk-actions:
-            are_you_sure: Êtes-vous sûr de vouloir rejeter l'ensemble du texte participatif?
-            discard_all: Tout supprimer
+            are_you_sure: Are you sure to discard the whole participatory text draft?
+            discard_all: Discard all
             import_doc: Importer un document
           discard:
-            success: Tous les projets de texte participatif ont été rejetés.
+            success: All Participatory text drafts have been discarded.
           import:
             invalid: Le formulaire est invalide!
             success: Félicitations, les sections suivantes ont été analysées à partir du document importé. Elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
           index:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
-            save_draft: Enregistrer le brouillon
+            save_draft: Save draft
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections du document)"
@@ -337,7 +337,7 @@ fr:
             section: "<em>Section :</em> <strong>%{title}</strong>"
             sub-section: "<em>Sous-section:</em> %{title}"
           update:
-            success: Texte participatif mis à jour avec succès.
+            success: Participatory text updated successfully.
         proposal_answers:
           edit:
             accepted: Retenue
@@ -609,7 +609,7 @@ fr:
           error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         compare:
-          continue: Continuer
+          continue: Continue
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
@@ -677,7 +677,7 @@ fr:
           view_index:
             see_index: Voir l'index
         placeholder:
-          address: "[n°] [rue] [code postal] [ville city]"
+          address: "[n°] [street] [postal] [city]"
         preview:
           address: 'Adresse : %{address}'
           modify: Modifier la proposition

@@ -209,7 +209,7 @@ fr:
           notification_title: La réalisation <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevée à %{progress}%.
     metrics:
       results:
-        description: Nombre de résultats générés
+        description: Number of results generated
         object: réalisations
         title: Réalisations
     participatory_processes:

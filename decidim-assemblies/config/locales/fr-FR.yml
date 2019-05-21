@@ -263,9 +263,8 @@ fr:
         consultative_advisory: Consultatif/Consultatif
         executive: Exécutif
         government: Gouvernement
-        help: 'Afficher :'
+        help: 'Show:'
         label: 'Afficher :'
-        help: "Montrer :"
         others: Autres
         participatory: Participatif
         placeholder: Filtrer par type

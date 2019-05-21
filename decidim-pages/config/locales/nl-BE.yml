@@ -1,0 +1,30 @@
+nl-BE:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Page
+        other: Pages
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
+    components:
+      pages:
+        name: Page
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement
+    pages:
+      admin:
+        models:
+          components:
+            body: Body
+        pages:
+          edit:
+            save: Update
+            title: Edit page
+          update:
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.
