@@ -248,7 +248,7 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+    title { "<script>alert('TITLE');</script> " + generate(:title) }
     body { "<script>alert(\"BODY\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
