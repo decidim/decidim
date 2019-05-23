@@ -11,6 +11,7 @@
 **Fixed**:
 
 - **decidim-proposals**: Add documents folder in proposals manifest for precompile assets. [#5016](https://github.com/decidim/decidim/pull/5016)
+- **decidim-core**: Fix user-inputted content. [#5147](https://github.com/decidim/decidim/pull/5147)
 
 **Removed**:
 
