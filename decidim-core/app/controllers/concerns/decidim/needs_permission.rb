@@ -6,6 +6,7 @@ module Decidim
   # Common logic to work with the permissions system
   module NeedsPermission
     extend ActiveSupport::Concern
+    include RegistersPermissions
 
     included do
       helper_method :allowed_to?, :admin_allowed_to?

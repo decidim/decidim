@@ -7,6 +7,11 @@ module Decidim
   module DeviseControllers
     extend ActiveSupport::Concern
 
+    RegistersPermissions
+      .register_permissions(::Decidim::DeviseControllers,
+                            ::Decidim::Admin::Permissions,
+                            ::Decidim::Permissions)
+
     included do
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
@@ -30,10 +35,7 @@ module Decidim
       before_action :store_current_location
 
       def permission_class_chain
-        [
-          Decidim::Admin::Permissions,
-          Decidim::Permissions
-        ]
+        PermissionsRegistry.chain_for(DeviseControllers)
       end
 
       def permission_scope

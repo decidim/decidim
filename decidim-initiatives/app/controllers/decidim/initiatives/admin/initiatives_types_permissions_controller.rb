@@ -8,11 +8,12 @@ module Decidim
       class InitiativesTypesPermissionsController < Decidim::Admin::ResourcePermissionsController
         layout "decidim/admin/initiatives"
 
+        register_permissions(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController,
+                             ::Decidim::Initiatives::Permissions,
+                             ::Decidim::Admin::Permissions)
+
         def permission_class_chain
-          [
-            Decidim::Initiatives::Permissions,
-            Decidim::Admin::Permissions
-          ]
+          ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
         end
       end
     end
