@@ -44,7 +44,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           step_settings: {},
           settings: {
             participatory_texts_enabled: true
-          },
+          }
         )
       end
 
@@ -52,7 +52,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "updates the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
-          end.to change { component.settings.participatory_texts_enabled }
+          end.to change(component.settings.participatory_texts_enabled)
         end
       end
 
