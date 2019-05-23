@@ -32,6 +32,44 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     end
   end
 
+  describe "on update" do
+    context "when trying to change the `participatory_texts_enabled` setting" do
+      let(:form) do
+        instance_double(
+          Decidim::Admin::ComponentForm,
+          invalid?: false,
+          weight: 0,
+          name: {},
+          default_step_settings: {},
+          step_settings: {},
+          settings: {
+            participatory_texts_enabled: true
+          },
+        )
+      end
+
+      context "when there are no proposals for the component" do
+        it "updates the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to change { component.settings.participatory_texts_enabled }
+        end
+      end
+
+      context "when there are proposals for the component" do
+        before do
+          create(:proposal, component: component)
+        end
+
+        it "raises an error" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to raise_error("Can't update ParticipatoryText setting when there are proposals")
+        end
+      end
+    end
+  end
+
   describe "stats" do
     subject { current_stat[2] }
 

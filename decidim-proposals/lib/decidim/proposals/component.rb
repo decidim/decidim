@@ -12,8 +12,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.on(:update) do |instance|
-    update_setting_value = instance.settings.participatory_texts_enabled
-    return unless update_setting_value == instance.reload.settings.participatory_texts_enabled
+    next unless instance.settings.participatory_texts_enabled == instance.reload.settings.participatory_texts_enabled
     raise "Can't update ParticipatoryText setting when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
