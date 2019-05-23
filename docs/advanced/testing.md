@@ -8,6 +8,18 @@ You need to create a dummy application to run your tests. Run the following comm
 bundle exec rake test_app
 ```
 
+## Running a specific test file or just a single spec
+
+If you are writing new specs, you can run the tests contained in a single file by opening a console window in the corresponding module and calling `rspec`on the file. For example:
+```bash
+cd decidim-participatory_processes
+bundle exec rspec spec/forms/participatory_process_form_spec.rb
+```
+You can also run a single test by appending its start line number to the command:
+```bash
+bundle exec rspec spec/forms/participatory_process_form_spec.rb:134
+```
+
 ## Running tests for a specific component
 
 A Decidim engine can be tested running the rake task named after it. For
