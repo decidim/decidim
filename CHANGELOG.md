@@ -24,6 +24,7 @@ end
 
 **Added**:
 
+- **decidim-core**, Add rake task to recalculate all metrics since some specific date. [#5117](https://github.com/decidim/decidim/pull/5117)
 - **decidim-core**, Add instructions to recalculate participants metrics. [#5110](https://github.com/decidim/decidim/pull/5110)
 - **decidim-core**, **decidim-admin**, Add Selective Newsletter and allow Space admins to manage them. [#5039](https://github.com/decidim/decidim/pull/5039)
 - **decidim-core** Persistence related documentation for Metrics. [\#5108](https://github.com/decidim/decidim/pull/5108)
