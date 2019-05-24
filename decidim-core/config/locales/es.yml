@@ -140,7 +140,7 @@ es:
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
-        promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name} independiente
+        promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente
         section_heading: Enmiendas (%{count})
       created:
         error: Se ha producido un error al crear la enmienda
