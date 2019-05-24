@@ -439,9 +439,10 @@ nl:
         new:
           save: Opslaan
           title: Nieuwe nieuwsbrief
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
           deliver: Stuur nieuwsbrief
+        show:
           preview: Voorbeeld
           subject: Onderwerpen
         update:
