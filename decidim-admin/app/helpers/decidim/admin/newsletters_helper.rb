@@ -5,7 +5,7 @@ module Decidim
     # This module includes helpers to manage newsletters in admin layout
     module NewslettersHelper
       def participatory_spaces_for_select(form_object)
-        content_tag :div, class: "grid-x grid-padding-x" do
+        content_tag :div do
           @form.participatory_space_types.each do |space_type|
             concat participatory_space_types_form_object(form_object, space_type)
           end
@@ -24,12 +24,12 @@ module Decidim
 
       def select_tag_participatory_spaces(manifest_name, spaces, child_form)
         return unless spaces
-        content_tag :div, class: "#{manifest_name}-block cell small-12 medium-6" do
+        content_tag :div, class: "#{manifest_name}-block spaces-block-tag cell small-12 medium-6" do
           child_form.select :ids, options_for_select(spaces),
                             { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
                               label: t("activerecord.models.decidim/#{manifest_name.singularize}.other"),
                               include_hidden: false },
-                            multiple: true, class: "chosen-select"
+                            multiple: true, size: spaces.size > 10 ? 10 : spaces.size, class: "chosen-select"
         end
       end
 
@@ -94,8 +94,11 @@ module Decidim
 
       def organization_participatory_space(manifest_name)
         @organization_participatory_spaces ||= {}
-        @organization_participatory_spaces[manifest_name] ||= Decidim.find_participatory_space_manifest(manifest_name)
-                                                                     .participatory_spaces.call(current_organization)&.published&.order(title: :asc)
+        @organization_participatory_spaces[manifest_name] ||= Decidim
+                                                              .find_participatory_space_manifest(manifest_name)
+                                                              .participatory_spaces.call(current_organization)
+                                                              .published
+                                                              .sort_by { |space| [space.closed? ? 1 : 0, space.title[current_locale]] }
       end
 
       def spaces_user_can_admin
@@ -118,7 +121,7 @@ module Decidim
         [
           translated_attribute(space.title),
           space.id,
-          { class: space.try(:closed?) ? "red" : "green" }
+          { class: space.try(:closed?) ? "red" : "green", title: translated_attribute(space.title).to_s }
         ]
       end
     end
