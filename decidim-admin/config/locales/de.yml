@@ -439,9 +439,10 @@ de:
         new:
           save: sparen
           title: Neuer Newsletter
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
           deliver: Liefern Newsletter
+        show:
           preview: Vorschau
           subject: Gegenstand
         update:
