@@ -359,6 +359,7 @@ es-MX:
           more_info: Más información
           take_part: Participa
         index:
+          children: 'Asambleas: '
           organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
           reset_chart: Reiniciar
