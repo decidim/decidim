@@ -74,7 +74,7 @@ it:
       proposals:
         actions:
           create: Creare
-          endorse: Approvare
+          endorse: Sostieni
           vote: Votazione
           withdraw: ritirarsi
         name: proposte
@@ -313,7 +313,7 @@ it:
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
             accepted_mime_types:
-              md: riduione di prezzo
+              md: md
               odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
             document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
@@ -521,7 +521,7 @@ it:
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
           of_versions: "(di %{number})"
-          publish: Pubblicare
+          publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
@@ -541,7 +541,7 @@ it:
           back: Indietro
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_steps:
-          see_steps: vedere i passaggi
+          see_steps: visualizza le fasi
           step_1: Crea la tua bozza collaborativa
           step_2: Confronta con bozze collaborative
           step_3: Completa la tua bozza collaborativa
@@ -581,7 +581,7 @@ it:
           amend: emendare
           comment: Commento
           comments: Commenti
-          endorse: Approvare
+          endorse: Sostieni
       proposal_endorsements:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
@@ -591,9 +591,9 @@ it:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: approvato
-          endorse: Approvare
+          endorse: Sostieni
         render_endorsements_button_card_part:
-          endorse: Approvare
+          endorse: Sostieni
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -621,7 +621,7 @@ it:
           send: Anteprima
           title: Modifica bozza di proposta
         endorsement_identities_cabin:
-          endorse: Approvare
+          endorse: Sostieni
         endorsements_card_row:
           comments: Commenti
         filters:
@@ -664,9 +664,9 @@ it:
         preview:
           modify: Modifica la proposta
           proposal_edit_before_minutes:
-            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
-            other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
-          publish: Pubblicare
+            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questo periodo, non sarai più in grado di modificare la proposta.
+            other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
+          publish: Pubblica
           title: Pubblica la tua proposta
         proposal:
           creation_date: 'Creazione: %{date}'
