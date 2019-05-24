@@ -87,21 +87,29 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
-      expect(page).to have_content("TITLE")
-      expect(page).to have_content("BODY")
 
-      first ".diff-string > .removal" do
-        expect(page).to have_content(original_title)
-      end
-      first ".diff-string > .addition" do
-        expect(page).to have_content(edited_title)
+      within ".diff-for-title" do
+        expect(page).to have_content("TITLE")
+
+        within ".diff > ul > .del" do
+          expect(page).to have_content(original_title)
+        end
+
+        within ".diff > ul > .ins" do
+          expect(page).to have_content(edited_title)
+        end
       end
 
-      all(".diff-string > .removal").last do
-        expect(page).to have_content(original_body)
-      end
-      all(".diff-string > .addition").last do
-        expect(page).to have_content(edited_body)
+      within ".diff-for-body" do
+        expect(page).to have_content("BODY")
+
+        within ".diff > ul > .del" do
+          expect(page).to have_content(original_body)
+        end
+
+        within ".diff > ul > .ins" do
+          expect(page).to have_content(edited_body)
+        end
       end
     end
   end
