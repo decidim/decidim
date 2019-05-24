@@ -74,6 +74,7 @@ end
 - **decidim-admin**: Ensure static pages slugs are relative paths [#5085](https://github.com/decidim/decidim/pull/5085)
 - **decidim-accountability**: Remove useless button on the admin page for accountability statuses [#5099](https://github.com/decidim/decidim/pull/5099)
 - **decidim-budgets**: Fix import of proposals to budget projects [#5097](https://github.com/decidim/decidim/pull/5097)
+- **decidim-core**: Escape fingerprint content [#5146](https://github.com/decidim/decidim/pull/5146)
 
 **Removed**:
 
