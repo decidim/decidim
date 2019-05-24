@@ -40,7 +40,7 @@ ca:
         other: Esmenes
       decidim/user:
         one: No hi ha participants
-        other: Usuaris
+        other: Participant
       decidim/user_group:
         one: Grup
         other: Grups
