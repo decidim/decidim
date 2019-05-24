@@ -51,8 +51,8 @@ it:
             - Hai contrassegnato la lettera come inviata.
             - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       csv_census:
-        explanation: Ottieni la verifica utilizzando il censimento dell'organizzazione
-        name: Censimento dell'organizzazione
+        explanation: Verifica i tuoi permessi
+        name: Verifica delle autorizzazioni
       direct: Diretto
       help: Aiuto
       id_documents:
