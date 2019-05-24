@@ -9,7 +9,7 @@ ar:
         introductory_image: صورة تمهيدية
         introductory_video_url: عنوان URL للفيديو التمهيدي
         questions: الأسئلة
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         start_voting_date: يبدأ التصويت
         subtitle: عنوان فرعي
         title: عنوان
@@ -21,13 +21,13 @@ ar:
         i_frame_url: عنوان URL لنظام التصويت الخارجي
         origin_scope: نطاق
         origin_title: الأصل
-        origin_url: عنوان URL الأصلي
+        origin_url: العنوان الشبكي الأصلي
         participatory_scope: نطاق المشاركة
         promoter_group: مجموعة المروجين
         question_context: سياق الكلام
         reference: مرجع
         scope: منطقة البلدية
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         subtitle: عنوان فرعي
         title: عنوان
         vote: نظام التصويت الخارجي
@@ -101,7 +101,7 @@ ar:
           not_published: غير منشور
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: استشارة جديدة
         update:
           error: كانت هناك مشكلة في تحديث هذه المشاورة.
@@ -173,7 +173,7 @@ ar:
           not_published: غير منشور
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: سؤال جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
@@ -190,7 +190,7 @@ ar:
         form:
           title: معلومات عامة
         new:
-          create: خلق
+          create: إنشاء
           title: استجابة جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه الاستجابة.
