@@ -19,7 +19,7 @@ es:
         description: Descripción
         end_time: Hora de finalización
         location: Ubicación
-        location_hints: Pistas de ubicación
+        location_hints: Detalles de ubicación
         organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_form_enabled: Formulario de inscripción habilitado
@@ -61,7 +61,7 @@ es:
         other: Actas
       decidim/meetings/registration:
         one: Registro
-        other: Registros
+        other: Inscripción
   decidim:
     admin:
       meeting_copies:
@@ -79,20 +79,20 @@ es:
         name: Encuentros
         settings:
           global:
-            announcement: Anuncio
+            announcement: Aviso
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
           step:
-            announcement: Anuncio
+            announcement: Aviso
             comments_blocked: Comentarios bloqueados
     events:
       meetings:
         meeting_closed:
           affected_user:
             email_intro: 'Tu encuentro "%{resource_title}" se ha cerrado. Puedes leer las conclusiones desde su página:'
-            email_outro: Has recibido esta notificación porque organizaste el encuentro "%{resource_title}".
+            email_outro: Has recibido esta notificación porque has organizaco el encuentro "%{resource_title}".
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
           follower:
@@ -103,41 +103,41 @@ es:
         meeting_created:
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Nuevo encuentro añadido a %{participatory_space_title}
-          notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+          email_subject: Nuevo encuentro añadido en %{participatory_space_title}
+          notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Tu inscripción al encuentro <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%.
-          email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
+          email_outro: Has recibido esta notificación porque eres administradora del espacio participativo del encuentro.
           email_subject: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%
           notification_title: Las inscripciones para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
         meeting_updated:
-          email_intro: 'Se ha cerrado el encuentro "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_intro: 'El encuentro "%{resource_title}" se ha actualizado. Puedes leer la nueva versión en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Se ha actualizado el encuentro "%{resource_title}"
+          email_subject: El encuentro "%{resource_title}" se ha actualizado
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
         registration_code_validated:
-          email_intro: Tu código de inscripción "%{registration_code}" en el encuentro "%{resource_title}" ha sido validado.
-          email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
-          email_subject: Tu código de inscripción "%{registration_code}" en el encuentro "%{resource_title}" ha sido validado
-          notification_title: Su código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
+          email_intro: Se ha validado tu código de inscripción "%{registration_code}" para el encuentro "%{resource_title}".
+          email_outro: Has recibido esta notificación porqué se ha validado tu código de registro para el encuentro "%{resource_title}".
+          email_subject: Se ha validado tu código de inscripción "%{registration_code}" para el encuentro "%{resource_title}"
+          notification_title: Se ha validado tu código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_outro: Has recibido esta notificación porqué sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: El encuentro "%{resource_title}" ha abierto las inscripciones.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
         upcoming_meeting:
-          email_intro: El encuentro "%{resource_title}" comenzará en menos de 48 h.
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
+          email_intro: En menos de 48 horas empezará el encuentro "%{resource_title}".
+          email_outro: Has recibido esta notificación porqué sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: En menos de 48 horas empezará el encuentro "%{resource_title}".
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> empezará en menos de 48 h.
     gamification:
       badges:
         attended_meetings:
           conditions:
             - Inscríbete en los encuentros a los que quieres asistir
-          description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
+          description: Este distintivo se consigue asistiendo a varios encuentros presenciales.
           description_another: Esta participante asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.
           name: Encuentros a los que has asistido
@@ -148,10 +148,10 @@ es:
       actions:
         agenda: Orden del día
         attachment_collections: Carpetas
-        attachments: Archivos adjuntos
+        attachments: Adjuntos
         close: Cerrar
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
-        destroy: Borrar
+        destroy: Elimina
         edit: Editar
         minutes: Acta
         new: Nuevo encuentro
@@ -174,7 +174,7 @@ es:
             up: Subir
           create:
             invalid: Se ha producido un error al crear este orden del día
-            success: Orden del día creado correctamente
+            success: El orden del día se ha creado correctamente
           edit:
             title: Editar orden del día
             update: Actualizar
@@ -187,7 +187,7 @@ es:
             create: Crear
             title: Nuevo orden del día
           update:
-            invalid: Se ha producido un error al actualizar el orden del día
+            invalid: Se ha producido un error al actualizar este orden del día
             success: Orden del día actualizado correctamente
         exports:
           meetings: Encuentros
@@ -195,17 +195,17 @@ es:
         invite_join_meeting_mailer:
           invite:
             decline: Rechazar invitación
-            invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a una reunión en %{application}. Puedes rechazar o aceptar la invitación a través de los enlaces a continuación."
+            invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a una reunión en %{application}. Puedes rechazar o aceptar la invitación a través de los siguientes enlaces."
             join: Únete al encuentro '%{meeting_title}'
         invites:
           create:
             error: Se ha producido un error al invitar a la participante a unirse al encuentro.
-            success: La participante ha sido invitado a unirse al encuentro correctamente.
+            success: La participante ha sido invitada a unirse al encuentro correctamente.
           form:
             attendee_type: Tipo de Asistente
             existing_user: Participante existente
             invite: Invitar
-            invite_explanation: La participante será invitado a unirse al encuentro y también a la organización.
+            invite_explanation: La participante será invitada a unirse al encuentro y también a la organización.
             non_user: Participante no existente
             select_user: Seleccionar participante
           index:
@@ -213,11 +213,11 @@ es:
               accepted: Aceptado
               all: Todas
               rejected: Rechazadas
-              sent: Expedidas
+              sent: Enviades
             filter_by: Filtrar por
-            invite_attendee: Invitar a un asistente
+            invite_attendee: Invitar asistente
             invites: Invitaciones
-            registrations_disabled: No puede invitar a un asistente porque los registros están deshabilitados.
+            registrations_disabled: No puedes invitar a una asistente porque los registros están deshabilitados.
             search: Buscar
         meeting_closes:
           edit:
@@ -238,7 +238,7 @@ es:
           edit:
             update: Actualizar
           form:
-            select_organizer: Selecciona el organizador
+            select_organizer: Selecciona la organizadora
           index:
             title: Encuentros
           new:
@@ -259,7 +259,7 @@ es:
             success: Encuentro actualizado correctamente
         minutes:
           create:
-            invalid: Se ha producido un error al crear el acta
+            invalid: Se ha producido un error al crear este acta
             success: Acta creada con éxito
           edit:
             update: Actualizar
@@ -267,7 +267,7 @@ es:
             create: Crear
             title: Crear acta
           update:
-            invalid: Se ha producido un error al actualizar el acta
+            invalid: Se ha producido un error al actualizar este acta
             success: Acta actualizada con éxito
         models:
           meeting:
@@ -278,37 +278,37 @@ es:
             validate: Validar
             validate_registration_code: Validar el código de registro
           form:
-            available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
+            available_slots_help: Dejar a 0 si las inscripciones son ilimitadas.
             invites: Invitaciones
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} inscripción.
               other: Ha habido %{count} inscripciones.
-            reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
-            reserved_slots_less_than: Debe ser menor que o igual a %{count}
+            reserved_slots_help: Dejar en 0 si no hay espacios reservados
+            reserved_slots_less_than: Debe ser inferior o igual que %{count}
           update:
             invalid: Se ha producido un error al guardar la configuración de la inscripción.
-            success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
+            success: La configuración de las inscripciones del encuentro se ha guardado correctamente.
           validate_registration_code:
             invalid: Este código de registro no es válido.
             success: Código de registro validado con éxito.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
-          deleted: "%{user_name} ha eliminado la invitación de %{attendee_name} de unirse al encuentro %{resource_name} en el espacio %{space_name}"
+          deleted: "%{user_name} ha eliminado la invitación a %{attendee_name} de unirse al encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
         meeting:
-          close: "%{user_name} cerró el encuentro %{resource_name} en el espacio %{space_name}"
-          create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
-          delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
-          export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
-          update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
+          close: "%{user_name} ha cerrado el encuentro %{resource_name} en el espacio %{space_name}"
+          create: "%{user_name} ha creado el encuentro %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} ha eliminado el encuentro %{resource_name} en el espacio %{space_name}"
+          export_registrations: "%{user_name} ha exportado los registros del encuentro %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha actualizado el encuentro %{resource_name} en el espacio %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
-          update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha actualizado el acta del encuentro %{resource_name} en el espacio %{space_name}"
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -328,18 +328,18 @@ es:
             past: Pasados
             search: Buscar
             space_type: Espacio participativo
-            upcoming: Próximo
+            upcoming: Próximas
       last_activity:
         new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invitación a unirse a una reunión
+            subject: Invitación a participar en una reunión
         registration_mailer:
           confirmation:
-            subject: La inscripción a tu encuentro ha sido confirmada
+            subject: Tu inscripción al encuentro ha sido confirmada
       meeting:
-        not_allowed: No puedes ver esta reunión
+        not_allowed: No tienes permiso para ver este encuentro
       meetings:
         filters:
           category: Categoría
@@ -357,18 +357,18 @@ es:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
         meetings:
-          no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
-          upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
+          no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
+          upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los anteriores.
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
         show:
           attendees: Número de asistentes
-          contributions: Número de contribuciones
-          going: Yendo
-          join: Inscribirse al encuentro
+          contributions: Número de aportaciones
+          going: Inscrito
+          join: Inscríbete al encuentro
           meeting_report: Informe del encuentro
-          no_slots_available: No hay espacio disponible
+          no_slots_available: No hay plazas disponibles
           organizations: Organizaciones que han asistido
           registration_code_help_text: Tu código de inscripción
           registration_state:
@@ -383,14 +383,14 @@ es:
       models:
         invite:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
             sent_at: Enviado el
             status: Estado
           status:
             accepted: Aceptada (%{at})
             rejected: Rechazada (%{at})
-            sent: Expedida
+            sent: Enviado
         meeting:
           fields:
             closed: Cerrado
@@ -406,13 +406,13 @@ es:
           registration_code: Tu código de registro es %{code}.
       registrations:
         create:
-          invalid: Se ha producido un error al unirte a este encuentro.
+          invalid: Se ha producido un error al inscribirte a este encuentro.
           success: Te has inscrito al encuentro con éxito.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has rechazado la invitación con éxito.
         destroy:
-          invalid: Se ha producido un error al abandonar esta encuentro.
+          invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.
       types:
         private_meeting: Encuentro privado
