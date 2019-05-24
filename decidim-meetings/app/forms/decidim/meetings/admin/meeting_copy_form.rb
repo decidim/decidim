@@ -56,6 +56,10 @@ module Decidim
         def organizer
           @organizer ||= current_organization.users.find_by(id: organizer_id)
         end
+
+        def questionnaire
+          Decidim::Forms::Questionnaire.new
+        end
       end
     end
   end

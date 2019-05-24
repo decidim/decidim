@@ -25,6 +25,10 @@ module Decidim
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
 
+    register_permissions(::Decidim::ApplicationController,
+                         ::Decidim::Admin::Permissions,
+                         ::Decidim::Permissions)
+
     # Saves the location before loading each page so we can return to the
     # right page.
     before_action :store_current_location
@@ -57,10 +61,7 @@ module Decidim
     end
 
     def permission_class_chain
-      [
-        Decidim::Admin::Permissions,
-        Decidim::Permissions
-      ]
+      ::Decidim.permissions_registry.chain_for(::Decidim::ApplicationController)
     end
 
     def permission_scope

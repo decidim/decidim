@@ -29,6 +29,9 @@ module Decidim
 
       protect_from_forgery with: :exception, prepend: true
 
+      register_permissions(::Decidim::Admin::ApplicationController,
+                           ::Decidim::Admin::Permissions)
+
       def user_has_no_permission_path
         decidim_admin.root_path
       end
@@ -38,7 +41,7 @@ module Decidim
       end
 
       def permission_class_chain
-        [Decidim::Admin::Permissions]
+        ::Decidim.permissions_registry.chain_for(::Decidim::Admin::ApplicationController)
       end
 
       def permission_scope

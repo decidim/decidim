@@ -21,7 +21,23 @@ Metrics calculations must be executed everyday. Some `rake task` have been added
   bundle exec rake decidim:metrics:one["<metric name>","YYYY-MM-DD"]
   ```
 
+- It is possible to rebuild one or all metrics since some specific day. This is useful in case current metrics are no generated or corrupt. **Depending on the size of the database this can take a long time!**. The command will execute the same calculations as the commands above for **each** day between *today* and the date specified.
+
+- To rebuild metrics since a given date (all or an specific one)
+
+  ```ruby
+  bundle exec rake decidim:metrics:rebuild["YYYY-MM-DD"]
+  bundle exec rake decidim:metrics:rebuild["<metric name>","YYYY-MM-DD"]
+  ```
+
 ## Available metrics
+
+- Use the command `decidim:metrics:list` to list all available metrics using the console:
+
+```ruby
+bundle exec rake decidim:metrics:list
+```
+Currently, available metrics are:
 
 - **users**, created `Users`
 - **proposals**, published, not withdrawn and not *hidden* `Proposals`

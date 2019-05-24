@@ -9,8 +9,11 @@ module Decidim
       include NeedsPermission
       include ImpersonateUsers
 
+      register_permissions(::Decidim::Api::ApplicationController,
+                           ::Decidim::Permissions)
+
       def permission_class_chain
-        [Decidim::Permissions]
+        ::Decidim.permissions_registry.chain_for(::Decidim::Api::ApplicationController)
       end
 
       def permission_scope

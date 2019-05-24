@@ -57,5 +57,25 @@ describe "Meeting minutes", type: :system do
         end
       end
     end
+
+    context "when video url is NOT present" do
+      it "does not show the video url" do
+        meeting.minutes.update(video_url: nil)
+        visit_meeting
+        within ".minutes-section" do
+          expect(page).not_to have_content(minutes.video_url)
+        end
+      end
+    end
+
+    context "when audio url is NOT present" do
+      it "does not show the audio url" do
+        meeting.minutes.update(audio_url: nil)
+        visit_meeting
+        within ".minutes-section" do
+          expect(page).not_to have_content(minutes.audio_url)
+        end
+      end
+    end
   end
 end
