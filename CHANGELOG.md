@@ -40,6 +40,7 @@ end
 
 **Changed**:
 
+- **decidim-accountability**, **decidim-core**, **decidim-proposals**: Improve UX for diff views of versions. [#5149](https://github.com/decidim/decidim/pull/5149)
 - **decidim-core**: Change attachment photo image alt texts to title instead of description. [#5043](https://github.com/decidim/decidim/pull/5043)
 - **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
 - **decidim-initiatives**: Add styles inline in PDF document of signatures [#5103](https://github.com/decidim/decidim/pull/5103)
