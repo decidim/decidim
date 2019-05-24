@@ -45,6 +45,7 @@ es:
         enable_omnipresent_banner: Mostrar banner omnipresente
         facebook_handler: Nombre en Facebook
         favicon: Icono
+        from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
@@ -63,6 +64,8 @@ es:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        password: Contraseña
+        port: Puerto
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
         secondary_color: Secundario
@@ -71,6 +74,7 @@ es:
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos
+        user_name: Usuario
         warning_color: Advertencia
         youtube_handler: Nombre de YouTube
       scope:
