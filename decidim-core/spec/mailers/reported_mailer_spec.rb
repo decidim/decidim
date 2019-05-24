@@ -26,7 +26,7 @@ module Decidim
     describe "#hide" do
       let(:mail) { described_class.hide(user, report) }
 
-      let(:subject) { "Un contingut ha estat amagat automàticament" }
+      let(:subject) { "Un contingut s'ha ocultat automàticament" }
       let(:default_subject) { "A resource has been hidden automatically" }
 
       let(:body) { "ocultat automàticament" }
