@@ -4,7 +4,7 @@ it:
       project:
         budget: Budget
         decidim_category_id: Categoria
-        decidim_scope_id: Visibilità/ambito
+        decidim_scope_id: Ambito tematico
         description: Descrizione
         proposal_ids: Proposte correlate
         title: Titolo
