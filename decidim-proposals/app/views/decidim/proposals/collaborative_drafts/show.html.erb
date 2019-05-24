@@ -19,7 +19,7 @@
   <% end %>
 
   <h2 class="heading2">
-    <%= present(@collaborative_draft).title(links: true) %>
+    <%= present(@collaborative_draft).title(links: true, html_escape: true) %>
   </h2>
 
   <%= cell("decidim/coauthorships", @collaborative_draft, has_actions: true, size: 3, context: { current_user: current_user }) %>
@@ -110,7 +110,7 @@
     <div class="section">
       <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
 
-      <%= simple_format present(@collaborative_draft).body(links: true) %>
+      <%= simple_format present(@collaborative_draft).body(links: true, strip_tags: true) %>
 
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
