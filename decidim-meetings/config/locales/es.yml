@@ -286,6 +286,7 @@ es:
               other: Ha habido %{count} inscripciones.
             reserved_slots_help: Dejar en 0 si no hay espacios reservados
             reserved_slots_less_than: Debe ser inferior o igual que %{count}
+            title: Registros
           update:
             invalid: Se ha producido un error al guardar la configuración de la inscripción.
             success: La configuración de las inscripciones del encuentro se ha guardado correctamente.
