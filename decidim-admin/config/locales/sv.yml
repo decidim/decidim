@@ -439,9 +439,10 @@ sv:
         new:
           save: Spara
           title: Nytt nyhetsbrev
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
+        show:
           preview: Förhandsvisning
           subject: Ämne
         update:
