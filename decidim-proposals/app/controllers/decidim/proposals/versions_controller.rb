@@ -10,7 +10,6 @@ module Decidim
 
       private
 
-      # Returns the object whose versions are being rendered.
       def item
         @item ||= if params[:proposal_id]
                     Proposal.where(component: current_component).find(params[:proposal_id])

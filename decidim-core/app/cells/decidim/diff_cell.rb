@@ -2,7 +2,6 @@
 
 module Decidim
   # This cell renders the diff between `:old_data` and `:new_data`.
-  # model - A Hash with `old_data`, `:new_data` and `:type` keys.
   class DiffCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include LayoutHelper
@@ -21,18 +20,17 @@ module Decidim
 
     private
 
+    # A PaperTrail::Version.
     def current_version
       model
     end
 
-    # The DiffRenderer class for the `current_version` model namespace.
+    # DiffRenderer class for the current_version's item.
     def diff_renderer_class
-      namespace ||= current_version.item_type.deconstantize
-
-      "#{namespace}::DiffRenderer".constantize
+      "#{current_version.item_type.deconstantize}::DiffRenderer".constantize
     end
 
-    # Caches a DiffRenderer instance for the `current_version`.
+    # Caches a DiffRenderer instance for the current_version.
     def diff_renderer
       @diff_renderer ||= diff_renderer_class.new(current_version)
     end
