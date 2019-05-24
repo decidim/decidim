@@ -36,6 +36,7 @@ es:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
+        address: Nombre de host SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
@@ -373,6 +374,7 @@ es:
             created_at: Fecha de creación
             progress: Progreso
             sent_at: Enviado el
+            sent_to: Enviado a
             subject: Asunto
           name: Boletín
         oauth_application:
@@ -438,16 +440,38 @@ es:
         form:
           interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
+          all: todos
+          all_users: 'Todos los usuarios '
+          and: 'y '
           confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          followers: 'seguidores '
+          has_been_sent_to: 'Se ha enviado a: '
+          no_scopes: Sin ámbitos
+          not_sent: No enviado
+          participants: 'participantes '
+          segmented_to: 'Segmentado para %{subject}: '
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
         select_recipients_to_deliver:
+          alert: 'AVISO!!: tenga en cuenta que solo se enviará el boletín informativo a aquellos usuarios que hayan aceptado recibir boletines informativos'
+          all_spaces: Todos
           confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
+          none: Ninguno
+          select_scopes: Seleccione los ámbitos para segmentar el boletín
+          select_spaces: Seleccione espacios para segmentar el boletín
+          select_users: Seleccione a qué usuarios desea enviar el boletín
+          send_to_all_users: Enviar a todos los usuarios
+          send_to_followers: Enviar a los seguidores
+          send_to_participants: Enviar a los participantes
+          title: Seleccione los destinatarios para entregar
+        send:
+          no_recipients: No hay destinatarios para esta selección
         show:
           preview: Previsualizar
+          select_recipients_to_deliver: Seleccione los destinatarios para entregar
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
@@ -610,6 +634,7 @@ es:
           update: Actualizar
         form:
           none: Ninguna
+          slug_help: 'Use rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
