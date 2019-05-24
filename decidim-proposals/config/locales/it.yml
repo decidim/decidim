@@ -317,7 +317,7 @@ it:
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
             accepted_mime_types:
-              md: riduione di prezzo
+              md: .md
               odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
             document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
@@ -545,7 +545,7 @@ it:
           back: Indietro
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_steps:
-          see_steps: vedere i passaggi
+          see_steps: visualizza le fasi
           step_1: Crea la tua bozza collaborativa
           step_2: Confronta con bozze collaborative
           step_3: Completa la tua bozza collaborativa
