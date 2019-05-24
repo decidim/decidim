@@ -9,7 +9,7 @@ es:
         about: Acerca de
         email: Tu correo electrónico
         name: Tu nombre
-        nickname: Nombre de usuario
+        nickname: Alias
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -17,14 +17,14 @@ es:
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
-      decidim/demoted_membership: Ya no es un administrador de grupo
+      decidim/demoted_membership: Ya no eres una administradora de grupo
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
-      decidim/promote_to_admin: Promovido a administrador de grupo
-      decidim/removed_from_group: Eliminado del grupo
+      decidim/promote_to_admin: Promocionada a administradora del grupo
+      decidim/removed_from_group: Eliminada del grupo
   activerecord:
     attributes:
       decidim/user:
@@ -62,7 +62,7 @@ es:
       data_portability_export:
         file_no_exists: El archivo no existe
         invalid_token: El token proporcionado no es válido.
-        no_token: No se proporciona token
+        no_token: Token no proporcionado
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
@@ -93,8 +93,8 @@ es:
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
       moderation:
-        hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
-        unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
+        hide: "%{user_name} ocultó un recurso de tipo %{resource_type} en el espacio %{space_name}"
+        unreport: "%{user_name} deshizo la denuncia de un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
         create: "%{user_name} creó la newsletter %{resource_name}"
         delete: "%{user_name} eliminó la newsletter %{resource_name}"
@@ -107,8 +107,8 @@ es:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
-        create: "%{user_name} ha invitado a %{resource_name} a ser una participante privada"
-        delete: "%{user_name} ha eliminado a la participante %{resource_name} como participante privada"
+        create: "%{user_name} ha invitado a %{resource_name} como participante privada"
+        delete: "%{user_name} ha eliminado %{resource_name} como participante privada"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -140,7 +140,7 @@ es:
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
-        promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
+        promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name} independiente
         section_heading: Enmiendas (%{count})
       created:
         error: Se ha producido un error al crear la enmienda
@@ -258,7 +258,7 @@ es:
         actions:
           bar: Bar
           foo: Foo
-        name: Componente ficticio
+        name: Componente de prueba
         settings:
           global:
             amendments_enabled: Enmiendas habilitadas
@@ -346,7 +346,7 @@ es:
           notice: |-
             <p>Hola, ¿estás segura de que no quieres recibir un boletín informativo?<br>
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
-            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
+            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
             Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
@@ -426,8 +426,8 @@ es:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Un evento ha ocurrido en %{resource_title}
-          notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+          email_subject: Se ha producido una actualización para %{resource_title}
+          notification_title: Se ha añadido un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
@@ -438,7 +438,7 @@ es:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-        email_subject: Una actualización en %{resource_title}
+        email_subject: Se ha producido una actualización para %{resource_title}
       gamification:
         badge_earned:
           email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
@@ -487,11 +487,11 @@ es:
           email_subject: '¡Has sido eliminada del grupo %{user_group_name}!'
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
-        notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones mediante el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
@@ -615,7 +615,7 @@ es:
         remove_from_group: Eliminar participante
       index:
         current_members_without_admins: 'Miembros actuales (sin administradores):'
-        manage_members: Gestionar miembros
+        manage_members: Gestionar los miembros
       promote:
         error: Se ha producido un error al promocionar a esta participante
         success: Participante promocionada correctamente
@@ -898,7 +898,7 @@ es:
         join_user_group: Solicita unirse al grupo
         leave_user_group: Deja el grupo
         manage_user_group_admins: Gestiona las administradoras
-        manage_user_group_users: Gestionar las miembros
+        manage_user_group_users: Gestionar los miembros
         resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
     reported_mailer:
       hide:
@@ -967,7 +967,7 @@ es:
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        please_sign_in: Por favor, regístrate
+        please_sign_in: Por favor, inicia sesión
         sign_up: Regístrate
       participatory_space_filters:
         filters:
@@ -1023,7 +1023,7 @@ es:
         header: Termina de crear tu cuenta
         nickname_help: Tu alias en %{organization}.
         submit_button: Guardar
-        subtitle: Si aceptas la invitación, por favor establece tu nombre de usuaria y contraseña.
+        subtitle: Si aceptas la invitación, por favor establece tu alias y contraseña.
       invitation_removed: Se ha eliminado tu invitación.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
@@ -1125,7 +1125,7 @@ es:
       signed_out: Sesión finalizada con éxito.
     shared:
       links:
-        back: Atrás
+        back: Volver
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
@@ -1137,28 +1137,28 @@ es:
         other: "(%{count} caracteres como mínimo)"
     unlocks:
       new:
-        resend_unlock_instructions: Reenviar instrucciones de desbloqueo
-      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo desbloquear tu cuenta en unos minutos.
-      send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
-      unlocked: Tu cuenta se ha desbloqueado correctamente. Por favor inicia sesión para continuar.
+        resend_unlock_instructions: Reenviar las instrucciones de desbloqueo
+      send_instructions: Recibirás un correo electrónico con instrucciones para desbloquear tu cuenta en unos minutos.
+      send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones para desbloquearla en unos minutos.
+      unlocked: Se ha desbloqueado tu cuenta correctamente. Por favor, inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
   errors:
     messages:
-      already_confirmed: Ya fuiste confirmado, intenta iniciar sesión
-      confirmation_period_expired: Necesitas ser confirmado dentro de %{period}, por favor solicita uno nuevo.
+      already_confirmed: ya fue confirmado, por favor intenta iniciar sesión
+      confirmation_period_expired: se tiene que confirmar dentro de %{period}, por favor solicita uno nuevo
       content_type_whitelist_error: el tipo de archivo no es válido
-      cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
-      expired: Ha expirado, solicita uno nuevo
+      cycle_detected: uno de los padres de un ámbito no puede ser uno de sus descendientes
+      expired: ha expirado, por favor, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
-      must_start_with_caps: Debe comenzar con una letra mayúscula
+      long_words: contiene palabras demasiado largas (más de 35 caracteres)
+      must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
       not_found: No encontrado
       not_locked: No estaba bloqueado
       not_saved:
-        one: '1 error ha impedido que se guarde este %{resource}:'
+        one: 'Un error ha impedido que se guarde este %{resource}:'
         other: "%{count} errores impidieron que se guarde este %{resource}:"
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
@@ -1167,25 +1167,25 @@ es:
     required: Obligatorio
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
-    timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
+    timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelve a enviar.
   layouts:
     decidim:
       cookie_warning:
-        description_html: Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y servicios de interés. Al continuar la navegación entendemos que se acepta nuestra política de cookies. Para más información consulta %{link}.
+        description_html: Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y servicios de interés. Al continuar la navegación entendemos que aceptas nuestra política de cookies. Para más información consulta %{link}.
         link_label: aquí
         ok: Estoy de acuerdo
       edit_link:
-        edit: Editar
+        edit: Edita
       footer:
         download_open_data: Descargar ficheros de datos abiertos
-        made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
+        made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
         close_menu: Cerrar menú
         navigation: Navegación
         sign_in: Entra
         sign_up: Regístrate
       impersonation_warning:
-        close_session: Cerrar la sesión
+        close_session: Cerrar sesión
         description_html: Estás gestionando la participante <b>%{user_name}</b>.
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
@@ -1203,23 +1203,23 @@ es:
         delete_my_account: Eliminar mi cuenta
         my_data: Mis datos
         my_interests: Mis intereses
-        notifications_settings: Configuracion de notificaciones
-        title: Ajustes de participante
+        notifications_settings: Configuración de las notificaciones
+        title: Configuración de la participante
         user_groups: Grupos
       widget:
         see_more: Ver más
   locale:
     name: Castellano
   password_validator:
-    domain_included_in_password: Es muy similar a este nombre de dominio
-    email_included_in_password: Es muy similar a tu correo electrónico
-    fallback: No es válido
-    name_included_in_password: Es muy similar a tu nombre
-    not_enough_unique_characters: No tiene suficientes caracteres únicos
-    password_not_allowed: No se permite
-    password_too_common: Es demasiado común
-    password_too_long: Es demasiado largo
-    password_too_short: Es demasiado corto
+    domain_included_in_password: es demasiado similar a este nombre de dominio
+    email_included_in_password: es demasiado similar a tu correo electrónico
+    fallback: no es válido
+    name_included_in_password: es demasiado similar a tu nombre
+    not_enough_unique_characters: no tiene suficientes caracteres únicos
+    password_not_allowed: no está permitido
+    password_too_common: es demasiado común
+    password_too_long: es demasiado largo
+    password_too_short: es demasiado corto
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1237,7 +1237,7 @@ es:
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: Abra su WeChat, haga clic en el botón "Discover" y luego haga clic en el menú "Escanear código QR".
+    wechat_footer: Abre WeChat, haz clic en el botón "Discover" y luego haz clic en el menú "Escanear código QR".
     weibo: Sina Weibo
     xing: Xing
   time:
