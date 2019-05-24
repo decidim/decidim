@@ -73,7 +73,7 @@ es:
         edit: Editar
         filter:
           all: Mostrar todos los procesos
-          process_groups: Grupos de proceso
+          process_groups: Grupos de procesos
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
@@ -300,7 +300,7 @@ es:
             metadata: Metadatos
             other: Otro
             select_an_area: Seleccione una área
-            select_process_group: Seleccione un grupo de proceso
+            select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Información general
             visbility: Visibilidad
