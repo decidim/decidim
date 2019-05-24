@@ -439,9 +439,10 @@ it:
         new:
           save: Salva
           title: Nuova newsletter
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
           deliver: Invia la newsletter
+        show:
           preview: Anteprima
           subject: Oggetto
         update:
