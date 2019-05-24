@@ -39,7 +39,7 @@ es:
         one: Enmienda
         other: Enmiendas
       decidim/user:
-        one: No hay participantes
+        one: Participante
         other: Participantes
       decidim/user_group:
         one: Grupo
