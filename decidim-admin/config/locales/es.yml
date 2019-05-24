@@ -75,7 +75,7 @@ es:
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos
-        user_name: Usuario
+        user_name: Nombre de usuario
         warning_color: Advertencia
         youtube_handler: Nombre de YouTube
       scope:
@@ -455,23 +455,23 @@ es:
           save: Guardar
           title: Nuevo boletín
         select_recipients_to_deliver:
-          alert: 'AVISO!!: tenga en cuenta que solo se enviará el boletín informativo a aquellos usuarios que hayan aceptado recibir boletines informativos'
+          alert: 'AVISO!!: ten en cuenta que solo se enviará el boletín informativo a aquellos usuarios que hayan aceptado recibir boletines informativos'
           all_spaces: Todos
           confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           none: Ninguno
-          select_scopes: Seleccione los ámbitos para segmentar el boletín
-          select_spaces: Seleccione espacios para segmentar el boletín
-          select_users: Seleccione a qué usuarios desea enviar el boletín
+          select_scopes: Selecciona los ámbitos para segmentar el boletín
+          select_spaces: Selecciona espacios para segmentar el boletín
+          select_users: Selecciona a qué usuarios deseas enviar el boletín
           send_to_all_users: Enviar a todos los usuarios
           send_to_followers: Enviar a los seguidores
           send_to_participants: Enviar a los participantes
-          title: Seleccione los destinatarios para entregar
+          title: Selecciona los destinatarios
         send:
           no_recipients: No hay destinatarios para esta selección
         show:
           preview: Previsualizar
-          select_recipients_to_deliver: Seleccione los destinatarios para entregar
+          select_recipients_to_deliver: Selecciona los destinatarios
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
@@ -634,7 +634,7 @@ es:
           update: Actualizar
         form:
           none: Ninguna
-          slug_help: 'Use rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
+          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
