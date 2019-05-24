@@ -48,12 +48,12 @@ ar:
         github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
         highlighted_content_banner_action_subtitle: نص زر الإجراء
-        highlighted_content_banner_action_title: عنوان زر العمل
+        highlighted_content_banner_action_title: عنوان زر الإجراء
         highlighted_content_banner_action_url: عنوان URL لزر الإجراء
         highlighted_content_banner_enabled: إظهار شعار المحتوى المميز
         highlighted_content_banner_image: الصورة
         highlighted_content_banner_short_description: وصف مختصر
-        highlighted_content_banner_title: عنوان
+        highlighted_content_banner_title: العنوان
         instagram_handler: مُعرّف حساب استجرام
         logo: الشعار
         name: اسم
@@ -61,7 +61,7 @@ ar:
         official_img_header: رأس الشعار الرسمي
         official_url: عنوان URL الرسمي للمنظمة
         omnipresent_banner_short_description: وصف قصير
-        omnipresent_banner_title: عنوان
+        omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
@@ -90,12 +90,12 @@ ar:
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
-        title: عنوان
+        title: العنوان
         weight: وزن
       static_page_topic:
         description: وصف
         show_in_footer: تظهر في تذييل الصفحة
-        title: عنوان
+        title: العنوان
         weight: وزن
       user_group_csv_verification:
         file: ملف
@@ -116,7 +116,7 @@ ar:
       decidim/static_page:
         content: يحتوى
         slug: سبيكة العنوان الشبكي
-        title: عنوان
+        title: العنوان
       doorkeeper/application:
         authorize_url: تفويض العنوان الشبكي
         client_id: معرف العميل
@@ -196,7 +196,7 @@ ar:
           title: تحرير المرفق
           update: تحديث
         index:
-          attachments_title: مرفقات
+          attachments_title: المرفقات
         new:
           create: إنشاء مرفق
           title: مرفق جديد
@@ -350,7 +350,7 @@ ar:
             collection: مجلد
             content_type: نوع
             file_size: الحجم
-            title: عنوان
+            title: العنوان
           name: المرفق
         attachment_collection:
           name: مجلد
@@ -389,7 +389,7 @@ ar:
         static_page:
           fields:
             created_at: أنشئت في
-            title: عنوان
+            title: العنوان
         user:
           fields:
             created_at: تاريخ الإنشاء
@@ -412,7 +412,7 @@ ar:
             users_count: عدد المشاركين
       moderations:
         index:
-          title: الإعتدال
+          title: الإشراف
         report:
           reasons:
             does_not_belong: لا ينتمي
@@ -439,9 +439,10 @@ ar:
         new:
           save: حفظ
           title: رسالة إخبارية جديدة
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
+        show:
           preview: معاينة
           subject: الموضوع
         update:
