@@ -139,25 +139,25 @@ es:
       area_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de área.
-          success: Tipo de área creada con éxito.
+          success: El tipo de área ha sido creado correctamente.
         destroy:
-          success: Tipo de área destruido con éxito
+          success: El tipo de área se ha eliminado correctamente
         edit:
           title: Editar tipo de área
           update: Actualizar
         new:
-          create: Crear tipo de área
+          create: Crea un tipo de área
           title: Nuevo tipo de área
         update:
           error: Se ha producido un error al actualizar este tipo de área.
-          success: Tipo de área actualizado con éxito
+          success: El tipo de área se actualizó correctamente
       areas:
         create:
           error: Se ha producido un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
           has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
-          success: Área destruida correctamente
+          success: Área eliminada correctamente
         edit:
           title: Editar área
           update: Actualizar
@@ -171,9 +171,9 @@ es:
       attachment_collections:
         create:
           error: Se ha producido un error al crear una nueva carpeta.
-          success: Carpeta creada con éxito.
+          success: Carpeta creada correctamente.
         destroy:
-          success: Carpeta borrada con éxito.
+          success: Carpeta borrada correctamente.
         edit:
           title: Editar carpeta
           update: Actualizar
@@ -185,23 +185,23 @@ es:
           title: Nueva carpeta
         update:
           error: Se ha producido un error al actualizar esta carpeta.
-          success: Carpeta actualizada con éxito.
+          success: Carpeta actualizada correctamente.
       attachments:
         create:
-          error: Se ha producido un error al crear un nuevo archivo adjunto.
+          error: Se ha producido un error al crear un nuevo adjunto.
           success: Adjunto creado correctamente.
         destroy:
-          success: El archivo adjunto se ha eliminado correctamente.
+          success: El adjunto se ha eliminado correctamente.
         edit:
-          title: Editar archivo adjunto
+          title: Editar adjunto
           update: Actualizar
         index:
-          attachments_title: Archivos adjuntos
+          attachments_title: Adjuntos
         new:
-          create: Crear archivo adjunto
-          title: Nuevo archivo adjunto
+          create: Crear adjunto
+          title: Nuevo adjunto
         update:
-          error: Se ha producido un error al actualizar este archivo adjunto.
+          error: Se ha producido un error al actualizar este adjunto.
           success: Adjunto actualizado correctamente.
       autocomplete:
         no_results: No se han encontrado resultados
@@ -234,38 +234,38 @@ es:
           success: Componente creado con éxito.
         destroy:
           error: Se ha producido un error al eliminar este componente.
-          success: Componente borrado con éxito.
+          success: El componente se ha eliminado correctamente.
         edit:
-          title: Editar componente
+          title: Edita el componente
           update: Actualizar
         form:
-          default_step_settings: Configuraciones de paso predeterminadas
-          global_settings: Ajustes globales
-          step_settings: Configuración de paso
+          default_step_settings: Configuraciones por defecto
+          global_settings: Configuración global
+          step_settings: Configuración de fase
         index:
           add: Agregar componente
           headers:
-            actions: Comportamiento
+            actions: Acciones
             name: Nombre del componente
             type: Tipo de componente
         new:
-          add: Agregar componente
+          add: Agregar un componente
           title: 'Agregar componente: %{name}'
         publish:
-          success: El componente se ha publicado con éxito.
+          success: El componente se ha publicado correctamente.
         title: Componentes
         unpublish:
-          success: El componente se ha despublicado sin éxito.
+          success: El componente se ha despublicado correctamente.
         update:
           error: Se ha producido un error al actualizar este componente.
-          success: El componente se actualizó con éxito.
+          success: El componente se ha atualizado correctamente.
       dashboard:
         show:
           view_more_logs: Ver más registros
-          welcome: Bienvenido al panel de administración de Decidim.
+          welcome: Bienvenida al panel de administración de Decidim.
       exports:
         export_as: "%{name} como %{export_format}"
-        notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
+        notice: Tu exportación está actualmente en curso. Recibiras un correo electrónico cuando haya finalizado.
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
         form:
@@ -278,29 +278,29 @@ es:
             managed: Administrado
             not_managed: No gestionado
           filter_by: Filtrado por
-          impersonate: Suplantar
-          impersonate_new_managed_user: Gestionar una nueva participante
-          managed: Administrado
+          impersonate: Impersonar
+          impersonate_new_managed_user: Gestiona una nueva participante
+          managed: Gestionado
           name: Nombre
-          needs_authorization_warning: Necesita al menos una autorización habilitada para esta organización.
+          needs_authorization_warning: Necesitas al menos una autorización habilitada para esta organización.
           not_managed: No gestionado
-          promote: Promover
+          promote: Promocionar
           search: Buscar
           status: Estado
           view_logs: Ver los registros
       impersonations:
         close_session:
           error: Se ha producido un error al cerrar la sesión actual de gestión de participantes.
-          success: Se ha finalizado con éxito la sesión de suplantación actual.
+          success: Se ha finalizado correctamente la sesión de impersonalización actual.
         create:
-          error: Se ha producido un error en la gestión de la participante.
+          error: Se ha producido un error en gestionar la participante.
           success: La participante gestionada se ha creado correctamente.
         form:
           authorization_method: Método de autorización
           name: Nombre
           reason: Razón
         new:
-          impersonate: Suplantar
+          impersonate: Impersonar
           impersonate_existing_managed_user: Gestionar participante "%{name}"
           impersonate_existing_user: Gestionar participante "%{name}"
           impersonate_new_managed_user: Gestionar nueva participante
@@ -313,12 +313,12 @@ es:
           success: La participante se ha promocionado correctamente.
         promotions:
           new:
-            explanation: Las participantes gestionadas se pueden promocionar a participantes estándar. Esto significa que serán invitadas a la aplicación y no podrás volver a administrarlas. La participante invitada recibirá un correo electrónico para aceptar tu invitación.
+            explanation: Las participantes gestionadas se pueden promocionar a participantes estándar. Significa que serán invitadas al sistema y no podrás volver a administrarlas. La participante invitada recibirá un correo electrónico para aceptar tu invitación.
             new_managed_user_promotion: Nueva promoción de participante
             promote: Promocionar
       menu:
-        admin_log: Registro de actividad de administrador
-        admins: Administradores
+        admin_log: Registro de actividad de administración
+        admins: Administradoras
         appearance: Apariencia
         area_types: Tipos de área
         areas: Áreas
@@ -358,7 +358,7 @@ es:
           name: Categoría
         impersonation_log:
           fields:
-            admin: Administrador
+            admin: Administradora
             ended_at: Terminó el
             expired_at: Caduca el
             reason: Razón
@@ -377,7 +377,7 @@ es:
             name: Nombre
           name: Aplicación OAuth
         participatory_space_private_user:
-          name: Participante de espacio participativo privado
+          name: Participante de espacio de participación privado
         scope:
           fields:
             name: Nombre
@@ -398,8 +398,8 @@ es:
             name: Nombre
             role: Rol
             roles:
-              admin: Administrador
-              user_manager: Administrador de participantes
+              admin: Administradora
+              user_manager: Administradora de participantes
           name: Participante
         user_group:
           fields:
@@ -421,27 +421,28 @@ es:
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
-          success: Boletín creado con éxito. Por favor, revíselo antes de enviarlo.
+          success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
         deliver:
-          error: Se ha producido un error al entregar este boletín.
-          success: Boletín enviado con éxito.
+          error: Se ha producido un error al enviar este boletín.
+          success: Boletín enviado correctamente.
         destroy:
-          error_already_sent: 'No se puede destruir el boletín de noticias: Ya se ha enviado.'
-          success: Boletín destruido con éxito.
+          error_already_sent: 'No se puede eliminar el boletín de noticias: ya se ha enviado.'
+          success: Boletín eliminado correctamente.
         edit:
           save_and_preview: Guardar y vista previa
           title: Editar boletín
         form:
-          interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
+          interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
           confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
-        show:
-          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+        select_recipients_to_deliver:
+          confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
+        show:
           preview: Previsualizar
           subject: Asunto
         update:
@@ -450,42 +451,42 @@ es:
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.
-          success: Aplicación creada con éxito.
+          success: Aplicación creada correctamente.
         destroy:
-          error: Se ha producido un error al destruir esta aplicación.
-          success: Aplicación eliminada con éxito.
+          error: Se ha producido un error al eliminar esta aplicación.
+          success: Aplicación eliminada correctamente.
         edit:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
+          confirm_delete: '¿Estás segura que quieres eliminar esta aplicación?'
           title: Aplicaciones OAuth
         new:
           save: Guardar
           title: Nueva aplicación
         update:
           error: Se ha producido un error al actualizar esta aplicación.
-          success: Aplicación actualizada con éxito.
+          success: Aplicación actualizada correctamente.
       officializations:
         create:
-          success: Partcipante oficializada correctamente
+          success: La participante se ha oficializado correctamente
         destroy:
-          success: Participante des-oficializada correctamente
+          success: La oficialización de la participante ha sido inhabilitada correctamente
         index:
           actions: Acciones
-          badge: Distintivo
+          badge: Insignias
           created_at: Creado el
           filter:
             all: Todas
-            not_officialized: No oficializado
-            officialized: Oficializado
+            not_officialized: No oficializada
+            officialized: Oficializada
           filter_by: Filtrado por
           name: Nombre
-          nickname: Apodo
-          not_officialized: No oficializado
-          officialize: Oficializar
-          officialized: Oficializado
-          reofficialize: Re-oficializar
+          nickname: Alias
+          not_officialized: No oficializada
+          officialize: Oficializa
+          officialized: Oficializada
+          reofficialize: Vuelve a oficializar
           search: Buscar
           status: Estado
           unofficialize: Des-oficializar
@@ -513,7 +514,7 @@ es:
           update: Actualizar
         form:
           colors_title: Colores de la organización
-          cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+          cta_button_path_help: 'Puedes redirigir la dirección donde enlaza el botón de acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           homepage_appearance_title: Editar apariencia de página de inicio
@@ -529,10 +530,10 @@ es:
           update: Actualizar
       participatory_space_private_users:
         create:
-          error: Se ha producido un error al agregar una participante a este espacio participativo privado.
+          error: Se ha producido un error al agregar una participante privada a este espacio participativo.
           success: Acceso privado a participantes del espacio participativo creado correctamente.
         destroy:
-          error: Se ha producido un error al eliminar a una participante para este espacio participativo privado.
+          error: Se ha producido un error al eliminar a una participante privada para este espacio participativo.
           success: El acceso de la participante al espacio de participación privado se ha eliminado correctamente.
         index:
           title: Participante de espacio de participación privado
@@ -544,13 +545,13 @@ es:
           submit: Enviar
           title: Editar permisos
         update:
-          success: Permisos actualizados con éxito.
+          success: Los permisos se han actualizado correctamente.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
           success: Tipo de ámbito creado correctamente.
         destroy:
-          success: Tipo de ámbito destruido correctamente
+          success: Tipo de ámbito eliminado correctamente
         edit:
           title: Editar tipo de ámbito
           update: Actualizar
@@ -559,13 +560,13 @@ es:
           title: Nuevo ámbito
         update:
           error: Se ha producido un error al actualizar este tipo de ámbito.
-          success: Tipo de ámbito actualizado con éxito
+          success: Tipo de ámbito actualizado correctamente
       scopes:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
         destroy:
-          success: Ámbito eliminado con éxito
+          success: Ámbito eliminado correctamente
         edit:
           title: Editar alcance
           update: Actualizar
@@ -686,15 +687,15 @@ es:
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
-        unhide: Desocultar
-        unreport: Cancelar denuncia
+        unhide: Vuelve a mostrar
+        unreport: Deshacer denuncia
       admin:
         reportable:
           hide:
             invalid: Se ha producido un error al ocultar el contenido.
-            success: Contenido ocultado con éxito.
+            success: Contenido ocultado correctamente.
           unhide:
-            invalid: Se ha producido un error desocultando el contenido.
+            invalid: Se ha producido un error volviendo a mostrar el contenido.
             success: Contenido exitosamente desocultado.
           unreport:
             invalid: Se ha producido un error al cancelar la denuncia.
