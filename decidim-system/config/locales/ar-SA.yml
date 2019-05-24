@@ -47,6 +47,7 @@ ar:
           fields:
             created_at: أنشئت في
             name: اسم
+            smtp_settings: إعدادات الـ SMTP
           name: منظمة
       organizations:
         create:
