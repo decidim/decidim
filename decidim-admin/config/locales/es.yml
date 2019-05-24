@@ -455,12 +455,10 @@ es:
           save: Guardar
           title: Nuevo boletín
         select_recipients_to_deliver:
-          alert: 'AVISO!!: ten en cuenta que solo se enviará el boletín informativo a aquellos usuarios que hayan aceptado recibir boletines informativos'
           all_spaces: Todos
           confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           none: Ninguno
-          select_scopes: Selecciona los ámbitos para segmentar el boletín
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users: Selecciona a qué usuarios deseas enviar el boletín
           send_to_all_users: Enviar a todos los usuarios
