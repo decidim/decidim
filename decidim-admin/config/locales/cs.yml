@@ -439,9 +439,10 @@ cs:
         new:
           save: Uložit
           title: Nový informační bulletin
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
           deliver: Doručte informační bulletin
+        show:
           preview: Náhled
           subject: Předmět
         update:
