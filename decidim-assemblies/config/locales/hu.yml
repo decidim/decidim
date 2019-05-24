@@ -362,10 +362,6 @@ hu:
           organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
           reset_chart: Visszaállítás
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} gyűlés"
-            other: "%{count} gyűlés"
         promoted_assembly:
           more_info: További információ
           take_part: Vegyél részt
