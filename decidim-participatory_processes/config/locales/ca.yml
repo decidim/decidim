@@ -300,7 +300,7 @@ ca:
             metadata: Metadades
             other: Altres
             select_an_area: Selecciona una àrea
-            select_process_group: Seleccioneu un grup de processos
+            select_process_group: Selecciona un grup de processos
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Informació general
             visbility: Visibilitat
