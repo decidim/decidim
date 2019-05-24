@@ -297,6 +297,8 @@ ar:
         statistics:
           consultations_count: المشاورات
     questions:
+      next_button: السؤال التالي
+      previous_button: السؤال السابق
       results:
         title: النتائج
       show:
