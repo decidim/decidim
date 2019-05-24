@@ -36,6 +36,7 @@ ar:
         organization_url: عنوان URL للمؤسسة
         redirect_uri: إعادة توجيه URI
       organization:
+        address: خادم SMTP
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
@@ -45,6 +46,7 @@ ar:
         enable_omnipresent_banner: عرض لافتة في كل مكان
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
+        from: مِن عنوان البريد الإلكتروني
         github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
         highlighted_content_banner_action_subtitle: نص زر الإجراء
@@ -63,6 +65,8 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
+        password: الكلمة السرية
+        port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         secondary_color: ثانوي
@@ -71,6 +75,7 @@ ar:
         tos_version: شروط وأحكام الخدمة
         twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
+        user_name: اسم المستخدم
         warning_color: تحذير
         youtube_handler: مُعرّف حساب يوتيوب
       scope:
@@ -369,6 +374,7 @@ ar:
             created_at: أنشئت في
             progress: تقدم
             sent_at: أرسلت في
+            sent_to: أُرسِلت إلى
             subject: موضوع
           name: النشرة الإخبارية
         oauth_application:
@@ -434,14 +440,27 @@ ar:
         form:
           interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في الجسم أو الموضوع وسيتم استبداله باسم المستلم.'
         index:
+          all: الكل
+          all_users: 'كافة المستخدمين '
+          and: 'و '
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
+          followers: 'مُتابِعون '
+          has_been_sent_to: 'تم إرسالها إلى: '
+          not_sent: غير مرسَلة
+          participants: 'مشاركون '
+          segmented_to: 'مقسمه إلى %{subject}: '
           title: الرسائل الإخبارية
         new:
           save: حفظ
           title: رسالة إخبارية جديدة
         select_recipients_to_deliver:
+          all_spaces: الكل
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
+          none: لا شَيْء
+          send_to_all_users: إرسال إلى كافة المستخدمين
+          send_to_followers: إرسال إلى المتابِعين
+          send_to_participants: إرسال إلى المشاركين
         show:
           preview: معاينة
           subject: الموضوع
