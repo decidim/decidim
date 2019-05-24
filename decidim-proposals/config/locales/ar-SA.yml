@@ -93,7 +93,7 @@ ar:
     components:
       proposals:
         actions:
-          create: خلق
+          create: إنشاء
           endorse: تأييد
           vote: الدعم
           withdraw: سحب
@@ -377,7 +377,7 @@ ar:
             title: اقتراحات
             update: تحديث
           new:
-            create: خلق
+            create: إنشاء
             title: إنشاء اقتراح
           update_category:
             invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
@@ -423,6 +423,7 @@ ar:
       application_helper:
         filter_origin_values:
           all: الكل
+          citizens: المواطنون
           meetings: اجتماعات
           user_groups: المجموعات
         filter_state_values:
@@ -500,7 +501,7 @@ ar:
           new_collaborative_draft: مشروع تعاوني جديد
         orders:
           label: 'ترتيب المسودات حسب:'
-          most_contributed: ساهم معظم
+          most_contributed: التي تحصلت على معظم المساهمات
           random: عشوائية
           recent: الأخيرة
         requests:
@@ -551,7 +552,7 @@ ar:
           back: الى الخلف
           info: إنك لعلى خلق <strong>مشروع تعاوني</strong>.
         wizard_steps:
-          see_steps: انظر الخطوات
+          see_steps: عرض الخطوات
           step_1: إنشاء مسودتك التعاونية
           step_2: قارن مع المسودات التعاونية
           step_3: أكمل مسودتك التعاونية
@@ -671,7 +672,7 @@ ar:
           title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
-          most_voted: معظم الدعم
+          most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
         participatory_texts:
@@ -691,7 +692,7 @@ ar:
           publish: نشر
           title: نشر اقتراحك
         proposal:
-          creation_date: 'الخلق: %{date}'
+          creation_date: 'الإنشاء: %{date}'
           view_proposal: عرض الاقتراح
         show:
           back_to: ارجع الى
@@ -751,13 +752,13 @@ ar:
             votes: الدعم
         wizard_aside:
           back: الى الخلف
-          info: إنك لعلى خلق <strong>اقتراح</strong>.
+          info: إنك بصدد إنشاء <strong>اقتراح</strong>.
         wizard_steps:
-          see_steps: انظر الخطوات
+          see_steps: عرض الخطوات
           step_1: إنشاء اقتراحك
           step_2: قارن
-          step_3: اكتمال
-          step_4: نشر اقتراحك
+          step_3: إكمال
+          step_4: انشر اقتراحك
           step_of: الخطوة %{current_step_num} من %{total_steps}
       publish:
         error: كانت هناك مشكلة في نشر الاقتراح.
