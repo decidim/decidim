@@ -383,7 +383,7 @@ es-MX:
       models:
         invite:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
             sent_at: Enviado el
             status: Estado
