@@ -439,9 +439,10 @@ es-MX:
         new:
           save: Guardar
           title: Nuevo boletín
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
+        show:
           preview: Previsualizar
           subject: Asunto
         update:
