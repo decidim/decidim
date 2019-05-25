@@ -297,6 +297,7 @@ ar:
               other: كان هناك %{count} التسجيلات.
             reserved_slots_help: اتركه إلى 0 إذا لم يكن لديك فتحات محجوزة
             reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
+            title: التسجيلات
           update:
             invalid: حدثت مشكلة أثناء حفظ إعدادات التسجيل.
             success: تم حفظ إعدادات تسجيل الاجتماع بنجاح.
