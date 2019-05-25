@@ -11,11 +11,6 @@ Decidim.register_component(:proposals) do |component|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
-  component.on(:update) do |instance|
-    next unless instance.settings.participatory_texts_enabled == instance.reload.settings.participatory_texts_enabled
-    raise "Can't update ParticipatoryText setting when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
-  end
-
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]

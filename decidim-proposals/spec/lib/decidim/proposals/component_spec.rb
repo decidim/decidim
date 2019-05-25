@@ -37,7 +37,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:form) do
         instance_double(
           Decidim::Admin::ComponentForm,
-          invalid?: false,
+          invalid?: !valid,
           weight: 0,
           name: {},
           default_step_settings: {},
@@ -49,6 +49,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
 
       context "when there are no proposals for the component" do
+        let(:valid) { true }
+
         it "updates the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
@@ -59,14 +61,13 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
 
       context "when there are proposals for the component" do
-        before do
-          create(:proposal, component: component)
-        end
+        let(:proposal) { create(:proposal, component: component) }
+        let(:valid) { false }
 
-        it "raises an error" do
+        it "does not update the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
-          end.to raise_error("Can't update ParticipatoryText setting when there are proposals")
+          end.to broadcast(:invalid)
         end
       end
     end
