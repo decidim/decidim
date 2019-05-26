@@ -38,15 +38,15 @@ module Decidim
       end
 
       # Disables :participatory_texts_enabled checkbox if the Proposals component
-      # has existing proposals and stores the help text that will be added in a
+      # has existing proposals, and stores the help text that will be added in a
       # new div via JavaScript in "decidim/admin/form".
       #
       # field_name - The name of the field to disable.
       #
       # Returns an empty Hash or a Hash with extra HTML options.
       def extra_options_for(field_name)
-        return {} unless field_name == :participatory_texts_enabled
-        return {} unless Decidim::Proposals::Proposal.where(decidim_component_id: params[:id]).any?
+        return {} unless field_name == :participatory_texts_enabled &&
+                         Decidim::Proposals::Proposal.where(component: @component).any?
 
         {
           class: "participatory_texts_disabled",
