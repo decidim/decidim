@@ -441,8 +441,11 @@ ca:
           save: Desar
           title: Nou butlletí
         select_recipients_to_deliver:
+          all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
+          followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
         show:
           preview: Previsualitzar
           subject: Assumpte
