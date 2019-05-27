@@ -187,6 +187,7 @@ end
 - **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
 - **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
 - **decidim-core**: Fix CSS transparencies using customized colors. [\#5071](https://github.com/decidim/decidim/pull/5071)
+- **decidim-initiatives**: Escape hashtag content [#5151](https://github.com/decidim/decidim/pull/5151)
 
 **Removed**:
 
