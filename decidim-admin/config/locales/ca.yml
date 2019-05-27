@@ -446,6 +446,9 @@ ca:
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
+          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració Els meus interessos del seu compte.
+          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         show:
           preview: Previsualitzar
           subject: Assumpte
