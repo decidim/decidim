@@ -15,7 +15,7 @@ Decidim uses [Crowdin](https://crowdin.com/) to manage the translations.
 - Translate at least one key from every engine, so, your _yaml_ files are not empty. The easiest way to do this is to automatically translate and sync all the content. Later you'll be able to fix the content that wasn't properly translated.
 - Add [Foundation Datepicker](https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/master/js/locales)'s translations ([PR](https://github.com/decidim/decidim/pull/2039)).
 - Add the new language to `available_locales` ([PR](https://github.com/decidim/decidim/pull/1991)).
-- Announce the new language in the Readme ([PR](https://github.com/decidim/decidim/pull/2125)).
+- Add the language in [decidim-core/spec/lib/available_locales_spec.rb](https://github.com/decidim/decidim/pull/5080/files#diff-9c9dc1c8c25dcecdfb8ce555d5ef5e47R15).
 
 ## Test the new language
 
