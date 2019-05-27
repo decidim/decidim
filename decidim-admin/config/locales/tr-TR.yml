@@ -246,6 +246,7 @@ tr:
         form:
           default_step_settings: Varsayılan adım ayarları
           global_settings: Genel Ayarlar
+          participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
           step_settings: Adım ayarları
         index:
           add: Bileşen ekle
@@ -374,6 +375,7 @@ tr:
             created_at: Düzenlendi
             progress: İlerleme
             sent_at: Adresine gönderildi
+            sent_to: Gönderilen
             subject: konu
           name: Bülten
         oauth_application:
@@ -439,7 +441,15 @@ tr:
         form:
           interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
         index:
+          all: tümü
+          all_users: 'Tüm kullanıcılar '
+          and: 've '
           confirm_delete: Bu bülteni silmek istediğinizden emin misiniz?
+          followers: 'takipçiler '
+          has_been_sent_to: 'Şuraya gönderildi: '
+          no_scopes: Kapsam yok
+          not_sent: Gönderilmedi
+          participants: 'katılımcılar '
           title: Haber bültenleri
         new:
           save: Kayıt etmek
