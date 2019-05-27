@@ -1267,7 +1267,7 @@ en:
       left: Deletions
       right: Additions
     dropdown:
-      choose_diff_view_mode: 'Diff view mode:'
+      choose_diff_view_mode: 'Compare view mode:'
       option_split: Side-by-side
       option_unified: Unified
   views:
