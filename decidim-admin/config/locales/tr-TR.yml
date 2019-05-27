@@ -46,6 +46,7 @@ tr:
         enable_omnipresent_banner: Her yerde banner göster
         facebook_handler: Facebook işleyicisi
         favicon: ikon
+        from: Gelen e-posta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
         highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
@@ -64,6 +65,8 @@ tr:
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
+        password: Parola
+        port: Bağlantı noktası
         primary_color: Birincil
         reference_prefix: Referans öneki
         secondary_color: İkincil
@@ -72,6 +75,7 @@ tr:
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
+        user_name: Kullanıcı adı
         warning_color: Uyarı
         youtube_handler: YouTube işleyici
       scope:
