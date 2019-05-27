@@ -242,6 +242,7 @@ ca:
         form:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
+          participatory_texts_enabled_help: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, creeu un nou 'component de propostes' si voleu habilitar aquesta característica o descarteu totes les propostes importades al menú "textos participatius" si voleu deshabilitar-lo.
           step_settings: Configuració de fase
         index:
           add: Afegeix un component
