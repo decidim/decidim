@@ -36,6 +36,7 @@ tr:
         organization_url: Kuruluş URL'si
         redirect_uri: Yönlendiren URI
       organization:
+        address: SMTP Sunucu Adı
         alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
