@@ -463,6 +463,13 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           none: Hiçbiri
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
+          select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
+          select_spaces: Haber bültenini bölmek için alanları seçin
+          send_to_all_users: Tüm kullanıcılara gönder
+          send_to_followers: Takipçilere gönder
+          send_to_participants: Katılımcılara gönder
+          title: Teslim etmek için alıcıları seçiniz
         send:
           no_recipients: Bu seçim için hiç alıcı yok
         show:
@@ -630,6 +637,7 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
+          slug_help: 'Burada tam URLleri değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
           last_notable_change: Son önemli değişiklik
         new:
