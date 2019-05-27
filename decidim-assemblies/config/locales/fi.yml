@@ -359,6 +359,7 @@ fi:
           more_info: Lisätietoja
           take_part: Osallistu
         index:
+          children: 'Ryhmät: '
           organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut ryhmät
           reset_chart: Palauta
