@@ -450,13 +450,19 @@ tr:
           no_scopes: Kapsam yok
           not_sent: Gönderilmedi
           participants: 'katılımcılar '
+          segmented_to: '%{subject} bölüme ayrılmış: '
           title: Haber bültenleri
         new:
           save: Kayıt etmek
           title: Yeni bülten
         select_recipients_to_deliver:
+          all_spaces: Tüm
+          all_users_help: Tüm onaylanmış kullanıcılara haber bülteni gönderir.
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           deliver: Bülten sunun
+          followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          none: Hiçbiri
+          participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
         show:
           preview: Ön izleme
           subject: konu
