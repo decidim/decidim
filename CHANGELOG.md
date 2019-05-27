@@ -4,6 +4,16 @@
 
 **Added**:
 
+**Changed**:
+
+**Fixed**:
+
+**Removed**:
+
+## [0.17.1](https://github.com/decidim/decidim/tree/v0.17.1)
+
+**Added**:
+
 - **decidim-accountability**: Also display the main scope as a filter for accountability results [#5022](https://github.com/decidim/decidim/pull/5022)
 
 **Changed**:
