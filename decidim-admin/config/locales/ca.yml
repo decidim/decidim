@@ -36,6 +36,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        address: Nom del servidor SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
