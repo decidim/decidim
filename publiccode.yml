@@ -1,0 +1,104 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+name: decidim
+releaseDate: '2019-05-27'
+url: 'https://github.com/decidim/decidim'
+landingURL: 'https://decidim.org/'
+developmentStatus: stable
+softwareType: standalone/web
+platforms:
+  - web
+  - linux
+usedBy:
+  - Barcellona
+  - Pamplona
+logo: >-
+  https://d33wubrfki0l68.cloudfront.net/77db1e581b4e1aa85b60f0a8babf83cfe8238a5b/3f379/images/decidim-logo.svg
+categories:
+  - collaboration
+  - communications
+  - digital-citizenship
+maintenance:
+  type: community
+  contacts:
+    - name: >-
+        Directorate of Research, Development and Innovation of the Area of
+        Citizenship Rights, Participation and Transparency
+      affiliation: Barcelona City Council
+legal:
+  license: AGPL-3.0-only
+  repoOwner: Decidim
+  mainCopyrightOwner: Barcelona
+intendedAudience:
+  countries:
+    - fr
+    - es
+    - fi
+    - be
+    - mx
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - cs
+    - de
+    - ca
+    - es
+    - eu
+    - fi
+    - fr
+    - gl
+    - hu
+    - id
+    - it
+    - nl
+    - pl
+    - pt
+    - ru
+    - sv
+    - tr
+    - uk
+it:
+  countryExtensionVersion: '0.2'
+  conforme:
+    misureMinimeSicurezza: true
+    gdpr: true
+    modelloInteroperabilita: true
+description:
+  en:
+    genericName: Participatory democracy
+    documentation: 'https://docs.decidim.org/init/en/'
+    shortDescription: Decidim is a digital platform for citizen participation
+    longDescription: >
+      Decidim is a Free Open-Source participatory democracy  platform for 
+      cities and organizations. But Decidim is more than a digital platform: 
+      it’s a common's free and open project and infrastructure involving code, 
+      documentation, design, training courses, a legal framework,  collaborative
+      interfaces, user and facilitation communities, and a  common vision.
+      Easily configure participatory processes Do you want to make a  strategic
+      plan? Or discuss new regulations? Or discuss a new square or a  public
+      building to achieve the common good? Thanks to Decidim you will  be able
+      to configure participation spaces (initiatives, assemblies,  processes or
+      consultations) and enrich them through the multiple  available components
+      (face-to-face meetings, surveys, proposals, voting,  follow-up of results,
+      comments and many more).
+    features:
+      - Spaces
+      - Processes
+      - Assemblies
+      - Consultations
+      - Initiatives
+      - Collaborative drafts
+      - Proposals
+      - Voting
+      - Amendments
+      - Accountability
+      - Surveys
+      - Comments
+      - Pages
+      - Blog
+      - Meeting
+      - Conference
+      - Newsletter
