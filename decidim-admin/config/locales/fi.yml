@@ -36,6 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
+        address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
@@ -45,6 +46,7 @@ fi:
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
+        from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
@@ -63,6 +65,8 @@ fi:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
+        password: Salasana
+        port: Portti
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         secondary_color: Toissijainen
@@ -71,6 +75,7 @@ fi:
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        user_name: Käyttäjänimi
         warning_color: Varoitus
         youtube_handler: YouTube-käsittelijä
       scope:
@@ -369,6 +374,7 @@ fi:
             created_at: Luonnin ajankohta
             progress: Edistyminen
             sent_at: Lähetyksen ajankohta
+            sent_to: Vastaanottajat
             subject: Otsikko
           name: Uutiskirje
         oauth_application:
@@ -434,6 +440,7 @@ fi:
         form:
           interpolations_hint: 'Vihje: Voit käyttää "%{name}" -merkkijonoa missä tahansa viestin rungossa, mikä korvataan vastaanottajan nimellä.'
         index:
+          all: kaikki
           confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
           title: Uutiskirjeet
         new:
