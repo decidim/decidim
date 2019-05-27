@@ -44,10 +44,9 @@ module Decidim
       # Does not add a custom error message as it would be unused, because
       # the setting's checkbox is automatically being disabled on the frontend.
       def must_be_able_to_change_participatory_texts_setting
-        errors.add(:settings) if
-        settings.dig(:participatory_texts_enabled) &&
-        settings[:participatory_texts_enabled] != component.settings.participatory_texts_enabled &&
-        Decidim::Proposals::Proposal.where(component: component).any?
+        return unless settings[:participatory_texts_enabled] &.!= component.settings.participatory_texts_enabled
+
+        errors.add(:settings) if Decidim::Proposals::Proposal.where(component: component).any?
       end
     end
   end
