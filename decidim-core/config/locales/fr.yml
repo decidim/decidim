@@ -635,8 +635,8 @@ fr:
         error: Il y a eu un problème pour créer le groupe
         success: Groupe créé avec succès
       edit:
-        edit_user_group: Editer le groupe
-        update_user_group: Groupe de mise à jour
+        edit_user_group: Éditer le groupe
+        update_user_group: Mettre à jour le groupe
       form:
         document_number_help: Ne pas utiliser de tirets ni d'espaces
         email_help: Email de votre organisation, association, collectif, groupe, etc.
@@ -669,8 +669,8 @@ fr:
     help:
       main_topic:
         default_page:
-          content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
-          title: Que puis-je faire en %{organization}?
+          content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
+          title: Que puis-je faire sur %{organization} ?
         description: En savoir plus sur %{organization}
         title: Aide générale
     last_activities:
@@ -820,10 +820,10 @@ fr:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
         metrics:
-          headline: Participation aux chiffres
+          headline: Participation en chiffres
         statistics:
           answers_count: Enquêtes terminées
-          assemblies_count: Agora
+          assemblies_count: Assemblées
           comments_count: Commentaires
           conferences_count: Conférences
           debates_count: Débats
@@ -1002,7 +1002,7 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
     welcome_notification:
-      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
@@ -1159,11 +1159,11 @@ fr:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: pas trouvé
+      not_found: non trouvé
       not_locked: n'était pas verrouillé
       not_saved:
-        one: '1 erreur a interdit cette sauvegarde %{resource}:'
-        other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
+        one: '1 erreur a empêché la sauvegarde de %{resource} :'
+        other: "%{count} erreurs ont empêché la sauvegarde de %{resource} :"
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)

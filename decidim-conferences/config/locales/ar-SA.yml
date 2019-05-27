@@ -18,9 +18,9 @@ ar:
         scope_id: نطاق
         scopes_enabled: تم تمكين النطاقات
         short_description: وصف قصير
-        show_statistics: عرض إحصائيات
+        show_statistics: عرض الإحصائيات
         slogan: شعار
-        slug: سبيكة URL
+        slug: سبيكة العنوان الشبكي
         title: عنوان
       conference_speaker:
         full_name: الاسم الكامل
@@ -91,7 +91,7 @@ ar:
         index:
           conference_speakers_title: المتحدثون في المؤتمر
         new:
-          create: خلق
+          create: إنشاء
           title: رئيس المؤتمر الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث متحدث المؤتمر هذا.
@@ -108,7 +108,7 @@ ar:
         index:
           conference_admins_title: مدراء المؤتمر
         new:
-          create: خلق
+          create: إنشاء
           title: مشرف المؤتمر الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث مشرف المؤتمر هذا.
@@ -127,7 +127,7 @@ ar:
           not_published: غير منشور
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: مؤتمر
         update:
           error: حدثت مشكلة أثناء تحديث هذا المؤتمر.
@@ -148,7 +148,7 @@ ar:
         index:
           media_links_title: روابط الوسائط
         new:
-          create: خلق
+          create: إنشاء
           title: وصلة الوسائط
         update:
           error: حدثت مشكلة أثناء تحديث رابط الوسائط هذا.
@@ -228,7 +228,7 @@ ar:
           title: تحديث شريك.
           update: تحديث
         new:
-          create: خلق
+          create: إنشاء
           title: شريك جديد
         update:
           error: حدثت مشكلة أثناء تحديث شريك لهذا المؤتمر.
@@ -250,7 +250,7 @@ ar:
           title: تحديث نوع التسجيل.
           update: تحديث
         new:
-          create: خلق
+          create: إنشاء
           title: نوع التسجيل الجديد
         update:
           error: حدثت مشكلة أثناء تحديث نوع التسجيل لهذا المؤتمر.
@@ -259,14 +259,14 @@ ar:
         conferences: المؤتمرات
     admin_log:
       conference:
-        create: "%{user_name} خلق المؤتمر %{resource_name}"
+        create: "%{user_name} أنشأ المؤتمر %{resource_name}"
         publish: "%{user_name} نشر المؤتمر %{resource_name}"
         send_conference_diplomas: "أرسلت %{user_name} شهادات حضور إلى %{resource_name} atendees المؤتمر"
         unpublish: "%{user_name} غير منشور في المؤتمر %{resource_name}"
         update: "%{user_name} تحديث المؤتمر %{resource_name}"
         update_diploma: "%{user_name} تحديث شهادات تكوين الحضور لمؤتمر %{resource_name}"
       conference_speaker:
-        create: "%{user_name} خلق المتكلم %{resource_name} في المؤتمر %{space_name}"
+        create: "%{user_name} أنشأ المتكلم %{resource_name} في المؤتمر %{space_name}"
         delete: "%{user_name} أزال المتحدث %{resource_name} من المؤتمر %{space_name}"
         update: "%{user_name} تحديث المتكلم %{resource_name} في المؤتمر %{space_name}"
       conference_user_role:
@@ -277,7 +277,7 @@ ar:
         conference_registration:
           confirm: "%{user_name} أكد تسجيل مؤتمر في مؤتمر %{resource_name}"
         partner:
-          create: "%{user_name} خلق %{resource_name} إلى %{space_name} المؤتمر"
+          create: "%{user_name} أنشأ %{resource_name} إلى %{space_name} المؤتمر"
           delete: "%{user_name} أزال المشرف %{resource_name} من المؤتمر %{space_name}"
           update: "%{user_name} محدث %{resource_name} في المؤتمر %{space_name}"
         registration_type:
@@ -412,12 +412,12 @@ ar:
       conference_speaker:
         go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
-        personal_website: موقع شخصي
+        personal_website: موقع الويب الشخصي
         show:
           more_info: مزيد من المعلومات
       conference_speaker_cell:
         personal_url:
-          personal_website: موقع شخصي
+          personal_website: موقع الويب الشخصي
         twitter_handle:
           go_to_twitter: انتقل إلى تويتر
       conference_speakers:

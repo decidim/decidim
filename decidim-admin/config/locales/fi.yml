@@ -439,9 +439,10 @@ fi:
         new:
           save: Tallenna
           title: Uusi uutiskirje
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
           deliver: Toimita uutiskirje
+        show:
           preview: Esikatsele
           subject: Otsikko
         update:

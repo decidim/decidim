@@ -24,7 +24,7 @@ ar:
         attachments: مرفقات
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
         destroy: حذف
-        edit: تصحيح
+        edit: تعديل
         import: استيراد مقترحات للمشاريع
         new: مشروع جديد
         preview: معاينة
@@ -47,7 +47,7 @@ ar:
             pending_orders: في انتظار الأصوات
             title: مشاريع
           new:
-            create: خلق
+            create: إنشاء
             title: مشروع جديد
           update:
             invalid: حدثت مشكلة أثناء تحديث هذا المشروع

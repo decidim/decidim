@@ -439,9 +439,10 @@ pl:
         new:
           save: Zapisać
           title: Nowy biuletyn
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Czy na pewno chcesz dostarczyć ten biuletyn? Nie można cofnąć tej czynności.
           deliver: Dostarcz biuletyn
+        show:
           preview: Zapowiedź
           subject: Przedmiot
         update:
