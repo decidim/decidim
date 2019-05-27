@@ -36,6 +36,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        address: Nom del servidor SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
@@ -440,8 +441,14 @@ ca:
           save: Desar
           title: Nou butlletí
         select_recipients_to_deliver:
+          all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
+          followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
+          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració Els meus interessos del seu compte.
+          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         show:
           preview: Previsualitzar
           subject: Assumpte
