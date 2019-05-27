@@ -463,8 +463,11 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           none: Hiçbiri
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+        send:
+          no_recipients: Bu seçim için hiç alıcı yok
         show:
           preview: Ön izleme
+          select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
           subject: konu
         update:
           error: Bu bülteni güncellerken bir hata oluştu.
