@@ -36,7 +36,7 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
-        alert_color: Éber
+        alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
@@ -439,9 +439,10 @@ hu:
         new:
           save: Mentés
           title: Új hírlevél
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
+        show:
           preview: Előnézet
           subject: Tárgy
         update:

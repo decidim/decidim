@@ -140,7 +140,7 @@ es:
       results:
         count:
           results_count:
-            one: 1 resultado
+            one: Un resultado
             other: "%{count} resultados"
         filters:
           all: Todos

@@ -2,7 +2,7 @@ es:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Anuncio
+        announcement: Aviso
         area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
@@ -16,7 +16,7 @@ es:
         hashtag: Hashtag
         hero_image: Imagen de portada
         local_area: Área de organización
-        meta_scope: 'Metadatos: ámbito'
+        meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
@@ -50,7 +50,7 @@ es:
         role: Rol
     models:
       decidim/participatory_process_step_activated_event: Fase activada
-      decidim/participatory_process_step_changed_event: La fase ha cambiado
+      decidim/participatory_process_step_changed_event: Fase modificada
   activerecord:
     models:
       decidim/participatory_process:
@@ -67,13 +67,13 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: Confirma la supresión.
+        confirm_destroy: Confirmar eliminación
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
         filter:
           all: Mostrar todos los procesos
-          process_groups: Grupos de proceso
+          process_groups: Grupos de procesos
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
@@ -88,7 +88,7 @@ es:
         participatory_processes_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
-          attachments: Archivos adjuntos
+          attachments: Adjuntos
           categories: Categorías
           components: Componentes
           info: Información
@@ -122,17 +122,17 @@ es:
             role: Rol
           name: Administradora del proceso participativo
           roles:
-            admin: Administrador
-            collaborator: Colaborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Colaboradora
+            moderator: Moderadora
         user:
           fields:
-            invitation_accepted_at: Invitación aceptada el día
-            invitation_sent_at: Invitación enviada el día
+            invitation_accepted_at: Invitación aceptada el
+            invitation_sent_at: Invitación enviada el
       participatory_process_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que desea duplicar
+          select: Seleccione los datos que deseas duplicar
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
@@ -166,7 +166,7 @@ es:
           error:
             active_step: No se puede eliminar la fase activa.
             last_step: No se puede eliminar la última fase de un proceso.
-          success: Fase del proceso participativo eliminada correctamente.
+          success: La fase del proceso participativo se ha eliminado correctamente.
         edit:
           title: Editar fase del proceso participativo
           update: Actualizar
@@ -183,17 +183,17 @@ es:
       participatory_process_user_roles:
         create:
           error: Ha habido un error al añadir una participante a este proceso participativo.
-          success: Participante añadida correctamente a este proceso participativo.
+          success: La administradora ha sido añadida correctamente a este proceso participativu.
         destroy:
-          success: Participante eliminado correctamente de este proceso participativo.
+          success: La administradora ha sido eliminada correctamente de este proceso participativo.
         edit:
-          title: Editar administradora del proceso.
+          title: Actualitzar administradora del proceso particiaptivo.
           update: Actualizar
         index:
-          process_admins_title: Administradoras del proceso
+          process_admins_title: Administradoras del proceso participativo
         new:
           create: Crear
-          title: Nueva administradora del proceso.
+          title: Nueva administradora del proceso participativo.
         update:
           error: Se ha producido un error al actualizar una administradora para este proceso participativo.
           success: Administradora actualizada correctamente para este proceso participativo.
@@ -227,7 +227,7 @@ es:
         participatory_processes: Procesos participativos
       users:
         resend_invitation:
-          error: Se ha producido un error al volver a enviar la invitación.
+          error: Se ha producido un error al reenviar la invitación.
           success: Invitación reenviada correctamente.
     admin_log:
       participatory_process:
@@ -243,13 +243,13 @@ es:
       participatory_process_user_role:
         create: "%{user_name} invitó a la participante %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} del proceso participativo %{space_name}"
-        update: "%{user_name} cambió el rol de %{resource_name} en el proceso participativo %{space_name}"
+        update: "%{user_name} cambió el rol de la participante %{resource_name} en el proceso participativo %{space_name}"
     events:
       participatory_process:
         step_activated:
           email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una actualización de %{participatory_space_title}
+          email_subject: Una actualización en %{participatory_space_title}
           notification_title: Ya está activa la fase %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Se han actualizado las fechas para la fase %{resource_title} en %{participatory_space_title}. Puedes verlas desde esta página:'
@@ -272,7 +272,7 @@ es:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 proceso en %{group}
+          one: Un proceso en %{group}
           other: "%{count} procesos en %{group}"
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -289,18 +289,18 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
-            cta_text_help: Si no está configurado, el botón no se mostrará.
+            cta_path_help: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
+            cta_text_help: Si no se establece ninguna ruta el botón no se mostrará.
         participatory_processes:
           form:
-            announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            announcement_help: El texto que ingreses aquí se mostrará a la participante justo debajo de la información del proceso.
             duration: Duración
             filters: Filtros
             images: Imágenes
             metadata: Metadatos
             other: Otro
             select_an_area: Seleccione una área
-            select_process_group: Seleccione un grupo de proceso
+            select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Información general
             visbility: Visibilidad
@@ -323,23 +323,23 @@ es:
         filters:
           counters:
             active:
-              one: 1 proceso activo
+              one: Un proceso activo
               other: "%{count} procesos activos"
             all:
-              one: 1 proceso
+              one: Un proceso
               other: "%{count} procesos"
             past:
-              one: 1 proceso pasado
+              one: Un proceso pasado
               other: "%{count} procesos pasados"
             upcoming:
-              one: 1 próximo proceso
+              one: Un próximo proceso
               other: "%{count} próximos procesos"
           explanations:
             no_active: Sin procesos activos
-            no_active_nor_upcoming: Sin procesos activos ni futuros
+            no_active_nor_upcoming: No hay procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           names:
-            active: Activar
+            active: Activos
             all: Todos
             past: Pasados
             upcoming: Próximos
@@ -364,8 +364,8 @@ es:
         debates_count: Debates
         endorsements_count: Adhesiones
         headline: Actividad
-        meetings_count: Encuentros
-        orders_count: Votos
+        meetings_count: Encuentros presenciales
+        orders_count: Apoyos
         pages_count: Páginas
         processes_count: Procesos
         projects_count: Proyectos

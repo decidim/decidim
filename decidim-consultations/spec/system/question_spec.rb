@@ -32,6 +32,24 @@ describe "Question", type: :system do
 
       expect(page).to have_i18n_content(question.what_is_decided)
     end
+
+    it "shows the previous/next question button" do
+      expect(page).to have_content("Previous question")
+      expect(page).to have_content("Next question")
+    end
+
+    context "when showing the previous/next question button" do
+      let(:previous_button) { page.find("a", text: "Previous question") }
+      let(:next_button) { page.find("a", text: "Next question") }
+
+      it "disables the previous button when viewing the first question" do
+        expect(previous_button[:class]).to include("disabled")
+      end
+
+      it "disables the next button when viewing the last question" do
+        expect(next_button[:class]).to include("disabled")
+      end
+    end
   end
 
   context "when finished consultations" do

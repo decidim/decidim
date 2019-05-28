@@ -246,10 +246,19 @@ FactoryBot.define do
       users { nil }
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
+      skip_injection { false }
     end
 
-    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
-    body { "<script>alert(\"BODY\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
+    title do
+      content = generate(:title).dup
+      content.prepend("<script>alert('TITLE');</script> ") unless skip_injection
+      content
+    end
+    body do
+      content = Faker::Lorem.sentences(3).join("\n")
+      content.prepend("<script>alert('BODY');</script> ") unless skip_injection
+      content
+    end
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }

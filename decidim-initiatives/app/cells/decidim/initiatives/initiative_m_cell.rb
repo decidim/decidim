@@ -11,6 +11,14 @@ module Decidim
 
       private
 
+      def title
+        decidim_html_escape(translated_attribute(model.title))
+      end
+
+      def hashtag
+        decidim_html_escape(model.hashtag)
+      end
+
       def has_state?
         true
       end

@@ -36,6 +36,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        address: Nom del servidor SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
@@ -141,13 +142,13 @@ ca:
           error: S'ha produït un error en crear un tipus d'àrea nova.
           success: El tipus d'àrea ha estat creat correctament.
         destroy:
-          success: El tipus d'àrea s'ha destruït amb èxit
+          success: El tipus d'àrea s'ha eliminat correctament
         edit:
           title: Editar el tipus d'àrea
           update: Actualitzar
         new:
           create: Crea un tipus d'àrea
-          title: Tipus d'àrea nou
+          title: Nou tipus d'àrea
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àrea.
           success: El tipus d'àrea s'ha actualitzat correctament
@@ -157,12 +158,12 @@ ca:
           success: Àrea creada correctament.
         destroy:
           has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
-          success: Àrea destruïda correctament
+          success: Àrea eliminada correctament
         edit:
           title: Editar àrea
           update: Actualitzar
         new:
-          create: Crea àrea
+          create: Crear àrea
           title: Nova àrea
         no_areas: Sense àrees
         update:
@@ -171,9 +172,9 @@ ca:
       attachment_collections:
         create:
           error: S'ha produït un error en crear una nova carpeta.
-          success: S'ha creat la carpeta amb èxit.
+          success: S'ha creat la carpeta correctament.
         destroy:
-          success: S'ha eliminat la carpeta amb èxit.
+          success: S'ha eliminat la carpeta correctament.
         edit:
           title: Edita la carpeta
           update: Actualitzar
@@ -185,26 +186,26 @@ ca:
           title: Carpeta nova
         update:
           error: S'ha produït un error en actualitzar aquesta carpeta.
-          success: S'ha actualitzat la carpeta amb èxit.
+          success: S'ha actualitzat la carpeta correctament.
       attachments:
         create:
-          error: S'ha produït un error en crear un nou arxiu adjunt.
+          error: S'ha produït un error en crear un nou adjunt.
           success: Adjunt creat correctament.
         destroy:
           success: L'adjunt s'ha eliminat correctament.
         edit:
-          title: Edita arxiu adjunt
-          update: Actualitzar
+          title: Edita adjunt
+          update: Actualitza
         index:
           attachments_title: Adjunts
         new:
-          create: Crea arxiu adjunt
-          title: Nou arxiu adjunt
+          create: Crea adjunt
+          title: Nou adjunt
         update:
-          error: S'ha produït un error en actualitzar aquest arxiu adjunt.
+          error: S'ha produït un error en actualitzar aquest adjunt.
           success: Adjunt actualitzat correctament.
       autocomplete:
-        no_results: No s'ha trobat resultats
+        no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
       categories:
         create:
@@ -218,9 +219,9 @@ ca:
           update: Actualitzar
         index:
           categories_title: Categories
-          category_used: Aquesta categoria no es pot suprimir perquè és en ús.
+          category_used: Aquesta categoria no es pot suprimir perquè està en ús.
         new:
-          create: Crea una categoria
+          create: Crear categoria
           title: Nova categoria
         update:
           error: S'ha produït un error en actualitzar aquesta categoria.
@@ -234,7 +235,7 @@ ca:
           success: El component s'ha creat correctament.
         destroy:
           error: S'ha produït un error en eliminar aquest component.
-          success: El component s'ha suprimit correctament.
+          success: El component s'ha eliminat correctament.
         edit:
           title: Edita el component
           update: Actualitzar
@@ -262,7 +263,7 @@ ca:
       dashboard:
         show:
           view_more_logs: Veure més registres
-          welcome: Benvingut al tauler d'administració de Decidim.
+          welcome: Benvinguda al tauler d'administració de Decidim.
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
@@ -274,24 +275,24 @@ ca:
       impersonatable_users:
         index:
           filter:
-            all: Tots
+            all: Totes
             managed: Gestionat
             not_managed: No gestionat
           filter_by: Filtra per
-          impersonate: Gestionar
-          impersonate_new_managed_user: Gestionar una nova participant
+          impersonate: Impersonar
+          impersonate_new_managed_user: Gestiona una nova participant
           managed: Gestionat
           name: Nom
-          needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
+          needs_authorization_warning: Necessites almenys una autorització habilitada per a aquesta organització.
           not_managed: No gestionat
           promote: Promocionar
-          search: Cerca
+          search: Cercar
           status: Estat
-          view_logs: Veure registres
+          view_logs: Veure els registres
       impersonations:
         close_session:
           error: S'ha produït un error en tancar la sessió actual de gestió de participants.
-          success: La sessió de suplantació actual s'ha finalitzat amb èxit.
+          success: S'ha finalitzat correctament la sessió d'impersonalització actual.
         create:
           error: S'ha produït un error en gestionar la participant.
           success: La participant gestionada s'ha creat correctament.
@@ -300,7 +301,7 @@ ca:
           name: Nom
           reason: Raó
         new:
-          impersonate: Suplantar
+          impersonate: Impersonar
           impersonate_existing_managed_user: Gestionar la participant "%{name}"
           impersonate_existing_user: Gestionar la participant "%{name}"
           impersonate_new_managed_user: Gestionar una nova participant
@@ -310,7 +311,7 @@ ca:
       managed_users:
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
-          success: S'ha promogut amb èxit la participant.
+          success: La participant s'ha promogut correctament.
         promotions:
           new:
             explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
@@ -318,7 +319,7 @@ ca:
             promote: Promocionar
       menu:
         admin_log: Registre d'activitat d'administració
-        admins: Administradors
+        admins: Administradores
         appearance: Aparença
         area_types: Tipus d'àrees
         areas: Àrees
@@ -326,7 +327,7 @@ ca:
         dashboard: Tauler de control
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
-        impersonations: Gestió de participants
+        impersonations: Impersonacions
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
         participants: Participants
@@ -358,7 +359,7 @@ ca:
           name: Categoria
         impersonation_log:
           fields:
-            admin: Administrador
+            admin: Administradora
             ended_at: Va acabar el
             expired_at: Vençut el
             reason: Raó
@@ -398,8 +399,8 @@ ca:
             name: Nom
             role: Rol
             roles:
-              admin: Administrador
-              user_manager: Administrador de participants
+              admin: Administradora
+              user_manager: Administradora de participants
           name: Participant
         user_group:
           fields:
@@ -417,31 +418,38 @@ ca:
           reasons:
             does_not_belong: No pertany
             offensive: Ofensiu
-            spam: Contingut brossa
+            spam: Contingut no desitjat
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
-          success: Butlletí creat amb èxit. Si us plau, revisa'l abans d'enviar.
+          success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
         deliver:
           error: S'ha produït un error en enviar aquest butlletí.
-          success: Butlletí enviat amb èxit.
+          success: Butlletí enviat correctament.
         destroy:
-          error_already_sent: 'No es pot destruir butlletí de notícies: Ja s''ha enviat.'
-          success: Butlletí destruït amb èxit.
+          error_already_sent: 'No es pot eliminar butlletí de notícies: ja s''ha enviat.'
+          success: Butlletí eliminat correctament.
         edit:
           save_and_preview: Desar i vista prèvia
           title: Editar butlletí
         form:
-          interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
+          interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
           confirm_delete: Segur que vols suprimir aquest butlletí?
           title: Butlletins
         new:
           save: Desar
           title: Nou butlletí
-        show:
-          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+        select_recipients_to_deliver:
+          all_users_help: Envia el butlletí a tots els usuaris confimats.
+          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
+          followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
+          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració Els meus interessos del seu compte.
+          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
+        show:
           preview: Previsualitzar
           subject: Assumpte
         update:
@@ -453,19 +461,19 @@ ca:
           success: L'aplicació s'ha creat correctament.
         destroy:
           error: S'ha produït un error en eliminar aquesta aplicació.
-          success: S'ha destruït l'aplicació amb èxit.
+          success: S'ha eliminat l'aplicació correctament.
         edit:
           save: Desa
           title: Edita l'aplicació
         index:
-          confirm_delete: Estàs segur de que vols suprimir aquesta aplicació?
+          confirm_delete: Estàs segura que vols eliminar aquesta aplicació?
           title: Aplicacions OAuth
         new:
           save: Desa
           title: Nova aplicació
         update:
           error: S'ha produït un error en actualitzar aquesta aplicació.
-          success: S'ha actualitzat l'aplicació amb èxit.
+          success: S'ha actualitzat l'aplicació correctament.
       officializations:
         create:
           success: La participant s'ha oficialitzat correctament
@@ -476,19 +484,19 @@ ca:
           badge: Insígnia
           created_at: Creat el
           filter:
-            all: Tots
-            not_officialized: No oficialitzat
-            officialized: Oficialitzat
+            all: Todas
+            not_officialized: No oficialitzada
+            officialized: Oficialitzada
           filter_by: Filtra per
           name: Nom
-          nickname: Sobrenom
-          not_officialized: No oficialitzat
+          nickname: Àlies
+          not_officialized: No oficialitzada
           officialize: Oficialitza
-          officialized: Oficialitzat
+          officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
           search: Cerca
           status: Estat
-          unofficialize: Inhabilita la oficialització
+          unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
           officialize: Oficialitza
@@ -513,13 +521,13 @@ ca:
           update: Actualitzar
         form:
           colors_title: Colors de l'organització
-          cta_button_path_help: 'Pots sobreescriure a on enllaça el botó d''acció principal de la pàgina d''inici. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
+          cta_button_path_help: 'Pots redirigir la direcció on enllaça el botó d''acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
-          homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
+          homepage_highlighted_content_banner_title: Banner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
-          omnipresent_banner_appearance_title: Edita pancarta omnipresent
+          omnipresent_banner_appearance_title: Edita banner omnipresent
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contingut actiu
@@ -532,13 +540,13 @@ ca:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
           success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
         destroy:
-          error: S'ha produït un error en eliminar una participant d'aquest espai participatiu privat.
+          error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
-          title: Nova participant de l'espai participatiu privat.
+          title: Nova participant de l'espai de participació privat.
       resource_permissions:
         edit:
           submit: Enviar
@@ -550,7 +558,7 @@ ca:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
           success: Tipus d'àmbit creat amb èxit.
         destroy:
-          success: Tipus d'àmbit destruït amb èxit
+          success: Tipus d'àmbit eliminat correctament
         edit:
           title: Editar tipus d'àmbit
           update: Actualitzar
@@ -559,13 +567,13 @@ ca:
           title: Nou àmbit
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
-          success: Tipus d'àmbit actualitzat amb èxit
+          success: Tipus d'àmbit actualitzat correctament
       scopes:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
         destroy:
-          success: Àmbit eliminat amb èxit
+          success: Àmbit eliminat correctament
         edit:
           title: Edita àmbit
           update: Actualitzar
@@ -579,7 +587,7 @@ ca:
       static_page_topics:
         create:
           error: S'ha produït un error en crear un tema nou.
-          success: S'ha creat el tema amb èxit.
+          success: S'ha creat el tema correctament.
         destroy:
           success: S'ha destruït el tema amb èxit
         edit:
@@ -590,7 +598,7 @@ ca:
           title: Nou tema
         update:
           error: S'ha produït un error en actualitzar aquest tema.
-          success: S'ha actualitzat el tema amb èxit
+          success: S'ha actualitzat el tema correctament
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
@@ -600,7 +608,7 @@ ca:
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
-          changed_notably_help: Si està marcada, les participants seran notificades per a que acceptin els nous termes i condicions.
+          changed_notably_help: Si està marcada, les participants seran notificades per a que acceptin els nous Termes i Condicions.
           title: Editar pàgina
           update: Actualitzar
         form:
@@ -635,7 +643,7 @@ ca:
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
-          success: El fitxer CSV s'ha carregat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
+          success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
           invalid: S'ha produït un error en rebutjar aquest grup.
           success: El grup s'ha rebutjat correctament
@@ -658,9 +666,9 @@ ca:
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
-          explanation: Penja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
-          title: Penja el fitxer CSV
-          upload: Penja
+          explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          title: Puja el fitxer CSV
+          upload: Pujar
       users:
         create:
           error: S'ha produït un error en convidar aquesta participant.
@@ -692,9 +700,9 @@ ca:
         reportable:
           hide:
             invalid: S'ha produït un error en ocultar el contingut.
-            success: Contingut amagat amb èxit.
+            success: Contingut amagat correctament.
           unhide:
-            invalid: S'ha produït un error en tornar a mostrar el recurs.
+            invalid: S'ha produït un error en tornar a mostrar el contingut.
             success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: S'ha produït un error en cancel·lar la denúncia.

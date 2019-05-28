@@ -53,5 +53,18 @@ $(() => {
     } else {
       $participatorySpacesForSelect.hide();
     }
+
+    $(".form .spaces-block-tag").each(function(_i, blockTag) {
+      const selectTag = $(blockTag).find(".chosen-select")
+      selectTag.change(function() {
+        let optionSelected = selectTag.find("option:selected").val()
+        if (optionSelected === "all") {
+          selectTag.find("option").not(":first").prop("selected", true);
+          selectTag.find("option[value='all']").prop("selected", false);
+        } else if (optionSelected === "") {
+          selectTag.find("option").not(":first").prop("selected", false);
+        }
+      });
+    })
   }
-})(window);
+});

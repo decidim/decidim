@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= title %>
+      <%= t(".title") %>
       <%= link_to t(".invites"), meeting_registrations_invites_path(meeting), class: "button tiny button--title #{'disabled' unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
       <% if allowed_to? :export_registrations, :meeting, meeting: meeting %>
         <span class="exports dropdown tiny button button--simple button--title" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>

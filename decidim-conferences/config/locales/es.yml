@@ -10,8 +10,8 @@ es:
         copy_features: Copiar funcionalidades
         decidim_scope_id: Ámbito
         description: Descripción
-        hashtag: Etiqueta
-        hero_image: Imagen de portada
+        hashtag: Hashtag
+        hero_image: Imagen de la pagina de inicio
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Destacada
         published_at: Publicada en
@@ -37,36 +37,36 @@ es:
   activerecord:
     models:
       decidim/conference:
-        one: Conferencia
-        other: Conferencias
+        one: Jornada
+        other: Jornadas
       decidim/conference_speaker:
-        one: Ponente
-        other: Ponentes
+        one: Ponente de la conferencia
+        other: Ponentes de la jornada
       decidim/conference_user_role:
-        one: Rol de usuario conferencia
-        other: Roles de usuario conferencia
+        one: Rol de usuario de la jornada
+        other: Rol de usuario de la jornada
   decidim:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nueva conferencia
+        new_conference: Nueva jornada
         send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
           copy: Copiar
           select: Selecciona qué datos quieres duplicar
-          title: Conferencia duplicada
+          title: Jornada duplicada
       conference_publications:
         create:
           error: Se ha producido un error al publicar esta jornada.
-          success: Jornada publicada correctamente.
+          success: La jornada se ha publicado correctamente.
         destroy:
-          error: Se ha producido un error al despublicar de esta jornada.
+          error: Se ha producido un error al despublicar esta jornada.
           success: Jornada despublicada correctamente.
       conference_registration:
         confirm:
           error: Se ha producido un error al confirmar la inscripción a esta jornada.
-          success: Inscripción a la jornada confirmada correctamente.
+          success: La inscripción a la jornada se ha confirmado correctamente.
       conference_speakers:
         create:
           error: Se ha producido un error al añadir una ponente a esta jornada.
@@ -74,15 +74,15 @@ es:
         destroy:
           success: Ponente de la jornada eliminada correctamente.
         edit:
-          title: Actualizar ponente en esta conferencia.
+          title: Actualizar la ponencia de la conferencia.
           update: Actualizar
         index:
-          conference_speakers_title: Ponentes
+          conference_speakers_title: Ponentes de las jornadas
         new:
           create: Crear
-          title: Nuevo ponente.
+          title: Nueva ponente de la conferencia.
         update:
-          error: Se ha producido un error al actualizar esta ponente de la jornada.
+          error: Se ha producido un error al actualizar la ponente de esta jornada.
           success: Ponente de la jornada actualizada correctamente.
       conference_user_roles:
         create:
@@ -99,12 +99,12 @@ es:
           create: Crear
           title: Nueva administradora de la jornada.
         update:
-          error: Se ha producido un error al actualizar una administradora de esta jornada.
+          error: Se ha producido un error al actualizar la administradora para esta jornada.
           success: Administradora de la jornada actualizada correctamente.
       conferences:
         create:
           error: Se ha producido un error al crear esta jornada.
-          success: Jornada creada correctamente.
+          success: La jornada se ha creado correctamente.
         edit:
           update: Actualizar
         exports:
@@ -142,11 +142,11 @@ es:
           error: Se ha producido un error al actualizar este enlace multimedia.
           success: Enlace multimedia actualizado correctamente.
       menu:
-        conferences: Conferencias
+        conferences: Jornadas
         conferences_submenu:
           attachment_collections: Carpetas
-          attachment_files: Archivos
-          attachments: Archivos adjuntos
+          attachment_files: Ficheros
+          attachments: Adjuntos
           categories: Categorías
           components: Componentes
           conference_admins: Administradores de conferencia
@@ -156,10 +156,10 @@ es:
           info: Información
           media_links: Enlaces multimedia
           moderations: Moderaciones
-          partners: Colaboradores
+          partners: Colaboradoras
           registration_types: Tipos de inscripción
           registrations: Inscripciones
-          user_registrations: Inscripciones de usuario
+          user_registrations: Inscripciones de participantes
       models:
         conference:
           fields:
@@ -172,17 +172,17 @@ es:
             affiliation: Afiliación
             full_name: Nombre completo
             position: Cargo
-          name: Ponente
+          name: Ponente de la conferencia
         conference_user_role:
           fields:
-            email: Correo electrònico
+            email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Administradora de jornada
+          name: Administradora de la jornada
           roles:
-            admin: Administrador
-            collaborator: Colaborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Colaboradora
+            moderator: Moderadora
         media_link:
           fields:
             date: Fecha
@@ -192,13 +192,13 @@ es:
         partner:
           fields:
             link: Enlace
-            logo: Logo
+            logo: Logotipo
             name: Nombre
             partner_type: Tipo
-          name: Colaborador
+          name: Colaboradora
           types:
-            collaborator: Colaborador
-            main_promotor: Promotor principal
+            collaborator: Colaboradora
+            main_promotor: Promotora principal
         registration_type:
           fields:
             conference_meetings: Encuentros de la conferencia
@@ -214,11 +214,11 @@ es:
         destroy:
           success: Colaboradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar colaborador.
+          title: Actualizar colaboradora.
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo colaborador
+          title: Nueva colaboradora
         update:
           error: Se ha producido un error al actualizar una colaboradora de esta jornada.
           success: Colaboradora de la jornada actualizada correctamente.
@@ -227,7 +227,7 @@ es:
           error: Se ha producido un error al publicar este tipo de inscripción.
           success: Tipo de inscripción publicado correctamente.
         destroy:
-          error: Se ha producido un error al publicar este tipo de inscripción.
+          error: Se ha producido un error al despublicar este tipo de inscripción.
           success: Tipo de inscripción despublicado correctamente.
       registration_types:
         create:
@@ -245,38 +245,38 @@ es:
           error: Se ha producido un error al actualizar un tipo de inscripción para esta jornada.
           success: Tipo de inscripción actualizado correctamente para esta jornada.
       titles:
-        conferences: Conferencias
+        conferences: Jornadas
     admin_log:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviado certificados de asistencia a las asistentes a la jornada %{resource_name}"
-        unpublish: "%{user_name} ha despublicado la conferencia %{resource_name}"
-        update: "%{user_name} ha actualizado la conferencia %{resource_name}"
+        unpublish: "%{user_name} ha despublicado la jornada %{resource_name}"
+        update: "%{user_name} ha actualizado la jornada %{resource_name}"
         update_diploma: "%{user_name} ha actualizado la configuración de los certificados de asistencia para la jornada %{resource_name}"
       conference_speaker:
-        create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
-        delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
-        update: "%{user_name} ha actualizado el ponente %{resource_name} en la conferencia %{space_name}"
+        create: "%{user_name} ha creado la ponente %{resource_name} en la jornada %{space_name}"
+        delete: "%{user_name} ha eliminado a la ponente %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha actualizado la ponente %{resource_name} en la jornada %{space_name}"
       conference_user_role:
-        create: "%{user_name} ha invitado %{resource_name} a la conferencia %{space_name}"
+        create: "%{user_name} ha invitado %{resource_name} a la jornada %{space_name}"
         delete: "%{user_name} ha eliminado a la administradora %{resource_name} de la jornada %{space_name}"
-        update: "%{user_name} ha cambiado el rol de %{resource_name} en la conferencia %{space_name}"
+        update: "%{user_name} ha cambiado el rol de %{resource_name} en la jornada %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
+          confirm: "%{user_name} ha confirmado su inscripción a la jornada %{resource_name}"
         partner:
-          create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
-          delete: "%{user_name} ha eliminado a la colaboradora %{resource_name} de la jornada %{space_name}"
-          update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
+          create: "%{user_name} ha creado %{resource_name} en la jornada %{space_name}"
+          delete: "%{user_name} ha eliminado a la administradora %{resource_name} de la jornada %{space_name}"
+          update: "%{user_name} ha actualizado %{resource_name} en la jornada %{space_name}"
         registration_type:
-          create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
-          unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
-          update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
+          update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
       media_link:
-        create: "%{user_name} creó el enlace a medios %{resource_name} en la conferencia %{space_name}"
-        delete: "%{user_name} eliminó el enlace a medios %{resource_name} de la conferencia %{space_name}"
+        create: "%{user_name} creó el enlace a medios %{resource_name} en la jornada %{space_name}"
+        delete: "%{user_name} eliminó el enlace a medios %{resource_name} de la jornada %{space_name}"
         update: "%{user_name} actualizó el enlace a medios %{resource_name} de la conferencia %{space_name}"
     conference_program:
       index:
@@ -307,7 +307,7 @@ es:
               sent: Enviada
             filter_by: Filtrar por
             invite_attendee: Invitar participante
-            invites: Invitaciones
+            invites: Invita
             search: Buscar
           new:
             explanation: La participante será invitada a unirse a una jornada. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
@@ -326,7 +326,7 @@ es:
             search: Buscar
         conferences:
           form:
-            available_slots_help: Déjalo en 0 si tienes plazas ilimitadas disponibles.
+            available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
@@ -338,11 +338,11 @@ es:
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
+            invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinar o aceptar a través de los siguientes enlaces."
             registration: Inscripción para '%{conference_title}'
         partners:
           index:
-            title: Colaboradores
+            title: Colaboradoras
         registration_types:
           form:
             select_conference_meetings: Seleccionar los encuentros de la conferencia
@@ -354,10 +354,10 @@ es:
           diploma_user:
             attendance_verified_by: Asistencia verificada por
             certificate_of_attendance: Certificado de asistencia
-            certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en los encuentros <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Se ha producido un error al enviar los certificados de asistencia a la jornada.
-          success: Certificados de asistencia a jornada enviados correctamente
+          success: Certificados de asistencia a la jornada enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -372,23 +372,23 @@ es:
           content: Contenido
           location: Ubicación
           speakers: Ponentes
-          streaming: Retransmisión
+          streaming: Streaming
         show:
           day: Día
           program: Programa
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Tu inscripción a la conferencia <a href="%{url}">%{title}</a> ha sido confirmada.
-          details_1: 'Tu inscripción a la conferencia es de tipo %{registration_type}. Tiene un costo de %{price} y puedes asistir a los siguientes eventos:'
+          confirmed_html: Tu inscripción a la jornada <a href="%{url}">%{title}</a> ha sido confirmada.
+          details_1: 'Tu inscripción a la jornada es de tipo %{registration_type}. Tiene un costo de %{price} y puedes asistir a los siguientes eventos:'
           details_2: Encontrará los detalles de la conferencia en el archivo adjunto.
         pending_validation:
           confirmation_pending: Recibirás la confirmación en breve
-          details: 'Tu inscripción a la conferencia es de tipo %{registration_type} con un coste de %{price} y puede asistir a los siguientes eventos:'
+          details: 'Tu inscripción a la jornada es de tipo %{registration_type} con un coste de %{price} y puedes asistir a los siguientes eventos:'
           pending_html: Tu inscripción a la jornada <a href="%{url}">%{title}</a> está pendiente de confirmación.
       conference_registrations:
         create:
-          invalid: Se ha producido un error al unirte a esta jornada.
-          success: Te has unido a la jornada correctamente.
+          invalid: Se ha producido un error al inscribirte a esta jornada.
+          success: Te has inscrito a la jornada correctamente.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has declinado la invitación correctamente.
@@ -415,22 +415,22 @@ es:
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: 'Inscribirte a la conferencia:'
+          make_conference_registration: 'Inscríbete a la jornada:'
           register: Inscripciones
       content_blocks:
         highlighted_conferences:
-          name: Conferencias destacadas
+          name: Jornadas destacadas
       index:
-        title: Conferencias
+        title: Jornadas
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Tu inscripción a la conferencia ha sido confirmada
+            subject: Tu inscripción a la jornada ha sido confirmada
           pending_validation:
             subject: Tu inscripción en la jornada está pendiente de confirmación
         invite_join_conference_mailer:
           invite:
-            subject: Invitación para unirse a una conferencia
+            subject: Invitación para unirse a una jornada
         send_conference_diploma_mailer:
           diploma:
             subject: Se ha enviado tu certificado de asistencia a la jornada
@@ -445,7 +445,7 @@ es:
           status:
             accepted: Aceptada (%{at})
             rejected: Rechazada (%{at})
-            sent: Enviada
+            sent: Enviado
         conference_registration:
           fields:
             email: Correo electrónico
@@ -453,13 +453,13 @@ es:
             registration_type: Tipo de inscripción
             state: Estado
             states:
-              confirmed: Confirmada
+              confirmed: Confirmado
               pending: Pendiente
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferencias activas
-            see_all_conferences: Ver todas las conferencias
+            active_conferences: Jornadas activas
+            see_all_conferences: Ver todas las jornadas
       photo:
         show:
           close_modal: Cerrar modal
@@ -477,8 +477,8 @@ es:
         conference_user_login:
           already_account: '¿Ya tienes una cuenta en decidim?'
           new_user: '¿Eres nuevo?'
-          sign_in: Inicia sesión para inscribirte en la conferencia
-          sign_up: Crea una cuenta de usuario para inscribirte en la conferencia
+          sign_in: Inicia sesión para inscribirte en la jornada
+          sign_up: Crea una cuenta de participante para inscribirte en la jornada
       show:
         details: Detalles
         introduction: Introducción
@@ -489,7 +489,7 @@ es:
       statistics:
         answers_count: Respuestas
         comments_count: Comentarios
-        conference_count: Conferencias
+        conference_count: Jornades
         debates_count: Debates
         endorsements_count: Adhesiones
         headline: Actividad
@@ -511,18 +511,18 @@ es:
           notification_title: Tu inscripción en la jornada <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
         conference_registrations_over_percentage:
           email_intro: Las plazas ocupadas para la conferencia "%{resource_title}" superan el %{percentage}%.
-          email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la conferencia.
-          email_subject: Las plazas ocupadas para la conferencia "%{resource_title}" son más del %{percentage}%
-          notification_title: Las plazas ocupadas para la conferencia <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
+          email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la jornada.
+          email_subject: Las plazas ocupadas para la jornada "%{resource_title}" son más del %{percentage}%
+          notification_title: Las plazas ocupadas para la jornada <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
         conference_updated:
-          email_intro: 'La conferencia "%{resource_title}" fue actualizada. Puedes leer la nueva versión desde su página:'
-          email_outro: Recibes esta notificación porque sigues la conferencia "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
-          email_subject: La conferencia "%{resource_title}" fue actualizada
-          notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> fue actualizada.
+          email_intro: 'La jornada "%{resource_title}" fue actualizada. Puedes leer la nueva versión desde su página:'
+          email_outro: Recibes esta notificación porque sigues la jornada "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
+          email_subject: Se ha actualizado la jornada "%{resource_title}"
+          notification_title: Se ha actualizado la jornada <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
-          email_intro: 'La conferencia "%{resource_title}" ha habilitado las inscripciones. Puedes registrarte en su página:'
-          email_outro: Recibes esta notificación porque sigues la conferencia "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
-          email_subject: Se han habilitado las inscripciones a la conferencia "%{resource_title}".
+          email_intro: 'La jornada "%{resource_title}" ha habilitado las inscripciones. Puedes registrarte en su página:'
+          email_outro: Has recibido esta notificación porque sigues la jornada "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
+          email_subject: Se han habilitado las inscripciones para la jornada "%{resource_title}".
           notification_title: Se han habilitado las inscripciones a la conferencia <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'La jornada "%{resource_title}" tendrá lugar dentro de 2 días. Puedes leer la descripción desde su página:'
@@ -532,17 +532,17 @@ es:
     log:
       value_types:
         conference_presenter:
-          not_found: 'La conferencia no se encontra en la base de datos (ID: %{id})'
+          not_found: 'La jornada no se ha encontrado en la base de datos (ID: %{id})'
     media:
       index:
         description: Enlaces sobre esta conferencia
         title: Multimedia y enlaces
     menu:
-      conferences: Conferencias
+      conferences: Jornadas
   devise:
     mailer:
       join_conference:
-        subject: Invitación para unirse a una conferencia
+        subject: Invitación para unirse a una jornada
   layouts:
     decidim:
       conference_hero:
@@ -558,14 +558,14 @@ es:
           promoted_conferences: Jornadas destacadas
         order_by_conferences:
           conferences:
-            one: "%{count} conferencia"
-            other: "%{count} conferencias"
+            one: "%{count} jornada"
+            other: "%{count} jornadas"
         promoted_conference:
           more_info: Más información
           take_part: Participar
       conferences_nav:
         conference_menu_item: Información
-        conference_partners_menu_item: Colaboradores
+        conference_partners_menu_item: Colaboradoras
         conference_speaker_menu_item: Ponentes
-        media: Multimedia
+        media: Media
         venues: Sedes

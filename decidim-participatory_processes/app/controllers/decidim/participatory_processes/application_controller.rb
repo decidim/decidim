@@ -9,14 +9,15 @@ module Decidim
       helper ParticipatoryProcessHelper
       include NeedsPermission
 
+      register_permissions(Decidim::ParticipatoryProcesses::ApplicationController,
+                           ::Decidim::ParticipatoryProcesses::Permissions,
+                           ::Decidim::Admin::Permissions,
+                           ::Decidim::Permissions)
+
       private
 
       def permission_class_chain
-        [
-          Decidim::ParticipatoryProcesses::Permissions,
-          Decidim::Admin::Permissions,
-          Decidim::Permissions
-        ]
+        ::Decidim.permissions_registry.chain_for(::Decidim::ParticipatoryProcesses::ApplicationController)
       end
 
       def permission_scope

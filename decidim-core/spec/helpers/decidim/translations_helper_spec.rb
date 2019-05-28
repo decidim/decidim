@@ -72,5 +72,39 @@ module Decidim
         end
       end
     end
+
+    describe "#ensure_translatable" do
+      let(:locales) { [:en, :ca] }
+
+      context "when given a non-hash and a list of locales" do
+        let(:value) { nil }
+
+        it "returns a hash with each locale as the key and empty string values" do
+          result = TranslationsHelper.ensure_translatable(value, locales)
+          expect(result.keys.length).to eq(locales.length)
+          expect(result).to include("en" => "", "ca" => "")
+        end
+      end
+
+      context "when given a hash with value only for one of the locales" do
+        let(:value) { { en: "Value" } }
+
+        it "returns a hash with each locale as the key and empty string values" do
+          result = TranslationsHelper.ensure_translatable(value, [:en, :ca])
+          expect(result.keys.length).to eq(locales.length)
+          expect(result).to include("en" => "Value", "ca" => "")
+        end
+      end
+
+      context "when given a hash with each locale having a value" do
+        let(:value) { { en: "Value", ca: "Valor" } }
+
+        it "returns a hash with each locale as the key and empty string values" do
+          result = TranslationsHelper.ensure_translatable(value, [:en, :ca])
+          expect(result.keys.length).to eq(locales.length)
+          expect(result).to include("en" => "Value", "ca" => "Valor")
+        end
+      end
+    end
   end
 end

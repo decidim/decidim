@@ -1,5 +1,8 @@
-<div class="row question-vote-cabin">
-  <div class="columns mediumlarge-4 mediumlarge-push-4">
+<div class="row column question-vote-cabin">
+  <div class="columns mediumlarge-4 show-for-mediumlarge previous-question">
+    <%= display_next_previous_button(:previous, "float-left") %>
+  </div>
+  <div class="columns mediumlarge-4">
     <% if question.consultation.upcoming? %>
       <div class="card__button button expanded disabled">
         <div class="vote-button-caption"><%= t("questions.vote_button.vote", scope: "decidim") %></div>
@@ -49,6 +52,17 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+  <div class="columns mediumlarge-4 show-for-mediumlarge next-question">
+    <%= display_next_previous_button(:next, "float-right") %>
+  </div>
+  <div class="small-buttons">
+    <div class="columns small-6 hide-for-mediumlarge previous-question">
+      <%= display_next_previous_button(:previous, "expanded") %>
+    </div>
+    <div class="columns small-6 hide-for-mediumlarge next-question">
+      <%= display_next_previous_button(:next, "expanded") %>
+    </div>
   </div>
 </div>
 

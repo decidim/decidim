@@ -3,7 +3,7 @@ es:
     attributes:
       config:
         available_methods: Metodos disponibles
-        offline: Desconectado
+        offline: Sin conexión
         offline_explanation: Instrucciones para la verificación presencial
         online: En línea
       id_document_information:
@@ -15,7 +15,7 @@ es:
         user: Participante
         verification_attachment: Copia escaneada de tu documento
       offline_confirmation:
-        email: Email de la participante
+        email: Correo electrónico de la participante
       postal_letter_address:
         full_address: Dirección completa
       postal_letter_confirmation:
@@ -37,21 +37,21 @@ es:
         csv_census:
           help:
             - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas
-            - Solo las participantes con un correo electrónico en ese archivo CSV pueden ser verificadas
+            - Solamente se puedan verificar las participantes con un correo electrónico que figure en este fichero CSV
         id_documents:
           help:
-            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+            - Las participantes rellenan la información de su identidad y suben una copia de su documento.
             - Rellenas la información presente en la imagen subida.
-            - La información debe coincidir con lo que el usuario envió.
-            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+            - La información tiene que coincidir con lo que haya rellenado la persona participante.
+            - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
         postal_letter:
           help:
-            - Las participantes solicitan que se envíe un código de verificación a su dirección.
-            - Envías la carta a su dirección con el código de verificación.
-            - Marcas la carta como enviada.
+            - Las participantes solicitan un código de verificación que se enviará a su dirección.
+            - Enviar la carta a su dirección con el código de verificación.
+            - Marcar la carta como enviada.
             - Una vez hayas marcado la carta como enviada, la participante podrá introducir el código y ser verificada.
       csv_census:
-        explanation: Verificare utilizando el censo de la organización
+        explanation: Verifícate utilizando el censo de la organización
         name: Censo de la organización
       direct: Directo
       help: Ayuda
@@ -67,14 +67,14 @@ es:
       authorizations:
         create:
           error: Se ha producido un error al crear la autorización.
-          success: Has sido autorizado/a correctamente.
-          unconfirmed: Necesitas confirmar tu correo electrónico para autorizarte.
+          success: Has sido autorizada correctamente.
+          unconfirmed: Necesitas confirmar tu correo electrónico para poder autorizarte.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
-            csv_census: Verificar contra el censo de la organización.
-            dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
-            dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
+            csv_census: Verifícate contra el censo de la organización
+            dummy_authorization_handler: Verifícate contra el gestor de autorización de ejemplo
+            dummy_authorization_workflow: Verifícate contra el flujo de autorización de ejemplo
             id_documents: Verifícate subiendo tu documento de identidad
             postal_letter: Verifícate recibiendo un código de verificación a través de correo postal
           title: Verifica tu identidad
@@ -98,7 +98,7 @@ es:
           index:
             data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}
             empty: No hay datos del censo. Utiliza el siguiente formulario para importarlo usando un archivo CSV.
-            title: Datos actuales del censo
+            title: Datos censales actuales
           instructions:
             body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones csv_census a la organización
             title: Necesitas activar el censo csv para esta organización.
@@ -110,10 +110,10 @@ es:
         authorizations:
           new:
             error: No pudimos verificar tu cuenta o no estás en el censo de la organización.
-            success: Tu cuenta ha sido verificada correctamente.
+            success: Tu cuenta se ha verificado correctamente.
       dummy_authorization:
         extra_explanation:
-          one: La participación está restringida a personas adscritas al código postal %{postal_codes}.
+          one: La participación está restringida a las personas adscritas al código postal %{postal_codes}.
           other: 'La participación está restringida a personas adscritas a cualquiera de los siguientes códigos postales: %{postal_codes}.'
       id_documents:
         admin:
@@ -148,10 +148,10 @@ es:
               verification_number: 'Verificación #%{n}'
           rejections:
             create:
-              success: Verificación rechazada. Se le pedirá a la participante que modifique sus documentos
+              success: Verificación rechazada. Se pedirá a la participante que modifique sus documentos
         authorizations:
           choose:
-            choose_a_type: 'Por favor selecciona como quieres ser verificado:'
+            choose_a_type: 'Por favor selecciona como te quieres verificar:'
             offline: Presencial
             online: Online
             title: Verifícate utilizando tu documento de identidad
@@ -159,12 +159,12 @@ es:
             error: Hubo un problema al subir tu documento
             success: El documento se ha subido correctamente
           edit:
-            being_reviewed: Estamos revisando tus documentos. Serás verificado en breve
+            being_reviewed: Estamos revisando tus documentos. Serás verificada en breve
             offline: Utiliza la verificación presencial
             online: Utiliza la verificación online
             rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen subida
             rejection_correctness: Asegúrate de que la información ingresada sea correcta
-            rejection_notice: Hubo un problema con tu verificación. Inténtalo de nuevo
+            rejection_notice: Hubo un problema con tu verificación. Por favor, inténtalo de nuevo
             send: Solicitar verificación de nuevo
           new:
             send: Solicitar verificación
@@ -192,7 +192,7 @@ es:
               success: Carta marcada como enviada correctamente
         authorizations:
           create:
-            error: Hubo un problema con su petición
+            error: Se ha producido un problema com tu solicitud
             success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
@@ -203,11 +203,11 @@ es:
             title: Solicita tu código de verificación
           update:
             error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
-            success: Felicidades. Has sido verificado correctamente
+            success: Felicidades. Te has verificado correctamente
       sms:
         authorizations:
           create:
-            error: Hubo un problema con tu solicitud
+            error: Se ha producido un problema con tu solicitud
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           destroy:
             success: Código de verificación restablecido correctamente. Por favor vuelve a introducir tu número de teléfono.
@@ -221,8 +221,8 @@ es:
             send: Mándame un SMS
             title: Solicita tu código de verificación
           update:
-            error: Tu código de verificación no coincide con el nuestro. Por favor, vuelve a comprobar los SMS que te enviamos.
-            success: Felicidades. Has sido verificado con éxito.
+            error: Tu código de verificación no coincide con el nuestro. Por favor, revisa el SMS que te hemos enviado.
+            success: Felicidades. Has sido verificada con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números

@@ -439,9 +439,10 @@ tr:
         new:
           save: Kayıt etmek
           title: Yeni bülten
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           deliver: Bülten sunun
+        show:
           preview: Ön izleme
           subject: konu
         update:

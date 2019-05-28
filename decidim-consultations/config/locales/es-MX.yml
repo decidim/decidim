@@ -9,7 +9,7 @@ es-MX:
         introductory_image: Imagen introductoria
         introductory_video_url: URL de vídeo introductoria
         questions: Preguntas
-        slug: URL slug
+        slug: Nom curt d'URL
         start_voting_date: Empieza la votación
         subtitle: Subtitular
         title: Título
@@ -27,7 +27,7 @@ es-MX:
         question_context: Contexto
         reference: Referencia
         scope: Área municipal
-        slug: URL slug
+        slug: Nom curt d'URL
         subtitle: Subtitular
         title: Título
         vote: Sistema de votación externa
@@ -257,6 +257,8 @@ es-MX:
         statistics:
           consultations_count: Consultas
     questions:
+      next_button: Siguiente pregunta
+      previous_button: Pregunta anterior
       results:
         title: Resultados
       show:
