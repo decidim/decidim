@@ -270,6 +270,11 @@ module Decidim
     ";"
   end
 
+  # Exposes a configuration option: An Array of Strings with the roles of a Decidim::User.
+  config_accessor :user_roles do
+    %w(admin user_manager)
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
