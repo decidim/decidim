@@ -359,6 +359,7 @@ hu:
           more_info: Több információ
           take_part: Vegyél részt
         index:
+          children: 'Gyűlések: '
           organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
           reset_chart: Visszaállítás
