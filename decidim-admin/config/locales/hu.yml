@@ -246,6 +246,7 @@ hu:
         form:
           default_step_settings: Alapértelmezett lépés-beállítások
           global_settings: Globális beállítások
+          participatory_texts_enabled_help: Meglévő javaslatok esetén nem lehet együttműködni ezzel a beállítással. Legyen szíves, egy új ' javaslatok' konponenst hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
           step_settings: Lépésbeállítások
         index:
           add: Elem hozzáadása
@@ -446,6 +447,7 @@ hu:
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '
           has_been_sent_to: 'Elküldve ide: '
+          no_scopes: Nincsenek hatókörök
           not_sent: Nem került elküldésre
           participants: 'résztvevők '
           segmented_to: 'Szegmentált %{subject}: '
@@ -460,6 +462,9 @@ hu:
           deliver: Hírlevél küldése
           followers_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi tereket követi.
           none: Egyik sem
+          participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
+          scopes_help: Hírlevelet küld azoknak a felhasználóknak, akiknek a fiók "Érdeklődési kör" beállításainál a kiválasztott hatóköre aktiválva van.
+          select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
           select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
           send_to_all_users: Küldés mindenkinek
