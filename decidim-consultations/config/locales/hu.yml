@@ -257,6 +257,8 @@ hu:
         statistics:
           consultations_count: Konzultációk
     questions:
+      next_button: Következő kérdés
+      previous_button: Előző kérdés
       results:
         title: Eredmények
       show:
