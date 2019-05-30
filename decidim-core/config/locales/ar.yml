@@ -1,0 +1,1282 @@
+ar:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: سبب حذف حسابك
+      report:
+        details: تعليقات إضافية
+      user:
+        about: عن
+        email: بريدك الإلكتروني
+        name: اسمك
+        nickname: الاسم المستعار
+        password: الكلمة السرية
+        password_confirmation: أكد كلمتك السرية
+        personal_url: العنوان الشبكي الشخصي
+        remove_avatar: إزالة الصورة الرمزية
+    models:
+      decidim/attachment_created_event: المرفق
+      decidim/component_published_event: العنصر النشط
+      decidim/demoted_membership: لم يعد مشرف المجموعة
+      decidim/gamification/badge_earned_event: شارة المكتسبة
+      decidim/gamification/level_up_event: لقد استعدت
+      decidim/join_request_accepted_event: انضمام طلب مقبول
+      decidim/join_request_rejected_event: طلب الانضمام مرفوض
+      decidim/profile_updated_event: تحديث الملف الشخصي
+      decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
+      decidim/removed_from_group: تمت إزالته من المجموعة
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: كلمة المرور الحالي
+        email: البريد الإلكتروني
+        name: كنية
+        password: الكلمة السرية
+        password_confirmation: تأكيد كلمة المرور
+        remember_me: تذكرنى
+    models:
+      decidim/amendment:
+        zero: تعديلات
+        one: تعديل
+        two: تعديلات
+        few: تعديلات
+        many: تعديلات
+        other: تعديلات
+      decidim/user:
+        zero: المشاركين
+        one: لا مشاركين
+        two: المشاركين
+        few: المشاركين
+        many: المشاركين
+        other: المشاركين
+      decidim/user_group:
+        zero: المجموعات
+        one: مجموعة
+        two: المجموعات
+        few: المجموعات
+        many: المجموعات
+        other: المجموعات
+  booleans:
+    'false': 'لا'
+    'true': 'نعم'
+  carrierwave:
+    errors:
+      image_too_big: الصورة كبيرة جدا
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: الملف غير موجود
+        invalid_token: الرمز المميز المقدم غير صالح.
+        no_token: لا رمزية المقدمة
+        notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
+      delete:
+        alert: لا يمكن التراجع عن هذا الإجراء. إذا حذفت حسابك ، فلن تتمكن من تسجيل الدخول.
+        confirm:
+          close: أغلق النافذة
+          ok: نعم ، أريد حذف حسابي
+          question: هل انت متأكد انك تريد حذف حسابك؟
+          title: احذف حسابي
+        explanation: من فضلك ، املأ سبب رغبتك في حذف حسابك (اختياري).
+      destroy:
+        error: حدثت مشكلة في حذف حسابك.
+        success: تم حذف حسابك بنجاح.
+      show:
+        change_password: غير كلمة السر
+        update_account: تحديث الحساب
+      update:
+        error: حدثت مشكلة أثناء تحديث حسابك.
+        success: تم تحديث حسابك بنجاح.
+        success_with_email_confirmation: تم تحديث حسابك بنجاح. ستتلقى بريدًا إلكترونيًا لتأكيد عنوان بريدك الإلكتروني الجديد.
+    admin_log:
+      area:
+        create: "%{user_name} خلق المنطقة %{resource_name}"
+        delete: "%{user_name} حذف المنطقة %{resource_name}"
+        update: "%{user_name} تحديث المنطقة %{resource_name}"
+      component:
+        create: "%{user_name} أضاف المكون %{resource_name} إلى الفضاء %{space_name}"
+        delete: "%{user_name} إزالة المكون %{resource_name} من %{space_name} الفضاء"
+        publish: "%{user_name} نشر المكون %{resource_name} في الفضاء %{space_name}"
+        unpublish: "%{user_name} غير منشور المكون %{resource_name} من %{space_name} الفضاء"
+      moderation:
+        hide: "%{user_name} اختبأ مورد من النوع %{resource_type} في الفضاء %{space_name}"
+        unreport: "%{user_name} الإبلاغ عن مورد من النوع %{resource_type} في %{space_name} الفضاء"
+      newsletter:
+        create: "%{user_name} إنشاء النشرة الإخبارية %{resource_name}"
+        delete: "%{user_name} حذف النشرة الإخبارية %{resource_name}"
+        deliver: "%{user_name} سلمت النشرة الإخبارية %{resource_name}"
+        update: "%{user_name} تحديث النشرة الإخبارية %{resource_name}"
+      oauth_application:
+        create: "%{user_name} أنشأ تطبيق %{resource_name} OAuth"
+        delete: "%{user_name} حذف تطبيق %{resource_name} OAuth"
+        update: "%{user_name} بتحديث تطبيق %{resource_name} OAuth"
+      organization:
+        update: "قام %{user_name} بتحديث إعدادات المنظمة"
+      participatory_space_private_user:
+        create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
+        delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
+      scope:
+        create: "%{user_name} خلق نطاق %{resource_name}"
+        create_with_parent: "إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}"
+        delete: "%{user_name} حذف النطاق %{resource_name}"
+        delete_with_parent: "%{user_name} حذف النطاق %{resource_name} داخل النطاق %{parent_scope}"
+        update: "%{user_name} تحديث النطاق %{resource_name}"
+        update_with_parent: "%{user_name} بتحديث النطاق %{resource_name} داخل النطاق %{parent_scope}"
+      static_page:
+        create: "%{user_name} أنشأ الصفحة الثابتة %{resource_name}"
+        delete: "%{user_name} حذف الصفحة الثابتة %{resource_name}"
+        update: "%{user_name} تحديث الصفحة %{resource_name} ثابت"
+      user:
+        invite: "%{user_name} دعا المشارك %{resource_name} مع الدور: %{role}"
+        officialize: "%{user_name} رسمي للمشارك %{resource_name}"
+        remove_from_admin: "%{user_name} إزالة المشارك %{resource_name} مع الدور: %{role}"
+        unofficialize: "%{user_name} غير رسمي المشارك %{resource_name}"
+      user_group:
+        reject: "رفض %{user_name} التحقق من المجموعة %{resource_name}"
+        verify: "%{user_name} التحقق من المجموعة %{resource_name}"
+        verify_via_csv: "%{user_name} التحقق من المجموعة %{resource_name} عبر ملف CSV"
+    amendments:
+      accepted:
+        error: حدث خطأ أثناء قبول التعديل.
+        success: تم قبول التعديل بنجاح.
+      amendable:
+        amended_by: عدلت من قبل
+        button: تعديل %{model_name}
+        help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
+        promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
+        section_heading: التعديلات (%{count})
+      created:
+        error: حدث خطأ أثناء إنشاء التعديل
+        success: تم إنشاء التعديل بنجاح
+      emendation:
+        actions:
+          button_accept: قبول
+          button_reject: رفض
+          help_text: مراجعة التغييرات وقبول أو رفض هذا التعديل. سيتم إرسال إشعار إلى مؤلفها (مؤلفيها).
+        announcement:
+          accepted: |-
+            هذا التعديل ل %{amendable_type} %{amendable_link} كان
+            قبلت على <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            هذا التعديل لل %{amendable_type} %{amendable_link}
+            قيد التقييم.
+          rejected: تم رفض تعديل %{amendable_type} %{amendable_link} هذا في <strong>%{announcement_date}</strong>.
+          withdrawn: |-
+            تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
+            من قبل المؤلف.
+      new:
+        amendment_author: مؤلف التعديل
+        back: الى الخلف
+        heading: إنشاء التعديل الخاص بك
+        help_text: أنت تعدل %{model_name}
+        send: إرسال التعديل
+      promoted:
+        error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
+        success: تم نشر التعديل بنجاح كمقترح جديد
+      rejected:
+        error: حدثت مشكلة في رفض هذا التعديل ، يرجى إعادة المحاولة لاحقًا
+        success: تم رفض التعديل بنجاح
+      review:
+        back: الى الخلف
+        heading: مراجعة التعديل
+        help_text: أنت تراجع التعديل على %{model_name}
+        send: قبول التعديل
+    anonymous_user: مجهول
+    application:
+      collection:
+        documents:
+          zero: مستندات
+          one: وثيقة
+          two: مستندات
+          few: مستندات
+          many: مستندات
+          other: مستندات
+      documents:
+        related_documents: الوثائق ذات الصلة
+      photos:
+        related_photos: الصور ذات الصلة
+    author:
+      comments:
+        zero: تعليقات
+        one: تعليق
+        two: تعليقات
+        few: تعليقات
+        many: تعليقات
+        other: تعليقات
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
+        fields:
+          passport_number: رقم جواز السفر
+        name: مثال آخر إذن
+      dummy_authorization_handler:
+        explanation: الحصول على التحقق من خلال إدخال رقم مستند ينتهي بـ "X"
+        fields:
+          document_number: رقم المستند
+          postal_code: الكود البريدى
+        name: مثال إذن
+      dummy_authorization_workflow:
+        name: سير العمل التخويل وهمية
+      errors:
+        duplicate_authorization: مشارك مفوض بالفعل مع نفس البيانات.
+      expired_at: انتهت في %{timestamp}
+      expires_at: تنتهي في %{timestamp}
+      foo_authorization:
+        fields:
+          bar: شريط
+          foo: فو
+        name: فو إذن
+      granted_at: منحت في %{timestamp}
+      sms:
+        explanation: أرسل رقم هاتفك المحمول حتى نتمكن من التحقق من هويتك.
+        name: رمز عن طريق الرسائل القصيرة
+      started_at: بدأت في %{timestamp}
+    authorization_modals:
+      content:
+        incomplete:
+          cancel: إلغاء
+        unauthorized:
+          ok: موافق
+          title: غير مخوّل
+        unconfirmed:
+          title: تأكيد البريد الإلكتروني
+    collapsible_list:
+      hidden_elements_count:
+        zero: و %{count} أخرى
+        one: و %{count} أخرى
+        two: و %{count} أخرى
+        few: و %{count} أخرى
+        many: و %{count} أخرى
+        other: و %{count} أخرى
+      see_less: "(انظر أقل)"
+      see_more: "(شاهد المزيد)"
+    components:
+      dummy:
+        actions:
+          bar: شريط
+          foo: فو
+        name: مكون وهمية
+        settings:
+          global:
+            amendments_enabled: تم تمكين التعديلات
+            comments_enabled: تم تمكين التعليقات
+            dummy_global_attribute_1: السمة الدمية 1
+            dummy_global_attribute_2: السمة الدمية 2
+            enable_pads_creation: تمكين إنشاء منصات
+            resources_permissions_enabled: تم تمكين أذونات الموارد
+          step:
+            comments_blocked: تم حظر التعليقات
+            dummy_step_attribute_1: الخطوة الدمية السمة 1
+            dummy_step_attribute_2: الخطوة الدمية السمة 2
+    contact: اتصل
+    content_blocks:
+      footer_sub_hero:
+        name: تذييل البطل الفرعي راية
+      hero:
+        name: صورة البطل
+      highlighted_content_banner:
+        name: شعار المحتوى المميز
+      how_to_participate:
+        name: كيفية المشاركة
+      html:
+        html_content: محتوى HTML
+        name: كتلة HTML
+      last_activity:
+        name: النشاط الاخير
+        title: النشاط الاخير
+        view_all: عرض الكل
+      metrics:
+        name: مقاييس المنظمة
+      stats:
+        name: احصائيات المنظمة
+      sub_hero:
+        name: البطل الفرعي راية
+    core:
+      actions:
+        unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
+    data_portability:
+      export:
+        ready: جاهز
+      show:
+        download_data: قم بتنزيل البيانات
+        download_data_description: سيتم إرسال ملف به جميع المعلومات المرتبطة بالحساب إلى <strong>%{user_email}</strong>
+        request_data: طلب البيانات
+    datepicker:
+      help_text: 'التنسيق المتوقع: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: يستخدم حساب آخر عنوان البريد الإلكتروني نفسه
+        new:
+          complete_profile: الملف الشخصي الكامل
+          nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
+          sign_up: يرجى استكمال ملف التعريف الخاص بك
+          subtitle: يرجى ملء النموذج التالي من أجل استكمال التسجيل
+          username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
+      registrations:
+        new:
+          already_have_an_account?: هل لديك حساب؟
+          newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
+          newsletter_title: الاتصال إذن
+          nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
+          sign_in: تسجيل الدخول
+          sign_up: سجل
+          sign_up_as:
+            legend: الاشتراك باسم
+          subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
+          terms: شروط وشروط الاستخدام
+          tos_agreement: بالتسجيل فإنك توافق على %{link}.
+          tos_title: شروط الخدمة
+          username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
+      sessions:
+        new:
+          are_you_new?: جديد على المنصة؟
+          register: انشئ حساب
+          sign_in_disabled: يمكنك الوصول باستخدام حساب خارجي
+          sign_up_disabled: تم تعطيل التسجيل ، يمكنك استخدام حساب موجود للوصول
+      shared:
+        newsletter_modal:
+          buttons:
+            check: تحقق واستمر
+            close_modal: إغلاق مشروط
+            uncheck: تبقي إلغاء
+          notice: |-
+            <p>مهلا ، هل أنت متأكد أنك لا تريد تلقي رسالة إخبارية؟<br>
+            يرجى النظر مرة أخرى في تحديد خانة الاختيار النشرة الإخبارية أدناه.<br>
+            المهم جدًا بالنسبة لنا أنه يمكنك تلقي رسائل بريد إلكتروني من حين لآخر
+            لإصدار إعلانات مهمة ، يمكنك دائمًا تغيير هذا في صفحة إعدادات الإشعارات
+            .</p>
+            <p>إذا لم تقم بوضع علامة في الخانة ، فقد تفتقد إلى المعلومات ذات الصلة
+            حول فرص المشاركة الجديدة داخل المنصة.<br>
+            إذا كنت لا تزال ترغب في تجنب النشرات الإخبارية المستقبلة، نحن تماما
+            فهم قراركم.</p>
+            <p>شكرا لقراءة هذا!</p>
+          title: الإخطارات الإخبارية
+        omniauth_buttons:
+          or: أو
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: إذن التطبيق
+          by_organization_link_html: <small class="heading-small">بواسطة %{link}</small>
+          cancel: إلغاء
+          connect_your_account_html: قم بتوصيل حسابك بتسجيل الدخول إلى <strong>%{organization}</strong>
+          publish_content: نشر المحتوى لك
+          see_email: انظر البريد الإلكتروني الخاص بك
+          see_name: انظر اسمك
+          see_username: رؤية اسم الشهرة الخاص بك
+          this_application_will_be_able_to: 'سيكون هذا التطبيق قادرًا على:'
+          this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
+          update_profile: تحديث ملفك الشخصي
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
+    errors:
+      internal_server_error:
+        title: كانت هناك مشكلة في الخادم الخاص بنا
+        try_later: الرجاء معاودة المحاولة في وقت لاحق.
+      not_found:
+        back_home: العودة إلى المنزل
+        content_doesnt_exist: هذا العنوان غير صحيح أو تمت إزالته.
+        title: لا يمكن العثور على الصفحة التي تبحث عنها
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'تم قبول التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
+            email_subject: تم قبول التعديل من %{amendable_title} من %{emendation_author_nickname}
+            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'تم قبول التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_subject: تم قبول التعديل من %{amendable_title} من %{emendation_author_nickname}
+            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_created:
+          affected_user:
+            email_intro: 'تم إنشاء تعديل جديد لـ %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
+            email_subject: تعديل جديد لـ %{amendable_title}
+            notification_title: تم إنشاء تعديل جديد لـ <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'تم إنشاء تعديل جديد لـ %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_subject: تعديل جديد لـ %{amendable_title}
+            notification_title: تم إنشاء تعديل جديد لـ <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'تم نشر تعديل مرفوض لـ %{amendable_title} باعتباره %{amendable_type}جديد. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
+            email_subject: تم نشر تعديل من %{emendation_author_nickname} كـ %{amendable_type}جديد
+            notification_title: A <a href="%{emendation_path}">رفض التعديل</a> لل <a href="%{amendable_path}">%{amendable_title}</a> تم نشره باعتباره الجديدة %{amendable_type} من <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'تم نشر تعديل مرفوض لـ %{amendable_title} باعتباره %{amendable_type}جديد. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_subject: تم نشر تعديل من %{emendation_author_nickname} كـ %{amendable_type}جديد
+            notification_title: A <a href="%{emendation_path}">رفض التعديل</a> لل <a href="%{amendable_path}">%{amendable_title}</a> تم نشره باعتباره الجديدة %{amendable_type} من <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'تم رفض التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
+            email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
+            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'تم رفض التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
+            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'تمت إضافة مستند جديد إلى %{resource_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تحديث إلى %{resource_title}
+          notification_title: تمت إضافة <a href="%{resource_path}">مستند جديد</a> إلى <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'المكون %{resource_title} نشط الآن ل %{participatory_space_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تحديث إلى %{participatory_space_title}
+          notification_title: المكون %{resource_title} نشط الآن لـ <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: مرحبا %{user_name}،
+        email_intro: 'كان هناك تحديث لـ "%{resource_title}". يمكنك أن ترى ذلك من هذه الصفحة:'
+        email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+        email_subject: تحديث إلى %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: تهانينا! لقد حصل على <a href="%{resource_url}">%{badge_name} شارة</a> (مستوى %{current_level}).
+          email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
+          email_subject: 'لقد ربحت شارة جديدة: %{badge_name}!'
+          notification_title: تهانينا! لقد حصل على <a href="%{resource_path}">%{badge_name} شارة</a> (مستوى %{current_level}).
+        level_up:
+          email_intro: تهانينا! لقد وصلت إلى المستوى %{current_level} على الشارة <a href="%{resource_url}">%{badge_name}</a>!
+          email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
+          email_subject: لقد وصلت إلى المستوى %{current_level} في الشارة %{badge_name}!
+          notification_title: تهانينا! لقد وصلت إلى المستوى %{current_level} على الشارة <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        demoted_membership:
+          email_intro: أزال مشرف المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول الخاصة بك إلى هذه المجموعة.
+          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في هذه المجموعة.
+          email_subject: أنت لم تعد مشرفًا على المجموعة %{user_group_name}!
+          notification_title: لم تعد مشرفًا لمجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: دعاك مسؤول في مجموعة <a href="%{resource_url}">%{user_group_name}</a> للانضمام إليها.
+          email_outro: لقد تلقيت هذا الإشعار لأنك دعيت إلى مجموعة. يرجى التحقق من علامة تبويب المجموعات في ملفك الشخصي للموافقة عليها.
+          email_subject: لقد تمت دعوتك للانضمام إلى المجموعة %{user_group_name}!
+          notification_title: لقد تمت دعوتك للانضمام إلى المجموعة <a href="%{resource_path}">%{user_group_name}</a> . تحقق من <a href="%{groups_profile_tab_path}">مجموعات صفحة</a> في ملفك الشخصي للموافقة عليها!
+        join_request_accepted:
+          email_intro: تهانينا! قبل مشرف من مجموعة <a href="%{resource_url}">%{user_group_name}</a> طلبك للانضمام إليه.
+          email_outro: لقد تلقيت هذا الإشعار لأنه تم تحديث طلب الانضمام الخاص بك.
+          email_subject: لقد تم قبولك في المجموعة %{user_group_name}!
+          notification_title: لقد تم قبولك في المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: طلب شخص ما الانضمام إلى المجموعة %{user_group_name} . يمكنك قبول أو رفضه من صفحة <a href="%{resource_url}">أعضاء المجموعة</a>.
+          email_outro: لقد تلقيت هذا الإشعار لأنه يمكنك إدارة المجموعة %{user_group_name}.
+          email_subject: طلب شخص ما الانضمام إلى المجموعة %{user_group_name}!
+          notification_title: طلب شخص ما الانضمام إلى المجموعة %{user_group_name} . يمكنك قبول أو رفضه من صفحة <a href="%{resource_path}">أعضاء المجموعة</a>.
+        join_request_rejected:
+          email_intro: رفض أحد مسؤولي مجموعة <a href="%{resource_url}">%{user_group_name}</a> طلبك للانضمام إليه.
+          email_outro: لقد تلقيت هذا الإشعار لأنه تم تحديث طلب الانضمام الخاص بك.
+          email_subject: تم رفض طلبك للانضمام إلى المجموعة %{user_group_name}!
+          notification_title: تم رفض طلبك للانضمام إلى المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+        promoted_to_admin:
+          email_intro: منحك مسؤول المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول لهذه المجموعة.
+          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في هذه المجموعة.
+          email_subject: أنت الآن مشرف على المجموعة %{user_group_name}!
+          notification_title: أنت الآن مسؤول عن مجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: قام مسؤول من مجموعة <a href="%{resource_url}">%{user_group_name}</a> بإزالتك منه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك كنت عضوًا في هذه المجموعة.
+          email_subject: لقد تمت إزالتك من المجموعة %{user_group_name}!
+          notification_title: لقد تمت إزالتك من المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+      notification_event:
+        notification_title: حدث حدث ل <a href="%{resource_path}">%{resource_title}</a>.
+      users:
+        profile_updated:
+          email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: "%{nickname} تحديث ملفهم الشخصي"
+          notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
+    export_mailer:
+      data_portability_export:
+        click_button: انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.
+        download: تحميل
+      export:
+        ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
+      subject: تصديرك "%{name}" جاهز
+    filters:
+      linked_classes:
+        all: الكل
+        collaborative_draft: مشروع تعاوني
+        dummy_resource: موارد وهمية
+        meeting: اجتماعات
+        project: مشاريع
+        proposal: اقتراحات
+        result: النتائج
+    fingerprint:
+      check: تحقق بصمة
+      explanation: جزء النص أدناه عبارة عن تمثيل قصير ومجزم لهذا المحتوى. من المفيد التأكد من عدم التلاعب بالمحتوى ، لأن التعديل الواحد قد ينتج عنه قيمة مختلفة تمامًا.
+      online_calculator_name: MD5 آلة حاسبة على الانترنت
+      replicate_help: يتم حساب بصمة الإصبع هذه باستخدام خوارزمية تجزئة SHA256. لتكرارها بنفسك ، يمكنك استخدام %{online_calculator_link} ونسخ البيانات المصدر.
+      source: مصدر
+      title: بصمة
+      value: القيمة
+    followers:
+      no_followers: لا متابعين بعد.
+    following:
+      no_followings: لا يتبع أي شخص أو أي شيء حتى الآن.
+    follows:
+      create:
+        button: إتبع
+        error: حدثت مشكلة بعد هذا المورد.
+      destroy:
+        button: إيقاف المتابَعة
+        error: حدثت مشكلة في إلغاء متابعة هذا المورد.
+    forms:
+      current_file: الملف الحالي
+      current_image: الصورة الحالية
+      default_image: الصورة الافتراضية
+      errors:
+        error: يوجد خطأ في هذا المجال.
+      remove_this_file: أزل هذا الملف
+    gamification:
+      all_badges_link: رؤية جميع الشارات المتاحة.
+      badges:
+        continuity:
+          conditions:
+            - تعال هنا في كثير من الأحيان
+          description: تُمنح هذه الشارة عند زيارة المنصة بطريقة منتظمة. نود وجودك هنا!
+          description_another: تم توصيل هذا المشارك لمدة %{score} أيام متتالية في وقت ما
+          description_own: لقد قمت بالاتصال لمدة %{score} أيام متتالية في مرحلة ما.
+          name: استمرارية
+          next_level_in: الاتصال لمدة %{score} أيام متتالية للوصول إلى المستوى التالي!
+          unearned_another: لم يسجل هذا المشارك الدخول لأكثر من يوم واحد على التوالي.
+          unearned_own: أنت غير متصل لأكثر من يوم واحد على التوالي.
+        followers:
+          conditions:
+            - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
+          description: تُمنح هذه الشارة عندما تصل إلى عدد معين من المتابعين. %{organization_name} هي شبكة اجتماعية وسياسية ، نسج الويب الخاص بك للتواصل مع أشخاص آخرين في المنصة.
+          description_another: هذا المشارك لديه %{score} متابعين.
+          description_own: "%{score} أشخاص يتابعونك."
+          name: متابعون
+          next_level_in: احصل على %{score} شخص آخر لمتابعتك للوصول إلى المستوى التالي!
+          unearned_another: هذا المشارك ليس لديه أي متابعين حتى الآن.
+          unearned_own: ليس لديك متابعين بعد.
+        index:
+          badge_title: "%{name} شارة"
+          how: كيف يمكنك كسب ذلك
+          page_description: الشارات عبارة عن اعتراف بإجراءات المشارك والتقدم في المنصة. عند البدء في الاكتشاف والمشاركة والتفاعل في المنصة ، ستربح شارات مختلفة. فيما يلي قائمة بالشارات وبعض الطرق التي يمكنك من خلالها كسبها.
+          title: شارات
+        invitations:
+          conditions:
+            - استخدم رابط "دعوة الأصدقاء" في صفحة المستخدم الخاصة بك لدعوة أصدقائك
+            - تخصيص ، إذا كنت تريد ، الرسالة التي ترسلها
+            - ستصل إلى أعلى مستوى عن طريق إرسال الدعوات وتسجيلها.
+          description: تُمنح هذه الشارة عند قيامك بدعوة بعض الأشخاص وقضاء بعض الوقت للتسجيل في %{organization_name} وتصبح مشاركًا. شكرًا لك على تعريف شخص %{organization_name} للآخرين والمساعدة في توسيع نطاق المجتمع!
+          description_another: قام هذا المشارك بدعوة %{score} شخصًا.
+          description_own: لقد قمت بدعوة %{score} شخصًا.
+          name: دعوات
+          next_level_in: دعوة %{score} أشخاص آخرين للوصول إلى المستوى التالي!
+          unearned_another: هذا المشارك لم يدع أي شخص حتى الآن
+          unearned_own: لم تقم بدعوة أي شخص حتى الآن.
+      description: الشارات عبارة عن اعتراف بإجراءات المشارك والتقدم في المنصة. عند البدء في الاكتشاف والمشاركة والتفاعل في المنصة ، ستربح شارات مختلفة.
+      level: المستوى %{level}
+      reached_top: لقد وصلت إلى المستوى الأعلى لهذه الشارة.
+    group_admins:
+      actions:
+        are_you_sure: هل أنت واثق؟ هذا لن يزيل المشارك من المجموعة.
+        demote_admin: إزالة المشرف
+      demote:
+        error: حدثت مشكلة أثناء إزالة هذا المشارك من قائمة المسؤولين
+        success: تمت إزالة المشارك بنجاح من المشرف
+      index:
+        current_admins: 'المشرفون الحاليون:'
+        manage_admins: إدارة المشرفين
+    group_invites:
+      accept:
+        error: حدثت مشكلة في قبول هذه الدعوة
+        success: تم قبول الدعوة بنجاح
+      accept_invitation: قبول
+      accept_or_reject_group_invitations: 'لقد دَعتك المجموعات التالية للانضمام إليهم. يمكنك قبول أو رفض طلباتهم:'
+      index:
+        invite: دعا
+        invite_user: دعوة مشارك
+      invite:
+        error: حدثت مشكلة أثناء دعوة هذا المشارك
+        success: تمت دعوة المشارك بنجاح
+      reject:
+        error: حدثت مشكلة في رفض هذه الدعوة
+        success: تم رفض الدعوة بنجاح
+      reject_invitation: رفض
+    group_members:
+      accept:
+        error: حدثت مشكلة في قبول طلب الانضمام هذا
+        success: انضمام طلب قبول بنجاح
+      actions:
+        are_you_sure: هل أنت واثق؟
+        promote_to_admin: جعل المشرف
+        remove_from_group: إزالة المشارك
+      index:
+        current_members_without_admins: 'الأعضاء الحاليون (بدون مدراء):'
+        manage_members: إدارة الأعضاء
+      promote:
+        error: كانت هناك مشكلة في الترويج لهذا المشارك
+        success: تمت ترقية المشارك بنجاح
+      reject:
+        error: حدثت مشكلة في رفض طلب الانضمام هذا
+        success: تم رفض طلب الانضمام بنجاح
+      remove:
+        error: حدثت مشكلة أثناء إزالة هذا المشارك من المجموعة
+        success: تمت إزالة المشارك بنجاح من المجموعة
+    groups:
+      actions:
+        are_you_sure: هل أنت واثق؟
+      create:
+        error: كانت هناك مشكلة في إنشاء المجموعة
+        success: تم إنشاء المجموعة بنجاح
+      edit:
+        edit_user_group: تعديل المجموعة
+        update_user_group: تحديث المجموعة
+      form:
+        document_number_help: لا تستخدم شرطات ولا مسافات
+        email_help: البريد الإلكتروني لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ
+        fill_in_for_verification: 'املأ هذه الحقول إذا كنت تريد التحقق من مجموعتك:'
+        name_help: اسم مؤسستك أو جمعيتك أو جماعتك أو جماعتك ، إلخ.
+        nickname_help: الاسم المستعار لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ. لا تستخدم مسافات أو لهجات.
+        phone_help: لا تستخدم شرطات ولا مسافات
+      join:
+        error: حدثت مشكلة في الانضمام إلى المجموعة
+        success: انضمام طلب تم إنشاؤه بنجاح. سيقوم المشرف بمراجعة طلبك قبل قبولك في المجموعة.
+      leave:
+        error: حدثت مشكلة أثناء مغادرة المجموعة
+        success: تم التخلي عن المجموعة بنجاح.
+      members:
+        accept_or_reject_join_requests: 'تقدم المستخدمون التاليون بطلب للانضمام إلى هذه المجموعة. قبول أو رفض طلباتهم:'
+        accept_request: قبول
+        reject_request: رفض
+      new:
+        create_user_group: إنشاء مجموعة
+        new_user_group: مجموعة جديدة
+        subtitle: قم بإنشاء مجموعة ودعوة مستخدمين آخرين للانضمام للمشاركة في المستوى الجماعي.
+      no_user_groups: لا ينتمي إلى أي مجموعة حتى الآن.
+      roles:
+        admin: مدير
+        creator: المنشئ
+        member: عضو
+      update:
+        error: حدثت مشكلة أثناء تحديث المجموعة
+        success: تم تحديث المجموعة بنجاح
+    help:
+      main_topic:
+        default_page:
+          content: "<p>في %{organization} يمكنك المشاركة واتخاذ قرار بشأن مواضيع مختلفة ، من خلال المساحات التي تراها في القائمة العليا: العمليات ، والجمعيات ، والمبادرات ، والمشاورات.</p> <p>في كل منها ، ستجد خيارات مختلفة للمشاركة: تقديم مقترحات - بشكل فردي أو مع أشخاص آخرين - والمشاركة في المناقشات ، وتحديد أولويات المشاريع للتنفيذ ، وحضور الاجتماعات وجهاً لوجه وغيرها من الإجراءات.</p>\n"
+          title: ماذا يمكنني أن أفعل في %{organization}؟
+        description: قراءة المزيد عن %{organization}
+        title: المساعدة العامة
+    last_activities:
+      activities:
+        no_activities_warning: لا يوجد نشاط
+      all: جميع أنواع النشاط
+      index:
+        last_activity: النشاط الاخير
+        resource_type: نوع
+    log:
+      base_presenter:
+        create: "%{user_name} تم الإنشاء %{resource_name}"
+        create_with_space: "%{user_name} تم الإنشاء %{resource_name} في %{space_name}"
+        delete: "%{user_name} حذف %{resource_name}"
+        delete_with_space: "%{user_name} حذف %{resource_name} في %{space_name}"
+        unknown_action: "%{user_name} قام ببعض الإجراءات في %{resource_name}"
+        unknown_action_with_space: "%{user_name} قام ببعض الإجراءات في %{resource_name} في %{space_name}"
+        update: "%{user_name} تحديث %{resource_name}"
+        update_with_space: "%{user_name} محدث %{resource_name} في %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'لم يتم العثور على المنطقة في قاعدة البيانات (المعرف: %{id})'
+        area_type_presenter:
+          not_found: 'لم يتم العثور على نوع المنطقة في قاعدة البيانات (المعرف: %{id})'
+        scope_presenter:
+          not_found: 'لم يتم العثور على النطاق في قاعدة البيانات (المعرف: %{id})'
+        scope_type_presenter:
+          not_found: 'لم يتم العثور على نوع النطاق في قاعدة البيانات (المعرف: %{id})'
+    managed_users:
+      expired_session: انتهت صلاحية جلسة الإدارة الحالية للمشارك.
+    members:
+      no_members: هذه المجموعة ليس لديها أي أعضاء حتى الآن.
+    menu:
+      help: المساعدة
+      home: الصفحة الرئيسية
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: مرحبًا ، %{recipient}!
+          intro: "%{sender} بدأ محادثة جديدة معك. انقر هنا لرؤيتها:"
+          outro: استمتع ديسيديم!
+          subject: "%{sender} بدأ محادثة معك"
+        new_message:
+          greeting: مرحبًا ، %{recipient}!
+          intro: "نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:"
+          outro: استمتع ديسيديم!
+          subject: لديك رسائل جديدة من %{sender}
+      conversations:
+        create:
+          error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
+        index:
+          no_conversations: ليس لديك محادثات حتى الآن
+          title: المحادثات
+        reply:
+          send: إرسال
+          title: رد
+        show:
+          title: المحادثة مع %{usernames}
+        start:
+          send: إرسال
+          title: بدء محادثة
+        update:
+          error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
+    metrics:
+      download:
+        csv: تنزيل البيانات (csv)
+      followers:
+        description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
+        object: متابعون
+        title: متابعون
+      participants:
+        description: عدد المشاركين النشطين في المنظمة
+        object: المشاركين
+        title: المشاركين
+      users:
+        description: عدد المشاركين في المنظمة
+        object: المشاركين
+        title: المشاركين
+    newsletter_mailer:
+      newsletter:
+        note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
+        see_on_website: لا يمكن عرض هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">الموقع</a>.
+        unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: إذا كنت ترغب في تغيير تفضيلاتك ، يمكنك القيام بذلك في صفحة التكوين <a href="%{link}" target="_blank"></a>
+        error: كانت هناك مشكلة إلغاء الاشتراك
+        success: أنت غير مشترك بنجاح.
+        token_error: انتهت صلاحية الرابط.
+        unsubscribe: إلغاء الاشتراك
+    newsletters_opt_in:
+      unathorized: عذرًا ، هذا الرابط لم يعد متاحًا
+      update:
+        error: حدث شيء خطأ
+        success: تم تحديث إعدادات النشرة الإخبارية بنجاح
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: تزداد أهمية معالجة البيانات الشخصية وحمايتها بالنسبة لنا جميعًا. مع اللائحة العامة الجديدة لحماية البيانات (GDPR) المؤرخة 25 مايو 2018 ، أصبح للأفراد سيطرة أفضل على بياناتهم الشخصية. لهذا السبب نحتاج إلى "موافق" لمواصلة إرسال المعلومات ذات الصلة حول أنشطة %{organization_name}.
+        body_2: 'كيف يمكنك أن تعطينا موافقتك؟ فقط انقر على الزر التالي:'
+        body_3: مع هذه الموافقة ، ستتمكن من متابعة تلقي معلومات حول خدمات النظام الأساسي. على العكس من ذلك ، إذا لم نتلق تأكيدًا إيجابيًا من جانبك ، فسنوقف إرسال رسائلنا إليك. إذا أكدت رغبتك في أن تظل على اطلاع ، فسيكون لديك دائمًا خيار الإلغاء في أي وقت.
+        button: نعم ، أرغب في متابعة تلقي المعلومات ذات الصلة
+        greetings: تحية طيبة ،<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: مرحبا،
+        subject: هل ترغب في الاستمرار في تلقي المعلومات ذات الصلة حول %{organization_name}؟
+    notifications:
+      no_notifications: لا إخطارات حتى الآن.
+    notifications_settings:
+      show:
+        email_on_notification: أرغب في تلقي رسالة بريد إلكتروني في كل مرة أتلقى فيها إشعارًا.
+        everything_followed: كل شيء أتابعه
+        newsletter_notifications: أريد أن أتلقى رسائل إخبارية
+        newsletters: النشرات الإخبارية
+        own_activity: نشاطي الخاص ، مثلما يعلقني أحدهم في اقتراحي أو يذكرني
+        receive_notifications_about: أريد الحصول على إشعارات حول
+        send_notifications_by_email: إرسال الإخطارات عن طريق البريد الإلكتروني
+        update_notifications_settings: حفظ التغييرات
+      update:
+        error: حدثت مشكلة أثناء تحديث إعدادات الإشعارات.
+        success: تم تحديث إعدادات الإشعارات بنجاح.
+    open_data:
+      not_available_yet: ملفات Open Data ليست متاحة بعد ، يرجى المحاولة مرة أخرى بعد بضع دقائق.
+    own_user_groups:
+      index:
+        pending: قيد الانتظار
+        rejected: مرفوض
+        verified: التحقق
+    pad_iframe:
+      disclaimer: تتم كتابة محتويات هذه اللوحة من قبل المستخدمين المسجلين والتعبير عن آرائهم. لا يمكن تحميل %{organization} مسؤولية محتوياته.
+      explanation: استخدم هذه الوسادة لتدوين الملاحظات بشكل تعاوني أثناء الاجتماع بحيث يسهل تدوينها بعد ذلك.
+      pad: ضمادة
+    pages:
+      home:
+        extended:
+          debates: المناقشات
+          debates_explanation: مناقشة ومناقشة وتبادل وجهات النظر الخاصة بك وإثراء المواضيع ذات الصلة.
+          how_to_participate: كيف أشارك في المسار؟
+          meetings: اجتماعات
+          meetings_explanation: معرفة أين ومتى يمكنك المشاركة في الاجتماعات العامة.
+          more_info: مزيد من المعلومات
+          proposals: اقتراحات
+          proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
+        footer_sub_hero:
+          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونًا.<br /> انضموا وشاركوا وقرّروا.
+          footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
+          register: تسجيل
+        hero:
+          participate: مشاركة
+          welcome: مرحبًا بكم على %{organization}!
+        metrics:
+          headline: المشاركة في الأرقام
+        statistics:
+          answers_count: المسوحات المكتملة
+          assemblies_count: الجمعيات
+          comments_count: تعليقات
+          conferences_count: المؤتمرات
+          debates_count: المناقشات
+          endorsements_count: موافقات
+          headline: الحالة الحالية لـ %{organization}
+          meetings_count: اجتماعات
+          orders_count: الأصوات
+          pages_count: صفحات
+          processes_count: العمليات
+          projects_count: مشاريع
+          proposals_accepted: المقترحات المقبولة
+          proposals_count: اقتراحات
+          results_count: النتائج
+          surveys_count: الدراسات الاستقصائية
+          users_count: المشاركين
+          votes_count: الأصوات
+        sub_hero:
+          register: تسجيل
+      index:
+        read_more: قراءة المزيد
+        standalone_pages: صفحات
+        subheading: انتقل من خلال صفحات المساعدة من %{name}
+        title: المساعدة
+        topics: المواضيع
+      participatory_space:
+        metrics:
+          headline: المشاركة في الأرقام
+          link: عرض جميع الإحصاءات
+      terms_and_conditions:
+        accept:
+          error: كانت هناك مشكلة في قبول الشروط والأحكام.
+          success: عظيم! لقد قبلت الشروط والأحكام.
+        form:
+          agreement: أوافق على هذه الشروط
+          legend: توافق على شروط وأحكام الاستخدام
+        refuse:
+          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
+          modal_btn_continue: قبول الشروط والمتابعة
+          modal_btn_exit: سأراجعها لاحقًا
+          modal_button: رفض الشروط
+          modal_close: إغلاق مشروط
+          modal_title: هل ترفض حقًا الأحكام والشروط المحدثة؟
+        required_review:
+          alert: لقد قمنا بتحديث شروط الخدمة الخاصة بنا ، يرجى مراجعتها.
+          body: يرجى قضاء بعض الوقت لمراجعة التحديثات على شروط الخدمات لدينا. وإلا فلن تتمكن من استخدام النظام الأساسي.
+          title: 'مطلوب: مراجعة التحديثات لشروط الخدمة لدينا'
+    participatory_space_private_users:
+      not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
+    profile:
+      deleted: تم حذف المشارك
+      view: رأي
+    profiles:
+      default_officialization_text_for_user_groups: تم التحقق من هذه المجموعة علنًا ، وتم التحقق من اسمها لتتوافق مع اسمه الحقيقي
+      default_officialization_text_for_users: تم التحقق من هذا المشارك علنًا ، وتم التحقق من اسمه / دوره ليتوافق مع اسمه / دوره الحقيقي
+      show:
+        activity: نشاط
+        badges: شارات
+        followers: متابعون
+        following: يتبع
+        groups: المجموعات
+        members: أفراد
+        timeline: الجدول الزمني
+        view_full_profile: عرض الملف الشخصي الكامل
+      sidebar:
+        badges:
+          info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
+          title: شارات
+      user:
+        confirmation_instructions_sent: تم إرسال تعليمات تأكيد البريد الإلكتروني
+        create_user_group: إنشاء مجموعة
+        edit_profile: تعديل الملف الشخصي
+        edit_user_group: تحرير ملف تعريف المجموعة
+        fill_in_email_to_confirm_it: يرجى ملء البريد الإلكتروني لمجموعتك لتأكيدها
+        invite_user: دعوة مشارك
+        join_user_group: طلب الانضمام إلى المجموعة
+        leave_user_group: غادر المجموعة
+        manage_user_group_admins: إدارة المشرفين
+        manage_user_group_users: إدارة الأعضاء
+        resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
+    reported_mailer:
+      hide:
+        hello: مرحبا %{name}،
+        manage_moderations: إدارة التعديلات
+        report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
+        subject: تم إخفاء المورد تلقائيًا
+      report:
+        hello: مرحبا %{name}،
+        manage_moderations: إدارة التعديلات
+        report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
+        subject: تم الإبلاغ عن مورد
+    reports:
+      create:
+        error: حدث خطأ أثناء إنشاء التقرير. من فضلك حاول مرة أخرى.
+        success: تم إنشاء التقرير بنجاح وسيتم مراجعته بواسطة مسؤول.
+    scopes:
+      global: النطاق العالمي
+      picker:
+        cancel: إلغاء
+        choose: تحديد
+        title: اختر %{field}
+      prompt: حدد النطاق
+      scopes: نطاقات
+    search:
+      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
+      term_input_placeholder: بحث
+    searches:
+      filters:
+        back: العودة إلى النتائج
+        jump_to: 'اقفز إلى:'
+        state:
+          active: نشيط
+          all: الكل
+          future: مستقبل
+          past: الماضي
+      filters_small_view:
+        close_modal: إغلاق مشروط
+        filter: منقي
+        filter_by: مصنف بواسطة
+        unfold: كشف
+      results:
+        results:
+          zero: "%{count} النتائج"
+          one: "%{count} النتيجة"
+          two: "%{count} النتائج"
+          few: "%{count} النتائج"
+          many: "%{count} النتائج"
+          other: "%{count} النتائج"
+        view_all: عرض الكل (%{count})
+    shared:
+      embed_modal:
+        close_window: أغلق النافذة
+        embed: يرجى لصق هذا الرمز في صفحتك
+        embed_link: تضمين
+      extended_navigation_bar:
+        more: أكثر من
+        unfold: كشف
+      flag_modal:
+        already_reported: تم الإبلاغ عن هذا المحتوى بالفعل وسيتم مراجعته من قبل المشرف.
+        close: قريب
+        description: هل هذا المحتوى غير مناسب؟
+        does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
+        offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
+        report: أبلغ عن
+        spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
+        title: الإبلاغ عن مشكلة
+      floating_help:
+        help: المساعدة
+      follow_button:
+        sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
+      login_modal:
+        please_sign_in: الرجاء تسجيل الدخول
+        sign_up: سجل
+      participatory_space_filters:
+        filters:
+          areas: المناطق
+          select_an_area: اختر المنطقة
+      reference:
+        reference: 'المرجع: %{reference}'
+      represent_user_group:
+        represent_user_group: أنا أمثل مجموعة
+        select_user_group: اختر فريقا
+      results_per_page:
+        label: 'نتائج لكل صفحة:'
+      share_modal:
+        close_window: أغلق النافذة
+        share: شارك
+        share_link: مشاركة الرابط
+      version_author:
+        deleted: مشارك محذوف
+    user_activity:
+      index:
+        no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
+    user_interests:
+      show:
+        my_interests: اهتماماتي
+        no_scopes: هذه المنظمة ليس لديها أي نطاق حتى الآن!
+        select_your_interests: حدد الموضوعات التي تهتم بها لتلقي الأحداث المتعلقة بها في علامة التبويب الجدول الزمني لملف التعريف الخاص بك.
+        update_my_interests: تحديث اهتماماتي
+      update:
+        error: حدثت مشكلة أثناء تحديث اهتماماتك.
+        success: اهتماماتك تم تحديثها بنجاح
+    welcome_notification:
+      default_body: <p>مرحبا {{name}}، شكرا لانضمامك {{organization}} ومرحبا بكم!</p><ul><li>إذا كنت ترغب في الحصول على فكرة سريعة عما يمكنك القيام به هنا ، ألق نظرة على قسم <a href="{{help_url}}">Help</a> .</li><li>بمجرد قراءتها ، ستحصل على أول شارة. فيما يلي قائمة تضم <a href="{{badges_url}}">الشارات</a> التي يمكنك الحصول عليها وأنت تشارك في {{organization}}</li><li>أخيرًا وليس آخرًا ، انضم إلى أشخاص آخرين ، وشارك معهم تجربة المشاركة والمشاركة في {{organization}}. قم بتقديم مقترحات وتعليقات ومناقشات وفكر في كيفية المساهمة في الصالح العام وتقديم حجج للإقناع والاستماع والقراءة حتى تقتنع ، والتعبير عن أفكارك بطريقة ملموسة ومباشرة ، والاستجابة بصبر وقرار ، والدفاع عن أفكارك والحفاظ عليها بعقل متفتح للتعاون والانضمام إلى أفكار الآخرين.</li></ul>
+      default_subject: شكرا لانضمامك {{organization}}!
+  devise:
+    confirmations:
+      confirmed: تم تأكيد عنوان بريدك الإلكتروني بنجاح.
+      new:
+        resend_confirmation_instructions: إعادة إرسال تعليمات التأكيد
+      send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية تأكيد عنوان بريدك الإلكتروني في بضع دقائق.
+      send_paranoid_instructions: إذا كان عنوان بريدك الإلكتروني موجودًا في قاعدة البيانات الخاصة بنا ، فستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية تأكيد عنوان بريدك الإلكتروني في غضون دقائق قليلة.
+    failure:
+      already_authenticated: انت مسجل مسبقا.
+      inactive: لم يتم تفعيل حسابك بعد.
+      invalid: غير صالح %{authentication_keys} أو كلمة المرور.
+      invited: لديك دعوة معلقة ، قم بقبولها لإنهاء إنشاء حسابك.
+      last_attempt: لديك محاولة أخرى قبل قفل حسابك.
+      locked: حسابك مغلق.
+      not_found_in_database: غير صالح %{authentication_keys} أو كلمة المرور.
+      timeout: انتهت جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.
+      unauthenticated: تحتاج إلى تسجيل الدخول أو التسجيل قبل المتابعة.
+    invitations:
+      edit:
+        header: الانتهاء من إنشاء حسابك
+        nickname_help: اسم الشهرة الخاص بك في %{organization}.
+        submit_button: حفظ
+        subtitle: إذا قبلت الدعوة ، فيرجى تعيين اسم المستخدم وكلمة المرور الخاصين بك.
+      invitation_removed: تمت إزالة دعوتك.
+      invitation_token_invalid: رمز الدعوة المقدم غير صالح!
+      new:
+        header: إرسال دعوة
+        submit_button: ارسل دعوة
+      no_invitations_remaining: لا توجد دعوات متبقية
+      send_instructions: تم إرسال دعوة بريد إلكتروني إلى %{email}.
+      updated: تم ضبط كلمة مرورك بنجاح. انت الآن مسجل دخولك.
+      updated_not_active: تم ضبط كلمة مرورك بنجاح.
+    mailer:
+      confirmation_instructions:
+        action: تأكيد حسابي
+        greeting: مرحبًا %{recipient}
+        instruction: 'يمكنك تأكيد حساب بريدك الإلكتروني من خلال الرابط أدناه:'
+        subject: تعليمات التأكيد
+      email_changed:
+        greeting: مرحبا %{recipient}!
+        message: نحن نتصل بك لإعلامك بأنه يتم تغيير بريدك الإلكتروني إلى %{email}.
+        subject: تم تغيير البريد الإلكتروني
+      invitation_instructions:
+        accept: قبول دعوة
+        accept_until: ستكون هذه الدعوة في %{due_date}.
+        decline: رفض الدعوة
+        hello: مرحبا %{email}،
+        ignore: |-
+          إذا كنت لا تريد قبول الدعوة ، فيرجى تجاهل هذا البريد الإلكتروني.<br />
+          لن يتم إنشاء حسابك حتى تصل إلى الرابط أعلاه وتعيين اللقب وكلمة المرور.
+        invited_you_as_admin: "%{invited_by} دعاك كمشرف لـ %{application}. يمكنك قبول ذلك من خلال الرابط أدناه."
+        invited_you_as_private_user: "تلقيت دعوة من %{invited_by} كمشارك خاص لـ %{application}يمكنك قبول ذلك من خلال الرابط أدناه."
+        someone_invited_you: دعاك شخص ما إلى %{application}. يمكنك قبول ذلك من خلال الرابط أدناه.
+        someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
+        someone_invited_you_as_private_user: قام شخص ما بدعوتك كمشارك خاص بقيمة %{application}، ويمكنك قبولها من خلال الرابط أدناه.
+        subject: تعليمات الدعوة
+      invite_admin:
+        subject: لقد تمت دعوتك لإدارة %{organization}
+      invite_collaborator:
+        subject: لقد تمت دعوتك للتعاون في %{organization}
+      invite_private_user:
+        subject: تمت دعوتك للمشاركة في عملية مشاركة خاصة على %{organization}
+      organization_admin_invitation_instructions:
+        subject: لقد تمت دعوتك لإدارة %{organization}
+      password_change:
+        greeting: مرحبا %{recipient}!
+        message: نحن نتصل بك لإعلامك بأنه قد تم تغيير كلمة المرور الخاصة بك.
+        subject: تم تغيير كلمة السر
+      reset_password_instructions:
+        action: تغيير كلمة المرور الخاصة بي
+        greeting: مرحبا %{recipient}!
+        instruction: طلب شخص ما رابطًا لتغيير كلمة مرورك ، ويمكنك القيام بذلك من خلال الرابط أدناه.
+        instruction_2: إذا لم تطلب ذلك ، فيرجى تجاهل هذا البريد الإلكتروني.
+        instruction_3: لن تتغير كلمة مرورك حتى تصل إلى الرابط أعلاه وإنشاء كلمة مرور جديدة
+        subject: إعادة تعيين تعليمات كلمة المرور
+      unlock_instructions:
+        action: فتح حسابي
+        greeting: مرحبا %{recipient}!
+        instruction: 'انقر على الرابط أدناه لفتح حسابك:'
+        message: تم قفل حسابك بسبب كثرة محاولات تسجيل الدخول غير الناجحة.
+        subject: فتح التعليمات
+    omniauth_callbacks:
+      failure: تعذرت مصادقتك من %{kind} لأن "%{reason}".
+      success: تمت المصادقة بنجاح من %{kind} حساب.
+    passwords:
+      edit:
+        change_my_password: تغيير كلمة المرور الخاصة بي
+        change_your_password: غير كلمة المرور الخاصة بك
+        confirm_new_password: تأكيد كلمة المرور الجديدة
+        new_password: كلمة السر الجديدة
+      new:
+        forgot_your_password: نسيت رقمك السري؟
+        send_me_reset_password_instructions: أرسل لي إعادة تعيين تعليمات كلمة المرور
+      no_token: لا يمكنك الوصول إلى هذه الصفحة دون القدوم من البريد الإلكتروني لإعادة تعيين كلمة المرور. إذا كنت تأتي من بريد إلكتروني لإعادة تعيين كلمة المرور ، فالرجاء التأكد من استخدام عنوان URL الكامل المقدم.
+      send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية إعادة تعيين كلمة المرور الخاصة بك في بضع دقائق.
+      send_paranoid_instructions: إذا كان عنوان بريدك الإلكتروني موجودًا في قاعدة بياناتنا ، فستتلقى رابط استعادة كلمة المرور على عنوان بريدك الإلكتروني في غضون دقائق قليلة.
+      updated: كلمة السر الخاصة بك تم تغييرها بنجاح. انت الآن مسجل دخولك.
+      updated_not_active: كلمة السر الخاصة بك تم تغييرها بنجاح.
+    registrations:
+      destroyed: تم إلغاء حسابك بنجاح. نحن نأمل ان نراك قريبا مره اخرى.
+      edit:
+        are_you_sure: هل أنت واثق؟
+        cancel_my_account: الغاء حسابي
+        currently_waiting_confirmation_for_email: 'حاليا في انتظار تأكيد ل: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: اتركه فارغا إذا كنت لا تريد تغييره
+        title: تحرير %{resource}
+        unhappy: تعيس؟
+        update: تحديث
+        we_need_your_current_password_to_confirm_your_changes: نحتاج كلمة المرور الحالية لتأكيد تغييراتك
+      new:
+        sign_up: سجل
+      signed_up: أهلا بك! لقد اشتركت بنجاح
+      signed_up_but_inactive: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك لم يتم تنشيطه بعد.
+      signed_up_but_locked: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك مغلق.
+      signed_up_but_unconfirmed: تم إرسال رسالة مع رابط التأكيد إلى عنوان بريدك الإلكتروني. يرجى اتباع الرابط لتفعيل حسابك.
+      update_needs_confirmation: لقد قمت بتحديث حسابك بنجاح ، لكننا بحاجة إلى التحقق من عنوان بريدك الإلكتروني الجديد. يرجى التحقق من بريدك الإلكتروني واتبع رابط التأكيد لتأكيد عنوان بريدك الإلكتروني الجديد.
+      updated: تم تحديث حسابك بنجاح.
+    sessions:
+      already_signed_out: تم الخروج بنجاح
+      new:
+        sign_in: تسجيل الدخول
+      signed_in: تم تسجيل الدخول بنجاح
+      signed_out: تم الخروج بنجاح
+    shared:
+      links:
+        back: الى الخلف
+        didn_t_receive_confirmation_instructions: لم تتلق تعليمات التأكيد؟
+        didn_t_receive_unlock_instructions: لم تتلق تعليمات فتح؟
+        forgot_your_password: نسيت رقمك السري؟
+        sign_in: تسجيل الدخول
+        sign_in_with_provider: تسجيل الدخول مع %{provider}
+        sign_up: سجل
+      minimum_password_length:
+        zero: "(%{count} حرف كحد أدنى)"
+        one: "(%{count} حرف كحد أدنى)"
+        two: "(%{count} حرف كحد أدنى)"
+        few: "(%{count} حرف كحد أدنى)"
+        many: "(%{count} حرف كحد أدنى)"
+        other: "(%{count} حرف كحد أدنى)"
+    unlocks:
+      new:
+        resend_unlock_instructions: إعادة إرسال تعليمات فتح
+      send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتح حسابك في بضع دقائق.
+      send_paranoid_instructions: إذا كان حسابك موجودًا ، فستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتحه في غضون بضع دقائق.
+      unlocked: تم فتح حسابك بنجاح. من فضلك سجل دخولك للمتابعة.
+  doorkeeper:
+    scopes:
+      public: معلوماتك العامة.
+  errors:
+    messages:
+      already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
+      confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
+      content_type_whitelist_error: نوع الملف غير صالح
+      cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
+      expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
+      file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
+      long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
+      must_start_with_caps: يجب أن تبدأ بحرف كبير
+      nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
+      not_found: غير معثور عليه
+      not_locked: لم يكن مغلقا
+      not_saved:
+        zero: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        one: '1 خطأ يحظر حفظ هذا %{resource}:'
+        two: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        few: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        many: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        other: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+      too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
+      too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
+      too_short: قصير جدًا (أقل من 15 حرفًا)
+  forms:
+    required: مطلوب
+  invisible_captcha:
+    sentence_for_humans: إذا كنت بشرًا ، فتجاهل هذا الحقل
+    timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: يستخدم هذا الموقع ملفات تعريف الارتباط. من خلال الاستمرار في تصفح الموقع ، فإنك توافق على استخدامنا لملفات تعريف الارتباط. اكتشف المزيد عنها %{link}.
+        link_label: هنا
+        ok: أنا موافق
+      edit_link:
+        edit: تعديل
+      footer:
+        download_open_data: تحميل ملفات البيانات المفتوحة
+        made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
+      header:
+        close_menu: إغلاق القائمة
+        navigation: التنقل
+        sign_in: تسجيل الدخول
+        sign_up: سجل
+      impersonation_warning:
+        close_session: اغلق الموسم
+        description_html: أنت تدير المشارك <b>%{user_name}</b>.
+        expire_time_html: سوف تنتهي جلستك في <b><span class="minutes">%{minutes}</span> دقائق</b>.
+      notifications_dashboard:
+        mark_all_as_read: اشر عليها بانها قرات
+      user_menu:
+        admin_dashboard: لوحة القيادة الادارية
+        conversations: المحادثات
+        notifications: إخطارات
+        profile: حسابي
+        public_profile: ملفي الشخصي العام
+        sign_out: خروج
+      user_profile:
+        account: الحساب
+        authorizations: التراخيص
+        delete_my_account: احذف حسابي
+        my_data: بياناتي
+        my_interests: اهتماماتي
+        notifications_settings: إعدادات الإخطارات
+        title: إعدادات المشارك
+        user_groups: المجموعات
+      widget:
+        see_more: شاهد المزيد
+  locale:
+    name: العربية
+  password_validator:
+    domain_included_in_password: مشابه جدًا لاسم النطاق هذا
+    email_included_in_password: مشابه جدا لبريدك الالكتروني
+    fallback: غير صالح
+    name_included_in_password: مشابه جدا لاسمك
+    not_enough_unique_characters: ليس لديه ما يكفي من الشخصيات الفريدة
+    password_not_allowed: غير مسموح
+    password_too_common: هو شائع جدا
+    password_too_long: طويل جدا
+    password_too_short: قصير جدا
+  social_share_button:
+    delicious: لذيذ
+    douban: Douban
+    email: البريد الإلكتروني
+    facebook: فيس بوك
+    google_bookmark: جوجل المرجعية
+    google_plus: في + Google
+    hacker_news: أخبار هاكر
+    linkedin: تابعني على
+    pinterest: موقع Pinterest
+    qq: Qzone
+    reddit: رديت
+    share_to: شارك في %{name}
+    tumblr: نعرفكم
+    twitter: تويتر
+    vkontakte: فكونتاكتي
+    wechat: WeChat
+    wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
+    weibo: سينا ويبو
+    xing: شينغ
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d، %Y %I:%M %p"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; أولاً"
+      last: آخر &raquo;
+      next: التالي &rsaquo;
+      previous: "&lsaquo; السابق"
+      truncate: "&hellip;"
