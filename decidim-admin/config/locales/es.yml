@@ -246,6 +246,7 @@ es:
         form:
           default_step_settings: Configuraciones por defecto
           global_settings: Configuración global
+          participatory_texts_enabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participatorios" si quieres desactivarla.
           step_settings: Configuración de fase
         index:
           add: Agregar componente
