@@ -409,9 +409,10 @@ ru:
         new:
           save: Сохранить
           title: Добавить рассылку новостей
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Вы уверены, что хотите доставить эту рассылку новостей? Это действие нельзя будет отменить.
           deliver: Доставить рассылку новостей
+        show:
           preview: Предпросмотр
           subject: Тема
         update:

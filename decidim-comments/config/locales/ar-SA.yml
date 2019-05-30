@@ -25,7 +25,7 @@ ar:
     comments:
       comments: تعليقات
       last_activity:
-        new_comment_at_html: "<span>تعليق جديد في %{link}</span>"
+        new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       votes:
         create:
           error: حدثت مشكلة في التصويت على التعليق.
@@ -81,13 +81,13 @@ ar:
         comment_by_followed_user:
           email_intro: "%{author_name} ترك تعليق في %{resource_title}. يمكنك قراءتها في هذه الصفحة:"
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_name}. يمكنك إلغاء تتبع هذا المستخدم من صفحة ملفه الشخصي.
-          email_subject: هناك تعليق جديد بنسبة %{author_name} في %{resource_title}
-          notification_title: يوجد تعليق جديد بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a> في <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
+          notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} تم التعليق. يمكنك قراءة التعليق في هذه الصفحة:"
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{resource_title}" أو مؤلفه. يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: هناك تعليق جديد من %{author_name} في %{resource_title}
-          notification_title: هناك تعليق جديد من <a href="%{author_path}">%{author_name} %{author_nickname}</a> في <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
           email_intro: "%{author_name} رد على تعليقك في %{resource_title}. يمكنك قراءتها في هذه الصفحة:"
           email_outro: لقد تلقيت هذا الإشعار لأنه تم الرد على تعليقك.

@@ -40,10 +40,12 @@ end
 - **decidim-accountability**: Also display the main scope as a filter for accountability results [#5022](https://github.com/decidim/decidim/pull/5022)
 - **decidim-system**: Add custom SMTP settings for multitenant [#4698](https://github.com/decidim/decidim/pull/4698)
 - **decidim-proposals**: Add proposal answers to the proposal export [#5139](https://github.com/decidim/decidim/pull/5139)
+- **decidim-core**: Provide "good" password rules [#5106](https://github.com/decidim/decidim/pull/5106)
 
 **Changed**:
 
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**: Improve UX for diff views of versions. [#5149](https://github.com/decidim/decidim/pull/5149)
+- **decidim-core**: Allow for extension in Decidim::User::ROLES. [#5133](https://github.com/decidim/decidim/pull/5133)
 - **decidim-core**: PermissionsRegistry introduced to enable reconfiguration of permission_class_chain. [#5069](https://github.com/decidim/decidim/pull/5069)
 - **decidim-core**: Change attachment photo image alt texts to title instead of description. [#5043](https://github.com/decidim/decidim/pull/5043)
 - **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
@@ -51,6 +53,7 @@ end
 
 **Fixed**:
 
+- **decidim-admin**: Fix: disallow enabling `ParticipatoryText` on component when there are proposals [\#5111](https://github.com/decidim/decidim/pull/5111)
 - **decidim-meetings**: Fix registration form in duplicated meeting [\#5136](https://github.com/decidim/decidim/pull/5136)
 - **decidim-meetings**: Fix meeting minutes related information in public view [\#5137](https://github.com/decidim/decidim/pull/5137)
 - **decidim-meetings**: Fix `deliver_now` call on `send_email_confirmation` [\#5111](https://github.com/decidim/decidim/pull/5111)
@@ -76,6 +79,7 @@ end
 - **decidim-accountability**: Remove useless button on the admin page for accountability statuses [#5099](https://github.com/decidim/decidim/pull/5099)
 - **decidim-budgets**: Fix import of proposals to budget projects [#5097](https://github.com/decidim/decidim/pull/5097)
 - **decidim-core**: Escape fingerprint content [#5146](https://github.com/decidim/decidim/pull/5146)
+- **decidim-initiatives**: Escape hashtag content [#5150](https://github.com/decidim/decidim/pull/5150)
 
 **Removed**:
 

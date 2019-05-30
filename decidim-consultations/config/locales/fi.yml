@@ -257,6 +257,8 @@ fi:
         statistics:
           consultations_count: Kuulemisia
     questions:
+      next_button: Seuraava kysymys
+      previous_button: Edellinen kysymys
       results:
         title: Tulokset
       show:

@@ -39,8 +39,8 @@ fi:
         one: muutos
         other: Muutokset
       decidim/user:
-        one: Ei käyttäjiä
-        other: Käyttäjät
+        one: Osallistuja
+        other: Osallistujat
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät

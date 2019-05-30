@@ -69,15 +69,15 @@ sv:
         one: Möte
         other: Möten
       decidim/assembly_member:
-        one: Mötesmedlem
-        other: Mötesmedlemmar
+        one: Församlingsmedlem
+        other: Församlingsmedlemmar
       decidim/assembly_user_role:
-        one: Mötesanvändarroll
-        other: Mötesanvändarroller
+        one: Församlingsanvändarroll
+        other: Församlingsanvändarroller
   decidim:
     admin:
       actions:
-        new_assembly: Nytt möte
+        new_assembly: Ny församling
       assemblies:
         create:
           error: Det uppstod ett fel när ett nytt möte skulle skapas.
@@ -103,31 +103,31 @@ sv:
         new:
           copy: Kopiera
           select: Välj vilken data du skulle vilja duplicera
-          title: Duplicera möte
+          title: Duplicera församling
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem för detta möte.
-          success: Medlem skapades framgångsrikt för detta möte.
+          error: Det gick inte att lägga till en medlem för denna församling.
+          success: Medlem skapades framgångsrikt för denna församling.
         destroy:
-          success: Medlem skapades framgångsrikt för detta möte.
+          success: Medlemmen har tagits bort för denna församling.
         edit:
-          title: Uppdatera mötesmedlem.
+          title: Uppdatera församlingsmedlem.
           update: Uppdatera
         index:
-          assembly_members_title: Mötesmedlemmar
+          assembly_members_title: Församlingsmedlemmar
         new:
           create: Skapa
-          title: Ny mötesmedlem.
+          title: Ny församlingsmedlem.
         update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för detta möte.
-          success: Medlem uppdaterad framgångsrikt för detta möte.
+          error: Det uppstod ett fel vid uppdatering av medlemmen för denna församling.
+          success: Medlem uppdaterad framgångsrikt för denna församling.
       assembly_publications:
         create:
           error: Det uppstod ett fel vid publicering av detta möte.
           success: Mötet publicerades framgångsrikt.
         destroy:
           error: Ett fel uppstod vid publicering av detta möte.
-          success: Mötet avpublicerades framgångsrikt.
+          success: Församling avpublicerades framgångsrikt.
       assembly_user_roles:
         create:
           error: Ett fel uppstod när en användare skulle läggas till detta möte.
@@ -166,7 +166,7 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: Möte
+          name: Församling
         assembly_member:
           fields:
             ceased_date: Upphört datum
@@ -184,7 +184,7 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Mötesanvändare
+          name: Församlingsadministratör
           roles:
             admin: Administratör
             collaborator: Medarbetare

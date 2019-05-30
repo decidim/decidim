@@ -4,24 +4,24 @@ ca:
       actions:
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Suprimeix
-        edit: Editar
+        edit: Edita
         new: Nou
-        save: Desar
+        save: Desa
         title: Accions
       admins:
         create:
           error: S'ha produït un error en crear una nova administradora.
           success: Administradora creada correctament
         destroy:
-          success: S'ha eliminat correctament l'administrador
+          success: Administradora eliminada correctament
         edit:
-          title: Editar administrador
-          update: Actualitzar
+          title: Editar administradora
+          update: Actualitza
         index:
-          title: Administradors
+          title: Administradores
         new:
-          create: Crear
-          title: Nou administrador
+          create: Crea
+          title: Nova administradora
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
           success: L'administradora s'ha actualitzat correctament
@@ -30,20 +30,20 @@ ca:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
       menu:
-        admins: Administradors
-        dashboard: Tauler de control
+        admins: Administradores
+        dashboard: Tauler d'administració
         organizations: Organitzacions
       models:
         admin:
           fields:
             created_at: Data de creació
             email: Correu electrònic
-          name: Administrador
+          name: Administradora
           validations:
-            email_uniqueness: ja existeix un altre administrador amb aquest correu electrònic
+            email_uniqueness: ja existeix una altra administradora amb aquest correu electrònic
         organization:
           actions:
-            save_and_invite: Crear organització i convidar l'administrador
+            save_and_invite: Crear organització i convidar l'administradora
           fields:
             created_at: Data de creació
             name: Nom
@@ -57,7 +57,7 @@ ca:
         index:
           title: Organitzacions
         new:
-          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de manera única recursos a totes les organitzacions
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos de tota la organització
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
         update:
@@ -69,7 +69,7 @@ ca:
           existing: No permetre que es registrin noves participants, però permetre que les participants existents iniciïn sessió
       shared:
         notices:
-          no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans.
-          our_getting_started_guide: la guia d'introducció
+          no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.
+          our_getting_started_guide: la nostra guia d'introducció
       titles:
         dashboard: Tauler de control

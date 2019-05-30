@@ -25,8 +25,8 @@ ar:
         scope_id: نطاق
         scopes_enabled: تم تمكين النطاقات
         short_description: وصف قصير
-        show_statistics: عرض إحصائيات
-        slug: سبيكة URL
+        show_statistics: عرض الإحصائيات
+        slug: سبيكة العنوان الشبكي
         start_date: تاريخ البدء
         subtitle: عنوان فرعي
         target: من يشارك
@@ -39,17 +39,17 @@ ar:
       participatory_process_step:
         cta_path: دعوة إلى مسار العمل
         cta_text: دعوة إلى نص العمل
-        description: وصف
+        description: الوصف
         end_date: تاريخ الانتهاء
         short_description: وصف قصير
-        start_date: تاريخ البدء
-        title: عنوان
+        start_date: تاريخ البداية
+        title: العنوان
       participatory_process_user_role:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
     models:
-      decidim/participatory_process_step_activated_event: تنشيط المرحلة
+      decidim/participatory_process_step_activated_event: تم تنشيط المرحلة
       decidim/participatory_process_step_changed_event: تغيرت المرحلة
   activerecord:
     models:
@@ -82,7 +82,7 @@ ar:
         confirm_destroy: تأكيد الحذف
         destroy: حذف
         duplicate: مكرر
-        edit: تصحيح
+        edit: تعديل
         filter:
           all: عرض جميع العمليات
           process_groups: مجموعات العملية
@@ -153,7 +153,7 @@ ar:
           title: تحرير مجموعة العملية
           update: تحديث
         new:
-          create: خلق
+          create: إنشاء
           title: مجموعة عملية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث مجموعة العملية التشاركية هذه.
@@ -185,7 +185,7 @@ ar:
         index:
           steps_title: المراحل
         new:
-          create: خلق
+          create: إنشاء
           title: مرحلة عملية تشاركية جديدة
         ordering:
           error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
@@ -204,7 +204,7 @@ ar:
         index:
           process_admins_title: مدراء العملية التشاركية
         new:
-          create: خلق
+          create: إنشاء
           title: مشرف عملية تشاركية جديدة.
         update:
           error: حدثت مشكلة أثناء تحديث مسؤول لهذه العملية التشاركية.
@@ -221,7 +221,7 @@ ar:
           public: عامة
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: عملية تشاركية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه العملية التشاركية.
@@ -331,7 +331,7 @@ ar:
         home:
           highlighted_processes:
             active_processes: عمليات نشطة
-            active_step: مرحلة نشطة
+            active_step: المرحلة النشطة
             more_information: معلومات اكثر
             participate: مشاركة
             see_all_processes: رؤية جميع العمليات
@@ -414,7 +414,7 @@ ar:
           processes_count: 'العمليات:'
       participatory_process_widgets:
         show:
-          active_step: مرحلة نشطة
+          active_step: المرحلة النشطة
           take_part: خذ جزء
       participatory_processes:
         index:
@@ -429,4 +429,4 @@ ar:
           take_part: خذ جزء
       process_header_steps:
         step: المرحلة %{current} من %{total}
-        view_steps: عرض مراحل
+        view_steps: عرض المراحل

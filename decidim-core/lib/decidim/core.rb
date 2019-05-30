@@ -131,7 +131,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -268,6 +268,11 @@ module Decidim
   # Exposes a configuration option: Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
+  end
+
+  # Exposes a configuration option: An Array of Strings with the roles of a Decidim::User.
+  config_accessor :user_roles do
+    %w(admin user_manager)
   end
 
   # Public: Registers a global engine. This method is intended to be used

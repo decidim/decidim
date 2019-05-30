@@ -439,9 +439,10 @@ fr:
         new:
           save: Enregistrer
           title: Nouvelle newsletter
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+        show:
           preview: Aperçu
           subject: Objet
         update:

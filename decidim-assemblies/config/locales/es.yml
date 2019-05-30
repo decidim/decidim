@@ -3,8 +3,8 @@ es:
     attributes:
       assembly:
         area_id: Área
-        assembly_type: Tipo de montaje
-        assembly_type_other: Tipo de montaje otro
+        assembly_type: Tipo de asamblea
+        assembly_type_other: Otro tipo de asamblea
         banner_image: Imagen de banner
         closing_date: Fecha de cierre
         closing_date_reason: Razón de la fecha de cierre
@@ -13,7 +13,7 @@ es:
         copy_components: Copiar componentes
         copy_features: Copiar funcionalidades
         created_by: Creado por
-        created_by_other: Creado por otro
+        created_by_other: Creado por otra
         creation_date: Fecha de creacion
         decidim_area_id: Área
         decidim_scope_id: Ámbito
@@ -30,14 +30,14 @@ es:
         internal_organisation: Organización interna
         is_transparent: Es transparente
         local_area: Área de organización
-        meta_scope: 'Metadatos: ámbito'
-        parent_id: Asamblea padre
+        meta_scope: Metadatos de ámbito
+        parent_id: Asamblea principal
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Espacio privado
         promoted: Destacado
-        published_at: Publicado
+        published_at: Publicado el
         purpose_of_action: Propósito de la acción
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
@@ -49,20 +49,20 @@ es:
         target: Quién participa
         title: Título
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Cumpleaños
         birthplace: Lugar de nacimiento
-        ceased_date: Fecha de vencimiento
+        ceased_date: Fecha de cese
         designation_date: Fecha de designación
         designation_mode: Modo de designación
         full_name: Nombre completo
         gender: Género
         position: Posición
       assembly_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
-        role: Rol de usuario
+        role: Rol de participante
   activerecord:
     models:
       decidim/assembly:
@@ -72,8 +72,8 @@ es:
         one: Miembro de la asamblea
         other: Miembros de la asamblea
       decidim/assembly_user_role:
-        one: Rol de usuario de la asamblea
-        other: Roles de usuario de la asamblea
+        one: Rol de participante de la asamblea
+        other: Roles de participante de la asamblea
   decidim:
     admin:
       actions:
@@ -85,7 +85,7 @@ es:
         edit:
           update: Actualizar
         index:
-          not_published: No publicado
+          not_published: No publicada
           private: Privado
           public: Público
           published: Publicado
@@ -102,7 +102,7 @@ es:
       assembly_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que desea duplicar
+          select: Selecciona qué datos quieres duplicar
           title: Duplicar asamblea
       assembly_members:
         create:
@@ -143,7 +143,7 @@ es:
           create: Crear
           title: Nueva administradora de la asamblea.
         update:
-          error: Se ha producido un error al actualizar la administradora para esta asamblea.
+          error: Se ha producido un error al actualizar una administradora para esta asamblea.
           success: Administradora actualizada correctamente para esta asamblea.
       menu:
         assemblies: Asambleas
@@ -152,33 +152,33 @@ es:
           assembly_members: Miembros
           attachment_collections: Carpetas
           attachment_files: Archivos
-          attachments: Archivos adjuntos
+          attachments: Adjuntos
           categories: Categorías
           components: Componentes
           info: Información
           moderations: Moderaciones
-          private_users: Usuarios privados
+          private_users: Participantes privadas
       models:
         assembly:
           fields:
             created_at: Fecha de creación
             private: Privada
-            promoted: Destacado
+            promoted: Destacada
             published: Publicada
             title: Título
           name: Asamblea
         assembly_member:
           fields:
-            ceased_date: Fecha de vencimiento
+            ceased_date: Fecha de cese
             designation_date: Fecha de designación
             full_name: Nombre
             position: Posición
           name: Miembro
           positions:
             other: Otro
-            president: Presidente
-            secretary: Secretario
-            vice_president: Vicepresidente
+            president: Presidenta
+            secretary: Secretaria
+            vice_president: Vicepresidenta
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -186,9 +186,9 @@ es:
             role: Rol
           name: Administradora de la asamblea
           roles:
-            admin: Administrador
-            collaborator: Colaborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Colaboradora
+            moderator: Moderadora
       titles:
         assemblies: Asambleas
     admin_log:
@@ -213,13 +213,13 @@ es:
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros
             images: Imágenes
-            included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
+            included_at_help: Selecciona la fecha en que se agregó esta asamblea a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
             metadata: Metadatos
             other: Otro
-            select_a_created_by: Selecciona creada por
+            select_a_created_by: Selecciona una creadora
             select_an_area: Seleccione un Área
-            select_an_assembly_type: Selecciona tipo de asamblea
-            select_parent_assembly: Selecciona asamblea principal
+            select_an_assembly_type: Selecciona un tipo de asamblea
+            select_parent_assembly: Selecciona una asamblea principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             title: Información general
@@ -237,9 +237,9 @@ es:
           index:
             filter:
               all: Todas
-              ceased: Cesado
-              not_ceased: No cesado
-            filter_by: Filtrado por
+              ceased: Cesada
+              not_ceased: No cesada
+            filter_by: Filtra por
             search: Buscar
         content_blocks:
           highlighted_assemblies:
@@ -249,11 +249,11 @@ es:
           members: Miembros
       assembly_types:
         commission: Comisión
-        consultative_advisory: Consultivo / Asesor
-        executive: Ejecutivo
+        consultative_advisory: Consultiva / Asesora
+        executive: Ejecutiva
         government: Gobierno
         others: Otros
-        participatory: Participativo
+        participatory: Participativa
         working_group: Grupo de trabajo
       content_blocks:
         highlighted_assemblies:
@@ -288,17 +288,17 @@ es:
         area: Área
         assembly_type: Tipo de asambleas
         children: Asambleas
-        closing_date: Fecha de cierre
+        closing_date: Fecha de finalización
         composition: Composición
         created_by: Creado por
         creation_date: Fecha de creación
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
-        indefinite_duration: Indefinido
+        indefinite_duration: Indefinida
         internal_organisation: Organización interna
         is_transparent:
-          'false': opaco
+          'false': opaca
           'true': transparente
         local_area: Área de organización
         participatory_scope: Qué se decide
@@ -306,7 +306,7 @@ es:
         private_space: Esta es una asamblea privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
-        read_more: Lee más
+        read_more: Leer más
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
@@ -359,9 +359,10 @@ es:
           more_info: Más información
           take_part: Participa
         index:
+          children: 'Asambleas: '
           organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
-          reset_chart: Reiniciar
+          reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
             one: "%{count} asambleas"

@@ -4,8 +4,8 @@ ar:
       dummy_resource:
         created_at: أنشئت في
         field: مجالي
-        start_date: تاريخ البدء
-        title: عنوان
+        start_date: تاريخ البداية
+        title: العنوان
         updated_at: تم التحديث في
   decidim:
     dummy:
@@ -20,10 +20,10 @@ ar:
           description: يحصل المشاركون على هذه الشارة عن طريق إنشاء اختبارات.
           description_another: قام هذا المشارك بإنشاء %{score} اختبار.
           description_own: لقد أنشأت %{score} اختبارات.
-          name: اختبارات
+          name: الاختبارات
           next_level_in: إنشاء %{score} اختبارات أخرى للوصول إلى المستوى التالي!
           unearned_another: لم ينشئ هذا المشارك أي اختبارات حتى الآن.
-          unearned_own: لم تنشئ اختبارات بعد.
+          unearned_own: لم تنشئ أية اختبارات بعد.
     pages:
       home:
         statistics:

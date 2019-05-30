@@ -266,7 +266,7 @@ fr:
       endorsements:
         description: Nombre d'avenants générés dans les propositions
         object: avenants
-        title: Endossements
+        title: Soutiens
       proposals:
         description: Nombre de propositions générées
         object: les propositions
