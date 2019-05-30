@@ -1,0 +1,232 @@
+ar:
+  activemodel:
+    attributes:
+      config:
+        available_methods: الطرق المتاحة
+        offline: غير متصل على الانترنت
+        offline_explanation: تعليمات للتحقق حاليا
+        online: عبر الانترنت
+      id_document_information:
+        document_number: رقم الوثيقة (مع خطاب)
+        document_type: نوع المستند
+      id_document_upload:
+        document_number: رقم الوثيقة (مع خطاب)
+        document_type: نوع المستند الخاص بك
+        user: مشارك
+        verification_attachment: نسخة ممسوحة ضوئيًا من المستند
+      offline_confirmation:
+        email: البريد الإلكتروني المشارك
+      postal_letter_address:
+        full_address: العنوان الكامل
+      postal_letter_confirmation:
+        verification_code: شيفرة التأكيد
+      postal_letter_postage:
+        full_address: العنوان الكامل
+        verification_code: شيفرة التأكيد
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: التحقق
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} بتحديث تكوين التحقق من وثائق الهوية"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} التحقق من %{resource_name} باستخدام التحقق من مستندات الهوية دون اتصال"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - يقوم المشرفون بتحميل ملف CSV مع رسائل البريد الإلكتروني للمشاركين المقبولين
+            - يمكن فقط التحقق من المشاركين الذين لديهم رسالة بريد إلكتروني في ملف CSV
+        id_documents:
+          help:
+            - يقوم المستخدمون بملء معلومات هويتهم وتحميل نسخة من وثيقتهم.
+            - يمكنك ملء المعلومات الموجودة في الصورة التي تم تحميلها.
+            - يجب أن تتطابق المعلومات مع كل ما قام المستخدم بملئه.
+            - إذا لم تتمكن من رؤية المعلومات بوضوح أو لم تتمكن من التحقق منها ، فيمكنك رفض الطلب وسيكون المستخدم قادرًا على إصلاحها.
+        postal_letter:
+          help:
+            - يطلب المشاركون إرسال رمز التحقق إلى عنوانهم.
+            - يمكنك إرسال الرسالة إلى عنوانهم مع رمز التحقق.
+            - يمكنك وضع علامة على الرسالة كما تم إرسالها.
+            - بمجرد وضع علامة على الرسالة على أنها مرسلة ، سيتمكن المشارك من تقديم الرمز والتحقق منه.
+      csv_census:
+        explanation: الحصول على التحقق باستخدام تعداد المنظمة
+        name: تعداد المنظمة
+      direct: مباشرة
+      help: المساعدة
+      id_documents:
+        explanation: قم بتحميل وثائق هويتك حتى نتمكن من التحقق من هويتك
+        name: وثائق الهوية
+      multistep: متعدد الخطوة
+      name: اسم
+      postal_letter:
+        explanation: سنرسل لك خطابًا بريديًا مع رمز يتعين عليك إدخاله حتى نتمكن من التحقق من عنوانك
+        name: رمز عن طريق البريد
+    verifications:
+      authorizations:
+        create:
+          error: كانت هناك مشكلة في إنشاء الترخيص.
+          success: لقد تم التفويض بنجاح.
+          unconfirmed: تحتاج إلى تأكيد بريدك الإلكتروني من أجل تفويض نفسك.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: تحقق من مثال آخر على معالج التخويل
+            csv_census: تحقق من تعداد المنظمة
+            dummy_authorization_handler: تحقق من مقابل معالج التخويل
+            dummy_authorization_workflow: تحقق من سير عمل تخويل المثال
+            id_documents: الحصول على التحقق عن طريق تحميل وثيقة الهوية الخاصة بك
+            postal_letter: الحصول على التحقق من خلال تلقي رمز التحقق عبر البريد العادي
+          title: تحقق من هويتك
+          verify_with_these_options: 'هذه هي الخيارات المتاحة للتحقق من هويتك:'
+        new:
+          authorize: إرسال
+          authorize_with: تحقق مع %{authorizer}
+        skip_verification: يمكنك تخطي هذا الآن و %{link}
+        start_exploring: البدء في استكشاف
+      csv_census:
+        admin:
+          census:
+            create:
+              error: حدث خطأ أثناء استيراد التعداد.
+              success: استيرادها بنجاح %{count} وحدات (%{errors} أخطاء)
+            destroy_all:
+              success: تم حذف جميع بيانات التعداد
+          destroy:
+            confirm: حذف جميع التعداد لا يمكن التراجع عنه. هل أنت متأكد أنك تريد المتابعة؟
+            title: احذف جميع بيانات التعداد
+          index:
+            data: هناك %{count} السجلات المحملة في المجموع. تاريخ آخر تحميل كان في %{due_date}
+            empty: لا توجد بيانات التعداد. استخدم النموذج أدناه لاستيراده باستخدام ملف CSV.
+            title: بيانات التعداد الحالية
+          instructions:
+            body: للقيام بذلك ، يجب عليك إدخال إدارة النظام وإضافة تصاريح csv_census إلى المؤسسة
+            title: تحتاج إلى تنشيط التعداد CSV لهذه المنظمة
+          new:
+            file: ".csv ملف مع بيانات رسائل البريد الإلكتروني"
+            info: 'يجب أن يكون ملفًا بتنسيق CSV مع عمود واحد: البريد الإلكتروني'
+            submit: رفع ملف
+            title: تحميل إحصاء جديد
+        authorizations:
+          new:
+            error: لم نتمكن من التحقق من حسابك أو لم تكن في تعداد المنظمة.
+            success: تم التحقق من حسابك بنجاح.
+      dummy_authorization:
+        extra_explanation:
+          zero: 'تقتصر المشاركة على المشاركين الذين لديهم أي من الرموز البريدية التالية: %{postal_codes}.'
+          one: تقتصر المشاركة على المشاركين الذين لديهم الرمز البريدي %{postal_codes}.
+          two: 'تقتصر المشاركة على المشاركين الذين لديهم أي من الرموز البريدية التالية: %{postal_codes}.'
+          few: 'تقتصر المشاركة على المشاركين الذين لديهم أي من الرموز البريدية التالية: %{postal_codes}.'
+          many: 'تقتصر المشاركة على المشاركين الذين لديهم أي من الرموز البريدية التالية: %{postal_codes}.'
+          other: 'تقتصر المشاركة على المشاركين الذين لديهم أي من الرموز البريدية التالية: %{postal_codes}.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: تكوين وثائق الهوية
+              update: تحديث
+            update:
+              error: حدثت مشكلة أثناء تحديث التكوين.
+              success: تم تحديث التكوين بنجاح
+          confirmations:
+            create:
+              error: التحقق غير مطابق. يرجى المحاولة مرة أخرى أو رفض التحقق حتى يمكن للمشارك تعديله
+              success: تم التحقق من المشارك بنجاح
+            new:
+              introduce_user_data: إدخال البيانات في الصورة
+              reject: رفض
+              verify: التحقق
+          offline_confirmations:
+            create:
+              error: التحقق غير مطابق. يرجى المحاولة مرة أخرى أو إخبار المشارك بتعديله
+              success: تم التحقق من المشارك بنجاح
+            new:
+              cancel: إلغاء
+              introduce_user_data: تقديم البريد الإلكتروني المشارك وبيانات الوثيقة
+              verify: التحقق
+          pending_authorizations:
+            index:
+              config: التكوين
+              offline_verification: التحقق حاليا
+              title: في انتظار التحقق عبر الإنترنت
+              verification_number: 'التحقق #%{n}'
+          rejections:
+            create:
+              success: تم رفض التحقق. ستتم مطالبة المشاركين بتعديل مستنداتها
+        authorizations:
+          choose:
+            choose_a_type: 'الرجاء تحديد الطريقة التي تريد التحقق منها:'
+            offline: غير متصل على الانترنت
+            online: عبر الانترنت
+            title: تحقق من نفسك باستخدام مستند هويتك
+          create:
+            error: حدثت مشكلة أثناء تحميل المستند
+            success: تم تحميل المستند بنجاح
+          edit:
+            being_reviewed: نحن نراجع مستنداتك سيتم التحقق منك قريبًا
+            offline: استخدم التحقق بلا اتصال
+            online: استخدام التحقق عبر الإنترنت
+            rejection_clarity: تأكد من أن المعلومات مرئية بوضوح في الصورة التي تم تحميلها
+            rejection_correctness: تأكد من صحة المعلومات التي تم إدخالها
+            rejection_notice: حدثت مشكلة في عملية التحقق. حاول مرة اخرى
+            send: طلب التحقق مرة أخرى
+          new:
+            send: طلب التحقق
+            title: قم بتحميل مستند هويتك
+          update:
+            error: حدثت مشكلة أثناء إعادة تحميل المستند
+            success: تم إعادة تحميل المستند بنجاح
+        dni: DNI
+        nie: NIE
+        passport: جواز سفر
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: عنوان
+              letter_sent_at: رسالة أرسلت في
+              mark_as_sent: بمناسبة إرسالها
+              not_yet_sent: لم ترسل بعد
+              title: التحقق المستمر
+              username: الاسم المستعار
+              verification_code: شيفرة التأكيد
+          postages:
+            create:
+              error: خطأ في تعليم الرسالة على أنها مرسلة
+              success: تم تعليم الرسالة بنجاح على أنها مرسلة
+        authorizations:
+          create:
+            error: كانت هناك مشكلة مع طلبك
+            success: شكر! سنرسل رمز التحقق إلى عنوانك
+          edit:
+            send: تؤكد
+            title: قدم رمز التحقق الذي تلقيته
+            waiting_for_letter: سنرسل خطابًا إلى عنوانك مع رمز التحقق قريبًا
+          new:
+            send: ارسل لي خطاب
+            title: اطلب رمز التحقق
+          update:
+            error: رمز التحقق الخاص بك لا يطابق رمزنا. يرجى التحقق مرة أخرى من الرسالة التي أرسلناها إليك
+            success: تهانينا. لقد تم التحقق بنجاح
+      sms:
+        authorizations:
+          create:
+            error: كانت هناك مشكلة مع طلبك
+            success: شكر! لقد أرسلنا رسالة نصية قصيرة إلى هاتفك.
+          destroy:
+            success: رمز التحقق إعادة تعيين بنجاح. يرجى إعادة إدخال رقم هاتفك.
+          edit:
+            confirm_destroy: هل أنت متأكد من أنك تريد إعادة تعيين رمز التحقق؟
+            destroy: إعادة تعيين رمز التحقق
+            resend: لم تتلق رمز التحقق؟
+            send: تؤكد
+            title: قدم رمز التحقق الذي تلقيته
+          new:
+            send: ارسل لي رسالة
+            title: اطلب رمز التحقق
+          update:
+            error: رمز التحقق الخاص بك لا يطابق رمزنا. يرجى التحقق مرة أخرى من الرسائل القصيرة التي أرسلناها إليك.
+            success: تهانينا. لقد تم التحقق بنجاح.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: يجب أن تكون جميعها كبيرة وتحتوي فقط على أحرف و / أو أرقام
