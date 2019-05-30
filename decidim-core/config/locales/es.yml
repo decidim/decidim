@@ -1255,6 +1255,14 @@ es:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Supresiones
+      right: Adiciones
+    dropdown:
+      choose_diff_view_mode: 'Comparar el modo de visualización:'
+      option_split: En paralelo
+      option_unified: Unificado
   views:
     pagination:
       first: "&laquo; Primera"
