@@ -40,6 +40,7 @@ end
 - **decidim-accountability**: Also display the main scope as a filter for accountability results [#5022](https://github.com/decidim/decidim/pull/5022)
 - **decidim-system**: Add custom SMTP settings for multitenant [#4698](https://github.com/decidim/decidim/pull/4698)
 - **decidim-proposals**: Add proposal answers to the proposal export [#5139](https://github.com/decidim/decidim/pull/5139)
+- **decidim-core**: Provide "good" password rules [#5106](https://github.com/decidim/decidim/pull/5106)
 
 **Changed**:
 
