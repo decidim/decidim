@@ -286,6 +286,7 @@ hu:
               other: '%{count} regisztráció volt.'
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
+            title: Regisztrációk
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.

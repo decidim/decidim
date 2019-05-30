@@ -3,10 +3,10 @@ tr:
     system:
       actions:
         confirm_destroy: Bunu silmek istediğinizden emin misiniz?
-        destroy: silmek
+        destroy: Sil
         edit: Düzenle
         new: Yeni
-        save: Kayıt etmek
+        save: Kaydet
         title: Eylemler
       admins:
         create:
@@ -16,22 +16,22 @@ tr:
           success: Yönetici başarıyla silindi
         edit:
           title: Yönetici düzenle
-          update: Güncelleştirme
+          update: Güncelle
         index:
           title: Yöneticiler
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni yönetici
         update:
           error: Bu yönetici güncellenirken bir sorun oluştu.
           success: Yönetici başarıyla güncellendi
       default_pages:
         placeholders:
-          content: Lütfen yönetici panosundaki %{page} statik sayfaya anlamlı içerik ekleyin.
-          title: '%{page}için varsayılan başlık'
+          content: Lütfen yönetici panosundaki %{page} statik sayfasına anlamlı içerik ekleyin.
+          title: '%{page} için varsayılan başlık'
       menu:
         admins: Yöneticiler
-        dashboard: gösterge paneli
+        dashboard: Pano
         organizations: Organizasyonlar
       models:
         admin:
@@ -47,6 +47,7 @@ tr:
           fields:
             created_at: Adresinde düzenlendi
             name: isim
+            smtp_settings: SMTP ayarları
           name: organizasyon
       organizations:
         create:
