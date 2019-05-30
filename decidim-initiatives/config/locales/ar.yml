@@ -1,0 +1,506 @@
+ar:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: مؤلف
+        description: وصف
+        offline_votes: التوقيعات الشخصية
+        scope_id: نطاق
+        signature_end_date: نهاية فترة جمع التوقيع
+        signature_start_date: بداية فترة جمع التوقيع
+        signature_type: نوع جمع التوقيع
+        signature_type_values:
+          any: مختلط
+          offline: شخصيا
+          online: عبر الانترنت
+        state: الحالة
+        title: عنوان
+      initiative_author:
+        address: عنوان
+        city: مدينة
+        id_document: DNI / NIE
+        name: اسم ولقب
+        phone_number: رقم الهاتف
+        post_code: الرمز البريدي
+        province: المحافظة
+      initiatives_committee_member:
+        user: عضو لجنة
+      initiatives_type:
+        banner_image: صورة بانر
+        collect_user_extra_fields: جمع البيانات الشخصية للمشاركين عند التوقيع
+        description: وصف
+        document_number_authorization_handler: إذن للتحقق من رقم الوثيقة على التوقيعات
+        extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية
+        minimum_committee_members: الحد الأدنى من أعضاء اللجنة
+        online_signature_enabled: تم تمكين التوقيع عبر الإنترنت
+        title: عنوان
+        undo_online_signatures_enabled: تمكين المشاركين من التراجع عن توقيعاتهم على الإنترنت
+        validate_sms_code_on_votes: إضافة خطوة التحقق من صحة رمز SMS لعملية التوقيع
+      initiatives_vote:
+        date_of_birth: تاريخ الولادة
+        document_number: رقم المستند
+        name_and_surname: اسم ولقب
+        postal_code: الكود البريدى
+      organization_data:
+        address: عنوان
+        id_document: وثيقة الهوية
+        name: اكمل الاسم
+  activerecord:
+    models:
+      decidim/initiative:
+        zero: بعض المبادرات
+        one: بالمبادرة
+        two: بعض المبادرات
+        few: بعض المبادرات
+        many: بعض المبادرات
+        other: بعض المبادرات
+      decidim/initiative_comittee:
+        zero: Comittees
+        one: إحداث الهيئة
+        two: Comittees
+        few: Comittees
+        many: Comittees
+        other: Comittees
+      decidim/initiative_vote:
+        zero: التوقيعات
+        one: التوقيع
+        two: التوقيعات
+        few: التوقيعات
+        many: التوقيعات
+        other: التوقيعات
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: نوع المبادرة الجديدة
+      menu:
+        initiatives: المبادرات
+        initiatives_types: أنواع المبادرة
+      models:
+        initiatives:
+          fields:
+            created_at: أنشئت في
+            id: هوية شخصية
+            state: الحالة
+            supports_count: توقيعات
+            title: المبادرات
+        initiatives_type_scope:
+          fields:
+            scope: نطاق
+            supports_required: التوقيعات المطلوبة
+          name: نطاق نوع المبادرة
+        initiatives_types:
+          fields:
+            created_at: أنشئت في
+            title: أنواع المبادرة
+          name: نوع المبادرة
+        initiatives_votes:
+          fields:
+            date_of_birth: تاريخ الولادة
+            document_number: رقم المستند
+            hash: مزيج
+            initiative_end_date: تاريخ الانتهاء
+            initiative_id: معرف المبادرة
+            initiative_signatures_count: عدد التوقيعات
+            initiative_start_date: تاريخ البدء
+            initiative_title: عنوان المبادرة
+            name_and_surname: اسم ولقب
+            postal_code: الكود البريدى
+            time_and_date: الوقت و التاريخ
+            timestamp: الطابع الزمني
+      titles:
+        initiatives: المبادرات
+        initiatives_types: أنواع المبادرة
+    events:
+      initiatives:
+        initiative_extended:
+          email_intro: تم تمديد تاريخ انتهاء التوقيعات للمبادرة %{resource_title}!
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تم تمديد تاريخ التوقيعات على المبادرة!
+          notification_title: تم تمديد تاريخ انتهاء التواقيع لمبادرة <a href="%{resource_path}">%{resource_title}</a>.
+        milestone_completed:
+          affected_user:
+            email_intro: حققت مبادرتك %{resource_title} ٪ %{percentage}من التوقيعات!
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف المبادرة %{resource_title}.
+            notification_title: لقد حققت مبادرة <a href="%{resource_path}">%{resource_title}</a> الخاصة بك %{percentage}٪ من التوقيعات.
+          follower:
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - انتقل إلى مساحة مشاركة المبادرات
+            - اتبع الخطوات لإنشاء مبادرة جديدة
+          description: تُمنح هذه الشارة عند إطلاق مبادرات جديدة ، وإقامة شراكة مع الآخرين لتنفيذها.
+          description_another: حصل هذا المشارك على %{score} مبادرة تم نشرها.
+          description_own: لديك %{score} مبادرات تم نشرها.
+          name: المبادرات المنشورة
+          next_level_in: احصل على %{score} مبادرة تم نشرها للوصول إلى المستوى التالي!
+          unearned_another: لم يحصل هذا المشارك على أية مبادرات منشورة حتى الآن.
+          unearned_own: لم تحصل على أي مبادرات منشورة بعد.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>مبادرة <strong></strong> عبارة عن اقتراح يمكن أن يروج له أي شخص بمبادرة خاصة به (بشكل مستقل عن القنوات الأخرى أو أماكن المشاركة) من خلال جمع التواقيع (الرقمية) للمنظمة لتنفيذ إجراء محدد (تعديل لائحة ، والبدء مشروع ، قم بتغيير اسم القسم أو الشارع ، وما إلى ذلك).</p> <p>يمكن لمروجي المبادرة تحديد أهدافها وجمع الدعم والنقاش ونشرها وتحديد نقاط اللقاء حيث يمكن جمع التوقيعات من الحاضرين أو المناقشات المفتوحة للمشاركين الآخرين.</p> <p>أمثلة: يمكن للمبادرة أن تجمع التوقيعات لعقد مشاورة بين جميع أفراد المنظمة ، أو لإنشاء أو عقد جمعية ، أو الشروع في عملية زيادة الميزانية لإقليم أو منطقة في المنظمة. أثناء عملية جمع التوقيعات ، يمكن لعدد أكبر من الأشخاص إضافة هذا الطلب والمضي قدمًا في المؤسسة.</p>\n"
+          page: "<p>مبادرة <strong></strong> عبارة عن اقتراح يمكن أن يروج له أي شخص بمبادرة خاصة به (بشكل مستقل عن القنوات الأخرى أو أماكن المشاركة) من خلال جمع التواقيع (الرقمية) للمنظمة لتنفيذ إجراء محدد (تعديل لائحة ، والبدء مشروع ، قم بتغيير اسم القسم أو الشارع ، وما إلى ذلك).</p> <p>يمكن لمروجي المبادرة تحديد أهدافها وجمع الدعم والنقاش ونشرها وتحديد نقاط اللقاء حيث يمكن جمع التوقيعات من الحاضرين أو المناقشات المفتوحة للمشاركين الآخرين.</p> <p>أمثلة: يمكن للمبادرة أن تجمع التوقيعات لعقد مشاورة بين جميع أفراد المنظمة ، أو لإنشاء أو عقد جمعية ، أو الشروع في عملية زيادة الميزانية لإقليم أو منطقة في المنظمة. أثناء عملية جمع التوقيعات ، يمكن لعدد أكبر من الأشخاص إضافة هذا الطلب والمضي قدمًا في المؤسسة.</p>\n"
+          title: ما هي المبادرات؟
+    initiatives:
+      actions:
+        answer: إجابة
+      admin:
+        answers:
+          edit:
+            answer: إجابة
+            title: الإجابة عن %{title}
+          info_initiative:
+            created_at: أنشئت في
+            description: وصف
+            initiative_votes_count: عدد الأصوات
+            initiatives: المبادرات
+            state: الحالة
+        committee_requests:
+          index:
+            approve: يوافق
+            confirm_revoke: هل أنت واثق؟
+            invite_to_committee_help: شارك هذا الرابط لدعوة مشاركين آخرين إلى لجنة المروجين
+            no_members_yet: لا يوجد أعضاء في لجنة المروجين
+            revoke: سحب
+            title: أعضاء اللجنة
+        content_blocks:
+          highlighted_initiatives:
+            max_results: أقصى قدر من العناصر لإظهارها
+        initiatives:
+          edit:
+            accept: اقبل المبادرة
+            confirm: هل أنت واثق؟
+            discard: تجاهل المبادرة
+            export_pdf_signatures: تصدير قوات الدفاع الشعبي من التوقيعات
+            export_votes: توقيعات التصدير
+            reject: رفض المبادرة
+            send_to_technical_validation: إرسال إلى التحقق الفني
+            success: تم إرسال المبادرة إلى التحقق الفني
+            update: تحديث
+          form:
+            title: معلومات عامة
+          index:
+            actions_title: عمل
+            filter:
+              accepted: وافقت
+              all: الكل
+              created: تمّ إنشاؤه
+              discarded: التخلص منها
+              published: نشرت
+              rejected: مرفوض
+              validating: المصادقة الفنية
+            filter_by: مصنف بواسطة
+            preview: معاينة
+            print: طباعة
+            search: بحث
+          show:
+            print: طباعة
+          update:
+            error: حدث خطأ
+            success: تم تحديث المبادرة بنجاح
+        initiatives_type_scopes:
+          create:
+            error: حدث خطأ
+            success: تم إنشاء نطاق جديد لنوع المبادرة المحدد
+          destroy:
+            success: تمت إزالة النطاق بنجاح
+          edit:
+            back: الى الخلف
+            confirm_destroy: هل أنت واثق؟
+            destroy: حذف
+            title: تحرير نطاق نوع المبادرة
+            update: تحديث
+          new:
+            back: الى الخلف
+            create: إنشاء
+            title: إنشاء نطاق نوع المبادرة
+          update:
+            error: حدث خطأ
+            success: تم تحديث النطاق بنجاح
+        initiatives_types:
+          create:
+            error: حدث خطأ
+            success: تم إنشاء نوع مبادرة جديد بنجاح
+          destroy:
+            success: تمت إزالة نوع المبادرة بنجاح
+          edit:
+            confirm_destroy: هل أنت واثق؟
+            destroy: حذف
+            update: تحديث
+          form:
+            title: معلومات عامة
+          initiative_type_scopes:
+            title: نطاقات لنوع المبادرة
+          new:
+            create: إنشاء
+            title: نوع المبادرة الجديدة
+          update:
+            error: حدث خطأ
+            success: تم تحديث نوع المبادرة بنجاح
+      admin_log:
+        initiative:
+          publish: "%{user_name} نشرت المبادرة %{resource_name}"
+          send_to_technical_validation: "أرسل %{user_name} المبادرة %{resource_name} إلى التحقق الفني"
+          unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
+          update: "%{user_name} تحديث المبادرة %{resource_name}"
+      admin_states:
+        accepted: وافقت
+        created: تمّ إنشاؤه
+        discarded: التخلص منها
+        published: نشرت
+        rejected: مرفوض
+        validating: المصادقة الفنية
+      committee_requests:
+        new:
+          continue: استمر
+          help_text: أنت على وشك أن تصبح عضوًا في لجنة الترويج لهذه المبادرة
+        spawn:
+          success: تم إرسال طلبك إلى مؤلف المبادرة.
+      content_blocks:
+        highlighted_initiatives:
+          name: المبادرات البارزة
+      create_initiative:
+        fill_data:
+          back: الى الخلف
+          continue: استمر
+          fill_data_help: "<ul> <li>راجع محتوى مبادرتك. هل عنوانك سهل الفهم؟ هل هدف مبادرتك واضح؟</li> <li>عليك اختيار نوع التوقيع. شخصيا ، عبر الإنترنت أو مزيج من</li> <li>ما هو النطاق الجغرافي للمبادرة؟ مقاطعه المدينه؟</li> </ul>"
+          initiative_type: نوع المبادرة
+          more_information: "(معلومات اكثر)"
+          select_scope: حدد النطاق
+        finish:
+          back: الى الخلف
+          back_to_initiatives: العودة إلى المبادرات
+          callout_text: تهانينا! تم إنشاء مبادرة المواطن بنجاح.
+          go_to_my_initiatives: انتقل إلى مبادراتي
+          more_information: "(معلومات اكثر)"
+        finish_help:
+          access_reminder: تذكر أنك ستتمكن دائمًا من الوصول إلى مبادراتك من خلال قائمة المشاركين.
+          help_for_organizations: إذا كنت جمعية ، فسيتعين عليك رفع محاضر مجلس إدارة جميع المنظمات التي تشكل لجنة الترويج
+          help_in_person_signatures: إذا اخترت جمع التواقيع شخصيًا أو دمجها مع الإنترنت ، فسيلزمك تحميل المعلومات المطلوبة.
+          help_text: تذكر أنه من أجل معالجة المبادرة بشكل صحيح ، يجب عليك الوصول إلى لوحة الإدارة حيث ستجد قائمة المستخدم ، وتحميل المعلومات المطلوبة وإرسالها للمعالجة.
+          initiatives_page_link: يمكنك البحث عن كل هذه المعلومات على %{link} مخصصة للإبلاغ عن المبادرات.
+          page: صفحة
+        previous_form:
+          back: الى الخلف
+          continue: استمر
+          help: ماذا تتكون المبادرة؟ اكتب العنوان والوصف. نوصي بعنوان قصير وموجز ووصف يركز على الحل المقترح.
+          more_information: "(معلومات اكثر)"
+        promotal_committee:
+          back: الى الخلف
+          individual_help_text: يتطلب هذا النوع من مبادرات المواطنين لجنة ترويج تتألف من ما لا يقل عن %{committee_size} شخصًا (شهادات). يجب مشاركة الرابط التالي مع الأشخاص الآخرين الذين يشكلون جزءًا من هذه المبادرة. عندما تتلقى جهات الاتصال الخاصة بك هذا الرابط سيتعين عليهم اتباع الخطوات المشار إليها.
+          more_information: "(معلومات اكثر)"
+        select_initiative_type:
+          back: الى الخلف
+          choose_html: أريد إنشاء <strong>%{title}</strong>
+          more_information: "(معلومات اكثر)"
+          select: أريد أن أشجع هذه المبادرة
+          select_initiative_type_help: مبادرات المواطن هي وسيلة يمكن من خلالها للجنسية أن تتدخل حتى يتمكن مجلس المدينة من اتخاذ إجراءات دفاعية عن المصلحة العامة التي تدخل في نطاق اختصاص البلدية. ما هي المبادرة التي تريد إطلاقها؟
+        share_committee_link:
+          continue: استمر
+          invite_to_committee_help: رابط لدعوة الأشخاص الذين سيكونون جزءًا من لجنة المروجين
+        show_similar_initiatives:
+          back: الى الخلف
+          compare_help: إذا كانت أي من المبادرات التالية تشبه مبادراتك ، فنحن نشجعك على التوقيع عليها. سيكون لديك اقتراح المزيد من الاحتمالات لإنجازه.
+          continue: مبادرتي مختلفة
+          more_information: "(معلومات اكثر)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}، الذي تتابعه ، بإنشاء مبادرة جديدة والتحقق منها والمساهمة فيها:"
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: مبادرة جديدة بنسبة %{author_nickname}
+          notification_title: تم إنشاء مبادرة <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "أيد %{author_name} %{author_nickname}، الذي تتابعه ، المبادرة التالية ، ربما تريد المساهمة في المحادثة:"
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: المبادرة التي أقرتها %{author_nickname}
+          notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: المبادرات
+      initiative_signatures:
+        fill_personal_data:
+          continue: استمر
+          date_select:
+            day: يوم
+            month: شهر
+            year: عام
+          help: يرجى ملء الحقول التالية ببياناتك الشخصية لتوقيع المبادرة
+        finish:
+          back_to_initiative: العودة إلى المبادرة
+        sms_code:
+          continue: التحقق من الرمز والمتابعة
+          help: تحقق من الرسائل القصيرة المستلمة على هاتفك
+        sms_phone_number:
+          continue: ارسل لي رسالة
+          help: املأ النموذج برقم هاتفك الذي تم التحقق منه لطلب رمز التحقق
+      initiative_votes:
+        create:
+          error: كانت هناك مشكلة في توقيع المبادرة.
+          invalid: البيانات المقدمة للتوقيع على المبادرة غير صالحة
+          success_html: تهانينا! و <strong> %{title}</strong> تم توقيع المبادرة بنجاح
+        personal_data:
+          invalid: البيانات الشخصية لا تتفق مع البيانات المقدمة للترخيص.
+        sms_code:
+          invalid: رمز التحقق الخاص بك لا يطابق رمزنا. يرجى التحقق مرة أخرى من الرسائل القصيرة التي أرسلناها إليك.
+        sms_phone:
+          invalid: رقم الهاتف غير صالح أو قيد التفويض. من فضلك ، تحقق من التراخيص الخاصة بك.
+      initiatives:
+        author:
+          deleted: تم الحذف
+        author_list:
+          hidden_authors_count:
+            zero: و %{count} المزيد من الناس
+            one: وشخص آخر
+            two: و %{count} المزيد من الناس
+            few: و %{count} المزيد من الناس
+            many: و %{count} المزيد من الناس
+            other: و %{count} المزيد من الناس
+        count:
+          title:
+            zero: "%{count} مبادرات"
+            one: "%{count} مبادرة"
+            two: "%{count} مبادرات"
+            few: "%{count} مبادرات"
+            many: "%{count} مبادرات"
+            other: "%{count} مبادرات"
+        filters:
+          any: أي
+          author: مؤلف
+          closed: مغلق
+          myself: مبادراتي
+          open: افتح
+          search: بحث
+          state: الحالة
+          type: نوع
+          type_prompt: اختر نوع
+        filters_small_view:
+          close_modal: أغلق النافذة
+          filter: منقي
+          filter_by: مصنف بواسطة
+          unfold: كشف
+        index_header:
+          new_initiative: مبادرة جديدة
+        interactions:
+          comments_count:
+            count:
+              zero: تعليق
+              one: تعليق
+              two: تعليق
+              few: تعليق
+              many: تعليق
+              other: تعليق
+        orders:
+          label: 'فرز المبادرات حسب:'
+          most_commented: الأكثر تعليقا
+          most_voted: الأكثر توقيعا
+          random: عشوائية
+          recent: الأحدث
+        result:
+          answer_title:
+            accepted: تم قبول هذا الاقتراح بسبب
+            created: تم إنشاء هذا الاقتراح
+            discarded: تم تجاهل هذا الاقتراح بسبب
+            published: تم نشر هذا الاقتراح بسبب
+            rejected: تم رفض هذا الاقتراح بسبب
+            validating: هذا الاقتراح قيد التقييم
+          initiative_rejected_reason: تم رفض هذه المبادرة بسبب افتقارها للتوقيعات.
+        show:
+          any_vote_method: تجمع مبادرة المواطن هذه التوقيعات عبر الإنترنت والشخصية.
+          follow_description: تلقي إشعار عند وجود أخبار في هذه المبادرة
+          offline_method: تجمع مبادرة المواطن هذه التوقيعات الشخصية فقط.
+        signature_identities:
+          select_identity: حدد معرف المشارك
+        signatures_count:
+          zero: " التوقيعات"
+          one: " التوقيع"
+          two: " التوقيعات"
+          few: " التوقيعات"
+          many: " التوقيعات"
+          other: " التوقيعات"
+        supports:
+          title: قائمة التوقيعات
+        vote_cabin:
+          already_voted: وقعت بالفعل
+          supports_required: "%{total_supports} التوقيعات المطلوبة"
+          verification_required: تحقق من حسابك لتوقيع المبادرة
+          vote: إشارة
+          votes_blocked: توقيع المعوقين
+        votes_count:
+          count:
+            zero: التوقيعات
+            one: التوقيع
+            two: التوقيعات
+            few: التوقيعات
+            many: التوقيعات
+            other: التوقيعات
+          most_popular_initiative: المبادرة الأكثر شعبية
+          need_more_votes: بحاجة الى مزيد من التوقيعات
+      initiatives_mailer:
+        creation_subject: تم إنشاء مبادرتك "%{title}"
+        initiative_link:
+          check_initiative_details: يمكنك رؤية تفاصيل المبادرة
+          here: هنا
+        more_information: هنا لديك المزيد من المعلومات حول عملية إنشاء المبادرة.
+        progress_report_body_for: وصلت المبادرة %{title} إلى %{percentage}٪ من التواقيع المطلوبة.
+        progress_report_for: 'ملخص عن المبادرة: %{title}'
+        promotal_committee_help: تذكر أنه يجب دعوة %{member_count} شخصًا على الأقل إلى لجنة المروجين. أرسل الرابط التالي لدعوة الناس إلى لجنة المروجين
+        status_change_body_for: 'لقد غيرت المبادرة %{title} حالتها إلى: %{state}'
+        status_change_for: لقد غيرت المبادرة %{title} حالتها
+        technical_validation_body_for: طلبت المبادرة %{title} التحقق من الصحة
+        technical_validation_for: طلبت المبادرة %{title} التحقق من الصحة
+      last_activity:
+        new_initiative: مبادرة جديدة
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: المبادرات النشطة
+            see_all_initiatives: رؤية جميع المبادرات
+      states:
+        accepted: وافقت
+        expired: منتهية الصلاحية
+      unavailable_scope: نطاق غير متاح
+    menu:
+      initiatives: المبادرات
+    resources:
+      initiatives_type:
+        actions:
+          title: أفعال
+          vote: إشارة
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: مرفقات
+          committee_members: أعضاء اللجنة
+          components: المكونات
+          information: معلومات
+      initiative_creation_header:
+        back: الى الخلف
+        fill_data: إنشاء
+        finish: إنهاء
+        previous_form: بداية
+        promotal_committee: لجنة المروجين
+        select_initiative_type: أختر
+        show_similar_initiatives: قارن
+        step: الخطوة %{current} من %{total}
+        title: ابتكار مبادرة جديدة
+      initiative_header:
+        initiative_menu_item: مبادرة
+      initiative_signature_creation_header:
+        back: الى الخلف
+        fill_personal_data: أكمل بياناتك
+        finish: إنهاء
+        finished: تم إنشاء توقيع المبادرة
+        see_steps: انظر الخطوات
+        select_identity: حدد الهوية
+        sms_code: التحقق من رمز SMS
+        sms_phone_number: رقم الهاتف الجوال
+        step: الخطوة %{current} من %{total}
+        title: تسجيل %{initiative_title}
+      initiatives:
+        initiative:
+          check: تحقق من ذلك
+          check_and_support: التحقق من ذلك وتوقيع
+        no_initiatives_yet:
+          no_initiatives_yet: لا توجد مبادرات حتى الآن!
