@@ -47,6 +47,7 @@ ca:
           fields:
             created_at: Data de creació
             name: Nom
+            smtp_settings: Configuració d'SMTP
           name: Organització
       organizations:
         create:
