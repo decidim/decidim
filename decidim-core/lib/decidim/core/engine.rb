@@ -39,6 +39,7 @@ require "nobspw"
 require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
+require "diffy"
 
 require "decidim/api"
 

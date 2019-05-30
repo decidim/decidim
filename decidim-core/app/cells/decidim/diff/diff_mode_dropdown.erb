@@ -1,0 +1,29 @@
+<div class="diff-view-by show-for-mediumlarge">
+  <div class="diff-view-by__dropdown">
+    <span class="diff-view-by__text">
+      <%= t("versions.dropdown.choose_diff_view_mode") %>
+    </span>
+
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="is-dropdown-submenu-parent">
+        <a id="diff-view-selected">
+          <%= t("versions.dropdown.option_unified") %>
+        </a>
+
+        <ul class="menu">
+          <li>
+            <%= link_to "#diff-view-unified", class: "diff-view-mode", id:"diff-view-unified" do %>
+              <%= t("versions.dropdown.option_unified") %>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to "#diff-view-split", class: "diff-view-mode", id:"diff-view-split" do %>
+              <%= t("versions.dropdown.option_split") %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
