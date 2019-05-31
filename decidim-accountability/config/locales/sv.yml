@@ -7,22 +7,22 @@ sv:
         decidim_scope_id: Omfattning
         description: Beskrivning
         end_date: Slutdatum
-        progress: Framsteg
-        project_ids: Inkluderade projekt
-        proposals: Inkluderade förslag
+        progress: Behandling
+        project_ids: Projekt som omfattas
+        proposals: Förslag som omfattas
         start_date: Startdatum
         title: Titel
-        updated_at: Uppdaterad vid
+        updated_at: Uppdaterad
       status:
         description: Beskrivning
         key: Nyckel
         name: Namn
-        progress: Framsteg
+        progress: Behandling
       timeline_entry:
         description: Beskrivning
         entry_date: Datum
     models:
-      decidim/accountability/proposal_linked_event: Förslaget ingår i ett resultat
+      decidim/accountability/proposal_linked_event: Förslag som ingår i ett resultat
       decidim/accountability/result_progress_updated_event: Uppdaterad resultatutvecklingen
   activerecord:
     models:
@@ -32,13 +32,13 @@ sv:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Är du säker på att du vill radera detta %{name}?
+        confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
         new: Ny %{name}
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
-        title: Handlingar
+        title: Åtgärder
       admin:
         exports:
           results: Resultat
@@ -48,13 +48,13 @@ sv:
           status:
             name: Status
           timeline_entry:
-            name: Tidslinje inmatning
+            name: Post i tidslinje
         results:
           create:
             invalid: Det var problem med att skapa det här resultatet
-            success: Resultat har skapats framgångsrikt
+            success: Resultatet har skapats
           destroy:
-            success: Resultatet har tagits bort
+            success: Resultatet har raderats
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
@@ -71,16 +71,16 @@ sv:
             select: Välj
           update:
             invalid: Det var problem med att uppdatera det här resultatet
-            success: Resultatet uppdaterades framgångsrikt
+            success: Resultatet har uppdaterats
         shared:
           subnav:
-            statuses: Statusar
+            statuses: Status
         statuses:
           create:
             invalid: Det var problem med att skapa denna status
-            success: Status skapad
+            success: Skapat status
           destroy:
-            success: Statusen har tagits bort
+            success: Raderat status
           edit:
             title: Redigera status
             update: Uppdatera status
@@ -206,7 +206,7 @@ sv:
           email_intro: 'Resultatet "%{resource_title}", som omfattar förslaget "%{proposal_title}", är nu %{progress}% färdigt. Du kan se det från den här sidan:'
           email_outro: Du har fått detta meddelande eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till behandlingen av %{resource_title}
-          notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som innehåller förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
+          notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som ingår i förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
     metrics:
       results:
         description: Antal genererade resultat
@@ -218,7 +218,7 @@ sv:
           results: Resultat
     participatory_spaces:
       highlighted_results:
-        see_all: Se alla (%{count})
+        see_all: Visa alla (%{count})
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat
