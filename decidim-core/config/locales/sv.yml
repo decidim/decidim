@@ -227,7 +227,7 @@ sv:
           explanation: Ditt auktorisering har löpt ut. För att kunna utföra den här åtgärden måste du bli återauktoriserad med "%{authorization}".
           title: Auktoriseringen har löpt ut
         incomplete:
-          cancel: Annullera
+          cancel: Avbryt
           explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du återauktorisera dig eftersom vi saknar följande data:'
           invalid_field: "%{field}"
           reauthorize: Återauktorisera
@@ -252,8 +252,8 @@ sv:
           title: Bekräfta din e-postadress
     collapsible_list:
       hidden_elements_count:
-        one: och %{count} mer
-        other: och %{count} mer
+        one: och %{count} fler
+        other: och %{count} fler
       see_less: "(se mindre)"
       see_more: "(se mer)"
     components:
@@ -264,11 +264,11 @@ sv:
         name: Dummy Komponent
         settings:
           global:
-            amendments_enabled: Ändringar möjliga
+            amendments_enabled: Ändringar är möjliga
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
-            enable_pads_creation: Aktivera skapandet av pads
+            enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter aktiverade
           step:
             comments_blocked: Kommentarer blockerade
@@ -315,7 +315,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Färdigställ profil
-          nickname_help: Din korta, unika identifierare i %{organization}
+          nickname_help: Ditt alias (@användarnamn) i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara vilket namn som helst.
@@ -324,7 +324,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
-          nickname_help: Din korta, unika identifierare i %{organization}
+          nickname_help: Ditt alias (@användarnamn) i %{organization}
           sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
@@ -338,8 +338,8 @@ sv:
         new:
           are_you_new?: Ny på plattformen?
           register: Skapa ett konto
-          sign_in_disabled: Du kan få tillgång till ett externt konto
-          sign_up_disabled: Anmälan är inaktiverad, du kan använda en befintlig användare för att komma åt
+          sign_in_disabled: Du kan få åtkomst via ett externt konto
+          sign_up_disabled: Anmälan är avaktiverad, men du kan komma in med ett befintligt konto
       shared:
         newsletter_modal:
           buttons:
@@ -383,9 +383,9 @@ sv:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
+            email_intro: 'Ett ändringsförslag har godkänts för %{amendable_title}. Visa det från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{amendable_title}.
+            email_subject: '%{emendation_author_nickname} har accepterat ändringsförslaget till %{amendable_title}'
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
