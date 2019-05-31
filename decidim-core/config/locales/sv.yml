@@ -207,7 +207,7 @@ sv:
       dummy_authorization_workflow:
         name: Arbetsflöde för dummy-auktorisering
       errors:
-        duplicate_authorization: En användare är redan behörig med samma data.
+        duplicate_authorization: En deltagare är redan behörig med samma data.
       expired_at: Förfallit vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
