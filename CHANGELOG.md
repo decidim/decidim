@@ -53,6 +53,7 @@ end
 
 **Fixed**:
 
+- **decidim-core**: Fix: potential loop redirection when accepting TOS agreement on multi-languages sites [\#5162](https://github.com/decidim/decidim/pull/5162)
 - **decidim-admin**: Fix: disallow enabling `ParticipatoryText` on component when there are proposals [\#5111](https://github.com/decidim/decidim/pull/5111)
 - **decidim-meetings**: Fix registration form in duplicated meeting [\#5136](https://github.com/decidim/decidim/pull/5136)
 - **decidim-meetings**: Fix meeting minutes related information in public view [\#5137](https://github.com/decidim/decidim/pull/5137)
