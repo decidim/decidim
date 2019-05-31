@@ -85,27 +85,27 @@ sv:
             title: Redigera status
             update: Uppdatera status
           index:
-            title: Statusar
+            title: Status
           new:
             create: Skapa status
             title: Ny status
           update:
             invalid: Det var problem med att uppdatera denna status
-            success: Status uppdaterad
+            success: Uppdaterat status
         timeline_entries:
           create:
             invalid: Det var problem med att skapa den här posten
-            success: Inmatningen skapades
+            success: Skapade post
           destroy:
-            success: Inmatningen har tagits bort
+            success: Posten har raderats
           edit:
-            title: Redigera posten
-            update: Uppdatera posten
+            title: Redigera post
+            update: Uppdatera post
           index:
-            title: Visa tidslinje med poster
+            title: Poster i projekttidslinjen
           new:
             create: Skapa post
-            title: Ny inmatning
+            title: Ny post
           update:
             invalid: Det var problem med att uppdatera denna post
             success: Inmatning framgångsrikt uppdaterad
