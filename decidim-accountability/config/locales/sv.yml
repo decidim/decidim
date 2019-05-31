@@ -23,7 +23,7 @@ sv:
         entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Förslaget ingår i ett resultat
-      decidim/accountability/result_progress_updated_event: Resultatutveckling uppdaterad
+      decidim/accountability/result_progress_updated_event: Uppdaterad resultatutvecklingen
   activerecord:
     models:
       decidim/accountability/result:
@@ -51,7 +51,7 @@ sv:
             name: Tidslinje inmatning
         results:
           create:
-            invalid: Det har uppstått ett problem med att skapa det här resultatet
+            invalid: Det var problem med att skapa det här resultatet
             success: Resultat har skapats framgångsrikt
           destroy:
             success: Resultatet har tagits bort
@@ -70,14 +70,14 @@ sv:
             current_selection: Aktuellt urval
             select: Välj
           update:
-            invalid: Det har uppstått ett problem med att uppdatera det här resultatet
+            invalid: Det var problem med att uppdatera det här resultatet
             success: Resultatet uppdaterades framgångsrikt
         shared:
           subnav:
             statuses: Statusar
         statuses:
           create:
-            invalid: Det har uppstått ett problem med att skapa denna status
+            invalid: Det var problem med att skapa denna status
             success: Status skapad
           destroy:
             success: Statusen har tagits bort
@@ -90,11 +90,11 @@ sv:
             create: Skapa status
             title: Ny status
           update:
-            invalid: Det uppstått ett problem med att uppdatera denna status
+            invalid: Det var problem med att uppdatera denna status
             success: Status uppdaterad
         timeline_entries:
           create:
-            invalid: Det har uppstått ett problem med att skapa den här inmatningen
+            invalid: Det var problem med att skapa den här posten
             success: Inmatningen skapades
           destroy:
             success: Inmatningen har tagits bort
@@ -107,7 +107,7 @@ sv:
             create: Skapa post
             title: Ny inmatning
           update:
-            invalid: Det har uppstått ett problem med att uppdatera denna inmatning
+            invalid: Det var problem med att uppdatera denna post
             success: Inmatning framgångsrikt uppdaterad
       admin_log:
         result:
@@ -203,9 +203,9 @@ sv:
           email_subject: En uppdatering till %{proposal_title}
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i resultat <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
-          email_intro: 'Resultatet "%{resource_title}", som innehåller förslaget "%{proposal_title}", är nu %{progress}% färdigt. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: En uppdatering till %{resource_title} framsteg
+          email_intro: 'Resultatet "%{resource_title}", som omfattar förslaget "%{proposal_title}", är nu %{progress}% färdigt. Du kan se det från den här sidan:'
+          email_outro: Du har fått detta meddelande eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden genom att följa föregående länk.
+          email_subject: En uppdatering till behandlingen av %{resource_title}
           notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som innehåller förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
     metrics:
       results:
