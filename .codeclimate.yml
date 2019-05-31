@@ -75,6 +75,8 @@ plugins:
       - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
       - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js.map
       - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js
+      - decidim-core/app/assets/javascripts/decidim/core/bundle.js.map
+      - decidim-core/app/assets/javascripts/decidim/core/bundle.js
       - .rubocop.yml
 
   grep:

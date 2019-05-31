@@ -1,0 +1,234 @@
+ar:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: الحالة
+        decidim_category_id: الفئة
+        decidim_scope_id: نطاق
+        description: وصف
+        end_date: تاريخ الانتهاء
+        progress: تقدم
+        project_ids: المشاريع المدرجة
+        proposals: وشملت المقترحات
+        start_date: تاريخ البدء
+        title: عنوان
+        updated_at: تم التحديث في
+      status:
+        description: وصف
+        key: مفتاح
+        name: اسم
+        progress: تقدم
+      timeline_entry:
+        description: وصف
+        entry_date: تاريخ
+    models:
+      decidim/accountability/proposal_linked_event: اقتراح المدرجة في النتيجة
+      decidim/accountability/result_progress_updated_event: نتيجة التقدم المحدث
+  activerecord:
+    models:
+      decidim/accountability/result:
+        zero: النتائج
+        one: نتيجة
+        two: النتائج
+        few: النتائج
+        many: النتائج
+        other: النتائج
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
+        destroy: حذف
+        edit: تعديل
+        new: جديد %{name}
+        preview: معاينة
+        timeline_entries: تطور المشروع
+        title: أفعال
+      admin:
+        exports:
+          results: النتائج
+        models:
+          result:
+            name: نتيجة
+          status:
+            name: الحالة
+          timeline_entry:
+            name: دخول الجدول الزمني
+        results:
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذه النتيجة
+            success: تم إنشاء النتيجة بنجاح
+          destroy:
+            success: تم حذف النتيجة بنجاح
+          edit:
+            title: تحرير النتيجة
+            update: تحديث النتيجة
+          form:
+            add_proposal: إضافة اقتراح
+          index:
+            title: النتائج
+          new:
+            create: إنشاء نتيجة
+            title: نتيجة جديدة
+          proposals:
+            close: قريب
+            current_selection: الإختيار الحالي
+            select: تحديد
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذه النتيجة
+            success: تم تحديث النتيجة بنجاح
+        shared:
+          subnav:
+            statuses: الأوضاع
+        statuses:
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذه الحالة
+            success: تم إنشاء الحالة بنجاح
+          destroy:
+            success: تم حذف الحالة بنجاح
+          edit:
+            title: تحرير الحالة
+            update: تحديث الحالة
+          index:
+            title: الأوضاع
+          new:
+            create: إنشاء الحالة
+            title: حالة جديدة
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذه الحالة
+            success: تم تحديث الحالة بنجاح
+        timeline_entries:
+          create:
+            invalid: حدثت مشكلة أثناء إنشاء هذا الإدخال
+            success: تم إنشاء الدخول بنجاح
+          destroy:
+            success: تم حذف الإدخال بنجاح
+          edit:
+            title: تحرير دخول
+            update: تحديث الإدخال
+          index:
+            title: إدخالات الجدول الزمني للمشروع
+          new:
+            create: إنشاء دخول
+            title: دخول جديد
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذا الإدخال
+            success: تم تحديث الإدخال بنجاح
+      admin_log:
+        result:
+          create: "%{user_name} نتيجة تم إنشاؤها %{resource_name} في %{space_name}"
+          delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
+          update: "%{user_name} نتيجة محدثة %{resource_name} في %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (المعرف: %{id})'
+      last_activity:
+        new_result_at_html: "<span>نتيجة جديدة في %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: تاريخ الانتهاء
+            progress: تقدم
+            start_date: تاريخ البدء
+            status: الحالة
+            title: عنوان
+        status:
+          fields:
+            description: وصف
+            key: مفتاح
+            name: اسم
+            progress: تقدم
+        timeline_entry:
+          fields:
+            description: وصف
+            entry_date: تاريخ
+      results:
+        count:
+          results_count:
+            zero: "%{count} النتائج"
+            one: نتيجة واحدة
+            two: "%{count} النتائج"
+            few: "%{count} النتائج"
+            many: "%{count} النتائج"
+            other: "%{count} النتائج"
+        filters:
+          all: الكل
+          scopes: نطاقات
+        home:
+          categories_label: الاقسام
+          subcategories_label: الفئات الفرعية
+        home_header:
+          global_status: حالة التنفيذ العالمي
+        nav_breadcrumb:
+          global: التنفيذ العالمي
+        search:
+          search: البحث عن الإجراءات
+        show:
+          stats:
+            attendees: الحاضرين
+            back_to_result: العودة إلى النتيجة
+            comments: تعليقات
+            contributions: مساهمات
+            last_edited_by: التعديل الأخير تم بواسطة
+            last_updated_at: آخر تحديث في
+            meetings: اجتماعات
+            number_of_versions: إصدارات
+            proposals: اقتراحات
+            show_all_versions: عرض جميع الإصدارات
+            version_author: مؤلف الإصدار
+            version_created_at: تم إنشاء الإصدار في
+            version_number: رقم الإصدار
+            version_number_out_of_total: "%{current_version} من %{total_count}"
+            votes: الدعم
+        timeline:
+          title: تطور المشروع
+      versions:
+        index:
+          changes_at_title: التغييرات في "%{title}"
+          title: إصدارات
+        show:
+          changes_at_title: التغييرات في "%{title}"
+        version:
+          version_index: الإصدار %{index}
+    components:
+      accountability:
+        name: المسائلة
+        settings:
+          global:
+            categories_label: اسم "الفئات"
+            comments_enabled: تم تمكين التعليقات
+            display_progress_enabled: عرض التقدم
+            heading_leaf_level_results: اسم "المشاريع"
+            heading_parent_level_results: اسم "النتائج"
+            intro: مقدمة
+            subcategories_label: اسم "الفئات الفرعية"
+          step:
+            comments_blocked: تم حظر التعليقات
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'تم تضمين الاقتراح "%{proposal_title}" في النتيجة. يمكنك أن ترى ذلك من هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تحديث إلى %{proposal_title}
+          notification_title: تم إدراج الاقتراح <a href="%{proposal_path}">%{proposal_title}</a> في النتيجة <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'النتيجة "%{resource_title}" ، التي تتضمن الاقتراح "%{proposal_title}" ، اكتملت الآن بنسبة %{progress}٪. يمكنك أن ترى ذلك من هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}" ، ويتم تضمين هذا الاقتراح في النتيجة "%{resource_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تحديث إلى %{resource_title} التقدم
+          notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
+    metrics:
+      results:
+        description: عدد النتائج الناتجة
+        object: النتائج
+        title: النتائج
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: النتائج
+    participatory_spaces:
+      highlighted_results:
+        see_all: شاهد الكل (%{count})
+    resource_links:
+      included_projects:
+        result_project: المشاريع المدرجة في هذه النتيجة
+      included_proposals:
+        result_proposal: المقترحات المدرجة في هذه النتيجة

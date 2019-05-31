@@ -1,0 +1,432 @@
+ar:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: إعلان
+        area_id: منطقة
+        banner_image: صورة بانر
+        copy_categories: نسخ الفئات
+        copy_components: نسخ المكونات
+        copy_steps: نسخ الخطوات
+        decidim_area_id: منطقة
+        description: وصف
+        developer_group: مجموعة المروجين
+        domain: نطاق
+        end_date: تاريخ الانتهاء
+        hashtag: رابطة هاشتاق
+        hero_image: الصورة الرئيسية
+        local_area: منطقة التنظيم
+        meta_scope: نطاق البيانات الوصفية
+        participatory_process_group_id: مجموعة العمليات
+        participatory_scope: ما الذي تقرر
+        participatory_structure: كيف تقرر ذلك
+        promoted: رقية
+        published_at: نشرت في
+        scope_id: نطاق
+        scopes_enabled: تم تمكين النطاقات
+        short_description: وصف قصير
+        show_statistics: عرض الإحصائيات
+        slug: سبيكة العنوان الشبكي
+        start_date: تاريخ البدء
+        subtitle: عنوان فرعي
+        target: من يشارك
+        title: عنوان
+      participatory_process_group:
+        description: وصف
+        hero_image: صورة
+        name: اسم
+        participatory_process_ids: العمليات ذات الصلة
+      participatory_process_step:
+        cta_path: دعوة إلى مسار العمل
+        cta_text: دعوة إلى نص العمل
+        description: الوصف
+        end_date: تاريخ الانتهاء
+        short_description: وصف قصير
+        start_date: تاريخ البداية
+        title: العنوان
+      participatory_process_user_role:
+        email: البريد الإلكتروني
+        name: اسم
+        role: وظيفة
+    models:
+      decidim/participatory_process_step_activated_event: تم تنشيط المرحلة
+      decidim/participatory_process_step_changed_event: تغيرت المرحلة
+  activerecord:
+    models:
+      decidim/participatory_process:
+        zero: العمليات التشاركية
+        one: عملية المشاركة
+        two: العمليات التشاركية
+        few: العمليات التشاركية
+        many: العمليات التشاركية
+        other: العمليات التشاركية
+      decidim/participatory_process_group:
+        zero: مجموعات العملية التشاركية
+        one: مجموعة عملية المشاركة
+        two: مجموعات العملية التشاركية
+        few: مجموعات العملية التشاركية
+        many: مجموعات العملية التشاركية
+        other: مجموعات العملية التشاركية
+      decidim/participatory_process_step:
+        zero: المراحل
+        one: مرحلة
+        two: المراحل
+        few: المراحل
+        many: المراحل
+        other: المراحل
+  decidim:
+    admin:
+      actions:
+        activate: تفعيل
+        configure: تهيئة
+        confirm_destroy: تأكيد الحذف
+        destroy: حذف
+        duplicate: مكرر
+        edit: تعديل
+        filter:
+          all: عرض جميع العمليات
+          process_groups: مجموعات العملية
+        new_process: عملية جديدة
+        new_process_group: مجموعة عملية جديدة
+        new_process_step: مرحلة جديدة
+        new_process_user_role: المشرف عملية جديدة
+        preview: معاينة
+        publish: نشر
+        resend_invitation: اعادة ارسال الدعوة
+        unpublish: إلغاء النشر
+      menu:
+        participatory_process_groups: مجموعات العملية
+        participatory_processes: العمليات
+        participatory_processes_submenu:
+          attachment_collections: المجلدات
+          attachment_files: ملفات
+          attachments: مرفقات
+          categories: الاقسام
+          components: المكونات
+          info: معلومات
+          moderations: الإعتدال
+          private_users: المشاركون من القطاع الخاص
+          process_admins: مدراء العملية
+          steps: المراحل
+      models:
+        participatory_process:
+          fields:
+            created_at: أنشئت في
+            private: نشر
+            promoted: سلط الضوء
+            published: نشرت
+            title: عنوان
+          name: عملية المشاركة
+        participatory_process_group:
+          fields:
+            name: اسم
+          name: مجموعة العملية
+        participatory_process_step:
+          fields:
+            end_date: تاريخ الانتهاء
+            start_date: تاريخ البدء
+            title: عنوان
+          name: مرحلة العملية التشاركية
+        participatory_process_user_role:
+          fields:
+            email: البريد الإلكتروني
+            name: اسم
+            role: وظيفة
+          name: مشرف العملية التشاركية
+          roles:
+            admin: مدير
+            collaborator: متعاون
+            moderator: وسيط
+        user:
+          fields:
+            invitation_accepted_at: تم قبول الدعوة في
+            invitation_sent_at: تم إرسال الدعوة في
+      participatory_process_copies:
+        new:
+          copy: نسخ
+          select: حدد البيانات التي ترغب في تكرارها
+          title: عملية تشاركية مكررة
+      participatory_process_groups:
+        destroy:
+          success: تم حذف مجموعة العملية التشاركية بنجاح.
+        edit:
+          title: تحرير مجموعة العملية
+          update: تحديث
+        new:
+          create: إنشاء
+          title: مجموعة عملية جديدة
+        update:
+          error: حدثت مشكلة أثناء تحديث مجموعة العملية التشاركية هذه.
+          success: تم تحديث مجموعة العملية التشاركية بنجاح.
+      participatory_process_publications:
+        create:
+          error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
+          success: تم نشر العملية التشاركية بنجاح.
+        destroy:
+          error: كانت هناك مشكلة في إلغاء نشر هذه العملية التشاركية.
+          success: عملية المشاركة غير منشورة بنجاح.
+      participatory_process_step_activations:
+        create:
+          error: حدثت مشكلة أثناء تنشيط مرحلة العملية التشاركية هذه.
+          success: تم تنشيط مرحلة العملية التشاركية بنجاح.
+      participatory_process_steps:
+        create:
+          error: كانت هناك مشكلة في إنشاء مرحلة عملية تشاركية جديدة.
+          success: تم إنشاء مرحلة العملية التشاركية بنجاح.
+        default_title: المقدمة
+        destroy:
+          error:
+            active_step: لا يمكن حذف المرحلة النشطة.
+            last_step: لا يمكن حذف المرحلة الأخيرة من العملية.
+          success: تم حذف مرحلة العملية التشاركية بنجاح.
+        edit:
+          title: تحرير مرحلة العملية التشاركية
+          update: تحديث
+        index:
+          steps_title: المراحل
+        new:
+          create: إنشاء
+          title: مرحلة عملية تشاركية جديدة
+        ordering:
+          error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
+        update:
+          error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
+          success: تم تحديث المرحلة التشاركية بنجاح.
+      participatory_process_user_roles:
+        create:
+          error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.
+          success: تمت إضافة المشرف بنجاح إلى هذه العملية التشاركية.
+        destroy:
+          success: تمت إزالة المشرف بنجاح من هذه العملية التشاركية.
+        edit:
+          title: تحديث مسؤول عملية المشاركة.
+          update: تحديث
+        index:
+          process_admins_title: مدراء العملية التشاركية
+        new:
+          create: إنشاء
+          title: مشرف عملية تشاركية جديدة.
+        update:
+          error: حدثت مشكلة أثناء تحديث مسؤول لهذه العملية التشاركية.
+          success: تم تحديث المشرف بنجاح لهذه العملية التشاركية.
+      participatory_processes:
+        create:
+          error: كانت هناك مشكلة في إنشاء عملية تشاركية جديدة.
+          success: تم إنشاء عملية المشاركة بنجاح. تكوين الآن مراحلها.
+        edit:
+          update: تحديث
+        index:
+          not_published: غير منشور
+          private: نشر
+          public: عامة
+          published: نشرت
+        new:
+          create: إنشاء
+          title: عملية تشاركية جديدة
+        update:
+          error: حدثت مشكلة أثناء تحديث هذه العملية التشاركية.
+          success: عملية المشاركة تم تحديثها بنجاح.
+      participatory_processes_copies:
+        create:
+          error: كانت هناك مشكلة في تكرار هذه العملية التشاركية.
+          success: عملية المشاركة تتكرر بنجاح.
+      participatory_processes_group:
+        create:
+          error: كانت هناك مشكلة في إنشاء مجموعة عملية تشاركية جديدة.
+          success: تم إنشاء مجموعة عملية المشاركة بنجاح.
+      titles:
+        participatory_process_groups: مجموعات العملية التشاركية
+        participatory_processes: العمليات التشاركية
+      users:
+        resend_invitation:
+          error: حدثت مشكلة أثناء إعادة إرسال الدعوة.
+          success: دعوة تستاء بنجاح.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} خلق عملية المشاركة %{resource_name}"
+        publish: "%{user_name} نشر عملية المشاركة %{resource_name}"
+        unpublish: "%{user_name} لم تنشر العملية التشاركية %{resource_name}"
+        update: "%{user_name} تحديث العملية التشاركية %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} تفعيل المرحلة %{resource_name} في عملية المشاركة %{space_name}"
+        create: "%{user_name} خلق المرحلة %{resource_name} في العملية التشاركية %{space_name}"
+        delete: "%{user_name} حذف المرحلة %{resource_name} في عملية المشاركة %{space_name}"
+        update: "%{user_name} تحديث المرحلة %{resource_name} في عملية المشاركة %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} دعا المشارك %{resource_name} إلى العملية التشاركية %{space_name}"
+        delete: "%{user_name} أزال المشارك %{resource_name} من العملية التشاركية %{space_name}"
+        update: "غير %{user_name} دور المشارك %{resource_name} في العملية التشاركية %{space_name}"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'المرحلة %{resource_title} نشطة الآن لمدة %{participatory_space_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تحديث إلى %{participatory_space_title}
+          notification_title: المرحلة %{resource_title} نشطة الآن لمدة <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'تم تحديث تواريخ المرحلة %{resource_title} في %{participatory_space_title} . يمكنك أن ترى ذلك من هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تحديث إلى %{participatory_space_title}
+          notification_title: تم تحديث تواريخ المرحلة <a href="%{resource_path}">%{resource_title}</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>عملية تشاركية</strong> هي سلسلة من الأنشطة التشاركية (على سبيل المثال ملء أولا مسحا، ثم تقديم مقترحات، مناقشتها في وجها لوجه أو ظاهرية الاجتماعات، وأخيرا إعطاء الأولوية لهم) بهدف تحديد واتخاذ قرار على موضوع محدد.</p> <p>أمثلة على العمليات التشاركية هي: عملية انتخاب أعضاء اللجنة (حيث يتم تقديم الترشيحات لأول مرة ، ثم مناقشتها ، ثم يتم اختيار الترشيح أخيرًا) ، والميزانيات التشاركية (حيث يتم تقديم المقترحات وتقييمها اقتصاديًا والتصويت عليها بالمال المتاح) ، عملية تخطيط استراتيجي أو صياغة تعاونية لقاعدة أو قاعدة أو تصميم فضاء حضري أو إعداد خطة للسياسة العامة.</p>\n"
+          page: "<p>A <strong>عملية تشاركية</strong> هي سلسلة من الأنشطة التشاركية (على سبيل المثال ملء أولا مسحا، ثم تقديم مقترحات، مناقشتها في وجها لوجه أو ظاهرية الاجتماعات، وأخيرا إعطاء الأولوية لهم) بهدف تحديد واتخاذ قرار على موضوع محدد.</p> <p>أمثلة على العمليات التشاركية هي: عملية انتخاب أعضاء اللجنة (حيث يتم تقديم الترشيحات لأول مرة ، ثم مناقشتها ، ثم يتم اختيار الترشيح أخيرًا) ، والميزانيات التشاركية (حيث يتم تقديم المقترحات وتقييمها اقتصاديًا والتصويت عليها بالمال المتاح) ، عملية تخطيط استراتيجي أو صياغة تعاونية لقاعدة أو قاعدة أو تصميم فضاء حضري أو إعداد خطة للسياسة العامة.</p>\n"
+          title: ما هي العملية التشاركية؟
+    menu:
+      processes: العمليات
+    metrics:
+      participatory_processes:
+        description: عدد العمليات التشاركية في هذه المنظمة
+        object: العمليات التشاركية
+        title: العمليات التشاركية
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          zero: "%{count} عمليات ل %{group}"
+          one: 1 عملية ل %{group}
+          two: "%{count} عمليات ل %{group}"
+          few: "%{count} عمليات ل %{group}"
+          many: "%{count} عمليات ل %{group}"
+          other: "%{count} عمليات ل %{group}"
+        title: مجموعات العملية التشاركية
+    participatory_process_steps:
+      index:
+        process_steps: مراحل العملية
+        title: مراحل العملية التشاركية
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: أقصى قدر من العناصر لإظهارها
+        participatory_process_copies:
+          form:
+            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'
+            cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
+        participatory_processes:
+          form:
+            announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
+            duration: المدة الزمنية
+            filters: مرشحات
+            images: صور
+            metadata: البيانات الوصفية
+            other: آخر
+            select_an_area: اختر منطقة
+            select_process_group: حدد مجموعة عملية
+            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+            title: معلومات عامة
+            visbility: رؤية
+      content_blocks:
+        highlighted_processes:
+          name: عمليات مميزة
+      index:
+        title: العمليات التشاركية
+      last_activity:
+        new_participatory_process: عملية تشاركية جديدة
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: عمليات نشطة
+            active_step: المرحلة النشطة
+            more_information: معلومات اكثر
+            participate: مشاركة
+            see_all_processes: رؤية جميع العمليات
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              zero: "%{count} عمليات نشطة"
+              one: 1 عملية نشطة
+              two: "%{count} عمليات نشطة"
+              few: "%{count} عمليات نشطة"
+              many: "%{count} عمليات نشطة"
+              other: "%{count} عمليات نشطة"
+            all:
+              zero: "%{count} عمليات"
+              one: 1 عملية
+              two: "%{count} عمليات"
+              few: "%{count} عمليات"
+              many: "%{count} عمليات"
+              other: "%{count} عمليات"
+            past:
+              zero: "%{count} العمليات الماضية"
+              one: 1 عملية الماضي
+              two: "%{count} العمليات الماضية"
+              few: "%{count} العمليات الماضية"
+              many: "%{count} العمليات الماضية"
+              other: "%{count} العمليات الماضية"
+            upcoming:
+              zero: "%{count} العمليات القادمة"
+              one: 1 العملية القادمة
+              two: "%{count} العمليات القادمة"
+              few: "%{count} العمليات القادمة"
+              many: "%{count} العمليات القادمة"
+              other: "%{count} العمليات القادمة"
+          explanations:
+            no_active: لا توجد عمليات نشطة
+            no_active_nor_upcoming: لا توجد عمليات نشطة ولا قادمة
+            no_active_nor_upcoming_callout: لا توجد عمليات نشطة ولا قادمة. وهنا لائحة من الماضي.
+          names:
+            active: نشيط
+            all: الكل
+            past: الماضي
+            upcoming: القادمة
+          see: نرى
+        index:
+          loading: جارٍ تحميل النتائج ...
+      show:
+        area: منطقة
+        developer_group: مجموعة المروجين
+        end_date: تاريخ الانتهاء
+        local_area: منطقة التنظيم
+        participatory_scope: ما الذي تقرر
+        participatory_structure: كيف تقرر ذلك
+        private_space: هذه عملية خاصة
+        scope: نطاق
+        start_date: تاريخ البدء
+        target: من يشارك
+        unspecified: غير محدد
+      statistics:
+        answers_count: الأجوبة
+        comments_count: تعليقات
+        debates_count: المناقشات
+        endorsements_count: موافقات
+        headline: نشاط
+        meetings_count: اجتماعات
+        orders_count: الدعم
+        pages_count: صفحات
+        processes_count: العمليات
+        projects_count: مشاريع
+        proposals_count: اقتراحات
+        results_count: النتائج
+        surveys_count: الدراسات الاستقصائية
+        users_count: المشاركين
+        votes_count: الدعم
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: تصفح
+          processes_count: 'العمليات:'
+      participatory_process_widgets:
+        show:
+          active_step: المرحلة النشطة
+          take_part: خذ جزء
+      participatory_processes:
+        index:
+          promoted_processes: عمليات مميزة
+        participatory_process:
+          active_step: 'المرحلة الحالية:'
+          more_info: مزيد من المعلومات
+          take_part: خذ جزء
+        promoted_process:
+          active_step: 'المرحلة الحالية:'
+          more_info: مزيد من المعلومات
+          take_part: خذ جزء
+      process_header_steps:
+        step: المرحلة %{current} من %{total}
+        view_steps: عرض المراحل

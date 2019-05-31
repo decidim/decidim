@@ -1,0 +1,175 @@
+ar:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: معلومات التصنيف
+        decidim_category_id: فئات مجموعة المقترحات التي تريد تطبيق السحب عليها
+        decidim_proposals_component_id: مجموعة المقترحات
+        dice: نتيجة يموت لفة. قم بلف قالب من 6 جوانب ، أو ابحث عن طريقة عشوائية أخرى لإنشاء رقم من 1 إلى 6 ، وأدخل هنا الرقم الناتج أمام بعض الشهود. هذا يساهم في جودة وضمانات عشوائية النتيجة
+        target_items: عدد المقترحات التي سيتم اختيارها (يشير إلى عدد المقترحات التي تريد تحديدها عن طريق رسم الكثير من مجموعة المقترحات التي اخترتها سابقًا)
+        title: عنوان
+        witnesses: شهود عيان
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        zero: Sortitions
+        one: Sortition
+        two: Sortitions
+        few: Sortitions
+        many: Sortitions
+        other: Sortitions
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: تم تمكين التعليقات
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: تمت إضافة التصنيف "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: تمت إضافة تصنيف جديد إلى %{participatory_space_title}
+          notification_title: تمت إضافة التصنيف <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: إلغاء الفرز
+          edit: تعديل
+          new: فرز جديد
+          show: تفاصيل الفرز
+        models:
+          sortition:
+            fields:
+              category: الفئة
+              created_at: تاريخ الإنشاء
+              decidim_proposals_component: مكون الاقتراحات
+              dice: حجر النرد
+              reference: مرجع
+              request_timestamp: رسم الوقت
+              seed: بذرة
+              target_items: عناصر للاختيار
+              title: عنوان
+            name:
+              zero: Sortitions
+              one: Sortition
+              two: Sortitions
+              few: Sortitions
+              many: Sortitions
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: هل أنت متأكد أنك تريد إلغاء هذا التصنيف؟
+            destroy: إلغاء التصنيف
+            title: إلغاء التصنيف
+          create:
+            error: كانت هناك مشكلة في إنشاء فرز جديد.
+            success: تم إنشاء التصنيف بنجاح
+          destroy:
+            error: لا يمكن إلغاء التصنيف.
+            success: تم الغاء التصنيف بنجاح
+          edit:
+            title: تحديث المعلومات حول الفرز
+            update: تحديث
+          form:
+            all_categories: جميع الفئات
+            select_proposal_component: حدد مجموعة المقترحات
+            title: ترتيب جديد للمقترحات
+          index:
+            title: Sortitions
+          new:
+            confirm: بالضغط على الزر التالي ، سوف يسجل Decidim التاريخ والوقت (بدقة من الثواني) وجنبا إلى جنب مع لفة النرد ، سيتم استخدام هذه المعلومات لإنشاء اختيار عشوائي. لن يكون الإجراء قابلاً للرجوع إليه ، بمجرد النقر فوق الزر سيتم نشر نتيجة هذا السحب مع البيانات التي تم إدخالها في هذا النموذج ولا يمكن تعديلها ، يرجى التحقق من المحتوى بعناية
+            create: إنشاء
+            title: فرز جديد
+          show:
+            selected_proposals: مقترحات مختارة للقرعة
+          update:
+            error: حدثت مشكلة أثناء تحديث التصنيف.
+            success: تم تحديث التصنيف بنجاح
+      admin_log:
+        sortition:
+          create: "%{user_name} خلق %{resource_name} التصنيف في %{space_name}"
+          delete: "%{user_name} ألغى التصنيف %{resource_name} في %{space_name}"
+          update: "%{user_name} تحديث %{resource_name} التصنيف في %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            zero: "%{count} مقترحات"
+            one: اقتراح واحد
+            two: "%{count} مقترحات"
+            few: "%{count} مقترحات"
+            many: "%{count} مقترحات"
+            other: "%{count} مقترحات"
+        filters:
+          active: نشيط
+          all: الكل
+          cancelled: ألغيت
+          category: الفئة
+          category_prompt: اختر تصنيف
+          search: بحث
+          state: الحالة
+        filters_small_view:
+          close_modal: إغلاق مشروط
+          filter: منقي
+          filter_by: مصنف بواسطة
+          unfold: كشف
+        linked_sortitions:
+          selected_proposals: مقترحات مختارة
+        orders:
+          label: 'ترتيب الفرز حسب:'
+          random: عشوائية
+          recent: الأخيرة
+        results_count:
+          count:
+            zero: مقترحات مختارة
+            one: الاقتراح المحدد
+            two: مقترحات مختارة
+            few: مقترحات مختارة
+            many: مقترحات مختارة
+            other: مقترحات مختارة
+        show:
+          algorithm: رمز خوارزمية التصنيف
+          any_category: من جميع الفئات
+          cancelled: فرز الملغاة
+          candidate_proposal_ids: ترتيب المقترحات الترتيب ومعرفات
+          candidate_proposals_info: 'تم تنفيذ التصنيف بين المقترحات التالية (%{category_label}) ، مع المعرفات التالية (بالخط العريض للمقترحات المختارة)  '
+          category: من %{category} الفئة
+          dice_result: "(1) نتيجة النرد"
+          introduction: 'تحتوي هذه الصفحة على نتائج الفرز %{reference}. من خلال هذا sortition، %{target_items} تم اختيارها عشوائيا عدد من النتائج ومع التوزيع الاحتمالي على قدم المساواة من مجموعة من المقترحات المعروضة رفع الصوت عاليا. جنبًا إلى جنب مع النتائج ، توفر المعلومات المعروضة على هذه الصفحة جميع المعلومات المطلوبة لزيادة الضمانات وإعادة إنتاج النتائج. المفتاح لجودة هذا الفرز هو العشوائية المزدوجة التي يوفرها المتداول من الزهر (التحقق من قبل الشهود) والوقت الدقيق للترتيب الذي يوفر مدخلات لخوارزمية يولد اختيار عشوائي. إن البذر الزمني للفرز دقيق للغاية (بالثواني) بحيث يستحيل على البشر التحكم فيه ، مما يوفر مدخلات مزدوجة "لا يمكن السيطرة عليها" لضمان نتيجة عادلة.  '
+          mathematical_result: النتيجة (1) × (2)
+          proposals_selected_by_sortition: مقترحات مختارة من قبل الفرز
+          sortition_reproducibility_details: تفاصيل استنساخ الفرز
+          time_seed: "(2) الوقت البذور"
+          witnesses: شهود عيان
+        sortition:
+          random_seed: البذور عشوائي
+          selected_proposals:
+            zero: مقترحات مختارة
+            one: تم اختيار الاقتراح
+            two: مقترحات مختارة
+            few: مقترحات مختارة
+            many: مقترحات مختارة
+            other: مقترحات مختارة
+          view: رأي
+        sortition_author:
+          deleted: مشارك محذوف
+        sortition_cancel_author:
+          deleted: مشارك محذوف
+        sortitions_count:
+          count:
+            zero: "%{count} التصنيف"
+            one: 1 التصنيف
+            two: "%{count} التصنيف"
+            few: "%{count} التصنيف"
+            many: "%{count} التصنيف"
+            other: "%{count} التصنيف"

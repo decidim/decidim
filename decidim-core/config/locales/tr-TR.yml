@@ -325,6 +325,7 @@ tr:
           newsletter: İlgili bilgiler içeren bir ara bülteni alın
           newsletter_title: İletişim izni
           nickname_help: İçinde kısa, benzersiz tanıtıcı %{organization}
+          password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
           sign_up: kaydol
           sign_up_as:
@@ -1098,6 +1099,7 @@ tr:
         change_your_password: Şifreni değiştir
         confirm_new_password: Yeni şifreyi onayla
         new_password: Yeni Şifre
+        password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
       new:
         forgot_your_password: Parolanızı mı unuttunuz?
         send_me_reset_password_instructions: Bana şifre sıfırlama talimatlarını gönder
@@ -1261,6 +1263,14 @@ tr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Silme
+      right: Ekleme
+    dropdown:
+      choose_diff_view_mode: 'Görütüleme modlarını kıyasla:'
+      option_split: Yan yana
+      option_unified: Birleşik
   views:
     pagination:
       first: "&laquo; İlk"

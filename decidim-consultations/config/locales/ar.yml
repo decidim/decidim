@@ -1,0 +1,338 @@
+ar:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: صورة بانر
+        decidim_highlighted_scope_id: نطاق الضوء
+        description: وصف
+        end_voting_date: ينتهي التصويت
+        introductory_image: صورة تمهيدية
+        introductory_video_url: عنوان URL للفيديو التمهيدي
+        questions: الأسئلة
+        slug: سبيكة العنوان الشبكي
+        start_voting_date: يبدأ التصويت
+        subtitle: عنوان فرعي
+        title: عنوان
+      question:
+        banner_image: صورة بانر
+        decidim_scope_id: منطقة البلدية
+        hashtag: رابطة هاشتاق
+        hero_image: الصورة الرئيسية
+        i_frame_url: عنوان URL لنظام التصويت الخارجي
+        origin_scope: نطاق
+        origin_title: الأصل
+        origin_url: العنوان الشبكي الأصلي
+        participatory_scope: نطاق المشاركة
+        promoter_group: مجموعة المروجين
+        question_context: سياق الكلام
+        reference: مرجع
+        scope: منطقة البلدية
+        slug: سبيكة العنوان الشبكي
+        subtitle: عنوان فرعي
+        title: عنوان
+        vote: نظام التصويت الخارجي
+        what_is_decided: ما الذي تقرر
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: الرد غير موجود.
+  activerecord:
+    models:
+      decidim/consultation:
+        zero: المشاورات
+        one: تشاور
+        two: المشاورات
+        few: المشاورات
+        many: المشاورات
+        other: المشاورات
+      decidim/consultations/question:
+        zero: الأسئلة
+        one: سؤال
+        two: الأسئلة
+        few: الأسئلة
+        many: الأسئلة
+        other: الأسئلة
+      decidim/consultations/response:
+        zero: استجابات
+        one: استجابة
+        two: استجابات
+        few: استجابات
+        many: استجابات
+        other: استجابات
+      decidim/consultations/vote:
+        zero: الأصوات
+        one: تصويت
+        two: الأصوات
+        few: الأصوات
+        many: الأصوات
+        other: الأصوات
+  decidim:
+    admin:
+      actions:
+        new_consultation: استشارة جديدة
+        new_question: سؤال جديد
+        new_response: استجابة جديدة
+        publish_results: نشر النتائج
+        unpublish_results: نتائج غير منشورة
+      consultation_publications:
+        create:
+          error: كانت هناك مشكلة في نشر هذه المشاورة.
+          success: التشاور نشر بنجاح.
+        destroy:
+          error: كانت هناك مشكلة في إلغاء نشر هذه المشاورة.
+          success: التشاور غير منشورة بنجاح.
+      consultation_results_publications:
+        create:
+          error: كانت هناك مشكلة في نشر نتائج هذه المشاورة.
+          success: تم نشر نتائج الاستشارة بنجاح.
+        destroy:
+          error: كانت هناك مشكلة في إلغاء نشر نتائج هذه المشاورة.
+          success: نتائج التشاور غير منشورة بنجاح.
+      consultations:
+        create:
+          error: كانت هناك مشكلة في إنشاء استشارة جديدة.
+          success: تم إنشاء التشاور بنجاح.
+        edit:
+          update: تحديث
+        form:
+          slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التشاور. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+          title: معلومات عامة
+        index:
+          not_published: غير منشور
+          published: نشرت
+        new:
+          create: إنشاء
+          title: استشارة جديدة
+        update:
+          error: كانت هناك مشكلة في تحديث هذه المشاورة.
+          success: تم تحديث المشاورة بنجاح.
+      menu:
+        consultations: المشاورات
+        consultations_submenu:
+          info: معلومات
+          questions: الأسئلة
+        questions_submenu:
+          components: المكونات
+          consultation: تشاور
+          info: معلومات
+          responses: استجابات
+      models:
+        consultation:
+          fields:
+            created_at: أنشئت في
+            published: نشرت
+            title: عنوان
+          name:
+            zero: المشاورات
+            one: تشاور
+            two: المشاورات
+            few: المشاورات
+            many: المشاورات
+            other: المشاورات
+        question:
+          fields:
+            created_at: أنشئت في
+            published: نشرت
+            title: عنوان
+          name:
+            zero: الأسئلة
+            one: سؤال
+            two: الأسئلة
+            few: الأسئلة
+            many: الأسئلة
+            other: الأسئلة
+        response:
+          fields:
+            created_at: أنشئت في
+            title: عنوان
+          name:
+            zero: استجابات
+            one: استجابة
+            two: استجابات
+            few: استجابات
+            many: استجابات
+            other: استجابات
+      question_publications:
+        create:
+          error: حدثت مشكلة في نشر هذا السؤال.
+          success: تم نشر السؤال بنجاح.
+        destroy:
+          error: كانت هناك مشكلة في إلغاء نشر هذا السؤال.
+          success: السؤال غير منشور بنجاح.
+      questions:
+        create:
+          error: كانت هناك مشكلة في إنشاء سؤال جديد.
+          success: تم إنشاء السؤال بنجاح.
+        destroy:
+          success: تم حذف السؤال بنجاح.
+        edit:
+          update: تحديث
+        form:
+          title: معلومات عامة
+        index:
+          not_published: غير منشور
+          published: نشرت
+        new:
+          create: إنشاء
+          title: سؤال جديد
+        update:
+          error: حدثت مشكلة أثناء تحديث هذا السؤال.
+          success: تم تحديث السؤال بنجاح.
+      responses:
+        create:
+          error: كانت هناك مشكلة في إنشاء استجابة جديدة.
+          success: تم إنشاء الاستجابة بنجاح.
+        destroy:
+          error: حدثت مشكلة أثناء إزالة الاستجابة.
+          success: تم حذف الرد بنجاح.
+        edit:
+          update: تحديث
+        form:
+          title: معلومات عامة
+        new:
+          create: إنشاء
+          title: استجابة جديدة
+        update:
+          error: حدثت مشكلة أثناء تحديث هذه الاستجابة.
+          success: تم تحديث الاستجابة بنجاح.
+      titles:
+        consultations: المشاورات
+        questions: الأسئلة
+        responses: استجابات
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: أقصى قدر من العناصر لإظهارها
+      consultation:
+        start_voting_date: يبدأ التصويت
+        view_results: عرض النتائج
+      consultation_card:
+        view_results: عرض النتائج
+      consultations:
+        orders:
+          label: 'ترتيب المشاورات حسب:'
+          random: عشوائية
+          recent: الأحدث
+      content_blocks:
+        highlighted_consultations:
+          name: مشاورات أبرزت
+      count:
+        title:
+          zero: "%{count} مشاورات"
+          one: "%{count} التشاور"
+          two: "%{count} مشاورات"
+          few: "%{count} مشاورات"
+          many: "%{count} مشاورات"
+          other: "%{count} مشاورات"
+      filters:
+        active: نشيط
+        all: الكل
+        finished: تم الانتهاء من
+        search: بحث
+        state: الحالة
+        upcoming: القادمة
+      filters_small_view:
+        close_modal: أغلق النافذة
+        filter: منقي
+        filter_by: مصنف بواسطة
+        unfold: كشف
+      highlighted_questions:
+        title: أسئلة من %{scope_name}
+      index:
+        title: المشاورات
+      last_activity:
+        new_consultation: استشارة جديدة
+        new_question_at_html: "<span>سؤال جديد في %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: مشاورات نشطة
+            see_all_consultations: انظر جميع المشاورات
+            voting_ends_in:
+              zero: ينتهي التصويت في <strong>%{count} يوم</strong>
+              one: ينتهي التصويت <strong>غدا</strong>
+              two: ينتهي التصويت في <strong>%{count} يوم</strong>
+              few: ينتهي التصويت في <strong>%{count} يوم</strong>
+              many: ينتهي التصويت في <strong>%{count} يوم</strong>
+              other: ينتهي التصويت في <strong>%{count} يوم</strong>
+            voting_ends_today: ينتهي التصويت <strong>اليوم</strong>
+      question:
+        take_part: خذ جزء
+        view_results: عرض النتائج
+        votes_out_of:
+          zero: يصوت من
+          one: التصويت خارج
+          two: يصوت من
+          few: يصوت من
+          many: يصوت من
+          other: يصوت من
+      question_votes:
+        create:
+          error: كانت هناك مشكلة في التصويت على السؤال
+      regular_questions:
+        title: أسئلة لهذا التشاور
+      show:
+        badge_name:
+          finished: تم الانتهاء من
+          open: افتح
+          open_votes: فتح الأصوات
+          published_results: النتائج المنشورة
+        footer_button_text:
+          debate: النقاش
+          view: رأي
+          view_results: عرض النتائج
+          vote: تصويت
+        unspecified: غير محدد
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>المشاورات</strong> هي مساحة تسمح لك بطرح سؤال واضح على جميع الأشخاص الذين يشكلون منظمة ، وتجري دعوة للمشاركة في المشاورة ، وإثارة النقاش وتأمره بالرد أو ضده. عندما يصل تاريخ الاستشارة ، يمكنك التصويت ونشر نتائج التصويت.</p> <p>أمثلة: يمكن أن تدور المشاورات حول أي جانب من الجوانب التي تؤثر على المنظمة تقريبًا: بعض الأمثلة تغير اسم أو شعار المنظمة التي تقدم عدة بدائل ، وتقرر نعم أو لا لتصبح جزءًا من منظمة أكبر ، أو تصادق على استراتيجية جديدة تخطيط أو نتيجة لمجموعة عمل ، أو تحديد ما إذا كان يجب أن تظل المناصب بحد أقصى 1 أو 2 أو 3 ولايات.</p>\n"
+          page: "<p><strong>المشاورات</strong> هي مساحة تسمح لك بطرح سؤال واضح على جميع الأشخاص الذين يشكلون منظمة ، وتجري دعوة للمشاركة في المشاورة ، وإثارة النقاش وتأمره بالرد أو ضده. عندما يصل تاريخ الاستشارة ، يمكنك التصويت ونشر نتائج التصويت.</p> <p>أمثلة: يمكن أن تدور المشاورات حول أي جانب من الجوانب التي تؤثر على المنظمة تقريبًا: بعض الأمثلة تغير اسم أو شعار المنظمة التي تقدم عدة بدائل ، وتقرر نعم أو لا لتصبح جزءًا من منظمة أكبر ، أو تصادق على استراتيجية جديدة أو ترفضها. تخطيط أو نتيجة لمجموعة عمل ، أو تحديد ما إذا كان ينبغي أن تظل المناصب بحد أقصى 1 أو 2 أو 3 ولايات في المنظمة.</p>\n"
+          title: ما هي المشاورات؟
+    menu:
+      consultations: المشاورات
+    pages:
+      home:
+        statistics:
+          consultations_count: المشاورات
+    questions:
+      next_button: السؤال التالي
+      previous_button: السؤال السابق
+      results:
+        title: النتائج
+      show:
+        read_more: قراءة المزيد
+      statistics:
+        assistants_count_title: مساعدين
+        comments_count_title: تعليقات
+        meetings_count_title: اجتماعات
+        supports_count_title: الأصوات
+      technical_info:
+        technical_data: معلومات تقنية
+      vote_button:
+        already_voted: صوت بالفعل
+        already_voted_hover: إلغاء التصويت
+        starting_from: بدءا من %{date}
+        vote: تصويت
+      vote_modal:
+        contextual_help: من فضلك ، حدد خيار.
+        title: 'التشاور: التصويت السؤال'
+      vote_modal_confirm:
+        change: يتغيرون
+        confirm: تؤكد
+        contextual_help: يرجى تأكيد الخيار المحدد.
+        title: 'التشاور: تأكيد التصويت'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: مرفقات
+          categories: الاقسام
+      consultation_voting_data:
+        start_voting_date: يبدأ التصويت
+      question_components:
+        question_menu_item: السؤال
+        unfold: كشف
+      question_header:
+        back_to_consultation: انظر جميع المشاورات

@@ -286,6 +286,7 @@ ca:
               other: Hi ha hagut %{count} inscripcions.
             reserved_slots_help: Deixar a 0 si no hi ha espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
+            title: Inscripcions
           update:
             invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.

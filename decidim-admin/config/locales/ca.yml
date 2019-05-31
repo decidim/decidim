@@ -46,6 +46,7 @@ ca:
         enable_omnipresent_banner: Mostrar banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
+        from: De la direcció de correu electrònic
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
@@ -64,6 +65,8 @@ ca:
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        password: Contrasenya
+        port: Port
         primary_color: Primària
         reference_prefix: Prefix de referència
         secondary_color: Secundari
@@ -72,6 +75,7 @@ ca:
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
         user_groups_enabled: Habilitar grups
+        user_name: Àlies
         warning_color: Avís
         youtube_handler: Nom d'usuari de YouTube
       scope:
@@ -371,6 +375,7 @@ ca:
             created_at: Data de creació
             progress: Progrés
             sent_at: Enviat el
+            sent_to: Enviat a
             subject: Assumpte
           name: Butlletí
         oauth_application:
@@ -436,22 +441,42 @@ ca:
         form:
           interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
+          all: totes
+          all_users: 'Totes les participants '
+          and: 'i '
           confirm_delete: Segur que vols suprimir aquest butlletí?
+          followers: 'seguidores '
+          has_been_sent_to: 'Ha estat enviat a: '
+          no_scopes: Sense àmbits
+          not_sent: No enviat
+          participants: 'participants '
+          segmented_to: 'Segmentat a %{subject}: '
           title: Butlletins
         new:
           save: Desar
           title: Nou butlletí
         select_recipients_to_deliver:
+          all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
           scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
           select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
+          select_spaces: Selecciona espais per segmentar el butlletí
+          select_users: Selecciona a quines participants vols enviar el butlletí de notícies
+          send_to_all_users: Envia a totes les participants
+          send_to_followers: Envia a totes les seguidores
+          send_to_participants: Envia a totes les participants
+          title: Selecciona les destinatàries a lliurar
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
+        send:
+          no_recipients: No hi ha destinatàries per a aquesta selecció
         show:
           preview: Previsualitzar
+          select_recipients_to_deliver: Selecciona les destinatàries a lliurar
           subject: Assumpte
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
@@ -614,6 +639,7 @@ ca:
           update: Actualitzar
         form:
           none: Cap
+          slug_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
         index:
           last_notable_change: Últims canvis notables
         new:
