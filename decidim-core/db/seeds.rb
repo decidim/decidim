@@ -16,6 +16,8 @@ if !Rails.env.production? || ENV["SEED"]
     table.tr("_", "/").classify.safe_constantize
   end.compact.each(&:reset_column_information)
 
+  smtp_email = Faker::Internet.email
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -23,6 +25,15 @@ if !Rails.env.production? || ENV["SEED"]
     instagram_handler: Faker::Hipster.word,
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
+    smtp_settings: {
+      from: "#{smtp_email} <#{smtp_email}>",
+      from_email: smtp_email,
+      from_label: smtp_email,
+      user_name: Faker::Twitter.unique.screen_name,
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
+      address: ENV["DECIDIM_HOST"] || "localhost",
+      port: ENV["DECIDIM_SMTP_PORT"] || "25"
+    },
     host: ENV["DECIDIM_HOST"] || "localhost",
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)

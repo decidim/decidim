@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -61,7 +62,7 @@ fr:
         position: Rôle
       assembly_user_role:
         email: email
-        name: Nom 
+        name: Nom
         role: Fonction
   activerecord:
     models:
@@ -263,9 +264,8 @@ fr:
         consultative_advisory: Consultatif/Consultatif
         executive: Exécutif
         government: Gouvernement
-        help: 'Afficher :'
+        help: 'Montrer :'
         label: 'Afficher :'
-        help: "Montrer :"
         others: Autres
         participatory: Participatif
         placeholder: Filtrer par type

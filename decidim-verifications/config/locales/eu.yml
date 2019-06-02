@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -36,16 +37,16 @@ eu:
       admin:
         id_documents:
           help:
-            - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
-            - Kargatutako irudian dagoen informazio hau bete behar duzu.
-            - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
-            - Informazio hori argi eta garbi ikusi ez baduzu edo egiaztatu ezin baduzu, eskaera ukatu egin dezakezu eta erabiltzaileak konpondu ahal izango du.
+          - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
+          - Kargatutako irudian dagoen informazio hau bete behar duzu.
+          - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
+          - Informazio hori argi eta garbi ikusi ez baduzu edo egiaztatu ezin baduzu, eskaera ukatu egin dezakezu eta erabiltzaileak konpondu ahal izango du.
         postal_letter:
           help:
-            - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
-            - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
-            - Bidalitako mezua markatzen du.
-            - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
+          - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
+          - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
+          - Bidalitako mezua markatzen du.
+          - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
       direct: Zuzeneko
       help: Laguntza
       id_documents:
@@ -116,7 +117,7 @@ eu:
               success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
-            choose_a_type: "Hautatu nola egiaztatu nahi duzun:"
+            choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
             title: Egiaztatu zure identifikazio dokumentua

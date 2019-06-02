@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -36,16 +37,16 @@ ca:
       admin:
         id_documents:
           help:
-            - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
-            - Emplenes la informació que es mostra a la imatge penjada.
-            - La informació ha de coincidir amb el que hagi omplert l'usuari.
-            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
+          - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
+          - Emplenes la informació que es mostra a la imatge penjada.
+          - La informació ha de coincidir amb el que hagi omplert l'usuari.
+          - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-            - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-            - Envies la carta a la seva adreça amb el codi de verificació.
-            - Marques la carta com a enviada.
-            - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
+          - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+          - Envies la carta a la seva adreça amb el codi de verificació.
+          - Marques la carta com a enviada.
+          - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
       direct: Directe
       help: Ajuda
       id_documents:
@@ -116,7 +117,7 @@ ca:
               success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
         authorizations:
           choose:
-            choose_a_type: "Si us plau selecciona com et vols verificar:"
+            choose_a_type: 'Si us plau selecciona com et vols verificar:'
             offline: Presencial
             online: Online
             title: Verifica't utilitzant el teu document d'identitat

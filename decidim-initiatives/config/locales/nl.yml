@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -84,17 +85,21 @@ nl:
             email_outro: U hebt deze melding ontvangen omdat u de auteur bent van het initiatief %{resource_title}.
             email_subject: Nieuwe mijlpaal voltooid!
             notification_title: Uw <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen bereikt.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
             email_outro: U hebt deze melding ontvangen omdat u %{resource_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
             email_subject: Nieuwe mijlpaal voltooid!
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ga naar de participatieruimte van Intiatives
-            - Volg de stappen om een ​​nieuw initiatief te maken
+          - Ga naar de participatieruimte van Intiatives
+          - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           description_own: Je hebt %{score} initiatieven gepubliceerd.

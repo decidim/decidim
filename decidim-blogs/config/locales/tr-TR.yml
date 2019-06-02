@@ -1,79 +1,80 @@
-tr:
+---
+tr-TR:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Yeni blog yazısı
+      decidim/blogs/create_post_event: New blog post
   activerecord:
     models:
       decidim/blogs/post:
-        one: posta
-        other: Mesajlar
+        one: Post
+        other: Posts
   decidim:
     blogs:
       actions:
-        confirm_destroy: Bu yayını silmek istediğinize emin misiniz?
-        destroy: silmek
-        edit: Düzenle
-        new: Yeni posta
-        title: Eylemler
+        confirm_destroy: Are you sure you want to delete this post?
+        destroy: Delete
+        edit: Edit
+        new: New post
+        title: Actions
       admin:
         models:
           components:
-            body: Vücut
+            body: Body
           post:
-            name: posta
+            name: Post
         posts:
           create:
-            invalid: "Bu yayın oluştururken bir sorun oluştu\n \n"
-            success: Yayın başarıyla oluşturuldu
+            invalid: There's been a problem creating this post
+            success: Post successfully created
           destroy:
-            success: Yayın başarıyla silindi
+            success: Post successfully deleted
           edit:
-            save: Güncelleştirme
+            save: Update
           index:
-            title: Mesajlar
+            title: Posts
           new:
-            create: yaratmak
-            title: Gönderi oluştur
+            create: Create
+            title: Create post
           update:
-            invalid: Gönderi kaydedilirken hatalar oluştu.
-            success: Gönderi başarıyla kaydedildi
+            invalid: There's been errors when saving the post.
+            success: Post saved successfully
       last_activity:
-        new_post_at_html: "<span> %{link}</span>yeni gönderi"
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:
-            author: Yazar
-            body: Vücut
-            created_at: Adresinde düzenlendi
-            title: Başlık
+            author: Author
+            body: Body
+            created_at: Created at
+            title: title
       posts:
         show:
-          view: Görünüm
+          view: View
         sidebar_blog:
-          comments: yorumlar
-          most_commented_posts: En çok yorum yapılan yazılar
-      read_more: Daha fazla oku
+          comments: comments
+          most_commented_posts: Most commented posts
+      read_more: Read more
     components:
       blogs:
         name: Blog
         settings:
           global:
-            announcement: duyuru
-            comments_enabled: Yorumlar etkin
+            announcement: Announcement
+            comments_enabled: Comments enabled
           step:
-            announcement: duyuru
-            comments_blocked: Yorumlar engellendi
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       blogs:
         post_created:
-          email_intro: '"%{resource_title}" yazısı, takip ettiğiniz "%{participatory_space_title}" harfinde yayınlandı.'
-          email_outro: Bu bildirimi aldınız çünkü "%{participatory_space_title}" u takip ediyorsun. Bunu önceki linkten takip edebilirsiniz.
-          email_subject: '%{participatory_space_title}yayınlanan yeni gönderi'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> sonrası %{participatory_space_title}olarak yayınlandı.
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New post published in %{participatory_space_title}
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Mesajlar
+          posts_count: Posts
     participatory_processes:
       statistics:
-        posts_count: Mesajlar
+        posts_count: Posts

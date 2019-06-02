@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -15,6 +16,10 @@ hu:
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
       decidim/demoted_membership: Már nem egy csoport admin
@@ -45,8 +50,8 @@ hu:
         one: Felhasználói csoport
         other: Felhasználói csoportok
   booleans:
-    'false': 'Nem'
-    'true': 'Igen'
+    'false': Nem
+    'true': Igen
   carrierwave:
     errors:
       image_too_big: A kép mérete túl nagy
@@ -136,12 +141,12 @@ hu:
       amendable:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
-        promote_button: Kezdeményezze a %{model_name}
         error: Hiba történt az erőforrás módosításakor.
         help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
-        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         no_amenders: Nincsenek módosítások
         no_amendments: Nincsenek módosítások
+        promote_button: Kezdeményezze a %{model_name}
+        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
       created:
         error: Hiba történt a módosítás létrehozásával, próbálkozzon később
@@ -170,12 +175,12 @@ hu:
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
         send: Módosító javaslat elküldése
+      promoted:
+        error: Az emelés előmozdításakor hiba történt
+        success: Az emelés sikeresen előmozdult
       rejected:
         error: Az emelés elutasításakor hiba történt, próbálkozzon később
         success: Az emelést sikeresen elutasították
-      promoted:
-        success: Az emelés sikeresen előmozdult
-        error: Az emelés előmozdításakor hiba történt
       review:
         back: Vissza
         heading: Tekintse át a módosítást
@@ -245,7 +250,7 @@ hu:
           title: Engedélyezés folyamatban
         unauthorized:
           explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
+          invalid_field: A(z) %{field} %{value} érték nem érvényes.
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
@@ -383,39 +388,6 @@ hu:
         title: A keresett oldal nem található
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést kaptad, mert szerzője vagy ennek %{amendable_title}.
-            email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elutasították.
-          follower:
-            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elutasították.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'A %{amendable_title} elutasított módosítást önálló %{amendable_type}emelték. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: A %{emendation_author_nickname} ból származó módosítást támogatták
-            notification_title: A <a href="%{emendation_path}"></a> elutasított </a> módosítást a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} re vonatkozóan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>kal támogatták.
-          follower:
-            email_intro: 'A %{amendable_title} elutasított módosítást önálló %{amendable_type}emelték. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: A %{emendation_author_nickname} ból származó módosítást támogatták
-            notification_title: A <a href="%{emendation_path}"></a> elutasított </a> módosítást a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} re vonatkozóan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>kal támogatták.
         amendment_accepted:
           affected_user:
             email_intro: 'Módosítást fogadtak el %{amendable_title}. Láthatja ezt az oldalról:'
@@ -427,6 +399,39 @@ hu:
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Egy módosítás elfogadva %{amendable_title} -ra %{emendation_author_nickname}-tól
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}">módosítás</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} elfogadásra került.
+        amendment_created:
+          affected_user:
+            email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
+            email_outro: Ezt az értesítést kaptad, mert szerzője vagy ennek %{amendable_title}.
+            email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Új módosítás történt a %{amendable_title}. Láthatja ezt az oldalról:'
+            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_subject: Új módosítás a %{amendable_title} tól %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">új módosítás</a> lett létrehozva <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'A %{amendable_title} elutasított módosítást önálló %{amendable_type}emelték. Láthatja ezt az oldalról:'
+            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
+            email_subject: A %{emendation_author_nickname} ból származó módosítást támogatták
+            notification_title: A <a href="%{emendation_path}"></a> elutasított </a> módosítást a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} re vonatkozóan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>kal támogatták.
+          follower:
+            email_intro: 'A %{amendable_title} elutasított módosítást önálló %{amendable_type}emelték. Láthatja ezt az oldalról:'
+            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_subject: A %{emendation_author_nickname} ból származó módosítást támogatták
+            notification_title: A <a href="%{emendation_path}"></a> elutasított </a> módosítást a <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} re vonatkozóan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>kal támogatták.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
+            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
+            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elutasították.
+          follower:
+            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
+            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}elutasították.
       attachments:
         attachment_created:
           email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
@@ -546,7 +551,7 @@ hu:
       badges:
         continuity:
           conditions:
-            - Gyere ide gyakran
+          - Gyere ide gyakran
           description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
           description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
           description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
@@ -556,7 +561,7 @@ hu:
           unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
-            - Az aktív és más emberek követése biztosan másokat követni fog.
+          - Az aktív és más emberek követése biztosan másokat követni fog.
           description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. %{organization_name} egy társadalmi és politikai hálózat, szövik a webet, hogy kommunikáljon más emberekkel a platformon.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
@@ -571,9 +576,9 @@ hu:
           title: Kitűzők
         invitations:
           conditions:
-            - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
-            - Testreszabása, ha szeretné, az elküldött üzenetet
-            - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
+          - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
+          - Testreszabása, ha szeretné, az elküldött üzenetet
+          - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
           description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
           description_another: Felhasználó meghívott %{score} felhasználókat.
           description_own: Meghívtál %{score} felhasználótkat.
@@ -582,7 +587,7 @@ hu:
           unearned_another: Ez a felhasználó még nem hívott meg senkit.
           unearned_own: Még nem hívtál meg felhasználókat.
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
-      level: '%{level} szint'
+      level: "%{level} szint"
       reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
@@ -777,14 +782,17 @@ hu:
         greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Helló!
         subject: 'Szeretnél továbbra is fontos információkat kapni róluk: a %{organization_name}?'
+    notification_mailer:
+      shared:
+        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
       no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
         everything_followed: Minden, amit követek
-        newsletters: Hírlevelek
         newsletter_notifications: Szeretnék hírleveleket kapni
+        newsletters: Hírlevelek
         own_activity: Saját tevékenységem, mint amikor valaki megjegyzi a javaslatomat, vagy megemlíti nekem
         receive_notifications_about: Értesítést szeretnék kapni
         send_notifications_by_email: Értesítések küldése e-mailben
@@ -850,10 +858,6 @@ hu:
         subheading: Navigáljon a %{name} súgó oldalán
         title: Segítség
         topics: Témakörök
-      participatory_space:
-        metrics:
-          headline: Részvétel számokban
-          link: Az összes statisztika megjelenítése
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
@@ -878,6 +882,7 @@ hu:
       deleted: Törölt felhasználó
       view: Nézet
     profiles:
+      default_officialization_text: Justification
       default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
       default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
@@ -925,7 +930,7 @@ hu:
       picker:
         cancel: Mégse
         choose: Kijelölés
-        title: '%{field} kijelölése'
+        title: "%{field} kijelölése"
       prompt: Válassz hatáskört
       scopes: Hatáskörök
     search:
@@ -989,8 +994,8 @@ hu:
         no_activities_warning: Ennek a felhasználónak még nem volt aktívja.
     user_interests:
       show:
-        no_scopes: Ennek a szervezetnek még nincs hatókörük!
         my_interests: Érdekeim
+        no_scopes: Ennek a szervezetnek még nincs hatókörük!
         select_your_interests: Válassza ki azokat a témákat, amelyekre érdekel, hogy hozzájusson hozzájuk kapcsolódó eseményekhez a profil Timeline (Idővonal) lapján.
         update_my_interests: Érdeklődésem frissítése
       update:
@@ -1164,6 +1169,17 @@ hu:
       too_short: túl rövid (15 karakterig)
   forms:
     required: Kötelező
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Hagyd figyelmen kívül ezt a mezőt
     timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.
@@ -1185,7 +1201,7 @@ hu:
         sign_up: Regisztráció
       impersonation_warning:
         close_session: Munkamenet bezárása
-        description_html: <b>%{user_name}</b> megszemélyesítése.
+        description_html: "<b>%{user_name}</b> megszemélyesítése."
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként

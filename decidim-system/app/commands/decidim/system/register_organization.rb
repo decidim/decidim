@@ -56,6 +56,7 @@ module Decidim
           badges_enabled: true,
           user_groups_enabled: true,
           default_locale: form.default_locale,
+          smtp_settings: form.set_smtp_settings,
           send_welcome_notification: true
         )
       end

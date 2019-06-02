@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -95,11 +96,15 @@ it:
             email_outro: Hai ricevuto questa notifica perché hai organizzato la riunione "%{resource_title}".
             email_subject: La riunione "%{resource_title}" è stata chiusa
             notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'La riunione "%{resource_title}" è stata chiusa. Puoi leggere le conclusioni dalla sua pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: La riunione "%{resource_title}" è stata chiusa
             notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: L'incontro "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
@@ -136,7 +141,7 @@ it:
       badges:
         attended_meetings:
           conditions:
-            - Registrati negli incontri a cui vuoi partecipare
+          - Registrati negli incontri a cui vuoi partecipare
           description: Questo badge è concesso quando si partecipano a numerosi incontri faccia a faccia.
           description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.

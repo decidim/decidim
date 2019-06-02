@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -95,11 +96,15 @@ nl:
             email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" hebt georganiseerd.
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
             email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
@@ -136,7 +141,7 @@ nl:
       badges:
         attended_meetings:
           conditions:
-            - Registreer u in de vergaderingen die u wilt bijwonen
+          - Registreer u in de vergaderingen die u wilt bijwonen
           description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.

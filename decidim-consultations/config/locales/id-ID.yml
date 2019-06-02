@@ -1,286 +1,297 @@
-id:
+---
+id-ID:
   activemodel:
     attributes:
       consultation:
-        banner_image: Gambar spanduk
-        decidim_highlighted_scope_id: Ruang lingkup yang disorot
-        description: Deskripsi
-        end_voting_date: Voting berakhir
-        introductory_image: Gambar perkenalan
-        introductory_video_url: URL video perkenalan
-        questions: Pertanyaan
-        slug: Siput URL
-        start_voting_date: Voting dimulai
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Highlighted scope
+        description: Description
+        end_voting_date: Voting ends
+        introductory_image: Introductory image
+        introductory_video_url: Introductory video URL
+        questions: Questions
+        slug: URL slug
+        start_voting_date: Voting begins
         subtitle: Subtitle
-        title: Judul
+        title: Title
       question:
-        banner_image: Gambar spanduk
-        decidim_scope_id: Daerah kota
-        hashtag: Tanda pagar
-        hero_image: Gambar rumah
-        i_frame_url: URL sistem pemungutan suara eksternal
-        origin_scope: Cakupan
-        origin_title: Asal
-        origin_url: URL Asal
-        participatory_scope: Ruang lingkup partisipatif
-        promoter_group: Grup promotor
-        question_context: Konteks
-        reference: Referensi
-        scope: Daerah kota
-        slug: Siput URL
+        banner_image: Banner image
+        decidim_scope_id: Municipal area
+        hashtag: Hashtag
+        hero_image: Home image
+        i_frame_url: External voting system URL
+        origin_scope: Scope
+        origin_title: Origin
+        origin_url: Origin URL
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
+        question_context: Context
+        reference: Reference
+        scope: Municipal area
+        slug: URL slug
         subtitle: Subtitle
-        title: Judul
-        vote: Sistem pemungutan suara eksternal
-        what_is_decided: Apa yang diputuskan
+        title: Title
+        vote: External voting system
+        what_is_decided: What is decided
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Tanggapan tidak ditemukan.
+          not_found: Response not found.
   activerecord:
     models:
       decidim/consultation:
-        other: Konsultasi
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
-        other: Pertanyaan
+        one: Question
+        other: Questions
       decidim/consultations/response:
-        other: Tanggapan
+        one: Response
+        other: Responses
       decidim/consultations/vote:
-        other: Voting
+        one: No votes
+        other: Votes
   decidim:
     admin:
       actions:
-        new_consultation: Konsultasi baru
-        new_question: Pertanyaan baru
-        new_response: Tanggapan baru
-        publish_results: Publikasikan hasil
-        unpublish_results: Jangan publikasikan hasil
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
+        publish_results: Publish results
+        unpublish_results: Unpublish results
       consultation_publications:
         create:
-          error: Terjadi kesalahan saat memublikasikan konsultasi ini.
-          success: Konsultasi berhasil dipublikasikan.
+          error: There was an error publishing this consultation.
+          success: Consultation published successfully.
         destroy:
-          error: Terjadi kesalahan saat membatalkan publikasi konsultasi ini.
-          success: Konsultasi tidak berhasil dipublikasikan.
+          error: There was an error unpublishing this consultation.
+          success: Consultation unpublished successfully.
       consultation_results_publications:
         create:
-          error: Terjadi kesalahan saat memublikasikan hasil untuk konsultasi ini.
-          success: Hasil konsultasi berhasil dipublikasikan.
+          error: There was an error publishing the results for this consultation.
+          success: Consultation results published successfully.
         destroy:
-          error: Ada kesalahan membatalkan publikasi hasil untuk konsultasi ini.
-          success: Hasil konsultasi tidak berhasil dipublikasikan.
+          error: There was an error unpublishing the results for this consultation.
+          success: Consultation results unpublished successfully.
       consultations:
         create:
-          error: Ada kesalahan saat membuat konsultasi baru.
-          success: Konsultasi berhasil dibuat.
+          error: There was an error creating a new consultation.
+          success: Consultation successfully created.
         edit:
-          update: Memperbarui
+          update: Update
         form:
-          slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konsultasi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
-          title: Informasi Umum
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          title: General information
         index:
-          not_published: Tidak diterbitkan
-          published: Diterbitkan
+          not_published: Not published
+          published: Published
         new:
-          create: Membuat
-          title: Konsultasi baru
+          create: Create
+          title: New consultation
         update:
-          error: Ada kesalahan saat memperbarui konsultasi ini.
-          success: Konsultasi berhasil diperbarui.
+          error: There was an error when updating this consultation.
+          success: Consultation updated successfully.
       menu:
-        consultations: Konsultasi
+        consultations: Consultations
         consultations_submenu:
-          info: Informasi
-          questions: Pertanyaan
+          info: Information
+          questions: Questions
         questions_submenu:
-          components: Komponen
-          consultation: Konsultasi
-          info: Informasi
-          responses: Tanggapan
+          components: Components
+          consultation: Consultation
+          info: Information
+          responses: Responses
       models:
         consultation:
           fields:
-            created_at: Dibuat di
-            published: Diterbitkan
-            title: Judul
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            other: Konsultasi
+            one: Consultation
+            other: Consultations
         question:
           fields:
-            created_at: Dibuat di
-            published: Diterbitkan
-            title: Judul
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            other: Pertanyaan
+            one: Question
+            other: Questions
         response:
           fields:
-            created_at: Dibuat di
-            title: Judul
+            created_at: Created at
+            title: Title
           name:
-            other: Tanggapan
+            one: Response
+            other: Responses
       question_publications:
         create:
-          error: Terjadi kesalahan saat memublikasikan pertanyaan ini.
-          success: Pertanyaan berhasil diterbitkan.
+          error: There was an error publishing this question.
+          success: Question published successfully.
         destroy:
-          error: Terjadi kesalahan saat membatalkan publikasi pertanyaan ini.
-          success: Pertanyaan tidak berhasil diterbitkan.
+          error: There was an error unpublishing this question.
+          success: Question unpublished successfully.
       questions:
         create:
-          error: Ada kesalahan saat membuat pertanyaan baru.
-          success: Pertanyaan berhasil dibuat.
+          error: There was an error creating a new question.
+          success: Question successfully created.
         destroy:
-          success: Pertanyaan berhasil dihapus.
+          success: Question successfully deleted.
         edit:
-          update: Memperbarui
+          update: Update
         form:
-          title: Informasi Umum
+          title: General information
         index:
-          not_published: Tidak diterbitkan
-          published: Diterbitkan
+          not_published: Not published
+          published: Published
         new:
-          create: Membuat
-          title: Pertanyaan baru
+          create: Create
+          title: New question
         update:
-          error: Ada kesalahan saat memperbarui pertanyaan ini.
-          success: Pertanyaan berhasil diperbarui.
+          error: There was an error when updating this question.
+          success: Question updated successfully.
       responses:
         create:
-          error: Ada kesalahan saat membuat tanggapan baru.
-          success: Tanggapan berhasil dibuat.
+          error: There was an error creating a new response.
+          success: Response successfully created.
         destroy:
-          error: Ada kesalahan saat menghapus respons.
-          success: Tanggapan berhasil dihapus.
+          error: There was an error when removing the response.
+          success: Response successfully deleted.
         edit:
-          update: Memperbarui
+          update: Update
         form:
-          title: Informasi Umum
+          title: General information
         new:
-          create: Membuat
-          title: Tanggapan baru
+          create: Create
+          title: New response
         update:
-          error: Terjadi kesalahan saat memperbarui tanggapan ini.
-          success: Tanggapan berhasil diperbarui.
+          error: There was an error when updating this response.
+          success: Response updated successfully.
       titles:
-        consultations: Konsultasi
-        questions: Pertanyaan
-        responses: Tanggapan
+        consultations: Consultations
+        questions: Questions
+        responses: Responses
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Jumlah maksimum elemen untuk ditampilkan
+            max_results: Maximum amount of elements to show
       consultation:
-        start_voting_date: Voting dimulai
-        view_results: Lihat hasil
+        start_voting_date: Voting begins
+        view_results: View results
       consultation_card:
-        view_results: Lihat hasil
+        view_results: View results
       consultations:
         orders:
-          label: 'Urutkan konsultasi dengan:'
-          random: Acak
-          recent: Terbaru
+          label: 'Sort consultations by:'
+          random: Random
+          recent: Most recent
       content_blocks:
         highlighted_consultations:
-          name: Konsultasi yang disorot
+          name: Highlighted consultations
       count:
         title:
-          other: "%{count} konsultasi"
+          one: "%{count} consultation"
+          other: "%{count} consultations"
       filters:
-        active: Aktif
-        all: Semua
-        finished: Jadi
-        search: Pencarian
-        state: Negara
-        upcoming: Mendatang
+        active: Active
+        all: All
+        finished: Finished
+        search: Search
+        state: State
+        upcoming: Upcoming
       filters_small_view:
-        close_modal: Tutup jendela
+        close_modal: Close window
         filter: Filter
-        filter_by: Filter berdasarkan
-        unfold: Membuka
+        filter_by: Filter by
+        unfold: Unfold
       highlighted_questions:
-        title: Pertanyaan dari %{scope_name}
+        title: Questions from %{scope_name}
       index:
-        title: Konsultasi
+        title: Consultations
       last_activity:
-        new_consultation: Konsultasi baru
-        new_question_at_html: "<span>Pertanyaan baru pada %{link}</span>"
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Konsultasi aktif
-            see_all_consultations: Lihat semua konsultasi
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
             voting_ends_in:
-              other: Voting berakhir dalam <strong>%{count} hari</strong>
-            voting_ends_today: Voting berakhir <strong>hari ini</strong>
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
-        take_part: Ambil bagian
-        view_results: Lihat hasil
+        take_part: Take part
+        view_results: View results
         votes_out_of:
-          other: suara keluar
+          one: vote out of
+          other: votes out of
       question_votes:
         create:
-          error: Ada kesalahan saat memilih pertanyaan
+          error: There have been errors when voting the question
       regular_questions:
-        title: Pertanyaan untuk konsultasi ini
+        title: Questions for this consultation
       show:
         badge_name:
-          finished: Jadi
-          open: Buka
-          open_votes: Buka suara
-          published_results: Hasil dipublikasikan
+          finished: Finished
+          open: Open
+          open_votes: Open votes
+          published_results: Results published
         footer_button_text:
-          debate: Perdebatan
-          view: Melihat
-          view_results: Lihat hasil
-          vote: Memilih
-        unspecified: Tidak ditentukan
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
+        unspecified: Not specified
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas untuk semua orang yang membentuk sebuah organisasi, membuat panggilan untuk berpartisipasi dalam konsultasi, percikan dan memesan perdebatan untuk atau terhadap tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat.</p>\n"
-          page: "<p>Konsultasi adalah ruang yang memungkinkan Anda untuk mengajukan pertanyaan yang jelas untuk semua orang yang membentuk sebuah organisasi, membuat panggilan untuk berpartisipasi dalam konsultasi, percikan dan memesan perdebatan untuk atau terhadap tanggapan. Ketika tanggal konsultasi tiba, Anda dapat memilih dan mempublikasikan hasil suara.</p> <p>Contoh: Konsultasi dapat mengenai hampir semua aspek yang mempengaruhi organisasi: beberapa contoh mengubah nama atau logo organisasi yang menawarkan beberapa alternatif, memutuskan Ya atau Tidak untuk menjadi bagian dari organisasi yang lebih besar, memvalidasi atau menolak strategi baru merencanakan atau hasil dari kelompok kerja, atau menentukan apakah posisi harus tetap maksimal 1, 2 atau 3 mandat.</p>ard dalam organisasi.</p>\n"
-          title: Apa itu konsultasi?
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          title: What are consultations?
     menu:
-      consultations: Konsultasi
+      consultations: Consultations
     pages:
       home:
         statistics:
-          consultations_count: Konsultasi
+          consultations_count: Consultations
     questions:
       results:
-        title: Hasil
+        title: Results
       show:
-        read_more: Baca lebih lajut
+        read_more: Read more
       statistics:
-        assistants_count_title: Asisten
-        comments_count_title: Komentar
-        meetings_count_title: Rapat
-        supports_count_title: Mendukung
+        assistants_count_title: Assistants
+        comments_count_title: Comments
+        meetings_count_title: Meetings
+        supports_count_title: Supports
       technical_info:
-        technical_data: Data teknis
+        technical_data: Technical data
       vote_button:
-        already_voted: Sudah memilih
-        already_voted_hover: Cabut dukungan
-        starting_from: Mulai dari %{date}
-        vote: Memilih
+        already_voted: Already voted
+        already_voted_hover: Revoke support
+        starting_from: Starting from %{date}
+        vote: Vote
       vote_modal:
-        contextual_help: Silakan, pilih opsi.
-        title: 'Konsultasi: dukungan pertanyaan'
+        contextual_help: Please, select an option.
+        title: 'Consultation: question support'
       vote_modal_confirm:
-        change: Perubahan
-        confirm: Memastikan
-        contextual_help: Harap konfirmasikan opsi yang dipilih.
-        title: 'Konsultasi: konfirmasi dukungan'
+        change: Change
+        confirm: Confirm
+        contextual_help: Please confirm the selected option.
+        title: 'Consultation: confirm support'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Lampiran
-          categories: Kategori
+          attachments: Attachments
+          categories: Categories
       consultation_voting_data:
-        start_voting_date: Voting dimulai
+        start_voting_date: Voting begins
       question_components:
-        question_menu_item: Pertanyaan
-        unfold: Membuka
+        question_menu_item: The question
+        unfold: Unfold
       question_header:
-        back_to_consultation: Lihat semua konsultasi
+        back_to_consultation: See all consultations

@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -36,6 +37,8 @@ es:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
+        address: SMTP hostname
+        alert_color: Alert
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
@@ -44,6 +47,7 @@ es:
         enable_omnipresent_banner: Mostrar banner omnipresente
         facebook_handler: Nombre en Facebook
         favicon: Icono
+        from: From email address
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
@@ -62,11 +66,17 @@ es:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
+        primary_color: Primary
         reference_prefix: Prefijo de la referencia
+        secondary_color: Secondary
         show_statistics: Mostrar estadísticas
+        success_color: Success
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
+        warning_color: Warning
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -102,9 +112,9 @@ es:
               must_be_ssl: El URI de redirección debe ser un URI SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Archivo de imagen no válido
             official_img_footer:
+              allowed_file_content_types: Archivo de imagen no válido
+            official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
   activerecord:
     attributes:
@@ -306,6 +316,11 @@ es:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha promocionado correctamente.
@@ -325,6 +340,7 @@ es:
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
+        navbar_links: Navbar links
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
         participants: Participantes
@@ -362,6 +378,13 @@ es:
             reason: Razón
             started_at: Empezó a las
             user: Usuario
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -416,6 +439,28 @@ es:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -432,19 +477,21 @@ es:
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
         show:
-          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: "¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer."
           deliver: Enviar boletín
           preview: Previsualizar
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.
@@ -456,7 +503,7 @@ es:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
+          confirm_delete: "¿Estás seguro que quieres eliminar esta aplicación?"
           title: Aplicaciones OAuth
         new:
           save: Guardar
@@ -510,6 +557,7 @@ es:
         edit:
           update: Actualizar
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
@@ -617,12 +665,16 @@ es:
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
         impersonations: Impersonaciones
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
@@ -677,12 +729,16 @@ es:
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
+        unhide: Unhide
         unreport: Cancelar denuncia
       admin:
         reportable:
           hide:
             invalid: Ha habido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Ha habido un problema cancelando la denuncia.
             success: Denuncia cancelada correctamente.

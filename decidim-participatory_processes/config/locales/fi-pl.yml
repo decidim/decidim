@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -18,6 +19,7 @@ fi-pl:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Concertation privée
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -73,6 +75,8 @@ fi-pl:
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
         new_process_user_role: Uusi prosessikäyttäjä
+        participatory_process:
+          new: New process
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
@@ -203,6 +207,9 @@ fi-pl:
         index:
           not_published: Ei julkaistu
           private: Yksityinen
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Julkinen
           published: Julkaistu
         new:

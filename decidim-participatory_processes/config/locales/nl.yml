@@ -19,6 +19,7 @@ nl:
         participatory_process_group_id: Groep thema's
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe is het besloten
+        private_space: Concertation privée
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -71,6 +72,7 @@ nl:
         duplicate: Dupliceren
         edit: Bewerken
         new: New
+        new_process: Yeni süreç
         new_process_group: Nieuwe procesgroep
         new_process_step: Nieuwe stap
         new_process_user_role: Nieuwe procesgebruiker

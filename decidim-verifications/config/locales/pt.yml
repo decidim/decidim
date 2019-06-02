@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -36,16 +37,16 @@ pt:
       admin:
         id_documents:
           help:
-            - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
-            - Você preencher as informações presentes na imagem carregada.
-            - A informação deve corresponder ao que o usuário preenchido.
-            - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
+          - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
+          - Você preencher as informações presentes na imagem carregada.
+          - A informação deve corresponder ao que o usuário preenchido.
+          - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
         postal_letter:
           help:
-            - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
-            - Você envia a carta para seu endereço com o código de verificação.
-            - Você marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+          - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
+          - Você envia a carta para seu endereço com o código de verificação.
+          - Você marca a carta como enviada.
+          - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
       direct: Direto
       help: Socorro
       id_documents:
@@ -116,7 +117,7 @@ pt:
               success: Verificação rejeitada. O usuário será solicitado a alterar seus documentos
         authorizations:
           choose:
-            choose_a_type: "Por favor, selecione como deseja ser verificado:"
+            choose_a_type: 'Por favor, selecione como deseja ser verificado:'
             offline: desligada
             online: Conectados
             title: Confirme-se usando seu documento de identidade

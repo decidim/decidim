@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -505,10 +506,10 @@ fi:
         votes_count: Ääntä
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> odottaa vahvistusta.
         conference_registration_confirmed:
           notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> on vahvistettu.
+        conference_registration_validation_pending:
+          notification_title: Ilmoittautumisesi konferenssiin <a href="%{resource_url}">%{resource_title}</a> odottaa vahvistusta.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.

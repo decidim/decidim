@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -36,6 +37,8 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
+        address: SMTP hostname
+        alert_color: Alert
         badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
@@ -44,6 +47,7 @@ pt:
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
+        from: From email address
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
@@ -62,11 +66,17 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
+        primary_color: Primary
         reference_prefix: Prefixo de referência
+        secondary_color: Secondary
         show_statistics: Mostre estatisticas
+        success_color: Success
         tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
+        warning_color: Warning
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -102,9 +112,9 @@ pt:
               must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Arquivo de imagem inválido
             official_img_footer:
+              allowed_file_content_types: Arquivo de imagem inválido
+            official_img_header:
               allowed_file_content_types: Arquivo de imagem inválido
   activerecord:
     attributes:
@@ -127,7 +137,6 @@ pt:
         browse: Explorar
         export: Exportar
         manage: Gerir
-        new: Novo %{name}
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
@@ -306,6 +315,11 @@ pt:
         logs_list:
           no_logs_yet: Ainda não há logs
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
           success: O usuário gerenciado foi promovido com sucesso.
@@ -325,6 +339,7 @@ pt:
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
+        navbar_links: Navbar links
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
         participants: Participantes
@@ -362,6 +377,13 @@ pt:
             reason: Razão
             started_at: Começou em
             user: Do utilizador
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Criado em
@@ -416,6 +438,28 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -445,6 +489,8 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Houve um erro ao criar este aplicativo.
@@ -510,6 +556,7 @@ pt:
         edit:
           update: Actualizar
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
@@ -617,12 +664,16 @@ pt:
         dashboard: painel de controle
         impersonatable_users: Usuários impersonáveis
         impersonations: Imitações
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Utilizadores
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
@@ -677,12 +728,16 @@ pt:
         hide: ocultar
         not_hidden: Não oculto
         title: Ações
+        unhide: Unhide
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: Ocorreu um problema ao ocultar o recurso.
             success: O recurso foi ocultado com sucesso.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Tem havido um problema não relatando o recurso.
             success: O recurso não foi relatado com sucesso.

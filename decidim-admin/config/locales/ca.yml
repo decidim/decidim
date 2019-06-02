@@ -37,6 +37,8 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        address: SMTP hostname
+        alert_color: Alert
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
@@ -45,6 +47,7 @@ ca:
         enable_omnipresent_banner: Mostrar banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
+        from: From email address
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
@@ -63,11 +66,17 @@ ca:
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
+        primary_color: Primary
         reference_prefix: Prefix de referència
+        secondary_color: Secondary
         show_statistics: Mostrar estadístiques
+        success_color: Success
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
         user_groups_enabled: Activar els grups d'usuaris
+        warning_color: Warning
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -103,9 +112,9 @@ ca:
               must_be_ssl: L'URL de redirecció ha de ser SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_footer:
+              allowed_file_content_types: Fitxer d'imatge no vàlid
+            official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
   activerecord:
     attributes:
@@ -386,6 +395,7 @@ ca:
           fields:
             created_at: Creat el
             name: Nom
+          name: OAuth uygulaması
         participatory_space_private_user:
           name: Usuari privat de l'espai de participació
         scope:
@@ -410,6 +420,7 @@ ca:
             roles:
               admin: Administrador
               user_manager: Administrador d'usuaris
+          name: kullanıcı
         user_group:
           fields:
             actions: Accions
@@ -545,6 +556,7 @@ ca:
         edit:
           update: Actualitzar
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'Pots sobreescriure a on enllaça el botó d''acció principal de la pàgina d''inici. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
@@ -716,12 +728,16 @@ ca:
         hide: Amagar
         not_hidden: No ocult
         title: Accions
+        unhide: Unhide
         unreport: Desfer denúncia
       admin:
         reportable:
           hide:
             invalid: Hi ha hagut un error en ocultar el contingut.
             success: Contingut amagat amb èxit.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Hi ha hagut un problema cancel·lant la denúncia.
             success: Denúncia cancel·lada correctament.

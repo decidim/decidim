@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -95,11 +96,15 @@ ca:
             email_outro: Has rebut aquesta notificació perquè has organitzat la trobada "%{resource_title}".
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
@@ -136,7 +141,7 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriu-te a les reunions que vulguis assistir
+          - Inscriu-te a les reunions que vulguis assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquest usuari ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.

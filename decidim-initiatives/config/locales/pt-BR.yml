@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -84,17 +85,21 @@ pt-BR:
             email_outro: Você recebeu esta notificação porque é o autor da iniciativa %{resource_title}.
             email_subject: Novo marco concluído!
             notification_title: Sua iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
             email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
             email_subject: Novo marco concluído!
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ir para o espaço de participação de Iniciativas
-            - Siga os passos para criar uma nova iniciativa
+          - Ir para o espaço de participação de Iniciativas
+          - Siga os passos para criar uma nova iniciativa
           description: Esse selo é concedido quando você lança novas iniciativas, estabelecendo parcerias com outras pessoas para realizá-las.
           description_another: Este usuário obteve %{score} iniciativas publicadas.
           description_own: Você tem %{score} iniciativas publicadas.
@@ -326,7 +331,7 @@ pt-BR:
           title: Listagem de assinaturas
         vote_cabin:
           already_voted: Já assinadas
-          supports_required: "São necessárias %{total_supports} assinaturas"
+          supports_required: São necessárias %{total_supports} assinaturas
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:

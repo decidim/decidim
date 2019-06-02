@@ -16,6 +16,10 @@ uk:
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Вкладений файл
       decidim/component_published_event: Діюча складова
       decidim/demoted_membership: No longer a group admin
@@ -1163,6 +1167,17 @@ uk:
       too_short: is too short (under 15 characters)
   forms:
     required: Обов'язкове поле
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Якщо ви людина, ігноруйте це поле
     timestamp_error_message: Вибачте, це було занадто швидко! Будь ласка, подайте повідомлення знову.

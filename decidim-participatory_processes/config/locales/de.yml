@@ -19,6 +19,7 @@ de:
         participatory_process_group_id: Prozessgruppe
         participatory_scope: Was ist entschieden?
         participatory_structure: Wie ist es entschieden?
+        private_space: Concertation privée
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -71,6 +72,7 @@ de:
         duplicate: Duplikat
         edit: Bearbeiten
         new: New
+        new_process: Yeni süreç
         new_process_group: Neue Prozessgruppe
         new_process_step: Neuer Schritt
         new_process_user_role: Neuer Prozessbenutzer

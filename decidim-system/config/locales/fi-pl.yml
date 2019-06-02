@@ -1,3 +1,4 @@
+---
 fi-pl:
   decidim:
     system:
@@ -47,6 +48,7 @@ fi-pl:
           fields:
             created_at: Luotu
             name: Nimi
+            smtp_settings: SMTP settings
           name: Organisaatio
       organizations:
         create:

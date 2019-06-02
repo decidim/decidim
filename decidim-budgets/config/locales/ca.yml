@@ -61,16 +61,13 @@ ca:
             success: S'ha importat amb èxit %{number} propostes en projectes
           new:
             create: Importa propostes a projectes
-            no_components: No hi ha cap component de propostes en aquest espai participatiu
-              per importar les propostes a projectes.
+            no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             select_component: Selecciona un component
       admin_log:
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
-          delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai
-            %{space_name}"
-          update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai
-            %{space_name}"
+          delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
       models:
         project:
           fields:
@@ -78,18 +75,14 @@ ca:
             title: Títol
       projects:
         budget_confirm:
-          are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs
-            canviar-lo.
+          are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
           cancel: Cancel·lar
           confirm: Confirmar
-          description: Aquests són els projectes que has seleccionat per formar part
-            del pressupost.
+          description: Aquests són els projectes que has seleccionat per formar part del pressupost.
           title: Confirmar vot
         budget_excess:
           close: Tancar
-          description: Aquest projecte sobrepassa el pressupost màxim i no es pot
-            afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir
-            aquest o donar suport amb les seves preferències.
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport amb les seves preferències.
           ok: D'acord
           title: Pressupost superat
         budget_summary:
@@ -97,15 +90,11 @@ ca:
           assigned: 'Assignat:'
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
-            description: Ja has votat pel pressupost. Si has canviat d'idea, pots
-              %{cancel_link}.
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description: Hangi projeler için bütçe ayırmamız gerektiğini düşünüyorsunuz? İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihleriniz doğrultusunda oy kullanın.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -124,12 +113,8 @@ ca:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -176,8 +161,7 @@ ca:
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocoding enabled
             projects_per_page: Projectes per pàgina
-            resources_permissions_enabled: Es poden establir permisos d'accions per
-              a cada trobada
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             total_budget: Pressupost total
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -191,8 +175,7 @@ ca:
     events:
       budgets:
         order_checkout:
-          email_intro: 'Your vote has been validated. You can always edit it if you
-            like by clicking here:'
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
           email_outro: Thank you for your participation
           email_subject: Your vote has been validated
           notification_title: Your vote has been validated

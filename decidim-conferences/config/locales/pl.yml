@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -37,19 +38,19 @@ pl:
   activerecord:
     models:
       decidim/conference:
-        one: Konferencja
         few: Konferencje
         many: Konferencje
+        one: Konferencja
         other: Konferencje
       decidim/conference_speaker:
-        one: Głośnik konferencyjny
         few: Głośniki konferencyjne
         many: Głośniki konferencyjne
+        one: Głośnik konferencyjny
         other: Głośniki konferencyjne
       decidim/conference_user_role:
-        one: Rola użytkownika konferencyjnego
         few: Rola użytkownika konferencyjnego
         many: Rola użytkownika konferencyjnego
+        one: Rola użytkownika konferencyjnego
         other: Rola użytkownika konferencyjnego
   decidim:
     admin:
@@ -334,9 +335,9 @@ pl:
           form:
             available_slots_help: Pozostaw to 0, jeśli masz dostęp do nieograniczonej liczby miejsc.
             registrations_count:
-              one: Nie było rejestracji 1.
               few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
+              one: Nie było rejestracji 1.
               other: Zarejestrowano %{count} rejestracji.
             slug_help: 'Strumienie adresów URL służą do generowania adresów URL wskazujących na tę konferencję. Akceptuje tylko litery, cyfry i łączniki i musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
@@ -513,10 +514,10 @@ pl:
         votes_count: Głosy
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> oczekuje na potwierdzenie.
         conference_registration_confirmed:
           notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> została potwierdzona.
+        conference_registration_validation_pending:
+          notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> oczekuje na potwierdzenie.
         conference_registrations_over_percentage:
           email_intro: Konferencje "%{resource_title}" zajmowane przez graczy zajmują ponad %{percentage}%.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej konferencji.
@@ -535,6 +536,7 @@ pl:
         upcoming_conference:
           email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: The "%{resource_title}" conference is coming!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
     log:
       value_types:
@@ -564,9 +566,9 @@ pl:
           promoted_conferences: Promowane konferencje
         order_by_conferences:
           conferences:
-            one: "%{count} konferencji"
             few: "%{count} konferencji"
             many: "%{count} konferencji"
+            one: "%{count} konferencji"
             other: "%{count} konferencji"
         promoted_conference:
           more_info: Więcej informacji

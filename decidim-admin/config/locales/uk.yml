@@ -37,6 +37,8 @@ uk:
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
       organization:
+        address: SMTP hostname
+        alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
@@ -45,6 +47,7 @@ uk:
         enable_omnipresent_banner: Показувати всюдисущий банер
         facebook_handler: Адреса Facebook
         favicon: Значок
+        from: From email address
         github_handler: Адреса GitHub
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
         highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
@@ -63,10 +66,17 @@ uk:
         omnipresent_banner_short_description: Стислий опис
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адреса
+        password: Password
+        port: Port
+        primary_color: Primary
         reference_prefix: Довідковий префікс
+        secondary_color: Secondary
         show_statistics: Показувати статистику
+        success_color: Success
         tos_version: Версія умов участі
         twitter_handler: Адреса Twitter
+        user_groups_enabled: Enable user groups
+        warning_color: Warning
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -385,6 +395,7 @@ uk:
           fields:
             created_at: 'Створено:'
             name: Ім'я
+          name: OAuth uygulaması
         participatory_space_private_user:
           name: Приватний учасник простору співучасті
         scope:
@@ -409,6 +420,7 @@ uk:
             roles:
               admin: Адміністратор
               user_manager: Розпорядник учасників
+          name: kullanıcı
         user_group:
           fields:
             actions: Дії
@@ -544,6 +556,7 @@ uk:
         edit:
           update: Оновити
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'Ви можете змінити те, куди веде натискання кнопки "Закликати до дії" на головній сторінці. Використовуйте тут часткові шляхи, а не повні веб-адреси. Прийнятні літери, цифри, дефіс та скісна риска. Першою має бути літера. Кнопка "Закликати до дії" відображається на головній сторінці між привітальним текстом та описом. Приклад: %{url}'
           cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
           header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
@@ -715,12 +728,16 @@ uk:
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
+        unhide: Unhide
         unreport: Скасувати скаргу
       admin:
         reportable:
           hide:
             invalid: При спробі приховати ресурс сталася помилка.
             success: Ресурс успішно приховано.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: При спробі скасувати скаргу щодо ресурсу сталася помилка.
             success: Скаргу на ресурс успішно скасовано.

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -95,11 +96,15 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du organiserade mötet "%{resource_title}".
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
             email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
@@ -136,7 +141,7 @@ sv:
       badges:
         attended_meetings:
           conditions:
-            - Registrera dig i de möten du vill delta i
+          - Registrera dig i de möten du vill delta i
           description: Detta märke beviljas när du deltar i flera möten mellan ansikte mot ansikte.
           description_another: Den här användaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.

@@ -63,8 +63,7 @@ uk:
             success: "%{number} пропозицій успішно запозичено до проектів"
           new:
             create: Внести до проектів запозичені пропозиції
-            no_components: У цьому просторі співучасті немає інших складових пропозицій,
-              куди можна було б внести запозичені пропозиції.
+            no_components: У цьому просторі співучасті немає інших складових пропозицій, куди можна було б внести запозичені пропозиції.
             select_component: Будь ласка, оберіть складову
       admin_log:
         project:
@@ -78,18 +77,14 @@ uk:
             title: Назва
       projects:
         budget_confirm:
-          are_you_sure: Чи ви згодні? Підтвердивши свій голос, ви не зможете його
-            потім змінити.
+          are_you_sure: Чи ви згодні? Підтвердивши свій голос, ви не зможете його потім змінити.
           cancel: Скасувати
           confirm: Підтвердити
           description: Ось проекти, які ви обрали складовими бюджету.
           title: Підтвердьте голос
         budget_excess:
           close: Закрити
-          description: Додавання цього проекту перевищить максимальний бюджет, і тому
-            його не можна зараз додати. За бажанням ви можете видалити якийсь з тих
-            проектів, що ви раніше вибрали для додавання, або проголосувати згідно
-            ваших уподобань.
+          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
           ok: Гаразд
           title: Перевищено граничний бюджет
         budget_summary:
@@ -97,15 +92,11 @@ uk:
           assigned: 'Надано:'
           cancel_order: видалити ваш голос і почати все спочатку
           checked_out:
-            description: Ви вже проголосували за бюджет. Якщо ви змінили свою думку,
-              ви можете %{cancel_link}.
+            description: Ви вже проголосували за бюджет. Якщо ви змінили свою думку, ви можете %{cancel_link}.
             title: Голосування щодо бюджету завершено
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description: Hangi projeler için bütçe ayırmamız gerektiğini düşünüyorsunuz? İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihleriniz doğrultusunda oy kullanın.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Ви визначаєте бюджет
         count:
           projects_count:
@@ -126,12 +117,8 @@ uk:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -182,8 +169,7 @@ uk:
             comments_enabled: Коментарі увімкнено
             geocoding_enabled: Geocoding enabled
             projects_per_page: Проектів на сторінку
-            resources_permissions_enabled: Для кожної зустрічі можна встановити ті
-              чи інші дозволи на дії
+            resources_permissions_enabled: Для кожної зустрічі можна встановити ті чи інші дозволи на дії
             total_budget: Загальний бюджет
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -197,8 +183,7 @@ uk:
     events:
       budgets:
         order_checkout:
-          email_intro: 'Your vote has been validated. You can always edit it if you
-            like by clicking here:'
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
           email_outro: Thank you for your participation
           email_subject: Your vote has been validated
           notification_title: Your vote has been validated

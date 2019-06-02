@@ -19,6 +19,7 @@ gl:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: O que se decide
         participatory_structure: Como se decide
+        private_space: Concertation privée
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -71,6 +72,7 @@ gl:
         duplicate: Duplicar
         edit: Editar
         new: New
+        new_process: Yeni süreç
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
         new_process_user_role: Novo usuario do proceso

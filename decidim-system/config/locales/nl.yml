@@ -48,6 +48,7 @@ nl:
           fields:
             created_at: Gemaakt bij
             name: Naam
+            smtp_settings: SMTP settings
           name: Organisatie
       organizations:
         create:

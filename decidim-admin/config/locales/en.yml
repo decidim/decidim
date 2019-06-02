@@ -37,6 +37,7 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Call To Action button path
@@ -46,6 +47,7 @@ en:
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icon
+        from: From email address
         github_handler: GitHub handler
         header_snippets: Header snippets
         highlighted_content_banner_action_subtitle: Action button subtitle
@@ -64,6 +66,8 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
@@ -391,6 +395,7 @@ en:
           fields:
             created_at: Created at
             name: Name
+          name: OAuth uygulaması
         participatory_space_private_user:
           name: Participatory space private user
         scope:
@@ -415,6 +420,7 @@ en:
             roles:
               admin: Admin
               user_manager: User manager
+          name: kullanıcı
         user_group:
           fields:
             actions: Actions

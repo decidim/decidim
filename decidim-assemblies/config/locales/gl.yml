@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -360,8 +361,8 @@ gl:
           reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
-            one: "Asemblea %{count}"
-            other: "Asembleas %{count}"
+            one: Asemblea %{count}
+            other: Asembleas %{count}
         promoted_assembly:
           more_info: Máis información
           take_part: Tomar parte en

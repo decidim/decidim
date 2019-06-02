@@ -1,390 +1,403 @@
-tr:
+---
+tr-TR:
   activemodel:
     attributes:
       participatory_process:
-        announcement: duyuru
-        banner_image: Banner resmi
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_steps: Adımları kopyala
-        description: Açıklama
-        developer_group: Tanıtım grubu
-        domain: domain
-        end_date: Bitiş tarihi
-        hashtag: Başlık etiketi
-        hero_image: Ana resim
-        local_area: Organizasyon alanı
-        meta_scope: Kapsam meta verileri
-        participatory_process_group_id: Süreçleri grubu
-        participatory_scope: Karar nedir
-        participatory_structure: Nasıl karar verilir
-        promoted: Tanıtılan
-        published_at: Yayınlandı
-        scope_id: kapsam
-        scopes_enabled: Kapsamlar etkin
-        short_description: Kısa Açıklama
-        show_statistics: İstatistikleri göster
-        slug: URL sümüklü böcek
-        start_date: Başlangıç tarihi
-        subtitle: Alt yazı
-        target: Kimler katılır
-        title: Başlık
+        announcement: Announcement
+        banner_image: Banner image
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_steps: Copy steps
+        description: Description
+        developer_group: Promoter group
+        domain: Domain
+        end_date: End date
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Organization area
+        meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: Concertation privée
+        promoted: Promoted
+        published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        start_date: Start date
+        subtitle: Subtitle
+        target: Who participates
+        title: Title
       participatory_process_group:
-        description: Açıklama
-        hero_image: görüntü
-        name: isim
-        participatory_process_ids: İlgili süreçler
+        description: Description
+        hero_image: Image
+        name: Name
+        participatory_process_ids: Related processes
       participatory_process_step:
-        cta_path: Eylem yolunu çağır
-        cta_text: Harekete Geçirici Mesaj metni
-        description: Açıklama
-        end_date: Bitiş tarihi
-        short_description: Kısa Açıklama
-        start_date: Başlangıç tarihi
-        title: Başlık
+        cta_path: Call to Action path
+        cta_text: Call to Action text
+        description: Description
+        end_date: End date
+        short_description: Short description
+        start_date: Start date
+        title: Title
       participatory_process_user_role:
-        email: E-posta
-        name: isim
-        role: rol
+        email: Email
+        name: Name
+        role: Role
     models:
-      decidim/participatory_process_step_activated_event: Adım aktif
-      decidim/participatory_process_step_changed_event: Adım değişti
+      decidim/participatory_process_step_activated_event: Step activated
+      decidim/participatory_process_step_changed_event: Step changed
   activerecord:
     models:
       decidim/participatory_process:
-        one: Katılımcı süreç
-        other: Katılımcı süreçler
+        one: Participatory process
+        other: Participatory processes
       decidim/participatory_process_group:
-        one: Katılımcı süreç grubu
-        other: Katılımcı süreç grupları
+        one: Participatory process group
+        other: Participatory process groups
       decidim/participatory_process_step:
-        one: Adım
-        other: adımlar
+        one: Step
+        other: Steps
   decidim:
     admin:
       actions:
-        activate: etkinleştirmek
-        configure: Yapılandır
-        confirm_destroy: Silmeyi onayla
-        destroy: silmek
-        duplicate: Çift
-        edit: Düzenle
+        activate: Activate
+        configure: Configure
+        confirm_destroy: Confirm delete
+        destroy: Delete
+        duplicate: Duplicate
+        edit: Edit
+        new: New
         new_process: Yeni süreç
-        new_process_group: Yeni işlem grubu
-        new_process_step: Yeni adım
-        new_process_user_role: Yeni işlem kullanıcısı
-        preview: Ön izleme
-        publish: Yayınla
-        resend_invitation: Yeniden gönderme daveti
-        unpublish: Yayından Kaldır
+        new_process_group: New process group
+        new_process_step: New step
+        new_process_user_role: New process user
+        participatory_process:
+          new: New process
+        preview: Preview
+        publish: Publish
+        resend_invitation: Resend invitation
+        unpublish: Unpublish
       menu:
-        participatory_process_groups: Süreç grupları
-        participatory_processes: Süreçler
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
         participatory_processes_submenu:
-          attachment_collections: Klasörler
-          attachment_files: Dosyalar
-          attachments: Ekler
-          categories: Kategoriler
-          components: Bileşenler
-          info: Bilgi
-          moderations: Denetimler
-          private_users: Özel Kullanıcılar
-          process_admins: İşlemi gerçekleştiren kullanıcılar
-          steps: adımlar
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          categories: Categories
+          components: Components
+          info: Info
+          moderations: Moderations
+          private_users: Private Users
+          process_admins: Process users
+          steps: Steps
       models:
         participatory_process:
           fields:
-            created_at: Düzenlendi
-            private: Özel
-            promoted: Vurgulanan
-            published: Yayınlanan
-            title: Başlık
-          name: Katılımcı süreç
+            created_at: Created at
+            private: Private
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Participatory process
         participatory_process_group:
           fields:
-            name: isim
-          name: İşlem grubu
+            name: Name
+          name: Process group
         participatory_process_step:
           fields:
-            end_date: Bitiş tarihi
-            start_date: Başlangıç tarihi
-            title: Başlık
-          name: Katılımcı süreç adımı
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process step
         participatory_process_user_role:
           fields:
-            email: E-posta
-            name: isim
-            role: rol
-          name: Katılımcı işlem kullanıcısı
+            email: Email
+            name: Name
+            role: Role
+          name: Participatory process user
           roles:
-            admin: yönetici
-            collaborator: işbirlikçi
-            moderator: arabulucu
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
         user:
           fields:
-            invitation_accepted_at: Davet kabul edildi
-            invitation_sent_at: Davetiye gönderildi
+            invitation_accepted_at: Invitation accepted at
+            invitation_sent_at: Invitation sent at
       participatory_process_copies:
         new:
-          copy: kopya
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Yinelenen katılımcı süreç
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate participatory process
       participatory_process_groups:
         destroy:
-          success: Katılımcı süreç grubu başarıyla silindi.
+          success: Participatory process group deleted successfully.
         edit:
-          title: İşlem grubunu düzenle
-          update: Güncelleştirme
+          title: Edit process group
+          update: Update
         new:
-          create: yaratmak
-          title: Yeni işlem grubu
+          create: Create
+          title: New process group
         update:
-          error: Bu katılımcı süreç grubunu güncellemede hata oluştu.
-          success: Katılımcı süreç grubu başarıyla güncellendi.
+          error: There was en error updating this participatory process group.
+          success: Participatory process group updated successfully.
       participatory_process_publications:
         create:
-          error: Bu katılımcı süreci yayınlayan bir hata oluştu.
-          success: Katılımcı süreç başarıyla yayınlandı.
+          error: There was an error publishing this participatory process.
+          success: Participatory process published successfully.
         destroy:
-          error: Bu katılımcı süreci yayından kaldırmada bir hata oluştu.
-          success: Katılımcı süreç başarıyla yayından kaldırıldı.
+          error: There was an error unpublishing this participatory process.
+          success: Participatory process unpublished successfully.
       participatory_process_step_activations:
         create:
-          error: Bu katılımcı süreç adımı etkinleştirilirken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla etkinleştirildi.
+          error: There was an error activating this participatory process step.
+          success: Participatory process step activated successfully.
       participatory_process_steps:
         create:
-          error: Yeni bir katılımcı süreç adımı oluştururken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla oluşturuldu.
-        default_title: Giriş
+          error: There was an error creating a new participatory process step.
+          success: Participatory process step created successfully.
+        default_title: Introduction
         destroy:
           error:
-            active_step: Aktif adımı silemiyorum.
-            last_step: Bir işlemin son adımı silinemiyor.
-          success: Katılımcı süreç adımı başarıyla silindi.
+            active_step: Can't delete the active step.
+            last_step: Can't delete the last step of a process.
+          success: Participatory process step deleted successfully.
         edit:
-          title: Katılımcı süreç adımını düzenle
-          update: Güncelleştirme
+          title: Edit participatory process step
+          update: Update
         index:
-          steps_title: adımlar
+          steps_title: Steps
         new:
-          create: yaratmak
-          title: Yeni katılımcı süreç adımı
+          create: Create
+          title: New participatory process step
         ordering:
-          error: Bu katılımcı süreç adımlarını yeniden sıralarken bir hata oluştu.
+          error: There was an error when reordering this participatory process steps.
         update:
-          error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla güncellendi.
+          error: There was an error when updating this participatory process step.
+          success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
-          success: Kullanıcı bu katılımcı sürece başarıyla eklendi.
+          error: There was an error adding a user for this participatory process.
+          success: User added successfully to this participatory process.
         destroy:
-          success: Kullanıcı bu katılımcı işlemden başarıyla kaldırıldı.
+          success: User removed successfully from this participatory process.
         edit:
-          title: Katılımcı süreç kullanıcısını güncelleyin.
-          update: Güncelleştirme
+          title: Update participatory process user.
+          update: Update
         index:
-          process_admins_title: Katılımcı süreç kullanıcıları
+          process_admins_title: Participatory process users
         new:
-          create: yaratmak
-          title: Yeni katılımcı süreç kullanıcısı.
+          create: Create
+          title: New participatory process user.
         update:
-          error: Bu katılımcı işlem için bir kullanıcı güncellendi bir hata oluştu.
-          success: Kullanıcı bu katılımcı süreç için başarıyla güncellendi.
+          error: There was an error updated a user for this participatory process.
+          success: User updated successfully for this participatory process.
       participatory_processes:
         create:
-          error: Yeni bir katılımcı süreci oluştururken bir hata oluştu.
-          success: Katılımcı süreç başarıyla oluşturuldu. Şimdi adımlarını yapılandırın.
+          error: There was an error creating a new participatory process.
+          success: Participatory process created successfully. Configure now its steps.
         edit:
-          update: Güncelleştirme
+          update: Update
         form:
-          title: Genel bilgi
+          title: General Information
         index:
-          not_published: Yayınlanmadı
-          private: Özel
-          public: halka açık
-          published: Yayınlanan
+          not_published: Not published
+          private: Private
+          promoted:
+            'false': 'False'
+            'true': 'True'
+          public: Public
+          published: Published
         new:
-          create: yaratmak
-          title: Yeni katılımcı süreç
+          create: Create
+          title: New participatory process
         update:
-          error: Bu katılımcı süreci güncellerken bir hata oluştu.
-          success: Katılımcı süreç başarıyla güncellendi.
+          error: There was an error when updating this participatory process.
+          success: Participatory process updated successfully.
       participatory_processes_copies:
         create:
-          error: Bu katılımcı süreci çoğaltırken bir hata oluştu.
-          success: Katılımcı süreç başarıyla kopyalandı.
+          error: There was an error when duplicating this participatory process.
+          success: Participatory process duplicated successfully.
       participatory_processes_group:
         create:
-          error: Yeni bir katılımcı süreç grubu oluştururken bir hata oluştu.
-          success: Katılımcı süreç grubu başarıyla oluşturuldu.
+          error: There was an error creating a new participatory process group.
+          success: Participatory process group created successfully.
       titles:
-        participatory_process_groups: Katılımcı süreç grupları
-        participatory_processes: Katılımcı süreçler
+        participatory_process_groups: Participatory process groups
+        participatory_processes: Participatory processes
       users:
         resend_invitation:
-          error: Davetiye yeniden gönderilirken bir hata oluştu.
-          success: Davetiye başarıyla gönderilir.
+          error: There was an error resending the invitation.
+          success: Invitation resent successfully.
     admin_log:
       participatory_process:
-        create: "%{user_name} , %{resource_name} katılımcı süreci oluşturdu"
-        publish: "%{user_name} %{resource_name} katılımcı süreci yayınladı"
-        unpublish: "%{user_name} %{resource_name} katılımcı süreci yayından kaldırıldı"
-        update: "%{user_name} katılımcı %{resource_name} süreci güncelledi"
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_step:
-        activate: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı aktifleştirdi"
-        create: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı oluşturdu"
-        delete: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı sildi"
-        update: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı güncelledi"
+        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
+        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
+        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
       participatory_process_user_role:
-        create: "%{user_name} kullanıcı %{resource_name} %{space_name} katılımcı sürece davet etti"
-        delete: "%{user_name} kullanıcı uzaklaştırıldı %{resource_name} den %{space_name} katılımcı bir süreç"
-        update: "%{user_name} , %{space_name} katılımcı sürecindeki kullanıcı %{resource_name} rolünü değiştirdi"
+        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} adım şimdi %{participatory_space_title}için aktif. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}bir güncelleme'
-          notification_title: '%{resource_title} adım şimdi <a href="%{resource_path}">%{participatory_space_title}</a>için aktif'
+          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} adımın tarihleri güncellendi. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}bir güncelleme'
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> de <a href="%{resource_path}">%{resource_title}</a> adım için tarihler güncellendi.
+          email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>katılımcı süreç</strong> tanımlanması ve karar verme amacıyla katılımcı faaliyetlerin bir dizi (örneğin, önce onları öncelik son olarak yüz-yüze ya da sanal toplantılar bunları tartışırken, teklif verme, sonra bir anket doldurarak ve benzeri) olduğu belirli bir konuda.</p> <p>Katılımcı süreçlerin örnekleri şunlardır: (adayların ilk sunulduğu, daha sonra tartışıldığı ve sonunda bir adaylığın seçildiği) komite üyelerini seçme süreci, katılımcı bütçeler (tekliflerin yapıldığı, ekonomik olarak değerlendirildiği ve mevcut para ile oy verildiğinde), Bir stratejik planlama süreci, bir yönetmeliğin veya kuralın işbirlikçi taslağının hazırlanması, bir kentsel alanın tasarımı veya bir kamu politikası planının üretilmesi.</p>\n"
-          page: "<p>A <strong>katılımcı süreç</strong> tanımlanması ve karar verme amacıyla katılımcı faaliyetlerin bir dizi (örneğin, önce onları öncelik son olarak yüz-yüze ya da sanal toplantılar bunları tartışırken, teklif verme, sonra bir anket doldurarak ve benzeri) olduğu belirli bir konuda.</p> <p>Katılımcı süreçlerin örnekleri şunlardır: (adayların ilk sunulduğu, daha sonra tartışıldığı ve sonunda bir adaylığın seçildiği) komite üyelerini seçme süreci, katılımcı bütçeler (tekliflerin yapıldığı, ekonomik olarak değerlendirildiği ve mevcut para ile oy verildiğinde), Bir stratejik planlama süreci, bir yönetmeliğin veya kuralın işbirlikçi taslağının hazırlanması, bir kentsel alanın tasarımı veya bir kamu politikası planının üretilmesi.</p>\n"
-          title: Katılımcı bir süreç nedir?
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          title: What is a participatory process?
     menu:
-      processes: Süreçler
+      processes: Processes
     metrics:
       participatory_processes:
-        description: Bu kuruluştaki katılımcı süreçlerin sayısı
-        object: katılımcı süreçler
-        title: Katılımcı süreçler
+        description: Number of participatory processes in this organization
+        object: participatory processes
+        title: Participatory processes
+    pages:
+      participatory_space:
+        metrics:
+          headline: Participation in figures
+          link: Show all statistics
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: '%{group}için 1 süreç'
-          other: "%{count} için işlemler %{group}"
-        title: Katılımcı süreç grupları
+          one: 1 processes for %{group}
+          other: "%{count} processes for %{group}"
+        title: Participatory process groups
     participatory_process_steps:
       index:
-        process_steps: Süreç adımları
-        title: Katılımcı süreç adımları
+        process_steps: Process steps
+        title: Participatory process steps
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Gösterilecek maksimum öğe miktarı
+            max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
-            slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Ayarlanmazsa, düğme gösterilmeyecektir. Örnek: %{url}'
-            cta_text_help: Ayarlanmazsa, düğme gösterilmeyecektir.
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
-            announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
-            slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+            announcement_help: The text you enter here will be shown to the user right below the process information.
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Vurgulanan süreçler
+          name: Highlighted processes
       index:
-        title: Katılımcı süreçler
+        title: Participatory processes
       last_activity:
-        new_participatory_process: Yeni katılımcı süreç
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktif süreçler
-            active_step: Aktif adım
-            more_information: Daha fazla bilgi
-            participate: Katıl
-            see_all_processes: Tüm süreçleri gör
+            active_processes: Active processes
+            active_step: Active step
+            more_information: More information
+            participate: Participate
+            see_all_processes: See all processes
       participatory_process_groups:
-        none: Yok
+        none: None
       participatory_processes:
         filters:
           counters:
             active:
-              one: 1 aktif süreç
-              other: "%{count} aktif süreç"
+              one: 1 active process
+              other: "%{count} active processes"
             all:
-              one: 1 işlem
-              other: "%{count} süreç"
+              one: 1 process
+              other: "%{count} processes"
             past:
-              one: 1 geçmiş süreç
-              other: "%{count} geçmiş süreç"
+              one: 1 past process
+              other: "%{count} past processes"
             upcoming:
-              one: 1 yaklaşan süreç
-              other: "%{count} gelecek süreç"
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
           explanations:
-            no_active: Etkin işlem yok
-            no_active_nor_upcoming: Etkin ve yaklaşan süreç yok
-            no_active_nor_upcoming_callout: Etkin ve yaklaşan süreçler yoktur. İşte geçmiş olanların listesi.
+            no_active: No active processes
+            no_active_nor_upcoming: No active nor upcoming processes
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
           names:
-            active: Aktif
-            all: Herşey
-            past: geçmiş
-            upcoming: Yaklaşan
-          see: Görmek
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
         index:
-          loading: Sonuçlar yükleniyor ...
+          loading: Loading results...
       show:
-        developer_group: Tanıtım grubu
-        end_date: Bitiş tarihi
-        local_area: Organizasyon Alanı
-        participatory_scope: Karar nedir
-        participatory_structure: Nasıl karar verilir
-        private_space: Bu özel bir süreç
-        scope: kapsam
-        start_date: Başlangıç tarihi
-        target: Kimler katılır
-        unspecified: Belirtilmemiş
+        developer_group: Promoter group
+        end_date: End date
+        local_area: Organization Area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: This is a private process
+        scope: Scope
+        start_date: Start date
+        target: Who participates
+        unspecified: Not specified
       statistics:
-        answers_count: Cevaplar
-        comments_count: Yorumlar
-        debates_count: Tartışmalar
-        endorsements_count: Cirolar
-        headline: Aktivite
-        meetings_count: Toplantılar
-        orders_count: oy
-        pages_count: Sayfalar
-        processes_count: Süreçler
-        projects_count: Projeler
-        proposals_count: Teklif
-        results_count: Sonuçlar
-        surveys_count: Anketler
-        users_count: Katılımcılar
-        votes_count: oy
+        answers_count: Answers
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Votes
+        pages_count: Pages
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Araştır
-          processes_count: 'Süreçler:'
+          browse: Browse
+          processes_count: 'Processes:'
       participatory_process_widgets:
         show:
-          active_step: Aktif adım
-          take_part: Yer almak
+          active_step: Active step
+          take_part: Take part
       participatory_processes:
         index:
-          promoted_processes: Vurgulanan süreçler
+          promoted_processes: Highlighted processes
         participatory_process:
-          active_step: 'Mevcut adım:'
-          take_part: Yer almak
+          active_step: 'Current step:'
+          take_part: Take part
         promoted_process:
-          active_step: 'Mevcut adım:'
-          more_info: Daha fazla bilgi
-          take_part: Yer almak
+          active_step: 'Current step:'
+          more_info: More info
+          take_part: Take part
       process_header_steps:
-        step: '%{total}adımdan %{current}'
-        view_steps: Adımları göster
+        step: Step %{current} of %{total}
+        view_steps: View steps
       process_navigation:
-        process_menu_item: Süreç
+        process_menu_item: The process

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -10,6 +11,7 @@ gl:
         title: Título
         user_group_id: Crear un borrador colaborativo como
       proposal:
+        address: Address
         answer: Resposta
         answered_at: Respondeu en
         automatic_hashtags: Engadíronse automaticamente os hexágonos
@@ -105,7 +107,16 @@ gl:
             votes_blocked: Voto bloqueado
             votes_enabled: Votación habilitada
             votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} foi aceptado para acceder como colaborador do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
@@ -153,11 +164,15 @@ gl:
             email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
             email_subject: A túa proposta foi aceptada
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: Aceptouse unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, quen está seguindo, acaba de aprobar a proposta "%{resource_title}" e pensamos que pode ser interesante para ti. Consulte e contribúa:'
           email_outro: Recibiches esta notificación porque estás seguindo %{endorser_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -169,11 +184,15 @@ gl:
             email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
             email_subject: A túa proposta está a ser avaliada
             notification_title: A súa proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: Estase evaluando unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: A túa proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espazo</a> nos comentarios.
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
@@ -195,11 +214,15 @@ gl:
             email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
             email_subject: A túa proposta foi rexeitada
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: A proposta que segues foi rexeitada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
           email_outro: Recibiches esta notificación porque es o autor da proposta.
@@ -214,8 +237,8 @@ gl:
       badges:
         accepted_proposals:
           conditions:
-            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
-            - Intente facer propostas que se poidan realizar. Deste xeito son máis propensos a ser aceptados.
+          - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+          - Intente facer propostas que se poidan realizar. Deste xeito son máis propensos a ser aceptados.
           description: Este distintivo concedeuse cando participas activamente con novas propostas e estas son aceptadas.
           description_another: Este usuario obtivo %{score} propostas aceptadas.
           description_own: Recibiches %{score} propostas.
@@ -225,8 +248,8 @@ gl:
           unearned_own: Aínda non recibiu propostas.
         proposal_votes:
           conditions:
-            - Busque e pase un tempo a ler as propostas doutras persoas
-            - Dea soporte ás propostas que che gustan ou que che resulten interesantes
+          - Busque e pase un tempo a ler as propostas doutras persoas
+          - Dea soporte ás propostas que che gustan ou que che resulten interesantes
           description: Este distintivo concedeuse cando apoias as propostas doutras persoas.
           description_another: Este usuario deu soporte a %{score} propostas.
           description_own: Vostede deu apoio a %{score} propostas.
@@ -236,8 +259,8 @@ gl:
           unearned_own: Xa deu soporte a ningunha proposta aínda.
         proposals:
           conditions:
-            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
-            - Crea unha nova proposta
+          - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+          - Crea unha nova proposta
           description: Este distintivo é concedido cando participas activamente con novas propostas.
           description_another: Este usuario creou %{score} propostas.
           description_own: Creaches %{score} propostas.
@@ -289,9 +312,11 @@ gl:
             name: Proposta
         participatory_texts:
           bulk-actions:
-            are_you_sure: '¿Está seguro de descartar o borrador de texto participativo enteiro?'
-            import_doc: Importar documento
+            are_you_sure: "¿Está seguro de descartar o borrador de texto participativo enteiro?"
             discard_all: Descartar todo
+            import_doc: Importar documento
+          discard:
+            success: Todos os borradores de texto participativos foron descartados.
           import:
             invalid: O formulario non é válido.
             success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
@@ -308,8 +333,6 @@ gl:
           publish:
             invalid: Non se puideron publicar propostas
             success: Todas as propostas foron publicadas
-          discard:
-            success: Todos os borradores de texto participativos foron descartados.
           sections:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -498,7 +521,7 @@ gl:
             title: Solicitudes de colaboración
           rejected_request:
             error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
-            success: "O @%{user} foi rexeitado correctamente como colaborador"
+            success: O @%{user} foi rexeitado correctamente como colaborador
         show:
           back: De volta
           edit: Editar borrador colaborativo
@@ -587,6 +610,7 @@ gl:
           error: Houbo erros ao votar a proposta.
       proposals:
         compare:
+          continue: Continue
           mine_is_different: A miña proposta é diferente
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
@@ -597,15 +621,20 @@ gl:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostas"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
+          not_geocoded: Not geocoded
           select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
         edit_draft:
           discard: Descarta este borrador
-          discard_confirmation: '¿Estás seguro de que desexas descartar este borrador de proposta?'
+          discard_confirmation: "¿Estás seguro de que desexas descartar este borrador de proposta?"
           send: Vista previa
           title: Editar borrador de proposta
         endorsement_identities_cabin:
@@ -614,6 +643,7 @@ gl:
           comments: Comentarios
         filters:
           activity: Actividade
+          amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona unha categoría
           origin: Orixe
@@ -621,7 +651,6 @@ gl:
           search: Busca
           state: Estado
           voted: Votado
-          amendment_type: Tipo
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -649,13 +678,18 @@ gl:
             document_index: Índice do documento
           view_index:
             see_index: Ver índice
+        placeholder:
+          address: "[n°] [street] [postal] [city]"
         preview:
+          address: 'Address: %{address}'
           modify: Modificar a proposta
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: Poderá editar esta proposta durante o primeiro minuto despois de que a proposta se publique. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
             other: Poderás editar esta proposta durante o primeiro %{count} minutos despois da publicación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
           publish: Publicar
           title: Publica a túa proposta
+          update_pos: Update the position
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
@@ -673,7 +707,7 @@ gl:
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
           report: Informe
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
-          withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
+          withdraw_confirmation: "¿Estás seguro de retirar esta proposta?"
           withdraw_proposal: Retire a proposta
         tags:
           changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
@@ -685,12 +719,18 @@ gl:
           no_votes_remaining: Non hai votos restantes
           vote: Vota
           votes_blocked: Votación desactivada
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             one: VOTAR
             other: VOTOS
           most_popular_proposal: A proposta máis popular
           need_more_votes: Necesita máis votos
+        votes_weight:
+          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios

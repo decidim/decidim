@@ -48,6 +48,7 @@ uk:
           fields:
             created_at: 'Додано:'
             name: Ім'я
+            smtp_settings: SMTP settings
           name: Організація
       organizations:
         create:

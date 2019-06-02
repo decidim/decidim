@@ -48,6 +48,7 @@ eu:
           fields:
             created_at: Tan sortua
             name: Izena
+            smtp_settings: SMTP settings
           name: Erakundea
       organizations:
         create:

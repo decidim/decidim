@@ -1,0 +1,23 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.smtp_settings") %></h4>
+  <%= f.fields_for :smtp_settings do %>
+    <div class="field">
+      <%= f.email_field :from_label, placeholder: t(".from_label", scope: "instructions") %>
+    </div>
+    <div class="field">
+      <%= f.email_field :from_email, placeholder: t(".from_email", scope: "instructions") %>
+    </div>
+    <div class="field">
+      <%= f.text_field :user_name, placeholder: t(".user_name", scope: "instructions") %>
+    </div>
+    <div class="field">
+      <%= f.text_field :password, placeholder: t(".password", scope: "instructions") %>
+    </div>
+    <div class="field">
+      <%= f.text_field :address, placeholder: t(".address", scope: "instructions") %>
+    </div>
+    <div class="field">
+      <%= f.number_field :port, placeholder: t(".port", scope: "instructions") %>
+    </div>
+  <% end %>
+</div>

@@ -48,6 +48,7 @@ ru:
           fields:
             created_at: 'Добавлено:'
             name: Имя
+            smtp_settings: SMTP settings
           name: Организация
       organizations:
         create:

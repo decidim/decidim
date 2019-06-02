@@ -48,6 +48,7 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
+            smtp_settings: SMTP settings
           name: Szervezet
       organizations:
         create:

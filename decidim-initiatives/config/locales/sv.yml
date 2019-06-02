@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -84,17 +85,21 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du är författaren till initiativet %{resource_title}.
             email_subject: Ny milstolpe färdigställd!
             notification_title: Ditt <a href="%{resource_path}">%{resource_title}</a> initiativ har uppnått %{percentage}% av underskrifterna.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
             email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny milstolpe färdigställd!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har uppnått %{percentage}% av underskrifterna.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Gå till Intiatives deltagande utrymme
-            - Följ stegen för att skapa ett nytt initiativ
+          - Gå till Intiatives deltagande utrymme
+          - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ, samarbetar med andra för att utföra dem.
           description_another: Den här användaren har fått %{score} initiativ publicerade.
           description_own: Du har %{score} initiativ publicerade.

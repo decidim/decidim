@@ -19,6 +19,7 @@ eu:
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
+        private_space: Concertation privée
         promoted: Nabarmendua
         published_at: Argitaratu at
         scope_id: Esparrua
@@ -71,6 +72,7 @@ eu:
         duplicate: Kopiatu
         edit: Editatu
         new: New
+        new_process: Yeni süreç
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
         new_process_user_role: Prozesu berria erabiltzailea

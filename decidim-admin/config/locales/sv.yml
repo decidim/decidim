@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -36,6 +37,8 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
+        address: SMTP hostname
+        alert_color: Alert
         badges_enabled: Aktivera märken
         cta_button_path: Knappsökväg till Uppmaning till Handing
         cta_button_text: Knapptext för Uppmaning till Handling
@@ -44,6 +47,7 @@ sv:
         enable_omnipresent_banner: Visa allestädes närvarande banner
         facebook_handler: Facebook-hanterare
         favicon: Ikon
+        from: From email address
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
         highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
@@ -62,11 +66,17 @@ sv:
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
+        primary_color: Primary
         reference_prefix: Referensprefix
+        secondary_color: Secondary
         show_statistics: Visa statistik
+        success_color: Success
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera användargrupper
+        warning_color: Warning
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -102,9 +112,9 @@ sv:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Ogiltig bildfil
             official_img_footer:
+              allowed_file_content_types: Ogiltig bildfil
+            official_img_header:
               allowed_file_content_types: Ogiltig bildfil
   activerecord:
     attributes:
@@ -127,7 +137,6 @@ sv:
         browse: Bläddra
         export: Exportera
         manage: Hantera
-        new: Ny %{name}
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
@@ -306,6 +315,11 @@ sv:
         logs_list:
           no_logs_yet: Det finns inga loggar än
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Det har inträffat ett fel som främjar den hanterade användaren.
           success: Den hanterade användaren har framgångsrikt marknadsförts.
@@ -325,6 +339,7 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
         participants: Deltagarna
@@ -362,6 +377,13 @@ sv:
             reason: Anledning
             started_at: Börjat vid
             user: Användare
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Skapad vid
@@ -416,6 +438,28 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Offensiv
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -445,6 +489,8 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Det har uppstått ett fel vid skapandet av den här applikationen.
@@ -510,6 +556,7 @@ sv:
         edit:
           update: Uppdatera
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
           header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
@@ -617,12 +664,16 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Impersonatable användare
         impersonations: impersonations
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
         user_groups: Användargrupper
         users: Användare
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
@@ -677,12 +728,16 @@ sv:
         hide: Dölj
         not_hidden: Inte dolt
         title: Handlingar
+        unhide: Unhide
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: Det har varit ett problem att dölja resursen.
             success: Resurs framgångsrikt dold.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Det har varit ett problem att rapportera resursen.
             success: Resurs framgångsrikt orapporterad.

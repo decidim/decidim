@@ -48,6 +48,7 @@ gl:
           fields:
             created_at: Creado en
             name: Nome
+            smtp_settings: SMTP settings
           name: Organización
       organizations:
         create:

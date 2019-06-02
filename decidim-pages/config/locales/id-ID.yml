@@ -1,26 +1,31 @@
-id:
+---
+id-ID:
   activerecord:
     models:
       decidim/pages/page:
-        other: Halaman
+        one: Page
+        other: Pages
   decidim:
     admin_log:
       page:
-        update: "%{user_name} memperbarui %{resource_name} halaman menjadi %{space_name}"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
-        name: Halaman
+        name: Page
         settings:
           global:
-            announcement: Pengumuman
+            announcement: Announcement
           step:
-            announcement: Pengumuman
+            announcement: Announcement
     pages:
       admin:
         models:
           components:
-            body: Tubuh
+            body: Body
         pages:
           edit:
-            save: Memperbarui
-            title: Edit halaman
+            save: Update
+            title: Edit page
+          update:
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.

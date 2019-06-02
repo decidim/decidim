@@ -1,79 +1,80 @@
-tr:
+---
+tr-TR:
   activemodel:
     attributes:
       answer:
-        body: Cevap
+        body: Answer
       question:
-        max_choices: Maksimum seçenek sayısı
-        question_type: tip
+        max_choices: Maximum number of choices
+        question_type: Type
       questionnaire_question:
-        mandatory: Zorunlu
+        mandatory: Mandatory
     errors:
       models:
         answer:
           attributes:
             choices:
-              missing: tamamlanmadı
-              too_many: çok fazla
+              missing: are not complete
+              too_many: are too many
   decidim:
     forms:
       admin:
         models:
           components:
-            description: Açıklama
-            tos: Kullanım Şartları
+            description: Description
+            tos: Terms of service
         questionnaires:
           answer_option:
-            answer_option: Cevap seçeneği
-            free_text: Ücretsiz Metin
-            remove: Kaldır
-            statement: Beyan
+            answer_option: Answer option
+            free_text: Free text
+            remove: Remove
+            statement: Statement
           edit:
-            save: Kayıt etmek
-            title: Başlık
+            save: Save
+            title: Title
           form:
-            add_question: Soru ekle
-            already_answered_warning: Anket bazı kullanıcılar tarafından zaten yanıtlanmıştır, bu nedenden dolayı sorularını değiştiremezsiniz.
+            add_question: Add question
+            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
           question:
-            add_answer_option: Cevap seçeneği ekle
-            any: herhangi
-            description: Açıklama
-            down: Aşağı
-            question: Soru
-            remove: Kaldır
-            statement: Beyan
-            up: yukarı
+            add_answer_option: Add answer option
+            any: Any
+            description: Description
+            down: Down
+            question: Question
+            remove: Remove
+            statement: Statement
+            up: Up
           update:
-            invalid: Anketi kaydederken hatalar oluştu.
-            success: Ayarlar başarıyla kaydedildi
+            invalid: There's been errors when saving the questionnaire.
+            success: Questionnaires saved successfully.
       errors:
         answer:
-          body: Vücut boş olamaz
+          body: Body can't be blank
       question_types:
-        long_answer: Uzun cevap
-        multiple_option: Çoklu seçenek
-        short_answer: Kısa cevap
-        single_option: Tek seçenek
-        sorting: sınıflandırma
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
+        sorting: Sorting
       questionnaires:
         answer:
-          invalid: Anketi cevaplarken hatalar oldu.
-          success: Anket başarıyla cevaplandı.
+          invalid: There's been errors when answering the questionnaire.
+          success: Questionnaire answered successfully.
         question:
-          max_choices: 'Maksimum seçenek: %{n}'
+          max_choices: 'Max choices: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: Anketi cevaplamak için <a href="%{sign_in_link}">Hesabınızla giriş yapın</a>yada<a href="%{sign_up_link}">Kaydol</a>
-            title: Anketi cevapla
-          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
+            title: Answer the questionnaire
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           questionnaire_answered:
-            body: Bu anketi zaten cevapladınız.
-            title: Zaten cevaplandı
+            body: You have already answered this questionnaire.
+            title: Already answered
           questionnaire_closed:
-            body: Anket kapandığı için cevaplayamazsınız.
-            title: Anket kapatıldı
+            body: The questionnaire is closed and cannot be answered.
+            title: Questionnaire closed
           questionnaire_for_private_users:
-            body: Anket sadece özel kullanıcılar için kullanılabilir.
-            title: Anket kapatıldı
-          submit: Gönder
-          tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
+            body: The questionnaire is available only for private users
+            title: Questionnaire closed
+          submit: Submit
+          tos_agreement: By participating you accept its Terms of Service

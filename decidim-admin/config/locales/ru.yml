@@ -37,6 +37,8 @@ ru:
         organization_url: Веб-адрес организации
         redirect_uri: URI перенаправления
       organization:
+        address: SMTP hostname
+        alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Путь кнопки "Призвать к действию"
         cta_button_text: Текст кнопки «Призвать к действию»
@@ -45,6 +47,7 @@ ru:
         enable_omnipresent_banner: Показывать вездесущий баннер
         facebook_handler: Обработчик Facebook
         favicon: Значок
+        from: From email address
         github_handler: Обработчик GitHub
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
         highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
@@ -63,10 +66,17 @@ ru:
         omnipresent_banner_short_description: Краткое описание
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адрес
+        password: Password
+        port: Port
+        primary_color: Primary
         reference_prefix: Справочный префикс
+        secondary_color: Secondary
         show_statistics: Показывать статистику
+        success_color: Success
         tos_version: Версия условий участия
         twitter_handler: Обработчик Twitter
+        user_groups_enabled: Enable user groups
+        warning_color: Warning
         youtube_handler: Обработчик YouTube
       scope:
         code: Код
@@ -385,6 +395,7 @@ ru:
           fields:
             created_at: 'Создано:'
             name: Имя
+          name: OAuth uygulaması
         participatory_space_private_user:
           name: Частный участник пространства соучастия
         scope:
@@ -409,6 +420,7 @@ ru:
             roles:
               admin: Администратор
               user_manager: Распорядитель участников
+          name: kullanıcı
         user_group:
           fields:
             actions: Действия
@@ -544,6 +556,7 @@ ru:
         edit:
           update: Обновить
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'Вы можете изменить то, куда ведет нажатие кнопки «Призвать к действию» на главной странице. Используйте здесь частичные пути, а не полные веб-адреса. В них допустимы буквы, цифры, тире и косые черты, и они должны начинаться с буквы. Кнопка «Призвать к действию» отображается на главной странице между приветственным текстом и описанием. Пример: %{url}'
           cta_button_text_help: Вы можете изменить текст кнопки «Призвать к действию» на главной странице для каждого доступного в вашей организации языка. Если вы не зададите текст, будет использоваться значение по умолчанию. Кнопка «Призвать к действию» отображается на главной странице между приветственным текстом и описанием.
           header_snippets_help: Используйте это поле, чтобы добавлять что-либо в HTML-заголовок. Чаще всего это делается для включения сторонних служб, для которых требуется дополнительный JavaScript или CSS. Кроме того, вы можете использовать это для добавления дополнительных метатегов в HTML. Обратите внимание, что это будет отображаться только на общедоступных страницах, а не в разделе администратора.
@@ -715,12 +728,16 @@ ru:
         hide: Скрыть
         not_hidden: Не скрыт
         title: Действия
+        unhide: Unhide
         unreport: Отменить жалобу
       admin:
         reportable:
           hide:
             invalid: При попытке скрыть ресурс произошла ошибка.
             success: Ресурс успешно скрыт.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: При отмене жалобы на ресурс произошла ошибка.
             success: Жалоба на ресурс успешно отменена.

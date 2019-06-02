@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -84,17 +85,21 @@ it:
             email_outro: Hai ricevuto questa notifica perché sei l'autore dell'iniziativa %{resource_title}.
             email_subject: Nuova pietra miliare completata!
             notification_title: La tua iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
             email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Vai allo spazio di partecipazione delle iniziative
-            - Segui i passaggi per creare una nuova iniziativa
+          - Vai allo spazio di partecipazione delle iniziative
+          - Segui i passaggi per creare una nuova iniziativa
           description: Questo badge è garantito quando lanci nuove iniziative, collaborando con altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
           description_own: Hai pubblicato %{score} iniziative.

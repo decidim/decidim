@@ -64,17 +64,13 @@ en:
             success: "%{number} proposals successfully imported into projects"
           new:
             create: Import proposals to projects
-            no_components: There are no other proposal components in this participatory
-              space to import the proposals into projects.
+            no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
       admin_log:
         project:
-          create: "%{user_name} created the %{resource_name} project in the %{space_name}
-            space"
-          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name}
-            space"
-          update: "%{user_name} updated the %{resource_name} project in the %{space_name}
-            space"
+          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       models:
         project:
           fields:
@@ -82,18 +78,14 @@ en:
             title: Title
       projects:
         budget_confirm:
-          are_you_sure: Do you agree? Once you have confirmed your vote, you can not
-            change it.
+          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
           cancel: Cancel
           confirm: Confirm
           description: These are the projects you have chosen to be part of the budget.
           title: Confirm vote
         budget_excess:
           close: Закрити
-          description: Додавання цього проекту перевищить максимальний бюджет, і тому
-            його не можна зараз додати. За бажанням ви можете видалити якийсь з тих
-            проектів, що ви раніше вибрали для додавання, або проголосувати згідно
-            ваших уподобань.
+          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
           ok: Гаразд
           title: Перевищено граничний бюджет
         budget_summary:
@@ -101,15 +93,10 @@ en:
           assigned: 'Assigned:'
           cancel_order: delete your vote and start over
           checked_out:
-            description: You've already voted for the budget. If you've changed your
-              mind, you can %{cancel_link}.
+            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: You decide the budget
         count:
           projects_count:
@@ -128,12 +115,8 @@ en:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
@@ -180,8 +163,7 @@ en:
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             projects_per_page: Projects per page
-            resources_permissions_enabled: Actions permissions can be set for each
-              meeting
+            resources_permissions_enabled: Actions permissions can be set for each meeting
             total_budget: Total budget
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -195,11 +177,10 @@ en:
     events:
       budgets:
         order_checkout:
-          email_intro: "Your vote has been validated. You can always edit it if you
-            like by clicking here: <a href='%{resource_url}'>%{participatory_space_title}"
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Thank you for your participation
-          email_subject: "Your vote has been validated on %{participatory_space_title}"
-          notification_title: "Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like."
+          email_subject: Your vote has been validated on %{participatory_space_title}
+          notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
     orders:
       checkout:
         error: An error ocurred while processing your vote

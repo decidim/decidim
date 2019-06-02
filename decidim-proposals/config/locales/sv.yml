@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -10,6 +11,7 @@ sv:
         title: Titel
         user_group_id: Skapa samarbetsförslag som
       proposal:
+        address: Address
         answer: Svara
         answered_at: Besvarad vid
         automatic_hashtags: Hashtags läggs till automatiskt
@@ -105,7 +107,16 @@ sv:
             votes_blocked: Röstande blockerat
             votes_enabled: Röstning aktiverat
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} har accepterats för att få tillgång till som medskapare till samarbetsutkastet <a href="%{resource_path}">%{resource_title}</a>.'
@@ -153,11 +164,15 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
             email_subject: Ditt förslag har godkänts
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har godkänts.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer är godkänt
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har godkänts.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just godkänt förslaget "%{resource_title}" och vi tycker att det kan vara intressant för dig. Kolla in det och bidra med:'
           email_outro: Du har fått den här notifikationen eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden vid föregående länk.
@@ -169,11 +184,15 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
             email_subject: Ditt förslag utvärderas
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
           email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
@@ -195,11 +214,15 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du är en författare till "%{resource_title}".
             email_subject: Ditt förslag har avslagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avvisats.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer har avvisats
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin av ditt förslag "%{resource_title}", kolla in det:'
           email_outro: Du har fått den här meddelandet eftersom du är författaren till förslaget.
@@ -214,8 +237,8 @@ sv:
       badges:
         accepted_proposals:
           conditions:
-            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
-            - Försök att lägga fram förslag som kan utföras. På detta sätt är de mer benägna att accepteras.
+          - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+          - Försök att lägga fram förslag som kan utföras. På detta sätt är de mer benägna att accepteras.
           description: Detta märke beviljas när du aktivt deltar med nya förslag och dessa accepteras.
           description_another: Den här användaren har fått %{score} förslag accepterade.
           description_own: Du har accepterat %{score} förslag.
@@ -225,8 +248,8 @@ sv:
           unearned_own: Du har inga förslag accepterade än.
         proposal_votes:
           conditions:
-            - Bläddra och spendera lite tid på att läsa andras förslag
-            - Ge stöd till de förslag du tycker om eller hitta intressanta
+          - Bläddra och spendera lite tid på att läsa andras förslag
+          - Ge stöd till de förslag du tycker om eller hitta intressanta
           description: Detta märke beviljas när du stöder andra människors förslag.
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
@@ -236,8 +259,8 @@ sv:
           unearned_own: Du har inte stöttat några förslag än.
         proposals:
           conditions:
-            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
-            - Skapa ett nytt förslag
+          - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+          - Skapa ett nytt förslag
           description: Detta märke beviljas när du aktivt deltar med nya förslag.
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
@@ -290,8 +313,10 @@ sv:
         participatory_texts:
           bulk-actions:
             are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
-            import_doc: Importera dokument
             discard_all: Kassera allt
+            import_doc: Importera dokument
+          discard:
+            success: Alla deltagande textförslag har kasseras.
           import:
             invalid: Blanketten är ogiltig!
             success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
@@ -308,8 +333,6 @@ sv:
           publish:
             invalid: Kunde inte publicera förslag
             success: Alla förslag har publicerats
-          discard:
-            success: Alla deltagande textförslag har kasseras.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -587,6 +610,7 @@ sv:
           error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
+          continue: Continue
           mine_is_different: Mitt förslag är annorlunda
           no_similars_found: Bra gjort! Inga liknande förslag hittades
           title: Liknande förslag
@@ -597,9 +621,14 @@ sv:
           proposals_count:
             one: "%{count} förslag"
             other: "%{count} förslag"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
+          not_geocoded: Not geocoded
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
@@ -614,6 +643,7 @@ sv:
           comments: Kommentarer
         filters:
           activity: Aktivitet
+          amendment_type: Typ
           category: Kategori
           category_prompt: Välj en kategori
           origin: Ursprung
@@ -621,7 +651,6 @@ sv:
           search: Sök
           state: Status
           voted: Röstade
-          amendment_type: Typ
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -649,13 +678,18 @@ sv:
             document_index: Dokumentindex
           view_index:
             see_index: Se index
+        placeholder:
+          address: "[n°] [street] [postal] [city]"
         preview:
+          address: 'Address: %{address}'
           modify: Ändra förslaget
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
             other: Du kommer att kunna redigera detta förslag under de första %{count} minuter efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
+          update_pos: Update the position
         proposal:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
@@ -685,12 +719,18 @@ sv:
           no_votes_remaining: Inga röster kvar
           vote: Rösta
           votes_blocked: Röstning inaktiverad
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             one: RÖST
             other: RÖSTER
           most_popular_proposal: Mest populära förslaget
           need_more_votes: Behöver fler röster
+        votes_weight:
+          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd

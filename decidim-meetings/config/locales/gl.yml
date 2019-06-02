@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -95,11 +96,15 @@ gl:
             email_outro: Recibiches esta notificación porque organizaches a reunión "%{resource_title}".
             email_subject: A reunión "%{resource_title}" pechouse
             notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'A reunión "%{resource_title}" pechouse. Podes ler as conclusións da súa páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: A reunión "%{resource_title}" pechouse
             notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -136,7 +141,7 @@ gl:
       badges:
         attended_meetings:
           conditions:
-            - Rexístrese nas reunións que desexa asistir
+          - Rexístrese nas reunións que desexa asistir
           description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
           description_another: Este usuario asistiu a %{score} reunións.
           description_own: Atendeu %{score} reunións.

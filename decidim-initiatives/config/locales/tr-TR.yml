@@ -1,386 +1,389 @@
-tr:
+---
+tr-TR:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Yazar
-        description: Açıklama
-        offline_votes: Yüz yüze destek
-        scope_id: kapsam
-        signature_end_date: İmza toplama süresinin sonu
-        signature_start_date: İmza toplama döneminin başlangıcı
-        signature_type: İmza koleksiyonu türü
+        decidim_user_group_id: Author
+        description: Description
+        offline_votes: Face-to-face supports
+        scope_id: Scope
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
+        signature_type: Signature collection type
         signature_type_values:
-          any: Karışık
-          offline: Yüz yüze
-          online: İnternet üzerinden
-        title: Başlık
+          any: Mixed
+          offline: Face to face
+          online: OnLine
+        title: Title
       initiative_author:
-        address: Adres
-        city: Kent
-        id_document: DNI / NIE
-        name: Ad ve soyadı
-        phone_number: Telefon numarası
-        post_code: Posta kodu
-        province: il
+        address: Address
+        city: City
+        id_document: DNI/NIE
+        name: Name and Surname
+        phone_number: Phone number
+        post_code: Post code
+        province: Province
       initiatives_committee_member:
-        user: Komite Üyesi
+        user: Committee member
       initiatives_type:
-        banner_image: Banner resmi
-        description: Açıklama
-        title: Başlık
+        banner_image: Banner image
+        description: Description
+        title: Title
       organization_data:
-        address: Adres
-        id_document: Kimlik belgesi
-        name: Tam adı
+        address: Address
+        id_document: ID document
+        name: Complete name
   activerecord:
     models:
       decidim/initiative:
-        one: İnisiyatif
+        one: Initative
         other: Initatives
       decidim/initiative_comittee:
-        one: Komitesi
-        other: Kurullar
+        one: Comittee
+        other: Comittees
       decidim/initiative_vote:
-        one: İmza
-        other: İmzalar
+        one: Signature
+        other: Signatures
   decidim:
     admin:
       actions:
-        new_initiative_type: Yeni girişim türü
+        new_initiative_type: New initiative type
       menu:
-        initiatives: Girişimler
-        initiatives_types: Girişim türleri
+        initiatives: Initiatives
+        initiatives_types: Initiative types
       models:
         initiatives:
           fields:
-            created_at: Düzenlendi
-            id: İD
-            state: Belirtmek, bildirmek
-            supports_count: Destekler
-            title: Girişimler
+            created_at: Created at
+            id: ID
+            state: State
+            supports_count: Supports
+            title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: kapsam
-            supports_required: Gerekli destekler
-          name: Girişim tipi kapsamı
+            scope: Scope
+            supports_required: Supports required
+          name: Initiative type scope
         initiatives_types:
           fields:
-            created_at: Düzenlendi
-            title: Girişim türleri
-          name: Girişimi tipi
+            created_at: Created at
+            title: Initiative types
+          name: Initiative type
       titles:
-        initiatives: Girişimler
-        initiatives_types: Girişim türleri
+        initiatives: Initiatives
+        initiatives_types: Initiative types
     events:
       initiatives:
         initiative_extended:
-          email_intro: Girişim için imzalar bitiş tarihi %{resource_title} uzatıldı!
-          email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: Girişim imzaları bitiş tarihi uzatıldı!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişiminin imza bitiş tarihi uzatıldı.
+          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative signatures end date extended!
+          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
           affected_user:
-            email_intro: Girişiminiz %{resource_title} elde etti %{percentage}imzaların%!
-            email_outro: Bu bildirimi aldınız çünkü inisiyatifin %{resource_title}yazarı sizsiniz.
-            email_subject: Yeni kilometre taşı tamamlandı!
-            notification_title: Sizin <a href="%{resource_path}">%{resource_title}</a> girişimi elde etti %{percentage}imzaların%.
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
-            email_intro: İnisiyatif %{resource_title} elde etti %{percentage}imzaların%!
-            email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-            email_subject: Yeni kilometre taşı tamamlandı!
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi elde etti %{percentage}imzaların%.
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
-          conditions:
-            - Intiatives'in katılım alanına git
-            - Yeni bir girişim oluşturmak için adımları izleyin
-          description: Bu rozet, yeni girişimler başlattığınızda, bunları gerçekleştirmek için başkalarıyla ortaklık kurduğunuzda verilir.
-          description_another: Bu kullanıcı %{score} yayınlandı.
-          description_own: Yayınlanmış %{score} girişiniz var.
-          name: Yayınlanmış girişimler
-          next_level_in: Bir sonraki seviyeye ulaşmak için yayınlanan %{score} daha alın!
-          unearned_another: Bu kullanıcı henüz yayınlanmış hiçbir girişimde bulunmadı.
-          unearned_own: Henüz yayınlanan hiçbir girişimin yok.
+          conditions: '["Go to the participation space of Intiatives", "Follow the steps to create a new initiative"]'
+          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
+          description_another: This user has gotten %{score} initiatives published.
+          description_own: You've got %{score} initiatives published.
+          name: Published initiatives
+          next_level_in: Get %{score} more initiatives published to reach the next level!
+          unearned_another: This user hasn't gotten any initiatives published yet.
+          unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Bir girişim belirli bir işlemi (bir yönetmelik değiştirmek yürütmek için organizasyon için (dijital) imza toplama yoluyla (bağımsız kanal veya katılım boşluklar diğerinin) kendi inisiyatifleriyle herkes tarafından teşvik edilebilir bir öneri bir proje başlatmak olduğunu , bir bölümün veya bir sokağın adını değiştirir vb.).</p> <p>Bir girişimin destekleyicileri hedeflerini tanımlayabilir, destek toplayabilir, tartışabilir, dağıtabilir ve katılımcılardan imzaların toplanabileceği buluşma noktalarını veya diğer katılımcılara açık tartışmaları tanımlayabilir.</p> <p>Örnekler: Bir inisiyatif, bir örgütün tüm halkı arasında bir istişare toplanması, bir meclis oluşturma veya toplanması ya da kuruluşun bir bölgesi veya bölgesi için bir bütçe artışı sürecinin başlatılması için imza toplayabilir. İmza toplama süreci boyunca, bu talebe daha fazla kişi katılabilir ve organizasyonda ileriye taşıyabilir.</p>\n"
-          page: "<p>Bir girişim belirli bir işlemi (bir yönetmelik değiştirmek yürütmek için organizasyon için (dijital) imza toplama yoluyla (bağımsız kanal veya katılım boşluklar diğerinin) kendi inisiyatifleriyle herkes tarafından teşvik edilebilir bir öneri bir proje başlatmak olduğunu , bir bölümün veya bir sokağın adını değiştirir vb.).</p> <p>Bir girişimin destekleyicileri hedeflerini tanımlayabilir, destek toplayabilir, tartışabilir, dağıtabilir ve katılımcılardan imzaların toplanabileceği buluşma noktalarını veya diğer katılımcılara açık tartışmaları tanımlayabilir.</p> <p>Örnekler: Bir inisiyatif, bir örgütün tüm halkı arasında bir istişare toplanması, bir meclis oluşturma veya toplanması ya da kuruluşun bir bölgesi veya bölgesi için bir bütçe artışı sürecinin başlatılması için imza toplayabilir. İmza toplama süreci boyunca, bu talebe daha fazla kişi katılabilir ve organizasyonda ileriye taşıyabilir.</p>\n"
-          title: Girişimler nelerdir?
+          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          title: What are initiatives?
     initiatives:
       admin:
         committee_requests:
           index:
-            approve: onaylamak
-            confirm_revoke: Emin misiniz?
-            invite_to_committee_help: Diğer kullanıcıları promosyon komitesine davet etmek için bu bağlantıyı paylaşın
-            no_members_yet: Promoter komitesinde üye yok
-            revoke: geri almak
-            title: Komite üyeleri
+            approve: Approve
+            confirm_revoke: Are you sure?
+            invite_to_committee_help: Share this link to invite other users to the promotion committee
+            no_members_yet: There are no members in the promoter committee
+            revoke: Revoke
+            title: Committee members
         content_blocks:
           highlighted_initiatives:
-            max_results: Gösterilecek maksimum öğe miktarı
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
-            accept: Girişimi kabul et
-            confirm: Emin misiniz?
-            discard: Girişimi atın
-            export_votes: İhracat destekleri
-            reject: Girişimi reddet
-            send_to_technical_validation: Teknik doğrulamaya gönder
-            success: Girişim teknik doğrulamaya gönderildi
-            update: Güncelleştirme
+            accept: Accept initiative
+            confirm: Are you sure?
+            discard: Discard the initiative
+            export_votes: Export supports
+            reject: Reject initiative
+            send_to_technical_validation: Send to technical validation
+            success: The initiative has been sent to technical validation
+            update: Update
           form:
-            title: Genel bilgi
+            title: General information
           index:
-            actions_title: Aksiyon
+            actions_title: Action
             filter:
-              accepted: Kabul edilmiş
-              all: Herşey
-              created: düzenlendi
-              discarded: Atılan
-              published: Yayınlanan
-              rejected: Reddedilen
-              validating: Teknik doğrulama
-            filter_by: Tarafından filtre
-            preview: Ön izleme
-            print: baskı
-            search: Arama
+              accepted: Accepted
+              all: All
+              created: Created
+              discarded: Discarded
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+            filter_by: Filter by
+            preview: Preview
+            print: Print
+            search: Search
           show:
-            print: baskı
+            print: Print
           update:
-            error: bir hata oluştu
-            success: Vatandaş girişimi başarıyla güncellendi
+            error: An error has occurred
+            success: The citizen initiative has been successfully updated
         initiatives_type_scopes:
           create:
-            error: bir hata oluştu
-            success: Verilen inisiyatif türü için yeni bir kapsam oluşturuldu
+            error: An error has occurred
+            success: A new scope for the given initiative type has been created
           destroy:
-            success: Kapsam başarıyla kaldırıldı
+            success: The scope has been successfully removed
           edit:
-            back: Geri
-            confirm_destroy: Emin misiniz?
-            destroy: silmek
-            title: Girişim türü kapsamını düzenle
-            update: Güncelleştirme
+            back: Back
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            title: Edit initiative type scope
+            update: Update
           new:
-            back: Geri
-            create: yaratmak
-            title: Girişim tipi kapsamı oluştur
+            back: Back
+            create: Create
+            title: Create initiative type scope
           update:
-            error: bir hata oluştu
-            success: Kapsam başarıyla güncellendi
+            error: An error has occurred
+            success: The scope has been successfully updated
         initiatives_types:
           create:
-            error: bir hata oluştu
-            success: Yeni bir girişim türü başarıyla oluşturuldu
+            error: An error has occurred
+            success: A new initiative type has been successfully created
           destroy:
-            success: Girişim türü başarıyla kaldırıldı
+            success: The initiative type has been successfully removed
           edit:
-            confirm_destroy: Emin misiniz?
-            destroy: silmek
-            update: Güncelleştirme
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            update: Update
           form:
-            title: Genel bilgi
+            title: General information
           initiative_type_scopes:
-            title: Girişim türü için kapsamlar
+            title: Scopes for the initiative type
           new:
-            create: yaratmak
-            title: Yeni girişim türü
+            create: Create
+            title: New initiative type
           update:
-            error: bir hata oluştu
-            success: Girişim türü başarıyla güncellendi
+            error: An error has occurred
+            success: The initiative type has been successfully updated
       admin_log:
         initiative:
-          publish: "%{user_name} %{resource_name} girişim yayınladı"
-          send_to_technical_validation: "%{user_name} teknik inisiyatife %{resource_name} girişimi gönderdi"
-          unpublish: "%{user_name} %{resource_name} girişim reddetti"
-          update: "%{user_name} , %{resource_name} girişimi güncelledi"
+          publish: "%{user_name} published the %{resource_name} initiative"
+          send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
+          unpublish: "%{user_name} discarded the %{resource_name} initiative"
+          update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Kabul edilmiş
-        created: düzenlendi
-        discarded: Atılan
-        published: Yayınlanan
-        rejected: Reddedilen
-        validating: Teknik doğrulama
+        accepted: Accepted
+        created: Created
+        discarded: Discarded
+        published: Published
+        rejected: Rejected
+        validating: Technical validation
       committee_requests:
         new:
-          continue: Devam et
-          help_text: Bu inisiyatifin destekleyici komitesine üye olmayı istemek üzeresiniz
+          continue: Continue
+          help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
-          success: İsteğiniz inisiyatif yazara gönderildi.
+          success: Your request has been sent to the initiative author.
       content_blocks:
         highlighted_initiatives:
-          name: Vurgulanan girişimler
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
-          back: Geri
-          continue: Devam et
-          fill_data_help: "<ul> <li>Girişinizin içeriğini gözden geçirin. Başlığınız anlaşılması kolay mı? Girişimin amacı net mi?</li> <li>İmzanın türünü seçmelisiniz. , Çevrimiçi ya da her ikisinin bir kombinasyonu kişiye ise</li> <li>girişiminin coğrafi kapsamı nedir? Şehir bölge mi?</li> </ul>"
-          initiative_type: Girişimi tipi
-          more_information: "(Daha fazla bilgi)"
-          select_scope: Bir kapsam seçin
+          back: Back
+          continue: Continue
+          fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
+          initiative_type: Initiative type
+          more_information: "(More information)"
+          select_scope: Select a scope
         finish:
-          back: Geri
-          back_to_initiatives: Girişimlere geri dönüş
-          callout_text: Tebrikler! Vatandaş girişimi başarıyla oluşturuldu.
-          go_to_my_initiatives: Benim girişimlerime git
-          more_information: "(Daha fazla bilgi)"
+          back: Back
+          back_to_initiatives: Back to initiatives
+          callout_text: Congratulations! Your citizen initiative has been created successfully.
+          go_to_my_initiatives: Go to my initiatives
+          more_information: "(More information)"
         finish_help:
-          access_reminder: Kullanıcı menüsü aracılığıyla girişimlerinize her zaman erişebileceğinizi unutmayın.
-          help_for_organizations: Eğer bir dernekseniz, Teşvik Komisyonunu oluşturan tüm kuruluşların yönetim kurulunun tutanaklarını yüklemeniz gerekecektir.
-          help_in_person_signatures: İmzaları şahsen ya da çevrimiçi olarak bir araya getirmeyi seçtiyseniz, gerekli bilgileri yüklemeniz gerekecektir.
-          help_text: Girişimi doğru şekilde işlemek için kullanıcı menüsünü bulacağınız, gerekli bilgileri yükleyeceğiniz ve işlem için göndereceğiniz yönetim paneline erişmeniz gerektiğini unutmayın.
-          initiatives_page_link: Tüm bu bilgileri inisiyatifler hakkında bilgilendirmek için %{link} bakabilirsiniz.
-          page: sayfa
+          access_reminder: Remember that you will always be able to access your initiatives through the user menu.
+          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
+          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
+          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
+          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
+          page: page
         previous_form:
-          back: Geri
-          continue: Devam et
-          help: Girişim neden oluşur? Başlığı ve açıklamayı yazınız. Kısa ve özlü bir başlık ve önerilen çözüm üzerinde odaklanmış bir açıklama yapmanızı öneririz.
-          more_information: "(Daha fazla bilgi)"
+          back: Back
+          continue: Continue
+          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
+          more_information: "(More information)"
         promotal_committee:
-          back: Geri
-          individual_help_text: Vatandaş girişimleri, en az üç kişiden oluşan bir Teşvik Komisyonu (vekilleri) gerektirir. Aşağıdaki bağlantıyı, bu girişimin parçası olan diğer kişilerle paylaşmalısınız. Kişileriniz bu bağlantıyı aldığında, belirtilen adımları izlemelidirler.
-          more_information: "(Daha fazla bilgi)"
+          back: Back
+          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          more_information: "(More information)"
         select_initiative_type:
-          back: Geri
-          more_information: "(Daha fazla bilgi)"
-          select: Seçmek
-          select_initiative_type_help: Vatandaş girişimleri, vatandaşlığın müdahalede bulunabileceği bir araç olup, Belediye Meclisi'nin, belediyenin yetki alanı dahilindeki genel menfaatlerin savunulması için eylemde bulunabilmesi için. Hangi girişimi başlatmak istiyorsunuz?
+          back: Back
+          more_information: "(More information)"
+          select: Choose
+          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
-          continue: Devam et
-          invite_to_committee_help: Promoter komitesinin bir parçası olacak kişileri davet etmek için bağlantı
+          continue: Continue
+          invite_to_committee_help: Link to invite people that will be part of the promoter committee
         show_similar_initiatives:
-          back: Geri
-          compare_help: Aşağıdaki girişimlerden herhangi biri sizinkilerle benzerse, bunu desteklemenizi öneririz. Teklifinizin yapılması için daha fazla olasılık olacaktır.
-          continue: Benim girişim farklı
-          more_information: "(Daha fazla bilgi)"
+          back: Back
+          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
+          continue: My initiative is different
+          more_information: "(More information)"
       events:
         create_initiative_event:
-          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname}, yeni bir girişim oluşturdu, kontrol etti ve katkıda bulundu:"
-          email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{author_nickname}Yeni girişim'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından oluşturuldu.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New initiative by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname}, aşağıdaki girişimi onaylamıştır, belki de sohbete katkıda bulunmak istersiniz:"
-          email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: Giriş tarafından onaylanan %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından onaylandı.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative endorsed by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: Girişimler
+        title: Initiatives
       initiative_votes:
         create:
-          error: Girişimi imzalarken hatalar oldu.
+          error: There's been errors when signing the initiative.
       initiatives:
         author:
-          deleted: silindi
+          deleted: Deleted
         author_list:
           hidden_authors_count:
-            one: ve 1 kişi daha
-            other: ve %{count} kişi daha
+            one: and 1 more person
+            other: and %{count} more people
         count:
           title:
-            one: "%{count} girişim"
-            other: "%{count} girişim"
+            one: "%{count} initiative"
+            other: "%{count} initiatives"
         filters:
-          any: herhangi
-          author: Yazar
-          closed: Kapalı
-          myself: Benim girişimlerim
-          open: Açık
-          search: Arama
-          state: Belirtmek, bildirmek
-          type: tip
-          type_prompt: Bir tip seçin
+          any: Any
+          author: Author
+          closed: Closed
+          myself: My initiatives
+          open: Open
+          search: Search
+          state: State
+          type: Type
+          type_prompt: Select a type
         filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Close window
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         index_header:
-          new_initiative: Yeni girişim
+          new_initiative: New initiative
         orders:
-          label: 'Girişimleri şuna göre sırala:'
-          most_commented: En çok yorum yapılan
-          most_voted: En imzalanmış
-          random: rasgele
-          recent: En yeni
+          label: 'Sort initiatives by:'
+          most_commented: Most commented
+          most_voted: Most signed
+          random: Random
+          recent: Most recent
         result:
-          initiative_accepted_reason: Bu girişim kabul edildi çünkü
-          initiative_rejected_reason: Bu girişim destek eksikliğinden dolayı reddedildi.
+          initiative_accepted_reason: This initiative has been accepted because
+          initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
         show:
-          any_vote_method: Bu vatandaş girişimi, yüz yüze olduğu kadar çevrimiçi destek toplar.
-          offline_method: Bu vatandaş girişimi sadece yüz yüze destekleri toplar.
+          any_vote_method: This citizen initiative collects online support as well as face to face.
+          offline_method: This citizen initiative only collects face to face supports.
         signature_identities:
-          select_identity: Kullanıcı tanımlayıcıyı seç
+          select_identity: Select user identifier
         signatures_count:
-          one: " imza"
-          other: " imzalar"
+          one: " signature"
+          other: " signatures"
         statistics:
-          assistants_count_title: Yardımcıları
-          comments_count_title: Yorumlar
-          meetings_count_title: Toplantılar
-          supports_count_title: İmzalar
+          assistants_count_title: Assistants
+          comments_count_title: Comments
+          meetings_count_title: Meetings
+          supports_count_title: Signatures
         supports:
-          title: İmzaların listesi
+          title: Listing of signatures
         vote_cabin:
-          already_voted: Zaten imzalanmış
-          supports_required: "%{total_supports} imza gerekli"
-          vote: İşaret
-          votes_blocked: İmzalama devre dışı
+          already_voted: Already signed
+          supports_required: "%{total_supports} signatures required"
+          vote: Sign
+          votes_blocked: Signing disabled
         votes_count:
           count:
-            one: İMZA
-            other: İMZALAR
+            one: SIGNATURE
+            other: SIGNATURES
       initiatives_mailer:
-        creation_subject: Vatandaş girişimi '%{title}' oluşturuldu
+        creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
-          check_initiative_details: Girişim ayrıntılarını görebilirsiniz
-          here: İşte
-        more_information: Girişim oluşturma süreci hakkında daha fazla bilgiye buradan ulaşabilirsiniz.
-        progress_report_body_for: İnisiyatif %{title} ulaşmıştır %{percentage}gerekli desteklerin%.
-        progress_report_for: 'Girişimle ilgili özgeçmiş: %{title}'
-        promotal_committee_help: Promoter komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları destekleyici kuruluna davet etmek için aşağıdaki bağlantıyı yönlendirin
-        status_change_body_for: 'Girişim %{title} şu şekilde değiştirdi: %{state}'
-        status_change_for: Girişim %{title} durumu değişti
-        technical_validation_body_for: Girişimi %{title} teknik doğrulamayı talep etti.
-        technical_validation_for: Girişimi %{title} teknik doğrulamayı talep etti.
+          check_initiative_details: You can see the initiative details
+          here: here
+        more_information: Here you have more information about the initiative creation process.
+        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
+        progress_report_for: 'Resume about the initiative: %{title}'
+        promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
+        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
+        status_change_for: The initiative %{title} has changed its state
+        technical_validation_body_for: The initiative %{title} has requested its technical validation.
+        technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
-        new_initiative: Yeni girişim
+        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktif girişimler
-            see_all_initiatives: Tüm girişimleri görün
+            active_initiatives: Active initiatives
+            see_all_initiatives: See all initiatives
       states:
-        accepted: Kabul edilmiş
-        expired: Süresi doldu
-      unavailable_scope: Kullanılamayan kapsam
+        accepted: Accepted
+        expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
-      initiatives: Girişimler
+      initiatives: Initiatives
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Ekler
-          committee_members: Komite üyeleri
-          components: Bileşenler
-          information: Bilgi
+          attachments: Attachments
+          committee_members: Committee members
+          components: Components
+          information: Information
       initiative_creation_header:
-        fill_data: yaratmak
-        finish: Bitiş
-        previous_form: başla
-        promotal_committee: Promoter komitesi
-        select_initiative_type: Seçmek
-        show_similar_initiatives: Karşılaştırmak
-        step: '%{total}adımdan %{current}'
-        title: Yeni girişim oluştur
+        fill_data: Create
+        finish: Finish
+        previous_form: Start
+        promotal_committee: Promoter committee
+        select_initiative_type: Choose
+        show_similar_initiatives: Compare
+        step: Step %{current} of %{total}
+        title: Create new initiative
       initiative_header:
-        initiative_menu_item: girişim
+        initiative_menu_item: Initiative
       initiatives:
         initiative:
-          check: Buna bir bak
-          check_and_support: Kontrol et ve imzala
+          check: Check it out
+          check_and_support: Check it out and sign
         no_initiatives_yet:
-          no_initiatives_yet: Henüz giriş yok!
+          no_initiatives_yet: No initiatives yet!

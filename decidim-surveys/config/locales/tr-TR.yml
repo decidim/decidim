@@ -1,56 +1,57 @@
-tr:
+---
+tr-TR:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Anket sona erdi
-      decidim/surveys/opened_survey_event: Anket başladı
+      decidim/surveys/closed_survey_event: Survey ended
+      decidim/surveys/opened_survey_event: Survey started
   activerecord:
     models:
       decidim/surveys/survey:
-        one: anket
-        other: Anketler
+        one: Survey
+        other: Surveys
       decidim/surveys/survey_answer:
-        one: Cevap
-        other: Cevaplar
+        one: Answer
+        other: Answers
   decidim:
     components:
       surveys:
         actions:
-          answer: Cevap
-        name: anket
+          answer: Answer
+        name: Survey
         settings:
           global:
-            announcement: duyuru
+            announcement: Announcement
           step:
-            allow_answers: Cevaplara izin ver
-            announcement: duyuru
+            allow_answers: Allow answers
+            announcement: Announcement
     events:
       surveys:
         survey_closed:
-          email_intro: Anket %{resource_title} %{participatory_space_title} kapatıldı.
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: Bir anket %{participatory_space_title}bitti
-          notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> bitti.
+          email_intro: The survey %{resource_title} in %{participatory_space_title} has been closed.
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A survey has finished in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> has finished.
         survey_opened:
-          email_intro: 'Anket %{resource_title} %{participatory_space_title} açık. Bu sayfadan katılabilirsiniz:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: '%{participatory_space_title}yeni bir anket'
-          notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> açıktır.
+          email_intro: 'The survey %{resource_title} in %{participatory_space_title} is now open. You can participate in it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A new survey in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     metrics:
       survey_answers:
-        description: Kullanıcılar tarafından yanıtlanan anket sayısı
-        object: anketlerin cevapları
-        title: Anketlere verilen cevaplar
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
       admin:
         exports:
-          survey_user_answers: Kullanıcı anket cevapları
+          survey_user_answers: Survey user answers
         surveys:
           update:
-            invalid: Anketi kaydederken hatalar oluştu.
-            success: Anket başarıyla kaydedildi.
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.
       last_activity:
-        new_survey_at_html: "<span> %{link}</span>yeni anket"
+        new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
         answer:
-          invalid: Anketi cevaplarken hatalar oldu.
-          success: Anket başarıyla yanıtlandı.
+          invalid: There's been errors when answering the survey.
+          success: Survey answered successfully.

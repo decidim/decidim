@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -15,6 +16,10 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
       decidim/demoted_membership: Inte längre en gruppadministratör
@@ -45,8 +50,8 @@ sv:
         one: Användargrupp
         other: Användargrupper
   booleans:
-    'false': 'Nej'
-    'true': 'Ja'
+    'false': Nej
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: Bilden är för stor
@@ -136,12 +141,12 @@ sv:
       amendable:
         amended_by: Ändrad av
         button: Ändra %{model_name}
-        promote_button: Främja till %{model_name}
         error: Det har inträffat ett fel vid ändring av denna resurs.
         help_text: Förbättra detta %{model_name} genom att ändra dess %{amendable_fields}
-        promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
         no_amenders: Det finns inga ändringsförslag
         no_amendments: Det finns inga ändringar
+        promote_button: Främja till %{model_name}
+        promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
         section_heading: Ändringar (%{count})
       created:
         error: Ett fel uppstod för att skapa detta ändringsförslag, försök igen senare
@@ -170,12 +175,12 @@ sv:
         heading: Skapa ditt ändringsförslag
         help_text: Du ändrar %{model_name}
         send: Skicka ändringsförslag
+      promoted:
+        error: Det har varit fel när man främjar emendationen
+        success: Emendation främjas framgångsrikt
       rejected:
         error: Ett fel uppstod när du avvisade den här utgåvan, var god försök igen senare
         success: Emendationen har avvisats framgångsrikt
-      promoted:
-        success: Emendation främjas framgångsrikt
-        error: Det har varit fel när man främjar emendationen
       review:
         back: Tillbaka
         heading: Granska ändringen
@@ -384,39 +389,6 @@ sv:
         title: Sidan du söker kan inte hittas
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
-            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-          follower:
-            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
-            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_accepted:
           affected_user:
             email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
@@ -428,6 +400,39 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ett nytt ändringsförslag för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: En <a href="%{emendation_path}">ny emendation</a> har skapats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
+            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: En emendation från %{emendation_author_nickname} har blivit befordrad
+            notification_title: En <a href="%{emendation_path}">avvisad emendation</a> för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} har främjats av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">emendationen</a> skapad av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har blivit avvisad för <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
@@ -547,7 +552,7 @@ sv:
       badges:
         continuity:
           conditions:
-            - Kommer hit ofta
+          - Kommer hit ofta
           description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
           description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
           description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
@@ -557,7 +562,7 @@ sv:
           unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
           conditions:
-            - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
+          - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
           description: Detta märke beviljas när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, väv ditt nät för att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
@@ -572,9 +577,9 @@ sv:
           title: Märken
         invitations:
           conditions:
-            - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
-            - Anpassa, om du vill, meddelandet du håller på att skicka
-            - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
+          - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
+          - Anpassa, om du vill, meddelandet du håller på att skicka
+          - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
           description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
@@ -787,8 +792,8 @@ sv:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
         everything_followed: Allt jag följer
-        newsletters: nyhetsbrev
         newsletter_notifications: Jag vill få nyhetsbrev
+        newsletters: nyhetsbrev
         own_activity: Min egen verksamhet, som när någon kommenterar i mitt förslag eller nämner mig
         receive_notifications_about: Jag vill få meddelanden om
         send_notifications_by_email: Skicka meddelanden via e-post
@@ -854,10 +859,6 @@ sv:
         subheading: Navigera genom hjälpsidorna till %{name}
         title: Hjälp
         topics: ämnen
-      participatory_space:
-        metrics:
-          headline: Deltagande i siffror
-          link: Visa all statistik
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
@@ -882,6 +883,7 @@ sv:
       deleted: Ta bort användare
       view: Se
     profiles:
+      default_officialization_text: Justification
       default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
@@ -993,8 +995,8 @@ sv:
         no_activities_warning: Den här användaren har inte någon aktivitet än.
     user_interests:
       show:
-        no_scopes: Den här organisationen har inget utrymme än!
         my_interests: Mina intressen
+        no_scopes: Den här organisationen har inget utrymme än!
         select_your_interests: Välj de ämnen du är intresserad av att ta emot händelser relaterade till dem i din profil Tidslinje flik.
         update_my_interests: Uppdatera mina intressen
       update:
@@ -1168,6 +1170,17 @@ sv:
       too_short: är för kort (under 15 tecken)
   forms:
     required: Krävs
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Om du är mänsklig, ignorera det här fältet
     timestamp_error_message: Tyvärr, det var för snabbt! Vänligen skicka in igen.

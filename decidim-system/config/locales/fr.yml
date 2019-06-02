@@ -48,6 +48,7 @@ fr:
           fields:
             created_at: Créé le
             name: Nom
+            smtp_settings: SMTP settings
           name: Organisation
       organizations:
         create:

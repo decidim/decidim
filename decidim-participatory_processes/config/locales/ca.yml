@@ -19,6 +19,7 @@ ca:
         participatory_process_group_id: Grup de processos
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
+        private_space: Concertation privée
         promoted: Destacat
         published_at: Publicat el
         scope_id: Àmbit
@@ -71,6 +72,7 @@ ca:
         duplicate: Duplicar
         edit: Editar
         new: New
+        new_process: Yeni süreç
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
         new_process_user_role: Nou usuari del procés

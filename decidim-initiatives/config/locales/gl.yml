@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -84,17 +85,21 @@ gl:
             email_outro: Recibiches esta notificación porque es o autor da iniciativa %{resource_title}.
             email_subject: Novo fito rematado!
             notification_title: A túa iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
             email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
             email_subject: Novo fito rematado!
             notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Ir ao espazo de participación de Intiatives
-            - Segue os pasos para crear unha nova iniciativa
+          - Ir ao espazo de participación de Intiatives
+          - Segue os pasos para crear unha nova iniciativa
           description: Este distintivo concedeuse cando se lanzan novas iniciativas, se asocian con outras persoas para realizalas.
           description_another: Este usuario obtivo %{score} iniciativas publicadas.
           description_own: Tes publicado %{score} iniciativas.
@@ -237,7 +242,7 @@ gl:
         previous_form:
           back: De volta
           continue: Continuar
-          help: '¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta.'
+          help: "¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta."
           more_information: "(Máis información)"
         promotal_committee:
           back: De volta
@@ -281,7 +286,7 @@ gl:
             other: e %{count} persoas máis
         count:
           title:
-            one: "Iniciativa %{count}"
+            one: Iniciativa %{count}
             other: "%{count} iniciativas"
         filters:
           any: Calquera
@@ -326,7 +331,7 @@ gl:
           title: Listado de sinaturas
         vote_cabin:
           already_voted: Xa está asinado
-          supports_required: "Requírense as %{total_supports} firmas"
+          supports_required: Requírense as %{total_supports} firmas
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:

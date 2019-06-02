@@ -48,6 +48,7 @@ pt-BR:
           fields:
             created_at: Criado em
             name: Nome
+            smtp_settings: SMTP settings
           name: Organização
       organizations:
         create:
